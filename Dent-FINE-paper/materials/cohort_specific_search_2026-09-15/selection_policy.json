@@ -1,0 +1,35 @@
+{
+  "registered_at": "2026-09-15T16:17:48.957980+08:00",
+  "primary_endpoint": "Validation COCO bbox AP, IoU .50:.95",
+  "selection": "Highest independently re-evaluated best-checkpoint AP, separately per model/cohort",
+  "seed": 0,
+  "epochs": 160,
+  "fresh_initialization": true,
+  "secondary_metrics": [
+    "AP50",
+    "AP75",
+    "AR100"
+  ],
+  "core_grid": "legacy640 multiscale / fixed640 / fixed1024 x MixUp 0 / .5; Mosaic 0, IoUCrop .8, ZoomOut .5",
+  "reused_candidates_per_task": 1,
+  "new_core_candidates_per_task": 5,
+  "refinement": "Three separate single-factor trials on each core winner: IoUCrop .5, ZoomOut 0, or Mosaic .25. No untested combinations are claimed optimal.",
+  "total_new_runs": 24,
+  "dentex_retraining": false,
+  "final_allowed_profiles": [
+    "legacy640_multiscale",
+    "fixed640",
+    "fixed1024"
+  ],
+  "tie_break": "AP descending, then smaller evaluation size, lower Mosaic, lower MixUp, higher crop/zoom, lexical job ID",
+  "native_unchanged": [
+    "datasets/splits/label maps",
+    "model/modules/losses",
+    "optimizer/LR",
+    "EMA/stage behavior",
+    "train batch 8, val batch 16",
+    "initial backbone"
+  ],
+  "retention": "Keep every candidate config/log/metrics and best.pth; delete only native temporary last/stage weights after successful final re-evaluation.",
+  "scope": "Exploratory bounded validation selection, not globally optimal or a locked-test/SOTA claim."
+}

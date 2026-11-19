@@ -1,0 +1,54 @@
+{
+  "state": "interrupted",
+  "gpu": 0,
+  "queue_pid": 12195,
+  "queue_pgid": 12195,
+  "jobs": [
+    "phone_plain",
+    "dentex_plain",
+    "dslr_plain"
+  ],
+  "completed": [],
+  "skipped": [],
+  "verification": {},
+  "active_task": "phone_plain",
+  "child_pid": null,
+  "child_pgid": null,
+  "command": [
+    "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+    "-B",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/run_experiment.py",
+    "--task",
+    "phone_plain",
+    "--gpu",
+    "0",
+    "--memory-limit-mib=10752"
+  ],
+  "wait_reason": null,
+  "started_at": "2026-09-13T14:54:26.471174+08:00",
+  "min_free_mib": 11520,
+  "memory_limit_mib": 10752,
+  "resource_policy": {
+    "protocol_sha256": "652e8fa684fae1179b52fdf6c211bce1ccac3891fcc9ed5127ab25f9a5bfb760",
+    "preflight_validation_sha256": "b880e10ea4b52f020a5fa709d2f0a8d189b0b5cf84bd6ba09cf308612ee3d60b",
+    "cli_min_free_mib": 11520,
+    "preflight_recommended_min_free_gpu_mib": 11520,
+    "preflight_memory_limit_mib": 10752,
+    "memory_limit_mib": 10752,
+    "min_free_mib": 11520,
+    "memory_headroom_mib": 768
+  },
+  "updated_at": "2026-09-13T15:06:03.642378+08:00",
+  "gpu_snapshot": {
+    "index": 0,
+    "uuid": "GPU-ef21a1d6-6053-a86e-9497-82c61bedaa30",
+    "free_mib": 24077,
+    "used_mib": 15,
+    "total_mib": 24564,
+    "utilization_percent": 0,
+    "observed_at": "2026-09-13T14:54:26.498120+08:00"
+  },
+  "disk_free_bytes": 32496431104,
+  "error": "QueueInterrupted('Queue received SIGTERM')",
+  "stop_signal": 15
+}

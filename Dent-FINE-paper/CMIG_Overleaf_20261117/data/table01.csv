@@ -1,0 +1,4 @@
+Cohort,Train images,Val. images,Train teeth,Val. teeth,FDI classes
+DENTEX2023,570,64,"16,234","1,861",32
+Smartphone,878,220,"9,837","2,459",52
+"DSLR, five-view",750,190,"10,760","2,742",52

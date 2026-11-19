@@ -1,0 +1,599 @@
+{
+  "figure_count": 69,
+  "controlled_case_count": 21,
+  "final_model_case_count": 5,
+  "weights_unchanged": [
+    {
+      "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/dslr_base_adamw/seed_0/best.pth",
+      "sha256": "4e1b58f7e8d9094086c7bec89b1fbce7b6b110187c7086a1a67540ea7baa2b14",
+      "unchanged": true
+    },
+    {
+      "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/dslr_cmfa_adamw/seed_0/best.pth",
+      "sha256": "f05649c4b5e442d713826348c3270954687f572a9352071bd29edc508d7cd0c6",
+      "unchanged": true
+    },
+    {
+      "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_hooa_neither/seed_0/best.pth",
+      "sha256": "581d87b86e34d52a8f83b7d38460ea94c77841ffeb9707ca0fd08986778c1741",
+      "unchanged": true
+    },
+    {
+      "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/mobile_1024_full/seed_0/best.pth",
+      "sha256": "44c6c89020afc7c2cb0005f642c423aa29274af870548aff227c584ffb8052ea",
+      "unchanged": true
+    },
+    {
+      "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_off/seed_0/best.pth",
+      "sha256": "ff35600cf98ac6ac2fdf41decb55f9227cea2f1709c9c6e69dc6cab74061d985",
+      "unchanged": true
+    },
+    {
+      "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_k4_tau0p5/seed_0/best.pth",
+      "sha256": "0f25025e383e1c12006a8fcdca3e2b9eb1bb29480723c6d802c48440d37a0da5",
+      "unchanged": true
+    }
+  ],
+  "final_checkpoint_sha256": "1f19ea4d30234effb359b2de0cfb494ee1fe3582ca93a0bbc54792cf3a3e60cf",
+  "validated_files": [
+    {
+      "figure": "CMFA_correction_01_image125_FDI16_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "CMFA_correction_01_image125_FDI16_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "CMFA_correction_02_image68_FDI83_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "CMFA_correction_02_image68_FDI83_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "CMFA_correction_03_image37_FDI62_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "CMFA_correction_03_image37_FDI62_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "CMFA_correction_04_image129_FDI72_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "CMFA_correction_04_image129_FDI72_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "CMFA_correction_05_image124_FDI41_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "CMFA_correction_05_image124_FDI41_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "CMFA_localization_01_image36_FDI63_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "CMFA_localization_01_image36_FDI63_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "CMFA_adverse_01_image147_FDI71_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "CMFA_adverse_01_image147_FDI71_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Recommended_CMFA_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        2939
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Recommended_CMFA_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        2939
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Supplement_CMFA_native_gates",
+      "PNG_dimensions": [
+        5010,
+        2969
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Gallery_CMFA_all_cases_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        6492
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "HOOA_correction_01_image113_FDI51_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "HOOA_correction_01_image113_FDI51_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "HOOA_correction_02_image74_FDI52_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "HOOA_correction_02_image74_FDI52_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "HOOA_correction_03_image77_FDI13_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "HOOA_correction_03_image77_FDI13_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "HOOA_correction_04_image155_FDI31_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "HOOA_correction_04_image155_FDI31_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "HOOA_correction_05_image121_FDI41_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "HOOA_correction_05_image121_FDI41_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "HOOA_localization_01_image128_FDI36_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "HOOA_localization_01_image128_FDI36_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "HOOA_adverse_01_image148_FDI55_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "HOOA_adverse_01_image148_FDI55_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Recommended_HOOA_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Recommended_HOOA_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Supplement_HOOA_internal_responses",
+      "PNG_dimensions": [
+        5010,
+        3000
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Gallery_HOOA_all_cases_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        6492
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_correction_01_image44_FDI51_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_correction_01_image44_FDI51_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_correction_01_image44_FDI51_Prototype_detail",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_correction_02_image163_FDI14_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_correction_02_image163_FDI14_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_correction_02_image163_FDI14_Prototype_detail",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_correction_03_image118_FDI42_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_correction_03_image118_FDI42_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_correction_03_image118_FDI42_Prototype_detail",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_correction_04_image155_FDI31_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_correction_04_image155_FDI31_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_correction_04_image155_FDI31_Prototype_detail",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_correction_05_image24_FDI62_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_correction_05_image24_FDI62_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_correction_05_image24_FDI62_Prototype_detail",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_localization_01_image22_FDI64_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_localization_01_image22_FDI64_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_localization_01_image22_FDI64_Prototype_detail",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_adverse_01_image139_FDI71_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_adverse_01_image139_FDI71_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Prototype_adverse_01_image139_FDI71_Prototype_detail",
+      "PNG_dimensions": [
+        5010,
+        1164
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Recommended_Prototype_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        2939
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Recommended_Prototype_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        2939
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Recommended_Prototype_mechanism",
+      "PNG_dimensions": [
+        5010,
+        2939
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Gallery_Prototype_all_cases_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        6492
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "FinalMobile_image118_FDI42_modules_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1158
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "FinalMobile_image44_FDI51_modules_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1158
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "FinalMobile_image115_FDI64_modules_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1158
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "FinalMobile_image77_FDI11_modules_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1158
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "FinalMobile_image182_FDI46_modules_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        1158
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "FinalMobile_all_cases_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        4710
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Recommended_FinalMobile_modules_HiResCAM",
+      "PNG_dimensions": [
+        5010,
+        2934
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Recommended_FinalMobile_modules_GradCAM",
+      "PNG_dimensions": [
+        5010,
+        2934
+      ],
+      "DPI": 599.9988
+    }
+  ],
+  "all_native_predictions_top1_and_score_checked": true,
+  "all_passive_hooks_forward_invariant": true,
+  "CAMs_GT_masked_or_manually_painted": false,
+  "original_source_or_manuscripts_modified": false,
+  "training_started": false,
+  "GPU_workloads_interrupted": false,
+  "device_used": "CPU FP32"
+}

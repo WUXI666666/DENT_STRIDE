@@ -1,0 +1,143 @@
+__include__: [
+  '../runtime.yml',
+  './include/dataloader.yml',
+  './include/optimizer.yml',
+  './include/dome_hgnetv2.yml',
+]
+
+# The View-Net3 annotations are derived COCO JSONs with contiguous, canonical
+# FDI52 category IDs.  Keep this configuration local to the official Dome-DETR
+# checkout so all Dome modules remain the authors' implementation.
+output_dir: ./output/dome_s_viewnet3_dslr_fdi52
+# The runner also supplies this as a CLI override.  Keeping it here makes the
+# configuration independently constructible for smoke tests and prevents the
+# official YAML loader from falling back to an undefined batch size.
+checkpoint_freq: 1000000
+
+task: detection
+evaluator:
+  type: CocoEvaluator
+  iou_types: ['bbox', ]
+
+num_classes: 52
+remap_mscoco_category: False
+fdi_label_order: fdi52
+
+train_dataloader:
+  type: DataLoader
+  total_batch_size: 8
+  dataset:
+    type: CocoDetection
+    img_folder: /home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/train
+    ann_file: /home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_train_fdi52.json
+    return_masks: False
+    transforms:
+      type: Compose
+      # FDI labels encode left/right tooth positions.  Geometric flips would
+      # change their meaning without a label remapping, so omit them.
+      ops:
+        - {type: RandomPhotometricDistort, p: 0.5}
+        - {type: RandomZoomOut, fill: 0}
+        - {type: RandomIoUCrop, p: 0.8}
+        - {type: SanitizeBoundingBoxes, min_size: 1}
+        - {type: Resize, size: [640, 640]}
+        - {type: SanitizeBoundingBoxes, min_size: 1}
+        - {type: ConvertPILImage, dtype: 'float32', scale: True}
+        - {type: ConvertBoxes, fmt: 'cxcywh', normalize: True}
+      policy:
+        epoch: 108
+  shuffle: True
+  num_workers: 8
+  drop_last: True
+  collate_fn:
+    type: BatchImageCollateFunction
+    base_size: 640
+    # Dome's fixed positional encoding is constructed at eval_spatial_size.
+    # Keep the comparison at a literal 640 px rather than producing transient
+    # 480--800 px multiscale batches, which are incompatible with this setting.
+    base_size_repeat: null
+    stop_epoch: 108
+
+val_dataloader:
+  type: DataLoader
+  total_batch_size: 8
+  dataset:
+    type: CocoDetection
+    img_folder: /home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val
+    ann_file: /home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json
+    return_masks: False
+    transforms:
+      type: Compose
+      ops:
+        - {type: Resize, size: [640, 640]}
+        - {type: ConvertPILImage, dtype: 'float32', scale: True}
+  shuffle: False
+  num_workers: 8
+  drop_last: False
+  collate_fn:
+    type: BatchImageCollateFunction
+
+DOME:
+  backbone: HGNetv2
+
+HGNetv2:
+  name: 'B0'
+  return_idx: [0, 1, 2, 3]
+  freeze_at: -1
+  freeze_norm: False
+  use_lab: True
+
+DomeTransformer:
+  num_layers: 3
+  eval_idx: -1
+  feat_channels: [256, 256, 256, 256]
+  feat_strides: [4, 8, 16, 32]
+  num_points: [4, 4, 4, 4]
+  num_levels: 4
+  min_num_select: 300
+  max_num_select: 1500
+
+HybridEncoder:
+  in_channels: [64, 256, 512, 1024]
+  feat_strides: [4, 8, 16, 32]
+  use_encoder_idx: [3]
+  use_hybrid: True
+  num_encoder_layers: 1
+  use_deformable: False
+  enc_n_points: 6
+  hidden_dim: 256
+  depth_mult: .34
+  expansion: 0.5
+  num_feature_levels: 4
+  use_defe: True
+  defe_type: 'light'
+  use_mwas: True
+  mwas_window_size: 10
+
+DomeCriterion:
+  defe_density_map_weight: 1
+
+optimizer:
+  type: AdamW
+  params:
+    -
+      params: '^(?=.*backbone)(?!.*norm|bn).*$'
+      lr: 0.00002
+    -
+      params: '^(?=.*backbone)(?=.*norm|bn).*$'
+      lr: 0.00002
+      weight_decay: 0.
+    -
+      params: '^(?=.*(?:encoder|decoder))(?=.*(?:norm|bn|bias)).*$'
+      weight_decay: 0.
+  lr: 0.0002
+  betas: [0.9, 0.999]
+  weight_decay: 0.000065
+
+lr_scheduler:
+  type: MultiStepLR
+  milestones: [80, 120]
+  gamma: 0.8
+
+epoches: 160
+eval_spatial_size: [640, 640]

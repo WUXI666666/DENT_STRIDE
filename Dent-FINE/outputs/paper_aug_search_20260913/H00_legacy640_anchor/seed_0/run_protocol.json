@@ -1,0 +1,66 @@
+{
+  "job_id": "H00_legacy640_anchor",
+  "task": "dentex_spatial_shape",
+  "cohort": "DENTEX2023",
+  "model": "DENT-STRIDE SpatialShape",
+  "phase": "historical_anchor",
+  "seed": 0,
+  "augmentation": {
+    "profile": "legacy640_multiscale",
+    "mosaic": 0.0,
+    "mixup": 0.5,
+    "crop": 0.8,
+    "zoom": 0.5
+  },
+  "config": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/H00_legacy640_anchor_seed0.yml",
+  "config_sha256": "2bab8358100bcb6dd6710c3dc2e241573776b98a73b2f58c43be4bbbf1b4bcea",
+  "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/H00_legacy640_anchor/seed_0",
+  "implementation_dir": "/home/wuxi/Dent-FINE",
+  "train_script": "/home/wuxi/Dent-FINE/train.py",
+  "changes_from_aligned_base": [
+    {
+      "path": "output_dir",
+      "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+      "after": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/H00_legacy640_anchor/seed_0"
+    }
+  ],
+  "command": [
+    "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+    "-u",
+    "/home/wuxi/Dent-FINE/train.py",
+    "-c",
+    "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/H00_legacy640_anchor_seed0.yml",
+    "--seed",
+    "0",
+    "--use-amp",
+    "-d",
+    "cuda",
+    "--output-dir",
+    "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/H00_legacy640_anchor/seed_0"
+  ],
+  "started_at": "2026-09-13T23:38:44.709344+08:00",
+  "gpu": 0,
+  "cwd": "/home/wuxi/Dent-FINE",
+  "manifest_sha256": "103fc189d90f25352fd1666ce55bdc5b38d9a64e3005ad33c0f4062e73dd851c",
+  "queue_script_sha256": "7a07f519a7cc11e2d7a9ec2af00b24bdc90141bb5c9addf0ead8d9c61a27484f",
+  "initialization": "Fresh original pretrained backbone; no prior-run fine tuning",
+  "selection_policy_at_start": {
+    "allowed_final_profiles": [
+      "fixed640",
+      "fixed1024"
+    ],
+    "final_seeds": [
+      0
+    ],
+    "a07_seeds": [
+      0
+    ],
+    "confirm_top_k": 0,
+    "confirmation_seeds": [
+      1,
+      2
+    ],
+    "tie_break": "AP descending; exact ties: smaller fixed input, no Mosaic, no MixUp, higher crop, ZoomOut on, job ID",
+    "note": "Default pending user preferences: fixed-size winner and seed-0 final runs. Read again before adaptive selection."
+  }
+}

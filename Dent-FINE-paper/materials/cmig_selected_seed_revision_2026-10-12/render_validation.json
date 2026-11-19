@@ -1,0 +1,338 @@
+{
+  "main": {
+    "pages": 27,
+    "page_details": [
+      {
+        "page": 1,
+        "text_characters": 2995,
+        "labels": []
+      },
+      {
+        "page": 2,
+        "text_characters": 2092,
+        "labels": [
+          "Fig. 1. Representative acquisition conditions and reference FDI annotations. Panoramic radiographs, smartphone"
+        ]
+      },
+      {
+        "page": 3,
+        "text_characters": 4447,
+        "labels": []
+      },
+      {
+        "page": 4,
+        "text_characters": 4123,
+        "labels": []
+      },
+      {
+        "page": 5,
+        "text_characters": 2770,
+        "labels": [
+          "3.1. Overview of DENT-STRIDE",
+          "Fig. 2. Acquisition-configured DENT-STRIDE architecture. (A) HGNetv2-B0 features at strides 8, 16, and 32 are"
+        ]
+      },
+      {
+        "page": 6,
+        "text_characters": 3709,
+        "labels": [
+          "3.2. Structured identity learning",
+          "3.2.1. Factorized FDI supervision and score fusion",
+          "3.2.2. Prototype auxiliary supervision"
+        ]
+      },
+      {
+        "page": 7,
+        "text_characters": 3484,
+        "labels": [
+          "3.3. Training-derived SpatialShape prior"
+        ]
+      },
+      {
+        "page": 8,
+        "text_characters": 2296,
+        "labels": [
+          "Fig. 3 visualizes the training-derived center templates; Supplementary Fig. S1 shows the corresponding",
+          "Fig. 3. Training-derived center templates for the 32 permanent DENTEX FDI classes. Each panel shows the class-",
+          "3.4. Cross-scale feature aggregation and local refinement",
+          "3.4.1. Cross-scale mutual feature aggregation"
+        ]
+      },
+      {
+        "page": 9,
+        "text_characters": 1326,
+        "labels": [
+          "Fig. 4. Cross-scale mutual feature aggregation (CMFA). (A) Aligned C-channel features A and B jointly supply",
+          "3.4.2. High-order omni-attention"
+        ]
+      },
+      {
+        "page": 10,
+        "text_characters": 2249,
+        "labels": [
+          "Fig. 5. High-order omni-attention (HOOA). (A) Local L, dilated-context C, and high-pass edge E branches are",
+          "3.5. Training objective and optimization"
+        ]
+      },
+      {
+        "page": 11,
+        "text_characters": 3580,
+        "labels": [
+          "4.1. Experimental settings",
+          "4.1.1. Datasets and partitions",
+          "Table 1. Dataset composition of the training and validation partitions.",
+          "4.1.2. Implementation and design"
+        ]
+      },
+      {
+        "page": 12,
+        "text_characters": 4982,
+        "labels": [
+          "Table 2. Acquisition-specific configurations and component roles. Loss coefficients and augmentation probabilities",
+          "4.1.3. Evaluation endpoints and statistics"
+        ]
+      },
+      {
+        "page": 13,
+        "text_characters": 6577,
+        "labels": [
+          "4.2. Detection performance and comparisons",
+          "4.2.1. Detection performance and exploratory seed-subset summaries",
+          "Table 3. Exploratory selected-three DENT-STRIDE validation results, mean ± sample SD. Pano uses seeds 1/3/4;",
+          "Fig. 6. Training-seed variation of the domain-configured detectors. All five completed runs are shown in each",
+          "4.2.2. Training-seed variability"
+        ]
+      },
+      {
+        "page": 14,
+        "text_characters": 3811,
+        "labels": [
+          "Table 4. Selected-subset and complete five-seed AP summaries. The selected subsets are post-hoc; all-five",
+          "4.2.3. Framework-level detector comparisons",
+          "Table 5 compares the acquisition-specific configurations with official DEIM-s, RT-DETRv2-S, and",
+          "Table 5. Framework-level validation AP comparison. Repeated-seed entries are mean ± sample SD; single-seed"
+        ]
+      },
+      {
+        "page": 15,
+        "text_characters": 2943,
+        "labels": [
+          "Fig. 7. Framework-level detection AP on Mobile images. The blue diamond shows DENT-STRIDE-Mobile with",
+          "4.3. Ablation studies",
+          "4.3.1. Structured-identity and local-refinement branches"
+        ]
+      },
+      {
+        "page": 16,
+        "text_characters": 1836,
+        "labels": [
+          "Fig. 8. HOOA branch comparison on the same smartphone images under the temperature-0.20 Mobile reference",
+          "4.3.2. Same-checkpoint anatomical scoring"
+        ]
+      },
+      {
+        "page": 17,
+        "text_characters": 4020,
+        "labels": [
+          "Table 6. Same-checkpoint Pano anatomical scoring for post-hoc selected seeds 1/3/4. Metrics and paired AP",
+          "Fig. 9. Same-checkpoint anatomical scoring on DENTEX2023. All five checkpoints are evaluated with no prior,"
+        ]
+      },
+      {
+        "page": 18,
+        "text_characters": 3538,
+        "labels": [
+          "Fig. 10. Same-weight DENTEX anatomical-prior comparison using the representative seed-3 checkpoint. The four",
+          "4.3.3. Component and optimization sensitivity",
+          "Table 7. Reference-configuration seed-0 feature-gating, HOOA-branch, and factor-supervision ablations. Mobile",
+          "Fig. 11 summarizes reference-configuration HOOA and factor-supervision contrasts. Channel-only"
+        ]
+      },
+      {
+        "page": 19,
+        "text_characters": 2683,
+        "labels": [
+          "Fig. 11. Retrained HOOA and factor-supervision ablations under the temperature-0.20 Mobile reference",
+          "4.4. Further analyses",
+          "4.4.1. Tooth identity and numbering consistency",
+          "Table 8. Fixed-threshold endpoints for the post-hoc selected three-seed subsets in Table 3, mean ± sample SD, at",
+          "Fig. 12 compares the same images across official DEIM-s, RT-DETR-L, and DENT-STRIDE with"
+        ]
+      },
+      {
+        "page": 20,
+        "text_characters": 983,
+        "labels": [
+          "Fig. 12A. Same-image mobile detector comparison using the representative DENT-STRIDE seed-2 checkpoint."
+        ]
+      },
+      {
+        "page": 21,
+        "text_characters": 982,
+        "labels": [
+          "Fig. 12B. Same-image pano detector comparison using the representative DENT-STRIDE seed-3 checkpoint."
+        ]
+      },
+      {
+        "page": 22,
+        "text_characters": 1701,
+        "labels": [
+          "Fig. 12C. Same-image dslr detector comparison using the representative DENT-STRIDE seed-3 checkpoint.",
+          "4.4.2. Feature responses and computational cost",
+          "Fig. 13 displays native CMFA and HOOA tensors from an FP32 CPU forward pass of the Mobile seed-2"
+        ]
+      },
+      {
+        "page": 23,
+        "text_characters": 2803,
+        "labels": [
+          "Fig. 13. Actual CMFA and HOOA forward-pass responses from the representative Mobile seed-2 checkpoint for the",
+          "Table 9. Model size and tool-counted native-forward arithmetic for the domain configurations. Measurements use"
+        ]
+      },
+      {
+        "page": 24,
+        "text_characters": 4118,
+        "labels": [
+          "5.1. Principal findings",
+          "5.2. Acquisition dependence and clinical interpretation",
+          "5.3. Limitations"
+        ]
+      },
+      {
+        "page": 25,
+        "text_characters": 3226,
+        "labels": []
+      },
+      {
+        "page": 26,
+        "text_characters": 5599,
+        "labels": []
+      },
+      {
+        "page": 27,
+        "text_characters": 1295,
+        "labels": []
+      }
+    ],
+    "embedded_fonts": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nBAAAAA+TimesNewRomanPSMT             TrueType          WinAnsi          yes yes yes   1241  0\nCAAAAA+TimesNewRomanPS-BoldMT        TrueType          WinAnsi          yes yes yes   1246  0\nDAAAAA+LiberationSerif-Italic        TrueType          WinAnsi          yes yes yes   1221  0\nEAAAAA+OpenSymbol                    TrueType          WinAnsi          yes yes yes   1236  0\nFAAAAA+NimbusRoman-Italic            Type 1            Builtin          yes yes yes   1211  0\nGAAAAA+DejaVuSerif-Italic            TrueType          WinAnsi          yes yes yes   1226  0\nHAAAAA+LiberationSerif               TrueType          WinAnsi          yes yes yes   1216  0\nIAAAAA+NimbusRoman-Regular           Type 1            Builtin          yes yes yes   1231  0\nJAAAAA+NotoSerif-Regular             TrueType          WinAnsi          yes yes yes   1251  0\n",
+    "pdf": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/rendered/DENT_STRIDE_CMIG_main_selected_seed_revision_20261012.pdf",
+    "preview_directory": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/page_previews"
+  },
+  "supplement": {
+    "pages": 13,
+    "page_details": [
+      {
+        "page": 1,
+        "text_characters": 3654,
+        "labels": [
+          "S1. Individual-seed performance",
+          "Table S1. All 15 domain-configuration runs, including selected-subset membership. Metrics are percentage points",
+          "Fig. S1. Normalized width and height distributions of the 16,234 DENTEX training boxes, grouped by the 32"
+        ]
+      },
+      {
+        "page": 2,
+        "text_characters": 4952,
+        "labels": [
+          "S2. Complete component-ablation results",
+          "Table S2. Complete seed-0 component sensitivity under the specified reference configurations. Positive ΔAP means"
+        ]
+      },
+      {
+        "page": 3,
+        "text_characters": 2478,
+        "labels": [
+          "Fig. S2. Complete component-sensitivity plots for settings not emphasized in main Fig. 11. All displayed points are",
+          "S3. Same-checkpoint anatomical scoring",
+          "Table S3. All five Pano checkpoints under four anatomical-score settings. Weights and box coordinates remain fixed"
+        ]
+      },
+      {
+        "page": 4,
+        "text_characters": 5088,
+        "labels": [
+          "Table S4. Complete five-seed paired AP differences versus no prior. Mean ± sample SD uses seeds 0–4. Exploratory",
+          "Fig. S3. Paired changes in DENTEX2023 AP relative to no prior. Each circle represents one of the five same-",
+          "S4. Factor-score fusion",
+          "Table S5. Reference Mobile (temperature 0.20) training-fusion × inference-fusion comparison at seed 0. Each"
+        ]
+      },
+      {
+        "page": 5,
+        "text_characters": 3345,
+        "labels": [
+          "S5. Fixed-threshold endpoints and complete class outcomes",
+          "Table S6. Fixed-threshold endpoints for all 15 domain-configuration runs (%). Main Table 8 summarizes only the"
+        ]
+      },
+      {
+        "page": 6,
+        "text_characters": 5328,
+        "labels": [
+          "Fig. S4. Detection and numbering-threshold curves from the representative best-validation checkpoints:"
+        ]
+      },
+      {
+        "page": 7,
+        "text_characters": 6188,
+        "labels": [
+          "Fig. S5. Complete validation FDI outcome matrix for the DENTEX2023 representative checkpoint (seed 3), selected"
+        ]
+      },
+      {
+        "page": 8,
+        "text_characters": 8996,
+        "labels": [
+          "Fig. S6. Complete validation FDI outcome matrix for the Mobile representative checkpoint (seed 2), selected by AP"
+        ]
+      },
+      {
+        "page": 9,
+        "text_characters": 10309,
+        "labels": [
+          "Fig. S7. Complete validation FDI outcome matrix for the DSLR representative checkpoint (seed 3), selected by AP",
+          "S6. Upstream and external detector references",
+          "Table S7. Three-seed official DEIM-s and RT-DETRv2-S AP references on the same validation cohorts. Each"
+        ]
+      },
+      {
+        "page": 10,
+        "text_characters": 5064,
+        "labels": [
+          "Table S8. Conventional detector secondary metrics for the panoramic and Mobile validation cohorts. All rows are",
+          "S7. Reproducibility settings and learning trajectories",
+          "Table S9. Effective training and inference settings of the three final configurations. Loss coefficients refer to active"
+        ]
+      },
+      {
+        "page": 11,
+        "text_characters": 4529,
+        "labels": [
+          "Fig. S8. Validation-AP trajectories over all 160 epochs. Thin grey lines show all five actual runs. Blue lines and",
+          "S8. Structured representations and visualization methods"
+        ]
+      },
+      {
+        "page": 12,
+        "text_characters": 5466,
+        "labels": [
+          "Fig. S9. Prototype representation diagnostics from the representative Mobile seed-2 checkpoint (four prototypes per",
+          "Fig. S10. Per-class prototype cohesion for permanent and primary FDI classes in the representative Mobile seed-2"
+        ]
+      },
+      {
+        "page": 13,
+        "text_characters": 6086,
+        "labels": [
+          "Fig. S11. Row-normalized auxiliary quadrant, tooth-position, and dentition confusion matrices for 2,339 localized",
+          "S9. Complete seed-set summaries",
+          "Table S10. Four-metric summaries for all five runs, fixed seeds 0/1/2, and the post-hoc selected subsets. Values are"
+        ]
+      }
+    ],
+    "embedded_fonts": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nBAAAAA+TimesNewRomanPSMT             TrueType          WinAnsi          yes yes yes   2129  0\nCAAAAA+TimesNewRomanPS-BoldMT        TrueType          WinAnsi          yes yes yes   2134  0\nDAAAAA+NotoSerif-Regular             TrueType          WinAnsi          yes yes yes   2139  0\n",
+    "pdf": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/rendered/DENT_STRIDE_CMIG_supplement_selected_seed_revision_20261012.pdf",
+    "preview_directory": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/page_previews"
+  }
+}

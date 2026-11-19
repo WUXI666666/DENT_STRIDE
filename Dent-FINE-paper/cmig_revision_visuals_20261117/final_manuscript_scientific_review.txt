@@ -1,0 +1,27 @@
+Final scientific consistency review, 2026-11-17
+Target: CMIG_Overleaf_Visual_20261117/cas-dc-template.tex
+Main tex not edited.
+
+Verified against actual Figure12-18 PDFs, current render_publication_figures.py, original capture_gallery.py, final_model_cam.py, capture_factor_occlusion.py, and previously audited metrics/arrays.
+
+PASS: Figure12 three-panel CMFA/Prototype type, paired seeds, AP values/gains, rollback distinction and single-seed prototype uncertainty.
+PASS: Figure13 actual selected image44/FDI51, 11->51, auxiliary LogSumExp score target and top-five supported classes.
+PASS: Figure14 actual image77/FDI13,53->13, reduced mechanisms definition, seed0/tau0.20 separate from retained WordTable6.
+PASS: Figure15 images125/124 with55->16 and81->41; AdamW seed0 independent model queries and independently normalized detection-logit CAMs.
+PASS: Figure16 image44/FDI51 partly visible and115/FDI64 blurred; same checkpoint/query within each row; correct target layers and auxiliary prototype scalar; no module ablation claim.
+PASS: Figure17 actual signed occlusion maps for64/11/46.128patch/32stride/1024input=841 perturbations per image; all3heads per perturbed sample, baseline anchor ordering/query frozen; dense average margins and each-head shared symmetric scale accurate.
+PASS: Figure18 actual all5plots plus selected3filled markers, original/deduplicated image counts, original/restricted AP means/SD and paired changes. No reselection/retraining statement accurate.
+PASS: EqCAM corresponds exactly to positive elementwise gradient-activation maps used in PDFs. Full-image normalization, crop, partial differentiable path and no between-map contribution scale correctly described.
+PASS: Eqocclusion retains baseline strongest competitor index; logit margin changes remain signed and are not attention or probability.
+PASS: explicit post-hoc Pano/Mobile seed selection, sampleSD, cohort-level image duplicate counts versus patient overlap, and separate DSLR patient-disjoint statement.
+PASS: duplicate sensitivity does not claim external validation or bias removal.
+
+Two wording refinements recommended before final release:
+1. In Discussion principal findings and Limitations, avoid the generic formulation that the reported SDs characterize training variability without limiting the selected-run group. Replace the generic sentences with:
+   "Reported standard deviations describe dispersion among the runs included in each summary; the all-five analyses characterize the completed Pano and Mobile runs."
+   The current Methods already states this selection limitation accurately; the change removes ambiguity in the standalone Discussion.
+2. Scope the Methods sentence "Predictions were retained ... one-to-one matching" to "For the controlled comparison examples, predictions ...". The comparative CAM gallery indeed uses Hungarian matching. In contrast, final_model_cam.py and factor occlusion pick a target-qualified query by IoU and reference-class score rather than all-object Hungarian assignment. The later sentence introduces those final-model analyses separately, so this is precision rather than a numerical defect.
+
+Nonblocking nuance: the prototype efficacy contrast is seed0, while near-collinearity is directly quantified in final seed2. Methods correctly names seed2; the Discussion sentence "The prototype control demonstrates that useful auxiliary supervision can coexist with convergence ..." combines two different-run observations. More exact wording: "The controlled gain and the seed-2 bank diagnostic support auxiliary identity supervision without establishing distinct same-class morphological modes." This need not be inflated into an additional limitation.
+
+No other mandatory scientific-number or image-caption correction was found in the newly added sections. WordTable6 remains intentionally retained pending author clarification; the verified archived tau0.20 visual experiments are explicitly separate. Abstract/Introduction were not altered or assessed for changing content, as requested.

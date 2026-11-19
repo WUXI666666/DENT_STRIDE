@@ -1,0 +1,19 @@
+{
+  "id": "internal_mobile_factor_no_dentition_seed0",
+  "configuration": "internal_mobile_factor_no_dentition",
+  "cohort": "Mobile",
+  "seed": 0,
+  "phase": "internal",
+  "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_factor_no_dentition/seed_0.yml",
+  "config_sha256": "2fcf41bf0962a831f48b6fdd5c8f9ea4b90aa0ef0c7020300a9817b737d8e833",
+  "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/internal_mobile_factor_no_dentition/seed_0",
+  "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/source_snapshots/mobile",
+  "controls": {
+    "factor_inference_fusion": false
+  },
+  "epochs": 160,
+  "expected_input": 1024,
+  "gpu": 0,
+  "queue_order": 25,
+  "job_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/jobs/internal_mobile_factor_no_dentition_seed0.json"
+}

@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "scientific_result": false,
+  "coverage": "Two optimizer batches, full canonical COCO validation, global-best storage and API reload",
+  "retained_weight_count": 0,
+  "at": "2026-10-19T21:48:05.505907+08:00"
+}

@@ -1,0 +1,32 @@
+panel,group,variant,configuration,reference_configuration,reference_AP,AP,delta_AP,seed,status
+A,CMFA gates,Both,mobile_1024_full,mobile_1024_full,54.58336421726575,54.58336421726575,0.0,0,Available
+A,CMFA gates,Channel only,internal_mobile_cmfa_channel_only,mobile_1024_full,54.58336421726575,55.87228510533057,1.2889208880648155,0,Available
+A,CMFA gates,Spatial only,internal_mobile_cmfa_spatial_only,mobile_1024_full,54.58336421726575,54.83467499246952,0.25131077520376977,0,Available
+A,CMFA gates,Neither,internal_mobile_cmfa_no_gates,mobile_1024_full,54.58336421726575,54.950281609031784,0.3669173917660302,0,Available
+B,HOOA branches,Full,mobile_1024_full,mobile_1024_full,54.58336421726575,54.58336421726575,0.0,0,Available
+B,HOOA branches,No high-pass,internal_mobile_hooa_no_highpass,mobile_1024_full,54.58336421726575,55.228235530237946,0.6448713129721924,0,Available
+B,HOOA branches,No second-order,internal_mobile_hooa_no_second_order,mobile_1024_full,54.58336421726575,,,0,—
+B,HOOA branches,Neither,internal_mobile_hooa_neither,mobile_1024_full,54.58336421726575,,,0,—
+C,Factor supervision,All factors,internal_mobile_factor_train_off,internal_mobile_factor_train_off,54.023186742262396,54.023186742262396,0.0,0,Available
+C,Factor supervision,No quadrant,internal_mobile_factor_no_quadrant,internal_mobile_factor_train_off,54.023186742262396,55.12277968725058,1.0995929449881814,0,Available
+C,Factor supervision,No position,internal_mobile_factor_no_position,internal_mobile_factor_train_off,54.023186742262396,55.18791977290739,1.164733030644996,0,Available
+C,Factor supervision,No dentition,internal_mobile_factor_no_dentition,internal_mobile_factor_train_off,54.023186742262396,55.22670221398401,1.2035154717216159,0,Available
+D,Prototype number,No prototype,internal_mobile_proto_off,mobile_1024_full,54.58336421726575,55.64917800475874,1.065813787492985,0,Available
+D,Prototype number,K = 1,internal_mobile_proto_k1_tau0p2,mobile_1024_full,54.58336421726575,55.38630821257035,0.8029439953045951,0,Available
+D,Prototype number,K = 2,internal_mobile_proto_k2_tau0p2,mobile_1024_full,54.58336421726575,,,0,—
+D,Prototype number,K = 4,mobile_1024_full,mobile_1024_full,54.58336421726575,54.58336421726575,0.0,0,Available
+E,Prototype temperature,τ = 0.10,internal_mobile_proto_k4_tau0p1,mobile_1024_full,54.58336421726575,54.291356176825104,-0.2920080404406491,0,Available
+E,Prototype temperature,τ = 0.20,mobile_1024_full,mobile_1024_full,54.58336421726575,54.58336421726575,0.0,0,Available
+E,Prototype temperature,τ = 0.50,internal_mobile_proto_k4_tau0p5,mobile_1024_full,54.58336421726575,,,0,—
+F,DualOpt operations,Neither,dslr_cmfa_adamw,dslr_cmfa_adamw,72.90822265080959,72.90822265080959,0.0,0,Available
+F,DualOpt operations,Rollback only,internal_dslr_rollback_only,dslr_cmfa_adamw,72.90822265080959,72.83024167315976,-0.0779809776498297,0,Available
+F,DualOpt operations,Decay only,internal_dslr_extra_decay_only,dslr_cmfa_adamw,72.90822265080959,73.09698694417708,0.18876429336748402,0,Available
+F,DualOpt operations,Both,dslr_cmfa_dualopt,dslr_cmfa_adamw,72.90822265080959,73.33909401330665,0.43087136249705793,0,Available
+G,Mobile background losses,NWD + arch,mobile_1024_full,mobile_1024_full,54.58336421726575,54.58336421726575,0.0,0,Available
+G,Mobile background losses,NWD only,internal_mobile_background_nwd_only,mobile_1024_full,54.58336421726575,54.00860369219217,-0.5747605250735859,0,Available
+G,Mobile background losses,Arch only,internal_mobile_background_arch_only,mobile_1024_full,54.58336421726575,55.24910593632276,0.6657417190570101,0,Available
+G,Mobile background losses,Neither,internal_mobile_background_neither,mobile_1024_full,54.58336421726575,54.91011549157516,0.32675127430940876,0,Available
+H,Factor fusion (train / inference),Off / off,Matched training state + native inference replay,internal_mobile_factor_train_off,54.023186742262396,54.023186742262396,0.0,0,Available
+H,Factor fusion (train / inference),Off / on,Matched training state + native inference replay,internal_mobile_factor_train_off,54.023186742262396,53.85945128544003,-0.16373545682236568,0,Available
+H,Factor fusion (train / inference),On / off,Matched training state + native inference replay,internal_mobile_factor_train_off,54.023186742262396,54.63225052693721,0.6090637846748166,0,Available
+H,Factor fusion (train / inference),On / on,Matched training state + native inference replay,internal_mobile_factor_train_off,54.023186742262396,54.58336421726575,0.560177475003357,0,Available

@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "at": "2026-10-20T16:17:09.951109+08:00",
+  "cases": [
+    "RT-DETR anisotropic original-image scaling",
+    "native rounded-export geometry equivalence",
+    "native YOLO geometry preserved",
+    "CAF tensor geometry preserved",
+    "input not mutated",
+    "empty output",
+    "exact synthetic COCO AP=1; old export AP=0"
+  ],
+  "correct_AP": 0.9999999999999998,
+  "old_incorrect_AP": 0.0,
+  "coco_export_sha256": "7bfe20b50ef8b3a810f6763baa6a26c9ad144cfdb256ac3420e65e200055480a"
+}

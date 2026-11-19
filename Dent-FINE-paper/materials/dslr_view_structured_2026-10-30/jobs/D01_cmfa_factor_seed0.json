@@ -1,0 +1,42 @@
+{
+  "id": "D01_cmfa_factor_seed0",
+  "configuration": "D01_cmfa_factor",
+  "cohort": "DSLR",
+  "seed": 0,
+  "epochs": 160,
+  "config": "/home/wuxi/Dent-FINE-paper/materials/dslr_view_structured_2026-10-30/configs/D01_cmfa_factor_seed0.yml",
+  "config_sha256": "c844d3db2c98dda19687dbffc5d91d03ec8911b2d466c9c0eabe0f72b4f5cdb9",
+  "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/source_snapshots/local",
+  "train_script": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/source_snapshots/local/train.py",
+  "native_cwd": "/home/wuxi/Dent-FINE",
+  "python": "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+  "output_dir": "/home/wuxi/Dent-FINE-paper/materials/dslr_view_structured_2026-10-30/runs/D01_cmfa_factor/seed_0",
+  "expected_input": 640,
+  "runtime_settings": {
+    "num_views": 5,
+    "attach_dataset_metadata": true,
+    "guard_mixed_view_augmentations": true
+  },
+  "view_prototype": false,
+  "HOOA": false,
+  "factor_supervision": true,
+  "factor_fusion_train": false,
+  "factor_fusion_inference": false,
+  "prior_path": "/home/wuxi/Dent-FINE-paper/materials/dslr_view_structured_2026-10-30/priors/view_specific_tooth_priors.pt",
+  "prior_sha256": "bf2fa39462208332f6407b8800ae8943255639813a518c767e1d59ae3d11c206",
+  "prior_weights": {
+    "center": 0.2,
+    "shape": 0.05
+  },
+  "prior_modes": [
+    "none",
+    "center",
+    "shape",
+    "both"
+  ],
+  "checkpoint_selection": "maximum native no-prior validation COCO AP; same selected EMA replayed in all prior modes",
+  "initialization": "independent fresh detector with the same ImageNet-pretrained HGNetv2-B0 backbone; no detector resume/tuning",
+  "baseline_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/configs/dslr_cmfa_extra_decay_only/seed_0.yml",
+  "baseline_config_sha256": "5b2ecd5cc329c163487d891effb16ff9b76e5708d8ac632cd3886fcb604826f4",
+  "job_file": "/home/wuxi/Dent-FINE-paper/materials/dslr_view_structured_2026-10-30/jobs/D01_cmfa_factor_seed0.json"
+}

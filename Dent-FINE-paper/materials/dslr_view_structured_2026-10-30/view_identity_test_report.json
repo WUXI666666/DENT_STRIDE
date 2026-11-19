@@ -1,0 +1,35 @@
+{
+  "checks": {
+    "metadata_consistency_and_unknown": true,
+    "normalized_logsumexp_matches_native_equation": true,
+    "gradient_separates_view_banks_and_skips_unknown": true,
+    "all_unknown_zero_loss_keeps_bank_in_graph": true,
+    "mixed_view_augmentation_guards": true,
+    "evaluation_scores_boxes_identical_with_unused_prototype_branch": true,
+    "native_decoder_training_factor_and_aux_outputs_preserved": true,
+    "native_criterion_denoising_optimizer_and_ema_step": true
+  },
+  "runtime": {
+    "settings": {
+      "num_views": 5,
+      "attach_dataset_metadata": true,
+      "guard_mixed_view_augmentations": true
+    },
+    "view_names": [
+      "frontal",
+      "upper_occlusal",
+      "lower_occlusal",
+      "left_buccal",
+      "right_buccal"
+    ],
+    "bank_shape_contract": "[5, num_classes, prototype_count, hidden_dim]",
+    "unknown_view_policy": "skip prototype CE; zero unused prototype logits; no view-0 fallback",
+    "prototype_aggregation": "LogSumExp_K(cosine(normalized_query, normalized_prototype)/tau)",
+    "prototype_supervision_scope": "native final decoder main-query matcher indices only",
+    "factor_supervision_scope": "native factor losses, including available auxiliary and denoising heads",
+    "prototype_inference_fusion": false
+  },
+  "passed": true,
+  "torch_version": "2.5.1+cu124",
+  "device": "cpu"
+}

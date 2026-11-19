@@ -1,0 +1,13 @@
+Setting,Pano,Mobile,DSLR
+Training/evaluation input,Fixed 640 × 640,Fixed 1024 × 1024,Multiscale training; 640 × 640 evaluation
+Feature processing,Base hybrid encoder,CMFA + HOOA,CMFA
+Factor heads,Auxiliary supervision,Supervision and score fusion,Inactive
+Prototype bank,Auxiliary supervision,Auxiliary supervision,Inactive
+SpatialShape prior,Center + shape,Inactive,Inactive
+Optimizer,AdamW,AdamW,AdamW + rank-dependent extra decay; no rollback
+Mosaic / MixUp probabilities,0 / 0.50,0 / 0,0 / 0
+IoU crop / zoom-out probabilities,0.80 / 0.50,0.80 / 0.50,0.80 / 0.50
+Arch-position loss weight,0.25,0.10,0.25
+NWD loss weight,Inactive,0.50; scale 0.08,Inactive
+Prototype loss weight,0.05,0.03,Inactive
+Prototype temperature,0.50,0.50,Inactive

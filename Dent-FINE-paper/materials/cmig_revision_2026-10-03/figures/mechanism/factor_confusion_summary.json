@@ -1,0 +1,14 @@
+{
+  "quadrant": {
+    "matched_queries": 2335,
+    "accuracy": 0.9434689507494647
+  },
+  "position": {
+    "matched_queries": 2335,
+    "accuracy": 0.9593147751605996
+  },
+  "dentition": {
+    "matched_queries": 2335,
+    "accuracy": 0.9486081370449678
+  }
+}

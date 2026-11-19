@@ -1,0 +1,48 @@
+{
+  "family": "rtdetrv2_s",
+  "model": "Official RT-DETRv2-S (ResNet18-vd)",
+  "cohort": "Mobile",
+  "num_classes": 52,
+  "num_queries": 300,
+  "input_shape": [
+    1,
+    3,
+    1024,
+    1024
+  ],
+  "params": 20148512,
+  "Params_M": 20.148512,
+  "GFLOPs": 153.007648128,
+  "GMACs": 76.302753792,
+  "tool": "calflops 0.3.2",
+  "precision": "FP32",
+  "device": "CPU",
+  "form": "Native unfused evaluation-mode forward; no external postprocessing or unsupported operations",
+  "profile_input": "First canonical validation photograph, square bilinear resize, RGB [0,1]",
+  "image_path": "/home/wuxi/coco/valid/JPEGImages/73.jpg",
+  "image_sha256": "c0a62cf7a407ce0d6eeb88909947a2ebeecb5147f6440cb546f9549f1874c077",
+  "image_id": 0,
+  "source": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/RT-DETR/rtdetrv2_pytorch",
+  "source_config": "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/configs/rtdetrv2_s_phone.yml",
+  "config_sha256": "56fdeead1ac611ace2753d7eca15074956f4436421026af5fec6a489e0071142",
+  "in_memory_override": {
+    "PResNet.pretrained": false
+  },
+  "original_config_unchanged": true,
+  "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/runs/rtdetrv2_s/seed_0_repaired_20261020/best.pth",
+  "checkpoint_sha256": "c0949b9eb6ee8e5d0312ad6e557ef2752a4d49ab76a4191599b77b784c7f61d0",
+  "training_status_note": "Compute-only measurement; partial checkpoint does not establish completed training or final AP",
+  "output_shapes": {
+    "pred_logits": [
+      1,
+      300,
+      52
+    ],
+    "pred_boxes": [
+      1,
+      300,
+      4
+    ]
+  },
+  "at": "2026-10-20T21:49:09.431162+08:00"
+}

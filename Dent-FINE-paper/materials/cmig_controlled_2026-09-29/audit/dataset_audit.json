@@ -1,0 +1,1142 @@
+{
+  "created_at": "2026-09-29T14:22:16.012623+00:00",
+  "scope": "Existing selected-run datasets; read-only; no new splits or exclusions applied. No independent test set per user confirmation.",
+  "pixel_hash_definition": "PIL convert(RGB), no resizing or EXIF transposition; SHA256(width,height,decoded pixel bytes). Detects exact duplicates only, not all near duplicates or patient overlap.",
+  "label_map_source": {
+    "path": "/home/wuxi/Dent-FINE/engine/deim/utils_arch.py",
+    "sha256": "0d4424a851904a591210cde7945fa83b949d5bd9842b4eea1dd3a9c4d052c9bb"
+  },
+  "cohorts": {
+    "Mobile": {
+      "selected_configuration": "/home/wuxi/Dent-FINE-paper/materials/best_model_bundle_2026-09-15/selected_models/phone_a07_proto_aux_AP55.701/config.yml",
+      "label_order": "fdi52",
+      "clinical_fdi_order": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        51,
+        52,
+        53,
+        54,
+        55,
+        61,
+        62,
+        63,
+        64,
+        65,
+        71,
+        72,
+        73,
+        74,
+        75,
+        81,
+        82,
+        83,
+        84,
+        85
+      ],
+      "train_validation_category_definitions_equal": true,
+      "splits": {
+        "train": {
+          "annotation_file": "/home/wuxi/coco/train/annotations_fdi_types.json",
+          "annotation_sha256": "8e7a4a0ad3cf08d05ede15b638cfee008be9c89297b2a07f52d20c711c4412f5",
+          "images": 878,
+          "annotations": 9837,
+          "classes": 52,
+          "duplicate_image_ids": 0,
+          "duplicate_annotation_ids": 0,
+          "missing_or_unreadable_images": 0,
+          "dimension_mismatches": 0,
+          "patients_with_identifiers": 0,
+          "images_without_patient_id": 878,
+          "patient_image_count_distribution": {},
+          "patients_with_repeated_view_labels": 0,
+          "views": {
+            "": 878
+          },
+          "annotation_issue_counts": {},
+          "zero_support_fdi": [
+            18,
+            28,
+            38,
+            48
+          ]
+        },
+        "validation": {
+          "annotation_file": "/home/wuxi/coco/valid/annotations_fdi_types.json",
+          "annotation_sha256": "f5c0e4e86654b32770dd1befb5d8e650b29066d41657675e0253792b0806c649",
+          "images": 220,
+          "annotations": 2459,
+          "classes": 52,
+          "duplicate_image_ids": 0,
+          "duplicate_annotation_ids": 0,
+          "missing_or_unreadable_images": 0,
+          "dimension_mismatches": 0,
+          "patients_with_identifiers": 0,
+          "images_without_patient_id": 220,
+          "patient_image_count_distribution": {},
+          "patients_with_repeated_view_labels": 0,
+          "views": {
+            "": 220
+          },
+          "annotation_issue_counts": {},
+          "zero_support_fdi": [
+            17,
+            18,
+            27,
+            28,
+            37,
+            38,
+            48
+          ]
+        }
+      },
+      "content_duplicates": {
+        "bytes_sha256": {
+          "cross_split_groups": [
+            {
+              "hash": "440ec50d60f4e07c3a2c36338bd895e43583dfc5ea7fc6ebfcc9c7f56d10b936",
+              "members": [
+                {
+                  "split": "train",
+                  "image_id": 12,
+                  "file_name": "JPEGImages/836.jpg",
+                  "patient_id": "",
+                  "view": ""
+                },
+                {
+                  "split": "validation",
+                  "image_id": 170,
+                  "file_name": "JPEGImages/201.jpg",
+                  "patient_id": "",
+                  "view": ""
+                }
+              ],
+              "identical_box_annotations_6_decimals": false
+            },
+            {
+              "hash": "9e3e4c5d0c1f59f1cf4f225c540d66061ec25e9f0e8ee29e7e736dab209e35bd",
+              "members": [
+                {
+                  "split": "train",
+                  "image_id": 405,
+                  "file_name": "JPEGImages/797.jpg",
+                  "patient_id": "",
+                  "view": ""
+                },
+                {
+                  "split": "validation",
+                  "image_id": 6,
+                  "file_name": "JPEGImages/190.jpg",
+                  "patient_id": "",
+                  "view": ""
+                }
+              ],
+              "identical_box_annotations_6_decimals": false
+            },
+            {
+              "hash": "a42ac1429d4faf16009e9f999ecb5fcd0bf9482587f280f27c39dac28c7c7b16",
+              "members": [
+                {
+                  "split": "train",
+                  "image_id": 630,
+                  "file_name": "JPEGImages/796.jpg",
+                  "patient_id": "",
+                  "view": ""
+                },
+                {
+                  "split": "validation",
+                  "image_id": 110,
+                  "file_name": "JPEGImages/189.jpg",
+                  "patient_id": "",
+                  "view": ""
+                }
+              ],
+              "identical_box_annotations_6_decimals": false
+            },
+            {
+              "hash": "fe3c7a1569e19d21d781a4bec6ae10daec6257a0a82c158ac1eebf035074322f",
+              "members": [
+                {
+                  "split": "train",
+                  "image_id": 820,
+                  "file_name": "JPEGImages/157.jpg",
+                  "patient_id": "",
+                  "view": ""
+                },
+                {
+                  "split": "validation",
+                  "image_id": 88,
+                  "file_name": "JPEGImages/34.jpg",
+                  "patient_id": "",
+                  "view": ""
+                }
+              ],
+              "identical_box_annotations_6_decimals": false
+            }
+          ],
+          "within_split_groups": {
+            "train": [
+              {
+                "hash": "97604abf0b7125e2ca09e4f49864e7f73dde27b6e36c75492025d86796ed855c",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 122,
+                    "file_name": "JPEGImages/113.jpg",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 381,
+                    "file_name": "JPEGImages/112.jpg",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 751,
+                    "file_name": "JPEGImages/114.jpg",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "c17d0804e86f96372f35fa976b352395a37cb49cfcb2ea21f1a2fe99154d5f9b",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 207,
+                    "file_name": "JPEGImages/835.jpg",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 657,
+                    "file_name": "JPEGImages/834.jpg",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "dce2ce06a61da4a6f6d9e4b1af97e1acb4f1231433eef5af67c8ceb30bf859e4",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 578,
+                    "file_name": "JPEGImages/185.jpg",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 749,
+                    "file_name": "JPEGImages/184.jpg",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              }
+            ],
+            "validation": []
+          }
+        },
+        "decoded_rgb_sha256": {
+          "cross_split_groups": [
+            {
+              "hash": "fc5b2d478937a8fcdce0e10f27da0b7ab1f9bd2cd2d04c56fa73e94620e6ff25",
+              "members": [
+                {
+                  "split": "train",
+                  "image_id": 12,
+                  "file_name": "JPEGImages/836.jpg",
+                  "patient_id": "",
+                  "view": ""
+                },
+                {
+                  "split": "validation",
+                  "image_id": 170,
+                  "file_name": "JPEGImages/201.jpg",
+                  "patient_id": "",
+                  "view": ""
+                }
+              ],
+              "identical_box_annotations_6_decimals": false
+            },
+            {
+              "hash": "3e1e65db4ea75267af672099749c53cb1e2587644051ba23551879a1c226833b",
+              "members": [
+                {
+                  "split": "train",
+                  "image_id": 405,
+                  "file_name": "JPEGImages/797.jpg",
+                  "patient_id": "",
+                  "view": ""
+                },
+                {
+                  "split": "validation",
+                  "image_id": 6,
+                  "file_name": "JPEGImages/190.jpg",
+                  "patient_id": "",
+                  "view": ""
+                }
+              ],
+              "identical_box_annotations_6_decimals": false
+            },
+            {
+              "hash": "043755e83f0183213679217738e9f80ec46da97318bebc6b761169e2cea09b07",
+              "members": [
+                {
+                  "split": "train",
+                  "image_id": 630,
+                  "file_name": "JPEGImages/796.jpg",
+                  "patient_id": "",
+                  "view": ""
+                },
+                {
+                  "split": "validation",
+                  "image_id": 110,
+                  "file_name": "JPEGImages/189.jpg",
+                  "patient_id": "",
+                  "view": ""
+                }
+              ],
+              "identical_box_annotations_6_decimals": false
+            },
+            {
+              "hash": "689c16488b9d802a3016953dafed3af1ca881ad2a993720d60ba8f117a356ca1",
+              "members": [
+                {
+                  "split": "train",
+                  "image_id": 820,
+                  "file_name": "JPEGImages/157.jpg",
+                  "patient_id": "",
+                  "view": ""
+                },
+                {
+                  "split": "validation",
+                  "image_id": 88,
+                  "file_name": "JPEGImages/34.jpg",
+                  "patient_id": "",
+                  "view": ""
+                }
+              ],
+              "identical_box_annotations_6_decimals": false
+            }
+          ],
+          "within_split_groups": {
+            "train": [
+              {
+                "hash": "a08447af3f65254582452a5e54b4a5736187e9957b7d27d02e1d0e40596ff7c0",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 122,
+                    "file_name": "JPEGImages/113.jpg",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 381,
+                    "file_name": "JPEGImages/112.jpg",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 751,
+                    "file_name": "JPEGImages/114.jpg",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "6de542c2da9ae879a18a977e723da3d644b942dc4c0c839d449ff4093285b7b7",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 207,
+                    "file_name": "JPEGImages/835.jpg",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 657,
+                    "file_name": "JPEGImages/834.jpg",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "3b4f3a4631436a3ffcc2b9acc5d081079d23ec24eff1a96d059561483262dbc8",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 578,
+                    "file_name": "JPEGImages/185.jpg",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 749,
+                    "file_name": "JPEGImages/184.jpg",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              }
+            ],
+            "validation": []
+          }
+        }
+      },
+      "patient_id_overlap": [],
+      "independent_test_identified": false,
+      "patient_independence_verifiable_from_metadata": false
+    },
+    "Pano": {
+      "selected_configuration": "/home/wuxi/Dent-FINE-paper/materials/best_model_bundle_2026-09-15/selected_models/dentex_spatial_shape_AP54.385/config.yml",
+      "label_order": "dentex_enumeration32",
+      "clinical_fdi_order": [
+        18,
+        17,
+        16,
+        15,
+        14,
+        13,
+        12,
+        11,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        38,
+        37,
+        36,
+        35,
+        34,
+        33,
+        32,
+        31,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "train_validation_category_definitions_equal": true,
+      "splits": {
+        "train": {
+          "annotation_file": "/home/wuxi/DENTEX2023/annotations/instances_train2017.json",
+          "annotation_sha256": "cdde8f96874c0aafabdd3de12fa5c8b3827ebd4eed40768119bdd4d74901cb50",
+          "images": 570,
+          "annotations": 16234,
+          "classes": 32,
+          "duplicate_image_ids": 0,
+          "duplicate_annotation_ids": 0,
+          "missing_or_unreadable_images": 0,
+          "dimension_mismatches": 0,
+          "patients_with_identifiers": 0,
+          "images_without_patient_id": 570,
+          "patient_image_count_distribution": {},
+          "patients_with_repeated_view_labels": 0,
+          "views": {
+            "": 570
+          },
+          "annotation_issue_counts": {},
+          "zero_support_fdi": []
+        },
+        "validation": {
+          "annotation_file": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+          "annotation_sha256": "52532169c776f6ceaa126816787e54f8f796ebb6163c0bf8a04f98372d4f3903",
+          "images": 64,
+          "annotations": 1861,
+          "classes": 32,
+          "duplicate_image_ids": 0,
+          "duplicate_annotation_ids": 0,
+          "missing_or_unreadable_images": 0,
+          "dimension_mismatches": 0,
+          "patients_with_identifiers": 0,
+          "images_without_patient_id": 64,
+          "patient_image_count_distribution": {},
+          "patients_with_repeated_view_labels": 0,
+          "views": {
+            "": 64
+          },
+          "annotation_issue_counts": {},
+          "zero_support_fdi": []
+        }
+      },
+      "content_duplicates": {
+        "bytes_sha256": {
+          "cross_split_groups": [
+            {
+              "hash": "66e74213875f6b5a755a2b0554c28c24d755fb8caa393dd51b239f360f4af0f9",
+              "members": [
+                {
+                  "split": "train",
+                  "image_id": 327,
+                  "file_name": "train_612.png",
+                  "patient_id": "",
+                  "view": ""
+                },
+                {
+                  "split": "train",
+                  "image_id": 616,
+                  "file_name": "train_179.png",
+                  "patient_id": "",
+                  "view": ""
+                },
+                {
+                  "split": "validation",
+                  "image_id": 238,
+                  "file_name": "train_412.png",
+                  "patient_id": "",
+                  "view": ""
+                }
+              ],
+              "identical_box_annotations_6_decimals": false
+            }
+          ],
+          "within_split_groups": {
+            "train": [
+              {
+                "hash": "dc2623b68a8837d5a97b36fe59efe7fc7a6fd042fcfc4db80c3ff978beff2178",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 13,
+                    "file_name": "train_12.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 336,
+                    "file_name": "train_161.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "f7fa0cf27b9d2c2a0afe9e8b26f688176932fd1fb46b527cbdccb463acb337e3",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 25,
+                    "file_name": "train_229.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 37,
+                    "file_name": "train_54.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "659eb9c342af8b7ec85cd8ed116114b9fe7ab6d8d963922d18a82fe47dac1c1f",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 86,
+                    "file_name": "train_328.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 189,
+                    "file_name": "train_277.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "c49d321c59dd4fb791bb943c84f18c00ed481d3f3ecc44d39b0d8933e7736fca",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 100,
+                    "file_name": "train_500.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 569,
+                    "file_name": "train_427.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "e3698cdb0d1ac70b88cedc0d205a11c17b6c26fd71a9e29f130395701e3d7b14",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 191,
+                    "file_name": "train_430.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 507,
+                    "file_name": "train_182.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "87cd46010d79fa34ba1d28675834a6c76248294c7f7bdac45cf77fb80e83ccaf",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 289,
+                    "file_name": "train_376.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 290,
+                    "file_name": "train_620.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "66e74213875f6b5a755a2b0554c28c24d755fb8caa393dd51b239f360f4af0f9",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 327,
+                    "file_name": "train_612.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 616,
+                    "file_name": "train_179.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "ffc87b3abdf3a3b1fd6cda08d72355c2a728d3c9fe7242b0e08a2da2672dc288",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 402,
+                    "file_name": "train_142.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 497,
+                    "file_name": "train_72.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              }
+            ],
+            "validation": [
+              {
+                "hash": "565d20f3ddf66cb377e4becfae7e116110acdc2d0948e3b504127ff3e3c82f1a",
+                "members": [
+                  {
+                    "split": "validation",
+                    "image_id": 251,
+                    "file_name": "train_181.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "validation",
+                    "image_id": 350,
+                    "file_name": "train_488.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "validation",
+                    "image_id": 423,
+                    "file_name": "train_375.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              }
+            ]
+          }
+        },
+        "decoded_rgb_sha256": {
+          "cross_split_groups": [
+            {
+              "hash": "0fde6dd9badae8df1f858c1774c4b484f3e2bda2d1a46a495a0a2d82b38f3ef1",
+              "members": [
+                {
+                  "split": "train",
+                  "image_id": 327,
+                  "file_name": "train_612.png",
+                  "patient_id": "",
+                  "view": ""
+                },
+                {
+                  "split": "train",
+                  "image_id": 616,
+                  "file_name": "train_179.png",
+                  "patient_id": "",
+                  "view": ""
+                },
+                {
+                  "split": "validation",
+                  "image_id": 238,
+                  "file_name": "train_412.png",
+                  "patient_id": "",
+                  "view": ""
+                }
+              ],
+              "identical_box_annotations_6_decimals": false
+            }
+          ],
+          "within_split_groups": {
+            "train": [
+              {
+                "hash": "63f73431cd7fa4b2ce8e0b856b52a09f0853c79551a68e84ea59142a3ef01b70",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 13,
+                    "file_name": "train_12.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 336,
+                    "file_name": "train_161.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "6ab889d4326ef5f55d27b1d8798768f2f84535b552629e35ddebe205ad79e620",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 25,
+                    "file_name": "train_229.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 37,
+                    "file_name": "train_54.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "7ef1b36d1b2cd808dafe8fd261f705a9b2e1c777338aac5820248508e5b5d24c",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 86,
+                    "file_name": "train_328.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 189,
+                    "file_name": "train_277.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "86066e66114e34e7d91aa2b110531989598fd0151930568e1ebcfa38f8a7ec05",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 100,
+                    "file_name": "train_500.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 569,
+                    "file_name": "train_427.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "baf6851ba84b5442558ef9d9a40ee8541499c0b695211d065132f1e982f25c23",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 191,
+                    "file_name": "train_430.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 507,
+                    "file_name": "train_182.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "d95f806efae3070f7552e638745e7bd5165dddcbfb4b78a96928332c58bc9418",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 289,
+                    "file_name": "train_376.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 290,
+                    "file_name": "train_620.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "0fde6dd9badae8df1f858c1774c4b484f3e2bda2d1a46a495a0a2d82b38f3ef1",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 327,
+                    "file_name": "train_612.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 616,
+                    "file_name": "train_179.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              },
+              {
+                "hash": "46619aaa81a35eb91e14d170fdd29ef2229f3fe138bc56c4c47c6860c2f9775e",
+                "members": [
+                  {
+                    "split": "train",
+                    "image_id": 402,
+                    "file_name": "train_142.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "train",
+                    "image_id": 497,
+                    "file_name": "train_72.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              }
+            ],
+            "validation": [
+              {
+                "hash": "d9f669c0b03844ef7c66d4c91324b956c72c1de04284fcd6decc4204ef078327",
+                "members": [
+                  {
+                    "split": "validation",
+                    "image_id": 251,
+                    "file_name": "train_181.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "validation",
+                    "image_id": 350,
+                    "file_name": "train_488.png",
+                    "patient_id": "",
+                    "view": ""
+                  },
+                  {
+                    "split": "validation",
+                    "image_id": 423,
+                    "file_name": "train_375.png",
+                    "patient_id": "",
+                    "view": ""
+                  }
+                ],
+                "identical_box_annotations_6_decimals": false
+              }
+            ]
+          }
+        }
+      },
+      "patient_id_overlap": [],
+      "independent_test_identified": false,
+      "patient_independence_verifiable_from_metadata": false
+    },
+    "DSLR": {
+      "selected_configuration": "/home/wuxi/Dent-FINE-paper/materials/best_model_bundle_2026-09-15/selected_models/dslr_cmfa_dualopt_AP73.115/config.yml",
+      "label_order": "fdi52",
+      "clinical_fdi_order": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        51,
+        52,
+        53,
+        54,
+        55,
+        61,
+        62,
+        63,
+        64,
+        65,
+        71,
+        72,
+        73,
+        74,
+        75,
+        81,
+        82,
+        83,
+        84,
+        85
+      ],
+      "train_validation_category_definitions_equal": true,
+      "splits": {
+        "train": {
+          "annotation_file": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_train_fdi52.json",
+          "annotation_sha256": "f38177d7f8521516653c754f7293339c3267c2aacd70eee7f0c8801af2c40c98",
+          "images": 750,
+          "annotations": 10760,
+          "classes": 52,
+          "duplicate_image_ids": 0,
+          "duplicate_annotation_ids": 0,
+          "missing_or_unreadable_images": 0,
+          "dimension_mismatches": 5,
+          "patients_with_identifiers": 150,
+          "images_without_patient_id": 0,
+          "patient_image_count_distribution": {
+            "5": 150
+          },
+          "patients_with_repeated_view_labels": 0,
+          "views": {
+            "frontal": 150,
+            "left_buccal": 150,
+            "lower_occlusal": 150,
+            "right_buccal": 150,
+            "upper_occlusal": 150
+          },
+          "annotation_issue_counts": {},
+          "zero_support_fdi": [
+            15,
+            17,
+            18,
+            23,
+            27,
+            28,
+            37,
+            38,
+            47,
+            48
+          ]
+        },
+        "validation": {
+          "annotation_file": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json",
+          "annotation_sha256": "de3b8dc99b2a0a2679386c75d2e8aeff4871a0eaf448d5cc5abef5e1e725dbcf",
+          "images": 190,
+          "annotations": 2742,
+          "classes": 52,
+          "duplicate_image_ids": 0,
+          "duplicate_annotation_ids": 0,
+          "missing_or_unreadable_images": 0,
+          "dimension_mismatches": 0,
+          "patients_with_identifiers": 38,
+          "images_without_patient_id": 0,
+          "patient_image_count_distribution": {
+            "5": 38
+          },
+          "patients_with_repeated_view_labels": 0,
+          "views": {
+            "frontal": 38,
+            "left_buccal": 38,
+            "lower_occlusal": 38,
+            "right_buccal": 38,
+            "upper_occlusal": 38
+          },
+          "annotation_issue_counts": {},
+          "zero_support_fdi": [
+            13,
+            14,
+            15,
+            17,
+            18,
+            23,
+            24,
+            25,
+            27,
+            28,
+            34,
+            35,
+            37,
+            38,
+            44,
+            45,
+            47,
+            48
+          ]
+        }
+      },
+      "content_duplicates": {
+        "bytes_sha256": {
+          "cross_split_groups": [],
+          "within_split_groups": {
+            "train": [],
+            "validation": []
+          }
+        },
+        "decoded_rgb_sha256": {
+          "cross_split_groups": [],
+          "within_split_groups": {
+            "train": [],
+            "validation": []
+          }
+        }
+      },
+      "patient_id_overlap": [],
+      "independent_test_identified": false,
+      "patient_independence_verifiable_from_metadata": true
+    }
+  },
+  "cross_cohort_duplicates": {
+    "bytes_sha256": [],
+    "decoded_rgb_sha256": []
+  }
+}

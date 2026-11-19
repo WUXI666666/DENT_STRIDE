@@ -1,0 +1,382 @@
+{
+  "CMFA": {
+    "case_ids": [
+      "CMFA_correction_01_image125_FDI16",
+      "CMFA_correction_04_image129_FDI72",
+      "CMFA_correction_05_image124_FDI41"
+    ],
+    "diagnostics": [
+      {
+        "case_id": "CMFA_correction_01_image125_FDI16",
+        "group": "CMFA",
+        "image_id": 125,
+        "FDI": 16,
+        "kind": "correction",
+        "before_FDI": 55,
+        "after_FDI": 16,
+        "before_CAM": {
+          "positive_mass_inside_GT": 0.1293022185564041,
+          "GT_fraction": 0.02921875,
+          "enrichment": 4.425316570914365,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.0011961932759732008,
+          "positive_sum": 0.8594925403594971
+        },
+        "after_CAM": {
+          "positive_mass_inside_GT": 0.054390013217926025,
+          "GT_fraction": 0.02921875,
+          "enrichment": 1.8614763882070937,
+          "peak_inside_GT": false,
+          "raw_maximum": 0.00047833399730734527,
+          "positive_sum": 0.37803882360458374
+        },
+        "enrichment_change": -2.5638401827072714,
+        "before_HiResCAM": {
+          "positive_mass_inside_GT": 0.29974737763404846,
+          "GT_fraction": 0.02921875,
+          "enrichment": 10.258733779988823,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.28029704093933105,
+          "positive_sum": 7.610792636871338
+        },
+        "after_HiResCAM": {
+          "positive_mass_inside_GT": 0.4329437017440796,
+          "GT_fraction": 0.02921875,
+          "enrichment": 14.817324551669033,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.1100783497095108,
+          "positive_sum": 2.1228723526000977
+        },
+        "HiResCAM_enrichment_change": 4.55859077168021
+      },
+      {
+        "case_id": "CMFA_correction_04_image129_FDI72",
+        "group": "CMFA",
+        "image_id": 129,
+        "FDI": 72,
+        "kind": "correction",
+        "before_FDI": 32,
+        "after_FDI": 72,
+        "before_CAM": {
+          "positive_mass_inside_GT": 0.020023668184876442,
+          "GT_fraction": 0.0109375,
+          "enrichment": 1.830735376902989,
+          "peak_inside_GT": false,
+          "raw_maximum": 0.0006737907533533871,
+          "positive_sum": 0.5011823773384094
+        },
+        "after_CAM": {
+          "positive_mass_inside_GT": 0.015133907087147236,
+          "GT_fraction": 0.0109375,
+          "enrichment": 1.3836715051106045,
+          "peak_inside_GT": false,
+          "raw_maximum": 0.000712489418219775,
+          "positive_sum": 0.26506784558296204
+        },
+        "enrichment_change": -0.4470638717923845,
+        "before_HiResCAM": {
+          "positive_mass_inside_GT": 0.3571735620498657,
+          "GT_fraction": 0.0109375,
+          "enrichment": 32.65586853027344,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.27271711826324463,
+          "positive_sum": 6.002840042114258
+        },
+        "after_HiResCAM": {
+          "positive_mass_inside_GT": 0.40159761905670166,
+          "GT_fraction": 0.0109375,
+          "enrichment": 36.71749659946987,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.16068832576274872,
+          "positive_sum": 5.32220983505249
+        },
+        "HiResCAM_enrichment_change": 4.061628069196431
+      },
+      {
+        "case_id": "CMFA_correction_05_image124_FDI41",
+        "group": "CMFA",
+        "image_id": 124,
+        "FDI": 41,
+        "kind": "correction",
+        "before_FDI": 81,
+        "after_FDI": 41,
+        "before_CAM": {
+          "positive_mass_inside_GT": 0.014591158367693424,
+          "GT_fraction": 0.01421875,
+          "enrichment": 1.0261913577278892,
+          "peak_inside_GT": false,
+          "raw_maximum": 0.0006278143264353275,
+          "positive_sum": 0.24946099519729614
+        },
+        "after_CAM": {
+          "positive_mass_inside_GT": 0.012794367037713528,
+          "GT_fraction": 0.01421875,
+          "enrichment": 0.8998236158391931,
+          "peak_inside_GT": false,
+          "raw_maximum": 0.0009318885859102011,
+          "positive_sum": 0.48251569271087646
+        },
+        "enrichment_change": -0.12636774188869604,
+        "before_HiResCAM": {
+          "positive_mass_inside_GT": 0.23580117523670197,
+          "GT_fraction": 0.01421875,
+          "enrichment": 16.583818917746072,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.48259714245796204,
+          "positive_sum": 5.511966228485107
+        },
+        "after_HiResCAM": {
+          "positive_mass_inside_GT": 0.2908387780189514,
+          "GT_fraction": 0.01421875,
+          "enrichment": 20.454595377157023,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.1635778546333313,
+          "positive_sum": 4.38032865524292
+        },
+        "HiResCAM_enrichment_change": 3.8707764594109513
+      }
+    ],
+    "selection_rule": "First require a real FDI correction; then prefer target-localized elementwise-gradient CAMs. Prototype cases additionally prefer correct auxiliary prototype classification. HOOA has only one case with a clear target-localized peak and improved concentration among these candidates, so only that case is recommended. Illustrative selection is disclosed, not a prevalence estimate."
+  },
+  "HOOA": {
+    "case_ids": [
+      "HOOA_correction_03_image77_FDI13"
+    ],
+    "diagnostics": [
+      {
+        "case_id": "HOOA_correction_03_image77_FDI13",
+        "group": "HOOA",
+        "image_id": 77,
+        "FDI": 13,
+        "kind": "correction",
+        "before_FDI": 53,
+        "after_FDI": 13,
+        "before_CAM": {
+          "positive_mass_inside_GT": 0.005056696478277445,
+          "GT_fraction": 0.00537109375,
+          "enrichment": 0.9414649443192915,
+          "peak_inside_GT": false,
+          "raw_maximum": 0.00038385012885555625,
+          "positive_sum": 0.5179976224899292
+        },
+        "after_CAM": {
+          "positive_mass_inside_GT": 0.008060257881879807,
+          "GT_fraction": 0.00537109375,
+          "enrichment": 1.5006734674627131,
+          "peak_inside_GT": false,
+          "raw_maximum": 0.0001725762413116172,
+          "positive_sum": 0.34992673993110657
+        },
+        "enrichment_change": 0.5592085231434216,
+        "before_HiResCAM": {
+          "positive_mass_inside_GT": 0.2525031566619873,
+          "GT_fraction": 0.00537109375,
+          "enrichment": 47.01149680397727,
+          "peak_inside_GT": false,
+          "raw_maximum": 0.2506108582019806,
+          "positive_sum": 3.166541337966919
+        },
+        "after_HiResCAM": {
+          "positive_mass_inside_GT": 0.4613230228424072,
+          "GT_fraction": 0.00537109375,
+          "enrichment": 85.88995916193181,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.587761402130127,
+          "positive_sum": 3.653397798538208
+        },
+        "HiResCAM_enrichment_change": 38.87846235795454
+      }
+    ],
+    "selection_rule": "First require a real FDI correction; then prefer target-localized elementwise-gradient CAMs. Prototype cases additionally prefer correct auxiliary prototype classification. HOOA has only one case with a clear target-localized peak and improved concentration among these candidates, so only that case is recommended. Illustrative selection is disclosed, not a prevalence estimate."
+  },
+  "Prototype": {
+    "case_ids": [
+      "Prototype_correction_01_image44_FDI51",
+      "Prototype_correction_05_image24_FDI62",
+      "Prototype_correction_03_image118_FDI42"
+    ],
+    "diagnostics": [
+      {
+        "case_id": "Prototype_correction_01_image44_FDI51",
+        "group": "Prototype",
+        "image_id": 44,
+        "FDI": 51,
+        "kind": "correction",
+        "before_FDI": 11,
+        "after_FDI": 51,
+        "before_CAM": {
+          "positive_mass_inside_GT": 0.006715604104101658,
+          "GT_fraction": 0.0087890625,
+          "enrichment": 0.7640865114000108,
+          "peak_inside_GT": false,
+          "raw_maximum": 0.00022111447469796985,
+          "positive_sum": 0.445838987827301
+        },
+        "after_CAM": {
+          "positive_mass_inside_GT": 0.012683696113526821,
+          "GT_fraction": 0.0087890625,
+          "enrichment": 1.4431227578057184,
+          "peak_inside_GT": false,
+          "raw_maximum": 0.00010482459765626118,
+          "positive_sum": 0.20197731256484985
+        },
+        "enrichment_change": 0.6790362464057076,
+        "before_HiResCAM": {
+          "positive_mass_inside_GT": 0.5616905689239502,
+          "GT_fraction": 0.0087890625,
+          "enrichment": 63.90790473090278,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.29300522804260254,
+          "positive_sum": 3.336009979248047
+        },
+        "after_HiResCAM": {
+          "positive_mass_inside_GT": 0.6909993886947632,
+          "GT_fraction": 0.0087890625,
+          "enrichment": 78.62037489149306,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.16990144550800323,
+          "positive_sum": 2.22686505317688
+        },
+        "HiResCAM_enrichment_change": 14.712470160590279,
+        "prototype_CAM": {
+          "positive_mass_inside_GT": 0.01468713115900755,
+          "GT_fraction": 0.0087890625,
+          "enrichment": 1.6710691452026367,
+          "peak_inside_GT": true,
+          "raw_maximum": 2.0959845642209984e-05,
+          "positive_sum": 0.03798562288284302
+        },
+        "prototype_HiResCAM": {
+          "positive_mass_inside_GT": 0.6052553653717041,
+          "GT_fraction": 0.0087890625,
+          "enrichment": 68.86461046006944,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.02492607571184635,
+          "positive_sum": 0.44068315625190735
+        },
+        "prototype_classifier_correct": true
+      },
+      {
+        "case_id": "Prototype_correction_05_image24_FDI62",
+        "group": "Prototype",
+        "image_id": 24,
+        "FDI": 62,
+        "kind": "correction",
+        "before_FDI": 63,
+        "after_FDI": 62,
+        "before_CAM": {
+          "positive_mass_inside_GT": 0.01088582631200552,
+          "GT_fraction": 0.00604248046875,
+          "enrichment": 1.8015492757161458,
+          "peak_inside_GT": false,
+          "raw_maximum": 0.00032198571716435254,
+          "positive_sum": 0.39001792669296265
+        },
+        "after_CAM": {
+          "positive_mass_inside_GT": 0.015656694769859314,
+          "GT_fraction": 0.00604248046875,
+          "enrichment": 2.591103910195707,
+          "peak_inside_GT": false,
+          "raw_maximum": 0.00020472260075621307,
+          "positive_sum": 0.10385123640298843
+        },
+        "enrichment_change": 0.7895546344795614,
+        "before_HiResCAM": {
+          "positive_mass_inside_GT": 0.4122685492038727,
+          "GT_fraction": 0.00604248046875,
+          "enrichment": 68.22836272885101,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.23904162645339966,
+          "positive_sum": 3.1537065505981445
+        },
+        "after_HiResCAM": {
+          "positive_mass_inside_GT": 0.40245258808135986,
+          "GT_fraction": 0.00604248046875,
+          "enrichment": 66.60387073863636,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.392461359500885,
+          "positive_sum": 5.3059234619140625
+        },
+        "HiResCAM_enrichment_change": -1.6244919902146506,
+        "prototype_CAM": {
+          "positive_mass_inside_GT": 0.01497621275484562,
+          "GT_fraction": 0.00604248046875,
+          "enrichment": 2.478487573488794,
+          "peak_inside_GT": false,
+          "raw_maximum": 5.367934863897972e-05,
+          "positive_sum": 0.02436550334095955
+        },
+        "prototype_HiResCAM": {
+          "positive_mass_inside_GT": 0.38123825192451477,
+          "GT_fraction": 0.00604248046875,
+          "enrichment": 63.0930052477904,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.10315744578838348,
+          "positive_sum": 1.3495675325393677
+        },
+        "prototype_classifier_correct": true
+      },
+      {
+        "case_id": "Prototype_correction_03_image118_FDI42",
+        "group": "Prototype",
+        "image_id": 118,
+        "FDI": 42,
+        "kind": "correction",
+        "before_FDI": 83,
+        "after_FDI": 42,
+        "before_CAM": {
+          "positive_mass_inside_GT": 0.020184079185128212,
+          "GT_fraction": 0.008056640625,
+          "enrichment": 2.505272374008641,
+          "peak_inside_GT": false,
+          "raw_maximum": 0.00029306759824976325,
+          "positive_sum": 0.3128986954689026
+        },
+        "after_CAM": {
+          "positive_mass_inside_GT": 0.02961767464876175,
+          "GT_fraction": 0.008056640625,
+          "enrichment": 3.676181677616004,
+          "peak_inside_GT": false,
+          "raw_maximum": 0.00013061084609944373,
+          "positive_sum": 0.13285963237285614
+        },
+        "enrichment_change": 1.1709093036073628,
+        "before_HiResCAM": {
+          "positive_mass_inside_GT": 0.4760090708732605,
+          "GT_fraction": 0.008056640625,
+          "enrichment": 59.08282285748106,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.20448507368564606,
+          "positive_sum": 2.856326103210449
+        },
+        "after_HiResCAM": {
+          "positive_mass_inside_GT": 0.46117186546325684,
+          "GT_fraction": 0.008056640625,
+          "enrichment": 57.2412109375,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.13016173243522644,
+          "positive_sum": 1.6591029167175293
+        },
+        "HiResCAM_enrichment_change": -1.8416119199810623,
+        "prototype_CAM": {
+          "positive_mass_inside_GT": 0.030651312321424484,
+          "GT_fraction": 0.008056640625,
+          "enrichment": 3.8044780384410513,
+          "peak_inside_GT": true,
+          "raw_maximum": 3.2473453757120296e-05,
+          "positive_sum": 0.02940058708190918
+        },
+        "prototype_HiResCAM": {
+          "positive_mass_inside_GT": 0.4334416389465332,
+          "GT_fraction": 0.008056640625,
+          "enrichment": 53.799301609848484,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.037869952619075775,
+          "positive_sum": 0.5402425527572632
+        },
+        "prototype_classifier_correct": true
+      }
+    ],
+    "selection_rule": "First require a real FDI correction; then prefer target-localized elementwise-gradient CAMs. Prototype cases additionally prefer correct auxiliary prototype classification. HOOA has only one case with a clear target-localized peak and improved concentration among these candidates, so only that case is recommended. Illustrative selection is disclosed, not a prevalence estimate."
+  }
+}

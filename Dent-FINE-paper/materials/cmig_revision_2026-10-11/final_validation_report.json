@@ -1,0 +1,52 @@
+{
+  "originals_unchanged": {
+    "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_main_final_20261006.docx": true,
+    "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_supplement_final_20261006.docx": true
+  },
+  "manuscripts": {
+    "DENT_STRIDE_CMIG_main_updated_20261011.docx": {
+      "tables": 9,
+      "figure_panels": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12A",
+        "12B",
+        "12C",
+        "13"
+      ],
+      "sha256": "f42594855b6ab7e2fdb0e1f774d6bc7c1f1e265c0ef3fd6e3b32e062b60985f0",
+      "valid_ZIP_package": true,
+      "obsolete_phrases_found": []
+    },
+    "DENT_STRIDE_CMIG_supplement_updated_20261011.docx": {
+      "tables": 9,
+      "figure_panels": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9",
+        "S10",
+        "S11"
+      ],
+      "sha256": "5bea98ff53977dcfca262689700904ef9aa3e06ff7683ad3948d7e072b1d5c4a",
+      "valid_ZIP_package": true,
+      "obsolete_phrases_found": []
+    }
+  },
+  "native_Word_equations_preserved_exactly": 51,
+  "publication_figure_panels_verified": 26
+}

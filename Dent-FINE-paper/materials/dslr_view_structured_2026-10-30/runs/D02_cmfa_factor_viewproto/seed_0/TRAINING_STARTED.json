@@ -1,0 +1,30 @@
+{
+  "job_id": "D02_cmfa_factor_viewproto_seed0",
+  "pid": 123709,
+  "started_unix": 1793363351.144189,
+  "cuda_visible_devices": "1",
+  "seed": 0,
+  "initialization": "independent fresh detector with the same ImageNet-pretrained HGNetv2-B0 backbone; no detector resume/tuning",
+  "runtime": {
+    "settings": {
+      "num_views": 5,
+      "attach_dataset_metadata": true,
+      "guard_mixed_view_augmentations": true
+    },
+    "view_names": [
+      "frontal",
+      "upper_occlusal",
+      "lower_occlusal",
+      "left_buccal",
+      "right_buccal"
+    ],
+    "bank_shape_contract": "[5, num_classes, prototype_count, hidden_dim]",
+    "unknown_view_policy": "skip prototype CE; zero unused prototype logits; no view-0 fallback",
+    "prototype_aggregation": "LogSumExp_K(cosine(normalized_query, normalized_prototype)/tau)",
+    "prototype_supervision_scope": "native final decoder main-query matcher indices only",
+    "factor_supervision_scope": "native factor losses, including available auxiliary and denoising heads",
+    "prototype_inference_fusion": false
+  },
+  "storage": "best.pth only at completion; native best_stg1.pth retained temporarily for required stage rollback",
+  "original_source_edited": false
+}

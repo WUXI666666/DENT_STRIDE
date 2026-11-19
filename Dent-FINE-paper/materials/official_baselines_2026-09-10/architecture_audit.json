@@ -1,0 +1,188 @@
+{
+  "scope": "52-class instantiated parameter schemas and targeted forward-code inspection; not proof of full numerical equivalence of all common components",
+  "upstream_training_params": 10285925,
+  "local_plain_training_params": 10629288,
+  "difference": 343363,
+  "difference_components": {
+    "decoder_QueryFusion": 198912,
+    "encoder_DySample": 16448,
+    "encoder_learned_position_embeddings": 128000,
+    "frozen_graph_gates": 3
+  },
+  "upstream_deploy_params": 10215931,
+  "local_plain_deploy_params": 10559294,
+  "canonicalization": "local decoder mi_heads.0 maps to the corresponding upstream decoder sublayer",
+  "extra_parameters": {
+    "decoder.decoder.layers.0.gnn_gate": {
+      "shape": [],
+      "numel": 1,
+      "trainable": false
+    },
+    "decoder.decoder.layers.0.q_fusion.proj.weight": {
+      "shape": [
+        256,
+        256
+      ],
+      "numel": 65536,
+      "trainable": true
+    },
+    "decoder.decoder.layers.0.q_fusion.proj.bias": {
+      "shape": [
+        256
+      ],
+      "numel": 256,
+      "trainable": true
+    },
+    "decoder.decoder.layers.0.q_fusion.norm.weight": {
+      "shape": [
+        256
+      ],
+      "numel": 256,
+      "trainable": true
+    },
+    "decoder.decoder.layers.0.q_fusion.norm.bias": {
+      "shape": [
+        256
+      ],
+      "numel": 256,
+      "trainable": true
+    },
+    "decoder.decoder.layers.1.gnn_gate": {
+      "shape": [],
+      "numel": 1,
+      "trainable": false
+    },
+    "decoder.decoder.layers.1.q_fusion.proj.weight": {
+      "shape": [
+        256,
+        256
+      ],
+      "numel": 65536,
+      "trainable": true
+    },
+    "decoder.decoder.layers.1.q_fusion.proj.bias": {
+      "shape": [
+        256
+      ],
+      "numel": 256,
+      "trainable": true
+    },
+    "decoder.decoder.layers.1.q_fusion.norm.weight": {
+      "shape": [
+        256
+      ],
+      "numel": 256,
+      "trainable": true
+    },
+    "decoder.decoder.layers.1.q_fusion.norm.bias": {
+      "shape": [
+        256
+      ],
+      "numel": 256,
+      "trainable": true
+    },
+    "decoder.decoder.layers.2.gnn_gate": {
+      "shape": [],
+      "numel": 1,
+      "trainable": false
+    },
+    "decoder.decoder.layers.2.q_fusion.proj.weight": {
+      "shape": [
+        256,
+        256
+      ],
+      "numel": 65536,
+      "trainable": true
+    },
+    "decoder.decoder.layers.2.q_fusion.proj.bias": {
+      "shape": [
+        256
+      ],
+      "numel": 256,
+      "trainable": true
+    },
+    "decoder.decoder.layers.2.q_fusion.norm.weight": {
+      "shape": [
+        256
+      ],
+      "numel": 256,
+      "trainable": true
+    },
+    "decoder.decoder.layers.2.q_fusion.norm.bias": {
+      "shape": [
+        256
+      ],
+      "numel": 256,
+      "trainable": true
+    },
+    "encoder.upsample_ops.0.offset.weight": {
+      "shape": [
+        32,
+        256,
+        1,
+        1
+      ],
+      "numel": 8192,
+      "trainable": true
+    },
+    "encoder.upsample_ops.0.offset.bias": {
+      "shape": [
+        32
+      ],
+      "numel": 32,
+      "trainable": true
+    },
+    "encoder.upsample_ops.1.offset.weight": {
+      "shape": [
+        32,
+        256,
+        1,
+        1
+      ],
+      "numel": 8192,
+      "trainable": true
+    },
+    "encoder.upsample_ops.1.offset.bias": {
+      "shape": [
+        32
+      ],
+      "numel": 32,
+      "trainable": true
+    },
+    "encoder.row_embed.weight": {
+      "shape": [
+        500,
+        128
+      ],
+      "numel": 64000,
+      "trainable": true
+    },
+    "encoder.col_embed.weight": {
+      "shape": [
+        500,
+        128
+      ],
+      "numel": 64000,
+      "trainable": true
+    }
+  },
+  "code_evidence": [
+    {
+      "file": "/home/wuxi/Dent-FINE/engine/deim/dfine_decoder.py",
+      "line": 1492,
+      "finding": "QueryFusion forward is called unconditionally after the inquiry head(s)."
+    },
+    {
+      "file": "/home/wuxi/Dent-FINE/engine/deim/hybrid_encoder.py",
+      "line": 4238,
+      "finding": "FPN top-down upsampling uses DySample."
+    },
+    {
+      "file": "/home/wuxi/Dent-FINE/engine/deim/hybrid_encoder.py",
+      "line": 4212,
+      "finding": "Learned row/column position embeddings are used when initialized; fixed evaluation size initializes them."
+    }
+  ],
+  "conclusion": "The existing local Plain DEIM is a project-internal ablation control, not the pristine official DEIM architecture. Existing paired differences isolate additional recipe changes on that local base, not all changes relative to official DEIM.",
+  "historical_10_2M": "Official 52-class deployed parameters round to 10.2 M, but the source of a historical rounded table value cannot be proved by numerical agreement alone."
+}

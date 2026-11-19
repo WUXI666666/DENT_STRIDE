@@ -1,0 +1,39 @@
+{
+  "names": [
+    "AP",
+    "AP50",
+    "AP75",
+    "AP_small",
+    "AP_medium",
+    "AP_large",
+    "AR1",
+    "AR10",
+    "AR100",
+    "AR_small",
+    "AR_medium",
+    "AR_large"
+  ],
+  "metrics_fraction": {
+    "AP": 0.7286971938371285,
+    "AP50": 0.8866191061852093,
+    "AP75": 0.8322674613485148,
+    "AP_small": -1.0,
+    "AP_medium": 0.5725703559119325,
+    "AP_large": 0.7443211683447835,
+    "AR1": 0.7592505194523352,
+    "AR10": 0.8035330996386325,
+    "AR100": 0.8084365015641813,
+    "AR_small": -1.0,
+    "AR_medium": 0.6113858826358827,
+    "AR_large": 0.8234649886507934
+  },
+  "source": "/home/wuxi/Dent-FINE/outputs/paper_main_input1024_20260913/dslr_cmfa_dualopt/seed_0/best_evaluation/eval.pth",
+  "evaluation_split": {
+    "images": 190,
+    "annotations": 2742,
+    "categories": 52,
+    "ann_file": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json",
+    "ann_sha256": "de3b8dc99b2a0a2679386c75d2e8aeff4871a0eaf448d5cc5abef5e1e725dbcf",
+    "img_folder": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val"
+  }
+}

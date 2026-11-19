@@ -1,0 +1,217 @@
+{
+  "created_unix": 1791549088.855491,
+  "original_manifest_sha256": "3591432ecdfa9f33a08756711faf542621c61f13f7245814c0cf76fa7447c643",
+  "scripts": {
+    "prepare_restart.py": "76b935f8e546fe287714c6604b315e6a4a2e9bf4504d1a8b0129f3006ce2fe01",
+    "launch_restart.py": "a3b2bb286c699f30f5c80350ff886277873406a1c04b762f06a9d71049b46a7b",
+    "queue_worker_restart.py": "bc2e99b448d0a549357aa3a5de6f43b78ebacb0fa1aa9d5cf610baf40a73abe9",
+    "export_native.py": "9a1d2c0651d4305b454c4ce1321f534f37825e42ea9e9b07a4231af8a24ea9de"
+  },
+  "completed_jobs_preserved": [
+    {
+      "job_id": "dslr_cmfa_dualopt_seed0",
+      "checkpoint_sha256": "042a12a2af4a5f121ca520592331c69df7c63c84dceecdc4f4eb5cb1ba267d60",
+      "summary_sha256": "078217822906fbc1c25d03b94888170b965fd6425081918226a097b8eecefb18",
+      "native_metrics_sha256": "282f40facc6a27da0961c6807387acd80eefe67799f1ba90adbed5597ecf9293",
+      "native_provenance_sha256": "064ed4bf3ae02b8f63226b8618046e24acb3c353ac8615153fbc1f79c63984c4"
+    },
+    {
+      "job_id": "dslr_cmfa_dualopt_seed1",
+      "checkpoint_sha256": "d951ae15f4dc06f33a1c9a4ed219a9a777b1574baeca01006567b781de5a9755",
+      "summary_sha256": "ecd364f524aee79a35195c17b3e40e7bf2650be380141ea53e66f97c6cb9a982",
+      "native_metrics_sha256": "b1b0530a0b7ad48fec480133d2d66b90b48a19840dab09fe5128dcbe7546e82b",
+      "native_provenance_sha256": "35416a0c66d90ed8c9b6e3c28778e38fa6c46036f3da1718853fb6731551420f"
+    },
+    {
+      "job_id": "internal_dslr_extra_decay_only_seed0",
+      "checkpoint_sha256": "797e210b59aa51fdab53fbda1c25393765786b824b051cb290520ef7f1f77e43",
+      "summary_sha256": "caf48582e091be741ef2a49c40962322135c6d9a4ef4aa53c2b5707b5bf390ab",
+      "native_metrics_sha256": "8906e5de658196b0606522854cd24dbb580db738935a0eff47decb54b5103de0",
+      "native_provenance_sha256": "024610f7cd0759cd3274371d501b19bd65b6f6f7388c4e2979df25723ca9e5c8"
+    },
+    {
+      "job_id": "internal_mobile_background_arch_only_seed0",
+      "checkpoint_sha256": "414901867104d726871bae5a81f9cf95216598567d47fabc8a4053a742ff0058",
+      "summary_sha256": "ddb0e076fc6d93fb18e9762065cd47edf5045d86742f7efeae9839b0a3ce56f2",
+      "native_metrics_sha256": "55824392c33e4b243fa59a9fa889eb6a4da722d58daf4d2aac2b3c9434d563c0",
+      "native_provenance_sha256": "faaa9ce8d4d61d935d8d96d35a546d6b247965c0a177a2994fd1bba9b8250166"
+    },
+    {
+      "job_id": "internal_mobile_background_nwd_only_seed0",
+      "checkpoint_sha256": "c6dce9b5288892bc977270fbf96d09ccce13377a83c044ea007907f557d44883",
+      "summary_sha256": "550a88a4dcaa3d9f8333197a8a5ef1b39b13440665148c0b59129b226f42a20d",
+      "native_metrics_sha256": "1855dc7f3523ac3f1ecd845afb782a2008066df4beee2b36a41befe9bb12df0f",
+      "native_provenance_sha256": "cbe23580e7bcde9a9bb123ec5a635b8227e76c7062b45dd728fd0ec4e7773bae"
+    },
+    {
+      "job_id": "mobile_1024_full_seed0",
+      "checkpoint_sha256": "44c6c89020afc7c2cb0005f642c423aa29274af870548aff227c584ffb8052ea",
+      "summary_sha256": "5ab1b19d6e93101b787cbe2361092c7a1e6d89ecc356d505bb00d50a1d45ee7d",
+      "native_metrics_sha256": "5d43161b88b6f0a9dbb2bed968f896801f43d58946e0c1b393354105252d5e0f",
+      "native_provenance_sha256": "97409021e3bd1b304da655e2b99a9c776fa8d7dd82d01f069f4d4d5428e3f3c7"
+    },
+    {
+      "job_id": "mobile_1024_full_seed1",
+      "checkpoint_sha256": "eed4ee3defe5a6fa29221a10871e6d7b23f4fc8df35db8ef8f3414bbd7b898f4",
+      "summary_sha256": "867ec33edaddce27ca4c6433f8386368996a494d7c7563b540b3f29d015f02d6",
+      "native_metrics_sha256": "8ba8884e99a6b08f05c269afce975d400e9b18fc7edc54af9bd6f0b6345bc150",
+      "native_provenance_sha256": "be79eef09edf3d2be4e0e80e7f713974ac63dcd2da1a1f025d3eacd48a3a8120"
+    },
+    {
+      "job_id": "mobile_1024_full_seed2",
+      "checkpoint_sha256": "e490d61bdbff036cf17d6b2d5a5d1722b89e92722e549686d07da22029c9d4fb",
+      "summary_sha256": "e8f3fc4f4674bbf92ce77e25de4922ae3caa7de0b9fccb3e6e22400949a46592",
+      "native_metrics_sha256": "8d6645dc850ad13d3750f0ab77a3b64ee0470475ba669b1c6898865ab15b8105",
+      "native_provenance_sha256": "db7f2a9fcef000d1a745de14905d50ea9d4c0bf8050cd716c95d20c391cbb32b"
+    },
+    {
+      "job_id": "pano_historical_spatialshape_seed0",
+      "checkpoint_sha256": "f0f0bd1bde9d52299f7bfc90f6477273018301d44e031e36744227ba722bb707",
+      "summary_sha256": "2646f49920ef5e1f9372b69edbc385bd840a58375bfbbcfcdc9233bcb0a29ec2",
+      "native_metrics_sha256": "06a7b45acda5bd5687f89e493046ff21a2558f5f50b41d2d3d759b3a17e5b620",
+      "native_provenance_sha256": "196bfbbce7966145f9a77ba3428b859463d18f5e8eefbdf8a257cf0f348d94db"
+    },
+    {
+      "job_id": "pano_historical_spatialshape_seed1",
+      "checkpoint_sha256": "2ad847824f03eac49a63482756c07a40ce6a3a99cf6e365082ccfc743d31ce27",
+      "summary_sha256": "174f04350b6154468a0db18d11c19154f90b41b5ae115323d2f5679b437f76c7",
+      "native_metrics_sha256": "738ecc9aead9eddf522ce8d91fe2b2b9e19dd91db35ffda8bea33745e5537362",
+      "native_provenance_sha256": "50ef1566b75864e8981ac85408f4b81154f1279aaefa3c7c9d4a5051a9595793"
+    },
+    {
+      "job_id": "pano_historical_spatialshape_seed2",
+      "checkpoint_sha256": "3f30ebd60512567118bdf5a69cb7249ff8fe56882b35a64a9d866d8590b05bac",
+      "summary_sha256": "f5a6f678011e8be9722a8c8b7801fd6bb5a22e1f345908e59e24898b7ff6057d",
+      "native_metrics_sha256": "3baa1e8c47095f25f21918b0637620a1da4d94413af439604d09ec1612fdd3e3",
+      "native_provenance_sha256": "4c7ba7066384623a867f5d8da62a879efc2a2e5c0fd41c3be85378e7ea627483"
+    }
+  ],
+  "total_original_jobs": 30,
+  "completed_count": 11,
+  "fresh_training_jobs": 19,
+  "restarted_interrupted_jobs": [
+    {
+      "job": "dslr_cmfa_dualopt_seed2",
+      "source_output": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/dslr_cmfa_dualopt/seed_2",
+      "archived_logs": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/power_restart_20261009/interrupted_logs/dslr_cmfa_dualopt_seed2",
+      "completed_epochs_before_power_loss": 127,
+      "training_log_sha256": "14086bf9f9ffb4620f5c5cdcb2e789ad3437f756052f774ae3f072f240f8e980",
+      "deleted_files": [
+        {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/dslr_cmfa_dualopt/seed_2/best.pth",
+          "size_bytes": 180078150,
+          "sha256": "d0e82898093343567d76020578df402553412054f6f91fe11349476d11438b84",
+          "kind": "training_checkpoint"
+        },
+        {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/dslr_cmfa_dualopt/seed_2/best_stg1.pth",
+          "size_bytes": 180068508,
+          "sha256": "2fb98e6e9689dda52bb36ff4460de25d74a91d3dec587cf60761d051588f2dda",
+          "kind": "training_checkpoint"
+        },
+        {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/dslr_cmfa_dualopt/seed_2/eval/000.pth",
+          "size_bytes": 12138256,
+          "sha256": "35a1c4a949a5d328178f6b91a74eff6cb78ca616e1f146c740c0da85096d91ad",
+          "kind": "temporary_evaluation_payload"
+        },
+        {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/dslr_cmfa_dualopt/seed_2/eval/050.pth",
+          "size_bytes": 12635280,
+          "sha256": "a8026d394502d25617775d99a84f2ce02eb612a73909e717d7fdb9812f8e2b0e",
+          "kind": "temporary_evaluation_payload"
+        },
+        {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/dslr_cmfa_dualopt/seed_2/eval/100.pth",
+          "size_bytes": 12674576,
+          "sha256": "3c76a64e3ac2a0c266d95b86589a6ba6fefb501ac8c182cd3bd9b06676d6d045",
+          "kind": "temporary_evaluation_payload"
+        },
+        {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/dslr_cmfa_dualopt/seed_2/eval/latest.pth",
+          "size_bytes": 12660252,
+          "sha256": "c0044bcac1ff92a54bdd8d848c0ce6f32fe618e0b8ffb1735e5b589bc185c307",
+          "kind": "temporary_evaluation_payload"
+        }
+      ],
+      "fresh_restart_seed": 2,
+      "load_interrupted_checkpoint": false
+    },
+    {
+      "job": "internal_mobile_cmfa_no_gates_seed0",
+      "source_output": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_cmfa_no_gates/seed_0",
+      "archived_logs": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/power_restart_20261009/interrupted_logs/internal_mobile_cmfa_no_gates_seed0",
+      "completed_epochs_before_power_loss": 112,
+      "training_log_sha256": "a4efef7acad9cc542718a74127dce262b0224fe3b3527a2f5eade01eaa62f4b6",
+      "deleted_files": [
+        {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_cmfa_no_gates/seed_0/best.pth",
+          "size_bytes": 198358082,
+          "sha256": "dd6420a6e1fe7b63062e8173d110b07dc7b75ba38ec8d54b1b6d2b4962f3ae72",
+          "kind": "training_checkpoint"
+        },
+        {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_cmfa_no_gates/seed_0/eval/000.pth",
+          "size_bytes": 11530448,
+          "sha256": "6add464014da8629be23fcafa6e5054c440c64bc43ddb702fe920aad80b1bceb",
+          "kind": "temporary_evaluation_payload"
+        },
+        {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_cmfa_no_gates/seed_0/eval/050.pth",
+          "size_bytes": 12344592,
+          "sha256": "1748d8b02f7665ef179d7140afe95d7fe89f1b51d652e2271ca641e0c6744022",
+          "kind": "temporary_evaluation_payload"
+        },
+        {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_cmfa_no_gates/seed_0/eval/100.pth",
+          "size_bytes": 12357456,
+          "sha256": "56282d81940d382f21fa8f5597c80bba3acd90db12b53ab3d18d987be37eecc1",
+          "kind": "temporary_evaluation_payload"
+        },
+        {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_cmfa_no_gates/seed_0/eval/latest.pth",
+          "size_bytes": 12370012,
+          "sha256": "6f907741a1fb0802fd5b73e883c05f2ca8661f832bbec15873cb48723b1cdb23",
+          "kind": "temporary_evaluation_payload"
+        }
+      ],
+      "fresh_restart_seed": 0,
+      "load_interrupted_checkpoint": false
+    }
+  ],
+  "gpu_assignments": {
+    "0": [
+      "dslr_cmfa_dualopt_seed2",
+      "internal_mobile_background_neither_seed0",
+      "internal_mobile_cmfa_channel_only_seed0",
+      "internal_mobile_proto_k1_tau0p2_seed0",
+      "internal_mobile_proto_k4_tau0p1_seed0",
+      "internal_mobile_proto_off_seed0",
+      "internal_mobile_factor_no_quadrant_seed0",
+      "internal_mobile_hooa_neither_seed0",
+      "internal_mobile_proto_k2_tau0p2_seed0",
+      "internal_dslr_cmfa_adamw_seed0"
+    ],
+    "1": [
+      "internal_mobile_cmfa_no_gates_seed0",
+      "internal_mobile_factor_train_off_seed0",
+      "internal_mobile_hooa_no_highpass_seed0",
+      "internal_mobile_factor_no_dentition_seed0",
+      "internal_mobile_factor_no_position_seed0",
+      "internal_mobile_cmfa_spatial_only_seed0",
+      "internal_mobile_hooa_no_second_order_seed0",
+      "internal_mobile_proto_k4_tau0p5_seed0",
+      "internal_dslr_rollback_only_seed0"
+    ]
+  },
+  "estimated_gpu_hours": {
+    "0": 39.38812851190568,
+    "1": 37.45677541679807
+  },
+  "estimated_two_gpu_wall_hours": 39.38812851190568,
+  "changes": "Physical GPU scheduling only. Two power-interrupted attempts discarded; no resume; all remaining training starts from frozen pretrained initialization, original seed/config and 160 epochs. Completed checkpoints untouched.",
+  "weight_deletion_authorized_by_user": true,
+  "interrupted_weight_backups_created": false,
+  "prediction_export": "Observe exact native EMA evaluation using the independently versioned sidecar; retain original strict metric checks.",
+  "assistant_monitoring": "Startup check only; no recurring assistant monitoring"
+}

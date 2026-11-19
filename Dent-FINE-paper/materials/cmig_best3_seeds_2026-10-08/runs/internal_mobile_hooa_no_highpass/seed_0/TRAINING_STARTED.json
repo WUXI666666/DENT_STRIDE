@@ -1,0 +1,15 @@
+{
+  "job": "internal_mobile_hooa_no_highpass_seed0",
+  "pid": 1709489,
+  "started_unix": 1791583543.0826342,
+  "seed": 0,
+  "cuda_visible_devices": "1",
+  "PYTHONHASHSEED": "0",
+  "controls": {
+    "hooa_highpass": false
+  },
+  "native_cwd": "/home/wuxi/Dent-FINE",
+  "native_entrypoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/train.py",
+  "initialization": "Fresh pretrained backbone; no resume or tuning",
+  "checkpoint_policy": "Native selection and stage-1 rollback preserved; final best only"
+}

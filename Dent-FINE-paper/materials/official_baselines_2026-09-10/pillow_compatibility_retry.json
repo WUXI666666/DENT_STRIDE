@@ -1,0 +1,8 @@
+{
+  "reason": "Pillow crop pixel guard; not a model/metric-based retry",
+  "archive": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/failed_attempts/rtdetrv2_s_phone_seed0_pillow_guard",
+  "failed_checkpoint_sha256": "0cedb95d7edf5a1817a9ed561da9ae32efa0214c501c388d0d859dfb4d7d8583",
+  "restart": "fresh seed 0, same frozen configuration, all 160 epochs",
+  "time": "2026-09-10T23:47:17.316095+08:00",
+  "new_queue_pid": 754800
+}

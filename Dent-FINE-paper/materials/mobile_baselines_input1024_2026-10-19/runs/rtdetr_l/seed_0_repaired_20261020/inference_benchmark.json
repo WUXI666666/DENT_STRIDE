@@ -1,0 +1,27 @@
+{
+  "family": "rtdetr_l",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "torch": "2.5.1+cu124",
+  "cuda": "12.4",
+  "cudnn": 90100,
+  "precision": "FP32",
+  "batch": 1,
+  "shape": [
+    1,
+    3,
+    1024,
+    1024
+  ],
+  "warmup": 30,
+  "repetitions": 100,
+  "timing_scope": "CUDA-event native forward only; resident representative-image input; no data loading/external postprocessing",
+  "image_path": "/home/wuxi/coco/valid/JPEGImages/73.jpg",
+  "image_id": 0,
+  "mean_ms": 10.73891227722168,
+  "SD_ms": 0.045237870309595266,
+  "P50_ms": 10.750432014465332,
+  "P95_ms": 10.797212982177735,
+  "images_per_second": 93.11930055719901,
+  "peak_inference_allocated_bytes": 366118912,
+  "at": "2026-10-20T17:43:22.803590+08:00"
+}

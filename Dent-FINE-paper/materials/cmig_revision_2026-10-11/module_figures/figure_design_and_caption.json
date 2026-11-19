@@ -1,0 +1,26 @@
+{
+  "font": "Times New Roman (licensed local font files; embedded in PDFs)",
+  "raster_dpi": 600,
+  "source_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/deim/hybrid_encoder.py",
+  "CMFA_source_lines": "3585\u20133621",
+  "HOOA_source_lines": "1232\u20131289",
+  "references": [
+    {
+      "title": "Efficient multi-stage feedback attention for diverse lesion in cancer image segmentation",
+      "doi": "https://doi.org/10.1016/j.compmedimag.2024.102417",
+      "figure": "Fig. 3",
+      "traits": "Parallel operator pathways, tensor glyphs, multiplication/addition nodes, short convolution labels"
+    },
+    {
+      "title": "CRAD: Cognitive Aware Feature Refinement with Missing Modalities for Early Alzheimer\u2019s Progression Prediction",
+      "doi": "https://doi.org/10.1016/j.compmedimag.2025.102664",
+      "author_pdf": "https://oars.uos.ac.uk/5227/1/CRAD_published_paper.pdf",
+      "figure": "Fig. 1",
+      "traits": "Aligned branches, compact tensor stacks, pale fills, module-level grouping and serif typography"
+    }
+  ],
+  "captions": {
+    "Figure 4": "Cross-scale mutual feature attention (CMFA). Spatially aligned inputs A and B have equal projected width C = 256. (A) Their concatenation supplies a global-average-pooling and two-layer pointwise channel gate, which is split into g_A and g_B. (B) The gated inputs are exchanged through A + B \u2299 g_B and B + A \u2299 g_A, then concatenated. (C) Channel mean and maximum statistics of the concatenated feature produce a 7 \u00d7 7 sigmoid spatial gate. The output retains 2C = 512 channels. Cat denotes channel concatenation; circular multiplication and addition nodes operate elementwise.",
+    "Figure 5": "High-order omni-attention (HOOA). (A) Local and dilated-context branches generate L and C; the high-pass input X \u2212 AvgPool_3(X) supplies an edge branch E. The second-order response L \u2299 sigmoid(C) is concatenated with L and E and projected to F. (B) Channel and spatial gates are both computed from F before gating. Their product modulates F, and the update is added to X with bounded scale \u03b1 = 0.30 sigmoid(s). DW and PW denote depthwise and pointwise convolutions. Local and edge convolutions include batch normalization and SiLU; the context branch uses SiLU after its depthwise convolution and batch normalization after its final pointwise convolution. Spatial statistics are channel-wise mean and maximum. Tensor glyphs illustrate feature shape, not measured response maps."
+  }
+}

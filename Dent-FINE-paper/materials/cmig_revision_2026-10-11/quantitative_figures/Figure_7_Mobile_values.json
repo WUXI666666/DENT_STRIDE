@@ -1,0 +1,80 @@
+[
+  {
+    "model": "DENT-STRIDE-Mobile",
+    "AP": 55.2193919184133,
+    "SD": 0.32721754450321916,
+    "n": 3,
+    "per_seed_AP": [
+      54.90991824784207,
+      55.56185423638066,
+      55.186403271017184
+    ],
+    "source": "Current native Mobile checkpoints, seeds 0/1/2"
+  },
+  {
+    "model": "RT-DETR-L",
+    "AP": 54.751,
+    "SD": null,
+    "n": 1,
+    "source": "Main manuscript Table 5, unchanged framework comparator"
+  },
+  {
+    "model": "Official DEIM-s",
+    "AP": 53.55255300620388,
+    "SD": 0.09891199469230468,
+    "n": 3,
+    "per_seed_AP": [
+      53.60522664220822,
+      53.4384511681392,
+      53.613981208264214
+    ],
+    "source": "Official implementation best-validation checkpoints, seeds 0/1/2"
+  },
+  {
+    "model": "Dome-DETR-S",
+    "AP": 51.828,
+    "SD": null,
+    "n": 1,
+    "source": "Main manuscript Table 5, unchanged framework comparator"
+  },
+  {
+    "model": "RT-DETRv2-S",
+    "AP": 50.56195341005503,
+    "SD": 0.48609614491655795,
+    "n": 3,
+    "per_seed_AP": [
+      50.98576137533976,
+      50.031333929635025,
+      50.668764925190324
+    ],
+    "source": "Official implementation best-validation checkpoints, seeds 0/1/2"
+  },
+  {
+    "model": "YOLO11-s",
+    "AP": 47.064,
+    "SD": null,
+    "n": 1,
+    "source": "Main manuscript Table 5, unchanged framework comparator"
+  },
+  {
+    "model": "YOLOv8-s",
+    "AP": 46.937,
+    "SD": null,
+    "n": 1,
+    "source": "Main manuscript Table 5, unchanged framework comparator"
+  },
+  {
+    "model": "CAF-YOLO-s",
+    "AP": 43.771,
+    "SD": null,
+    "n": 1,
+    "source": "Main manuscript Table 5, unchanged framework comparator"
+  },
+  {
+    "model": "Faster R-CNN R50-FPN",
+    "AP": 41.182,
+    "SD": null,
+    "n": 1,
+    "source": "Main manuscript Table 5, unchanged framework comparator"
+  }
+]

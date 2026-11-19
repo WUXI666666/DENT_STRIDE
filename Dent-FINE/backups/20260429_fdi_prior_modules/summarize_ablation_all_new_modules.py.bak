@@ -1,0 +1,210 @@
+#!/home/wuxi/miniconda3/envs/deimv2/bin/python
+import argparse
+import csv
+import json
+from pathlib import Path
+
+
+EXPERIMENTS = [
+    ("abl00_baseline", "Baseline", "No extra module or method"),
+    ("abl01_hfsa", "HFSA", "Enable HybridEncoder.use_hfsa"),
+    ("abl02_wav", "Wav", "Enable HybridEncoder.use_wav_enhance"),
+    ("abl03_stat_noise", "StatNoise", "Enable HybridEncoder.use_stat_denoise"),
+    ("abl04_mpf", "MPF", "Enable HybridEncoder.use_multipath_fusion"),
+    ("abl05_dynamic_rf", "DynamicRF", "Enable HybridEncoder.use_dynamic_rf"),
+    ("abl06_mpc", "MPC", "Enable HybridEncoder.use_mpc_multiscale_perception"),
+    ("abl07_pqg_hf", "PQG-HF", "Enable HybridEncoder.use_pqg_high_frequency"),
+    ("abl08_cmfa", "CMFA", "Enable HybridEncoder.use_cmfa_fusion"),
+    ("abl09_uni_gate", "UniGate", "Enable DFINETransformer.use_uni_gate + infer"),
+    ("abl10_qgp", "QGP", "Enable DFINETransformer.use_qgp with qgp_layers=[1,2]"),
+    ("abl11_pgr", "PGR", "Enable DFINETransformer.use_pgr_roi_reasoning"),
+    ("abl12_cmfa_mpf", "CMFA+MPF", "Enable HybridEncoder.use_cmfa_fusion + use_multipath_fusion"),
+    ("abl13_cmfa_pgr", "CMFA+PGR", "Enable HybridEncoder.use_cmfa_fusion + DFINETransformer.use_pgr_roi_reasoning"),
+    ("abl14_mpf_pgr", "MPF+PGR", "Enable HybridEncoder.use_multipath_fusion + DFINETransformer.use_pgr_roi_reasoning"),
+    ("abl15_cmfa_mpf_pgr", "CMFA+MPF+PGR", "Enable HybridEncoder.use_cmfa_fusion + use_multipath_fusion + DFINETransformer.use_pgr_roi_reasoning"),
+    ("abl16_stat_noise_dynamic_rf", "StatNoise+DynamicRF", "Enable HybridEncoder.use_stat_denoise + use_dynamic_rf"),
+    ("abl17_stat_noise_mpc", "StatNoise+MPC", "Enable HybridEncoder.use_stat_denoise + use_mpc_multiscale_perception"),
+    ("abl18_pfesa", "PFESA", "Enable HybridEncoder.use_pfesa"),
+    ("abl19_ucan_lkd", "UCAN-LKD", "Enable HybridEncoder.use_ucan_lkd"),
+    ("abl20_ucm_uncertainty", "UCM-Uncertainty", "Enable HybridEncoder.use_ucm_uncertainty"),
+    ("abl21_retinex_prior", "RetinexPrior", "Enable HybridEncoder.use_retinex_prior"),
+    ("abl22_cmfa_pfesa", "CMFA+PFESA", "Enable HybridEncoder.use_cmfa_fusion + use_pfesa"),
+    ("abl23_mpf_pfesa", "MPF+PFESA", "Enable HybridEncoder.use_multipath_fusion + use_pfesa"),
+    ("abl24_cmfa_ucan_lkd", "CMFA+UCAN-LKD", "Enable HybridEncoder.use_cmfa_fusion + use_ucan_lkd"),
+    ("abl25_pfesa_ucm_uncertainty", "PFESA+UCM-Uncertainty", "Enable HybridEncoder.use_pfesa + use_ucm_uncertainty"),
+    ("abl26_cmfa_pfesa_ucan_lkd", "CMFA+PFESA+UCAN-LKD", "Enable HybridEncoder.use_cmfa_fusion + use_pfesa + use_ucan_lkd"),
+    ("abl27_cmfa_pfesa_ucm_uncertainty", "CMFA+PFESA+UCM-Uncertainty", "Enable HybridEncoder.use_cmfa_fusion + use_pfesa + use_ucm_uncertainty"),
+    ("abl28_fdi_factor_prior", "FDI-FactorPrior", "Enable trainable quadrant/tooth-position/dentition factor heads"),
+    ("abl29_cmfa_ucm_uncertainty", "CMFA+UCM-Uncertainty", "Enable HybridEncoder.use_cmfa_fusion + use_ucm_uncertainty"),
+    ("abl30_cmfa_ucm_fdi_factor", "CMFA+UCM+FDI-FactorPrior", "Enable CMFA + UCM-Uncertainty + trainable FDI factor prior"),
+    ("abl31_hooa_attention", "HOOA", "Enable HybridEncoder.use_hooa_attention"),
+    ("abl32_multinex_prior", "MultiNeX-Prior", "Enable HybridEncoder.use_multinex_prior"),
+    ("abl33_spegc_prompt_graph", "SPEGC-PromptGraph", "Enable DFINETransformer.use_spegc_prompt_graph"),
+    ("abl34_cmfa_hooa", "CMFA+HOOA", "Enable CMFA fusion + HOOA"),
+    ("abl35_ucm_hooa", "UCM+HOOA", "Enable UCM uncertainty + HOOA"),
+    ("abl36_cmfa_ucm_spegc", "CMFA+UCM+SPEGC", "Enable CMFA + UCM uncertainty + SPEGC prompt graph"),
+    ("abl37_hooa_multinex", "HOOA+MultiNeX", "Enable HOOA + MultiNeX prior"),
+    ("abl38_cmfa_ucm_hooa_spegc", "CMFA+UCM+HOOA+SPEGC", "Enable current best encoder pair plus HOOA and SPEGC prompt graph"),
+]
+
+
+def fmt_float(value):
+    if value is None:
+        return "-"
+    return f"{value:.4f}"
+
+
+def fmt_delta(value):
+    if value is None:
+        return "-"
+    return f"{value:+.4f}"
+
+
+def fmt_params(value):
+    if value is None:
+        return "-"
+    return f"{value / 1_000_000:.2f}M"
+
+
+def find_best_record(log_path: Path):
+    best = None
+    if not log_path.exists():
+        return None
+
+    with log_path.open("r", encoding="utf-8") as f:
+        for raw_line in f:
+            line = raw_line.strip()
+            if not line.startswith("{"):
+                continue
+            try:
+                obj = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+
+            metrics = obj.get("test_coco_eval_bbox")
+            if not metrics:
+                continue
+
+            record = {
+                "epoch": obj.get("epoch"),
+                "ap": float(metrics[0]),
+                "ap50": float(metrics[1]),
+                "ap75": float(metrics[2]),
+                "params": int(obj.get("n_parameters") or 0),
+            }
+            if best is None or record["ap"] > best["ap"]:
+                best = record
+    return best
+
+
+def build_rows(base_output_dir: Path):
+    rows = []
+    baseline_ap = None
+
+    for exp_name, label, note in EXPERIMENTS:
+        exp_dir = base_output_dir / exp_name
+        log_path = exp_dir / "log.txt"
+        best = find_best_record(log_path)
+
+        row = {
+            "experiment": exp_name,
+            "label": label,
+            "note": note,
+            "status": "done" if best else "pending",
+            "output_dir": str(exp_dir),
+            "log_path": str(log_path),
+            "best_weight": str(exp_dir / "best_stg1.pth"),
+            "best_epoch": best["epoch"] if best else None,
+            "ap": best["ap"] if best else None,
+            "ap50": best["ap50"] if best else None,
+            "ap75": best["ap75"] if best else None,
+            "params": best["params"] if best else None,
+        }
+        if exp_name == "abl00_baseline" and best:
+            baseline_ap = best["ap"]
+        rows.append(row)
+
+    if baseline_ap is not None:
+        for row in rows:
+            row["delta_ap"] = None if row["ap"] is None else row["ap"] - baseline_ap
+    else:
+        for row in rows:
+            row["delta_ap"] = None
+
+    return rows
+
+
+def write_json(rows, output_path: Path):
+    output_path.write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def write_csv(rows, output_path: Path):
+    fieldnames = [
+        "experiment",
+        "label",
+        "status",
+        "best_epoch",
+        "ap",
+        "ap50",
+        "ap75",
+        "delta_ap",
+        "params",
+        "note",
+        "output_dir",
+        "log_path",
+        "best_weight",
+    ]
+    with output_path.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in rows:
+            writer.writerow(row)
+
+
+def write_markdown(rows, output_path: Path):
+    lines = []
+    lines.append("| Experiment | Module/Method | Status | Best AP | AP50 | AP75 | Delta | Best Epoch | Params |")
+    lines.append("|---|---|---:|---:|---:|---:|---:|---:|---:|")
+    for row in rows:
+        lines.append(
+            "| {experiment} | {label} | {status} | {ap} | {ap50} | {ap75} | {delta} | {epoch} | {params} |".format(
+                experiment=row["experiment"],
+                label=row["label"],
+                status=row["status"],
+                ap=fmt_float(row["ap"]),
+                ap50=fmt_float(row["ap50"]),
+                ap75=fmt_float(row["ap75"]),
+                delta=fmt_delta(row["delta_ap"]),
+                epoch=row["best_epoch"] if row["best_epoch"] is not None else "-",
+                params=fmt_params(row["params"]),
+            )
+        )
+    lines.append("")
+    lines.append("Notes:")
+    for row in rows:
+        lines.append(f"- `{row['experiment']}`: {row['note']}")
+    output_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--base-output-dir",
+        default="/home/wuxi/Dent-FINE/outputs/ablation_all_new_modules",
+    )
+    args = parser.parse_args()
+
+    base_output_dir = Path(args.base_output_dir)
+    base_output_dir.mkdir(parents=True, exist_ok=True)
+
+    rows = build_rows(base_output_dir)
+    write_json(rows, base_output_dir / "ablation_summary.json")
+    write_csv(rows, base_output_dir / "ablation_summary.csv")
+    write_markdown(rows, base_output_dir / "ablation_summary.md")
+
+    done = sum(1 for row in rows if row["status"] == "done")
+    print(f"Wrote summary for {done}/{len(rows)} experiments to {base_output_dir}")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,4797 @@
+{
+  "path": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_main_visual.docx",
+  "paragraphs": [
+    {
+      "index": 0,
+      "body_block": 0,
+      "style": "Title",
+      "text": "DENT-STRIDE: Domain-Configured Structured FDI Tooth Detection Across Panoramic Radiographs and Intraoral Photographs",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 1,
+      "body_block": 1,
+      "style": "Normal",
+      "text": "Jiehui Sun*, Xi Wu*, Ruixin Tang, Pei Wu, Shiquan Min, Jiangping Zhu#, Ruijie Huang#",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 2,
+      "body_block": 2,
+      "style": "Caption",
+      "text": "Author affiliations and correspondence are provided in the accompanying title page.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 3,
+      "body_block": 3,
+      "style": "Heading 1",
+      "text": "Abstract",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 4,
+      "body_block": 4,
+      "style": "Normal",
+      "text": "Automatic tooth detection and Fédération Dentaire Internationale (FDI) numbering must accommodate heterogeneous acquisition domains without confusing tooth-level accuracy with chart-level consistency. We present DENT-STRIDE, a configurable DEIM–D-FINE framework that separates factorized identity supervision and prototype auxiliary learning from training-derived anatomical priors and cross-scale feature aggregation. Panoramic radiographs, smartphone photographs, and five-view digital single-lens reflex (DSLR) photographs were studied using FDI-labelled bounding-box average precision (AP). The selected Pano, Mobile, and DSLR recipes achieved validation AP values of 54.385, 55.701, and 73.115, compared with 52.746, 53.369, and 72.560 for local reference recipes. These are single-run, recipe-level comparisons; Mobile uses a larger input resolution. A fixed-checkpoint panoramic replay increased AP from 53.783 to 54.385 when the combined center and shape prior was enabled. A separate 16-configuration feature-module study did not support monotonic gains from adding modules. Direct photographic cross-device transfer remained weak: Mobile-to-DSLR and DSLR-to-Mobile AP were 28.533 and 8.885. On smartphone images, matched-tooth FDI accuracy was 92.03%, but 35.45% of images contained repeated raw predicted labels. Identified image-content overlap in the panoramic and smartphone development splits further limits generalization claims. DENT-STRIDE therefore provides a domain-configured framework and an explicit analysis of the distinction between identity learning, geometric correction, and numbering consistency, rather than evidence of a universally optimal architecture or clinically autonomous charting.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 5,
+      "body_block": 5,
+      "style": "Caption",
+      "text": "Keywords: tooth detection; FDI numbering; structured prediction; panoramic radiography; intraoral photography; transformer detector; domain shift",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 6,
+      "body_block": 6,
+      "style": "Heading 1",
+      "text": "1. Introduction",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 7,
+      "body_block": 7,
+      "style": "Normal",
+      "text": "Accurate tooth identification supports diagnosis, treatment planning, and structured dental records. The FDI two-digit notation encodes dentition, quadrant, and tooth position (International Organization for Standardization, 2016). Ambiguous numbering can contribute to tooth-position errors, particularly when teeth are missing (Cullingham et al., 2017; Jacob et al., 2021; Pemberton, 2019). Automated localization and labelling offer reproducible charting inputs, although detector accuracy alone does not establish clinical benefit.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 8,
+      "body_block": 8,
+      "style": "Normal",
+      "text": "Panoramic radiographs provide a comparatively standardized global view, whereas intraoral photographs vary in framing, viewpoint, occlusion, illumination, and reflection. Smartphone acquisition supports remote review but introduces substantial image variability (Alavi et al., 2025; Moharrami et al., 2024). Standardized five-view DSLR photography reduces some variability without eliminating missing teeth, mixed dentition, or similar neighbouring teeth. Fig. 1 illustrates these acquisition conditions and representative numbering errors.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 9,
+      "body_block": 9,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId16",
+          "target": "media/image6.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 10,
+      "body_block": 10,
+      "style": "Caption",
+      "text": "Fig. 1. Acquisition conditions and representative detection/numbering errors. The examples include primary dentition, visible tooth gaps, reflection, occlusion, oblique views, missed or incorrect FDI labels, duplicates, and favourable/adverse prior corrections. These are illustrative cases from historical model outputs, not frequency estimates or a qualitative evaluation of the final selected checkpoints. The legend distinguishes ground truth, detector output, and prior-off output. Visible spaces alone do not confirm clinically missing teeth.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 11,
+      "body_block": 11,
+      "style": "Normal",
+      "text": "Localization, identity, and chart consistency are distinct endpoints. FDI-aware average precision requires both a correct box and a correct label, but does not ensure globally unique numbering. Similarly, a geometric prior may improve class ranking without improving learned appearance representations. We therefore separate identity supervision, geometric correction, and output consistency.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 12,
+      "body_block": 12,
+      "style": "Normal",
+      "text": "DENT-STRIDE configures a common DEIM–D-FINE detector for each acquisition cohort. Factorized heads and a prototype bank provide structured identity supervision; SpatialShape supplies class-specific center and box-shape priors; cross-scale mutual feature aggregation (CMFA) changes feature fusion; and DualOptAdamW changes training optimization. Configuration occurs during development rather than through automatic test-time adaptation.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 13,
+      "body_block": 13,
+      "style": "Normal",
+      "text": "The contributions are threefold: a query-level identity mechanism that separates factor-score fusion from prototype-only supervision; a distinct training-derived anatomical scoring model; and a multi-cohort evaluation combining detector comparisons, module combinations, controlled prior replay, resolution sensitivity, cross-device transfer, and numbering-consistency analysis. Together, these experiments examine acquisition-specific benefits and the limits of combining additional components.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 14,
+      "body_block": 14,
+      "style": "Heading 1",
+      "text": "2. Related work",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 15,
+      "body_block": 15,
+      "style": "Heading 2",
+      "text": "2.1. Tooth localization and FDI numbering",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 16,
+      "body_block": 16,
+      "style": "Normal",
+      "text": "Tooth detection and numbering have been studied in panoramic radiographs (Tuzoff et al., 2019; Muramatsu et al., 2021; Yüksel et al., 2021), bitewings (Yaren Tekin et al., 2022), digital impressions (van Nistelrooij et al., 2025), and CBCT (Zhou et al., 2025). DENTEX combines enumeration and abnormal-tooth detection (Hamamci et al., 2023), while Yoon et al. (2024) studied tooth-number and caries detection in photographs. These settings differ in field of view, dentition coverage, and annotation conventions.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 17,
+      "body_block": 17,
+      "style": "Heading 2",
+      "text": "2.2. Structured identity and anatomical priors",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 18,
+      "body_block": 18,
+      "style": "Normal",
+      "text": "Label-tree cascades decompose tooth identity (Zhang et al., 2018), and prior-knowledge optimization can refine panoramic tooth/prosthesis detection (Ali et al., 2023). DENT-STRIDE distinguishes supervised FDI factors and class-conditional query prototypes from fixed box-geometry templates within a set-prediction detector. The former shape learned identity representations; the latter adjust class scores. Neither mechanism alone imposes a globally consistent dental chart.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 19,
+      "body_block": 19,
+      "style": "Heading 2",
+      "text": "2.3. Query detectors and multiscale representation",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 20,
+      "body_block": 20,
+      "style": "Normal",
+      "text": "D-FINE refines box-regression distributions (Peng et al., 2025), and DEIM improves transformer matching and convergence (Huang et al., 2025). RT-DETR (Zhao et al., 2023), RT-DETRv2 (Lv et al., 2024), Faster R-CNN (Ren et al., 2015), Ultralytics YOLO (Jocher et al., 2023), CAF-YOLO (Chen and Lu, 2025), and Dome-DETR (Hu et al., 2025) provide complementary detector references. Their native training and output processing differ; cross-framework comparisons therefore evaluate complete systems rather than an isolated architectural replacement.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 21,
+      "body_block": 21,
+      "style": "Heading 1",
+      "text": "3. Methods",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 22,
+      "body_block": 22,
+      "style": "Heading 2",
+      "text": "3.1. Common detector and domain configurations",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 23,
+      "body_block": 23,
+      "style": "Normal",
+      "text": "The common scaffold comprises an HGNetv2-B0 backbone, three 256-channel projected feature levels, a hybrid encoder, and a three-layer D-FINE decoder with 300 ordinary queries. DEIM supplies matching and detection losses (Huang et al., 2025; Peng et al., 2025). Fig. 2 shows the component family. Pano uses factor/prototype auxiliary supervision and SpatialShape; Mobile uses CMFA, HOOA, factor-score fusion, and prototype supervision; DSLR uses CMFA with DualOptAdamW. Optional comparison refiners are detailed in Supplementary Section S1.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 24,
+      "body_block": 24,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId11",
+          "target": "media/image1.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 25,
+      "body_block": 25,
+      "style": "Caption",
+      "text": "Fig. 2. DENT-STRIDE component family. Optional branches need not be active together. Mobile uses factor-score fusion; Pano uses SpatialShape; prototypes supply training supervision only. The lower panel shows the base detection losses, with configuration-dependent auxiliary terms defined in Section 3.5. The three selected recipes are specified in Table 2.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 26,
+      "body_block": 26,
+      "style": "Heading 2",
+      "text": "3.2. Structured identity learning",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 27,
+      "body_block": 27,
+      "style": "Heading 3",
+      "text": "3.2.1. Factorized FDI supervision and score fusion",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 28,
+      "body_block": 28,
+      "style": "Normal",
+      "text": "Factor-score fusion. Let  denote the FDI logit of query  for class , before factor fusion, and let  be the logits of factor head  (quadrant, within-quadrant position, and dentition). The three heads have 8, 8, and 2 outputs, respectively. The dataset label map converts class  to its clinical FDI code  and hence to zero-based factor indices , , and  for primary teeth or  for permanent teeth. With , the mapped factor scores are first combined:",
+      "images": [],
+      "equations": 12,
+      "equation_linear_text": [
+        "zik",
+        "i",
+        "k",
+        "ai(h)",
+        "h∈{q,p,d}",
+        "k",
+        "fk",
+        "q(k)=⌊fk/10⌋-1",
+        "p(k)=(fk mod 10)-1",
+        "d(k)=0",
+        "1",
+        "li(h)=logsoftmax(ai(h))"
+      ]
+    },
+    {
+      "index": 29,
+      "body_block": 29,
+      "style": "Normal",
+      "text": "\t\t(1)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "uik=αqli,q(k)(q)+αpli,p(k)(p)+αdli,d(k)(d)."
+      ]
+    },
+    {
+      "index": 30,
+      "body_block": 30,
+      "style": "Normal",
+      "text": "The combined score is then centered over the  FDI classes and clipped once:",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "K"
+      ]
+    },
+    {
+      "index": 31,
+      "body_block": 31,
+      "style": "Normal",
+      "text": "\t\t(2)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "zik=zik+clip​(uik-max1≤j≤Kuij,-6,0)."
+      ]
+    },
+    {
+      "index": 32,
+      "body_block": 32,
+      "style": "Normal",
+      "text": "For DENT-STRIDE-Mobile, . Thus, weighting precedes centering and clipping; the three factor branches are not clipped separately. The correction is applied to ordinary detection queries at each evaluated decoder layer during training and inference, excluding denoising queries during training. The native D-FINE localization-quality adjustment follows this operation. DENT-STRIDE-Pano uses the factor heads for auxiliary supervision without this inference correction. Factor targets are supervised by mean cross-entropy over matched queries, with quadrant/position/dentition weights  for Mobile and  for Pano. The same head-specific weights apply to intermediate-decoder and denoising outputs when those factor logits are present.",
+      "images": [],
+      "equations": 3,
+      "equation_linear_text": [
+        "(αq,αp,αd)=(0.10,0.05,0.03)",
+        "(0.08,0.08,0.03)",
+        "(0.10,0.10,0.05)"
+      ]
+    },
+    {
+      "index": 33,
+      "body_block": 33,
+      "style": "Normal",
+      "text": "Quadrant outputs cover permanent and primary quadrants, so dentition is an additional supervised decomposition rather than an independent clinical variable. All factors are decoded through the clinical label map.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 34,
+      "body_block": 34,
+      "style": "Heading 3",
+      "text": "3.2.2. Prototype auxiliary supervision",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 35,
+      "body_block": 35,
+      "style": "Normal",
+      "text": "Prototype auxiliary supervision. Let  be the final-decoder representation of an ordinary query and let  be learnable prototype  for FDI class . Each prototype coordinate is initialized independently from a zero-mean Gaussian with standard deviation . Queries and prototypes are normalized along the feature dimension:",
+      "images": [],
+      "equations": 5,
+      "equation_linear_text": [
+        "hi∈R256",
+        "Pkr∈R256",
+        "r∈{1,2,3,4}",
+        "k",
+        "0.02"
+      ]
+    },
+    {
+      "index": 36,
+      "body_block": 36,
+      "style": "Normal",
+      "text": "\t\t(3)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "hi=himax(∥hi∥2,ε),  Pkr=Pkrmax(∥Pkr∥2,ε),  ε=10-12."
+      ]
+    },
+    {
+      "index": 37,
+      "body_block": 37,
+      "style": "Normal",
+      "text": "Cosine similarities are divided by temperature  and aggregated across the four prototypes using LogSumExp:",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "τ=0.20"
+      ]
+    },
+    {
+      "index": 38,
+      "body_block": 38,
+      "style": "Normal",
+      "text": "\t\t(4)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "tikr=hiTPkr,  rik=log​(r=14exp(tikr/τ))."
+      ]
+    },
+    {
+      "index": 39,
+      "body_block": 39,
+      "style": "Normal",
+      "text": "For the final-output one-to-one matching set  containing  matched queries, with matched target class , the weighted prototype loss is",
+      "images": [],
+      "equations": 3,
+      "equation_linear_text": [
+        "M",
+        "N",
+        "yi"
+      ]
+    },
+    {
+      "index": 40,
+      "body_block": 40,
+      "style": "Normal",
+      "text": "\t\t(5)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "Lproto=-λprotoNi∈M​logexp(ri,yi)k=1Kexp(rik)."
+      ]
+    },
+    {
+      "index": 41,
+      "body_block": 41,
+      "style": "Normal",
+      "text": "Both configurations use four prototypes per class and temperature 0.20, with loss weight 0.03 in Mobile and 0.05 in Pano. The loss averages over matched final-layer ordinary queries and is zero for an empty match set. Queries and prototypes both receive gradients, but prototype scores do not alter inference logits. Unsupported smartphone classes 18, 28, 38, and 48 are excluded from prototype interpretation.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 42,
+      "body_block": 42,
+      "style": "Heading 2",
+      "text": "3.3. Training-derived SpatialShape prior",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 43,
+      "body_block": 43,
+      "style": "Normal",
+      "text": "SpatialShape anatomical prior. Templates are estimated from the 16,234 valid training boxes in the 570 DENTEX2023 training images, separately for the 32 permanent FDI classes. For a box  in an image of width  and height , define normalized center and log-shape features:",
+      "images": [],
+      "equations": 3,
+      "equation_linear_text": [
+        "(x,y,w,h)",
+        "W",
+        "H"
+      ]
+    },
+    {
+      "index": 44,
+      "body_block": 44,
+      "style": "Normal",
+      "text": "\t\t(6)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "c=((x+w/2)/W, (y+h/2)/H)T,s=(logmax(w/W,10-5), logmax(h/H,10-5))T."
+      ]
+    },
+    {
+      "index": 45,
+      "body_block": 45,
+      "style": "Normal",
+      "text": "For feature type  and the  training boxes of class , the mean is . The full two-dimensional sample covariance, including its off-diagonal term, is regularized as",
+      "images": [],
+      "equations": 4,
+      "equation_linear_text": [
+        "a∈{c,s}",
+        "nk",
+        "k",
+        "μk(a)=nk-1n=1nkakn"
+      ]
+    },
+    {
+      "index": 46,
+      "body_block": 46,
+      "style": "Normal",
+      "text": "\t\t(7)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "Σk(a)=1nk-1n=1nk(akn-μk(a))(akn-μk(a))T+10-3I2."
+      ]
+    },
+    {
+      "index": 47,
+      "body_block": 47,
+      "style": "Normal",
+      "text": "All 32 DENTEX classes have at least two training boxes. In the general construction, a single supported box uses covariance , and an unsupported class receives a zero template score. At inference, the predicted normalized center and log-width/log-height are scored by the corresponding class-specific quadratic forms:",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "10-3I2"
+      ]
+    },
+    {
+      "index": 48,
+      "body_block": 48,
+      "style": "Normal",
+      "text": "\t\t(8)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "gik(a)=clip​[-12(ai-μk(a))T(Σk(a))-1(ai-μk(a)),-20,0]."
+      ]
+    },
+    {
+      "index": 49,
+      "body_block": 49,
+      "style": "Normal",
+      "text": "These joint Mahalanobis scores omit log-determinants, density-normalization constants, and empirical class-frequency terms. Each score is separately centered across classes and clipped again:",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 50,
+      "body_block": 50,
+      "style": "Normal",
+      "text": "\t\t(9)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "δik(a)=clip​[gik(a)-max1≤j≤Kgij(a),-6,0]."
+      ]
+    },
+    {
+      "index": 51,
+      "body_block": 51,
+      "style": "Normal",
+      "text": "Let  denote the decoder output logit before post-processing. Spatial, shape, and view terms are combined additively in logit space, followed by sigmoid:",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "zikdet"
+      ]
+    },
+    {
+      "index": 52,
+      "body_block": 52,
+      "style": "Normal",
+      "text": "\t\t(10)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "zikSS=zikdet+0.20δik(c)+0.05δik(s)+0.20vk,  πik=sigmoid(zikSS)."
+      ]
+    },
+    {
+      "index": 53,
+      "body_block": 53,
+      "style": "Normal",
+      "text": "The view term  is  for an FDI class included in the specified view and  otherwise. For the DENTEX panoramic setting, all 32 permanent FDI classes are included, so  for every class and the view term has no numerical effect. The two geometric contributions are therefore bounded jointly within . No appearance-prototype score is added. The final 300 query–class pairs are selected by descending , without added non-maximum suppression or an FDI-uniqueness assignment constraint; box coordinates are not changed by the prior. Means and covariance inverses are fixed training-derived statistics and are not learned from validation images. SpatialShape is used by DENT-STRIDE-Pano, not DENT-STRIDE-Mobile.",
+      "images": [],
+      "equations": 6,
+      "equation_linear_text": [
+        "vk",
+        "0",
+        "-2",
+        "vk=0",
+        "[-1.50,0]",
+        "πik"
+      ]
+    },
+    {
+      "index": 54,
+      "body_block": 54,
+      "style": "Normal",
+      "text": "Fig. 3 visualizes the training-derived center templates; Supplementary Fig. S4 shows the corresponding width/height distributions. These fixed geometric statistics are distinct from the learnable identity bank. The controlled replay in Section 4.7 tests their combined effect on score ranking.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 55,
+      "body_block": 55,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId17",
+          "target": "media/image7.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 56,
+      "body_block": 56,
+      "style": "Caption",
+      "text": "Fig. 3. Training-derived center templates for the 32 permanent DENTEX FDI classes. Each panel shows the class-specific center distribution in normalized image coordinates, based on training-box means and full regularized covariances. The templates are fixed at inference and are separate from the learnable appearance prototypes; shape statistics are provided in Supplementary Fig. S4.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 57,
+      "body_block": 57,
+      "style": "Heading 2",
+      "text": "3.4. Cross-scale feature aggregation and local refinement",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 58,
+      "body_block": 58,
+      "style": "Normal",
+      "text": "CMFA (AdaptiveInterleaveFusion) replaces four adjacent-scale fusion sites: two top-down FPN and two bottom-up PAN sites (Fig. 4). Aligned inputs A and B each have 256 channels. Their concatenation is globally pooled and passed through 1×1 Conv–SiLU–1×1 Conv–Sigmoid to obtain channel gates g_A and g_B. Cross-enhanced features A′ = A + g_B⊙B and B′ = B + g_A⊙A are concatenated. Channel-wise mean/max maps then drive a 7×7 convolution and sigmoid spatial gate G_s. The gated 512-channel output feeds the next fusion block.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 59,
+      "body_block": 59,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId18",
+          "target": "media/image8.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 60,
+      "body_block": 60,
+      "style": "Caption",
+      "text": "Fig. 4. CMFA: cross-gated adjacent-scale exchange followed by spatial gating. The lower panels identify its four insertion sites and summarize the operations. CMFA is active in the selected Mobile and DSLR configurations, but not in Pano.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 61,
+      "body_block": 61,
+      "style": "Normal",
+      "text": "Mobile also uses HOOA after encoder aggregation (Fig. 5). Local, dilated-context, high-pass, and multiplicative local–context responses are projected, channel-gated, and spatially gated before a residual update bounded by 0.30 × sigmoid(s). HOOA is absent from the selected DSLR model. CEDv2, SMWG, MPF, and UCM are comparison refiners rather than components required by every configuration (Supplementary Section S1).",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 62,
+      "body_block": 62,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId19",
+          "target": "media/image9.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 63,
+      "body_block": 63,
+      "style": "Caption",
+      "text": "Fig. 5. HOOA refinement in the Mobile configuration. The local branch L interacts with sigmoid-gated context to form O₂; a high-pass branch provides E. Concatenated responses are projected and gated before the bounded residual update. DW denotes depthwise convolution, σ sigmoid, ⊙ element-wise product, and ⊕ addition. The separate CEDv2 comparison architecture is shown in Supplementary Fig. S1.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 64,
+      "body_block": 64,
+      "style": "Heading 2",
+      "text": "3.5. Training objective and optimization",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 65,
+      "body_block": 65,
+      "style": "Normal",
+      "text": "Training combines the native detection losses with configuration-dependent auxiliary objectives. Besides factor and prototype supervision, the local implementation uses an arch-position term; Mobile also uses a normalized Wasserstein-distance box term. With inactive terms set to zero, the objective is",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 66,
+      "body_block": 66,
+      "style": "Normal",
+      "text": "    (11)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "L = L_det + λ_arch L_arch + Σ_h λ_h L_factor,h + L_proto + λ_NWD L_NWD"
+      ]
+    },
+    {
+      "index": 67,
+      "body_block": 67,
+      "style": "Normal",
+      "text": "Here L_det = L_MAL + 5L_L1 + 2L_GIoU + 0.15L_FGL + 1.5L_DDF. The prototype loss in Eq. (5) already includes its coefficient and is not weighted a second time. Intermediate decoder and denoising supervision follow the corresponding detector implementation.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 68,
+      "body_block": 68,
+      "style": "Normal",
+      "text": "The training-only arch-position term groups matched teeth by reference vertical center, maps supported FDI identities to arch order, and penalizes the absolute difference from min–max-normalized predicted horizontal position. A small stabilizer prevents division by zero. This is a horizontal-order heuristic, not a fitted arch curve or an inference uniqueness constraint; its weights are 0.25 for Pano/DSLR and 0.10 for Mobile.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 69,
+      "body_block": 69,
+      "style": "Normal",
+      "text": "For Mobile, the box-distance term uses normalized center c and width–height vector s. For each matched prediction and target, d = √(‖c − c*‖² + ‖s − s*‖²/4), and L_NWD is the mean of 1 − exp(−d/0.08). Its weight is 0.50. The Pano and DSLR active loss lists do not include this term. Factor cross-entropy weights for quadrant/position/dentition are 0.10/0.10/0.05 in Pano and 0.08/0.08/0.03 in Mobile. These auxiliary terms are part of the reported recipes and cannot be omitted from a reproducibility description.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 70,
+      "body_block": 70,
+      "style": "Normal",
+      "text": "DualOptAdamW performs an AdamW step followed by rank-scaled post-step decay and rollback toward initialization (Ning et al., 2026). The DSLR recipe uses rollback 0.005, real-time decay 0.01, layer-decay power 1.5, and scaling bounds 0.5–1.5. Other selected recipes use AdamW. These changes affect optimization, not inference architecture.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 71,
+      "body_block": 71,
+      "style": "Heading 1",
+      "text": "4. Experiments",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 72,
+      "body_block": 72,
+      "style": "Heading 2",
+      "text": "4.1. Datasets and partition scope",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 73,
+      "body_block": 73,
+      "style": "Normal",
+      "text": "This retrospective computational study uses three acquisition-specific cohorts (Table 1). DENTEX contains 32 permanent FDI classes; the photographic cohorts share 52 permanent/primary classes. DSLR provides 150 training and 38 validation patient identifiers without overlap. Patient identifiers are unavailable for DENTEX and smartphone images.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 74,
+      "body_block": 74,
+      "style": "Caption",
+      "text": "Table 1. Dataset composition for the reported development partitions.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 75,
+      "body_block": 76,
+      "style": "Caption",
+      "text": "DENTEX2023 is a panoramic radiography cohort (Hamamci et al., 2023). DSLR train/validation patient counts are 150/38. Distinct annotation files alone do not establish independent image content.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 76,
+      "body_block": 77,
+      "style": "Normal",
+      "text": "Content checks associated with these partitions identified one DENTEX and four smartphone training–validation overlap groups, plus an internal DENTEX validation duplicate group. These two cohorts therefore provide development estimates rather than verified independent hold-outs. DSLR has patient-disjoint partitions, but validation still serves model selection. No independent test-set results are reported.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 77,
+      "body_block": 78,
+      "style": "Heading 2",
+      "text": "4.2. Implementation and recipe accounting",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 78,
+      "body_block": 79,
+      "style": "Normal",
+      "text": "Selected models use seed 0, 160 epochs, mixed precision, training/validation batches of 8/16, exponential moving averages, and maximum-validation-AP checkpoint selection. AdamW uses learning rates 5 × 10⁻⁴ (base) and 2.5 × 10⁻⁴ (backbone), betas (0.9, 0.999), and weight decay 10⁻⁴. FlatCosine combines warm-up, a flat phase, cosine decay, and terminal low-learning-rate/no-augmentation training. Geometric flips are disabled to preserve FDI semantics. Table 2 specifies acquisition-dependent settings.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 79,
+      "body_block": 80,
+      "style": "Caption",
+      "text": "Table 2. Selected DENT-STRIDE recipes. These are different training/inference configurations, not a common-resolution factorial comparison.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 80,
+      "body_block": 82,
+      "style": "Caption",
+      "text": "The Mobile implementation is the A07 branch. “None” for Pano refers to optional feature refiners, not removal of native encoder aggregation. Epoch indices are those recorded in the training summaries.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 81,
+      "body_block": 83,
+      "style": "Normal",
+      "text": "Local DEIM–D-FINE and unmodified official DEIM-s are separate references. The local family shares the detector implementation but differs from selected recipes in resolution, augmentation, or active auxiliary losses. In particular, the smartphone local reference uses 640 inputs and Mobile uses 1024; their difference is a recipe comparison, not an isolated identity-learning effect.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 82,
+      "body_block": 84,
+      "style": "Heading 2",
+      "text": "4.3. Evaluation endpoints and comparison protocols",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 83,
+      "body_block": 85,
+      "style": "Normal",
+      "text": "The primary endpoint is FDI-labelled COCO bounding-box AP over IoU thresholds 0.50:0.05:0.95. A correct box with an incorrect FDI label is not a correct-class true positive. AP50, AP75, and AR100 are secondary endpoints, reported in percentage points. DEIM-family outputs retain native top-300 predictions without added NMS or FDI-uniqueness constraints. External detectors retain native training and post-processing. Parameter counts describe executable training models, including auxiliary branches where present.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 84,
+      "body_block": 86,
+      "style": "Normal",
+      "text": "Mobile threshold analysis uses score ≥0.30 and class-agnostic Hungarian assignment maximizing total IoU. A pair is correct only if IoU ≥0.50 and FDI identity agrees. TP counts correct pairs; FP and FN equal prediction and reference counts minus TP. Precision, recall, and F1 are micro-averaged. Matched-tooth FDI accuracy is correct identities/localization matches; coverage is matches/reference teeth. Duplicate-image rate is the proportion with a repeated predicted FDI label. These raw-output diagnostics are not clinical charting-error rates.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 85,
+      "body_block": 87,
+      "style": "Normal",
+      "text": "Selected-recipe results are single-run validation-selected estimates. Fixed-checkpoint replay changes only the specified inference switch. Historical ablation families are interpreted within their own recipes rather than pooled with final models (Supplementary Table S6). Three-seed upstream baseline results are reported separately in Supplementary Section S4. The fixed threshold is exploratory, not clinically calibrated; selected-model confidence intervals are not estimated.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 86,
+      "body_block": 88,
+      "style": "Normal",
+      "text": "Figs. 6–7 plot the reported numerical records. Source data and Python/Matplotlib visualization methods, including plotting-code assistance, are described in Supplementary Section S7.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 87,
+      "body_block": 89,
+      "style": "Heading 2",
+      "text": "4.4. Cohort-specific quantitative comparison",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 88,
+      "body_block": 90,
+      "style": "Normal",
+      "text": "Relative to local references, the selected Pano, Mobile, and DSLR recipes increase AP by 1.639, 2.332, and 0.555 points, respectively (Table 3). Mobile has the largest AP75 difference (+5.854), but higher resolution and additional losses may contribute. Official and local DEIM results are retained as separate implementation-level references.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 89,
+      "body_block": 91,
+      "style": "Caption",
+      "text": "Table 3. Single-run validation comparison across acquisition cohorts.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 90,
+      "body_block": 93,
+      "style": "Caption",
+      "text": "The selected Mobile recipe uses 1024 inputs; the listed references use 640. Other recipe differences are described in Section 4.2. Official baseline rows are seed 0, not the three-seed mean. Pano and Mobile values are development estimates with the partition limitations in Section 4.1.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 91,
+      "body_block": 94,
+      "style": "Heading 2",
+      "text": "4.5. DSLR comparison with a broader detector set",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 92,
+      "body_block": 95,
+      "style": "Normal",
+      "text": "Table 4 and Fig. 6 show the complete DSLR comparator set. RT-DETR-L exceeds DENT-STRIDE by 0.904 AP with approximately 32.09 M versus 11.15 M parameters. DENT-STRIDE is a compact accuracy–parameter operating point, not the highest-AP model overall. Dome-DETR-S leads AR100, demonstrating that recall and AP need not rank detectors identically.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 93,
+      "body_block": 96,
+      "style": "Caption",
+      "text": "Table 4. DSLR framework-level comparison at 640 evaluation resolution.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 94,
+      "body_block": 98,
+      "style": "Caption",
+      "text": "All methods use the DSLR FDI52 cohort and 640 evaluation inputs, with framework-native pretraining, optimization, and output processing. This is a system-level comparison; parameter count does not measure runtime.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 95,
+      "body_block": 99,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId20",
+          "target": "media/image10.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 96,
+      "body_block": 100,
+      "style": "Caption",
+      "text": "Fig. 6. DSLR accuracy–parameter comparison for all ten methods in Table 4. The larger RT-DETR-L reference is retained. DENT-STRIDE offers a compact operating point rather than unrestricted AP leadership. Points are single-run validation estimates; no uncertainty or latency is inferred from their separation. Exact values and reproducible plotting code accompany the figure sources.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 97,
+      "body_block": 101,
+      "style": "Heading 2",
+      "text": "4.6. Inter-module ablation: a complete feature combination family",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 98,
+      "body_block": 102,
+      "style": "Normal",
+      "text": "Fig. 7 summarizes all 16 CMFA/SMWG/UCM/MPF combinations from the DSLR feature-ablation family; the full metric table is Supplementary Table S2. DualOpt, seed, input policy, training budget, and checkpoint rule are fixed within this family. Its DualOpt-only and CMFA + DualOpt results are 73.173 and 73.431 AP, respectively; these belong to a different recipe family from the selected 73.115 AP DSLR model.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 99,
+      "body_block": 103,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId21",
+          "target": "media/image11.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 100,
+      "body_block": 104,
+      "style": "Caption",
+      "text": "Fig. 7. Complete four-feature-module ablation on DSLR, with DualOpt active in every row. C = CMFA, S = SMWG, U = UCM, and M = MPF; “None” disables all four feature additions. The dashed line marks the within-family DualOpt-only reference. All 16 combinations are shown in design order, including negative results. These single-run observations do not estimate across-seed variability.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 101,
+      "body_block": 105,
+      "style": "Normal",
+      "text": "CMFA alone improves AP by 0.258 points within this family. Enabling all four features gives 72.262 AP, below both the DualOpt-only and CMFA-only settings despite increasing the parameter count to 13.423 M. Additional modules therefore do not produce monotonic gains; some configurations improve recall without improving AP.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 102,
+      "body_block": 106,
+      "style": "Heading 2",
+      "text": "4.7. Anatomical-prior and identity-mechanism ablations",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 103,
+      "body_block": 107,
+      "style": "Heading 3",
+      "text": "4.7.1. Fixed-checkpoint anatomical prior replay",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 104,
+      "body_block": 108,
+      "style": "Normal",
+      "text": "Table 5 compares the selected Pano checkpoint with its combined center/shape prior off and on in the same FP32 replay. AP increases by 0.602 and AR100 by 3.127 points. With weights and box coordinates fixed, this measures a score-ranking effect, not a training benefit or separate center/shape contributions. Historical help/harm examples are provided separately in Supplementary Fig. S7.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 105,
+      "body_block": 109,
+      "style": "Caption",
+      "text": "Table 5. Controlled inference ablation of the selected Pano checkpoint.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 106,
+      "body_block": 111,
+      "style": "Caption",
+      "text": "Same weights, FP32 replay, and batch size 16. Small differences from the native training-log values in Table 3 reflect distinct evaluation streams, not a changed checkpoint.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 107,
+      "body_block": 112,
+      "style": "Heading 3",
+      "text": "4.7.2. Progressive structured identity supervision",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 108,
+      "body_block": 113,
+      "style": "Normal",
+      "text": "The separate progressive identity family fixes an approximately 15.5 M-parameter feature stack (Supplementary Table S3). Adding prototype supervision to factor heads changes AP from 53.595 to 54.242 on smartphone images and from 53.572 to 53.746 on DENTEX. Adding the geometric prior then gives 52.924 and 54.234 AP, respectively. This opposing response motivates acquisition-specific use of geometric scoring, but does not isolate the effects in the smaller final configurations.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 109,
+      "body_block": 114,
+      "style": "Heading 2",
+      "text": "4.8. Resolution and augmentation sensitivity",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 110,
+      "body_block": 115,
+      "style": "Normal",
+      "text": "For the fixed Mobile architecture without MixUp, increasing input resolution from 640 to 1024 raises AP from 53.520 to 55.701 (+2.181; Table 6). For the fixed DSLR architecture, the same change reduces AP from 72.945 to 72.682. Thus resolution is a substantial, acquisition-dependent contributor and must not be conflated with an identity-module effect.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 111,
+      "body_block": 116,
+      "style": "Caption",
+      "text": "Table 6. Input-policy and MixUp comparisons within fixed photographic architectures.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 112,
+      "body_block": 118,
+      "style": "Caption",
+      "text": "All rows use seed 0, no Mosaic, crop probability 0.8, and zoom-out probability 0.5. Mobile fixed-1024/no-MixUp and DSLR multiscale-640/no-MixUp are the selected settings. Models share the within-family training and checkpoint-selection protocol.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 113,
+      "body_block": 119,
+      "style": "Heading 2",
+      "text": "4.9. Direct photographic cross-device transfer",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 114,
+      "body_block": 120,
+      "style": "Normal",
+      "text": "Applying final photographic checkpoints directly to the other cohort yields 28.533 AP for Mobile-to-DSLR and 8.885 AP for DSLR-to-Mobile (Table 7). Source-model resolution and FDI52 mapping are retained without target fine-tuning. The losses show that separately trained acquisition configurations do not establish cross-device invariance. Appearance, viewpoint composition, and class support may contribute but are not individually isolated.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 115,
+      "body_block": 121,
+      "style": "Caption",
+      "text": "Table 7. Within-domain and direct cross-device evaluation of the selected photographic models.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 116,
+      "body_block": 123,
+      "style": "Caption",
+      "text": "Cross-device rows and the DSLR within-domain row use FP32 replay; the Mobile within-domain row is its native validation summary. No target-domain tuning is performed. These streams are not subtracted to interpret small numerical changes.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 117,
+      "body_block": 124,
+      "style": "Heading 2",
+      "text": "4.10. Tooth-level identity, raw consistency, and qualitative evidence",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 118,
+      "body_block": 125,
+      "style": "Normal",
+      "text": "The selected Mobile analysis contains 2,459 reference teeth and 2,819 predictions above score 0.30. Localization matching yields 2,345 qualifying pairs, including 2,158 correct FDI identities: 92.03% matched-tooth accuracy, 95.36% coverage, 76.55% precision, 87.76% recall, and 81.77% F1. Repeated labels occur in 78/220 images (35.45%). High conditional identity accuracy therefore coexists with excess and duplicate predictions. Fig. 8 illustrates same-image differences.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 119,
+      "body_block": 126,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId22",
+          "target": "media/image12.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 120,
+      "body_block": 127,
+      "style": "Caption",
+      "text": "Fig. 8. Same-image smartphone comparison including the selected DENT-STRIDE-Mobile checkpoint. Rows show the input, ground truth, detector predictions, and enlarged target regions at display score ≥0.30 with clinical FDI decoding. Photographic models do not all share the same input resolution. Examples illustrate local differences; numerical conclusions use the complete validation cohort. Historical panoramic and DSLR comparisons remain in Supplementary Figs. S5–S6.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 121,
+      "body_block": 128,
+      "style": "Normal",
+      "text": "Prototype similarities (Fig. 9) and factor-head confusion matrices (Fig. 10) describe learned identity structure, not the causal AP contribution of each auxiliary loss. The four unsupported third-molar categories are excluded from prototype interpretation. Factor matrices use a separate 2,344-match forward-capture subset, distinct from the 2,345-pair threshold analysis. Exploratory feature-response maps are reported in Supplementary Fig. S8.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 122,
+      "body_block": 129,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId23",
+          "target": "media/image13.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 123,
+      "body_block": 130,
+      "style": "Caption",
+      "text": "Fig. 9. Selected Mobile prototype diagnostics: normalized centroid cosine similarity and within-class cohesion. Classes 18, 28, 38, and 48 lack training examples and are marked unavailable. Each FDI class has four prototypes; prototype scores supply auxiliary supervision only and are not fused with inference logits.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 124,
+      "body_block": 131,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId24",
+          "target": "media/image14.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 125,
+      "body_block": 132,
+      "style": "Caption",
+      "text": "Fig. 10. Selected Mobile factor-head confusion matrices for quadrant, within-quadrant position, and dentition. These are identity factors, not objectness heads. The separately captured analysis contains 2,344 matched teeth and is not substituted for the 2,345-pair denominator of the threshold summary.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 126,
+      "body_block": 133,
+      "style": "Heading 2",
+      "text": "4.11. Computational cost",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 127,
+      "body_block": 134,
+      "style": "Normal",
+      "text": "The standardized RTX 4090 implementation benchmark compares the local reference and a DSLR CMFA architecture: 12.631/12.633 GMACs, 5.91/6.30 ms mean forward latency, 169.2/158.7 images/s, and 140.8/142.2 MiB inference memory. These model-forward costs exclude the complete clinical workflow and do not characterize 1024-resolution Mobile. Runtime and training-model parameter counts are therefore interpreted separately.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 128,
+      "body_block": 135,
+      "style": "Heading 1",
+      "text": "5. Discussion",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 129,
+      "body_block": 136,
+      "style": "Heading 2",
+      "text": "5.1. Principal findings and methodological scope",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 130,
+      "body_block": 137,
+      "style": "Normal",
+      "text": "Three findings distinguish mechanism from configuration. The fixed-checkpoint panoramic replay identifies a combined geometric score benefit. The complete feature family shows that stacking refiners can reduce AP. The resolution comparison explains a substantial part of Mobile recipe variation. Together, these results favour acquisition-specific configuration over a universal all-module design.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 131,
+      "body_block": 138,
+      "style": "Normal",
+      "text": "Earlier label-tree and prior-knowledge systems already encode identity and anatomy (Zhang et al., 2018; Ali et al., 2023). DENT-STRIDE brings factor-score fusion, prototype-only supervision, and fixed geometric priors into a common query detector while keeping their roles separate. Representation visualizations support this interpretation, but do not establish that every gate, four prototypes, or the selected temperature is necessary or optimal.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 132,
+      "body_block": 139,
+      "style": "Heading 2",
+      "text": "5.2. Acquisition dependence and clinical interpretation",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 133,
+      "body_block": 140,
+      "style": "Normal",
+      "text": "The training-center patterns in Fig. 3 provide an interpretable basis for panoramic priors; photographic framing is less standardized. Opposing prior effects in the progressive family are consistent with acquisition dependence, without isolating geometry as the cause. Weak direct photographic transfer further distinguishes a framework trained separately by cohort from domain generalization without target training.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 134,
+      "body_block": 141,
+      "style": "Normal",
+      "text": "The conditions and errors in Fig. 1 also motivate separate localization, identity, and image-level endpoints. The Mobile analysis confirms that correct matched-tooth labels need not yield a unique visible-field chart. Clinical use would require prespecified handling of missing teeth, mixed dentition, overlapping views, duplicates, and uncertainty, followed by independent evaluation of the complete charting workflow.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 135,
+      "body_block": 142,
+      "style": "Heading 2",
+      "text": "5.3. Limitations",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 136,
+      "body_block": 143,
+      "style": "Normal",
+      "text": "Selected results use one seed and validation-based configuration/checkpoint selection, without independent testing. DENTEX/smartphone content overlap may inflate development estimates, and absent patient identifiers prevent verification of patient-level independence. These limitations restrict generalization claims even when detector metrics improve.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 137,
+      "body_block": 144,
+      "style": "Normal",
+      "text": "Recipes differ in resolution, augmentation, optimization, and auxiliary losses. The historical feature and identity families are not factorial ablations of all three final models, and individual center/shape, gating, factor-fusion, and prototype design choices are not independently resolved. External models retain native pretraining/post-processing, while historical photographic annotations differ in serialized form; these comparisons do not isolate architecture alone.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 138,
+      "body_block": 145,
+      "style": "Normal",
+      "text": "RT-DETR-L has higher DSLR AP, so the selected DSLR advantage is compactness rather than unrestricted accuracy leadership. Unsupported FDI categories constrain prototype interpretation. Finally, illustrative cases, feature responses, and raw-query diagnostics do not establish autonomous charting safety or clinical utility.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 139,
+      "body_block": 146,
+      "style": "Heading 1",
+      "text": "6. Conclusion",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 140,
+      "body_block": 147,
+      "style": "Normal",
+      "text": "DENT-STRIDE separates structured FDI identity learning, training-derived anatomical scoring, and cross-scale aggregation within a common query detector. Selected Pano, Mobile, and DSLR recipes achieve 54.385, 55.701, and 73.115 AP under the reported development/validation protocols. Controlled prior replay, complete feature combinations, and resolution comparisons expose distinct contributors to these results. Weak cross-device transfer and duplicate labels despite high matched-tooth accuracy limit broader interpretation. The framework supports acquisition-specific tooth detection; independent, matched-protocol and chart-level evaluation are required for stronger generalization or clinical claims.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 141,
+      "body_block": 148,
+      "style": "Heading 1",
+      "text": "Acknowledgements",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 142,
+      "body_block": 149,
+      "style": "Normal",
+      "text": "The authors thank Haiyue Lan, Jinlin Guo, Hequan Wen, Dongxia Hu, Yuzhuo Zhang, and Yutian Li for their contributions to image annotation.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 143,
+      "body_block": 150,
+      "style": "Heading 1",
+      "text": "Funding and declaration of competing interest",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 144,
+      "body_block": 151,
+      "style": "Normal",
+      "text": "This work was supported in part by the Health Planning Committee of Sichuan (19PJ074 to R.H.) and the Mountain Cyan Research Project (26H0710 to R.H.). The corresponding author R. H. holds stock of Chengdu Mountain Cyan Technology Company but is not employed by this company. Apart from the participation of P.W. and R.H. as co-authors, Chengdu Mountain Cyan Technology Company had no additional role in the study. The remaining authors declare no conflicts of interest with respect to the research, authorship, and/or publication of this article.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 145,
+      "body_block": 152,
+      "style": "Heading 1",
+      "text": "CRediT authorship contribution statement",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 146,
+      "body_block": 153,
+      "style": "Normal",
+      "text": "Jiehui Sun and Xi Wu: conceptualization, methodology, software, validation, formal analysis, visualization, and writing—original draft. Ruixin Tang, Pei Wu, and Shiquan Min: data curation, annotation, and validation. Jiangping Zhu and Ruijie Huang: supervision, project administration, funding acquisition, and writing—review and editing.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 147,
+      "body_block": 154,
+      "style": "Heading 1",
+      "text": "Ethics approval and consent to participate",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 148,
+      "body_block": 155,
+      "style": "Normal",
+      "text": "This retrospective computational analysis used pre-existing, de-identified image datasets; no new patient recruitment or intervention was undertaken. Ethics and consent provisions follow the originating studies and their dataset terms.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 149,
+      "body_block": 156,
+      "style": "Heading 1",
+      "text": "Data availability",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 150,
+      "body_block": 157,
+      "style": "Normal",
+      "text": "DENTEX2023 is available through its public benchmark release. The smartphone and DSLR image data are subject to the access conditions of their source studies and are not redistributed with this manuscript; derived predictions and configuration details can be shared subject to those permissions.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 151,
+      "body_block": 158,
+      "style": "Heading 1",
+      "text": "Code availability",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 152,
+      "body_block": 159,
+      "style": "Normal",
+      "text": "The experiment code and configuration files used in this study are available from the corresponding author on reasonable request. Model checkpoints can be shared subject to the access and redistribution conditions of the underlying image datasets.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 153,
+      "body_block": 160,
+      "style": "Heading 1",
+      "text": "Declaration of generative AI and AI-assisted technologies in the manuscript preparation process",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 154,
+      "body_block": 161,
+      "style": "Normal",
+      "text": "During manuscript preparation, the authors used OpenAI ChatGPT (GPT-6 Astra Pro) for language refinement, organization, consistency checking, and assistance with reproducible plotting code for Figs. 6–7. Existing clinical images and prediction overlays were not generated or retouched. After using this tool, the authors reviewed and edited the content as needed and take full responsibility for the publication.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 155,
+      "body_block": 162,
+      "style": "Heading 1",
+      "text": "References",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 156,
+      "body_block": 163,
+      "style": "Normal",
+      "text": "Alavi, S.E., Gholami, M., Malik, L., Matti, R., Oktaei, S., Al-Najafi, F., Sharma, A., Sharma, L.A., 2025. Assessment of teledentistry in improving access to dental care: A systematic review. Aust Dent J 70, 4–41. https://doi.org/10.1111/adj.13045",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 157,
+      "body_block": 164,
+      "style": "Normal",
+      "text": "Ali, M.A., Fujita, D., Kobashi, S., 2023. Teeth and prostheses detection in dental panoramic X-rays using CNN-based object detector and a priori knowledge-based algorithm. Sci Rep 13, 16542. https://doi.org/10.1038/s41598-023-43591-z",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 158,
+      "body_block": 165,
+      "style": "Normal",
+      "text": "Chen, Z., Lu, S., 2025. CAF-YOLO: A robust framework for multi-scale lesion detection in biomedical imagery. Presented at the 2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). https://doi.org/10.1109/ICASSP49660.2025.10888358",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 159,
+      "body_block": 166,
+      "style": "Normal",
+      "text": "Cullingham, P., Saksena, A., Pemberton, M.N., 2017. Patient safety: Reducing the risk of wrong tooth extraction. Br Dent J 222, 759–763. https://doi.org/10.1038/sj.bdj.2017.448",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 160,
+      "body_block": 167,
+      "style": "Normal",
+      "text": "Hamamci, I.E., Er, S., Simsar, E., Yuksel, A.E., Gultekin, S., Ozdemir, S.D., Yang, K., Li, H.B., Pati, S., Stadlinger, B., Mehl, A., Gundogar, M., Menze, B., 2023. DENTEX: An abnormal tooth detection with dental enumeration and diagnosis benchmark for panoramic X-rays. arXiv preprint arXiv:2305.19112. https://doi.org/10.48550/arXiv.2305.19112",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 161,
+      "body_block": 168,
+      "style": "Normal",
+      "text": "Hu, Z., Wu, P., Chen, J., Zhu, H., Wang, Y., Peng, Y., Li, H., Sun, X., 2025. Dome-DETR: DETR with density-oriented feature-query manipulation for efficient tiny object detection. Presented at the Proceedings of the 33rd ACM International Conference on Multimedia, pp. 101–110. https://doi.org/10.1145/3746027.3754861",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 162,
+      "body_block": 169,
+      "style": "Normal",
+      "text": "Huang, S., Lu, Z., Cun, X., Yu, Y., Zhou, X., Shen, X., 2025. DEIM: DETR with improved matching for fast convergence, in: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. pp. 15162–15171.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 163,
+      "body_block": 170,
+      "style": "Normal",
+      "text": "International Organization for Standardization, 2016. ISO 3950:2016 Dentistry—Designation system for teeth and areas of the oral cavity. Geneva: ISO.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 164,
+      "body_block": 171,
+      "style": "Normal",
+      "text": "Jacob, O., Gough, E., Thomas, H., 2021. Preventing wrong tooth extraction. Acta Stomatol Croat 55, 316–324. https://doi.org/10.15644/asc55/3/9",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 165,
+      "body_block": 172,
+      "style": "Normal",
+      "text": "Jocher, G., Chaurasia, A., Qiu, J., 2023. Ultralytics YOLOv8.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 166,
+      "body_block": 173,
+      "style": "Normal",
+      "text": "Lv, W., Zhao, Y., Chang, Q., Huang, K., Wang, G., Liu, Y., 2024. RT-DETRv2: Improved baseline with bag-of-freebies for real-time detection transformer. arXiv preprint arXiv:2407.17140. https://doi.org/10.48550/arXiv.2407.17140",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 167,
+      "body_block": 174,
+      "style": "Normal",
+      "text": "Moharrami, M., Farmer, J., Singhal, S., Watson, E., Glogauer, M., Johnson, A.E.W., Schwendicke, F., Quinonez, C., 2024. Detecting dental caries on oral photographs using artificial intelligence: A systematic review. Oral Dis 30, 1765–1783. https://doi.org/10.1111/odi.14659",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 168,
+      "body_block": 175,
+      "style": "Normal",
+      "text": "Muramatsu, C., Morishita, T., Takahashi, R., Hayashi, T., Nishiyama, W., Ariji, Y., Zhou, X., Hara, T., Katsumata, A., Ariji, E., Fujita, H., 2021. Tooth detection and classification on panoramic radiographs for automatic dental chart filing: Improved classification by multi-sized input data. Oral Radiol 37, 13–19. https://doi.org/10.1007/s11282-019-00418-w",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 169,
+      "body_block": 176,
+      "style": "Normal",
+      "text": "Ning, X., Li, Q., Huang, X., Chen, Q., He, F., Li, W., Tiwari, P., Liu, X., 2026. Neural network optimization reimagined: Decoupled techniques for scratch and fine-tuning. arXiv preprint arXiv:2604.22838. https://doi.org/10.48550/arXiv.2604.22838",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 170,
+      "body_block": 177,
+      "style": "Normal",
+      "text": "Pemberton, M.N., 2019. Wrong tooth extraction: Further analysis of “never event” data. Br J Oral Maxillofac Surg 57, 932–934. https://doi.org/10.1016/j.bjoms.2019.08.004",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 171,
+      "body_block": 178,
+      "style": "Normal",
+      "text": "Peng, Y., Li, H., Wu, P., Zhang, Y., Sun, X., Wu, F., 2025. D-FINE: Redefine regression task of DETRs as fine-grained distribution refinement, in: International Conference on Learning Representations.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 172,
+      "body_block": 179,
+      "style": "Normal",
+      "text": "Ren, S., He, K., Girshick, R., Sun, J., 2015. Faster R-CNN: Towards real-time object detection with region proposal networks. Presented at the Advances in Neural Information Processing Systems.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 173,
+      "body_block": 180,
+      "style": "Normal",
+      "text": "Tuzoff, D.V., Tuzova, L.N., Bornstein, M.M., Krasnov, A.S., Kharchenko, M.A., Nikolenko, S.I., Sveshnikov, M.M., Bednenko, G.B., 2019. Tooth detection and numbering in panoramic radiographs using convolutional neural networks. Dentomaxillofac Radiol 48, 20180051. https://doi.org/10.1259/dmfr.20180051",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 174,
+      "body_block": 181,
+      "style": "Normal",
+      "text": "van Nistelrooij, N., Maia, H.C. de M., Cao, L., Vinayahalingam, S., Loomans, B., Cenci, M.S., Mendes, F.M., 2025. Automated detection and numbering of primary and permanent teeth in digital impressions of children using artificial intelligence. J Dent 161, 105976. https://doi.org/10.1016/j.jdent.2025.105976",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 175,
+      "body_block": 182,
+      "style": "Normal",
+      "text": "Yaren Tekin, B., Ozcan, C., Pekince, A., Yasa, Y., 2022. An enhanced tooth segmentation and numbering according to FDI notation in bitewing radiographs. Comput Biol Med 146, 105547. https://doi.org/10.1016/j.compbiomed.2022.105547",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 176,
+      "body_block": 183,
+      "style": "Normal",
+      "text": "Yoon, K., Jeong, H.-M., Kim, J.-W., Park, J.-H., Choi, J., 2024. AI-based dental caries and tooth number detection in intraoral photos: Model development and performance evaluation. Journal of Dentistry 141, 104821. https://doi.org/10.1016/j.jdent.2023.104821",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 177,
+      "body_block": 184,
+      "style": "Normal",
+      "text": "Yüksel, A.E., Gültekin, S., Simsar, E., Özdemir, Ş.D., Gündoğar, M., Tokgöz, S.B., Hamamcı, İ.E., 2021. Dental enumeration and multiple treatment detection on panoramic X-rays using deep learning. Sci Rep 11, 12342. https://doi.org/10.1038/s41598-021-90386-1",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 178,
+      "body_block": 185,
+      "style": "Normal",
+      "text": "Zhang, K., Wu, J., Chen, H., Lyu, P., 2018. An effective teeth recognition method using label tree with cascade network structure. Computerized Medical Imaging and Graphics 68, 61–70. https://doi.org/10.1016/j.compmedimag.2018.07.001",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 179,
+      "body_block": 186,
+      "style": "Normal",
+      "text": "Zhao, Y., Lv, W., Xu, S., Wei, J., Wang, G., Dang, Q., Liu, Y., Chen, J., 2023. DETRs beat YOLOs on real-time object detection. arXiv preprint arXiv:2304.08069. https://doi.org/10.48550/arXiv.2304.08069",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 180,
+      "body_block": 187,
+      "style": "Normal",
+      "text": "Zhou, Y., Xu, Y., Khalil, B., Nalley, A., Tarce, M., 2025. An open deep learning-based framework and model for tooth instance segmentation in dental CBCT. Clin Oral Investig 29, 473. https://doi.org/10.1007/s00784-025-06578-w",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    }
+  ],
+  "tables": [
+    {
+      "index": 0,
+      "body_block": 75,
+      "preceding_paragraphs": [
+        "4.1. Datasets and partition scope",
+        "This retrospective computational study uses three acquisition-specific cohorts (Table 1). DENTEX contains 32 permanent FDI classes; the photographic cohorts share 52 permanent/primary classes. DSLR provides 150 training and 38 validation patient identifiers without overlap. Patient identifiers are unavailable for DENTEX and smartphone images.",
+        "Table 1. Dataset composition for the reported development partitions.",
+        "DENTEX2023 is a panoramic radiography cohort (Hamamci et al., 2023). DSLR train/validation patient counts are 150/38. Distinct annotation files alone do not establish independent image content."
+      ],
+      "rows": [
+        [
+          "Cohort",
+          "Train images",
+          "Val. images",
+          "Train teeth",
+          "Val. teeth",
+          "FDI classes"
+        ],
+        [
+          "DENTEX2023",
+          "570",
+          "64",
+          "16,234",
+          "1,861",
+          "32"
+        ],
+        [
+          "Smartphone",
+          "878",
+          "220",
+          "9,837",
+          "2,459",
+          "52"
+        ],
+        [
+          "DSLR, five-view",
+          "750",
+          "190",
+          "10,760",
+          "2,742",
+          "52"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "index": 1,
+      "body_block": 81,
+      "preceding_paragraphs": [
+        "4.2. Implementation and recipe accounting",
+        "Selected models use seed 0, 160 epochs, mixed precision, training/validation batches of 8/16, exponential moving averages, and maximum-validation-AP checkpoint selection. AdamW uses learning rates 5 × 10⁻⁴ (base) and 2.5 × 10⁻⁴ (backbone), betas (0.9, 0.999), and weight decay 10⁻⁴. FlatCosine combines warm-up, a flat phase, cosine decay, and terminal low-learning-rate/no-augmentation training. Geometric flips are disabled to preserve FDI semantics. Table 2 specifies acquisition-dependent settings.",
+        "Table 2. Selected DENT-STRIDE recipes. These are different training/inference configurations, not a common-resolution factorial comparison.",
+        "The Mobile implementation is the A07 branch. “None” for Pano refers to optional feature refiners, not removal of native encoder aggregation. Epoch indices are those recorded in the training summaries."
+      ],
+      "rows": [
+        [
+          "Setting",
+          "Pano",
+          "Mobile",
+          "DSLR"
+        ],
+        [
+          "Input/evaluation",
+          "Fixed 640",
+          "Fixed 1024",
+          "640 evaluation; multiscale training"
+        ],
+        [
+          "Feature additions",
+          "None",
+          "CMFA + HOOA",
+          "CMFA"
+        ],
+        [
+          "Factor/prototype heads",
+          "Auxiliary / auxiliary",
+          "Fusion + auxiliary / auxiliary",
+          "Disabled"
+        ],
+        [
+          "SpatialShape",
+          "Center 0.20; shape 0.05",
+          "Disabled",
+          "Disabled"
+        ],
+        [
+          "Optimizer",
+          "AdamW",
+          "AdamW",
+          "DualOptAdamW"
+        ],
+        [
+          "Mosaic / MixUp",
+          "0 / 0.50",
+          "0 / 0",
+          "0 / 0"
+        ],
+        [
+          "Arch-position loss",
+          "0.25",
+          "0.10",
+          "0.25"
+        ],
+        [
+          "Active NWD loss",
+          "No",
+          "0.50; normalizer 0.08",
+          "No"
+        ],
+        [
+          "Prototype CE weight",
+          "0.05",
+          "0.03",
+          "Not active"
+        ],
+        [
+          "Selected epoch index",
+          "156",
+          "139",
+          "150"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "index": 2,
+      "body_block": 92,
+      "preceding_paragraphs": [
+        "4.4. Cohort-specific quantitative comparison",
+        "Relative to local references, the selected Pano, Mobile, and DSLR recipes increase AP by 1.639, 2.332, and 0.555 points, respectively (Table 3). Mobile has the largest AP75 difference (+5.854), but higher resolution and additional losses may contribute. Official and local DEIM results are retained as separate implementation-level references.",
+        "Table 3. Single-run validation comparison across acquisition cohorts.",
+        "The selected Mobile recipe uses 1024 inputs; the listed references use 640. Other recipe differences are described in Section 4.2. Official baseline rows are seed 0, not the three-seed mean. Pano and Mobile values are development estimates with the partition limitations in Section 4.1."
+      ],
+      "rows": [
+        [
+          "Cohort",
+          "Model",
+          "AP",
+          "AP50",
+          "AP75",
+          "AR100",
+          "Params (M)"
+        ],
+        [
+          "Pano",
+          "Local DEIM–D-FINE",
+          "52.746",
+          "93.634",
+          "52.927",
+          "66.906",
+          "10.604"
+        ],
+        [
+          "Pano",
+          "Official DEIM-s",
+          "53.349",
+          "93.483",
+          "54.427",
+          "67.026",
+          "10.260"
+        ],
+        [
+          "Pano",
+          "RT-DETRv2-S",
+          "50.797",
+          "92.325",
+          "49.408",
+          "63.762",
+          "20.123"
+        ],
+        [
+          "Pano",
+          "DENT-STRIDE",
+          "54.385",
+          "93.744",
+          "56.481",
+          "69.765",
+          "10.650"
+        ],
+        [
+          "Mobile",
+          "Local DEIM–D-FINE",
+          "53.369",
+          "83.835",
+          "58.165",
+          "68.101",
+          "10.629"
+        ],
+        [
+          "Mobile",
+          "Official DEIM-s",
+          "53.605",
+          "83.085",
+          "60.419",
+          "67.359",
+          "10.286"
+        ],
+        [
+          "Mobile",
+          "RT-DETRv2-S",
+          "50.986",
+          "80.192",
+          "56.722",
+          "66.054",
+          "20.149"
+        ],
+        [
+          "Mobile",
+          "DENT-STRIDE",
+          "55.701",
+          "84.441",
+          "64.019",
+          "70.071",
+          "12.513"
+        ],
+        [
+          "DSLR",
+          "Local DEIM–D-FINE",
+          "72.560",
+          "88.245",
+          "83.249",
+          "81.704",
+          "10.629"
+        ],
+        [
+          "DSLR",
+          "Official DEIM-s",
+          "72.557",
+          "88.494",
+          "82.272",
+          "81.665",
+          "10.286"
+        ],
+        [
+          "DSLR",
+          "RT-DETRv2-S",
+          "71.206",
+          "87.275",
+          "82.047",
+          "81.814",
+          "20.149"
+        ],
+        [
+          "DSLR",
+          "DENT-STRIDE",
+          "73.115",
+          "89.149",
+          "84.341",
+          "83.880",
+          "11.154"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "index": 3,
+      "body_block": 97,
+      "preceding_paragraphs": [
+        "4.5. DSLR comparison with a broader detector set",
+        "Table 4 and Fig. 6 show the complete DSLR comparator set. RT-DETR-L exceeds DENT-STRIDE by 0.904 AP with approximately 32.09 M versus 11.15 M parameters. DENT-STRIDE is a compact accuracy–parameter operating point, not the highest-AP model overall. Dome-DETR-S leads AR100, demonstrating that recall and AP need not rank detectors identically.",
+        "Table 4. DSLR framework-level comparison at 640 evaluation resolution.",
+        "All methods use the DSLR FDI52 cohort and 640 evaluation inputs, with framework-native pretraining, optimization, and output processing. This is a system-level comparison; parameter count does not measure runtime."
+      ],
+      "rows": [
+        [
+          "Model",
+          "AP",
+          "AP50",
+          "AP75",
+          "AR100",
+          "Params (M)"
+        ],
+        [
+          "RT-DETR-L",
+          "74.019",
+          "89.728",
+          "84.549",
+          "84.598",
+          "32.091"
+        ],
+        [
+          "DENT-STRIDE-DSLR",
+          "73.115",
+          "89.149",
+          "84.341",
+          "83.880",
+          "11.154"
+        ],
+        [
+          "Local DEIM–D-FINE",
+          "72.560",
+          "88.245",
+          "83.249",
+          "81.704",
+          "10.629"
+        ],
+        [
+          "Official DEIM-s",
+          "72.557",
+          "88.494",
+          "82.272",
+          "81.665",
+          "10.286"
+        ],
+        [
+          "YOLOv8-s",
+          "71.854",
+          "88.438",
+          "83.696",
+          "76.531",
+          "11.150"
+        ],
+        [
+          "Dome-DETR-S",
+          "71.363",
+          "86.634",
+          "80.877",
+          "85.475",
+          "13.291"
+        ],
+        [
+          "RT-DETRv2-S",
+          "71.206",
+          "87.275",
+          "82.047",
+          "81.814",
+          "20.149"
+        ],
+        [
+          "YOLO11-s",
+          "71.094",
+          "88.065",
+          "81.258",
+          "75.179",
+          "9.430"
+        ],
+        [
+          "CAF-YOLO-s",
+          "67.460",
+          "84.845",
+          "77.979",
+          "71.386",
+          "11.500"
+        ],
+        [
+          "Faster R-CNN R50-FPN",
+          "63.151",
+          "82.211",
+          "75.552",
+          "73.723",
+          "41.556"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "index": 4,
+      "body_block": 110,
+      "preceding_paragraphs": [
+        "4.7.1. Fixed-checkpoint anatomical prior replay",
+        "Table 5 compares the selected Pano checkpoint with its combined center/shape prior off and on in the same FP32 replay. AP increases by 0.602 and AR100 by 3.127 points. With weights and box coordinates fixed, this measures a score-ranking effect, not a training benefit or separate center/shape contributions. Historical help/harm examples are provided separately in Supplementary Fig. S7.",
+        "Table 5. Controlled inference ablation of the selected Pano checkpoint.",
+        "Same weights, FP32 replay, and batch size 16. Small differences from the native training-log values in Table 3 reflect distinct evaluation streams, not a changed checkpoint."
+      ],
+      "rows": [
+        [
+          "SpatialShape setting",
+          "AP",
+          "AP50",
+          "AP75",
+          "AR100"
+        ],
+        [
+          "Combined prior off",
+          "53.783",
+          "93.344",
+          "55.528",
+          "66.635"
+        ],
+        [
+          "Center + shape on",
+          "54.385",
+          "93.745",
+          "56.478",
+          "69.762"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "index": 5,
+      "body_block": 117,
+      "preceding_paragraphs": [
+        "4.8. Resolution and augmentation sensitivity",
+        "For the fixed Mobile architecture without MixUp, increasing input resolution from 640 to 1024 raises AP from 53.520 to 55.701 (+2.181; Table 6). For the fixed DSLR architecture, the same change reduces AP from 72.945 to 72.682. Thus resolution is a substantial, acquisition-dependent contributor and must not be conflated with an identity-module effect.",
+        "Table 6. Input-policy and MixUp comparisons within fixed photographic architectures.",
+        "All rows use seed 0, no Mosaic, crop probability 0.8, and zoom-out probability 0.5. Mobile fixed-1024/no-MixUp and DSLR multiscale-640/no-MixUp are the selected settings. Models share the within-family training and checkpoint-selection protocol."
+      ],
+      "rows": [
+        [
+          "Architecture",
+          "Input policy",
+          "MixUp",
+          "AP",
+          "AP75",
+          "AR100"
+        ],
+        [
+          "Mobile",
+          "640, multiscale",
+          "0.00",
+          "52.339",
+          "57.354",
+          "66.421"
+        ],
+        [
+          "Mobile",
+          "640, multiscale",
+          "0.50",
+          "53.991",
+          "60.141",
+          "67.698"
+        ],
+        [
+          "Mobile",
+          "640, fixed",
+          "0.00",
+          "53.520",
+          "59.194",
+          "67.513"
+        ],
+        [
+          "Mobile",
+          "1024, fixed",
+          "0.50",
+          "55.101",
+          "62.695",
+          "69.727"
+        ],
+        [
+          "Mobile",
+          "1024, fixed",
+          "0.00",
+          "55.701",
+          "64.019",
+          "70.071"
+        ],
+        [
+          "DSLR",
+          "640, multiscale",
+          "0.50",
+          "72.624",
+          "83.209",
+          "81.124"
+        ],
+        [
+          "DSLR",
+          "640, multiscale",
+          "0.00",
+          "73.115",
+          "84.341",
+          "83.880"
+        ],
+        [
+          "DSLR",
+          "640, fixed",
+          "0.00",
+          "72.945",
+          "83.752",
+          "82.784"
+        ],
+        [
+          "DSLR",
+          "1024, fixed",
+          "0.50",
+          "73.021",
+          "82.985",
+          "81.117"
+        ],
+        [
+          "DSLR",
+          "1024, fixed",
+          "0.00",
+          "72.682",
+          "83.035",
+          "81.633"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "index": 6,
+      "body_block": 122,
+      "preceding_paragraphs": [
+        "4.9. Direct photographic cross-device transfer",
+        "Applying final photographic checkpoints directly to the other cohort yields 28.533 AP for Mobile-to-DSLR and 8.885 AP for DSLR-to-Mobile (Table 7). Source-model resolution and FDI52 mapping are retained without target fine-tuning. The losses show that separately trained acquisition configurations do not establish cross-device invariance. Appearance, viewpoint composition, and class support may contribute but are not individually isolated.",
+        "Table 7. Within-domain and direct cross-device evaluation of the selected photographic models.",
+        "Cross-device rows and the DSLR within-domain row use FP32 replay; the Mobile within-domain row is its native validation summary. No target-domain tuning is performed. These streams are not subtracted to interpret small numerical changes."
+      ],
+      "rows": [
+        [
+          "Trained model",
+          "Evaluation cohort",
+          "Input",
+          "AP",
+          "AP50",
+          "AP75",
+          "AR100"
+        ],
+        [
+          "Mobile",
+          "Smartphone",
+          "1024",
+          "55.701",
+          "84.441",
+          "64.019",
+          "70.071"
+        ],
+        [
+          "Mobile",
+          "DSLR",
+          "1024",
+          "28.533",
+          "50.233",
+          "29.383",
+          "58.210"
+        ],
+        [
+          "DSLR",
+          "DSLR",
+          "640",
+          "73.114",
+          "89.147",
+          "84.340",
+          "83.880"
+        ],
+        [
+          "DSLR",
+          "Smartphone",
+          "640",
+          "8.885",
+          "16.458",
+          "8.792",
+          "24.861"
+        ]
+      ],
+      "style": "Normal Table"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "paragraph",
+      "index": 0,
+      "body_block": 0,
+      "style": "Title",
+      "text": "DENT-STRIDE: Domain-Configured Structured FDI Tooth Detection Across Panoramic Radiographs and Intraoral Photographs",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 1,
+      "body_block": 1,
+      "style": "Normal",
+      "text": "Jiehui Sun*, Xi Wu*, Ruixin Tang, Pei Wu, Shiquan Min, Jiangping Zhu#, Ruijie Huang#",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 2,
+      "body_block": 2,
+      "style": "Caption",
+      "text": "Author affiliations and correspondence are provided in the accompanying title page.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 3,
+      "body_block": 3,
+      "style": "Heading 1",
+      "text": "Abstract",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 4,
+      "body_block": 4,
+      "style": "Normal",
+      "text": "Automatic tooth detection and Fédération Dentaire Internationale (FDI) numbering must accommodate heterogeneous acquisition domains without confusing tooth-level accuracy with chart-level consistency. We present DENT-STRIDE, a configurable DEIM–D-FINE framework that separates factorized identity supervision and prototype auxiliary learning from training-derived anatomical priors and cross-scale feature aggregation. Panoramic radiographs, smartphone photographs, and five-view digital single-lens reflex (DSLR) photographs were studied using FDI-labelled bounding-box average precision (AP). The selected Pano, Mobile, and DSLR recipes achieved validation AP values of 54.385, 55.701, and 73.115, compared with 52.746, 53.369, and 72.560 for local reference recipes. These are single-run, recipe-level comparisons; Mobile uses a larger input resolution. A fixed-checkpoint panoramic replay increased AP from 53.783 to 54.385 when the combined center and shape prior was enabled. A separate 16-configuration feature-module study did not support monotonic gains from adding modules. Direct photographic cross-device transfer remained weak: Mobile-to-DSLR and DSLR-to-Mobile AP were 28.533 and 8.885. On smartphone images, matched-tooth FDI accuracy was 92.03%, but 35.45% of images contained repeated raw predicted labels. Identified image-content overlap in the panoramic and smartphone development splits further limits generalization claims. DENT-STRIDE therefore provides a domain-configured framework and an explicit analysis of the distinction between identity learning, geometric correction, and numbering consistency, rather than evidence of a universally optimal architecture or clinically autonomous charting.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 5,
+      "body_block": 5,
+      "style": "Caption",
+      "text": "Keywords: tooth detection; FDI numbering; structured prediction; panoramic radiography; intraoral photography; transformer detector; domain shift",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 6,
+      "body_block": 6,
+      "style": "Heading 1",
+      "text": "1. Introduction",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 7,
+      "body_block": 7,
+      "style": "Normal",
+      "text": "Accurate tooth identification supports diagnosis, treatment planning, and structured dental records. The FDI two-digit notation encodes dentition, quadrant, and tooth position (International Organization for Standardization, 2016). Ambiguous numbering can contribute to tooth-position errors, particularly when teeth are missing (Cullingham et al., 2017; Jacob et al., 2021; Pemberton, 2019). Automated localization and labelling offer reproducible charting inputs, although detector accuracy alone does not establish clinical benefit.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 8,
+      "body_block": 8,
+      "style": "Normal",
+      "text": "Panoramic radiographs provide a comparatively standardized global view, whereas intraoral photographs vary in framing, viewpoint, occlusion, illumination, and reflection. Smartphone acquisition supports remote review but introduces substantial image variability (Alavi et al., 2025; Moharrami et al., 2024). Standardized five-view DSLR photography reduces some variability without eliminating missing teeth, mixed dentition, or similar neighbouring teeth. Fig. 1 illustrates these acquisition conditions and representative numbering errors.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 9,
+      "body_block": 9,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId16",
+          "target": "media/image6.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 10,
+      "body_block": 10,
+      "style": "Caption",
+      "text": "Fig. 1. Acquisition conditions and representative detection/numbering errors. The examples include primary dentition, visible tooth gaps, reflection, occlusion, oblique views, missed or incorrect FDI labels, duplicates, and favourable/adverse prior corrections. These are illustrative cases from historical model outputs, not frequency estimates or a qualitative evaluation of the final selected checkpoints. The legend distinguishes ground truth, detector output, and prior-off output. Visible spaces alone do not confirm clinically missing teeth.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 11,
+      "body_block": 11,
+      "style": "Normal",
+      "text": "Localization, identity, and chart consistency are distinct endpoints. FDI-aware average precision requires both a correct box and a correct label, but does not ensure globally unique numbering. Similarly, a geometric prior may improve class ranking without improving learned appearance representations. We therefore separate identity supervision, geometric correction, and output consistency.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 12,
+      "body_block": 12,
+      "style": "Normal",
+      "text": "DENT-STRIDE configures a common DEIM–D-FINE detector for each acquisition cohort. Factorized heads and a prototype bank provide structured identity supervision; SpatialShape supplies class-specific center and box-shape priors; cross-scale mutual feature aggregation (CMFA) changes feature fusion; and DualOptAdamW changes training optimization. Configuration occurs during development rather than through automatic test-time adaptation.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 13,
+      "body_block": 13,
+      "style": "Normal",
+      "text": "The contributions are threefold: a query-level identity mechanism that separates factor-score fusion from prototype-only supervision; a distinct training-derived anatomical scoring model; and a multi-cohort evaluation combining detector comparisons, module combinations, controlled prior replay, resolution sensitivity, cross-device transfer, and numbering-consistency analysis. Together, these experiments examine acquisition-specific benefits and the limits of combining additional components.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 14,
+      "body_block": 14,
+      "style": "Heading 1",
+      "text": "2. Related work",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 15,
+      "body_block": 15,
+      "style": "Heading 2",
+      "text": "2.1. Tooth localization and FDI numbering",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 16,
+      "body_block": 16,
+      "style": "Normal",
+      "text": "Tooth detection and numbering have been studied in panoramic radiographs (Tuzoff et al., 2019; Muramatsu et al., 2021; Yüksel et al., 2021), bitewings (Yaren Tekin et al., 2022), digital impressions (van Nistelrooij et al., 2025), and CBCT (Zhou et al., 2025). DENTEX combines enumeration and abnormal-tooth detection (Hamamci et al., 2023), while Yoon et al. (2024) studied tooth-number and caries detection in photographs. These settings differ in field of view, dentition coverage, and annotation conventions.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 17,
+      "body_block": 17,
+      "style": "Heading 2",
+      "text": "2.2. Structured identity and anatomical priors",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 18,
+      "body_block": 18,
+      "style": "Normal",
+      "text": "Label-tree cascades decompose tooth identity (Zhang et al., 2018), and prior-knowledge optimization can refine panoramic tooth/prosthesis detection (Ali et al., 2023). DENT-STRIDE distinguishes supervised FDI factors and class-conditional query prototypes from fixed box-geometry templates within a set-prediction detector. The former shape learned identity representations; the latter adjust class scores. Neither mechanism alone imposes a globally consistent dental chart.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 19,
+      "body_block": 19,
+      "style": "Heading 2",
+      "text": "2.3. Query detectors and multiscale representation",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 20,
+      "body_block": 20,
+      "style": "Normal",
+      "text": "D-FINE refines box-regression distributions (Peng et al., 2025), and DEIM improves transformer matching and convergence (Huang et al., 2025). RT-DETR (Zhao et al., 2023), RT-DETRv2 (Lv et al., 2024), Faster R-CNN (Ren et al., 2015), Ultralytics YOLO (Jocher et al., 2023), CAF-YOLO (Chen and Lu, 2025), and Dome-DETR (Hu et al., 2025) provide complementary detector references. Their native training and output processing differ; cross-framework comparisons therefore evaluate complete systems rather than an isolated architectural replacement.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 21,
+      "body_block": 21,
+      "style": "Heading 1",
+      "text": "3. Methods",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 22,
+      "body_block": 22,
+      "style": "Heading 2",
+      "text": "3.1. Common detector and domain configurations",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 23,
+      "body_block": 23,
+      "style": "Normal",
+      "text": "The common scaffold comprises an HGNetv2-B0 backbone, three 256-channel projected feature levels, a hybrid encoder, and a three-layer D-FINE decoder with 300 ordinary queries. DEIM supplies matching and detection losses (Huang et al., 2025; Peng et al., 2025). Fig. 2 shows the component family. Pano uses factor/prototype auxiliary supervision and SpatialShape; Mobile uses CMFA, HOOA, factor-score fusion, and prototype supervision; DSLR uses CMFA with DualOptAdamW. Optional comparison refiners are detailed in Supplementary Section S1.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 24,
+      "body_block": 24,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId11",
+          "target": "media/image1.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 25,
+      "body_block": 25,
+      "style": "Caption",
+      "text": "Fig. 2. DENT-STRIDE component family. Optional branches need not be active together. Mobile uses factor-score fusion; Pano uses SpatialShape; prototypes supply training supervision only. The lower panel shows the base detection losses, with configuration-dependent auxiliary terms defined in Section 3.5. The three selected recipes are specified in Table 2.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 26,
+      "body_block": 26,
+      "style": "Heading 2",
+      "text": "3.2. Structured identity learning",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 27,
+      "body_block": 27,
+      "style": "Heading 3",
+      "text": "3.2.1. Factorized FDI supervision and score fusion",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 28,
+      "body_block": 28,
+      "style": "Normal",
+      "text": "Factor-score fusion. Let  denote the FDI logit of query  for class , before factor fusion, and let  be the logits of factor head  (quadrant, within-quadrant position, and dentition). The three heads have 8, 8, and 2 outputs, respectively. The dataset label map converts class  to its clinical FDI code  and hence to zero-based factor indices , , and  for primary teeth or  for permanent teeth. With , the mapped factor scores are first combined:",
+      "images": [],
+      "equations": 12,
+      "equation_linear_text": [
+        "zik",
+        "i",
+        "k",
+        "ai(h)",
+        "h∈{q,p,d}",
+        "k",
+        "fk",
+        "q(k)=⌊fk/10⌋-1",
+        "p(k)=(fk mod 10)-1",
+        "d(k)=0",
+        "1",
+        "li(h)=logsoftmax(ai(h))"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 29,
+      "body_block": 29,
+      "style": "Normal",
+      "text": "\t\t(1)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "uik=αqli,q(k)(q)+αpli,p(k)(p)+αdli,d(k)(d)."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 30,
+      "body_block": 30,
+      "style": "Normal",
+      "text": "The combined score is then centered over the  FDI classes and clipped once:",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "K"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 31,
+      "body_block": 31,
+      "style": "Normal",
+      "text": "\t\t(2)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "zik=zik+clip​(uik-max1≤j≤Kuij,-6,0)."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 32,
+      "body_block": 32,
+      "style": "Normal",
+      "text": "For DENT-STRIDE-Mobile, . Thus, weighting precedes centering and clipping; the three factor branches are not clipped separately. The correction is applied to ordinary detection queries at each evaluated decoder layer during training and inference, excluding denoising queries during training. The native D-FINE localization-quality adjustment follows this operation. DENT-STRIDE-Pano uses the factor heads for auxiliary supervision without this inference correction. Factor targets are supervised by mean cross-entropy over matched queries, with quadrant/position/dentition weights  for Mobile and  for Pano. The same head-specific weights apply to intermediate-decoder and denoising outputs when those factor logits are present.",
+      "images": [],
+      "equations": 3,
+      "equation_linear_text": [
+        "(αq,αp,αd)=(0.10,0.05,0.03)",
+        "(0.08,0.08,0.03)",
+        "(0.10,0.10,0.05)"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 33,
+      "body_block": 33,
+      "style": "Normal",
+      "text": "Quadrant outputs cover permanent and primary quadrants, so dentition is an additional supervised decomposition rather than an independent clinical variable. All factors are decoded through the clinical label map.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 34,
+      "body_block": 34,
+      "style": "Heading 3",
+      "text": "3.2.2. Prototype auxiliary supervision",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 35,
+      "body_block": 35,
+      "style": "Normal",
+      "text": "Prototype auxiliary supervision. Let  be the final-decoder representation of an ordinary query and let  be learnable prototype  for FDI class . Each prototype coordinate is initialized independently from a zero-mean Gaussian with standard deviation . Queries and prototypes are normalized along the feature dimension:",
+      "images": [],
+      "equations": 5,
+      "equation_linear_text": [
+        "hi∈R256",
+        "Pkr∈R256",
+        "r∈{1,2,3,4}",
+        "k",
+        "0.02"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 36,
+      "body_block": 36,
+      "style": "Normal",
+      "text": "\t\t(3)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "hi=himax(∥hi∥2,ε),  Pkr=Pkrmax(∥Pkr∥2,ε),  ε=10-12."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 37,
+      "body_block": 37,
+      "style": "Normal",
+      "text": "Cosine similarities are divided by temperature  and aggregated across the four prototypes using LogSumExp:",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "τ=0.20"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 38,
+      "body_block": 38,
+      "style": "Normal",
+      "text": "\t\t(4)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "tikr=hiTPkr,  rik=log​(r=14exp(tikr/τ))."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 39,
+      "body_block": 39,
+      "style": "Normal",
+      "text": "For the final-output one-to-one matching set  containing  matched queries, with matched target class , the weighted prototype loss is",
+      "images": [],
+      "equations": 3,
+      "equation_linear_text": [
+        "M",
+        "N",
+        "yi"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 40,
+      "body_block": 40,
+      "style": "Normal",
+      "text": "\t\t(5)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "Lproto=-λprotoNi∈M​logexp(ri,yi)k=1Kexp(rik)."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 41,
+      "body_block": 41,
+      "style": "Normal",
+      "text": "Both configurations use four prototypes per class and temperature 0.20, with loss weight 0.03 in Mobile and 0.05 in Pano. The loss averages over matched final-layer ordinary queries and is zero for an empty match set. Queries and prototypes both receive gradients, but prototype scores do not alter inference logits. Unsupported smartphone classes 18, 28, 38, and 48 are excluded from prototype interpretation.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 42,
+      "body_block": 42,
+      "style": "Heading 2",
+      "text": "3.3. Training-derived SpatialShape prior",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 43,
+      "body_block": 43,
+      "style": "Normal",
+      "text": "SpatialShape anatomical prior. Templates are estimated from the 16,234 valid training boxes in the 570 DENTEX2023 training images, separately for the 32 permanent FDI classes. For a box  in an image of width  and height , define normalized center and log-shape features:",
+      "images": [],
+      "equations": 3,
+      "equation_linear_text": [
+        "(x,y,w,h)",
+        "W",
+        "H"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 44,
+      "body_block": 44,
+      "style": "Normal",
+      "text": "\t\t(6)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "c=((x+w/2)/W, (y+h/2)/H)T,s=(logmax(w/W,10-5), logmax(h/H,10-5))T."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 45,
+      "body_block": 45,
+      "style": "Normal",
+      "text": "For feature type  and the  training boxes of class , the mean is . The full two-dimensional sample covariance, including its off-diagonal term, is regularized as",
+      "images": [],
+      "equations": 4,
+      "equation_linear_text": [
+        "a∈{c,s}",
+        "nk",
+        "k",
+        "μk(a)=nk-1n=1nkakn"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 46,
+      "body_block": 46,
+      "style": "Normal",
+      "text": "\t\t(7)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "Σk(a)=1nk-1n=1nk(akn-μk(a))(akn-μk(a))T+10-3I2."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 47,
+      "body_block": 47,
+      "style": "Normal",
+      "text": "All 32 DENTEX classes have at least two training boxes. In the general construction, a single supported box uses covariance , and an unsupported class receives a zero template score. At inference, the predicted normalized center and log-width/log-height are scored by the corresponding class-specific quadratic forms:",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "10-3I2"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 48,
+      "body_block": 48,
+      "style": "Normal",
+      "text": "\t\t(8)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "gik(a)=clip​[-12(ai-μk(a))T(Σk(a))-1(ai-μk(a)),-20,0]."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 49,
+      "body_block": 49,
+      "style": "Normal",
+      "text": "These joint Mahalanobis scores omit log-determinants, density-normalization constants, and empirical class-frequency terms. Each score is separately centered across classes and clipped again:",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 50,
+      "body_block": 50,
+      "style": "Normal",
+      "text": "\t\t(9)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "δik(a)=clip​[gik(a)-max1≤j≤Kgij(a),-6,0]."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 51,
+      "body_block": 51,
+      "style": "Normal",
+      "text": "Let  denote the decoder output logit before post-processing. Spatial, shape, and view terms are combined additively in logit space, followed by sigmoid:",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "zikdet"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 52,
+      "body_block": 52,
+      "style": "Normal",
+      "text": "\t\t(10)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "zikSS=zikdet+0.20δik(c)+0.05δik(s)+0.20vk,  πik=sigmoid(zikSS)."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 53,
+      "body_block": 53,
+      "style": "Normal",
+      "text": "The view term  is  for an FDI class included in the specified view and  otherwise. For the DENTEX panoramic setting, all 32 permanent FDI classes are included, so  for every class and the view term has no numerical effect. The two geometric contributions are therefore bounded jointly within . No appearance-prototype score is added. The final 300 query–class pairs are selected by descending , without added non-maximum suppression or an FDI-uniqueness assignment constraint; box coordinates are not changed by the prior. Means and covariance inverses are fixed training-derived statistics and are not learned from validation images. SpatialShape is used by DENT-STRIDE-Pano, not DENT-STRIDE-Mobile.",
+      "images": [],
+      "equations": 6,
+      "equation_linear_text": [
+        "vk",
+        "0",
+        "-2",
+        "vk=0",
+        "[-1.50,0]",
+        "πik"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 54,
+      "body_block": 54,
+      "style": "Normal",
+      "text": "Fig. 3 visualizes the training-derived center templates; Supplementary Fig. S4 shows the corresponding width/height distributions. These fixed geometric statistics are distinct from the learnable identity bank. The controlled replay in Section 4.7 tests their combined effect on score ranking.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 55,
+      "body_block": 55,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId17",
+          "target": "media/image7.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 56,
+      "body_block": 56,
+      "style": "Caption",
+      "text": "Fig. 3. Training-derived center templates for the 32 permanent DENTEX FDI classes. Each panel shows the class-specific center distribution in normalized image coordinates, based on training-box means and full regularized covariances. The templates are fixed at inference and are separate from the learnable appearance prototypes; shape statistics are provided in Supplementary Fig. S4.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 57,
+      "body_block": 57,
+      "style": "Heading 2",
+      "text": "3.4. Cross-scale feature aggregation and local refinement",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 58,
+      "body_block": 58,
+      "style": "Normal",
+      "text": "CMFA (AdaptiveInterleaveFusion) replaces four adjacent-scale fusion sites: two top-down FPN and two bottom-up PAN sites (Fig. 4). Aligned inputs A and B each have 256 channels. Their concatenation is globally pooled and passed through 1×1 Conv–SiLU–1×1 Conv–Sigmoid to obtain channel gates g_A and g_B. Cross-enhanced features A′ = A + g_B⊙B and B′ = B + g_A⊙A are concatenated. Channel-wise mean/max maps then drive a 7×7 convolution and sigmoid spatial gate G_s. The gated 512-channel output feeds the next fusion block.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 59,
+      "body_block": 59,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId18",
+          "target": "media/image8.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 60,
+      "body_block": 60,
+      "style": "Caption",
+      "text": "Fig. 4. CMFA: cross-gated adjacent-scale exchange followed by spatial gating. The lower panels identify its four insertion sites and summarize the operations. CMFA is active in the selected Mobile and DSLR configurations, but not in Pano.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 61,
+      "body_block": 61,
+      "style": "Normal",
+      "text": "Mobile also uses HOOA after encoder aggregation (Fig. 5). Local, dilated-context, high-pass, and multiplicative local–context responses are projected, channel-gated, and spatially gated before a residual update bounded by 0.30 × sigmoid(s). HOOA is absent from the selected DSLR model. CEDv2, SMWG, MPF, and UCM are comparison refiners rather than components required by every configuration (Supplementary Section S1).",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 62,
+      "body_block": 62,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId19",
+          "target": "media/image9.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 63,
+      "body_block": 63,
+      "style": "Caption",
+      "text": "Fig. 5. HOOA refinement in the Mobile configuration. The local branch L interacts with sigmoid-gated context to form O₂; a high-pass branch provides E. Concatenated responses are projected and gated before the bounded residual update. DW denotes depthwise convolution, σ sigmoid, ⊙ element-wise product, and ⊕ addition. The separate CEDv2 comparison architecture is shown in Supplementary Fig. S1.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 64,
+      "body_block": 64,
+      "style": "Heading 2",
+      "text": "3.5. Training objective and optimization",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 65,
+      "body_block": 65,
+      "style": "Normal",
+      "text": "Training combines the native detection losses with configuration-dependent auxiliary objectives. Besides factor and prototype supervision, the local implementation uses an arch-position term; Mobile also uses a normalized Wasserstein-distance box term. With inactive terms set to zero, the objective is",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 66,
+      "body_block": 66,
+      "style": "Normal",
+      "text": "    (11)",
+      "images": [],
+      "equations": 1,
+      "equation_linear_text": [
+        "L = L_det + λ_arch L_arch + Σ_h λ_h L_factor,h + L_proto + λ_NWD L_NWD"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "index": 67,
+      "body_block": 67,
+      "style": "Normal",
+      "text": "Here L_det = L_MAL + 5L_L1 + 2L_GIoU + 0.15L_FGL + 1.5L_DDF. The prototype loss in Eq. (5) already includes its coefficient and is not weighted a second time. Intermediate decoder and denoising supervision follow the corresponding detector implementation.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 68,
+      "body_block": 68,
+      "style": "Normal",
+      "text": "The training-only arch-position term groups matched teeth by reference vertical center, maps supported FDI identities to arch order, and penalizes the absolute difference from min–max-normalized predicted horizontal position. A small stabilizer prevents division by zero. This is a horizontal-order heuristic, not a fitted arch curve or an inference uniqueness constraint; its weights are 0.25 for Pano/DSLR and 0.10 for Mobile.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 69,
+      "body_block": 69,
+      "style": "Normal",
+      "text": "For Mobile, the box-distance term uses normalized center c and width–height vector s. For each matched prediction and target, d = √(‖c − c*‖² + ‖s − s*‖²/4), and L_NWD is the mean of 1 − exp(−d/0.08). Its weight is 0.50. The Pano and DSLR active loss lists do not include this term. Factor cross-entropy weights for quadrant/position/dentition are 0.10/0.10/0.05 in Pano and 0.08/0.08/0.03 in Mobile. These auxiliary terms are part of the reported recipes and cannot be omitted from a reproducibility description.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 70,
+      "body_block": 70,
+      "style": "Normal",
+      "text": "DualOptAdamW performs an AdamW step followed by rank-scaled post-step decay and rollback toward initialization (Ning et al., 2026). The DSLR recipe uses rollback 0.005, real-time decay 0.01, layer-decay power 1.5, and scaling bounds 0.5–1.5. Other selected recipes use AdamW. These changes affect optimization, not inference architecture.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 71,
+      "body_block": 71,
+      "style": "Heading 1",
+      "text": "4. Experiments",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 72,
+      "body_block": 72,
+      "style": "Heading 2",
+      "text": "4.1. Datasets and partition scope",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 73,
+      "body_block": 73,
+      "style": "Normal",
+      "text": "This retrospective computational study uses three acquisition-specific cohorts (Table 1). DENTEX contains 32 permanent FDI classes; the photographic cohorts share 52 permanent/primary classes. DSLR provides 150 training and 38 validation patient identifiers without overlap. Patient identifiers are unavailable for DENTEX and smartphone images.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 74,
+      "body_block": 74,
+      "style": "Caption",
+      "text": "Table 1. Dataset composition for the reported development partitions.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "table",
+      "index": 0,
+      "body_block": 75,
+      "preceding_paragraphs": [
+        "4.1. Datasets and partition scope",
+        "This retrospective computational study uses three acquisition-specific cohorts (Table 1). DENTEX contains 32 permanent FDI classes; the photographic cohorts share 52 permanent/primary classes. DSLR provides 150 training and 38 validation patient identifiers without overlap. Patient identifiers are unavailable for DENTEX and smartphone images.",
+        "Table 1. Dataset composition for the reported development partitions.",
+        "DENTEX2023 is a panoramic radiography cohort (Hamamci et al., 2023). DSLR train/validation patient counts are 150/38. Distinct annotation files alone do not establish independent image content."
+      ],
+      "rows": [
+        [
+          "Cohort",
+          "Train images",
+          "Val. images",
+          "Train teeth",
+          "Val. teeth",
+          "FDI classes"
+        ],
+        [
+          "DENTEX2023",
+          "570",
+          "64",
+          "16,234",
+          "1,861",
+          "32"
+        ],
+        [
+          "Smartphone",
+          "878",
+          "220",
+          "9,837",
+          "2,459",
+          "52"
+        ],
+        [
+          "DSLR, five-view",
+          "750",
+          "190",
+          "10,760",
+          "2,742",
+          "52"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "type": "paragraph",
+      "index": 75,
+      "body_block": 76,
+      "style": "Caption",
+      "text": "DENTEX2023 is a panoramic radiography cohort (Hamamci et al., 2023). DSLR train/validation patient counts are 150/38. Distinct annotation files alone do not establish independent image content.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 76,
+      "body_block": 77,
+      "style": "Normal",
+      "text": "Content checks associated with these partitions identified one DENTEX and four smartphone training–validation overlap groups, plus an internal DENTEX validation duplicate group. These two cohorts therefore provide development estimates rather than verified independent hold-outs. DSLR has patient-disjoint partitions, but validation still serves model selection. No independent test-set results are reported.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 77,
+      "body_block": 78,
+      "style": "Heading 2",
+      "text": "4.2. Implementation and recipe accounting",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 78,
+      "body_block": 79,
+      "style": "Normal",
+      "text": "Selected models use seed 0, 160 epochs, mixed precision, training/validation batches of 8/16, exponential moving averages, and maximum-validation-AP checkpoint selection. AdamW uses learning rates 5 × 10⁻⁴ (base) and 2.5 × 10⁻⁴ (backbone), betas (0.9, 0.999), and weight decay 10⁻⁴. FlatCosine combines warm-up, a flat phase, cosine decay, and terminal low-learning-rate/no-augmentation training. Geometric flips are disabled to preserve FDI semantics. Table 2 specifies acquisition-dependent settings.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 79,
+      "body_block": 80,
+      "style": "Caption",
+      "text": "Table 2. Selected DENT-STRIDE recipes. These are different training/inference configurations, not a common-resolution factorial comparison.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "table",
+      "index": 1,
+      "body_block": 81,
+      "preceding_paragraphs": [
+        "4.2. Implementation and recipe accounting",
+        "Selected models use seed 0, 160 epochs, mixed precision, training/validation batches of 8/16, exponential moving averages, and maximum-validation-AP checkpoint selection. AdamW uses learning rates 5 × 10⁻⁴ (base) and 2.5 × 10⁻⁴ (backbone), betas (0.9, 0.999), and weight decay 10⁻⁴. FlatCosine combines warm-up, a flat phase, cosine decay, and terminal low-learning-rate/no-augmentation training. Geometric flips are disabled to preserve FDI semantics. Table 2 specifies acquisition-dependent settings.",
+        "Table 2. Selected DENT-STRIDE recipes. These are different training/inference configurations, not a common-resolution factorial comparison.",
+        "The Mobile implementation is the A07 branch. “None” for Pano refers to optional feature refiners, not removal of native encoder aggregation. Epoch indices are those recorded in the training summaries."
+      ],
+      "rows": [
+        [
+          "Setting",
+          "Pano",
+          "Mobile",
+          "DSLR"
+        ],
+        [
+          "Input/evaluation",
+          "Fixed 640",
+          "Fixed 1024",
+          "640 evaluation; multiscale training"
+        ],
+        [
+          "Feature additions",
+          "None",
+          "CMFA + HOOA",
+          "CMFA"
+        ],
+        [
+          "Factor/prototype heads",
+          "Auxiliary / auxiliary",
+          "Fusion + auxiliary / auxiliary",
+          "Disabled"
+        ],
+        [
+          "SpatialShape",
+          "Center 0.20; shape 0.05",
+          "Disabled",
+          "Disabled"
+        ],
+        [
+          "Optimizer",
+          "AdamW",
+          "AdamW",
+          "DualOptAdamW"
+        ],
+        [
+          "Mosaic / MixUp",
+          "0 / 0.50",
+          "0 / 0",
+          "0 / 0"
+        ],
+        [
+          "Arch-position loss",
+          "0.25",
+          "0.10",
+          "0.25"
+        ],
+        [
+          "Active NWD loss",
+          "No",
+          "0.50; normalizer 0.08",
+          "No"
+        ],
+        [
+          "Prototype CE weight",
+          "0.05",
+          "0.03",
+          "Not active"
+        ],
+        [
+          "Selected epoch index",
+          "156",
+          "139",
+          "150"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "type": "paragraph",
+      "index": 80,
+      "body_block": 82,
+      "style": "Caption",
+      "text": "The Mobile implementation is the A07 branch. “None” for Pano refers to optional feature refiners, not removal of native encoder aggregation. Epoch indices are those recorded in the training summaries.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 81,
+      "body_block": 83,
+      "style": "Normal",
+      "text": "Local DEIM–D-FINE and unmodified official DEIM-s are separate references. The local family shares the detector implementation but differs from selected recipes in resolution, augmentation, or active auxiliary losses. In particular, the smartphone local reference uses 640 inputs and Mobile uses 1024; their difference is a recipe comparison, not an isolated identity-learning effect.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 82,
+      "body_block": 84,
+      "style": "Heading 2",
+      "text": "4.3. Evaluation endpoints and comparison protocols",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 83,
+      "body_block": 85,
+      "style": "Normal",
+      "text": "The primary endpoint is FDI-labelled COCO bounding-box AP over IoU thresholds 0.50:0.05:0.95. A correct box with an incorrect FDI label is not a correct-class true positive. AP50, AP75, and AR100 are secondary endpoints, reported in percentage points. DEIM-family outputs retain native top-300 predictions without added NMS or FDI-uniqueness constraints. External detectors retain native training and post-processing. Parameter counts describe executable training models, including auxiliary branches where present.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 84,
+      "body_block": 86,
+      "style": "Normal",
+      "text": "Mobile threshold analysis uses score ≥0.30 and class-agnostic Hungarian assignment maximizing total IoU. A pair is correct only if IoU ≥0.50 and FDI identity agrees. TP counts correct pairs; FP and FN equal prediction and reference counts minus TP. Precision, recall, and F1 are micro-averaged. Matched-tooth FDI accuracy is correct identities/localization matches; coverage is matches/reference teeth. Duplicate-image rate is the proportion with a repeated predicted FDI label. These raw-output diagnostics are not clinical charting-error rates.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 85,
+      "body_block": 87,
+      "style": "Normal",
+      "text": "Selected-recipe results are single-run validation-selected estimates. Fixed-checkpoint replay changes only the specified inference switch. Historical ablation families are interpreted within their own recipes rather than pooled with final models (Supplementary Table S6). Three-seed upstream baseline results are reported separately in Supplementary Section S4. The fixed threshold is exploratory, not clinically calibrated; selected-model confidence intervals are not estimated.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 86,
+      "body_block": 88,
+      "style": "Normal",
+      "text": "Figs. 6–7 plot the reported numerical records. Source data and Python/Matplotlib visualization methods, including plotting-code assistance, are described in Supplementary Section S7.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 87,
+      "body_block": 89,
+      "style": "Heading 2",
+      "text": "4.4. Cohort-specific quantitative comparison",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 88,
+      "body_block": 90,
+      "style": "Normal",
+      "text": "Relative to local references, the selected Pano, Mobile, and DSLR recipes increase AP by 1.639, 2.332, and 0.555 points, respectively (Table 3). Mobile has the largest AP75 difference (+5.854), but higher resolution and additional losses may contribute. Official and local DEIM results are retained as separate implementation-level references.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 89,
+      "body_block": 91,
+      "style": "Caption",
+      "text": "Table 3. Single-run validation comparison across acquisition cohorts.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "table",
+      "index": 2,
+      "body_block": 92,
+      "preceding_paragraphs": [
+        "4.4. Cohort-specific quantitative comparison",
+        "Relative to local references, the selected Pano, Mobile, and DSLR recipes increase AP by 1.639, 2.332, and 0.555 points, respectively (Table 3). Mobile has the largest AP75 difference (+5.854), but higher resolution and additional losses may contribute. Official and local DEIM results are retained as separate implementation-level references.",
+        "Table 3. Single-run validation comparison across acquisition cohorts.",
+        "The selected Mobile recipe uses 1024 inputs; the listed references use 640. Other recipe differences are described in Section 4.2. Official baseline rows are seed 0, not the three-seed mean. Pano and Mobile values are development estimates with the partition limitations in Section 4.1."
+      ],
+      "rows": [
+        [
+          "Cohort",
+          "Model",
+          "AP",
+          "AP50",
+          "AP75",
+          "AR100",
+          "Params (M)"
+        ],
+        [
+          "Pano",
+          "Local DEIM–D-FINE",
+          "52.746",
+          "93.634",
+          "52.927",
+          "66.906",
+          "10.604"
+        ],
+        [
+          "Pano",
+          "Official DEIM-s",
+          "53.349",
+          "93.483",
+          "54.427",
+          "67.026",
+          "10.260"
+        ],
+        [
+          "Pano",
+          "RT-DETRv2-S",
+          "50.797",
+          "92.325",
+          "49.408",
+          "63.762",
+          "20.123"
+        ],
+        [
+          "Pano",
+          "DENT-STRIDE",
+          "54.385",
+          "93.744",
+          "56.481",
+          "69.765",
+          "10.650"
+        ],
+        [
+          "Mobile",
+          "Local DEIM–D-FINE",
+          "53.369",
+          "83.835",
+          "58.165",
+          "68.101",
+          "10.629"
+        ],
+        [
+          "Mobile",
+          "Official DEIM-s",
+          "53.605",
+          "83.085",
+          "60.419",
+          "67.359",
+          "10.286"
+        ],
+        [
+          "Mobile",
+          "RT-DETRv2-S",
+          "50.986",
+          "80.192",
+          "56.722",
+          "66.054",
+          "20.149"
+        ],
+        [
+          "Mobile",
+          "DENT-STRIDE",
+          "55.701",
+          "84.441",
+          "64.019",
+          "70.071",
+          "12.513"
+        ],
+        [
+          "DSLR",
+          "Local DEIM–D-FINE",
+          "72.560",
+          "88.245",
+          "83.249",
+          "81.704",
+          "10.629"
+        ],
+        [
+          "DSLR",
+          "Official DEIM-s",
+          "72.557",
+          "88.494",
+          "82.272",
+          "81.665",
+          "10.286"
+        ],
+        [
+          "DSLR",
+          "RT-DETRv2-S",
+          "71.206",
+          "87.275",
+          "82.047",
+          "81.814",
+          "20.149"
+        ],
+        [
+          "DSLR",
+          "DENT-STRIDE",
+          "73.115",
+          "89.149",
+          "84.341",
+          "83.880",
+          "11.154"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "type": "paragraph",
+      "index": 90,
+      "body_block": 93,
+      "style": "Caption",
+      "text": "The selected Mobile recipe uses 1024 inputs; the listed references use 640. Other recipe differences are described in Section 4.2. Official baseline rows are seed 0, not the three-seed mean. Pano and Mobile values are development estimates with the partition limitations in Section 4.1.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 91,
+      "body_block": 94,
+      "style": "Heading 2",
+      "text": "4.5. DSLR comparison with a broader detector set",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 92,
+      "body_block": 95,
+      "style": "Normal",
+      "text": "Table 4 and Fig. 6 show the complete DSLR comparator set. RT-DETR-L exceeds DENT-STRIDE by 0.904 AP with approximately 32.09 M versus 11.15 M parameters. DENT-STRIDE is a compact accuracy–parameter operating point, not the highest-AP model overall. Dome-DETR-S leads AR100, demonstrating that recall and AP need not rank detectors identically.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 93,
+      "body_block": 96,
+      "style": "Caption",
+      "text": "Table 4. DSLR framework-level comparison at 640 evaluation resolution.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "table",
+      "index": 3,
+      "body_block": 97,
+      "preceding_paragraphs": [
+        "4.5. DSLR comparison with a broader detector set",
+        "Table 4 and Fig. 6 show the complete DSLR comparator set. RT-DETR-L exceeds DENT-STRIDE by 0.904 AP with approximately 32.09 M versus 11.15 M parameters. DENT-STRIDE is a compact accuracy–parameter operating point, not the highest-AP model overall. Dome-DETR-S leads AR100, demonstrating that recall and AP need not rank detectors identically.",
+        "Table 4. DSLR framework-level comparison at 640 evaluation resolution.",
+        "All methods use the DSLR FDI52 cohort and 640 evaluation inputs, with framework-native pretraining, optimization, and output processing. This is a system-level comparison; parameter count does not measure runtime."
+      ],
+      "rows": [
+        [
+          "Model",
+          "AP",
+          "AP50",
+          "AP75",
+          "AR100",
+          "Params (M)"
+        ],
+        [
+          "RT-DETR-L",
+          "74.019",
+          "89.728",
+          "84.549",
+          "84.598",
+          "32.091"
+        ],
+        [
+          "DENT-STRIDE-DSLR",
+          "73.115",
+          "89.149",
+          "84.341",
+          "83.880",
+          "11.154"
+        ],
+        [
+          "Local DEIM–D-FINE",
+          "72.560",
+          "88.245",
+          "83.249",
+          "81.704",
+          "10.629"
+        ],
+        [
+          "Official DEIM-s",
+          "72.557",
+          "88.494",
+          "82.272",
+          "81.665",
+          "10.286"
+        ],
+        [
+          "YOLOv8-s",
+          "71.854",
+          "88.438",
+          "83.696",
+          "76.531",
+          "11.150"
+        ],
+        [
+          "Dome-DETR-S",
+          "71.363",
+          "86.634",
+          "80.877",
+          "85.475",
+          "13.291"
+        ],
+        [
+          "RT-DETRv2-S",
+          "71.206",
+          "87.275",
+          "82.047",
+          "81.814",
+          "20.149"
+        ],
+        [
+          "YOLO11-s",
+          "71.094",
+          "88.065",
+          "81.258",
+          "75.179",
+          "9.430"
+        ],
+        [
+          "CAF-YOLO-s",
+          "67.460",
+          "84.845",
+          "77.979",
+          "71.386",
+          "11.500"
+        ],
+        [
+          "Faster R-CNN R50-FPN",
+          "63.151",
+          "82.211",
+          "75.552",
+          "73.723",
+          "41.556"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "type": "paragraph",
+      "index": 94,
+      "body_block": 98,
+      "style": "Caption",
+      "text": "All methods use the DSLR FDI52 cohort and 640 evaluation inputs, with framework-native pretraining, optimization, and output processing. This is a system-level comparison; parameter count does not measure runtime.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 95,
+      "body_block": 99,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId20",
+          "target": "media/image10.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 96,
+      "body_block": 100,
+      "style": "Caption",
+      "text": "Fig. 6. DSLR accuracy–parameter comparison for all ten methods in Table 4. The larger RT-DETR-L reference is retained. DENT-STRIDE offers a compact operating point rather than unrestricted AP leadership. Points are single-run validation estimates; no uncertainty or latency is inferred from their separation. Exact values and reproducible plotting code accompany the figure sources.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 97,
+      "body_block": 101,
+      "style": "Heading 2",
+      "text": "4.6. Inter-module ablation: a complete feature combination family",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 98,
+      "body_block": 102,
+      "style": "Normal",
+      "text": "Fig. 7 summarizes all 16 CMFA/SMWG/UCM/MPF combinations from the DSLR feature-ablation family; the full metric table is Supplementary Table S2. DualOpt, seed, input policy, training budget, and checkpoint rule are fixed within this family. Its DualOpt-only and CMFA + DualOpt results are 73.173 and 73.431 AP, respectively; these belong to a different recipe family from the selected 73.115 AP DSLR model.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 99,
+      "body_block": 103,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId21",
+          "target": "media/image11.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 100,
+      "body_block": 104,
+      "style": "Caption",
+      "text": "Fig. 7. Complete four-feature-module ablation on DSLR, with DualOpt active in every row. C = CMFA, S = SMWG, U = UCM, and M = MPF; “None” disables all four feature additions. The dashed line marks the within-family DualOpt-only reference. All 16 combinations are shown in design order, including negative results. These single-run observations do not estimate across-seed variability.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 101,
+      "body_block": 105,
+      "style": "Normal",
+      "text": "CMFA alone improves AP by 0.258 points within this family. Enabling all four features gives 72.262 AP, below both the DualOpt-only and CMFA-only settings despite increasing the parameter count to 13.423 M. Additional modules therefore do not produce monotonic gains; some configurations improve recall without improving AP.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 102,
+      "body_block": 106,
+      "style": "Heading 2",
+      "text": "4.7. Anatomical-prior and identity-mechanism ablations",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 103,
+      "body_block": 107,
+      "style": "Heading 3",
+      "text": "4.7.1. Fixed-checkpoint anatomical prior replay",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 104,
+      "body_block": 108,
+      "style": "Normal",
+      "text": "Table 5 compares the selected Pano checkpoint with its combined center/shape prior off and on in the same FP32 replay. AP increases by 0.602 and AR100 by 3.127 points. With weights and box coordinates fixed, this measures a score-ranking effect, not a training benefit or separate center/shape contributions. Historical help/harm examples are provided separately in Supplementary Fig. S7.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 105,
+      "body_block": 109,
+      "style": "Caption",
+      "text": "Table 5. Controlled inference ablation of the selected Pano checkpoint.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "table",
+      "index": 4,
+      "body_block": 110,
+      "preceding_paragraphs": [
+        "4.7.1. Fixed-checkpoint anatomical prior replay",
+        "Table 5 compares the selected Pano checkpoint with its combined center/shape prior off and on in the same FP32 replay. AP increases by 0.602 and AR100 by 3.127 points. With weights and box coordinates fixed, this measures a score-ranking effect, not a training benefit or separate center/shape contributions. Historical help/harm examples are provided separately in Supplementary Fig. S7.",
+        "Table 5. Controlled inference ablation of the selected Pano checkpoint.",
+        "Same weights, FP32 replay, and batch size 16. Small differences from the native training-log values in Table 3 reflect distinct evaluation streams, not a changed checkpoint."
+      ],
+      "rows": [
+        [
+          "SpatialShape setting",
+          "AP",
+          "AP50",
+          "AP75",
+          "AR100"
+        ],
+        [
+          "Combined prior off",
+          "53.783",
+          "93.344",
+          "55.528",
+          "66.635"
+        ],
+        [
+          "Center + shape on",
+          "54.385",
+          "93.745",
+          "56.478",
+          "69.762"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "type": "paragraph",
+      "index": 106,
+      "body_block": 111,
+      "style": "Caption",
+      "text": "Same weights, FP32 replay, and batch size 16. Small differences from the native training-log values in Table 3 reflect distinct evaluation streams, not a changed checkpoint.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 107,
+      "body_block": 112,
+      "style": "Heading 3",
+      "text": "4.7.2. Progressive structured identity supervision",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 108,
+      "body_block": 113,
+      "style": "Normal",
+      "text": "The separate progressive identity family fixes an approximately 15.5 M-parameter feature stack (Supplementary Table S3). Adding prototype supervision to factor heads changes AP from 53.595 to 54.242 on smartphone images and from 53.572 to 53.746 on DENTEX. Adding the geometric prior then gives 52.924 and 54.234 AP, respectively. This opposing response motivates acquisition-specific use of geometric scoring, but does not isolate the effects in the smaller final configurations.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 109,
+      "body_block": 114,
+      "style": "Heading 2",
+      "text": "4.8. Resolution and augmentation sensitivity",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 110,
+      "body_block": 115,
+      "style": "Normal",
+      "text": "For the fixed Mobile architecture without MixUp, increasing input resolution from 640 to 1024 raises AP from 53.520 to 55.701 (+2.181; Table 6). For the fixed DSLR architecture, the same change reduces AP from 72.945 to 72.682. Thus resolution is a substantial, acquisition-dependent contributor and must not be conflated with an identity-module effect.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 111,
+      "body_block": 116,
+      "style": "Caption",
+      "text": "Table 6. Input-policy and MixUp comparisons within fixed photographic architectures.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "table",
+      "index": 5,
+      "body_block": 117,
+      "preceding_paragraphs": [
+        "4.8. Resolution and augmentation sensitivity",
+        "For the fixed Mobile architecture without MixUp, increasing input resolution from 640 to 1024 raises AP from 53.520 to 55.701 (+2.181; Table 6). For the fixed DSLR architecture, the same change reduces AP from 72.945 to 72.682. Thus resolution is a substantial, acquisition-dependent contributor and must not be conflated with an identity-module effect.",
+        "Table 6. Input-policy and MixUp comparisons within fixed photographic architectures.",
+        "All rows use seed 0, no Mosaic, crop probability 0.8, and zoom-out probability 0.5. Mobile fixed-1024/no-MixUp and DSLR multiscale-640/no-MixUp are the selected settings. Models share the within-family training and checkpoint-selection protocol."
+      ],
+      "rows": [
+        [
+          "Architecture",
+          "Input policy",
+          "MixUp",
+          "AP",
+          "AP75",
+          "AR100"
+        ],
+        [
+          "Mobile",
+          "640, multiscale",
+          "0.00",
+          "52.339",
+          "57.354",
+          "66.421"
+        ],
+        [
+          "Mobile",
+          "640, multiscale",
+          "0.50",
+          "53.991",
+          "60.141",
+          "67.698"
+        ],
+        [
+          "Mobile",
+          "640, fixed",
+          "0.00",
+          "53.520",
+          "59.194",
+          "67.513"
+        ],
+        [
+          "Mobile",
+          "1024, fixed",
+          "0.50",
+          "55.101",
+          "62.695",
+          "69.727"
+        ],
+        [
+          "Mobile",
+          "1024, fixed",
+          "0.00",
+          "55.701",
+          "64.019",
+          "70.071"
+        ],
+        [
+          "DSLR",
+          "640, multiscale",
+          "0.50",
+          "72.624",
+          "83.209",
+          "81.124"
+        ],
+        [
+          "DSLR",
+          "640, multiscale",
+          "0.00",
+          "73.115",
+          "84.341",
+          "83.880"
+        ],
+        [
+          "DSLR",
+          "640, fixed",
+          "0.00",
+          "72.945",
+          "83.752",
+          "82.784"
+        ],
+        [
+          "DSLR",
+          "1024, fixed",
+          "0.50",
+          "73.021",
+          "82.985",
+          "81.117"
+        ],
+        [
+          "DSLR",
+          "1024, fixed",
+          "0.00",
+          "72.682",
+          "83.035",
+          "81.633"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "type": "paragraph",
+      "index": 112,
+      "body_block": 118,
+      "style": "Caption",
+      "text": "All rows use seed 0, no Mosaic, crop probability 0.8, and zoom-out probability 0.5. Mobile fixed-1024/no-MixUp and DSLR multiscale-640/no-MixUp are the selected settings. Models share the within-family training and checkpoint-selection protocol.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 113,
+      "body_block": 119,
+      "style": "Heading 2",
+      "text": "4.9. Direct photographic cross-device transfer",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 114,
+      "body_block": 120,
+      "style": "Normal",
+      "text": "Applying final photographic checkpoints directly to the other cohort yields 28.533 AP for Mobile-to-DSLR and 8.885 AP for DSLR-to-Mobile (Table 7). Source-model resolution and FDI52 mapping are retained without target fine-tuning. The losses show that separately trained acquisition configurations do not establish cross-device invariance. Appearance, viewpoint composition, and class support may contribute but are not individually isolated.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 115,
+      "body_block": 121,
+      "style": "Caption",
+      "text": "Table 7. Within-domain and direct cross-device evaluation of the selected photographic models.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "table",
+      "index": 6,
+      "body_block": 122,
+      "preceding_paragraphs": [
+        "4.9. Direct photographic cross-device transfer",
+        "Applying final photographic checkpoints directly to the other cohort yields 28.533 AP for Mobile-to-DSLR and 8.885 AP for DSLR-to-Mobile (Table 7). Source-model resolution and FDI52 mapping are retained without target fine-tuning. The losses show that separately trained acquisition configurations do not establish cross-device invariance. Appearance, viewpoint composition, and class support may contribute but are not individually isolated.",
+        "Table 7. Within-domain and direct cross-device evaluation of the selected photographic models.",
+        "Cross-device rows and the DSLR within-domain row use FP32 replay; the Mobile within-domain row is its native validation summary. No target-domain tuning is performed. These streams are not subtracted to interpret small numerical changes."
+      ],
+      "rows": [
+        [
+          "Trained model",
+          "Evaluation cohort",
+          "Input",
+          "AP",
+          "AP50",
+          "AP75",
+          "AR100"
+        ],
+        [
+          "Mobile",
+          "Smartphone",
+          "1024",
+          "55.701",
+          "84.441",
+          "64.019",
+          "70.071"
+        ],
+        [
+          "Mobile",
+          "DSLR",
+          "1024",
+          "28.533",
+          "50.233",
+          "29.383",
+          "58.210"
+        ],
+        [
+          "DSLR",
+          "DSLR",
+          "640",
+          "73.114",
+          "89.147",
+          "84.340",
+          "83.880"
+        ],
+        [
+          "DSLR",
+          "Smartphone",
+          "640",
+          "8.885",
+          "16.458",
+          "8.792",
+          "24.861"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "type": "paragraph",
+      "index": 116,
+      "body_block": 123,
+      "style": "Caption",
+      "text": "Cross-device rows and the DSLR within-domain row use FP32 replay; the Mobile within-domain row is its native validation summary. No target-domain tuning is performed. These streams are not subtracted to interpret small numerical changes.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 117,
+      "body_block": 124,
+      "style": "Heading 2",
+      "text": "4.10. Tooth-level identity, raw consistency, and qualitative evidence",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 118,
+      "body_block": 125,
+      "style": "Normal",
+      "text": "The selected Mobile analysis contains 2,459 reference teeth and 2,819 predictions above score 0.30. Localization matching yields 2,345 qualifying pairs, including 2,158 correct FDI identities: 92.03% matched-tooth accuracy, 95.36% coverage, 76.55% precision, 87.76% recall, and 81.77% F1. Repeated labels occur in 78/220 images (35.45%). High conditional identity accuracy therefore coexists with excess and duplicate predictions. Fig. 8 illustrates same-image differences.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 119,
+      "body_block": 126,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId22",
+          "target": "media/image12.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 120,
+      "body_block": 127,
+      "style": "Caption",
+      "text": "Fig. 8. Same-image smartphone comparison including the selected DENT-STRIDE-Mobile checkpoint. Rows show the input, ground truth, detector predictions, and enlarged target regions at display score ≥0.30 with clinical FDI decoding. Photographic models do not all share the same input resolution. Examples illustrate local differences; numerical conclusions use the complete validation cohort. Historical panoramic and DSLR comparisons remain in Supplementary Figs. S5–S6.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 121,
+      "body_block": 128,
+      "style": "Normal",
+      "text": "Prototype similarities (Fig. 9) and factor-head confusion matrices (Fig. 10) describe learned identity structure, not the causal AP contribution of each auxiliary loss. The four unsupported third-molar categories are excluded from prototype interpretation. Factor matrices use a separate 2,344-match forward-capture subset, distinct from the 2,345-pair threshold analysis. Exploratory feature-response maps are reported in Supplementary Fig. S8.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 122,
+      "body_block": 129,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId23",
+          "target": "media/image13.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 123,
+      "body_block": 130,
+      "style": "Caption",
+      "text": "Fig. 9. Selected Mobile prototype diagnostics: normalized centroid cosine similarity and within-class cohesion. Classes 18, 28, 38, and 48 lack training examples and are marked unavailable. Each FDI class has four prototypes; prototype scores supply auxiliary supervision only and are not fused with inference logits.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 124,
+      "body_block": 131,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId24",
+          "target": "media/image14.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 125,
+      "body_block": 132,
+      "style": "Caption",
+      "text": "Fig. 10. Selected Mobile factor-head confusion matrices for quadrant, within-quadrant position, and dentition. These are identity factors, not objectness heads. The separately captured analysis contains 2,344 matched teeth and is not substituted for the 2,345-pair denominator of the threshold summary.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 126,
+      "body_block": 133,
+      "style": "Heading 2",
+      "text": "4.11. Computational cost",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 127,
+      "body_block": 134,
+      "style": "Normal",
+      "text": "The standardized RTX 4090 implementation benchmark compares the local reference and a DSLR CMFA architecture: 12.631/12.633 GMACs, 5.91/6.30 ms mean forward latency, 169.2/158.7 images/s, and 140.8/142.2 MiB inference memory. These model-forward costs exclude the complete clinical workflow and do not characterize 1024-resolution Mobile. Runtime and training-model parameter counts are therefore interpreted separately.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 128,
+      "body_block": 135,
+      "style": "Heading 1",
+      "text": "5. Discussion",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 129,
+      "body_block": 136,
+      "style": "Heading 2",
+      "text": "5.1. Principal findings and methodological scope",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 130,
+      "body_block": 137,
+      "style": "Normal",
+      "text": "Three findings distinguish mechanism from configuration. The fixed-checkpoint panoramic replay identifies a combined geometric score benefit. The complete feature family shows that stacking refiners can reduce AP. The resolution comparison explains a substantial part of Mobile recipe variation. Together, these results favour acquisition-specific configuration over a universal all-module design.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 131,
+      "body_block": 138,
+      "style": "Normal",
+      "text": "Earlier label-tree and prior-knowledge systems already encode identity and anatomy (Zhang et al., 2018; Ali et al., 2023). DENT-STRIDE brings factor-score fusion, prototype-only supervision, and fixed geometric priors into a common query detector while keeping their roles separate. Representation visualizations support this interpretation, but do not establish that every gate, four prototypes, or the selected temperature is necessary or optimal.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 132,
+      "body_block": 139,
+      "style": "Heading 2",
+      "text": "5.2. Acquisition dependence and clinical interpretation",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 133,
+      "body_block": 140,
+      "style": "Normal",
+      "text": "The training-center patterns in Fig. 3 provide an interpretable basis for panoramic priors; photographic framing is less standardized. Opposing prior effects in the progressive family are consistent with acquisition dependence, without isolating geometry as the cause. Weak direct photographic transfer further distinguishes a framework trained separately by cohort from domain generalization without target training.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 134,
+      "body_block": 141,
+      "style": "Normal",
+      "text": "The conditions and errors in Fig. 1 also motivate separate localization, identity, and image-level endpoints. The Mobile analysis confirms that correct matched-tooth labels need not yield a unique visible-field chart. Clinical use would require prespecified handling of missing teeth, mixed dentition, overlapping views, duplicates, and uncertainty, followed by independent evaluation of the complete charting workflow.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 135,
+      "body_block": 142,
+      "style": "Heading 2",
+      "text": "5.3. Limitations",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 136,
+      "body_block": 143,
+      "style": "Normal",
+      "text": "Selected results use one seed and validation-based configuration/checkpoint selection, without independent testing. DENTEX/smartphone content overlap may inflate development estimates, and absent patient identifiers prevent verification of patient-level independence. These limitations restrict generalization claims even when detector metrics improve.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 137,
+      "body_block": 144,
+      "style": "Normal",
+      "text": "Recipes differ in resolution, augmentation, optimization, and auxiliary losses. The historical feature and identity families are not factorial ablations of all three final models, and individual center/shape, gating, factor-fusion, and prototype design choices are not independently resolved. External models retain native pretraining/post-processing, while historical photographic annotations differ in serialized form; these comparisons do not isolate architecture alone.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 138,
+      "body_block": 145,
+      "style": "Normal",
+      "text": "RT-DETR-L has higher DSLR AP, so the selected DSLR advantage is compactness rather than unrestricted accuracy leadership. Unsupported FDI categories constrain prototype interpretation. Finally, illustrative cases, feature responses, and raw-query diagnostics do not establish autonomous charting safety or clinical utility.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 139,
+      "body_block": 146,
+      "style": "Heading 1",
+      "text": "6. Conclusion",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 140,
+      "body_block": 147,
+      "style": "Normal",
+      "text": "DENT-STRIDE separates structured FDI identity learning, training-derived anatomical scoring, and cross-scale aggregation within a common query detector. Selected Pano, Mobile, and DSLR recipes achieve 54.385, 55.701, and 73.115 AP under the reported development/validation protocols. Controlled prior replay, complete feature combinations, and resolution comparisons expose distinct contributors to these results. Weak cross-device transfer and duplicate labels despite high matched-tooth accuracy limit broader interpretation. The framework supports acquisition-specific tooth detection; independent, matched-protocol and chart-level evaluation are required for stronger generalization or clinical claims.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 141,
+      "body_block": 148,
+      "style": "Heading 1",
+      "text": "Acknowledgements",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 142,
+      "body_block": 149,
+      "style": "Normal",
+      "text": "The authors thank Haiyue Lan, Jinlin Guo, Hequan Wen, Dongxia Hu, Yuzhuo Zhang, and Yutian Li for their contributions to image annotation.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 143,
+      "body_block": 150,
+      "style": "Heading 1",
+      "text": "Funding and declaration of competing interest",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 144,
+      "body_block": 151,
+      "style": "Normal",
+      "text": "This work was supported in part by the Health Planning Committee of Sichuan (19PJ074 to R.H.) and the Mountain Cyan Research Project (26H0710 to R.H.). The corresponding author R. H. holds stock of Chengdu Mountain Cyan Technology Company but is not employed by this company. Apart from the participation of P.W. and R.H. as co-authors, Chengdu Mountain Cyan Technology Company had no additional role in the study. The remaining authors declare no conflicts of interest with respect to the research, authorship, and/or publication of this article.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 145,
+      "body_block": 152,
+      "style": "Heading 1",
+      "text": "CRediT authorship contribution statement",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 146,
+      "body_block": 153,
+      "style": "Normal",
+      "text": "Jiehui Sun and Xi Wu: conceptualization, methodology, software, validation, formal analysis, visualization, and writing—original draft. Ruixin Tang, Pei Wu, and Shiquan Min: data curation, annotation, and validation. Jiangping Zhu and Ruijie Huang: supervision, project administration, funding acquisition, and writing—review and editing.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 147,
+      "body_block": 154,
+      "style": "Heading 1",
+      "text": "Ethics approval and consent to participate",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 148,
+      "body_block": 155,
+      "style": "Normal",
+      "text": "This retrospective computational analysis used pre-existing, de-identified image datasets; no new patient recruitment or intervention was undertaken. Ethics and consent provisions follow the originating studies and their dataset terms.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 149,
+      "body_block": 156,
+      "style": "Heading 1",
+      "text": "Data availability",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 150,
+      "body_block": 157,
+      "style": "Normal",
+      "text": "DENTEX2023 is available through its public benchmark release. The smartphone and DSLR image data are subject to the access conditions of their source studies and are not redistributed with this manuscript; derived predictions and configuration details can be shared subject to those permissions.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 151,
+      "body_block": 158,
+      "style": "Heading 1",
+      "text": "Code availability",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 152,
+      "body_block": 159,
+      "style": "Normal",
+      "text": "The experiment code and configuration files used in this study are available from the corresponding author on reasonable request. Model checkpoints can be shared subject to the access and redistribution conditions of the underlying image datasets.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 153,
+      "body_block": 160,
+      "style": "Heading 1",
+      "text": "Declaration of generative AI and AI-assisted technologies in the manuscript preparation process",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 154,
+      "body_block": 161,
+      "style": "Normal",
+      "text": "During manuscript preparation, the authors used OpenAI ChatGPT (GPT-6 Astra Pro) for language refinement, organization, consistency checking, and assistance with reproducible plotting code for Figs. 6–7. Existing clinical images and prediction overlays were not generated or retouched. After using this tool, the authors reviewed and edited the content as needed and take full responsibility for the publication.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 155,
+      "body_block": 162,
+      "style": "Heading 1",
+      "text": "References",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 156,
+      "body_block": 163,
+      "style": "Normal",
+      "text": "Alavi, S.E., Gholami, M., Malik, L., Matti, R., Oktaei, S., Al-Najafi, F., Sharma, A., Sharma, L.A., 2025. Assessment of teledentistry in improving access to dental care: A systematic review. Aust Dent J 70, 4–41. https://doi.org/10.1111/adj.13045",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 157,
+      "body_block": 164,
+      "style": "Normal",
+      "text": "Ali, M.A., Fujita, D., Kobashi, S., 2023. Teeth and prostheses detection in dental panoramic X-rays using CNN-based object detector and a priori knowledge-based algorithm. Sci Rep 13, 16542. https://doi.org/10.1038/s41598-023-43591-z",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 158,
+      "body_block": 165,
+      "style": "Normal",
+      "text": "Chen, Z., Lu, S., 2025. CAF-YOLO: A robust framework for multi-scale lesion detection in biomedical imagery. Presented at the 2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). https://doi.org/10.1109/ICASSP49660.2025.10888358",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 159,
+      "body_block": 166,
+      "style": "Normal",
+      "text": "Cullingham, P., Saksena, A., Pemberton, M.N., 2017. Patient safety: Reducing the risk of wrong tooth extraction. Br Dent J 222, 759–763. https://doi.org/10.1038/sj.bdj.2017.448",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 160,
+      "body_block": 167,
+      "style": "Normal",
+      "text": "Hamamci, I.E., Er, S., Simsar, E., Yuksel, A.E., Gultekin, S., Ozdemir, S.D., Yang, K., Li, H.B., Pati, S., Stadlinger, B., Mehl, A., Gundogar, M., Menze, B., 2023. DENTEX: An abnormal tooth detection with dental enumeration and diagnosis benchmark for panoramic X-rays. arXiv preprint arXiv:2305.19112. https://doi.org/10.48550/arXiv.2305.19112",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 161,
+      "body_block": 168,
+      "style": "Normal",
+      "text": "Hu, Z., Wu, P., Chen, J., Zhu, H., Wang, Y., Peng, Y., Li, H., Sun, X., 2025. Dome-DETR: DETR with density-oriented feature-query manipulation for efficient tiny object detection. Presented at the Proceedings of the 33rd ACM International Conference on Multimedia, pp. 101–110. https://doi.org/10.1145/3746027.3754861",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 162,
+      "body_block": 169,
+      "style": "Normal",
+      "text": "Huang, S., Lu, Z., Cun, X., Yu, Y., Zhou, X., Shen, X., 2025. DEIM: DETR with improved matching for fast convergence, in: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. pp. 15162–15171.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 163,
+      "body_block": 170,
+      "style": "Normal",
+      "text": "International Organization for Standardization, 2016. ISO 3950:2016 Dentistry—Designation system for teeth and areas of the oral cavity. Geneva: ISO.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 164,
+      "body_block": 171,
+      "style": "Normal",
+      "text": "Jacob, O., Gough, E., Thomas, H., 2021. Preventing wrong tooth extraction. Acta Stomatol Croat 55, 316–324. https://doi.org/10.15644/asc55/3/9",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 165,
+      "body_block": 172,
+      "style": "Normal",
+      "text": "Jocher, G., Chaurasia, A., Qiu, J., 2023. Ultralytics YOLOv8.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 166,
+      "body_block": 173,
+      "style": "Normal",
+      "text": "Lv, W., Zhao, Y., Chang, Q., Huang, K., Wang, G., Liu, Y., 2024. RT-DETRv2: Improved baseline with bag-of-freebies for real-time detection transformer. arXiv preprint arXiv:2407.17140. https://doi.org/10.48550/arXiv.2407.17140",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 167,
+      "body_block": 174,
+      "style": "Normal",
+      "text": "Moharrami, M., Farmer, J., Singhal, S., Watson, E., Glogauer, M., Johnson, A.E.W., Schwendicke, F., Quinonez, C., 2024. Detecting dental caries on oral photographs using artificial intelligence: A systematic review. Oral Dis 30, 1765–1783. https://doi.org/10.1111/odi.14659",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 168,
+      "body_block": 175,
+      "style": "Normal",
+      "text": "Muramatsu, C., Morishita, T., Takahashi, R., Hayashi, T., Nishiyama, W., Ariji, Y., Zhou, X., Hara, T., Katsumata, A., Ariji, E., Fujita, H., 2021. Tooth detection and classification on panoramic radiographs for automatic dental chart filing: Improved classification by multi-sized input data. Oral Radiol 37, 13–19. https://doi.org/10.1007/s11282-019-00418-w",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 169,
+      "body_block": 176,
+      "style": "Normal",
+      "text": "Ning, X., Li, Q., Huang, X., Chen, Q., He, F., Li, W., Tiwari, P., Liu, X., 2026. Neural network optimization reimagined: Decoupled techniques for scratch and fine-tuning. arXiv preprint arXiv:2604.22838. https://doi.org/10.48550/arXiv.2604.22838",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 170,
+      "body_block": 177,
+      "style": "Normal",
+      "text": "Pemberton, M.N., 2019. Wrong tooth extraction: Further analysis of “never event” data. Br J Oral Maxillofac Surg 57, 932–934. https://doi.org/10.1016/j.bjoms.2019.08.004",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 171,
+      "body_block": 178,
+      "style": "Normal",
+      "text": "Peng, Y., Li, H., Wu, P., Zhang, Y., Sun, X., Wu, F., 2025. D-FINE: Redefine regression task of DETRs as fine-grained distribution refinement, in: International Conference on Learning Representations.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 172,
+      "body_block": 179,
+      "style": "Normal",
+      "text": "Ren, S., He, K., Girshick, R., Sun, J., 2015. Faster R-CNN: Towards real-time object detection with region proposal networks. Presented at the Advances in Neural Information Processing Systems.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 173,
+      "body_block": 180,
+      "style": "Normal",
+      "text": "Tuzoff, D.V., Tuzova, L.N., Bornstein, M.M., Krasnov, A.S., Kharchenko, M.A., Nikolenko, S.I., Sveshnikov, M.M., Bednenko, G.B., 2019. Tooth detection and numbering in panoramic radiographs using convolutional neural networks. Dentomaxillofac Radiol 48, 20180051. https://doi.org/10.1259/dmfr.20180051",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 174,
+      "body_block": 181,
+      "style": "Normal",
+      "text": "van Nistelrooij, N., Maia, H.C. de M., Cao, L., Vinayahalingam, S., Loomans, B., Cenci, M.S., Mendes, F.M., 2025. Automated detection and numbering of primary and permanent teeth in digital impressions of children using artificial intelligence. J Dent 161, 105976. https://doi.org/10.1016/j.jdent.2025.105976",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 175,
+      "body_block": 182,
+      "style": "Normal",
+      "text": "Yaren Tekin, B., Ozcan, C., Pekince, A., Yasa, Y., 2022. An enhanced tooth segmentation and numbering according to FDI notation in bitewing radiographs. Comput Biol Med 146, 105547. https://doi.org/10.1016/j.compbiomed.2022.105547",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 176,
+      "body_block": 183,
+      "style": "Normal",
+      "text": "Yoon, K., Jeong, H.-M., Kim, J.-W., Park, J.-H., Choi, J., 2024. AI-based dental caries and tooth number detection in intraoral photos: Model development and performance evaluation. Journal of Dentistry 141, 104821. https://doi.org/10.1016/j.jdent.2023.104821",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 177,
+      "body_block": 184,
+      "style": "Normal",
+      "text": "Yüksel, A.E., Gültekin, S., Simsar, E., Özdemir, Ş.D., Gündoğar, M., Tokgöz, S.B., Hamamcı, İ.E., 2021. Dental enumeration and multiple treatment detection on panoramic X-rays using deep learning. Sci Rep 11, 12342. https://doi.org/10.1038/s41598-021-90386-1",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 178,
+      "body_block": 185,
+      "style": "Normal",
+      "text": "Zhang, K., Wu, J., Chen, H., Lyu, P., 2018. An effective teeth recognition method using label tree with cascade network structure. Computerized Medical Imaging and Graphics 68, 61–70. https://doi.org/10.1016/j.compmedimag.2018.07.001",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 179,
+      "body_block": 186,
+      "style": "Normal",
+      "text": "Zhao, Y., Lv, W., Xu, S., Wei, J., Wang, G., Dang, Q., Liu, Y., Chen, J., 2023. DETRs beat YOLOs on real-time object detection. arXiv preprint arXiv:2304.08069. https://doi.org/10.48550/arXiv.2304.08069",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 180,
+      "body_block": 187,
+      "style": "Normal",
+      "text": "Zhou, Y., Xu, Y., Khalil, B., Nalley, A., Tarce, M., 2025. An open deep learning-based framework and model for tooth instance segmentation in dental CBCT. Clin Oral Investig 29, 473. https://doi.org/10.1007/s00784-025-06578-w",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    }
+  ]
+}

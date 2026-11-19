@@ -1,0 +1,284 @@
+[
+  {
+    "manuscript": "Main",
+    "figure": "Figure 1",
+    "files": [
+      "Figure_1.png",
+      "Figure_1.svg",
+      "Figure_1.pdf"
+    ],
+    "caption": "Fig. 1. Representative acquisition conditions and reference FDI annotations. Panoramic radiographs, smartphone intraoral photographs, and DSLR photographs are shown with their existing bounding-box annotations. The examples illustrate differences in global field of view, tooth scale, framing, and illumination. Visible spaces alone do not establish clinically missing teeth.",
+    "PNG_SHA256": "095f5c85f57b06acf136eebba0b2eb7f37d95b23aba29dea57d96757d2918fad"
+  },
+  {
+    "manuscript": "Main",
+    "figure": "Figure 2",
+    "files": [
+      "Figure_2.png",
+      "Figure_2.svg",
+      "Figure_2.pdf"
+    ],
+    "caption": "Fig. 2. Shared detector and acquisition-specific components. CMFA replaces four adjacent-scale fusion sites for Mobile/DSLR; HOOA refines Mobile feature levels. Factor heads provide supervision for Mobile/Pano and score fusion only for Mobile. Their quadrant, position, and dentition fusion weights are 0.10, 0.05, and 0.03. The K-class, four-prototype-per-class bank supplies auxiliary training supervision only. Pano uses fixed training-derived center and shape scores, while DSLR uses DualOpt during optimization. The dataset label map decodes outputs into clinical FDI codes. Solid arrows denote prediction flow; dashed arrows denote auxiliary supervision or prior fitting. Component roles are summarized in Table 2.",
+    "PNG_SHA256": "1a09a9b193306deb67a1c37c3fe1d0e8b8e117367f896f0ee061ac16b79a5867"
+  },
+  {
+    "manuscript": "Main",
+    "figure": "Figure 3",
+    "files": [
+      "Figure_3.png"
+    ],
+    "caption": "Fig. 3. Training-derived center templates for the 32 permanent DENTEX FDI classes. Each panel shows the class-specific center distribution in normalized image coordinates, based on training-box means and full regularized covariances. The templates are fixed at inference and are separate from the learnable appearance prototypes; shape statistics are provided in Supplementary Fig. S1.",
+    "PNG_SHA256": "36725988b24e3c4c76c0ed32a11d5dd0c6ae9c1bd4637042bd5c205af4d6a570"
+  },
+  {
+    "manuscript": "Main",
+    "figure": "Figure 4",
+    "files": [
+      "Figure_4.png",
+      "Figure_4.svg",
+      "Figure_4.pdf"
+    ],
+    "caption": "Fig. 4. Cross-scale mutual feature aggregation (CMFA). Spatially aligned inputs A and B have equal projected width C = 256. (A) Their concatenation supplies a global-average-pooling and two-layer pointwise channel gate, which is split into gA and gB. (B) The gated inputs are exchanged through A + B ⊙ gB and B + A ⊙ gA, then concatenated. (C) Channel mean and maximum statistics of the concatenated feature produce a 7 × 7 sigmoid spatial gate. The output retains 2C = 512 channels. Cat denotes channel concatenation; circular multiplication and addition nodes operate elementwise.",
+    "PNG_SHA256": "5946abfa690fadec9b752bac44857d368f3235d24b12645a18ee09f995c9d86f"
+  },
+  {
+    "manuscript": "Main",
+    "figure": "Figure 5",
+    "files": [
+      "Figure_5.png",
+      "Figure_5.svg",
+      "Figure_5.pdf"
+    ],
+    "caption": "Fig. 5. High-order omni-attention (HOOA). (A) Local and dilated-context branches generate L and C; the high-pass input X − AvgPool₃(X) supplies an edge branch E. The second-order response L ⊙ sigmoid(C) is concatenated with L and E and projected to F. (B) Channel and spatial gates are both computed from F before gating. Their product modulates F, and the update is added to X with bounded scale α = 0.30 sigmoid(s). DW and PW denote depthwise and pointwise convolutions. Local and edge convolutions include batch normalization and SiLU; the context branch uses SiLU after its depthwise convolution and batch normalization after its final pointwise convolution. Spatial statistics are channel-wise mean and maximum. Tensor glyphs illustrate feature shape, not measured response maps.",
+    "PNG_SHA256": "0e81bff3ff139856c6bf85eb1faa9823041fe05f12da612cb4d6b9ef0a76bd8b"
+  },
+  {
+    "manuscript": "Main",
+    "figure": "Figure 6",
+    "files": [
+      "Figure_6.png",
+      "Figure_6.svg",
+      "Figure_6.pdf"
+    ],
+    "caption": "Fig. 6. Three-seed performance of the acquisition-specific configurations. Small circles show the actual outcomes for seeds 0, 1, and 2; larger markers and bars show mean ± sample SD. Each cohort has its own labelled AP axis. Pano includes combined center–shape scoring. No between-model improvement or statistical superiority is inferred from these within-configuration error bars.",
+    "PNG_SHA256": "f0a050552be565b9fb2eb3a1b1f3ef832d7007bf5925879f31de49aad7d7c413"
+  },
+  {
+    "manuscript": "Main",
+    "figure": "Figure 7",
+    "files": [
+      "Figure_7.png",
+      "Figure_7.svg",
+      "Figure_7.pdf"
+    ],
+    "caption": "Fig. 7. Mobile framework-level AP comparison. Labels identify each detector and its AP. Error bars show sample SD only for the three-seed DENT-STRIDE-Mobile, official DEIM-s, and RT-DETRv2-S entries; other methods are single-seed observations. Input resolution, pretraining, and native training/output settings differ across frameworks, as specified in Section 4.6. The plot describes system performance rather than an isolated identity-module effect.",
+    "PNG_SHA256": "391b280d094a26179c804cd09fa05945b0e76132684cd5c7a8d7d96a1ab06eb0"
+  },
+  {
+    "manuscript": "Main",
+    "figure": "Figure 8",
+    "files": [
+      "Figure_8.png",
+      "Figure_8.svg",
+      "Figure_8.pdf"
+    ],
+    "caption": "Fig. 8. HOOA branch comparison on the same smartphone images. Independently trained seed-0 models retain the same training protocol and differ only in the high-pass and second-order branches. Columns show the original image, ground truth, three branch-removal configurations, and full HOOA; lower rows show identical target enlargements. Teal boxes are ground truth and orange boxes are predictions retained at score ≥0.30. (A) The highlighted reference tooth is FDI 41; No high-pass: FDI 42, 14 correct matches and 7 false positives; No second-order: FDI 42, 14 correct matches and 10 false positives; Neither branch: FDI 42, 10 correct matches and 15 false positives; Full HOOA: FDI 41, 16 correct matches and 7 false positives. (B) The highlighted reference tooth is FDI 81; No high-pass: FDI 41, 10 correct matches and 9 false positives; No second-order: FDI 41, 10 correct matches and 5 false positives; Neither branch: FDI 41, 11 correct matches and 10 false positives; Full HOOA: FDI 81, 13 correct matches and 6 false positives. These selected examples illustrate branch effects; the complete validation ablation determines their aggregate AP differences.",
+    "PNG_SHA256": "f69fd2c7f325c52c8d500e2967f1b9dbafc7ae546ca909a0d636b4fa3be9e7e9"
+  },
+  {
+    "manuscript": "Main",
+    "figure": "Figure 9",
+    "files": [
+      "Figure_9.png",
+      "Figure_9.svg",
+      "Figure_9.pdf"
+    ],
+    "caption": "Fig. 9. Four-way anatomical scoring at identical Pano weights. (A) AP and (B) AR100. Small circles show the actual outcomes of the three seed-specific checkpoints under no prior, center, shape, and combined scoring. Larger markers and bars show mean ± sample SD. All scores are recomputed before native top-k selection; weights and predicted box coordinates are unchanged.",
+    "PNG_SHA256": "368c163bd6a0ed3b8e66ac5bce680a640b2b9ebb2935f265040b00b82bb07762"
+  },
+  {
+    "manuscript": "Main",
+    "figure": "Figure 10",
+    "files": [
+      "Figure_10.png",
+      "Figure_10.svg",
+      "Figure_10.pdf"
+    ],
+    "caption": "Fig. 10. Same-weight DENTEX anatomical-prior comparison. The same seed-2 checkpoint is evaluated without a prior, with center scoring, with shape scoring, and with both. Scores are recomputed from all ordinary query–class candidates before native top-k selection; box coordinates do not change. Original images and reference annotations are accompanied by identical target enlargements. Teal boxes denote ground truth and orange boxes predictions retained at score ≥0.30. (A) At the same query box, the highest retained label changes from FDI 46 to FDI 45 for reference FDI 45; image-level correct matches change from 19 to 20. (B) At the same query box, the highest retained label changes from FDI 47 to FDI 48 for reference FDI 47; image-level correct matches change from 25 to 24. The favorable and adverse examples illustrate score-ranking effects rather than a change in learned localization.",
+    "PNG_SHA256": "79cb1f15532fc68310871d75ed8d24d8456b0bd9fce0953b6aaa8e001616ac59"
+  },
+  {
+    "manuscript": "Main",
+    "figure": "Figure 11",
+    "files": [
+      "Figure_11.png",
+      "Figure_11.svg",
+      "Figure_11.pdf"
+    ],
+    "caption": "Fig. 11. Retrained HOOA and factor-supervision ablations. Bars report AP differences after each branch or supervision-target removal. HOOA uses the full Mobile seed-0 configuration (54.910 AP); factor supervision uses all three targets with training and inference fusion disabled (55.537 AP). Every tested removal is shown. These single-seed results have no uncertainty bars.",
+    "PNG_SHA256": "733847bf45c6c0566ea2b2aea385805421cfbea99fad1a12a297e07e7fe657aa"
+  },
+  {
+    "manuscript": "Main",
+    "figure": "Figure 12A",
+    "files": [
+      "Figure_12A.png",
+      "Figure_12A.svg",
+      "Figure_12A.pdf"
+    ],
+    "caption": "Fig. 12A. Same-image mobile detector comparison. Columns show the original image, ground truth, official DEIM-s, RT-DETR-L, and DENT-STRIDE; each lower row uses the same target enlargement. Teal boxes denote reference annotations and orange boxes model predictions retained at score ≥0.30. FDI labels identify the highlighted localization match. (A) Reference FDI 32; Official DEIM-s: FDI 72, 8 correct matches and 4 false positives; RT-DETR-L: FDI 72, 7 correct matches and 7 false positives; DENT-STRIDE: FDI 32, 11 correct matches and 0 false positives. (B) Reference FDI 84; Official DEIM-s: FDI 84, 8 correct matches and 8 false positives; RT-DETR-L: FDI 84, 8 correct matches and 7 false positives; DENT-STRIDE: FDI 44, 5 correct matches and 12 false positives. Frameworks retain their native training and output-processing settings; this is a system-level comparison, not an isolated module ablation. The selected improvement and adverse examples do not estimate population frequencies.",
+    "PNG_SHA256": "576009645f404c49ad272f87b08d852849b2a76d82d71097b313588b4fe2ce8d"
+  },
+  {
+    "manuscript": "Main",
+    "figure": "Figure 12B",
+    "files": [
+      "Figure_12B.png",
+      "Figure_12B.svg",
+      "Figure_12B.pdf"
+    ],
+    "caption": "Fig. 12B. Same-image panoramic detector comparison. Columns show the original image, ground truth, official DEIM-s, RT-DETR-L, and DENT-STRIDE; each lower row uses the same target enlargement. Teal boxes denote reference annotations and orange boxes model predictions retained at score ≥0.30. FDI labels identify the highlighted localization match. (A) Reference FDI 32; Official DEIM-s: FDI 33, 25 correct matches and 6 false positives; RT-DETR-L: FDI 33, 25 correct matches and 4 false positives; DENT-STRIDE: FDI 32, 27 correct matches and 5 false positives. (B) Reference FDI 26; Official DEIM-s: FDI 26, 18 correct matches and 23 false positives; RT-DETR-L: FDI 26, 18 correct matches and 19 false positives; DENT-STRIDE: FDI 27, 15 correct matches and 18 false positives. Frameworks retain their native training and output-processing settings; this is a system-level comparison, not an isolated module ablation. The selected improvement and adverse examples do not estimate population frequencies.",
+    "PNG_SHA256": "cc3e2c0c21819336371fa52e5871b9bbb12a3883db17d55da4b9882a8ddab829"
+  },
+  {
+    "manuscript": "Main",
+    "figure": "Figure 12C",
+    "files": [
+      "Figure_12C.png",
+      "Figure_12C.svg",
+      "Figure_12C.pdf"
+    ],
+    "caption": "Fig. 12C. Same-image DSLR detector comparison. Columns show the original image, ground truth, official DEIM-s, RT-DETR-L, and DENT-STRIDE; each lower row uses the same target enlargement. Teal boxes denote reference annotations and orange boxes model predictions retained at score ≥0.30. FDI labels identify the highlighted localization match. (A) Reference FDI 64; Official DEIM-s: FDI 24, 13 correct matches and 10 false positives; RT-DETR-L: FDI 24, 14 correct matches and 10 false positives; DENT-STRIDE: FDI 64, 15 correct matches and 9 false positives. (B) Reference FDI 71; Official DEIM-s: FDI 71, 15 correct matches and 2 false positives; RT-DETR-L: FDI 71, 14 correct matches and 4 false positives; DENT-STRIDE: FDI 31, 12 correct matches and 3 false positives. Frameworks retain their native training and output-processing settings; this is a system-level comparison, not an isolated module ablation. The selected improvement and adverse examples do not estimate population frequencies.",
+    "PNG_SHA256": "93dbde48658e1b1f5f2a82215a0c9fad62d8c4465aea9a2a1eeeec5ed9197136"
+  },
+  {
+    "manuscript": "Main",
+    "figure": "Figure 13",
+    "files": [
+      "Figure_13.png",
+      "Figure_13.svg",
+      "Figure_13.pdf"
+    ],
+    "caption": "Fig. 13. Actual CMFA/HOOA forward-pass responses for the same Mobile image shown in Fig. 8A. CMFA channel gates gA/gB are arranged as 16 × 16 channel-index grids; Gs is the spatial gate. HOOA panels show local, context, high-pass, second-order, channel/spatial gates, input, and output. Sigmoid gates use their actual [0,1] values. Response RMS maps are divided by their respective 99th percentile and clipped to [0,1]. These are native internal tensors, not Grad-CAM or causal evidence from visualization alone.",
+    "PNG_SHA256": "b0aae0019f73c9caae5874ea12b575b885aa1c3f70601d31fe6095e55825e731"
+  },
+  {
+    "manuscript": "Supplement",
+    "figure": "Figure S1",
+    "files": [
+      "Figure_S1.png"
+    ],
+    "caption": "Fig. S1. Normalized width and height distributions of the 16,234 DENTEX training boxes, grouped by the 32 permanent FDI classes. The distributions describe training geometry; the SpatialShape shape term uses the joint regularized quadratic score of log-width and log-height. No validation boxes are used to fit these templates.",
+    "PNG_SHA256": "55d9ecae23405b839a2acf3adc75dbc6de5fb46d300a66c25e2e1a0987e6e41d"
+  },
+  {
+    "manuscript": "Supplement",
+    "figure": "Figure S2",
+    "files": [
+      "Figure_S2.png",
+      "Figure_S2.svg",
+      "Figure_S2.pdf"
+    ],
+    "caption": "Fig. S2. Complete component-sensitivity plots for settings not emphasized in main Fig. 11. All displayed points are seed-0 observations, without uncertainty bars. ΔAP uses the group-specific reference in Table S2 or the factor-fusion-off reference in Table S5. Positive values indicate an alternative that exceeds the reference; they are not gains attributed to the intact module.",
+    "PNG_SHA256": "21414a8933d3ea421fb001f84476b79e38f6f8f7badcf274fe336f58100f61ea"
+  },
+  {
+    "manuscript": "Supplement",
+    "figure": "Figure S3",
+    "files": [
+      "Figure_S3.png",
+      "Figure_S3.svg",
+      "Figure_S3.pdf"
+    ],
+    "caption": "Fig. S3. Same-checkpoint center, shape, and combined prior effects. Points show the mean paired AP difference versus no prior and bars show exploratory Student-t 95% intervals over the three seeds (df = 2). The zero line denotes no AP change. Intervals are conditional on validation-selected weights and are not patient-sampling or independent-test intervals.",
+    "PNG_SHA256": "e0b2e09e6e1a13c4d9595642162f7241fee852271da1cb085aa60aabafdc7d9a"
+  },
+  {
+    "manuscript": "Supplement",
+    "figure": "Figure S4",
+    "files": [
+      "Figure_S4.png",
+      "Figure_S4.svg",
+      "Figure_S4.pdf"
+    ],
+    "caption": "Fig. S4. Detection and threshold diagnostics for the final seed-0 configurations. Rows show Pano, Mobile, and DSLR. Columns show category-macro-averaged COCO interpolated precision at IoU 0.50 and maxDets = 100, F1, and raw duplicate-image rate. Unsupported categories are omitted from the precision average. Thresholds range from 0.05 to 0.95 in steps of 0.05; dotted lines indicate 0.30. These are cohort-level detection diagnostics, not clinical charting-error estimates.",
+    "PNG_SHA256": "148367a19939b31b78a2020dfd7dece6dabe3b436df29e2c8235a1581a8296ee"
+  },
+  {
+    "manuscript": "Supplement",
+    "figure": "Figure S5",
+    "files": [
+      "Figure_S5.png",
+      "Figure_S5.svg",
+      "Figure_S5.pdf"
+    ],
+    "caption": "Fig. S5. Complete Pano FDI outcome matrix and class support for the final seed-0 configuration. Each reference tooth contributes one predicted FDI or a missed outcome; colors show reference-row percentages. The matrix contains 1,861 reference teeth: 1,708 correct identities, 131 wrong-FDI localization matches, and 22 missed teeth. The 164 unmatched predictions are counted separately, not assigned a reference row. Training support totals 16,234 teeth. Gray rows have no validation support and are unavailable, not zero-accuracy classes.",
+    "PNG_SHA256": "4d98fcf6b3e8509947996f5e23110e3464f25d43297d4588cf3d569b05b33e69"
+  },
+  {
+    "manuscript": "Supplement",
+    "figure": "Figure S6",
+    "files": [
+      "Figure_S6.png",
+      "Figure_S6.svg",
+      "Figure_S6.pdf"
+    ],
+    "caption": "Fig. S6. Complete Mobile FDI outcome matrix and class support for the final seed-0 configuration. Each reference tooth contributes one predicted FDI or a missed outcome; colors show reference-row percentages. The matrix contains 2,459 reference teeth: 2,177 correct identities, 166 wrong-FDI localization matches, and 116 missed teeth. The 480 unmatched predictions are counted separately, not assigned a reference row. Training support totals 9,837 teeth. Gray rows have no validation support and are unavailable, not zero-accuracy classes.",
+    "PNG_SHA256": "3a0801172e55e31e2d722fef8ca6b3191c778c3c6d61f78d530a3818c1fc94b3"
+  },
+  {
+    "manuscript": "Supplement",
+    "figure": "Figure S7",
+    "files": [
+      "Figure_S7.png",
+      "Figure_S7.svg",
+      "Figure_S7.pdf"
+    ],
+    "caption": "Fig. S7. Complete DSLR FDI outcome matrix and class support for the final seed-0 configuration. Each reference tooth contributes one predicted FDI or a missed outcome; colors show reference-row percentages. The matrix contains 2,742 reference teeth: 2,599 correct identities, 71 wrong-FDI localization matches, and 72 missed teeth. The 222 unmatched predictions are counted separately, not assigned a reference row. Training support totals 10,760 teeth. Gray rows have no validation support and are unavailable, not zero-accuracy classes.",
+    "PNG_SHA256": "940be3ef199c9135b93b22d8adcb916b066bacc8cdb3ff10bd942269f42f623a"
+  },
+  {
+    "manuscript": "Supplement",
+    "figure": "Figure S8",
+    "files": [
+      "Figure_S8.png",
+      "Figure_S8.svg",
+      "Figure_S8.pdf"
+    ],
+    "caption": "Fig. S8. Validation AP trajectories over the full 160-epoch training budget for the three acquisition-specific configurations. Thin lines show actual seeds 0, 1, and 2; thick lines and bands show their epoch-wise mean ± sample SD. Curves show the recorded trajectory without smoothing or synthetic interpolation, and do not replace selected-checkpoint endpoints.",
+    "PNG_SHA256": "24a171afc755f66ec180960dcde55b7ffdcf4df1461b9f6abdbdbe6a4310061f"
+  },
+  {
+    "manuscript": "Supplement",
+    "figure": "Figure S9",
+    "files": [
+      "Figure_S9.png",
+      "Figure_S9.svg",
+      "Figure_S9.pdf"
+    ],
+    "caption": "Fig. S9. Prototype representation diagnostics from the final Mobile seed-0 checkpoint. (A) Cosine similarity between normalized class-centroid prototypes ordered by FDI quadrant. (B) Within-class four-prototype cosine cohesion, grouped by quadrant. Gray unsupported slots are unavailable. The prototype bank supplies training supervision only and is distinct from fixed anatomical templates.",
+    "PNG_SHA256": "a2327a7dc5411035d03ae81ebb89bec15feca20aa5ad3258cf96667a88b6ae8d"
+  },
+  {
+    "manuscript": "Supplement",
+    "figure": "Figure S10",
+    "files": [
+      "Figure_S10.png",
+      "Figure_S10.svg",
+      "Figure_S10.pdf"
+    ],
+    "caption": "Fig. S10. Per-class prototype cohesion for permanent and primary FDI slots in the final Mobile seed-0 checkpoint. Cohesion averages the six pairwise cosine similarities among four prototypes. Unsupported classes 18, 28, 38, and 48 are unavailable. No inference prototype score is added to detection logits.",
+    "PNG_SHA256": "f0e1e8803c7171ae9a47e921f677867e6a7d388016ecc31c9bec177c2f92a162"
+  },
+  {
+    "manuscript": "Supplement",
+    "figure": "Figure S11",
+    "files": [
+      "Figure_S11.png",
+      "Figure_S11.svg",
+      "Figure_S11.pdf"
+    ],
+    "caption": "Fig. S11. Row-normalized auxiliary quadrant, tooth-position, and dentition confusion matrices for 2,341 localized unique ordinary queries from the final Mobile seed-0 checkpoint. Gray rows have no reference observations. These branches supervise structured identity, not objectness. Their unique-query matching protocol is distinct from post-top-k detector endpoints.",
+    "PNG_SHA256": "e33dccd305d7f9bddf8f6b816acaa62bada1ea2e63b1bf91dda5805434497c12"
+  }
+]

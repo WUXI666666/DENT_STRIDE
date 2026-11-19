@@ -1,0 +1,45 @@
+{
+  "state": "completed",
+  "model": "rtdetrv2_s",
+  "gpu": 1,
+  "completed": [
+    {
+      "cohort": "phone",
+      "seed": 0
+    },
+    {
+      "cohort": "dslr",
+      "seed": 0
+    },
+    {
+      "cohort": "dentex",
+      "seed": 0
+    },
+    {
+      "cohort": "phone",
+      "seed": 1
+    },
+    {
+      "cohort": "dslr",
+      "seed": 1
+    },
+    {
+      "cohort": "dentex",
+      "seed": 1
+    },
+    {
+      "cohort": "phone",
+      "seed": 2
+    },
+    {
+      "cohort": "dslr",
+      "seed": 2
+    },
+    {
+      "cohort": "dentex",
+      "seed": 2
+    }
+  ],
+  "total": 9,
+  "updated_at": "2026-09-11T21:19:54.999181+08:00"
+}

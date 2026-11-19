@@ -1,0 +1,580 @@
+{
+  "seeds": [
+    1,
+    3,
+    4
+  ],
+  "n": 3,
+  "post_hoc_selected": true,
+  "SD_definition": "Sample SD (n−1 denominator).",
+  "metric_units": "percentage points",
+  "source_summary": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/quantitative_data.json",
+  "source_summary_sha256": "27593600a27a9bbfdd04d58029a731d5ed6f9222707155d6755b8683c32fcf0d",
+  "verified_native_metric_sources": [
+    {
+      "seed": 1,
+      "prior": "none",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_none_metrics.json",
+      "sha256": "233513d3949ddfbb6d61d01fadb00d2d7a3a8bda23fa0770b0d57f440bb2340f",
+      "checkpoint_sha256": "e6aaeac0fe3514357d8b4f0caa50e2ba86a1eb2481ae38bf4b36986810de83cc"
+    },
+    {
+      "seed": 3,
+      "prior": "none",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_none_metrics.json",
+      "sha256": "bf9b1ea923c08d22fd695c659667947cdc798171dd5a34c6a912ed48f0cb1ffa",
+      "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2"
+    },
+    {
+      "seed": 4,
+      "prior": "none",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_none_metrics.json",
+      "sha256": "fd04539e2003b19bd65fcbed442095f8b3fbd838a626df1ec5ba98bc4141e854",
+      "checkpoint_sha256": "5690150e5e54306e9b168d8aadd87d1b43801cd44a2036e1fee9ea7bba0b8c0c"
+    },
+    {
+      "seed": 1,
+      "prior": "center",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_center_metrics.json",
+      "sha256": "222e22b6f314027b093ddc33a31d0dd9b8decf1690bf34802bfd1aaee6d6902a",
+      "checkpoint_sha256": "e6aaeac0fe3514357d8b4f0caa50e2ba86a1eb2481ae38bf4b36986810de83cc"
+    },
+    {
+      "seed": 3,
+      "prior": "center",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_center_metrics.json",
+      "sha256": "4f90105344aebdf512164257b705d1e7446f077b7d02f7e779ba5998e69f38b9",
+      "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2"
+    },
+    {
+      "seed": 4,
+      "prior": "center",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_center_metrics.json",
+      "sha256": "ec24999af9dae03e13cfafed15851eb9f5d2900a947e34e552d4163eda328283",
+      "checkpoint_sha256": "5690150e5e54306e9b168d8aadd87d1b43801cd44a2036e1fee9ea7bba0b8c0c"
+    },
+    {
+      "seed": 1,
+      "prior": "shape",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_shape_metrics.json",
+      "sha256": "f3f2cd8af018edb6f7baa2c6004116375c8450f2986e58fcf8d9686f69062ddc",
+      "checkpoint_sha256": "e6aaeac0fe3514357d8b4f0caa50e2ba86a1eb2481ae38bf4b36986810de83cc"
+    },
+    {
+      "seed": 3,
+      "prior": "shape",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_shape_metrics.json",
+      "sha256": "1a5e2048c4c3272fc709b5354d7ef6f415dc4dee428a60f3b2c6448c7f7bc111",
+      "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2"
+    },
+    {
+      "seed": 4,
+      "prior": "shape",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_shape_metrics.json",
+      "sha256": "f5ed9dba3463ec0bd6b403d704dadf86b5232801674bd3079073c510b23a56a1",
+      "checkpoint_sha256": "5690150e5e54306e9b168d8aadd87d1b43801cd44a2036e1fee9ea7bba0b8c0c"
+    },
+    {
+      "seed": 1,
+      "prior": "both",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_both_metrics.json",
+      "sha256": "c9b0c096540f09034d842a46b92fef8b7a46ef5acf7b11e3952ef054263051d9",
+      "checkpoint_sha256": "e6aaeac0fe3514357d8b4f0caa50e2ba86a1eb2481ae38bf4b36986810de83cc"
+    },
+    {
+      "seed": 3,
+      "prior": "both",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_both_metrics.json",
+      "sha256": "5f72fec96474385dee84b24816c42122d13d9cf8edac867c447e18e2e7560dc1",
+      "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2"
+    },
+    {
+      "seed": 4,
+      "prior": "both",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_both_metrics.json",
+      "sha256": "78c241e0fa3bb4394c42ccb29fecfc57f5c5a85db41f58bf0e547e6fa9b9110e",
+      "checkpoint_sha256": "5690150e5e54306e9b168d8aadd87d1b43801cd44a2036e1fee9ea7bba0b8c0c"
+    }
+  ],
+  "per_seed_prior_metrics": [
+    {
+      "seed": 1,
+      "prior": "none",
+      "AP": 53.58815040337124,
+      "AP50": 93.86237258198409,
+      "AP75": 54.729242057275975,
+      "AR100": 66.76664960844367
+    },
+    {
+      "seed": 3,
+      "prior": "none",
+      "AP": 53.77775989492763,
+      "AP50": 93.53577644907686,
+      "AP75": 54.15642436308642,
+      "AR100": 66.6417088017641
+    },
+    {
+      "seed": 4,
+      "prior": "none",
+      "AP": 53.55896725156211,
+      "AP50": 93.79102818549683,
+      "AP75": 54.88912084934442,
+      "AR100": 66.07740201533994
+    },
+    {
+      "seed": 1,
+      "prior": "center",
+      "AP": 54.11799133924787,
+      "AP50": 94.20592099440327,
+      "AP75": 55.63159971660912,
+      "AR100": 69.17079854338655
+    },
+    {
+      "seed": 3,
+      "prior": "center",
+      "AP": 54.4022644548446,
+      "AP50": 94.05082974343506,
+      "AP75": 55.120702345937545,
+      "AR100": 69.33664573079555
+    },
+    {
+      "seed": 4,
+      "prior": "center",
+      "AP": 54.188987642966644,
+      "AP50": 94.32748671284098,
+      "AP75": 55.96595781219014,
+      "AR100": 68.87922902433105
+    },
+    {
+      "seed": 1,
+      "prior": "shape",
+      "AP": 53.63749928343277,
+      "AP50": 93.84584478971956,
+      "AP75": 54.80133241646743,
+      "AR100": 67.17144995649237
+    },
+    {
+      "seed": 3,
+      "prior": "shape",
+      "AP": 53.80617243743085,
+      "AP50": 93.492593957482,
+      "AP75": 54.36866513508293,
+      "AR100": 67.03495915794525
+    },
+    {
+      "seed": 4,
+      "prior": "shape",
+      "AP": 53.59299861075433,
+      "AP50": 93.75194329505014,
+      "AP75": 55.06943759300723,
+      "AR100": 66.46985017997493
+    },
+    {
+      "seed": 1,
+      "prior": "both",
+      "AP": 54.09535268253139,
+      "AP50": 94.15959662843908,
+      "AP75": 55.60641361508015,
+      "AR100": 69.35475594103103
+    },
+    {
+      "seed": 3,
+      "prior": "both",
+      "AP": 54.367696881771934,
+      "AP50": 93.98797640677229,
+      "AP75": 55.16677350979692,
+      "AR100": 69.48656013335524
+    },
+    {
+      "seed": 4,
+      "prior": "both",
+      "AP": 54.15105269368592,
+      "AP50": 94.23376112442816,
+      "AP75": 55.949240837298845,
+      "AR100": 69.07462514834843
+    }
+  ],
+  "selected_prior_statistics": [
+    {
+      "prior": "none",
+      "seeds": [
+        1,
+        3,
+        4
+      ],
+      "AP": {
+        "mean": 53.641625849953655,
+        "SD": 0.11879508718002454,
+        "per_seed": [
+          53.58815040337124,
+          53.77775989492763,
+          53.55896725156211
+        ]
+      },
+      "AP_paired_delta_vs_none": {
+        "mean": 0.0,
+        "SD": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "AP50": {
+        "mean": 93.7297257388526,
+        "SD": 0.17171124302419927,
+        "per_seed": [
+          93.86237258198409,
+          93.53577644907686,
+          93.79102818549683
+        ]
+      },
+      "AP50_paired_delta_vs_none": {
+        "mean": 0.0,
+        "SD": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "AP75": {
+        "mean": 54.59159575656894,
+        "SD": 0.38525434886248006,
+        "per_seed": [
+          54.729242057275975,
+          54.15642436308642,
+          54.88912084934442
+        ]
+      },
+      "AP75_paired_delta_vs_none": {
+        "mean": 0.0,
+        "SD": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "AR100": {
+        "mean": 66.49525347518257,
+        "SD": 0.36722259348098024,
+        "per_seed": [
+          66.76664960844367,
+          66.6417088017641,
+          66.07740201533994
+        ]
+      },
+      "AR100_paired_delta_vs_none": {
+        "mean": 0.0,
+        "SD": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "prior": "center",
+      "seeds": [
+        1,
+        3,
+        4
+      ],
+      "AP": {
+        "mean": 54.23641447901971,
+        "SD": 0.14795195046456897,
+        "per_seed": [
+          54.11799133924787,
+          54.4022644548446,
+          54.188987642966644
+        ]
+      },
+      "AP_paired_delta_vs_none": {
+        "mean": 0.5947886290660472,
+        "SD": 0.05631392578411958,
+        "per_seed": [
+          0.5298409358766349,
+          0.6245045599169714,
+          0.6300203914045355
+        ]
+      },
+      "AP50": {
+        "mean": 94.1947458168931,
+        "SD": 0.13866662584957082,
+        "per_seed": [
+          94.20592099440327,
+          94.05082974343506,
+          94.32748671284098
+        ]
+      },
+      "AP50_paired_delta_vs_none": {
+        "mean": 0.46502007804051004,
+        "SD": 0.10574057953978983,
+        "per_seed": [
+          0.34354841241918166,
+          0.5150532943581965,
+          0.536458527344152
+        ]
+      },
+      "AP75": {
+        "mean": 55.572753291578934,
+        "SD": 0.4256892964494149,
+        "per_seed": [
+          55.63159971660912,
+          55.120702345937545,
+          55.96595781219014
+        ]
+      },
+      "AP75_paired_delta_vs_none": {
+        "mean": 0.9811575350099938,
+        "SD": 0.08845590030841081,
+        "per_seed": [
+          0.9023576593331413,
+          0.9642779828511223,
+          1.076836962845718
+        ]
+      },
+      "AR100": {
+        "mean": 69.12889109950439,
+        "SD": 0.23157004605034795,
+        "per_seed": [
+          69.17079854338655,
+          69.33664573079555,
+          68.87922902433105
+        ]
+      },
+      "AR100_paired_delta_vs_none": {
+        "mean": 2.6336376243218163,
+        "SD": 0.20580370796730388,
+        "per_seed": [
+          2.4041489349428815,
+          2.6949369290314564,
+          2.8018270089911113
+        ]
+      }
+    },
+    {
+      "prior": "shape",
+      "seeds": [
+        1,
+        3,
+        4
+      ],
+      "AP": {
+        "mean": 53.678890110539314,
+        "SD": 0.11245297026491272,
+        "per_seed": [
+          53.63749928343277,
+          53.80617243743085,
+          53.59299861075433
+        ]
+      },
+      "AP_paired_delta_vs_none": {
+        "mean": 0.03726426058565835,
+        "SD": 0.010836110748492011,
+        "per_seed": [
+          0.0493488800615296,
+          0.02841254250322578,
+          0.03403135919221967
+        ]
+      },
+      "AP50": {
+        "mean": 93.6967940140839,
+        "SD": 0.18296890449596237,
+        "per_seed": [
+          93.84584478971956,
+          93.492593957482,
+          93.75194329505014
+        ]
+      },
+      "AP50_paired_delta_vs_none": {
+        "mean": -0.03293172476869207,
+        "SD": 0.014353199468874837,
+        "per_seed": [
+          -0.016527792264525942,
+          -0.04318249159486243,
+          -0.03908489044668784
+        ]
+      },
+      "AP75": {
+        "mean": 54.746478381519196,
+        "SD": 0.3535919022105759,
+        "per_seed": [
+          54.80133241646743,
+          54.36866513508293,
+          55.06943759300723
+        ]
+      },
+      "AP75_paired_delta_vs_none": {
+        "mean": 0.15488262495025631,
+        "SD": 0.07345546506809084,
+        "per_seed": [
+          0.07209035919145634,
+          0.21224077199650537,
+          0.18031674366280726
+        ]
+      },
+      "AR100": {
+        "mean": 66.89208643147084,
+        "SD": 0.37198121401490547,
+        "per_seed": [
+          67.17144995649237,
+          67.03495915794525,
+          66.46985017997493
+        ]
+      },
+      "AR100_paired_delta_vs_none": {
+        "mean": 0.39683295628827864,
+        "SD": 0.006911611709084619,
+        "per_seed": [
+          0.40480034804869547,
+          0.3932503561811558,
+          0.39244816463498466
+        ]
+      }
+    },
+    {
+      "prior": "both",
+      "seeds": [
+        1,
+        3,
+        4
+      ],
+      "AP": {
+        "mean": 54.20470075266308,
+        "SD": 0.14387990265845302,
+        "per_seed": [
+          54.09535268253139,
+          54.367696881771934,
+          54.15105269368592
+        ]
+      },
+      "AP_paired_delta_vs_none": {
+        "mean": 0.563074902709424,
+        "SD": 0.04839903420245935,
+        "per_seed": [
+          0.507202279160154,
+          0.5899369868443074,
+          0.5920854421238104
+        ]
+      },
+      "AP50": {
+        "mean": 94.1271113865465,
+        "SD": 0.12607140859016142,
+        "per_seed": [
+          94.15959662843908,
+          93.98797640677229,
+          94.23376112442816
+        ]
+      },
+      "AP50_paired_delta_vs_none": {
+        "mean": 0.39738564769391377,
+        "SD": 0.08687154817965143,
+        "per_seed": [
+          0.29722404645498557,
+          0.4521999576954272,
+          0.4427329389313286
+        ]
+      },
+      "AP75": {
+        "mean": 55.57414265405864,
+        "SD": 0.3922305965193699,
+        "per_seed": [
+          55.60641361508015,
+          55.16677350979692,
+          55.949240837298845
+        ]
+      },
+      "AP75_paired_delta_vs_none": {
+        "mean": 0.9825468974896978,
+        "SD": 0.09458993508778578,
+        "per_seed": [
+          0.877171557804175,
+          1.010349146710496,
+          1.0601199879544225
+        ]
+      },
+      "AR100": {
+        "mean": 69.30531374091157,
+        "SD": 0.21037111572796713,
+        "per_seed": [
+          69.35475594103103,
+          69.48656013335524,
+          69.07462514834843
+        ]
+      },
+      "AR100_paired_delta_vs_none": {
+        "mean": 2.8100602657289975,
+        "SD": 0.20676545358104215,
+        "per_seed": [
+          2.5881063325873583,
+          2.844851331591144,
+          2.9972231330084895
+        ]
+      }
+    }
+  ],
+  "selected_three_cohort_AP_ranges": [
+    {
+      "cohort": "Pano",
+      "seeds": [
+        1,
+        3,
+        4
+      ],
+      "minimum_AP": 54.09535268253139,
+      "maximum_AP": 54.367696881771934,
+      "AP": {
+        "mean": 54.20470075266308,
+        "SD": 0.14387990265845302,
+        "per_seed": [
+          54.09535268253139,
+          54.367696881771934,
+          54.15105269368592
+        ]
+      }
+    },
+    {
+      "cohort": "Mobile",
+      "seeds": [
+        0,
+        2,
+        3
+      ],
+      "minimum_AP": 55.14400919864077,
+      "maximum_AP": 55.649634870985764,
+      "AP": {
+        "mean": 55.45868689603236,
+        "SD": 0.2745835269905257,
+        "per_seed": [
+          55.58241661847055,
+          55.649634870985764,
+          55.14400919864077
+        ]
+      }
+    },
+    {
+      "cohort": "DSLR",
+      "seeds": [
+        0,
+        2,
+        3
+      ],
+      "minimum_AP": 72.64107127914602,
+      "maximum_AP": 73.40286777998124,
+      "AP": {
+        "mean": 72.9077709061321,
+        "SD": 0.4291939584292387,
+        "per_seed": [
+          72.64107127914602,
+          72.67937365926906,
+          73.40286777998124
+        ]
+      }
+    }
+  ],
+  "font_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/references/times_new_roman/Times.TTF",
+  "validation": "All 12 selected native prior evaluations and paired effects reconciled; same checkpoint hash in all four conditions for each seed."
+}

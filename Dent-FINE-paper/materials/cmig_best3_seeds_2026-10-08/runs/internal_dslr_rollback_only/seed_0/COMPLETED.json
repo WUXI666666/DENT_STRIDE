@@ -1,0 +1,7 @@
+{
+  "job": "internal_dslr_rollback_only_seed0",
+  "checkpoint_sha256": "00bad4aac271beb1c3311b50c8d15830056ffd094302ec2450d51ef221cd5f0e",
+  "metrics_sha256": "ad255c373bf313136893c3d234404c52e8874eca116db46878f3cef2de7ee704",
+  "native_metrics_sha256": "9adbffda9bf99156b116d64ea5e97f22fd3491c9ddd98b9998f37f0f6247f7e9",
+  "finished_unix": 1791696109.6787133
+}

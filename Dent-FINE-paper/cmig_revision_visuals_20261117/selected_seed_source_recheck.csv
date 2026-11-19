@@ -1,0 +1,11 @@
+cohort,configuration,seed,selected,AP,epochs_completed,metrics_hash_matches,AP_matches_native,source
+Pano,pano_spatialshape_original,0,False,53.76455382668933,160,True,True,/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_coco_metrics.json
+Pano,pano_spatialshape_original,1,True,54.09535268253139,160,True,True,/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_coco_metrics.json
+Pano,pano_spatialshape_original,2,False,53.517166307113406,160,True,True,/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_coco_metrics.json
+Pano,pano_spatialshape_original,3,True,54.367696881771934,160,True,True,/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_coco_metrics.json
+Pano,pano_spatialshape_original,4,True,54.15105269368592,160,True,True,/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_coco_metrics.json
+Mobile,mobile_proto_k4_tau0p50,0,True,55.58241661847055,160,True,True,/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_0/native_coco_metrics.json
+Mobile,mobile_proto_k4_tau0p50,1,False,55.00794126058154,160,True,True,/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_1/native_coco_metrics.json
+Mobile,mobile_proto_k4_tau0p50,2,True,55.649634870985764,160,True,True,/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/native_coco_metrics.json
+Mobile,mobile_proto_k4_tau0p50,3,True,55.14400919864077,160,True,True,/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_3/native_coco_metrics.json
+Mobile,mobile_proto_k4_tau0p50,4,False,55.07370899384547,160,True,True,/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_4/native_coco_metrics.json

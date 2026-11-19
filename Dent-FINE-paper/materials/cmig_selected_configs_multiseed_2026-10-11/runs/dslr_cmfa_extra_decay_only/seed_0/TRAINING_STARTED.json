@@ -1,0 +1,13 @@
+{
+  "job": "dslr_cmfa_extra_decay_only_seed0",
+  "pid": 203077,
+  "started_unix": 1791737569.7635887,
+  "seed": 0,
+  "cuda_visible_devices": "1",
+  "PYTHONHASHSEED": "0",
+  "controls": {},
+  "native_cwd": "/home/wuxi/Dent-FINE",
+  "native_entrypoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/source_snapshots/local/train.py",
+  "initialization": "Fresh pretrained backbone; no resume or tuning",
+  "checkpoint_policy": "Native selection and stage-1 rollback preserved; final best only"
+}

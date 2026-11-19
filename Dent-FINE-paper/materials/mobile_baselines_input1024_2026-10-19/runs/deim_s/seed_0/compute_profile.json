@@ -1,0 +1,25 @@
+{
+  "family": "deim_s",
+  "input_shape": [
+    1,
+    3,
+    1024,
+    1024
+  ],
+  "params": 10285925,
+  "Params_M": 10.285925,
+  "GFLOPs": 60.325141232,
+  "GMACs": 30.006044944,
+  "tool": "calflops 0.3.2",
+  "form": "Native unfused eval forward, FP32; no external postprocessing or unsupported operations",
+  "profile_input": "First canonical validation image, square bilinear resize to 1024; RGB [0,1], or BGR [0,255] for Faster R-CNN",
+  "image_path": "/home/wuxi/coco/valid/JPEGImages/73.jpg",
+  "image_sha256": "c0a62cf7a407ce0d6eeb88909947a2ebeecb5147f6440cb546f9549f1874c077",
+  "image_id": 0,
+  "dynamic_compute_note": "Representative-image count, not an average over the cohort",
+  "query_counts": [
+    300
+  ],
+  "checkpoint_sha256": "dd71a9261329c4f2b7f035674c7f483d8164a574a40094264df38b6f021116b8",
+  "at": "2026-10-20T02:05:52.549902+08:00"
+}

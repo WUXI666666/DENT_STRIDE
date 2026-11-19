@@ -1,0 +1,18 @@
+{
+  "normalized_bank_shape": [
+    52,
+    4,
+    256
+  ],
+  "unsupported_FDI_codes": [
+    18,
+    28,
+    38,
+    48
+  ],
+  "maximum_absolute_within_class_prototype_difference": 0.00018455833196640015,
+  "within_class_prototypes_exactly_identical_all_supported": false,
+  "interpretation": "Near-unit cohesion describes nearly collinear within-class vectors, not evidence of distinct multi-modal prototypes or a demonstrated AP improvement.",
+  "checkpoint_sha256": "1f19ea4d30234effb359b2de0cfb494ee1fe3582ca93a0bbc54792cf3a3e60cf",
+  "prototype_temperature": 0.5
+}

@@ -1,0 +1,101 @@
+{
+  "frozen_at": "2026-09-10T23:36:31.718768+08:00",
+  "models": {
+    "deim_s": {
+      "url": "https://github.com/Intellindust-AI-Lab/DEIM",
+      "commit": "09d35d53d39ee3145a1e61e3a989b28b9468d1dd",
+      "label": "Official DEIM-D-FINE-S (HGNetv2-B0)",
+      "code": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/DEIM",
+      "base_config": "configs/deim_dfine/deim_hgnetv2_s_coco.yml"
+    },
+    "rtdetrv2_s": {
+      "url": "https://github.com/lyuwenyu/RT-DETR",
+      "commit": "29320b6fd828f8e0987a71426cf2d961b09dfed7",
+      "label": "Official RT-DETRv2-S (ResNet18-vd)",
+      "code": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/RT-DETR/rtdetrv2_pytorch",
+      "base_config": "configs/rtdetrv2/rtdetrv2_r18vd_120e_coco.yml"
+    }
+  },
+  "datasets": {
+    "phone": {
+      "classes": 52,
+      "train_images": "/home/wuxi/coco/train",
+      "val_images": "/home/wuxi/coco/valid",
+      "train_ann": "/home/wuxi/coco/train/annotations_fdi_types.json",
+      "val_ann": "/home/wuxi/coco/valid/annotations_fdi_types.json",
+      "label_order": "fdi52"
+    },
+    "dentex": {
+      "classes": 32,
+      "train_images": "/home/wuxi/DENTEX2023/train2017",
+      "val_images": "/home/wuxi/DENTEX2023/val2017",
+      "train_ann": "/home/wuxi/DENTEX2023/annotations/instances_train2017.json",
+      "val_ann": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+      "label_order": "dentex_enumeration32"
+    },
+    "dslr": {
+      "classes": 52,
+      "train_images": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/train",
+      "val_images": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val",
+      "train_ann": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_train_fdi52.json",
+      "val_ann": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json",
+      "label_order": "fdi52"
+    }
+  },
+  "configs": {
+    "deim_s_phone": {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/configs/deim_s_phone.yml",
+      "sha256": "b07bbc3def66e8a1ca7cce440969ae056b21f15d4f2c39ed19e567b9d287d7a9"
+    },
+    "deim_s_dentex": {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/configs/deim_s_dentex.yml",
+      "sha256": "b84f31f27a906035dc39078c15f4a9239b1aa27c881876294287b177759ea91b"
+    },
+    "deim_s_dslr": {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/configs/deim_s_dslr.yml",
+      "sha256": "0bd6de57962f5f5c5135327c1ab38a615907c1d08f7a37c2293cc839f4fe6ba5"
+    },
+    "rtdetrv2_s_phone": {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/configs/rtdetrv2_s_phone.yml",
+      "sha256": "88b60c6684ac903cfbad3e2cc2fe333d1b781888367e22b13bddd1f82dbe53c8"
+    },
+    "rtdetrv2_s_dentex": {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/configs/rtdetrv2_s_dentex.yml",
+      "sha256": "68c27f9fa470ea6b3f71a1303fd07b6d17345734b9a511dc26ebb8cbc71070b6"
+    },
+    "rtdetrv2_s_dslr": {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/configs/rtdetrv2_s_dslr.yml",
+      "sha256": "ff898f4b36e31d2e904be6fac31eda6ce1afe9e2fc04e73a03437c7cb192efaa"
+    }
+  },
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "epochs": 160,
+  "train_batch": 8,
+  "validation_batch": 16,
+  "base_and_evaluation_size": [
+    640,
+    640
+  ],
+  "selection": "maximum validation COCO bbox AP; earliest epoch on an exact tie",
+  "checkpoint_policy": "one global best.pth per run; stage-1 rollback snapshot in RAM only; no last or periodic weights",
+  "endpoints": [
+    "AP",
+    "AP50",
+    "AP75",
+    "AR100"
+  ],
+  "postprocessing": "native top-300 query-class predictions, no score cutoff, no NMS or dental priors",
+  "pretraining": "official ImageNet backbone initialization; no full COCO detector fine-tuning",
+  "recipe_notes": [
+    "Official DEIM-D-FINE-S uses the established dental augmentation/optimizer/schedule; upstream architecture, loss and training steps are unchanged.",
+    "RT-DETRv2-S retains its official optimizer, warmup, matching and fixed-size/no-MixUp collator; it is not an all-hyperparameter-matched DEIM ablation.",
+    "DEIM training uses native 480-800 multi-scale sampling around base 640 until epoch 130; evaluation is fixed 640x640.",
+    "Original annotations and dataset membership are not edited. Existing internal-validation limitations remain.",
+    "Existing local Plain DEIM and RT-DETR-l results are retained as separate comparators, not replaced.",
+    "Only the source-backed framework comparison is new; no result-dependent recipe selection or seed exclusion."
+  ]
+}

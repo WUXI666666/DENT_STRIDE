@@ -1,0 +1,83 @@
+{
+  "job_id": "phone_dualopt_C04",
+  "task": "phone_dualopt",
+  "cohort": "Smartphone",
+  "model": "DENT-STRIDE DualOpt",
+  "phase": "core_grid",
+  "seed": 0,
+  "augmentation": {
+    "profile": "fixed1024",
+    "mosaic": 0.0,
+    "mixup": 0.5,
+    "crop": 0.8,
+    "zoom": 0.5
+  },
+  "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_dualopt_C04_seed0.yml",
+  "config_sha256": "12d242deef2e01f9a1fb23dd29be1b7488a590a832f3c739be3e4261e522743e",
+  "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C04/seed_0",
+  "implementation_dir": "/home/wuxi/Dent-FINE",
+  "train_script": "/home/wuxi/Dent-FINE/train.py",
+  "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+  "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+  "changes_from_aligned_base": [
+    {
+      "path": "eval_spatial_size[0]",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "eval_spatial_size[1]",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "output_dir",
+      "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+      "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C04/seed_0"
+    },
+    {
+      "path": "train_dataloader.collate_fn.base_size",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "train_dataloader.collate_fn.base_size_repeat",
+      "before": 20,
+      "after": null
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+      "before": 320,
+      "after": 640
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[5].size[0]",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[5].size[1]",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "val_dataloader.dataset.transforms.ops[0].size[0]",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "val_dataloader.dataset.transforms.ops[0].size[1]",
+      "before": 640,
+      "after": 1024
+    }
+  ],
+  "mosaic_gate": {
+    "outer_probability": 0.0,
+    "inner_probability": 0.0,
+    "active_epochs_zero_based": [
+      4,
+      69
+    ],
+    "native_crop_zoom_exclusion_preserved": true
+  }
+}

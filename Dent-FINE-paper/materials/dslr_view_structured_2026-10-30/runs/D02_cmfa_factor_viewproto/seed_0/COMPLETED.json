@@ -1,0 +1,7 @@
+{
+  "job": "D02_cmfa_factor_viewproto_seed0",
+  "gpu": 1,
+  "checkpoint_sha256": "58b1c832880e1d7117a39d063ae4217643035413cdf20ccda7860ad0f09e981b",
+  "metrics_sha256": "3f171577d9bf91c56476836902e83d9691ef9ee35826a1c6b4ae852f04bf4393",
+  "finished_unix": 1793371622.735618
+}

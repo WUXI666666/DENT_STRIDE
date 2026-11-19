@@ -1,0 +1,124 @@
+{
+  "captured_at": "2026-10-03T22:46:19.540920+08:00",
+  "table_source": {
+    "path": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_main_visual.docx",
+    "sha256": "d715cbe2dd1056cb6b25ab05dd3ababb8ad652c032238dfb85b328baa66b6485",
+    "table": 4
+  },
+  "upstream_metric_sources": [
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/dslr/seed_0/metrics_summary.json",
+      "sha256": "29b55756bbaf973a45ed39e7f6a9331379c6fad8531ab3015282be46d151e0b6"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/dslr/seed_1/metrics_summary.json",
+      "sha256": "33555b8f100347d9ec7444309f91cfa8ca7085eac9eb8834abe4b21051e1e271"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/dslr/seed_2/metrics_summary.json",
+      "sha256": "708b09ee460b0f11651b889b09cdddbd7d79da9c78b73bbf56ae4be58e44e7e2"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/rtdetrv2_s/dslr/seed_0/metrics_summary.json",
+      "sha256": "34110beb6ebc6b7dab66054a956a4f208ac2396f3a6c196531360542bd9f3685"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/rtdetrv2_s/dslr/seed_1/metrics_summary.json",
+      "sha256": "c4bb458b62d168eaf8981aadc8602626548164a8492b9c9fc695f9ff58cde028"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/rtdetrv2_s/dslr/seed_2/metrics_summary.json",
+      "sha256": "4a6f839026c43c280b53ff2ef683fecd1b252b762ab940a6e650a0b52f6bcd11"
+    }
+  ],
+  "rows": [
+    {
+      "model": "RT-DETR-L",
+      "AP": 74.019,
+      "Params_M": 32.091,
+      "SD": null,
+      "n": 1,
+      "source": "Original main manuscript Table 4"
+    },
+    {
+      "model": "DENT-STRIDE-DSLR",
+      "AP": 72.8778416372863,
+      "Params_M": 11.153968,
+      "SD": 0.4035187238179733,
+      "n": 3,
+      "source": "Controlled CMFA + DualOpt; seeds0/1/2 FP32 replay"
+    },
+    {
+      "model": "Controlled base",
+      "AP": 72.46550234527592,
+      "Params_M": 10.629288,
+      "SD": 0.23399678514367048,
+      "n": 3,
+      "source": "Controlled AdamW base; seeds0/1/2 FP32 replay"
+    },
+    {
+      "model": "Official DEIM-s",
+      "AP": 72.40510717714518,
+      "Params_M": 10.286,
+      "SD": 0.20202879528332565,
+      "n": 3,
+      "source": "Official upstream implementation; completed seeds0/1/2 best-validation checkpoints"
+    },
+    {
+      "model": "YOLOv8-s",
+      "AP": 71.854,
+      "Params_M": 11.15,
+      "SD": null,
+      "n": 1,
+      "source": "Original main manuscript Table 4"
+    },
+    {
+      "model": "Dome-DETR-S",
+      "AP": 71.363,
+      "Params_M": 13.291,
+      "SD": null,
+      "n": 1,
+      "source": "Original main manuscript Table 4"
+    },
+    {
+      "model": "RT-DETRv2-S",
+      "AP": 70.9494630056139,
+      "Params_M": 20.149,
+      "SD": 0.5058767400225146,
+      "n": 3,
+      "source": "Official upstream implementation; completed seeds0/1/2 best-validation checkpoints"
+    },
+    {
+      "model": "YOLO11-s",
+      "AP": 71.094,
+      "Params_M": 9.43,
+      "SD": null,
+      "n": 1,
+      "source": "Original main manuscript Table 4"
+    },
+    {
+      "model": "CAF-YOLO-s",
+      "AP": 67.46,
+      "Params_M": 11.5,
+      "SD": null,
+      "n": 1,
+      "source": "Original main manuscript Table 4"
+    },
+    {
+      "model": "Faster R-CNN R50-FPN",
+      "AP": 63.151,
+      "Params_M": 41.556,
+      "SD": null,
+      "n": 1,
+      "source": "Original main manuscript Table 4"
+    },
+    {
+      "model": "CMFA + AdamW",
+      "AP": 72.96391332277862,
+      "SD": 0.09779245440182671,
+      "Params_M": 11.153968,
+      "n": 3,
+      "source": "Controlled mechanism comparator; seeds0/1/2 FP32 replay"
+    }
+  ]
+}

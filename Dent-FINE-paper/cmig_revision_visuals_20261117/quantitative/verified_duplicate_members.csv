@@ -1,0 +1,12 @@
+cohort,split,image_id,file_name,patient_id,view,path,decoded_rgb_sha256_verified
+Pano,train,327,train_612.png,,,/home/wuxi/DENTEX2023/train2017/train_612.png,0fde6dd9badae8df1f858c1774c4b484f3e2bda2d1a46a495a0a2d82b38f3ef1
+Pano,train,616,train_179.png,,,/home/wuxi/DENTEX2023/train2017/train_179.png,0fde6dd9badae8df1f858c1774c4b484f3e2bda2d1a46a495a0a2d82b38f3ef1
+Pano,validation,238,train_412.png,,,/home/wuxi/DENTEX2023/val2017/train_412.png,0fde6dd9badae8df1f858c1774c4b484f3e2bda2d1a46a495a0a2d82b38f3ef1
+Mobile,train,12,JPEGImages/836.jpg,,,/home/wuxi/coco/train/JPEGImages/836.jpg,fc5b2d478937a8fcdce0e10f27da0b7ab1f9bd2cd2d04c56fa73e94620e6ff25
+Mobile,validation,170,JPEGImages/201.jpg,,,/home/wuxi/coco/valid/JPEGImages/201.jpg,fc5b2d478937a8fcdce0e10f27da0b7ab1f9bd2cd2d04c56fa73e94620e6ff25
+Mobile,train,405,JPEGImages/797.jpg,,,/home/wuxi/coco/train/JPEGImages/797.jpg,3e1e65db4ea75267af672099749c53cb1e2587644051ba23551879a1c226833b
+Mobile,validation,6,JPEGImages/190.jpg,,,/home/wuxi/coco/valid/JPEGImages/190.jpg,3e1e65db4ea75267af672099749c53cb1e2587644051ba23551879a1c226833b
+Mobile,train,630,JPEGImages/796.jpg,,,/home/wuxi/coco/train/JPEGImages/796.jpg,043755e83f0183213679217738e9f80ec46da97318bebc6b761169e2cea09b07
+Mobile,validation,110,JPEGImages/189.jpg,,,/home/wuxi/coco/valid/JPEGImages/189.jpg,043755e83f0183213679217738e9f80ec46da97318bebc6b761169e2cea09b07
+Mobile,train,820,JPEGImages/157.jpg,,,/home/wuxi/coco/train/JPEGImages/157.jpg,689c16488b9d802a3016953dafed3af1ca881ad2a993720d60ba8f117a356ca1
+Mobile,validation,88,JPEGImages/34.jpg,,,/home/wuxi/coco/valid/JPEGImages/34.jpg,689c16488b9d802a3016953dafed3af1ca881ad2a993720d60ba8f117a356ca1

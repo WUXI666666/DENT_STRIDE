@@ -1,0 +1,73 @@
+{
+  "task": "dslr_cmfa_dualopt",
+  "cohort": "dslr",
+  "seed": 0,
+  "gpu": 0,
+  "epochs": 160,
+  "smoke_only": false,
+  "started_at": "2026-09-13T03:07:18.226089+08:00",
+  "config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/configs/dslr_cmfa_dualopt.yml",
+  "config_sha256": "1cd4fcd87469b02f9f9661a9e0a92d64366c0fca0850da6429c27632f67c1e0f",
+  "protocol_sha256": "652e8fa684fae1179b52fdf6c211bce1ccac3891fcc9ed5127ab25f9a5bfb760",
+  "upstream_commit": "09d35d53d39ee3145a1e61e3a989b28b9468d1dd",
+  "modules": {
+    "cohort": "dslr",
+    "cmfa": true,
+    "structured": false,
+    "spatial_shape": false,
+    "dualopt": true
+  },
+  "source_sha256": {
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/augmentation_runtime.py": "3afcf5bd40de286c93224184327609492b3cd9a1f41451e45036a46f1fdfb66b",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/paper_modules.py": "07b85a2d6f88530827833cb5aad4d0143fd7b2f49b124be96d60bd355a775d1a",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/preflight.py": "550f44ab87caa4a62fc574ab995783b9e467d1ddba16a42956a59452ba6ac290",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/prepare_migration.py": "22198486ee5dbe7ebbe311a6cfce48df13fb192a3d698922adb1e2637e06a977",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/run_experiment.py": "9e536eca7b8dc56770dd6d9b2c77a717e17606da17cd997a640fcfe1a5d101ba",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/run_queue.py": "caa1495ab59af9d6e5627cca5377db1c3f2f6e1bfa6086a77b14bf2165d160b0",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/test_augmentation_runtime.py": "5542adcd971936937a8ea4c34ef04fff15cd317da54197a17774d50e09032e98",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/test_queue.py": "16f61c3ded6c85a99551e3b76525d203197c76a63c92379c9a9f1184d7b4152b",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/paper_modules.py": "07b85a2d6f88530827833cb5aad4d0143fd7b2f49b124be96d60bd355a775d1a",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/scripts/prepare_comparison.py": "394d5075e09529ab7c55583232848a0553940334dc1e3b956699a5aa68af799c",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/scripts/run_official.py": "b65df52003bf0c6e39bd2dbda2a85ed974aa739ae5204db740d35c750f69d6a0"
+  },
+  "dataset_annotations": {
+    "/home/wuxi/coco/train/annotations_fdi_types.json": "8e7a4a0ad3cf08d05ede15b638cfee008be9c89297b2a07f52d20c711c4412f5",
+    "/home/wuxi/coco/valid/annotations_fdi_types.json": "f5c0e4e86654b32770dd1befb5d8e650b29066d41657675e0253792b0806c649",
+    "/home/wuxi/DENTEX2023/annotations/instances_train2017.json": "cdde8f96874c0aafabdd3de12fa5c8b3827ebd4eed40768119bdd4d74901cb50",
+    "/home/wuxi/DENTEX2023/annotations/instances_val2017.json": "52532169c776f6ceaa126816787e54f8f796ebb6163c0bf8a04f98372d4f3903",
+    "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_train_fdi52.json": "f38177d7f8521516653c754f7293339c3267c2aacd70eee7f0c8801af2c40c98",
+    "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json": "de3b8dc99b2a0a2679386c75d2e8aeff4871a0eaf448d5cc5abef5e1e725dbcf"
+  },
+  "pretrained_backbone": {
+    "path": "/home/wuxi/RT-DETR-main/D-FINE/weight/hgnetv2/PPHGNetV2_B0_stage1.pth",
+    "sha256": "70a372e8cbc59b34c5da2943261ecb633faf304a58e7e05461a27bd8d8b7f3d1"
+  },
+  "python": "3.11.15",
+  "torch": "2.5.1+cu124",
+  "cuda": "12.4",
+  "cudnn": 90100,
+  "params_training_total": 10810605,
+  "memory_limit_mib": 10752,
+  "command": [
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/run_experiment.py",
+    "--task",
+    "dslr_cmfa_dualopt",
+    "--gpu",
+    "0",
+    "--memory-limit-mib=10752"
+  ],
+  "model_input_size": [
+    1024,
+    1024
+  ],
+  "baseline_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules_input1024/dslr_plain/seed_0/metrics_summary.json",
+  "historical_reference": {
+    "comparison_role": "Context only; augmentation/input schedule differs from these new runs",
+    "plain_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/dslr/seed_0/metrics_summary.json",
+    "plain_metrics_sha256": "29b55756bbaf973a45ed39e7f6a9331379c6fad8531ab3015282be46d151e0b6",
+    "selected_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules/dslr_cmfa_dualopt/seed_0/metrics_summary.json",
+    "selected_metrics_sha256": "3088f8a7d9199e5e1f6de1d1c635f40981950a89e52d2c993c972357d813c8bf"
+  },
+  "storage": "one global best.pth; native stage-1 rollback snapshot in RAM",
+  "interpretation": "new seed-0 internal-validation recipe; not independent testing"
+}

@@ -1,0 +1,217 @@
+{
+  "sources": {
+    "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_main_reorganized_20261011.docx": "0d7b8470648bde26bbe0236cb2f48f25163c72c3b45e2ed0e57f90ef41562727",
+    "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_supplement_reorganized_20261011.docx": "0233af618cde423e49b945b0a3ec92fbd287ec850c75d517315f1b7b8eaf0426",
+    "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_All_Elements_Editable_v6.pptx": "b7c08236acfd30902d618ef7b1cbe7064f45eac647a80dd1d19237d3b86a347f"
+  },
+  "reference_article": "/home/wuxi/Dent-FINE-paper/1-s2.0-S0895611126001254-main.pdf",
+  "outputs": {
+    "main": {
+      "paragraphs": 208,
+      "tables": 9,
+      "native_equations": 51,
+      "changed_inline_tau_only": [
+        24
+      ],
+      "unchanged_image_indices": [
+        0,
+        2,
+        3,
+        4,
+        7,
+        10
+      ],
+      "changed_figures": 9,
+      "embedded_native_SVG": [
+        "word/media/Figure_2_DENT_STRIDE_architecture.svg",
+        "word/media/Figure_6_training_seed_variation.svg",
+        "word/media/Figure_7_Mobile_framework_AP.svg",
+        "word/media/Figure_9_Pano_prior_comparison.svg",
+        "word/media/actual_CMFA_HOOA_image_182.svg"
+      ],
+      "path": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_main_selected_seed_revision_20261012.docx",
+      "sha256": "8068801ed7a6b4ec23d914731280d6b96beaaab53a4b9e26d127cce23dc59441"
+    },
+    "supplement": {
+      "paragraphs": 58,
+      "tables": 10,
+      "native_equations": 0,
+      "changed_inline_tau_only": [],
+      "unchanged_image_indices": [
+        0,
+        1
+      ],
+      "changed_figures": 9,
+      "embedded_native_SVG": [
+        "word/media/Figure_S3_prior_paired_AP.svg",
+        "word/media/Figure_S4_detection_curves.svg",
+        "word/media/Fig_S5_Pano_complete_FDI_confusion.svg",
+        "word/media/Fig_S6_Mobile_complete_FDI_confusion.svg",
+        "word/media/Fig_S7_DSLR_complete_FDI_confusion.svg",
+        "word/media/Figure_S8_learning_curves.svg",
+        "word/media/current_Mobile_prototype_diagnostics.svg",
+        "word/media/current_Mobile_cohesion_all_FDI.svg",
+        "word/media/current_Mobile_factor_confusions.svg"
+      ],
+      "path": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_supplement_selected_seed_revision_20261012.docx",
+      "sha256": "d913b653092d8fcc45527a85cb2f110c2f3fc36812937439b9ab2a8284d4a22a"
+    }
+  },
+  "figures": {
+    "main": [
+      {
+        "caption": "Fig. 2",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/architecture/Figure_2_DENT_STRIDE_architecture.png",
+        "png_sha256": "4ae83aaaa042d675d6480e07ad938c230b7ca6042792372152e792e3d9a67cc5",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/architecture/Figure_2_DENT_STRIDE_architecture.svg",
+        "svg_embedded_in_word": true,
+        "svg_sha256": "db89bd0a0b37cdbc5b2f49ee125cd20cecdd2d8e7a445fadaaca40f21ddf4528"
+      },
+      {
+        "caption": "Fig. 6",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_6_training_seed_variation.png",
+        "png_sha256": "ec6146a15eedec94a3972325a9df379b8bb48e235ac8a3adcebe9841ad58600e",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_6_training_seed_variation.svg",
+        "svg_embedded_in_word": true,
+        "svg_sha256": "cb840c1aa709717eb09a63377da1028ea050f44764f10984cc35c31451c9a4cb"
+      },
+      {
+        "caption": "Fig. 7",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_7_Mobile_framework_AP.png",
+        "png_sha256": "2e6aa0ce2be7da7c2e7379a55b48a55bb004e4b315267be30ee330abd3cff001",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_7_Mobile_framework_AP.svg",
+        "svg_embedded_in_word": true,
+        "svg_sha256": "56e536ea97c285cccd9311447b8a294c2cc613e9e2224482b6b5010da4170e9a"
+      },
+      {
+        "caption": "Fig. 9",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_9_Pano_prior_comparison.png",
+        "png_sha256": "d017390197b1dc970d675513339e12cdbfcf445d25584f8bba08b23e5425d5f1",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_9_Pano_prior_comparison.svg",
+        "svg_embedded_in_word": true,
+        "svg_sha256": "eb5d1fa938c018cfeba158727266690349dff178500e678abbf267491c1fdc30"
+      },
+      {
+        "caption": "Fig. 10",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/prediction/Figure_10_Pano_same_weight_prior.png",
+        "png_sha256": "61095e7ff4001200687119f16b9a1bae7884f6957b3d88372ffdfea295614cd8",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/prediction/Figure_10_Pano_same_weight_prior.svg",
+        "svg_embedded_in_word": false,
+        "svg_sha256": "3b29f7b76ddbbce811d734ea46994908ac946f55981f8e30737b3c8ae2d00c9f"
+      },
+      {
+        "caption": "Fig. 12A",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/prediction/Figure_12A_Mobile_same_image.png",
+        "png_sha256": "434f78caa8d74d65ff7aa0b5ae237225442440b51b727249fe8ac66f8b62aebb",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/prediction/Figure_12A_Mobile_same_image.svg",
+        "svg_embedded_in_word": false,
+        "svg_sha256": "0e4b1b07169f28c1448dd9a33c8640c95c96d1597880afb57b78bf03081f58ad"
+      },
+      {
+        "caption": "Fig. 12B",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/prediction/Figure_12B_Pano_same_image.png",
+        "png_sha256": "14ce30f6c52534bb2a4d67a51587fc5604a6e0f0e86fb008431394ab8afed208",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/prediction/Figure_12B_Pano_same_image.svg",
+        "svg_embedded_in_word": false,
+        "svg_sha256": "89538df001f9c8276d3532f3536006bd6dc402851908f6b3e276e8357a994b7b"
+      },
+      {
+        "caption": "Fig. 12C",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/prediction/Figure_12C_DSLR_same_image.png",
+        "png_sha256": "8d8ca600a49d53e5abfd66f7b984ebcce47a0a0a7d8bb639cc9f8bac36a5543f",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/prediction/Figure_12C_DSLR_same_image.svg",
+        "svg_embedded_in_word": false,
+        "svg_sha256": "f46ada458c39a3679ea9dc32f8e3465a3669810cfc9a13f648e5d395ce19ab47"
+      },
+      {
+        "caption": "Fig. 13",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/prediction/actual_CMFA_HOOA_image_182.png",
+        "png_sha256": "3585eed934f423713ee7c2f94d2909c923bf61159052c89b19c2fdeffc5daee0",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/prediction/actual_CMFA_HOOA_image_182.svg",
+        "svg_embedded_in_word": true,
+        "svg_sha256": "8ba856746a1837fc6214c74d16a821046b7e7937876dce23c1031e44faa1eaf9"
+      }
+    ],
+    "supplement": [
+      {
+        "caption": "Fig. S3",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_S3_prior_paired_AP.png",
+        "png_sha256": "6baf115052374efa8d6ff9a8ba328bfee2410fde95f98813de52bfc3e45c7d83",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_S3_prior_paired_AP.svg",
+        "svg_embedded_in_word": true,
+        "svg_sha256": "70c032da4fd26418790def634024525fda41840302ff70e94c3df931ca8d3332"
+      },
+      {
+        "caption": "Fig. S4",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_S4_detection_curves.png",
+        "png_sha256": "364f8a751181400d6af86dd4468251550ef8f17495c2b861b13521680dab1cb3",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_S4_detection_curves.svg",
+        "svg_embedded_in_word": true,
+        "svg_sha256": "a3e208c00b135f784d8423fe3cb80e13e18412216bf06751c5e5fe505ca3d2f3"
+      },
+      {
+        "caption": "Fig. S5",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Fig_S5_Pano_complete_FDI_confusion.png",
+        "png_sha256": "137ae7d53e1e241334ed784eb75d0a95a078876c6d511ed6050cd70ec0fc5836",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Fig_S5_Pano_complete_FDI_confusion.svg",
+        "svg_embedded_in_word": true,
+        "svg_sha256": "7fcdd6f76f03668938db9c80ad0ae5ade8814ec8d7373506f7714561dd8b0d37"
+      },
+      {
+        "caption": "Fig. S6",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Fig_S6_Mobile_complete_FDI_confusion.png",
+        "png_sha256": "7979c100f2931e152a1c5b3290ac441d92076fb77ae12669195f818813068231",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Fig_S6_Mobile_complete_FDI_confusion.svg",
+        "svg_embedded_in_word": true,
+        "svg_sha256": "fb1f2e4c1cbd8cd3332bfad5198041df3ee8458d3ece767b3363d20c0f4e13c1"
+      },
+      {
+        "caption": "Fig. S7",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Fig_S7_DSLR_complete_FDI_confusion.png",
+        "png_sha256": "7d0b17c1d327cf36a729fb4c8d54edb0e1e7c1f1ce432516ddf51b9c0b664843",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Fig_S7_DSLR_complete_FDI_confusion.svg",
+        "svg_embedded_in_word": true,
+        "svg_sha256": "170afd9a0541a600a1ef2443b5d0ed015faa4ba9dc84676f5d220b0691a8aa1a"
+      },
+      {
+        "caption": "Fig. S8",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_S8_learning_curves.png",
+        "png_sha256": "fb365c3b2a9c27768f34f31ca4f06038bb29fe5bc263cd757b76dcdced13703a",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_S8_learning_curves.svg",
+        "svg_embedded_in_word": true,
+        "svg_sha256": "6fd740685ac47189cf76cb929704b6789542147cad501ffc54c64df1392a5fd8"
+      },
+      {
+        "caption": "Fig. S9",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/prediction/current_Mobile_prototype_diagnostics.png",
+        "png_sha256": "ab3898e4596e1d5d3a0073fbe66c30e2a30171e15fb622c4b68b14dbd70ee555",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/prediction/current_Mobile_prototype_diagnostics.svg",
+        "svg_embedded_in_word": true,
+        "svg_sha256": "6ce06d37def5d563d6a3a43c196f4dc58dcc4ae1065c19823ef02a1270faefa4"
+      },
+      {
+        "caption": "Fig. S10",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/prediction/current_Mobile_cohesion_all_FDI.png",
+        "png_sha256": "5a88dfcc67f8aec562555fb5ece59617fd20a048f0e8b07e64715952dbb0ce72",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/prediction/current_Mobile_cohesion_all_FDI.svg",
+        "svg_embedded_in_word": true,
+        "svg_sha256": "6d477c7f01a5a1683c3d0d35b901edfbadfb95e742fc1e0098625130591a1538"
+      },
+      {
+        "caption": "Fig. S11",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/prediction/current_Mobile_factor_confusions.png",
+        "png_sha256": "fbff9e1a357af71852c3af2d644e34d1efc6a3233b995fb8e512956b1765866c",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/prediction/current_Mobile_factor_confusions.svg",
+        "svg_embedded_in_word": true,
+        "svg_sha256": "9c920f48deaa1fc9941902677692affc5bb52bfc7c32c196991087fdd2ecec33"
+      }
+    ]
+  },
+  "selection_policy": "User-selected after inspecting five completed seeds; selected-three summaries are exploratory, not prespecified primary evidence.",
+  "author_checks": [
+    "Author-to-affiliation mapping",
+    "Originating ethics approval or exemption",
+    "Image publication permission including pediatric photographs",
+    "Final author approval of funding, CRediT, AI use and data terms"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "launched_unix": 1791451192.380492,
+  "manifest_sha256": "3591432ecdfa9f33a08756711faf542621c61f13f7245814c0cf76fa7447c643",
+  "workers": [
+    {
+      "gpu": 0,
+      "pid": 3403189,
+      "command": [
+        "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+        "-u",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/queue_worker.py",
+        "--gpu",
+        "0"
+      ],
+      "log": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/gpu0_queue.log",
+      "jobs": 16
+    },
+    {
+      "gpu": 1,
+      "pid": 3403190,
+      "command": [
+        "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+        "-u",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/queue_worker.py",
+        "--gpu",
+        "1"
+      ],
+      "log": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/gpu1_queue.log",
+      "jobs": 14
+    }
+  ],
+  "assistant_monitoring": "Startup confirmation only; user requested no ongoing monitoring."
+}

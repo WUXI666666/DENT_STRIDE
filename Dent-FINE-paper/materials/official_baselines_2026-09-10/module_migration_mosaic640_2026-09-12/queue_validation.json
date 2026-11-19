@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "test_count": 13,
+  "test_kind": "CPU/mocked subprocess, signals, GPU memory and completed-run validation",
+  "log": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/queue_test.log"
+}

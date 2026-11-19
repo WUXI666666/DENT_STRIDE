@@ -1,0 +1,3332 @@
+{
+  "per_seed": [
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 0,
+      "selected": false,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_coco_metrics.json",
+      "native_metric_sha256": "3d7951e357091e5367a82123129b6a1d9ce9422f30f5811241710503ff44e46c",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/best.pth",
+      "checkpoint_sha256": "65086233b4666ebbb73d62ecef0e4e62b5069151f219c67cf9fe0221dab9a36c",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 67,
+      "epochs_completed": 160,
+      "fixed_threshold": {
+        "score_threshold": 0.3,
+        "IoU_threshold": 0.5,
+        "counts": {
+          "GT": 1861,
+          "predictions": 2018,
+          "localized_matches": 1834,
+          "correct_FDI_matches": 1704,
+          "TP": 1704,
+          "FP": 314,
+          "FN": 157,
+          "duplicate_image": 42,
+          "duplicate_count": 108
+        },
+        "Precision": 0.844400396432111,
+        "Recall": 0.9156367544331004,
+        "F1": 0.8785769528228925,
+        "matched_tooth_FDI_accuracy": 0.9291166848418757,
+        "localization_coverage": 0.9854916711445459,
+        "raw_duplicate_image_rate": 0.65625,
+        "denominators": "P:predictions, R:GT, FDI accuracy:localized matches, coverage:GT, duplicate-image rate:all images"
+      },
+      "AP": 53.76455382668933,
+      "AP50": 94.29354419475764,
+      "AP75": 54.502406642809184,
+      "AR100": 69.5232061093816
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 1,
+      "selected": true,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_coco_metrics.json",
+      "native_metric_sha256": "d004da97c5e559c65652661dba02ce0cd0adbc300b47b980d82f28991f47058f",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/best.pth",
+      "checkpoint_sha256": "e6aaeac0fe3514357d8b4f0caa50e2ba86a1eb2481ae38bf4b36986810de83cc",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 131,
+      "epochs_completed": 160,
+      "fixed_threshold": {
+        "score_threshold": 0.3,
+        "IoU_threshold": 0.5,
+        "counts": {
+          "GT": 1861,
+          "predictions": 1965,
+          "localized_matches": 1836,
+          "correct_FDI_matches": 1703,
+          "TP": 1703,
+          "FP": 262,
+          "FN": 158,
+          "duplicate_image": 32,
+          "duplicate_count": 64
+        },
+        "Precision": 0.8666666666666667,
+        "Recall": 0.9150994089199355,
+        "F1": 0.89022477783586,
+        "matched_tooth_FDI_accuracy": 0.9275599128540305,
+        "localization_coverage": 0.9865663621708759,
+        "raw_duplicate_image_rate": 0.5,
+        "denominators": "P:predictions, R:GT, FDI accuracy:localized matches, coverage:GT, duplicate-image rate:all images"
+      },
+      "AP": 54.09535268253139,
+      "AP50": 94.15959662843908,
+      "AP75": 55.60641361508015,
+      "AR100": 69.35475594103103
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 2,
+      "selected": false,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_coco_metrics.json",
+      "native_metric_sha256": "fcfaadcb3732107f58008503f33111c9292ed12eb02aa9d5a950394500fc7a80",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/best.pth",
+      "checkpoint_sha256": "ccbff2ef62fd0e1f53e503d74692839d484eecc48ae85476ad765924b5a67ff1",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 75,
+      "epochs_completed": 160,
+      "fixed_threshold": {
+        "score_threshold": 0.3,
+        "IoU_threshold": 0.5,
+        "counts": {
+          "GT": 1861,
+          "predictions": 1982,
+          "localized_matches": 1834,
+          "correct_FDI_matches": 1698,
+          "TP": 1698,
+          "FP": 284,
+          "FN": 163,
+          "duplicate_image": 43,
+          "duplicate_count": 87
+        },
+        "Precision": 0.856710393541877,
+        "Recall": 0.9124126813541107,
+        "F1": 0.8836846213895394,
+        "matched_tooth_FDI_accuracy": 0.925845147219193,
+        "localization_coverage": 0.9854916711445459,
+        "raw_duplicate_image_rate": 0.671875,
+        "denominators": "P:predictions, R:GT, FDI accuracy:localized matches, coverage:GT, duplicate-image rate:all images"
+      },
+      "AP": 53.517166307113406,
+      "AP50": 94.04039921124803,
+      "AP75": 53.791123474758265,
+      "AR100": 69.0430157245352
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 3,
+      "selected": true,
+      "representative": true,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_coco_metrics.json",
+      "native_metric_sha256": "50e66624cb7440ebc92b263ba3c3bdc9838d84bb4add854b60ea40b3ad7dce05",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/best.pth",
+      "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 136,
+      "epochs_completed": 160,
+      "fixed_threshold": {
+        "score_threshold": 0.3,
+        "IoU_threshold": 0.5,
+        "counts": {
+          "GT": 1861,
+          "predictions": 1949,
+          "localized_matches": 1834,
+          "correct_FDI_matches": 1698,
+          "TP": 1698,
+          "FP": 251,
+          "FN": 163,
+          "duplicate_image": 25,
+          "duplicate_count": 48
+        },
+        "Precision": 0.8712160082093381,
+        "Recall": 0.9124126813541107,
+        "F1": 0.8913385826771654,
+        "matched_tooth_FDI_accuracy": 0.925845147219193,
+        "localization_coverage": 0.9854916711445459,
+        "raw_duplicate_image_rate": 0.390625,
+        "denominators": "P:predictions, R:GT, FDI accuracy:localized matches, coverage:GT, duplicate-image rate:all images"
+      },
+      "AP": 54.367696881771934,
+      "AP50": 93.98797640677229,
+      "AP75": 55.16677350979692,
+      "AR100": 69.48656013335524
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 4,
+      "selected": true,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_coco_metrics.json",
+      "native_metric_sha256": "42733465409675899ce720c04f180c10d90e0d2df0543c44cdc0b2b283b9139b",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/best.pth",
+      "checkpoint_sha256": "5690150e5e54306e9b168d8aadd87d1b43801cd44a2036e1fee9ea7bba0b8c0c",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 145,
+      "epochs_completed": 160,
+      "fixed_threshold": {
+        "score_threshold": 0.3,
+        "IoU_threshold": 0.5,
+        "counts": {
+          "GT": 1861,
+          "predictions": 1944,
+          "localized_matches": 1835,
+          "correct_FDI_matches": 1710,
+          "TP": 1710,
+          "FP": 234,
+          "FN": 151,
+          "duplicate_image": 30,
+          "duplicate_count": 49
+        },
+        "Precision": 0.8796296296296297,
+        "Recall": 0.9188608275120903,
+        "F1": 0.8988173455978975,
+        "matched_tooth_FDI_accuracy": 0.9318801089918256,
+        "localization_coverage": 0.9860290166577109,
+        "raw_duplicate_image_rate": 0.46875,
+        "denominators": "P:predictions, R:GT, FDI accuracy:localized matches, coverage:GT, duplicate-image rate:all images"
+      },
+      "AP": 54.15105269368592,
+      "AP50": 94.23376112442816,
+      "AP75": 55.949240837298845,
+      "AR100": 69.07462514834843
+    },
+    {
+      "cohort": "Mobile",
+      "cohort_label": "Mobile",
+      "configuration": "mobile_proto_k4_tau0p50",
+      "seed": 0,
+      "selected": true,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_0/native_coco_metrics.json",
+      "native_metric_sha256": "6ff03d60ed4f42e62b219251299532262364e73b3e11d71ddcf4c29019203172",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_0/best.pth",
+      "checkpoint_sha256": "a95706ef6e45bcd852032da22925e4e35d4a011aa635f572af36ee2803c02bff",
+      "params_total": 12513167,
+      "params_trainable": 12513162,
+      "best_epoch_one_based": 140,
+      "epochs_completed": 160,
+      "fixed_threshold": {
+        "score_threshold": 0.3,
+        "IoU_threshold": 0.5,
+        "counts": {
+          "GT": 2459,
+          "predictions": 2824,
+          "localized_matches": 2340,
+          "correct_FDI_matches": 2157,
+          "TP": 2157,
+          "FP": 667,
+          "FN": 302,
+          "duplicate_image": 71,
+          "duplicate_count": 118
+        },
+        "Precision": 0.7638101983002833,
+        "Recall": 0.8771858479056527,
+        "F1": 0.8165814877910278,
+        "matched_tooth_FDI_accuracy": 0.9217948717948717,
+        "localization_coverage": 0.9516063440422936,
+        "raw_duplicate_image_rate": 0.32272727272727275,
+        "denominators": "P:predictions, R:GT, FDI accuracy:localized matches, coverage:GT, duplicate-image rate:all images"
+      },
+      "AP": 55.58241661847055,
+      "AP50": 84.21050436470898,
+      "AP75": 63.475279841576246,
+      "AR100": 69.22547495467455
+    },
+    {
+      "cohort": "Mobile",
+      "cohort_label": "Mobile",
+      "configuration": "mobile_proto_k4_tau0p50",
+      "seed": 1,
+      "selected": false,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_1/native_coco_metrics.json",
+      "native_metric_sha256": "3d305f474d23d512dc7be98a8a05e51df01c2becb504957eaab571ebcf27250d",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_1/best.pth",
+      "checkpoint_sha256": "c9c7af69304aebc2cb4342ead5fe8b51aee3065ecee110567f3fc8cd3b7476d9",
+      "params_total": 12513167,
+      "params_trainable": 12513162,
+      "best_epoch_one_based": 111,
+      "epochs_completed": 160,
+      "fixed_threshold": {
+        "score_threshold": 0.3,
+        "IoU_threshold": 0.5,
+        "counts": {
+          "GT": 2459,
+          "predictions": 2872,
+          "localized_matches": 2346,
+          "correct_FDI_matches": 2142,
+          "TP": 2142,
+          "FP": 730,
+          "FN": 317,
+          "duplicate_image": 83,
+          "duplicate_count": 155
+        },
+        "Precision": 0.7458217270194986,
+        "Recall": 0.8710858072387149,
+        "F1": 0.8036015756893641,
+        "matched_tooth_FDI_accuracy": 0.9130434782608695,
+        "localization_coverage": 0.9540463603090688,
+        "raw_duplicate_image_rate": 0.37727272727272726,
+        "denominators": "P:predictions, R:GT, FDI accuracy:localized matches, coverage:GT, duplicate-image rate:all images"
+      },
+      "AP": 55.00794126058154,
+      "AP50": 83.68618468643274,
+      "AP75": 61.0542868218372,
+      "AR100": 69.22207410863504
+    },
+    {
+      "cohort": "Mobile",
+      "cohort_label": "Mobile",
+      "configuration": "mobile_proto_k4_tau0p50",
+      "seed": 2,
+      "selected": true,
+      "representative": true,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/native_coco_metrics.json",
+      "native_metric_sha256": "ba996dc9a241b08323393ef90ed5bdb07730f93932e7d9d54de826a5ea51f86e",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/best.pth",
+      "checkpoint_sha256": "1f19ea4d30234effb359b2de0cfb494ee1fe3582ca93a0bbc54792cf3a3e60cf",
+      "params_total": 12513167,
+      "params_trainable": 12513162,
+      "best_epoch_one_based": 102,
+      "epochs_completed": 160,
+      "fixed_threshold": {
+        "score_threshold": 0.3,
+        "IoU_threshold": 0.5,
+        "counts": {
+          "GT": 2459,
+          "predictions": 2872,
+          "localized_matches": 2342,
+          "correct_FDI_matches": 2167,
+          "TP": 2167,
+          "FP": 705,
+          "FN": 292,
+          "duplicate_image": 86,
+          "duplicate_count": 132
+        },
+        "Precision": 0.7545264623955432,
+        "Recall": 0.8812525416836112,
+        "F1": 0.812980679047083,
+        "matched_tooth_FDI_accuracy": 0.9252775405636209,
+        "localization_coverage": 0.9524196827978854,
+        "raw_duplicate_image_rate": 0.39090909090909093,
+        "denominators": "P:predictions, R:GT, FDI accuracy:localized matches, coverage:GT, duplicate-image rate:all images"
+      },
+      "AP": 55.649634870985764,
+      "AP50": 84.06111321207922,
+      "AP75": 64.12049305999426,
+      "AR100": 70.54424102770149
+    },
+    {
+      "cohort": "Mobile",
+      "cohort_label": "Mobile",
+      "configuration": "mobile_proto_k4_tau0p50",
+      "seed": 3,
+      "selected": true,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_3/native_coco_metrics.json",
+      "native_metric_sha256": "414a723e81564b47dcfcbf2a07b4d25f160db958fd7b58e4c847ff71a5cf49ce",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_3/best.pth",
+      "checkpoint_sha256": "ee46078178f097e95f141f81d248b2e78d6efa86c91929963901e7b3aefdff6f",
+      "params_total": 12513167,
+      "params_trainable": 12513162,
+      "best_epoch_one_based": 66,
+      "epochs_completed": 160,
+      "fixed_threshold": {
+        "score_threshold": 0.3,
+        "IoU_threshold": 0.5,
+        "counts": {
+          "GT": 2459,
+          "predictions": 2917,
+          "localized_matches": 2329,
+          "correct_FDI_matches": 2130,
+          "TP": 2130,
+          "FP": 787,
+          "FN": 329,
+          "duplicate_image": 87,
+          "duplicate_count": 152
+        },
+        "Precision": 0.7302022625985601,
+        "Recall": 0.8662057747051647,
+        "F1": 0.7924107142857143,
+        "matched_tooth_FDI_accuracy": 0.9145556032632031,
+        "localization_coverage": 0.9471329808865392,
+        "raw_duplicate_image_rate": 0.39545454545454545,
+        "denominators": "P:predictions, R:GT, FDI accuracy:localized matches, coverage:GT, duplicate-image rate:all images"
+      },
+      "AP": 55.14400919864077,
+      "AP50": 83.75127230411366,
+      "AP75": 62.51956889660435,
+      "AR100": 69.80797596161658
+    },
+    {
+      "cohort": "Mobile",
+      "cohort_label": "Mobile",
+      "configuration": "mobile_proto_k4_tau0p50",
+      "seed": 4,
+      "selected": false,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_4/native_coco_metrics.json",
+      "native_metric_sha256": "e77f853a203494c2d90958b3bb4c5d078fd9a8bc1cae7f3fd3801b51f98f66ff",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_4/best.pth",
+      "checkpoint_sha256": "dab1055093c3e67f8953b19891ada4f09b54809912f86ff57ecbb603a5807572",
+      "params_total": 12513167,
+      "params_trainable": 12513162,
+      "best_epoch_one_based": 77,
+      "epochs_completed": 160,
+      "fixed_threshold": {
+        "score_threshold": 0.3,
+        "IoU_threshold": 0.5,
+        "counts": {
+          "GT": 2459,
+          "predictions": 2898,
+          "localized_matches": 2339,
+          "correct_FDI_matches": 2145,
+          "TP": 2145,
+          "FP": 753,
+          "FN": 314,
+          "duplicate_image": 87,
+          "duplicate_count": 165
+        },
+        "Precision": 0.7401656314699793,
+        "Recall": 0.8723058153721025,
+        "F1": 0.8008213552361396,
+        "matched_tooth_FDI_accuracy": 0.917058572039333,
+        "localization_coverage": 0.9511996746644977,
+        "raw_duplicate_image_rate": 0.39545454545454545,
+        "denominators": "P:predictions, R:GT, FDI accuracy:localized matches, coverage:GT, duplicate-image rate:all images"
+      },
+      "AP": 55.07370899384547,
+      "AP50": 84.27157445944025,
+      "AP75": 62.81896181303165,
+      "AR100": 69.23552389924157
+    },
+    {
+      "cohort": "DSLR",
+      "cohort_label": "DSLR",
+      "configuration": "dslr_cmfa_extra_decay_only",
+      "seed": 0,
+      "selected": true,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_0/native_coco_metrics.json",
+      "native_metric_sha256": "af9c49a0570103bbaa1e53b96574d6aab81a4080ead8cc68069f0c6d1a1db947",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_0/best.pth",
+      "checkpoint_sha256": "e4f742b1e0c09aaef68a948c7e78936bbac0198a8ca001b5ec612155dc60bd83",
+      "params_total": 11153968,
+      "params_trainable": 11153963,
+      "best_epoch_one_based": 132,
+      "epochs_completed": 160,
+      "fixed_threshold": {
+        "score_threshold": 0.3,
+        "IoU_threshold": 0.5,
+        "counts": {
+          "GT": 2742,
+          "predictions": 2883,
+          "localized_matches": 2673,
+          "correct_FDI_matches": 2615,
+          "TP": 2615,
+          "FP": 268,
+          "FN": 127,
+          "duplicate_image": 44,
+          "duplicate_count": 62
+        },
+        "Precision": 0.9070412764481443,
+        "Recall": 0.9536834427425237,
+        "F1": 0.9297777777777778,
+        "matched_tooth_FDI_accuracy": 0.9783015338570894,
+        "localization_coverage": 0.9748358862144421,
+        "raw_duplicate_image_rate": 0.23157894736842105,
+        "denominators": "P:predictions, R:GT, FDI accuracy:localized matches, coverage:GT, duplicate-image rate:all images"
+      },
+      "AP": 72.64107127914602,
+      "AP50": 88.81753666860271,
+      "AP75": 83.68481543011292,
+      "AR100": 82.08428293682556
+    },
+    {
+      "cohort": "DSLR",
+      "cohort_label": "DSLR",
+      "configuration": "dslr_cmfa_extra_decay_only",
+      "seed": 1,
+      "selected": false,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_1/native_coco_metrics.json",
+      "native_metric_sha256": "7416fef5e71c397030b315014941603d6932a20a5af964aa6ff2d57d87604c5d",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_1/best.pth",
+      "checkpoint_sha256": "b378fb41560d2e3c7dd7d977a63cfdd661de781cfc7a017555d1c949e4f5f8c6",
+      "params_total": 11153968,
+      "params_trainable": 11153963,
+      "best_epoch_one_based": 159,
+      "epochs_completed": 160,
+      "fixed_threshold": {
+        "score_threshold": 0.3,
+        "IoU_threshold": 0.5,
+        "counts": {
+          "GT": 2742,
+          "predictions": 2894,
+          "localized_matches": 2677,
+          "correct_FDI_matches": 2600,
+          "TP": 2600,
+          "FP": 294,
+          "FN": 142,
+          "duplicate_image": 43,
+          "duplicate_count": 55
+        },
+        "Precision": 0.8984105044920525,
+        "Recall": 0.9482129832239241,
+        "F1": 0.9226401703335699,
+        "matched_tooth_FDI_accuracy": 0.9712364587224505,
+        "localization_coverage": 0.9762946754194018,
+        "raw_duplicate_image_rate": 0.22631578947368422,
+        "denominators": "P:predictions, R:GT, FDI accuracy:localized matches, coverage:GT, duplicate-image rate:all images"
+      },
+      "AP": 72.52954983648226,
+      "AP50": 88.50993629022497,
+      "AP75": 82.91629162796421,
+      "AR100": 81.34061985666217
+    },
+    {
+      "cohort": "DSLR",
+      "cohort_label": "DSLR",
+      "configuration": "dslr_cmfa_extra_decay_only",
+      "seed": 2,
+      "selected": true,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_2/native_coco_metrics.json",
+      "native_metric_sha256": "1ec9f148beb08d973a5ce459b57a27e7634ef8826c7b9bd649d3a61c4c3e667d",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_2/best.pth",
+      "checkpoint_sha256": "f4523ea15ddd11a23ffe9eabf8ee34218fc4988d007304a53c68e21fd77dee07",
+      "params_total": 11153968,
+      "params_trainable": 11153963,
+      "best_epoch_one_based": 137,
+      "epochs_completed": 160,
+      "fixed_threshold": {
+        "score_threshold": 0.3,
+        "IoU_threshold": 0.5,
+        "counts": {
+          "GT": 2742,
+          "predictions": 2884,
+          "localized_matches": 2667,
+          "correct_FDI_matches": 2598,
+          "TP": 2598,
+          "FP": 286,
+          "FN": 144,
+          "duplicate_image": 41,
+          "duplicate_count": 63
+        },
+        "Precision": 0.9008321775312067,
+        "Recall": 0.9474835886214442,
+        "F1": 0.9235691432634199,
+        "matched_tooth_FDI_accuracy": 0.9741282339707537,
+        "localization_coverage": 0.9726477024070022,
+        "raw_duplicate_image_rate": 0.21578947368421053,
+        "denominators": "P:predictions, R:GT, FDI accuracy:localized matches, coverage:GT, duplicate-image rate:all images"
+      },
+      "AP": 72.67937365926906,
+      "AP50": 88.6002438914789,
+      "AP75": 83.7873804663703,
+      "AR100": 82.50995140989671
+    },
+    {
+      "cohort": "DSLR",
+      "cohort_label": "DSLR",
+      "configuration": "dslr_cmfa_extra_decay_only",
+      "seed": 3,
+      "selected": true,
+      "representative": true,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/native_coco_metrics.json",
+      "native_metric_sha256": "e8b4032249a58699805459c53e3b7ddb5f1822f00091369caa52f1c8def58546",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/best.pth",
+      "checkpoint_sha256": "62029c9bae0c2446775add2956b27777a87641d67bbcd7e9afb53be6f5c5af5e",
+      "params_total": 11153968,
+      "params_trainable": 11153963,
+      "best_epoch_one_based": 141,
+      "epochs_completed": 160,
+      "fixed_threshold": {
+        "score_threshold": 0.3,
+        "IoU_threshold": 0.5,
+        "counts": {
+          "GT": 2742,
+          "predictions": 2884,
+          "localized_matches": 2666,
+          "correct_FDI_matches": 2592,
+          "TP": 2592,
+          "FP": 292,
+          "FN": 150,
+          "duplicate_image": 46,
+          "duplicate_count": 65
+        },
+        "Precision": 0.8987517337031901,
+        "Recall": 0.9452954048140044,
+        "F1": 0.9214361891219339,
+        "matched_tooth_FDI_accuracy": 0.9722430607651913,
+        "localization_coverage": 0.9722830051057623,
+        "raw_duplicate_image_rate": 0.24210526315789474,
+        "denominators": "P:predictions, R:GT, FDI accuracy:localized matches, coverage:GT, duplicate-image rate:all images"
+      },
+      "AP": 73.40286777998124,
+      "AP50": 89.48206349740931,
+      "AP75": 84.27930495682766,
+      "AR100": 84.04663174792691
+    },
+    {
+      "cohort": "DSLR",
+      "cohort_label": "DSLR",
+      "configuration": "dslr_cmfa_extra_decay_only",
+      "seed": 4,
+      "selected": false,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_4/native_coco_metrics.json",
+      "native_metric_sha256": "4edf798eccb3bfdb6f58b6d46b051c8f98723505770cb718f42ef818358b08e6",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_4/best.pth",
+      "checkpoint_sha256": "7aa76ed2cc6aee87c899da9d304425af4c78a4fd60b46564baa17f43cd274681",
+      "params_total": 11153968,
+      "params_trainable": 11153963,
+      "best_epoch_one_based": 102,
+      "epochs_completed": 160,
+      "fixed_threshold": {
+        "score_threshold": 0.3,
+        "IoU_threshold": 0.5,
+        "counts": {
+          "GT": 2742,
+          "predictions": 2893,
+          "localized_matches": 2674,
+          "correct_FDI_matches": 2609,
+          "TP": 2609,
+          "FP": 284,
+          "FN": 133,
+          "duplicate_image": 54,
+          "duplicate_count": 71
+        },
+        "Precision": 0.9018320082958866,
+        "Recall": 0.9514952589350839,
+        "F1": 0.9259982253771074,
+        "matched_tooth_FDI_accuracy": 0.9756918474195961,
+        "localization_coverage": 0.975200583515682,
+        "raw_duplicate_image_rate": 0.28421052631578947,
+        "denominators": "P:predictions, R:GT, FDI accuracy:localized matches, coverage:GT, duplicate-image rate:all images"
+      },
+      "AP": 72.56386442649251,
+      "AP50": 88.48214444228029,
+      "AP75": 83.41012839116891,
+      "AR100": 83.92510500019958
+    }
+  ],
+  "summaries": {
+    "selected": [
+      {
+        "cohort": "Pano",
+        "configuration": "pano_spatialshape_original",
+        "seeds": [
+          1,
+          3,
+          4
+        ],
+        "n": 3,
+        "post_hoc_selected": true,
+        "params_total": 10650254,
+        "params_trainable": 10650249,
+        "AP_mean": 54.204700752663086,
+        "AP_SD": 0.14387990265845302,
+        "AP_per_seed": [
+          54.09535268253139,
+          54.367696881771934,
+          54.15105269368592
+        ],
+        "AP_nominal_CI95_low": 53.84728326050626,
+        "AP_nominal_CI95_high": 54.562118244819914,
+        "AP50_mean": 94.12711138654652,
+        "AP50_SD": 0.12607140859016142,
+        "AP50_per_seed": [
+          94.15959662843908,
+          93.98797640677229,
+          94.23376112442816
+        ],
+        "AP50_nominal_CI95_low": 93.81393264609422,
+        "AP50_nominal_CI95_high": 94.44029012699882,
+        "AP75_mean": 55.57414265405864,
+        "AP75_SD": 0.3922305965193699,
+        "AP75_per_seed": [
+          55.60641361508015,
+          55.16677350979692,
+          55.949240837298845
+        ],
+        "AP75_nominal_CI95_low": 54.59978783754254,
+        "AP75_nominal_CI95_high": 56.54849747057474,
+        "AR100_mean": 69.30531374091157,
+        "AR100_SD": 0.21037111572796713,
+        "AR100_per_seed": [
+          69.35475594103103,
+          69.48656013335524,
+          69.07462514834843
+        ],
+        "AR100_nominal_CI95_low": 68.78272291886874,
+        "AR100_nominal_CI95_high": 69.8279045629544,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference."
+      },
+      {
+        "cohort": "Mobile",
+        "configuration": "mobile_proto_k4_tau0p50",
+        "seeds": [
+          0,
+          2,
+          3
+        ],
+        "n": 3,
+        "post_hoc_selected": true,
+        "params_total": 12513167,
+        "params_trainable": 12513162,
+        "AP_mean": 55.45868689603236,
+        "AP_SD": 0.2745835269905257,
+        "AP_per_seed": [
+          55.58241661847055,
+          55.649634870985764,
+          55.14400919864077
+        ],
+        "AP_nominal_CI95_low": 54.77658360160978,
+        "AP_nominal_CI95_high": 56.14079019045494,
+        "AP50_mean": 84.00762996030062,
+        "AP50_SD": 0.23424104045889843,
+        "AP50_per_seed": [
+          84.21050436470898,
+          84.06111321207922,
+          83.75127230411366
+        ],
+        "AP50_nominal_CI95_low": 83.42574295805703,
+        "AP50_nominal_CI95_high": 84.58951696254421,
+        "AP75_mean": 63.37178059939162,
+        "AP75_SD": 0.8054648434792278,
+        "AP75_per_seed": [
+          63.475279841576246,
+          64.12049305999426,
+          62.51956889660435
+        ],
+        "AP75_nominal_CI95_low": 61.3708950062158,
+        "AP75_nominal_CI95_high": 65.37266619256745,
+        "AR100_mean": 69.85923064799755,
+        "AR100_SD": 0.6608753823518693,
+        "AR100_per_seed": [
+          69.22547495467455,
+          70.54424102770149,
+          69.80797596161658
+        ],
+        "AR100_nominal_CI95_low": 68.21752518792985,
+        "AR100_nominal_CI95_high": 71.50093610806525,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference."
+      },
+      {
+        "cohort": "DSLR",
+        "configuration": "dslr_cmfa_extra_decay_only",
+        "seeds": [
+          0,
+          2,
+          3
+        ],
+        "n": 3,
+        "post_hoc_selected": true,
+        "params_total": 11153968,
+        "params_trainable": 11153963,
+        "AP_mean": 72.9077709061321,
+        "AP_SD": 0.4291939584292387,
+        "AP_per_seed": [
+          72.64107127914602,
+          72.67937365926906,
+          73.40286777998124
+        ],
+        "AP_nominal_CI95_low": 71.84159400834262,
+        "AP_nominal_CI95_high": 73.97394780392158,
+        "AP50_mean": 88.9666146858303,
+        "AP50_SD": 0.45942316633600694,
+        "AP50_per_seed": [
+          88.81753666860271,
+          88.6002438914789,
+          89.48206349740931
+        ],
+        "AP50_nominal_CI95_low": 87.82534427268327,
+        "AP50_nominal_CI95_high": 90.10788509897732,
+        "AP75_mean": 83.91716695110362,
+        "AP75_SD": 0.31778585251385044,
+        "AP75_per_seed": [
+          83.68481543011292,
+          83.7873804663703,
+          84.27930495682766
+        ],
+        "AP75_nominal_CI95_low": 83.12774313061324,
+        "AP75_nominal_CI95_high": 84.70659077159401,
+        "AR100_mean": 82.88028869821639,
+        "AR100_SD": 1.0322623186224036,
+        "AR100_per_seed": [
+          82.08428293682556,
+          82.50995140989671,
+          84.04663174792691
+        ],
+        "AR100_nominal_CI95_low": 80.31600694410764,
+        "AR100_nominal_CI95_high": 85.44457045232514,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference."
+      }
+    ],
+    "fixed012": [
+      {
+        "cohort": "Pano",
+        "configuration": "pano_spatialshape_original",
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n": 3,
+        "post_hoc_selected": false,
+        "params_total": 10650254,
+        "params_trainable": 10650249,
+        "AP_mean": 53.792357605444714,
+        "AP_SD": 0.2900942239420761,
+        "AP_per_seed": [
+          53.76455382668933,
+          54.09535268253139,
+          53.517166307113406
+        ],
+        "AP_nominal_CI95_low": 53.07172360378926,
+        "AP_nominal_CI95_high": 54.51299160710017,
+        "AP50_mean": 94.16451334481492,
+        "AP50_SD": 0.12664409281115735,
+        "AP50_per_seed": [
+          94.29354419475764,
+          94.15959662843908,
+          94.04039921124803
+        ],
+        "AP50_nominal_CI95_low": 93.84991197789232,
+        "AP50_nominal_CI95_high": 94.47911471173752,
+        "AP75_mean": 54.63331457754921,
+        "AP75_SD": 0.9146978948925619,
+        "AP75_per_seed": [
+          54.502406642809184,
+          55.60641361508015,
+          53.791123474758265
+        ],
+        "AP75_nominal_CI95_low": 52.361079041987956,
+        "AP75_nominal_CI95_high": 56.90555011311046,
+        "AR100_mean": 69.30699259164928,
+        "AR100_SD": 0.2436323143239793,
+        "AR100_per_seed": [
+          69.5232061093816,
+          69.35475594103103,
+          69.0430157245352
+        ],
+        "AR100_nominal_CI95_low": 68.70177637183608,
+        "AR100_nominal_CI95_high": 69.91220881146248,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference."
+      },
+      {
+        "cohort": "Mobile",
+        "configuration": "mobile_proto_k4_tau0p50",
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n": 3,
+        "post_hoc_selected": false,
+        "params_total": 12513167,
+        "params_trainable": 12513162,
+        "AP_mean": 55.413330916679286,
+        "AP_SD": 0.3526827941948493,
+        "AP_per_seed": [
+          55.58241661847055,
+          55.00794126058154,
+          55.649634870985764
+        ],
+        "AP_nominal_CI95_low": 54.53721828733438,
+        "AP_nominal_CI95_high": 56.28944354602419,
+        "AP50_mean": 83.98593408774032,
+        "AP50_SD": 0.2701235028819211,
+        "AP50_per_seed": [
+          84.21050436470898,
+          83.68618468643274,
+          84.06111321207922
+        ],
+        "AP50_nominal_CI95_low": 83.31491010740123,
+        "AP50_nominal_CI95_high": 84.6569580680794,
+        "AP75_mean": 62.8833532411359,
+        "AP75_SD": 1.6165358019419056,
+        "AP75_per_seed": [
+          63.475279841576246,
+          61.0542868218372,
+          64.12049305999426
+        ],
+        "AP75_nominal_CI95_low": 58.86765569313745,
+        "AP75_nominal_CI95_high": 66.89905078913435,
+        "AR100_mean": 69.66393003033703,
+        "AR100_SD": 0.7623735832904069,
+        "AR100_per_seed": [
+          69.22547495467455,
+          69.22207410863504,
+          70.54424102770149
+        ],
+        "AR100_nominal_CI95_low": 67.77008906164309,
+        "AR100_nominal_CI95_high": 71.55777099903096,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference."
+      },
+      {
+        "cohort": "DSLR",
+        "configuration": "dslr_cmfa_extra_decay_only",
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n": 3,
+        "post_hoc_selected": false,
+        "params_total": 11153968,
+        "params_trainable": 11153963,
+        "AP_mean": 72.61666492496578,
+        "AP_SD": 0.07783666913409806,
+        "AP_per_seed": [
+          72.64107127914602,
+          72.52954983648226,
+          72.67937365926906
+        ],
+        "AP_nominal_CI95_low": 72.42330791981273,
+        "AP_nominal_CI95_high": 72.81002193011882,
+        "AP50_mean": 88.64257228343553,
+        "AP50_SD": 0.15810840511736923,
+        "AP50_per_seed": [
+          88.81753666860271,
+          88.50993629022497,
+          88.6002438914789
+        ],
+        "AP50_nominal_CI95_low": 88.24980923173877,
+        "AP50_nominal_CI95_high": 89.03533533513229,
+        "AP75_mean": 83.46282917481581,
+        "AP75_SD": 0.47608545898245974,
+        "AP75_per_seed": [
+          83.68481543011292,
+          82.91629162796421,
+          83.7873804663703
+        ],
+        "AP75_nominal_CI95_low": 82.28016733214152,
+        "AP75_nominal_CI95_high": 84.6454910174901,
+        "AR100_mean": 81.97828473446147,
+        "AR100_SD": 0.591828340421265,
+        "AR100_per_seed": [
+          82.08428293682556,
+          81.34061985666217,
+          82.50995140989671
+        ],
+        "AR100_nominal_CI95_low": 80.50810163513839,
+        "AR100_nominal_CI95_high": 83.44846783378455,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference."
+      }
+    ],
+    "all5": [
+      {
+        "cohort": "Pano",
+        "configuration": "pano_spatialshape_original",
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "n": 5,
+        "post_hoc_selected": false,
+        "params_total": 10650254,
+        "params_trainable": 10650249,
+        "AP_mean": 53.97916447835839,
+        "AP_SD": 0.3367130558440165,
+        "AP_per_seed": [
+          53.76455382668933,
+          54.09535268253139,
+          53.517166307113406,
+          54.367696881771934,
+          54.15105269368592
+        ],
+        "AP_nominal_CI95_low": 53.561079999191705,
+        "AP_nominal_CI95_high": 54.39724895752508,
+        "AP50_mean": 94.14305551312904,
+        "AP50_SD": 0.1281949738283981,
+        "AP50_per_seed": [
+          94.29354419475764,
+          94.15959662843908,
+          94.04039921124803,
+          93.98797640677229,
+          94.23376112442816
+        ],
+        "AP50_nominal_CI95_low": 93.98388042937565,
+        "AP50_nominal_CI95_high": 94.30223059688244,
+        "AP75_mean": 55.00319161594867,
+        "AP75_SD": 0.8668246237935777,
+        "AP75_per_seed": [
+          54.502406642809184,
+          55.60641361508015,
+          53.791123474758265,
+          55.16677350979692,
+          55.949240837298845
+        ],
+        "AP75_nominal_CI95_low": 53.92688668782767,
+        "AP75_nominal_CI95_high": 56.07949654406968,
+        "AR100_mean": 69.2964326113303,
+        "AR100_SD": 0.22605031186913083,
+        "AR100_per_seed": [
+          69.5232061093816,
+          69.35475594103103,
+          69.0430157245352,
+          69.48656013335524,
+          69.07462514834843
+        ],
+        "AR100_nominal_CI95_low": 69.01575407729968,
+        "AR100_nominal_CI95_high": 69.57711114536093,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference."
+      },
+      {
+        "cohort": "Mobile",
+        "configuration": "mobile_proto_k4_tau0p50",
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "n": 5,
+        "post_hoc_selected": false,
+        "params_total": 12513167,
+        "params_trainable": 12513162,
+        "AP_mean": 55.29154218850482,
+        "AP_SD": 0.3010336664589855,
+        "AP_per_seed": [
+          55.58241661847055,
+          55.00794126058154,
+          55.649634870985764,
+          55.14400919864077,
+          55.07370899384547
+        ],
+        "AP_nominal_CI95_low": 54.91775952261542,
+        "AP_nominal_CI95_high": 55.66532485439422,
+        "AP50_mean": 83.99612980535497,
+        "AP50_SD": 0.26555141920621,
+        "AP50_per_seed": [
+          84.21050436470898,
+          83.68618468643274,
+          84.06111321207922,
+          83.75127230411366,
+          84.27157445944025
+        ],
+        "AP50_nominal_CI95_low": 83.6664041684547,
+        "AP50_nominal_CI95_high": 84.32585544225523,
+        "AP75_mean": 62.79771808660873,
+        "AP75_SD": 1.1539274679117644,
+        "AP75_per_seed": [
+          63.475279841576246,
+          61.0542868218372,
+          64.12049305999426,
+          62.51956889660435,
+          62.81896181303165
+        ],
+        "AP75_nominal_CI95_low": 61.364927893164264,
+        "AP75_nominal_CI95_high": 64.2305082800532,
+        "AR100_mean": 69.60705799037385,
+        "AR100_SD": 0.5810627891692541,
+        "AR100_per_seed": [
+          69.22547495467455,
+          69.22207410863504,
+          70.54424102770149,
+          69.80797596161658,
+          69.23552389924157
+        ],
+        "AR100_nominal_CI95_low": 68.88557324436653,
+        "AR100_nominal_CI95_high": 70.32854273638117,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference."
+      },
+      {
+        "cohort": "DSLR",
+        "configuration": "dslr_cmfa_extra_decay_only",
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "n": 5,
+        "post_hoc_selected": false,
+        "params_total": 11153968,
+        "params_trainable": 11153963,
+        "AP_mean": 72.76334539627422,
+        "AP_SD": 0.36243761969507715,
+        "AP_per_seed": [
+          72.64107127914602,
+          72.52954983648226,
+          72.67937365926906,
+          73.40286777998124,
+          72.56386442649251
+        ],
+        "AP_nominal_CI95_low": 72.31331965230417,
+        "AP_nominal_CI95_high": 73.21337114024426,
+        "AP50_mean": 88.77838495799924,
+        "AP50_SD": 0.4148052896340913,
+        "AP50_per_seed": [
+          88.81753666860271,
+          88.50993629022497,
+          88.6002438914789,
+          89.48206349740931,
+          88.48214444228029
+        ],
+        "AP50_nominal_CI95_low": 88.2633361635961,
+        "AP50_nominal_CI95_high": 89.29343375240238,
+        "AP75_mean": 83.6155841744888,
+        "AP75_SD": 0.5015113044818783,
+        "AP75_per_seed": [
+          83.68481543011292,
+          82.91629162796421,
+          83.7873804663703,
+          84.27930495682766,
+          83.41012839116891
+        ],
+        "AP75_nominal_CI95_low": 82.99287564302145,
+        "AP75_nominal_CI95_high": 84.23829270595616,
+        "AR100_mean": 82.78131819030219,
+        "AR100_SD": 1.177324979376357,
+        "AR100_per_seed": [
+          82.08428293682556,
+          81.34061985666217,
+          82.50995140989671,
+          84.04663174792691,
+          83.92510500019958
+        ],
+        "AR100_nominal_CI95_low": 81.31947614922457,
+        "AR100_nominal_CI95_high": 84.2431602313798,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference."
+      }
+    ]
+  },
+  "prior_per_seed": [
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 0,
+      "selected": false,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_prior_none_metrics.json",
+      "native_metric_sha256": "89a715489532f55cb572d44a7211afb6e1e1ea5d3cfcf7d5ec10bf433e9beb66",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/best.pth",
+      "checkpoint_sha256": "65086233b4666ebbb73d62ecef0e4e62b5069151f219c67cf9fe0221dab9a36c",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 67,
+      "epochs_completed": 160,
+      "AP": 53.314194926017514,
+      "AP50": 94.08275010960432,
+      "AP75": 53.59969183688431,
+      "AR100": 67.2490121828158,
+      "prior": "none"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 0,
+      "selected": false,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_prior_center_metrics.json",
+      "native_metric_sha256": "fac28f7827b93f008eff4c7d1002f9d182022603b7d57a4943bb26d539c13d3c",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/best.pth",
+      "checkpoint_sha256": "65086233b4666ebbb73d62ecef0e4e62b5069151f219c67cf9fe0221dab9a36c",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 67,
+      "epochs_completed": 160,
+      "AP": 53.798147556360775,
+      "AP50": 94.37598251415002,
+      "AP75": 54.54229396361361,
+      "AR100": 69.47122648492017,
+      "prior": "center"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 0,
+      "selected": false,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_prior_shape_metrics.json",
+      "native_metric_sha256": "2237a52263950ca3f409ab5a95c0daa8c0d8878c4514cebae6dafc55abd0851f",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/best.pth",
+      "checkpoint_sha256": "65086233b4666ebbb73d62ecef0e4e62b5069151f219c67cf9fe0221dab9a36c",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 67,
+      "epochs_completed": 160,
+      "AP": 53.333469358866516,
+      "AP50": 94.0695252307239,
+      "AP75": 53.73084080884071,
+      "AR100": 67.6692946798909,
+      "prior": "shape"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 0,
+      "selected": false,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_prior_both_metrics.json",
+      "native_metric_sha256": "7474671c42f53802c8923db734f277d9999dc3ae8e222e3ad805e30dbb1f67de",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/best.pth",
+      "checkpoint_sha256": "65086233b4666ebbb73d62ecef0e4e62b5069151f219c67cf9fe0221dab9a36c",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 67,
+      "epochs_completed": 160,
+      "AP": 53.76455382668933,
+      "AP50": 94.29354419475764,
+      "AP75": 54.502406642809184,
+      "AR100": 69.5232061093816,
+      "prior": "both"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 1,
+      "selected": true,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_none_metrics.json",
+      "native_metric_sha256": "233513d3949ddfbb6d61d01fadb00d2d7a3a8bda23fa0770b0d57f440bb2340f",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/best.pth",
+      "checkpoint_sha256": "e6aaeac0fe3514357d8b4f0caa50e2ba86a1eb2481ae38bf4b36986810de83cc",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 131,
+      "epochs_completed": 160,
+      "AP": 53.58815040337124,
+      "AP50": 93.86237258198409,
+      "AP75": 54.729242057275975,
+      "AR100": 66.76664960844367,
+      "prior": "none"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 1,
+      "selected": true,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_center_metrics.json",
+      "native_metric_sha256": "222e22b6f314027b093ddc33a31d0dd9b8decf1690bf34802bfd1aaee6d6902a",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/best.pth",
+      "checkpoint_sha256": "e6aaeac0fe3514357d8b4f0caa50e2ba86a1eb2481ae38bf4b36986810de83cc",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 131,
+      "epochs_completed": 160,
+      "AP": 54.11799133924787,
+      "AP50": 94.20592099440327,
+      "AP75": 55.63159971660912,
+      "AR100": 69.17079854338655,
+      "prior": "center"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 1,
+      "selected": true,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_shape_metrics.json",
+      "native_metric_sha256": "f3f2cd8af018edb6f7baa2c6004116375c8450f2986e58fcf8d9686f69062ddc",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/best.pth",
+      "checkpoint_sha256": "e6aaeac0fe3514357d8b4f0caa50e2ba86a1eb2481ae38bf4b36986810de83cc",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 131,
+      "epochs_completed": 160,
+      "AP": 53.63749928343277,
+      "AP50": 93.84584478971956,
+      "AP75": 54.80133241646743,
+      "AR100": 67.17144995649237,
+      "prior": "shape"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 1,
+      "selected": true,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_both_metrics.json",
+      "native_metric_sha256": "c9b0c096540f09034d842a46b92fef8b7a46ef5acf7b11e3952ef054263051d9",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/best.pth",
+      "checkpoint_sha256": "e6aaeac0fe3514357d8b4f0caa50e2ba86a1eb2481ae38bf4b36986810de83cc",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 131,
+      "epochs_completed": 160,
+      "AP": 54.09535268253139,
+      "AP50": 94.15959662843908,
+      "AP75": 55.60641361508015,
+      "AR100": 69.35475594103103,
+      "prior": "both"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 2,
+      "selected": false,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_prior_none_metrics.json",
+      "native_metric_sha256": "e86b9f49e82189b6d3411de5ded51fc2348d7bf80452add7ad34762df87887fa",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/best.pth",
+      "checkpoint_sha256": "ccbff2ef62fd0e1f53e503d74692839d484eecc48ae85476ad765924b5a67ff1",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 75,
+      "epochs_completed": 160,
+      "AP": 53.04354573300937,
+      "AP50": 93.73604737077056,
+      "AP75": 53.03198110928526,
+      "AR100": 66.58657034081273,
+      "prior": "none"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 2,
+      "selected": false,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_prior_center_metrics.json",
+      "native_metric_sha256": "da8c6804e58b5e1ca67967f3a2568c6bac77ead334f50c4e3fb2c4ce8df5b666",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/best.pth",
+      "checkpoint_sha256": "ccbff2ef62fd0e1f53e503d74692839d484eecc48ae85476ad765924b5a67ff1",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 75,
+      "epochs_completed": 160,
+      "AP": 53.55093820276101,
+      "AP50": 94.08813297006988,
+      "AP75": 53.8766902288188,
+      "AR100": 68.93237684118259,
+      "prior": "center"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 2,
+      "selected": false,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_prior_shape_metrics.json",
+      "native_metric_sha256": "c7ad1e28f70f97db976fcdda2b552f67415f775029a2ae02c877592ccb362d33",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/best.pth",
+      "checkpoint_sha256": "ccbff2ef62fd0e1f53e503d74692839d484eecc48ae85476ad765924b5a67ff1",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 75,
+      "epochs_completed": 160,
+      "AP": 53.07336252467625,
+      "AP50": 93.72835352038513,
+      "AP75": 53.06151253327758,
+      "AR100": 66.97880574405193,
+      "prior": "shape"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 2,
+      "selected": false,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_prior_both_metrics.json",
+      "native_metric_sha256": "175738df5ddeef5b3864122da5ca92334f315e36830df0a185609adbe0b83382",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/best.pth",
+      "checkpoint_sha256": "ccbff2ef62fd0e1f53e503d74692839d484eecc48ae85476ad765924b5a67ff1",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 75,
+      "epochs_completed": 160,
+      "AP": 53.517166307113406,
+      "AP50": 94.04039921124803,
+      "AP75": 53.791123474758265,
+      "AR100": 69.0430157245352,
+      "prior": "both"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 3,
+      "selected": true,
+      "representative": true,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_none_metrics.json",
+      "native_metric_sha256": "bf9b1ea923c08d22fd695c659667947cdc798171dd5a34c6a912ed48f0cb1ffa",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/best.pth",
+      "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 136,
+      "epochs_completed": 160,
+      "AP": 53.77775989492763,
+      "AP50": 93.53577644907686,
+      "AP75": 54.15642436308642,
+      "AR100": 66.6417088017641,
+      "prior": "none"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 3,
+      "selected": true,
+      "representative": true,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_center_metrics.json",
+      "native_metric_sha256": "4f90105344aebdf512164257b705d1e7446f077b7d02f7e779ba5998e69f38b9",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/best.pth",
+      "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 136,
+      "epochs_completed": 160,
+      "AP": 54.4022644548446,
+      "AP50": 94.05082974343506,
+      "AP75": 55.120702345937545,
+      "AR100": 69.33664573079555,
+      "prior": "center"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 3,
+      "selected": true,
+      "representative": true,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_shape_metrics.json",
+      "native_metric_sha256": "1a5e2048c4c3272fc709b5354d7ef6f415dc4dee428a60f3b2c6448c7f7bc111",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/best.pth",
+      "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 136,
+      "epochs_completed": 160,
+      "AP": 53.80617243743085,
+      "AP50": 93.492593957482,
+      "AP75": 54.36866513508293,
+      "AR100": 67.03495915794525,
+      "prior": "shape"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 3,
+      "selected": true,
+      "representative": true,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_both_metrics.json",
+      "native_metric_sha256": "5f72fec96474385dee84b24816c42122d13d9cf8edac867c447e18e2e7560dc1",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/best.pth",
+      "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 136,
+      "epochs_completed": 160,
+      "AP": 54.367696881771934,
+      "AP50": 93.98797640677229,
+      "AP75": 55.16677350979692,
+      "AR100": 69.48656013335524,
+      "prior": "both"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 4,
+      "selected": true,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_none_metrics.json",
+      "native_metric_sha256": "fd04539e2003b19bd65fcbed442095f8b3fbd838a626df1ec5ba98bc4141e854",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/best.pth",
+      "checkpoint_sha256": "5690150e5e54306e9b168d8aadd87d1b43801cd44a2036e1fee9ea7bba0b8c0c",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 145,
+      "epochs_completed": 160,
+      "AP": 53.55896725156211,
+      "AP50": 93.79102818549683,
+      "AP75": 54.88912084934442,
+      "AR100": 66.07740201533994,
+      "prior": "none"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 4,
+      "selected": true,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_center_metrics.json",
+      "native_metric_sha256": "ec24999af9dae03e13cfafed15851eb9f5d2900a947e34e552d4163eda328283",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/best.pth",
+      "checkpoint_sha256": "5690150e5e54306e9b168d8aadd87d1b43801cd44a2036e1fee9ea7bba0b8c0c",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 145,
+      "epochs_completed": 160,
+      "AP": 54.188987642966644,
+      "AP50": 94.32748671284098,
+      "AP75": 55.96595781219014,
+      "AR100": 68.87922902433105,
+      "prior": "center"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 4,
+      "selected": true,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_shape_metrics.json",
+      "native_metric_sha256": "f5ed9dba3463ec0bd6b403d704dadf86b5232801674bd3079073c510b23a56a1",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/best.pth",
+      "checkpoint_sha256": "5690150e5e54306e9b168d8aadd87d1b43801cd44a2036e1fee9ea7bba0b8c0c",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 145,
+      "epochs_completed": 160,
+      "AP": 53.59299861075433,
+      "AP50": 93.75194329505014,
+      "AP75": 55.06943759300723,
+      "AR100": 66.46985017997493,
+      "prior": "shape"
+    },
+    {
+      "cohort": "Pano",
+      "cohort_label": "DENTEX2023",
+      "configuration": "pano_spatialshape_original",
+      "seed": 4,
+      "selected": true,
+      "representative": false,
+      "native_metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_both_metrics.json",
+      "native_metric_sha256": "78c241e0fa3bb4394c42ccb29fecfc57f5c5a85db41f58bf0e547e6fa9b9110e",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/best.pth",
+      "checkpoint_sha256": "5690150e5e54306e9b168d8aadd87d1b43801cd44a2036e1fee9ea7bba0b8c0c",
+      "params_total": 10650254,
+      "params_trainable": 10650249,
+      "best_epoch_one_based": 145,
+      "epochs_completed": 160,
+      "AP": 54.15105269368592,
+      "AP50": 94.23376112442816,
+      "AP75": 55.949240837298845,
+      "AR100": 69.07462514834843,
+      "prior": "both"
+    }
+  ],
+  "prior_summaries": {
+    "selected": [
+      {
+        "cohort": "Pano",
+        "configuration": "pano_spatialshape_original",
+        "seeds": [
+          1,
+          3,
+          4
+        ],
+        "n": 3,
+        "post_hoc_selected": true,
+        "params_total": 10650254,
+        "params_trainable": 10650249,
+        "AP_mean": 53.64162584995366,
+        "AP_SD": 0.11879508718002454,
+        "AP_per_seed": [
+          53.58815040337124,
+          53.77775989492763,
+          53.55896725156211
+        ],
+        "AP_nominal_CI95_low": 53.346522493919096,
+        "AP_nominal_CI95_high": 53.93672920598823,
+        "AP50_mean": 93.7297257388526,
+        "AP50_SD": 0.17171124302419927,
+        "AP50_per_seed": [
+          93.86237258198409,
+          93.53577644907686,
+          93.79102818549683
+        ],
+        "AP50_nominal_CI95_low": 93.30317136452466,
+        "AP50_nominal_CI95_high": 94.15628011318053,
+        "AP75_mean": 54.59159575656894,
+        "AP75_SD": 0.38525434886248006,
+        "AP75_per_seed": [
+          54.729242057275975,
+          54.15642436308642,
+          54.88912084934442
+        ],
+        "AP75_nominal_CI95_low": 53.63457089994384,
+        "AP75_nominal_CI95_high": 55.548620613194046,
+        "AR100_mean": 66.49525347518257,
+        "AR100_SD": 0.3672225934809803,
+        "AR100_per_seed": [
+          66.76664960844367,
+          66.6417088017641,
+          66.07740201533994
+        ],
+        "AR100_nominal_CI95_low": 65.5830219821097,
+        "AR100_nominal_CI95_high": 67.40748496825543,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference.",
+        "prior": "none",
+        "AP_paired_delta_vs_none": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "AP_delta_mean": 0.0,
+        "AP_delta_SD": 0.0,
+        "AP_delta_nominal_CI95_low": 0.0,
+        "AP_delta_nominal_CI95_high": 0.0,
+        "AP50_paired_delta_vs_none": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "AP50_delta_mean": 0.0,
+        "AP50_delta_SD": 0.0,
+        "AP50_delta_nominal_CI95_low": 0.0,
+        "AP50_delta_nominal_CI95_high": 0.0,
+        "AP75_paired_delta_vs_none": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "AP75_delta_mean": 0.0,
+        "AP75_delta_SD": 0.0,
+        "AP75_delta_nominal_CI95_low": 0.0,
+        "AP75_delta_nominal_CI95_high": 0.0,
+        "AR100_paired_delta_vs_none": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "AR100_delta_mean": 0.0,
+        "AR100_delta_SD": 0.0,
+        "AR100_delta_nominal_CI95_low": 0.0,
+        "AR100_delta_nominal_CI95_high": 0.0
+      },
+      {
+        "cohort": "Pano",
+        "configuration": "pano_spatialshape_original",
+        "seeds": [
+          1,
+          3,
+          4
+        ],
+        "n": 3,
+        "post_hoc_selected": true,
+        "params_total": 10650254,
+        "params_trainable": 10650249,
+        "AP_mean": 54.23641447901971,
+        "AP_SD": 0.14795195046456897,
+        "AP_per_seed": [
+          54.11799133924787,
+          54.4022644548446,
+          54.188987642966644
+        ],
+        "AP_nominal_CI95_low": 53.868881459343655,
+        "AP_nominal_CI95_high": 54.60394749869576,
+        "AP50_mean": 94.1947458168931,
+        "AP50_SD": 0.13866662584957082,
+        "AP50_per_seed": [
+          94.20592099440327,
+          94.05082974343506,
+          94.32748671284098
+        ],
+        "AP50_nominal_CI95_low": 93.85027882225901,
+        "AP50_nominal_CI95_high": 94.5392128115272,
+        "AP75_mean": 55.57275329157894,
+        "AP75_SD": 0.4256892964494149,
+        "AP75_per_seed": [
+          55.63159971660912,
+          55.120702345937545,
+          55.96595781219014
+        ],
+        "AP75_nominal_CI95_low": 54.51528245678048,
+        "AP75_nominal_CI95_high": 56.6302241263774,
+        "AR100_mean": 69.12889109950437,
+        "AR100_SD": 0.23157004605034795,
+        "AR100_per_seed": [
+          69.17079854338655,
+          69.33664573079555,
+          68.87922902433105
+        ],
+        "AR100_nominal_CI95_low": 68.55363921519894,
+        "AR100_nominal_CI95_high": 69.7041429838098,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference.",
+        "prior": "center",
+        "AP_paired_delta_vs_none": [
+          0.5298409358766349,
+          0.6245045599169714,
+          0.6300203914045355
+        ],
+        "AP_delta_mean": 0.5947886290660472,
+        "AP_delta_SD": 0.05631392578411958,
+        "AP_delta_nominal_CI95_low": 0.4548970823290065,
+        "AP_delta_nominal_CI95_high": 0.734680175803088,
+        "AP50_paired_delta_vs_none": [
+          0.34354841241918166,
+          0.5150532943581965,
+          0.536458527344152
+        ],
+        "AP50_delta_mean": 0.46502007804051004,
+        "AP50_delta_SD": 0.10574057953978983,
+        "AP50_delta_nominal_CI95_low": 0.20234591674338281,
+        "AP50_delta_nominal_CI95_high": 0.7276942393376373,
+        "AP75_paired_delta_vs_none": [
+          0.9023576593331413,
+          0.9642779828511223,
+          1.076836962845718
+        ],
+        "AP75_delta_mean": 0.9811575350099938,
+        "AP75_delta_SD": 0.0884559003084108,
+        "AP75_delta_nominal_CI95_low": 0.7614208972270429,
+        "AP75_delta_nominal_CI95_high": 1.2008941727929447,
+        "AR100_paired_delta_vs_none": [
+          2.4041489349428815,
+          2.6949369290314564,
+          2.8018270089911113
+        ],
+        "AR100_delta_mean": 2.6336376243218163,
+        "AR100_delta_SD": 0.20580370796730388,
+        "AR100_delta_nominal_CI95_low": 2.1223928721421847,
+        "AR100_delta_nominal_CI95_high": 3.1448823765014478
+      },
+      {
+        "cohort": "Pano",
+        "configuration": "pano_spatialshape_original",
+        "seeds": [
+          1,
+          3,
+          4
+        ],
+        "n": 3,
+        "post_hoc_selected": true,
+        "params_total": 10650254,
+        "params_trainable": 10650249,
+        "AP_mean": 53.67889011053932,
+        "AP_SD": 0.1124529702649127,
+        "AP_per_seed": [
+          53.63749928343277,
+          53.80617243743085,
+          53.59299861075433
+        ],
+        "AP_nominal_CI95_low": 53.39954144630591,
+        "AP_nominal_CI95_high": 53.95823877477273,
+        "AP50_mean": 93.69679401408389,
+        "AP50_SD": 0.18296890449596237,
+        "AP50_per_seed": [
+          93.84584478971956,
+          93.492593957482,
+          93.75194329505014
+        ],
+        "AP50_nominal_CI95_low": 93.24227405834783,
+        "AP50_nominal_CI95_high": 94.15131396981995,
+        "AP75_mean": 54.74647838151919,
+        "AP75_SD": 0.3535919022105759,
+        "AP75_per_seed": [
+          54.80133241646743,
+          54.36866513508293,
+          55.06943759300723
+        ],
+        "AP75_nominal_CI95_low": 53.868107402668365,
+        "AP75_nominal_CI95_high": 55.624849360370014,
+        "AR100_mean": 66.89208643147084,
+        "AR100_SD": 0.37198121401490547,
+        "AR100_per_seed": [
+          67.17144995649237,
+          67.03495915794525,
+          66.46985017997493
+        ],
+        "AR100_nominal_CI95_low": 65.96803386967375,
+        "AR100_nominal_CI95_high": 67.81613899326794,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference.",
+        "prior": "shape",
+        "AP_paired_delta_vs_none": [
+          0.0493488800615296,
+          0.02841254250322578,
+          0.03403135919221967
+        ],
+        "AP_delta_mean": 0.03726426058565835,
+        "AP_delta_SD": 0.010836110748492013,
+        "AP_delta_nominal_CI95_low": 0.010345869226626243,
+        "AP_delta_nominal_CI95_high": 0.06418265194469046,
+        "AP50_paired_delta_vs_none": [
+          -0.016527792264525942,
+          -0.04318249159486243,
+          -0.03908489044668784
+        ],
+        "AP50_delta_mean": -0.03293172476869207,
+        "AP50_delta_SD": 0.014353199468874837,
+        "AP50_delta_nominal_CI95_low": -0.06858704885359887,
+        "AP50_delta_nominal_CI95_high": 0.0027235993162147212,
+        "AP75_paired_delta_vs_none": [
+          0.07209035919145634,
+          0.21224077199650537,
+          0.18031674366280726
+        ],
+        "AP75_delta_mean": 0.15488262495025631,
+        "AP75_delta_SD": 0.07345546506809084,
+        "AP75_delta_nominal_CI95_low": -0.027590865959547156,
+        "AP75_delta_nominal_CI95_high": 0.33735611586005976,
+        "AR100_paired_delta_vs_none": [
+          0.40480034804869547,
+          0.3932503561811558,
+          0.39244816463498466
+        ],
+        "AR100_delta_mean": 0.39683295628827864,
+        "AR100_delta_SD": 0.006911611709084619,
+        "AR100_delta_nominal_CI95_low": 0.3796635609927664,
+        "AR100_delta_nominal_CI95_high": 0.4140023515837909
+      },
+      {
+        "cohort": "Pano",
+        "configuration": "pano_spatialshape_original",
+        "seeds": [
+          1,
+          3,
+          4
+        ],
+        "n": 3,
+        "post_hoc_selected": true,
+        "params_total": 10650254,
+        "params_trainable": 10650249,
+        "AP_mean": 54.204700752663086,
+        "AP_SD": 0.14387990265845302,
+        "AP_per_seed": [
+          54.09535268253139,
+          54.367696881771934,
+          54.15105269368592
+        ],
+        "AP_nominal_CI95_low": 53.84728326050626,
+        "AP_nominal_CI95_high": 54.562118244819914,
+        "AP50_mean": 94.12711138654652,
+        "AP50_SD": 0.12607140859016142,
+        "AP50_per_seed": [
+          94.15959662843908,
+          93.98797640677229,
+          94.23376112442816
+        ],
+        "AP50_nominal_CI95_low": 93.81393264609422,
+        "AP50_nominal_CI95_high": 94.44029012699882,
+        "AP75_mean": 55.57414265405864,
+        "AP75_SD": 0.3922305965193699,
+        "AP75_per_seed": [
+          55.60641361508015,
+          55.16677350979692,
+          55.949240837298845
+        ],
+        "AP75_nominal_CI95_low": 54.59978783754254,
+        "AP75_nominal_CI95_high": 56.54849747057474,
+        "AR100_mean": 69.30531374091157,
+        "AR100_SD": 0.21037111572796713,
+        "AR100_per_seed": [
+          69.35475594103103,
+          69.48656013335524,
+          69.07462514834843
+        ],
+        "AR100_nominal_CI95_low": 68.78272291886874,
+        "AR100_nominal_CI95_high": 69.8279045629544,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference.",
+        "prior": "both",
+        "AP_paired_delta_vs_none": [
+          0.507202279160154,
+          0.5899369868443074,
+          0.5920854421238104
+        ],
+        "AP_delta_mean": 0.563074902709424,
+        "AP_delta_SD": 0.04839903420245935,
+        "AP_delta_nominal_CI95_low": 0.4428450366348006,
+        "AP_delta_nominal_CI95_high": 0.6833047687840472,
+        "AP50_paired_delta_vs_none": [
+          0.29722404645498557,
+          0.4521999576954272,
+          0.4427329389313286
+        ],
+        "AP50_delta_mean": 0.39738564769391377,
+        "AP50_delta_SD": 0.08687154817965143,
+        "AP50_delta_nominal_CI95_low": 0.18158475878270594,
+        "AP50_delta_nominal_CI95_high": 0.6131865366051216,
+        "AP75_paired_delta_vs_none": [
+          0.877171557804175,
+          1.010349146710496,
+          1.0601199879544225
+        ],
+        "AP75_delta_mean": 0.9825468974896978,
+        "AP75_delta_SD": 0.09458993508778578,
+        "AP75_delta_nominal_CI95_low": 0.7475724725861134,
+        "AP75_delta_nominal_CI95_high": 1.2175213223932824,
+        "AR100_paired_delta_vs_none": [
+          2.5881063325873583,
+          2.844851331591144,
+          2.9972231330084895
+        ],
+        "AR100_delta_mean": 2.8100602657289975,
+        "AR100_delta_SD": 0.20676545358104215,
+        "AR100_delta_nominal_CI95_low": 2.2964264050011685,
+        "AR100_delta_nominal_CI95_high": 3.3236941264568265
+      }
+    ],
+    "fixed012": [
+      {
+        "cohort": "Pano",
+        "configuration": "pano_spatialshape_original",
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n": 3,
+        "post_hoc_selected": false,
+        "params_total": 10650254,
+        "params_trainable": 10650249,
+        "AP_mean": 53.31529702079937,
+        "AP_SD": 0.2723040078747861,
+        "AP_per_seed": [
+          53.314194926017514,
+          53.58815040337124,
+          53.04354573300937
+        ],
+        "AP_nominal_CI95_low": 52.63885636577685,
+        "AP_nominal_CI95_high": 53.99173767582189,
+        "AP50_mean": 93.89372335411967,
+        "AP50_SD": 0.17546467012999808,
+        "AP50_per_seed": [
+          94.08275010960432,
+          93.86237258198409,
+          93.73604737077056
+        ],
+        "AP50_nominal_CI95_low": 93.45784494996991,
+        "AP50_nominal_CI95_high": 94.32960175826943,
+        "AP75_mean": 53.78697166781518,
+        "AP75_SD": 0.8639901519685891,
+        "AP75_per_seed": [
+          53.59969183688431,
+          54.729242057275975,
+          53.03198110928526
+        ],
+        "AP75_nominal_CI95_low": 51.64070114872911,
+        "AP75_nominal_CI95_high": 55.93324218690125,
+        "AR100_mean": 66.86741071069073,
+        "AR100_SD": 0.34252284347710227,
+        "AR100_per_seed": [
+          67.2490121828158,
+          66.76664960844367,
+          66.58657034081273
+        ],
+        "AR100_nominal_CI95_low": 66.0165367980733,
+        "AR100_nominal_CI95_high": 67.71828462330816,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference.",
+        "prior": "none",
+        "AP_paired_delta_vs_none": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "AP_delta_mean": 0.0,
+        "AP_delta_SD": 0.0,
+        "AP_delta_nominal_CI95_low": 0.0,
+        "AP_delta_nominal_CI95_high": 0.0,
+        "AP50_paired_delta_vs_none": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "AP50_delta_mean": 0.0,
+        "AP50_delta_SD": 0.0,
+        "AP50_delta_nominal_CI95_low": 0.0,
+        "AP50_delta_nominal_CI95_high": 0.0,
+        "AP75_paired_delta_vs_none": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "AP75_delta_mean": 0.0,
+        "AP75_delta_SD": 0.0,
+        "AP75_delta_nominal_CI95_low": 0.0,
+        "AP75_delta_nominal_CI95_high": 0.0,
+        "AR100_paired_delta_vs_none": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "AR100_delta_mean": 0.0,
+        "AR100_delta_SD": 0.0,
+        "AR100_delta_nominal_CI95_low": 0.0,
+        "AR100_delta_nominal_CI95_high": 0.0
+      },
+      {
+        "cohort": "Pano",
+        "configuration": "pano_spatialshape_original",
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n": 3,
+        "post_hoc_selected": false,
+        "params_total": 10650254,
+        "params_trainable": 10650249,
+        "AP_mean": 53.82235903278988,
+        "AP_SD": 0.28430082939213364,
+        "AP_per_seed": [
+          53.798147556360775,
+          54.11799133924787,
+          53.55093820276101
+        ],
+        "AP_nominal_CI95_low": 53.11611662101499,
+        "AP_nominal_CI95_high": 54.52860144456478,
+        "AP50_mean": 94.22334549287439,
+        "AP50_SD": 0.14471368237666574,
+        "AP50_per_seed": [
+          94.37598251415002,
+          94.20592099440327,
+          94.08813297006988
+        ],
+        "AP50_nominal_CI95_low": 93.86385677707625,
+        "AP50_nominal_CI95_high": 94.58283420867252,
+        "AP75_mean": 54.68352796968051,
+        "AP75_SD": 0.8859385480587211,
+        "AP75_per_seed": [
+          54.54229396361361,
+          55.63159971660912,
+          53.8766902288188
+        ],
+        "AP75_nominal_CI95_low": 52.48273461215451,
+        "AP75_nominal_CI95_high": 56.884321327206514,
+        "AR100_mean": 69.19146728982976,
+        "AR100_SD": 0.27001876314189555,
+        "AR100_per_seed": [
+          69.47122648492017,
+          69.17079854338655,
+          68.93237684118259
+        ],
+        "AR100_nominal_CI95_low": 68.5207034974288,
+        "AR100_nominal_CI95_high": 69.86223108223072,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference.",
+        "prior": "center",
+        "AP_paired_delta_vs_none": [
+          0.48395263034326064,
+          0.5298409358766349,
+          0.5073924697516432
+        ],
+        "AP_delta_mean": 0.5070620119905129,
+        "AP_delta_SD": 0.02294593750383706,
+        "AP_delta_nominal_CI95_low": 0.4500611433057651,
+        "AP_delta_nominal_CI95_high": 0.5640628806752608,
+        "AP50_paired_delta_vs_none": [
+          0.2932324045457051,
+          0.34354841241918166,
+          0.3520855992993148
+        ],
+        "AP50_delta_mean": 0.32962213875473384,
+        "AP50_delta_SD": 0.03180220836371899,
+        "AP50_delta_nominal_CI95_low": 0.25062107364147773,
+        "AP50_delta_nominal_CI95_high": 0.40862320386798995,
+        "AP75_paired_delta_vs_none": [
+          0.9426021267292981,
+          0.9023576593331413,
+          0.8447091195335403
+        ],
+        "AP75_delta_mean": 0.8965563018653265,
+        "AP75_delta_SD": 0.04920367898652699,
+        "AP75_delta_nominal_CI95_low": 0.7743275873380375,
+        "AP75_delta_nominal_CI95_high": 1.0187850163926155,
+        "AR100_paired_delta_vs_none": [
+          2.222214302104362,
+          2.4041489349428815,
+          2.3458065003698607
+        ],
+        "AR100_delta_mean": 2.3240565791390346,
+        "AR100_delta_SD": 0.09289696960440672,
+        "AR100_delta_nominal_CI95_low": 2.093287713637404,
+        "AR100_delta_nominal_CI95_high": 2.5548254446406653
+      },
+      {
+        "cohort": "Pano",
+        "configuration": "pano_spatialshape_original",
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n": 3,
+        "post_hoc_selected": false,
+        "params_total": 10650254,
+        "params_trainable": 10650249,
+        "AP_mean": 53.34811038899184,
+        "AP_SD": 0.2823532193324979,
+        "AP_per_seed": [
+          53.333469358866516,
+          53.63749928343277,
+          53.07336252467625
+        ],
+        "AP_nominal_CI95_low": 52.64670610881387,
+        "AP_nominal_CI95_high": 54.04951466916981,
+        "AP50_mean": 93.88124118027618,
+        "AP50_SD": 0.17331824004471846,
+        "AP50_per_seed": [
+          94.0695252307239,
+          93.84584478971956,
+          93.72835352038513
+        ],
+        "AP50_nominal_CI95_low": 93.45069480404689,
+        "AP50_nominal_CI95_high": 94.31178755650546,
+        "AP75_mean": 53.86456191952857,
+        "AP75_SD": 0.8775843595167275,
+        "AP75_per_seed": [
+          53.73084080884071,
+          54.80133241646743,
+          53.06151253327758
+        ],
+        "AP75_nominal_CI95_low": 51.684521516810804,
+        "AP75_nominal_CI95_high": 56.044602322246334,
+        "AR100_mean": 67.27318346014506,
+        "AR100_SD": 0.3563088855938039,
+        "AR100_per_seed": [
+          67.6692946798909,
+          67.17144995649237,
+          66.97880574405193
+        ],
+        "AR100_nominal_CI95_low": 66.38806312040975,
+        "AR100_nominal_CI95_high": 68.15830379988037,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference.",
+        "prior": "shape",
+        "AP_paired_delta_vs_none": [
+          0.01927443284900221,
+          0.0493488800615296,
+          0.02981679166688167
+        ],
+        "AP_delta_mean": 0.03281336819247116,
+        "AP_delta_SD": 0.015259511687470854,
+        "AP_delta_nominal_CI95_low": -0.0050933602532701044,
+        "AP_delta_nominal_CI95_high": 0.07072009663821242,
+        "AP50_paired_delta_vs_none": [
+          -0.013224878880421898,
+          -0.016527792264525942,
+          -0.007693850385436463
+        ],
+        "AP50_delta_mean": -0.012482173843461434,
+        "AP50_delta_SD": 0.0044635569179442055,
+        "AP50_delta_nominal_CI95_low": -0.02357026391187071,
+        "AP50_delta_nominal_CI95_high": -0.0013940837750521587,
+        "AP75_paired_delta_vs_none": [
+          0.1311489719563994,
+          0.07209035919145634,
+          0.02953142399231723
+        ],
+        "AP75_delta_mean": 0.077590251713391,
+        "AP75_delta_SD": 0.051031540510479985,
+        "AP75_delta_nominal_CI95_low": -0.049179122557407015,
+        "AP75_delta_nominal_CI95_high": 0.204359625984189,
+        "AR100_paired_delta_vs_none": [
+          0.42028249707509246,
+          0.40480034804869547,
+          0.3922354032391979
+        ],
+        "AR100_delta_mean": 0.4057727494543286,
+        "AR100_delta_SD": 0.01404880925666394,
+        "AR100_delta_nominal_CI95_low": 0.3708735725746626,
+        "AR100_delta_nominal_CI95_high": 0.44067192633399466
+      },
+      {
+        "cohort": "Pano",
+        "configuration": "pano_spatialshape_original",
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n": 3,
+        "post_hoc_selected": false,
+        "params_total": 10650254,
+        "params_trainable": 10650249,
+        "AP_mean": 53.792357605444714,
+        "AP_SD": 0.2900942239420761,
+        "AP_per_seed": [
+          53.76455382668933,
+          54.09535268253139,
+          53.517166307113406
+        ],
+        "AP_nominal_CI95_low": 53.07172360378926,
+        "AP_nominal_CI95_high": 54.51299160710017,
+        "AP50_mean": 94.16451334481492,
+        "AP50_SD": 0.12664409281115735,
+        "AP50_per_seed": [
+          94.29354419475764,
+          94.15959662843908,
+          94.04039921124803
+        ],
+        "AP50_nominal_CI95_low": 93.84991197789232,
+        "AP50_nominal_CI95_high": 94.47911471173752,
+        "AP75_mean": 54.63331457754921,
+        "AP75_SD": 0.9146978948925619,
+        "AP75_per_seed": [
+          54.502406642809184,
+          55.60641361508015,
+          53.791123474758265
+        ],
+        "AP75_nominal_CI95_low": 52.361079041987956,
+        "AP75_nominal_CI95_high": 56.90555011311046,
+        "AR100_mean": 69.30699259164928,
+        "AR100_SD": 0.2436323143239793,
+        "AR100_per_seed": [
+          69.5232061093816,
+          69.35475594103103,
+          69.0430157245352
+        ],
+        "AR100_nominal_CI95_low": 68.70177637183608,
+        "AR100_nominal_CI95_high": 69.91220881146248,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference.",
+        "prior": "both",
+        "AP_paired_delta_vs_none": [
+          0.45035890067181583,
+          0.507202279160154,
+          0.47362057410403935
+        ],
+        "AP_delta_mean": 0.4770605846453364,
+        "AP_delta_SD": 0.028577397955119946,
+        "AP_delta_nominal_CI95_low": 0.40607039268132616,
+        "AP_delta_nominal_CI95_high": 0.5480507766093466,
+        "AP50_paired_delta_vs_none": [
+          0.21079408515332432,
+          0.29722404645498557,
+          0.3043518404774659
+        ],
+        "AP50_delta_mean": 0.2707899906952586,
+        "AP50_delta_SD": 0.05208006214718116,
+        "AP50_delta_nominal_CI95_low": 0.14141594428514503,
+        "AP50_delta_nominal_CI95_high": 0.4001640371053722,
+        "AP75_paired_delta_vs_none": [
+          0.9027148059248731,
+          0.877171557804175,
+          0.7591423654730036
+        ],
+        "AP75_delta_mean": 0.8463429097340173,
+        "AP75_delta_SD": 0.0765902446183692,
+        "AP75_delta_nominal_CI95_low": 0.6560821947253436,
+        "AP75_delta_nominal_CI95_high": 1.036603624742691,
+        "AR100_paired_delta_vs_none": [
+          2.2741939265658004,
+          2.5881063325873583,
+          2.4564453837224676
+        ],
+        "AR100_delta_mean": 2.439581880958542,
+        "AR100_delta_SD": 0.1576341744599265,
+        "AR100_delta_nominal_CI95_low": 2.047996883522008,
+        "AR100_delta_nominal_CI95_high": 2.8311668783950763
+      }
+    ],
+    "all5": [
+      {
+        "cohort": "Pano",
+        "configuration": "pano_spatialshape_original",
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "n": 5,
+        "post_hoc_selected": false,
+        "params_total": 10650254,
+        "params_trainable": 10650249,
+        "AP_mean": 53.456523641777565,
+        "AP_SD": 0.28364645438982466,
+        "AP_per_seed": [
+          53.314194926017514,
+          53.58815040337124,
+          53.04354573300937,
+          53.77775989492763,
+          53.55896725156211
+        ],
+        "AP_nominal_CI95_low": 53.10433005114357,
+        "AP_nominal_CI95_high": 53.80871723241156,
+        "AP50_mean": 93.80159493938655,
+        "AP50_SD": 0.19862638382755932,
+        "AP50_per_seed": [
+          94.08275010960432,
+          93.86237258198409,
+          93.73604737077056,
+          93.53577644907686,
+          93.79102818549683
+        ],
+        "AP50_nominal_CI95_low": 93.55496770949446,
+        "AP50_nominal_CI95_high": 94.04822216927863,
+        "AP75_mean": 54.08129204317528,
+        "AP75_SD": 0.776380006991684,
+        "AP75_per_seed": [
+          53.59969183688431,
+          54.729242057275975,
+          53.03198110928526,
+          54.15642436308642,
+          54.88912084934442
+        ],
+        "AP75_nominal_CI95_low": 53.11728893956852,
+        "AP75_nominal_CI95_high": 55.045295146782045,
+        "AR100_mean": 66.66426858983525,
+        "AR100_SD": 0.4193343775264389,
+        "AR100_per_seed": [
+          67.2490121828158,
+          66.76664960844367,
+          66.58657034081273,
+          66.6417088017641,
+          66.07740201533994
+        ],
+        "AR100_nominal_CI95_low": 66.14359619005148,
+        "AR100_nominal_CI95_high": 67.18494098961901,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference.",
+        "prior": "none",
+        "AP_paired_delta_vs_none": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "AP_delta_mean": 0.0,
+        "AP_delta_SD": 0.0,
+        "AP_delta_nominal_CI95_low": 0.0,
+        "AP_delta_nominal_CI95_high": 0.0,
+        "AP50_paired_delta_vs_none": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "AP50_delta_mean": 0.0,
+        "AP50_delta_SD": 0.0,
+        "AP50_delta_nominal_CI95_low": 0.0,
+        "AP50_delta_nominal_CI95_high": 0.0,
+        "AP75_paired_delta_vs_none": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "AP75_delta_mean": 0.0,
+        "AP75_delta_SD": 0.0,
+        "AP75_delta_nominal_CI95_low": 0.0,
+        "AP75_delta_nominal_CI95_high": 0.0,
+        "AR100_paired_delta_vs_none": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "AR100_delta_mean": 0.0,
+        "AR100_delta_SD": 0.0,
+        "AR100_delta_nominal_CI95_low": 0.0,
+        "AR100_delta_nominal_CI95_high": 0.0
+      },
+      {
+        "cohort": "Pano",
+        "configuration": "pano_spatialshape_original",
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "n": 5,
+        "post_hoc_selected": false,
+        "params_total": 10650254,
+        "params_trainable": 10650249,
+        "AP_mean": 54.01166583923619,
+        "AP_SD": 0.3365915271810301,
+        "AP_per_seed": [
+          53.798147556360775,
+          54.11799133924787,
+          53.55093820276101,
+          54.4022644548446,
+          54.188987642966644
+        ],
+        "AP_nominal_CI95_low": 53.59373225783508,
+        "AP_nominal_CI95_high": 54.429599420637295,
+        "AP50_mean": 94.20967058697985,
+        "AP50_SD": 0.14279019747399402,
+        "AP50_per_seed": [
+          94.37598251415002,
+          94.20592099440327,
+          94.08813297006988,
+          94.05082974343506,
+          94.32748671284098
+        ],
+        "AP50_nominal_CI95_low": 94.03237313947999,
+        "AP50_nominal_CI95_high": 94.38696803447972,
+        "AP75_mean": 55.02744881343384,
+        "AP75_SD": 0.8387660913877855,
+        "AP75_per_seed": [
+          54.54229396361361,
+          55.63159971660912,
+          53.8766902288188,
+          55.120702345937545,
+          55.96595781219014
+        ],
+        "AP75_nominal_CI95_low": 53.98598315484354,
+        "AP75_nominal_CI95_high": 56.06891447202415,
+        "AR100_mean": 69.15805532492318,
+        "AR100_SD": 0.25436586940156963,
+        "AR100_per_seed": [
+          69.47122648492017,
+          69.17079854338655,
+          68.93237684118259,
+          69.33664573079555,
+          68.87922902433105
+        ],
+        "AR100_nominal_CI95_low": 68.84221838251545,
+        "AR100_nominal_CI95_high": 69.47389226733091,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference.",
+        "prior": "center",
+        "AP_paired_delta_vs_none": [
+          0.48395263034326064,
+          0.5298409358766349,
+          0.5073924697516432,
+          0.6245045599169714,
+          0.6300203914045355
+        ],
+        "AP_delta_mean": 0.5551421974586092,
+        "AP_delta_SD": 0.06783440508733117,
+        "AP_delta_nominal_CI95_low": 0.47091465882209976,
+        "AP_delta_nominal_CI95_high": 0.6393697360951185,
+        "AP50_paired_delta_vs_none": [
+          0.2932324045457051,
+          0.34354841241918166,
+          0.3520855992993148,
+          0.5150532943581965,
+          0.536458527344152
+        ],
+        "AP50_delta_mean": 0.40807564759331,
+        "AP50_delta_SD": 0.11001590882838765,
+        "AP50_delta_nominal_CI95_low": 0.2714728543714334,
+        "AP50_delta_nominal_CI95_high": 0.5446784408151866,
+        "AP75_paired_delta_vs_none": [
+          0.9426021267292981,
+          0.9023576593331413,
+          0.8447091195335403,
+          0.9642779828511223,
+          1.076836962845718
+        ],
+        "AP75_delta_mean": 0.946156770258564,
+        "AP75_delta_SD": 0.0860643865465623,
+        "AP75_delta_nominal_CI95_low": 0.8392937199562053,
+        "AP75_delta_nominal_CI95_high": 1.053019820560923,
+        "AR100_paired_delta_vs_none": [
+          2.222214302104362,
+          2.4041489349428815,
+          2.3458065003698607,
+          2.6949369290314564,
+          2.8018270089911113
+        ],
+        "AR100_delta_mean": 2.4937867350879346,
+        "AR100_delta_SD": 0.24445596858562188,
+        "AR100_delta_nominal_CI95_low": 2.1902545597491376,
+        "AR100_delta_nominal_CI95_high": 2.7973189104267315
+      },
+      {
+        "cohort": "Pano",
+        "configuration": "pano_spatialshape_original",
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "n": 5,
+        "post_hoc_selected": false,
+        "params_total": 10650254,
+        "params_trainable": 10650249,
+        "AP_mean": 53.488700443032144,
+        "AP_SD": 0.2874064829808617,
+        "AP_per_seed": [
+          53.333469358866516,
+          53.63749928343277,
+          53.07336252467625,
+          53.80617243743085,
+          53.59299861075433
+        ],
+        "AP_nominal_CI95_low": 53.131838160264444,
+        "AP_nominal_CI95_high": 53.845562725799844,
+        "AP50_mean": 93.77765215867213,
+        "AP50_SD": 0.20868014075945676,
+        "AP50_per_seed": [
+          94.0695252307239,
+          93.84584478971956,
+          93.72835352038513,
+          93.492593957482,
+          93.75194329505014
+        ],
+        "AP50_nominal_CI95_low": 93.51854154075102,
+        "AP50_nominal_CI95_high": 94.03676277659324,
+        "AP75_mean": 54.20635769733517,
+        "AP75_SD": 0.8157867809632542,
+        "AP75_per_seed": [
+          53.73084080884071,
+          54.80133241646743,
+          53.06151253327758,
+          54.36866513508293,
+          55.06943759300723
+        ],
+        "AP75_nominal_CI95_low": 53.19342462120256,
+        "AP75_nominal_CI95_high": 55.21929077346778,
+        "AR100_mean": 67.06487194367106,
+        "AR100_SD": 0.42983682415982827,
+        "AR100_per_seed": [
+          67.6692946798909,
+          67.17144995649237,
+          66.97880574405193,
+          67.03495915794525,
+          66.46985017997493
+        ],
+        "AR100_nominal_CI95_low": 66.53115903400956,
+        "AR100_nominal_CI95_high": 67.59858485333257,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference.",
+        "prior": "shape",
+        "AP_paired_delta_vs_none": [
+          0.01927443284900221,
+          0.0493488800615296,
+          0.02981679166688167,
+          0.02841254250322578,
+          0.03403135919221967
+        ],
+        "AP_delta_mean": 0.032176801254571785,
+        "AP_delta_SD": 0.011006021935406278,
+        "AP_delta_nominal_CI95_low": 0.018511020053936896,
+        "AP_delta_nominal_CI95_high": 0.04584258245520667,
+        "AP50_paired_delta_vs_none": [
+          -0.013224878880421898,
+          -0.016527792264525942,
+          -0.007693850385436463,
+          -0.04318249159486243,
+          -0.03908489044668784
+        ],
+        "AP50_delta_mean": -0.023942780714386915,
+        "AP50_delta_SD": 0.016072750014998197,
+        "AP50_delta_nominal_CI95_low": -0.04389973576013918,
+        "AP50_delta_nominal_CI95_high": -0.003985825668634646,
+        "AP75_paired_delta_vs_none": [
+          0.1311489719563994,
+          0.07209035919145634,
+          0.02953142399231723,
+          0.21224077199650537,
+          0.18031674366280726
+        ],
+        "AP75_delta_mean": 0.12506565415989712,
+        "AP75_delta_SD": 0.07520365986307415,
+        "AP75_delta_nominal_CI95_low": 0.03168797717475655,
+        "AP75_delta_nominal_CI95_high": 0.2184433311450377,
+        "AR100_paired_delta_vs_none": [
+          0.42028249707509246,
+          0.40480034804869547,
+          0.3922354032391979,
+          0.3932503561811558,
+          0.39244816463498466
+        ],
+        "AR100_delta_mean": 0.40060335383582524,
+        "AR100_delta_SD": 0.012201226594620926,
+        "AR100_delta_nominal_CI95_low": 0.3854535300393581,
+        "AR100_delta_nominal_CI95_high": 0.41575317763229236
+      },
+      {
+        "cohort": "Pano",
+        "configuration": "pano_spatialshape_original",
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "n": 5,
+        "post_hoc_selected": false,
+        "params_total": 10650254,
+        "params_trainable": 10650249,
+        "AP_mean": 53.97916447835839,
+        "AP_SD": 0.3367130558440165,
+        "AP_per_seed": [
+          53.76455382668933,
+          54.09535268253139,
+          53.517166307113406,
+          54.367696881771934,
+          54.15105269368592
+        ],
+        "AP_nominal_CI95_low": 53.561079999191705,
+        "AP_nominal_CI95_high": 54.39724895752508,
+        "AP50_mean": 94.14305551312904,
+        "AP50_SD": 0.1281949738283981,
+        "AP50_per_seed": [
+          94.29354419475764,
+          94.15959662843908,
+          94.04039921124803,
+          93.98797640677229,
+          94.23376112442816
+        ],
+        "AP50_nominal_CI95_low": 93.98388042937565,
+        "AP50_nominal_CI95_high": 94.30223059688244,
+        "AP75_mean": 55.00319161594867,
+        "AP75_SD": 0.8668246237935777,
+        "AP75_per_seed": [
+          54.502406642809184,
+          55.60641361508015,
+          53.791123474758265,
+          55.16677350979692,
+          55.949240837298845
+        ],
+        "AP75_nominal_CI95_low": 53.92688668782767,
+        "AP75_nominal_CI95_high": 56.07949654406968,
+        "AR100_mean": 69.2964326113303,
+        "AR100_SD": 0.22605031186913083,
+        "AR100_per_seed": [
+          69.5232061093816,
+          69.35475594103103,
+          69.0430157245352,
+          69.48656013335524,
+          69.07462514834843
+        ],
+        "AR100_nominal_CI95_low": 69.01575407729968,
+        "AR100_nominal_CI95_high": 69.57711114536093,
+        "CI_note": "Nominal Student-t mean interval. Post-hoc subgroup intervals are not selection-adjusted and are not used for inference.",
+        "prior": "both",
+        "AP_paired_delta_vs_none": [
+          0.45035890067181583,
+          0.507202279160154,
+          0.47362057410403935,
+          0.5899369868443074,
+          0.5920854421238104
+        ],
+        "AP_delta_mean": 0.5226408365808254,
+        "AP_delta_SD": 0.0656074281743014,
+        "AP_delta_nominal_CI95_low": 0.44117845500205605,
+        "AP_delta_nominal_CI95_high": 0.6041032181595948,
+        "AP50_paired_delta_vs_none": [
+          0.21079408515332432,
+          0.29722404645498557,
+          0.3043518404774659,
+          0.4521999576954272,
+          0.4427329389313286
+        ],
+        "AP50_delta_mean": 0.3414605737425063,
+        "AP50_delta_SD": 0.10359411515674156,
+        "AP50_delta_nominal_CI95_low": 0.21283149052660544,
+        "AP50_delta_nominal_CI95_high": 0.4700896569584072,
+        "AP75_paired_delta_vs_none": [
+          0.9027148059248731,
+          0.877171557804175,
+          0.7591423654730036,
+          1.010349146710496,
+          1.0601199879544225
+        ],
+        "AP75_delta_mean": 0.9218995727733941,
+        "AP75_delta_SD": 0.11809611491578777,
+        "AP75_delta_nominal_CI95_low": 0.7752638785547259,
+        "AP75_delta_nominal_CI95_high": 1.0685352669920622,
+        "AR100_paired_delta_vs_none": [
+          2.2741939265658004,
+          2.5881063325873583,
+          2.4564453837224676,
+          2.844851331591144,
+          2.9972231330084895
+        ],
+        "AR100_delta_mean": 2.632164021495052,
+        "AR100_delta_SD": 0.29131802006187707,
+        "AR100_delta_nominal_CI95_low": 2.270444923956217,
+        "AR100_delta_nominal_CI95_high": 2.9938831190338866
+      }
+    ]
+  },
+  "fixed_threshold_summaries": {
+    "selected": [
+      {
+        "cohort": "Pano",
+        "seeds": [
+          1,
+          3,
+          4
+        ],
+        "n": 3,
+        "post_hoc_selected": true,
+        "Precision_mean": 87.2504101501878,
+        "Precision_SD": 0.6576776599710684,
+        "Precision_per_seed": [
+          86.66666666666667,
+          87.1216008209338,
+          87.96296296296296
+        ],
+        "Recall_mean": 91.54576392620454,
+        "Recall_SD": 0.32389649507478163,
+        "Recall_per_seed": [
+          91.50994089199355,
+          91.24126813541108,
+          91.88608275120903
+        ],
+        "F1_mean": 89.34602353703076,
+        "F1_SD": 0.46726986634106765,
+        "F1_per_seed": [
+          89.022477783586,
+          89.13385826771653,
+          89.88173455978975
+        ],
+        "matched_tooth_FDI_accuracy_mean": 92.84283896883498,
+        "matched_tooth_FDI_accuracy_SD": 0.31098038375589127,
+        "matched_tooth_FDI_accuracy_per_seed": [
+          92.75599128540306,
+          92.58451472191929,
+          93.18801089918256
+        ],
+        "localization_coverage_mean": 98.60290166577109,
+        "localization_coverage_SD": 0.05373455131650218,
+        "localization_coverage_per_seed": [
+          98.6566362170876,
+          98.54916711445459,
+          98.60290166577109
+        ],
+        "raw_duplicate_image_rate_mean": 45.3125,
+        "raw_duplicate_image_rate_SD": 5.633673867912483,
+        "raw_duplicate_image_rate_per_seed": [
+          50.0,
+          39.0625,
+          46.875
+        ]
+      },
+      {
+        "cohort": "Mobile",
+        "seeds": [
+          0,
+          2,
+          3
+        ],
+        "n": 3,
+        "post_hoc_selected": true,
+        "Precision_mean": 74.95129744314623,
+        "Precision_SD": 1.7355824143706886,
+        "Precision_per_seed": [
+          76.38101983002834,
+          75.45264623955433,
+          73.02022625985602
+        ],
+        "Recall_mean": 87.48813880981429,
+        "Recall_SD": 0.7783585316500289,
+        "Recall_per_seed": [
+          87.71858479056527,
+          88.12525416836112,
+          86.62057747051647
+        ],
+        "F1_mean": 80.73242937079418,
+        "F1_SD": 1.3040421553382788,
+        "F1_per_seed": [
+          81.65814877910277,
+          81.2980679047083,
+          79.24107142857143
+        ],
+        "matched_tooth_FDI_accuracy_mean": 92.05426718738987,
+        "matched_tooth_FDI_accuracy_SD": 0.5469551019058714,
+        "matched_tooth_FDI_accuracy_per_seed": [
+          92.17948717948717,
+          92.52775405636208,
+          91.45556032632031
+        ],
+        "localization_coverage_mean": 95.0386335908906,
+        "localization_coverage_SD": 0.2846685644571027,
+        "localization_coverage_per_seed": [
+          95.16063440422936,
+          95.24196827978854,
+          94.71329808865391
+        ],
+        "raw_duplicate_image_rate_mean": 36.969696969696976,
+        "raw_duplicate_image_rate_SD": 4.074039290832956,
+        "raw_duplicate_image_rate_per_seed": [
+          32.27272727272727,
+          39.09090909090909,
+          39.54545454545455
+        ]
+      },
+      {
+        "cohort": "DSLR",
+        "seeds": [
+          0,
+          2,
+          3
+        ],
+        "n": 3,
+        "post_hoc_selected": true,
+        "Precision_mean": 90.22083958941805,
+        "Precision_SD": 0.43127268018093795,
+        "Precision_per_seed": [
+          90.70412764481442,
+          90.08321775312066,
+          89.875173370319
+        ],
+        "Recall_mean": 94.88208120593241,
+        "Recall_SD": 0.435096770439411,
+        "Recall_per_seed": [
+          95.36834427425237,
+          94.74835886214443,
+          94.52954048140045
+        ],
+        "F1_mean": 92.49277033877105,
+        "F1_SD": 0.4333565452870274,
+        "F1_per_seed": [
+          92.97777777777779,
+          92.356914326342,
+          92.14361891219339
+        ],
+        "matched_tooth_FDI_accuracy_mean": 97.48909428643447,
+        "matched_tooth_FDI_accuracy_SD": 0.3100414116466637,
+        "matched_tooth_FDI_accuracy_per_seed": [
+          97.83015338570894,
+          97.41282339707537,
+          97.22430607651913
+        ],
+        "localization_coverage_mean": 97.32555312424022,
+        "localization_coverage_SD": 0.13807216984683707,
+        "localization_coverage_per_seed": [
+          97.48358862144421,
+          97.26477024070022,
+          97.22830051057623
+        ],
+        "raw_duplicate_image_rate_mean": 22.982456140350877,
+        "raw_duplicate_image_rate_SD": 1.3245323570650422,
+        "raw_duplicate_image_rate_per_seed": [
+          23.157894736842106,
+          21.578947368421055,
+          24.210526315789473
+        ]
+      }
+    ],
+    "fixed012": [
+      {
+        "cohort": "Pano",
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n": 3,
+        "post_hoc_selected": false,
+        "Precision_mean": 85.59258188802183,
+        "Precision_SD": 1.115384981023834,
+        "Precision_per_seed": [
+          84.4400396432111,
+          86.66666666666667,
+          85.6710393541877
+        ],
+        "Recall_mean": 91.43829482357155,
+        "Recall_SD": 0.17273241556497756,
+        "Recall_per_seed": [
+          91.56367544331005,
+          91.50994089199355,
+          91.24126813541108
+        ],
+        "F1_mean": 88.41621173494308,
+        "F1_SD": 0.583857505535055,
+        "F1_per_seed": [
+          87.85769528228926,
+          89.022477783586,
+          88.36846213895394
+        ],
+        "matched_tooth_FDI_accuracy_mean": 92.7507248305033,
+        "matched_tooth_FDI_accuracy_SD": 0.16364045252314943,
+        "matched_tooth_FDI_accuracy_per_seed": [
+          92.91166848418757,
+          92.75599128540306,
+          92.58451472191929
+        ],
+        "localization_coverage_mean": 98.5849901486656,
+        "localization_coverage_SD": 0.06204731533473258,
+        "localization_coverage_per_seed": [
+          98.54916711445459,
+          98.6566362170876,
+          98.54916711445459
+        ],
+        "raw_duplicate_image_rate_mean": 60.9375,
+        "raw_duplicate_image_rate_SD": 9.504316453590969,
+        "raw_duplicate_image_rate_per_seed": [
+          65.625,
+          50.0,
+          67.1875
+        ]
+      },
+      {
+        "cohort": "Mobile",
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n": 3,
+        "post_hoc_selected": false,
+        "Precision_mean": 75.4719462571775,
+        "Precision_SD": 0.899578854553195,
+        "Precision_per_seed": [
+          76.38101983002834,
+          74.58217270194986,
+          75.45264623955433
+        ],
+        "Recall_mean": 87.65080656093262,
+        "Recall_SD": 0.5117144120422147,
+        "Recall_per_seed": [
+          87.71858479056527,
+          87.10858072387148,
+          88.12525416836112
+        ],
+        "F1_mean": 81.10545808424916,
+        "F1_SD": 0.6700889512745821,
+        "F1_per_seed": [
+          81.65814877910277,
+          80.3601575689364,
+          81.2980679047083
+        ],
+        "matched_tooth_FDI_accuracy_mean": 92.0038630206454,
+        "matched_tooth_FDI_accuracy_SD": 0.630328156554711,
+        "matched_tooth_FDI_accuracy_per_seed": [
+          92.17948717948717,
+          91.30434782608695,
+          92.52775405636208
+        ],
+        "localization_coverage_mean": 95.2690795716416,
+        "localization_coverage_SD": 0.12423954710467378,
+        "localization_coverage_per_seed": [
+          95.16063440422936,
+          95.40463603090687,
+          95.24196827978854
+        ],
+        "raw_duplicate_image_rate_mean": 36.36363636363637,
+        "raw_duplicate_image_rate_SD": 3.6078426969062605,
+        "raw_duplicate_image_rate_per_seed": [
+          32.27272727272727,
+          37.72727272727273,
+          39.09090909090909
+        ]
+      },
+      {
+        "cohort": "DSLR",
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n": 3,
+        "post_hoc_selected": false,
+        "Precision_mean": 90.20946528238011,
+        "Precision_SD": 0.4451734385362988,
+        "Precision_per_seed": [
+          90.70412764481442,
+          89.84105044920526,
+          90.08321775312066
+        ],
+        "Recall_mean": 94.97933381959639,
+        "Recall_SD": 0.3388611686060338,
+        "Recall_per_seed": [
+          95.36834427425237,
+          94.82129832239241,
+          94.74835886214443
+        ],
+        "F1_mean": 92.53290304582559,
+        "F1_SD": 0.3880626522974604,
+        "F1_per_seed": [
+          92.97777777777779,
+          92.26401703335699,
+          92.356914326342
+        ],
+        "matched_tooth_FDI_accuracy_mean": 97.45554088500978,
+        "matched_tooth_FDI_accuracy_SD": 0.35518559159515817,
+        "matched_tooth_FDI_accuracy_per_seed": [
+          97.83015338570894,
+          97.12364587224505,
+          97.41282339707537
+        ],
+        "localization_coverage_mean": 97.4592754680282,
+        "localization_coverage_SD": 0.18356028289012394,
+        "localization_coverage_per_seed": [
+          97.48358862144421,
+          97.62946754194019,
+          97.26477024070022
+        ],
+        "raw_duplicate_image_rate_mean": 22.456140350877195,
+        "raw_duplicate_image_rate_SD": 0.8039606482378658,
+        "raw_duplicate_image_rate_per_seed": [
+          23.157894736842106,
+          22.63157894736842,
+          21.578947368421055
+        ]
+      }
+    ],
+    "all5": [
+      {
+        "cohort": "Pano",
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "n": 5,
+        "post_hoc_selected": false,
+        "Precision_mean": 86.37246188959246,
+        "Precision_SD": 1.3604878321010914,
+        "Precision_per_seed": [
+          84.4400396432111,
+          86.66666666666667,
+          85.6710393541877,
+          87.1216008209338,
+          87.96296296296296
+        ],
+        "Recall_mean": 91.48844707146695,
+        "Recall_SD": 0.26759590753334006,
+        "Recall_per_seed": [
+          91.56367544331005,
+          91.50994089199355,
+          91.24126813541108,
+          91.24126813541108,
+          91.88608275120903
+        ],
+        "F1_mean": 88.8528456064671,
+        "F1_SD": 0.7731925990458808,
+        "F1_per_seed": [
+          87.85769528228926,
+          89.022477783586,
+          88.36846213895394,
+          89.13385826771653,
+          89.88173455978975
+        ],
+        "matched_tooth_FDI_accuracy_mean": 92.80494002252235,
+        "matched_tooth_FDI_accuracy_SD": 0.2538231994086222,
+        "matched_tooth_FDI_accuracy_per_seed": [
+          92.91166848418757,
+          92.75599128540306,
+          92.58451472191929,
+          92.58451472191929,
+          93.18801089918256
+        ],
+        "localization_coverage_mean": 98.58140784524448,
+        "localization_coverage_SD": 0.04806164379365908,
+        "localization_coverage_per_seed": [
+          98.54916711445459,
+          98.6566362170876,
+          98.54916711445459,
+          98.54916711445459,
+          98.60290166577109
+        ],
+        "raw_duplicate_image_rate_mean": 53.75,
+        "raw_duplicate_image_rate_SD": 12.233486956914614,
+        "raw_duplicate_image_rate_per_seed": [
+          65.625,
+          50.0,
+          67.1875,
+          39.0625,
+          46.875
+        ]
+      },
+      {
+        "cohort": "Mobile",
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "n": 5,
+        "post_hoc_selected": false,
+        "Precision_mean": 74.69052563567729,
+        "Precision_SD": 1.2936831369438626,
+        "Precision_per_seed": [
+          76.38101983002834,
+          74.58217270194986,
+          75.45264623955433,
+          73.02022625985602,
+          74.01656314699792
+        ],
+        "Recall_mean": 87.36071573810491,
+        "Recall_SD": 0.5789863773961608,
+        "Recall_per_seed": [
+          87.71858479056527,
+          87.10858072387148,
+          88.12525416836112,
+          86.62057747051647,
+          87.23058153721026
+        ],
+        "F1_mean": 80.52791624098657,
+        "F1_SD": 0.9686836643893332,
+        "F1_per_seed": [
+          81.65814877910277,
+          80.3601575689364,
+          81.2980679047083,
+          79.24107142857143,
+          80.08213552361396
+        ],
+        "matched_tooth_FDI_accuracy_mean": 91.83460131843796,
+        "matched_tooth_FDI_accuracy_SD": 0.5101036321471655,
+        "matched_tooth_FDI_accuracy_per_seed": [
+          92.17948717948717,
+          91.30434782608695,
+          92.52775405636208,
+          91.45556032632031,
+          91.7058572039333
+        ],
+        "localization_coverage_mean": 95.1281008540057,
+        "localization_coverage_SD": 0.25623398132612635,
+        "localization_coverage_per_seed": [
+          95.16063440422936,
+          95.40463603090687,
+          95.24196827978854,
+          94.71329808865391,
+          95.11996746644978
+        ],
+        "raw_duplicate_image_rate_mean": 37.63636363636364,
+        "raw_duplicate_image_rate_SD": 3.089571903266624,
+        "raw_duplicate_image_rate_per_seed": [
+          32.27272727272727,
+          37.72727272727273,
+          39.09090909090909,
+          39.54545454545455,
+          39.54545454545455
+        ]
+      },
+      {
+        "cohort": "DSLR",
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "n": 5,
+        "post_hoc_selected": false,
+        "Precision_mean": 90.1373540094096,
+        "Precision_SD": 0.34741887767478585,
+        "Precision_per_seed": [
+          90.70412764481442,
+          89.84105044920526,
+          90.08321775312066,
+          89.875173370319,
+          90.18320082958866
+        ],
+        "Recall_mean": 94.9234135667396,
+        "Recall_SD": 0.33365318778942576,
+        "Recall_per_seed": [
+          95.36834427425237,
+          94.82129832239241,
+          94.74835886214443,
+          94.52954048140045,
+          95.1495258935084
+        ],
+        "F1_mean": 92.46843011747617,
+        "F1_SD": 0.33031114379418,
+        "F1_per_seed": [
+          92.97777777777779,
+          92.26401703335699,
+          92.356914326342,
+          92.14361891219339,
+          92.59982253771074
+        ],
+        "matched_tooth_FDI_accuracy_mean": 97.43202269470162,
+        "matched_tooth_FDI_accuracy_SD": 0.28103938578822674,
+        "matched_tooth_FDI_accuracy_per_seed": [
+          97.83015338570894,
+          97.12364587224505,
+          97.41282339707537,
+          97.22430607651913,
+          97.56918474195962
+        ],
+        "localization_coverage_mean": 97.42523705324581,
+        "localization_coverage_SD": 0.17222055365597977,
+        "localization_coverage_per_seed": [
+          97.48358862144421,
+          97.62946754194019,
+          97.26477024070022,
+          97.22830051057623,
+          97.5200583515682
+        ],
+        "raw_duplicate_image_rate_mean": 24.000000000000004,
+        "raw_duplicate_image_rate_SD": 2.6473213347282702,
+        "raw_duplicate_image_rate_per_seed": [
+          23.157894736842106,
+          22.63157894736842,
+          21.578947368421055,
+          24.210526315789473,
+          28.421052631578945
+        ]
+      }
+    ]
+  },
+  "selection_policy": "User-selected after inspecting five completed seeds; selected-three summaries are exploratory, not prespecified primary evidence.",
+  "SD_definition": "Sample SD; n−1 denominator; all metrics in percentage points.",
+  "no_significance_inference_from_selected_seeds": true,
+  "representative_endpoints": {
+    "Pano": {
+      "cohort": "Pano",
+      "configuration": "pano_spatialshape_original",
+      "seed": 3,
+      "selection": "Highest AP among this cohort's selected three seeds; illustrative representative, not mean performance.",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/best.pth",
+      "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2",
+      "score_threshold": 0.3,
+      "IoU_threshold": 0.5,
+      "counts": {
+        "GT": 1861,
+        "predictions": 1949,
+        "localized_matches": 1834,
+        "correct_FDI_matches": 1698,
+        "TP": 1698,
+        "FP": 251,
+        "FN": 163,
+        "duplicate_image": 25,
+        "duplicate_count": 48
+      },
+      "Precision": 0.8712160082093381,
+      "Recall": 0.9124126813541107,
+      "F1": 0.8913385826771654,
+      "matched_tooth_FDI_accuracy": 0.925845147219193,
+      "localization_coverage": 0.9854916711445459,
+      "raw_duplicate_image_rate": 0.390625,
+      "metrics_percent": {
+        "AP": 54.367696881771934,
+        "AP50": 93.98797640677229,
+        "AP75": 55.16677350979692,
+        "AR100": 69.48656013335524
+      },
+      "fixed_threshold_percent": {
+        "Precision": 87.1216008209338,
+        "Recall": 91.24126813541108,
+        "F1": 89.13385826771653,
+        "matched_tooth_FDI_accuracy": 92.58451472191929,
+        "localization_coverage": 98.54916711445459,
+        "raw_duplicate_image_rate": 39.0625
+      },
+      "sources": {
+        "train_annotation": "/home/wuxi/DENTEX2023/annotations/instances_train2017.json",
+        "validation_annotation": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+        "prediction": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/evaluation/predictions_coco.json.gz",
+        "native_metrics": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_coco_metrics.json"
+      }
+    },
+    "Mobile": {
+      "cohort": "Mobile",
+      "configuration": "mobile_proto_k4_tau0p50",
+      "seed": 2,
+      "selection": "Highest AP among this cohort's selected three seeds; illustrative representative, not mean performance.",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/best.pth",
+      "checkpoint_sha256": "1f19ea4d30234effb359b2de0cfb494ee1fe3582ca93a0bbc54792cf3a3e60cf",
+      "score_threshold": 0.3,
+      "IoU_threshold": 0.5,
+      "counts": {
+        "GT": 2459,
+        "predictions": 2872,
+        "localized_matches": 2342,
+        "correct_FDI_matches": 2167,
+        "TP": 2167,
+        "FP": 705,
+        "FN": 292,
+        "duplicate_image": 86,
+        "duplicate_count": 132
+      },
+      "Precision": 0.7545264623955432,
+      "Recall": 0.8812525416836112,
+      "F1": 0.812980679047083,
+      "matched_tooth_FDI_accuracy": 0.9252775405636209,
+      "localization_coverage": 0.9524196827978854,
+      "raw_duplicate_image_rate": 0.39090909090909093,
+      "metrics_percent": {
+        "AP": 55.649634870985764,
+        "AP50": 84.06111321207922,
+        "AP75": 64.12049305999426,
+        "AR100": 70.54424102770149
+      },
+      "fixed_threshold_percent": {
+        "Precision": 75.45264623955433,
+        "Recall": 88.12525416836112,
+        "F1": 81.2980679047083,
+        "matched_tooth_FDI_accuracy": 92.52775405636208,
+        "localization_coverage": 95.24196827978854,
+        "raw_duplicate_image_rate": 39.09090909090909
+      },
+      "sources": {
+        "train_annotation": "/home/wuxi/coco/train/annotations_fdi_types.json",
+        "validation_annotation": "/home/wuxi/coco/valid/annotations_fdi_types.json",
+        "prediction": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/evaluation/predictions_coco.json.gz",
+        "native_metrics": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/native_coco_metrics.json"
+      }
+    },
+    "DSLR": {
+      "cohort": "DSLR",
+      "configuration": "dslr_cmfa_extra_decay_only",
+      "seed": 3,
+      "selection": "Highest AP among this cohort's selected three seeds; illustrative representative, not mean performance.",
+      "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/best.pth",
+      "checkpoint_sha256": "62029c9bae0c2446775add2956b27777a87641d67bbcd7e9afb53be6f5c5af5e",
+      "score_threshold": 0.3,
+      "IoU_threshold": 0.5,
+      "counts": {
+        "GT": 2742,
+        "predictions": 2884,
+        "localized_matches": 2666,
+        "correct_FDI_matches": 2592,
+        "TP": 2592,
+        "FP": 292,
+        "FN": 150,
+        "duplicate_image": 46,
+        "duplicate_count": 65
+      },
+      "Precision": 0.8987517337031901,
+      "Recall": 0.9452954048140044,
+      "F1": 0.9214361891219339,
+      "matched_tooth_FDI_accuracy": 0.9722430607651913,
+      "localization_coverage": 0.9722830051057623,
+      "raw_duplicate_image_rate": 0.24210526315789474,
+      "metrics_percent": {
+        "AP": 73.40286777998124,
+        "AP50": 89.48206349740931,
+        "AP75": 84.27930495682766,
+        "AR100": 84.04663174792691
+      },
+      "fixed_threshold_percent": {
+        "Precision": 89.875173370319,
+        "Recall": 94.52954048140045,
+        "F1": 92.14361891219339,
+        "matched_tooth_FDI_accuracy": 97.22430607651913,
+        "localization_coverage": 97.22830051057623,
+        "raw_duplicate_image_rate": 24.210526315789473
+      },
+      "sources": {
+        "train_annotation": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_train_fdi52.json",
+        "validation_annotation": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json",
+        "prediction": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/evaluation/predictions_coco.json.gz",
+        "native_metrics": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/native_coco_metrics.json"
+      }
+    }
+  }
+}

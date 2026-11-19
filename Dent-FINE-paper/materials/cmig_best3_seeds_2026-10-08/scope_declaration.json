@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-10-08T09:18:04.549101+00:00",
+  "total_fresh_training_jobs": 30,
+  "main_training_jobs": 9,
+  "main_configurations": [
+    "mobile_1024_full",
+    "pano_historical_spatialshape",
+    "dslr_cmfa_dualopt"
+  ],
+  "main_seeds": [
+    0,
+    1,
+    2
+  ],
+  "internal_ablation_jobs": 20,
+  "internal_seeds": [
+    0
+  ],
+  "internal_reference_jobs": 1,
+  "internal_reference": "internal_dslr_cmfa_adamw",
+  "excluded": [
+    "14-configuration primary learning grid",
+    "four Pano learning-primary configurations",
+    "historical/interrupted checkpoint reuse",
+    "original source/data changes"
+  ],
+  "pano_prior_comparison": "None / center / shape / center+shape are inference-only replays of the same three historical-Pano main checkpoints; no extra Pano training.",
+  "factor_comparison": "Existing declared factor controls and same-checkpoint native/FP32 inference replays only.",
+  "checkpoint_retention": "Each successful job retains best.pth only; stage1 temporary native rollback weights are removed after verified replay.",
+  "historical_training_weights_reused": 0,
+  "interrupted_training_runs_resumed": 0,
+  "old_interrupted_experiment": {
+    "root": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08",
+    "preserved": true,
+    "policy": "Interrupted broader queue is retained unchanged; no resume, overwrite, or deletion."
+  },
+  "authorization": "User narrowed scope to the three selected historical recipes with three seeds each, internal ablations, and one necessary DualOpt AdamW reference; restart on two GPUs.",
+  "preparation_starts_training": false
+}

@@ -1,0 +1,6 @@
+{
+  "valid_for_comparison": false,
+  "reason": "Original-image coordinate restoration was missing from the COCO exporter, invalidating AP values and best-checkpoint selection.",
+  "replacement": "../seed_0_repaired_20261020",
+  "original_record_preserved": true
+}

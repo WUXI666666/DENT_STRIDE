@@ -1,0 +1,1024 @@
+[
+  {
+    "case_id": "CMFA_correction_01_image125_FDI16",
+    "group": "CMFA",
+    "image_id": 125,
+    "FDI": 16,
+    "kind": "correction",
+    "before_FDI": 55,
+    "after_FDI": 16,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.1293022185564041,
+      "GT_fraction": 0.02921875,
+      "enrichment": 4.425316570914365,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.0011961932759732008,
+      "positive_sum": 0.8594925403594971
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.054390013217926025,
+      "GT_fraction": 0.02921875,
+      "enrichment": 1.8614763882070937,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00047833399730734527,
+      "positive_sum": 0.37803882360458374
+    },
+    "enrichment_change": -2.5638401827072714,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.29974737763404846,
+      "GT_fraction": 0.02921875,
+      "enrichment": 10.258733779988823,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.28029704093933105,
+      "positive_sum": 7.610792636871338
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.4329437017440796,
+      "GT_fraction": 0.02921875,
+      "enrichment": 14.817324551669033,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.1100783497095108,
+      "positive_sum": 2.1228723526000977
+    },
+    "HiResCAM_enrichment_change": 4.55859077168021
+  },
+  {
+    "case_id": "CMFA_correction_02_image68_FDI83",
+    "group": "CMFA",
+    "image_id": 68,
+    "FDI": 83,
+    "kind": "correction",
+    "before_FDI": 43,
+    "after_FDI": 83,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.01967347413301468,
+      "GT_fraction": 0.01421875,
+      "enrichment": 1.3836289500142191,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00047103449469432235,
+      "positive_sum": 0.17036202549934387
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.03496691584587097,
+      "GT_fraction": 0.01421875,
+      "enrichment": 2.459211663885431,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.0006839832058176398,
+      "positive_sum": 0.24004366993904114
+    },
+    "enrichment_change": 1.0755827138712117,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.4423374831676483,
+      "GT_fraction": 0.01421875,
+      "enrichment": 31.109449365636802,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.20733921229839325,
+      "positive_sum": 5.2821550369262695
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.3744511306285858,
+      "GT_fraction": 0.01421875,
+      "enrichment": 26.33502457168076,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.10781281441450119,
+      "positive_sum": 2.627962589263916
+    },
+    "HiResCAM_enrichment_change": -4.774424793956044
+  },
+  {
+    "case_id": "CMFA_correction_03_image37_FDI62",
+    "group": "CMFA",
+    "image_id": 37,
+    "FDI": 62,
+    "kind": "correction",
+    "before_FDI": 63,
+    "after_FDI": 62,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.01627013459801674,
+      "GT_fraction": 0.00765625,
+      "enrichment": 2.125078804638921,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.0008789052371867001,
+      "positive_sum": 0.3582250475883484
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.01158944796770811,
+      "GT_fraction": 0.00765625,
+      "enrichment": 1.5137238161904472,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.0008373058517463505,
+      "positive_sum": 0.34930968284606934
+    },
+    "enrichment_change": -0.6113549884484739,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.26367563009262085,
+      "GT_fraction": 0.00765625,
+      "enrichment": 34.43926597128109,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.2048531323671341,
+      "positive_sum": 3.8506126403808594
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.2732578217983246,
+      "GT_fraction": 0.00765625,
+      "enrichment": 35.69081754100566,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.12141351401805878,
+      "positive_sum": 1.81100332736969
+    },
+    "HiResCAM_enrichment_change": 1.251551569724569
+  },
+  {
+    "case_id": "CMFA_correction_04_image129_FDI72",
+    "group": "CMFA",
+    "image_id": 129,
+    "FDI": 72,
+    "kind": "correction",
+    "before_FDI": 32,
+    "after_FDI": 72,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.020023668184876442,
+      "GT_fraction": 0.0109375,
+      "enrichment": 1.830735376902989,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.0006737907533533871,
+      "positive_sum": 0.5011823773384094
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.015133907087147236,
+      "GT_fraction": 0.0109375,
+      "enrichment": 1.3836715051106045,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.000712489418219775,
+      "positive_sum": 0.26506784558296204
+    },
+    "enrichment_change": -0.4470638717923845,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.3571735620498657,
+      "GT_fraction": 0.0109375,
+      "enrichment": 32.65586853027344,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.27271711826324463,
+      "positive_sum": 6.002840042114258
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.40159761905670166,
+      "GT_fraction": 0.0109375,
+      "enrichment": 36.71749659946987,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.16068832576274872,
+      "positive_sum": 5.32220983505249
+    },
+    "HiResCAM_enrichment_change": 4.061628069196431
+  },
+  {
+    "case_id": "CMFA_correction_05_image124_FDI41",
+    "group": "CMFA",
+    "image_id": 124,
+    "FDI": 41,
+    "kind": "correction",
+    "before_FDI": 81,
+    "after_FDI": 41,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.014591158367693424,
+      "GT_fraction": 0.01421875,
+      "enrichment": 1.0261913577278892,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.0006278143264353275,
+      "positive_sum": 0.24946099519729614
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.012794367037713528,
+      "GT_fraction": 0.01421875,
+      "enrichment": 0.8998236158391931,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.0009318885859102011,
+      "positive_sum": 0.48251569271087646
+    },
+    "enrichment_change": -0.12636774188869604,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.23580117523670197,
+      "GT_fraction": 0.01421875,
+      "enrichment": 16.583818917746072,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.48259714245796204,
+      "positive_sum": 5.511966228485107
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.2908387780189514,
+      "GT_fraction": 0.01421875,
+      "enrichment": 20.454595377157023,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.1635778546333313,
+      "positive_sum": 4.38032865524292
+    },
+    "HiResCAM_enrichment_change": 3.8707764594109513
+  },
+  {
+    "case_id": "CMFA_localization_01_image36_FDI63",
+    "group": "CMFA",
+    "image_id": 36,
+    "FDI": 63,
+    "kind": "localization",
+    "before_FDI": 63,
+    "after_FDI": 63,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.004934358410537243,
+      "GT_fraction": 0.0065625,
+      "enrichment": 0.7519022339866275,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00042343762470409274,
+      "positive_sum": 0.2228400856256485
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.004576909355819225,
+      "GT_fraction": 0.0065625,
+      "enrichment": 0.6974338066010248,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.0003073402913287282,
+      "positive_sum": 0.17485421895980835
+    },
+    "enrichment_change": -0.05446842738560265,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.25400510430336,
+      "GT_fraction": 0.0065625,
+      "enrichment": 38.70553970336914,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.11945927888154984,
+      "positive_sum": 2.1708643436431885
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.39679378271102905,
+      "GT_fraction": 0.0065625,
+      "enrichment": 60.46381450834728,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.08364406228065491,
+      "positive_sum": 1.491573452949524
+    },
+    "HiResCAM_enrichment_change": 21.758274804978143
+  },
+  {
+    "case_id": "CMFA_adverse_01_image147_FDI71",
+    "group": "CMFA",
+    "image_id": 147,
+    "FDI": 71,
+    "kind": "adverse",
+    "before_FDI": 71,
+    "after_FDI": 72,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.032753828912973404,
+      "GT_fraction": 0.0084375,
+      "enrichment": 3.8819352785746255,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.0005255833966657519,
+      "positive_sum": 0.2248971313238144
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.011984406970441341,
+      "GT_fraction": 0.0084375,
+      "enrichment": 1.4203741594597143,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.0010369413066655397,
+      "positive_sum": 0.7735632658004761
+    },
+    "enrichment_change": -2.4615611191149114,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.43912506103515625,
+      "GT_fraction": 0.0084375,
+      "enrichment": 52.04445167824074,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.12942740321159363,
+      "positive_sum": 2.6849312782287598
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.3084636628627777,
+      "GT_fraction": 0.0084375,
+      "enrichment": 36.55865633929217,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.29671549797058105,
+      "positive_sum": 7.413484573364258
+    },
+    "HiResCAM_enrichment_change": -15.48579533894857
+  },
+  {
+    "case_id": "HOOA_correction_01_image113_FDI51",
+    "group": "HOOA",
+    "image_id": 113,
+    "FDI": 51,
+    "kind": "correction",
+    "before_FDI": 61,
+    "after_FDI": 51,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.02778947912156582,
+      "GT_fraction": 0.008544921875,
+      "enrichment": 3.25216304234096,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00022257283853832632,
+      "positive_sum": 0.273196816444397
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.008753303438425064,
+      "GT_fraction": 0.008544921875,
+      "enrichment": 1.0243865966796875,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00010909972479566932,
+      "positive_sum": 0.14714744687080383
+    },
+    "enrichment_change": -2.2277764456612728,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.3190780580043793,
+      "GT_fraction": 0.008544921875,
+      "enrichment": 37.34124930245536,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.18452872335910797,
+      "positive_sum": 3.913776397705078
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.23290516436100006,
+      "GT_fraction": 0.008544921875,
+      "enrichment": 27.256558663504464,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.06831863522529602,
+      "positive_sum": 1.6036783456802368
+    },
+    "HiResCAM_enrichment_change": -10.084690638950896
+  },
+  {
+    "case_id": "HOOA_correction_02_image74_FDI52",
+    "group": "HOOA",
+    "image_id": 74,
+    "FDI": 52,
+    "kind": "correction",
+    "before_FDI": 12,
+    "after_FDI": 52,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.005626322701573372,
+      "GT_fraction": 0.0087890625,
+      "enrichment": 0.6401504940456815,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00026824456290341914,
+      "positive_sum": 0.5701869130134583
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.0030414238572120667,
+      "GT_fraction": 0.0087890625,
+      "enrichment": 0.34604644775390625,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00028558168560266495,
+      "positive_sum": 0.4140104651451111
+    },
+    "enrichment_change": -0.2941040462917752,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.32985779643058777,
+      "GT_fraction": 0.0087890625,
+      "enrichment": 37.530487060546875,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.5998957753181458,
+      "positive_sum": 5.131488800048828
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.36876776814460754,
+      "GT_fraction": 0.0087890625,
+      "enrichment": 41.95757717556424,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.28927239775657654,
+      "positive_sum": 4.602530002593994
+    },
+    "HiResCAM_enrichment_change": 4.427090115017364
+  },
+  {
+    "case_id": "HOOA_correction_03_image77_FDI13",
+    "group": "HOOA",
+    "image_id": 77,
+    "FDI": 13,
+    "kind": "correction",
+    "before_FDI": 53,
+    "after_FDI": 13,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.005056696478277445,
+      "GT_fraction": 0.00537109375,
+      "enrichment": 0.9414649443192915,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00038385012885555625,
+      "positive_sum": 0.5179976224899292
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.008060257881879807,
+      "GT_fraction": 0.00537109375,
+      "enrichment": 1.5006734674627131,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.0001725762413116172,
+      "positive_sum": 0.34992673993110657
+    },
+    "enrichment_change": 0.5592085231434216,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.2525031566619873,
+      "GT_fraction": 0.00537109375,
+      "enrichment": 47.01149680397727,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.2506108582019806,
+      "positive_sum": 3.166541337966919
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.4613230228424072,
+      "GT_fraction": 0.00537109375,
+      "enrichment": 85.88995916193181,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.587761402130127,
+      "positive_sum": 3.653397798538208
+    },
+    "HiResCAM_enrichment_change": 38.87846235795454
+  },
+  {
+    "case_id": "HOOA_correction_04_image155_FDI31",
+    "group": "HOOA",
+    "image_id": 155,
+    "FDI": 31,
+    "kind": "correction",
+    "before_FDI": 41,
+    "after_FDI": 31,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.013698053546249866,
+      "GT_fraction": 0.02783203125,
+      "enrichment": 0.4921686607494689,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00024360811221413314,
+      "positive_sum": 0.318118155002594
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.016969850286841393,
+      "GT_fraction": 0.02783203125,
+      "enrichment": 0.6097237436394942,
+      "peak_inside_GT": false,
+      "raw_maximum": 7.456297316821292e-05,
+      "positive_sum": 0.028228100389242172
+    },
+    "enrichment_change": 0.11755508289002531,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.2779744565486908,
+      "GT_fraction": 0.02783203125,
+      "enrichment": 9.987573456345944,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.11451493203639984,
+      "positive_sum": 3.994988441467285
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.21074098348617554,
+      "GT_fraction": 0.02783203125,
+      "enrichment": 7.571886564555921,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.06443747133016586,
+      "positive_sum": 0.8414909839630127
+    },
+    "HiResCAM_enrichment_change": -2.4156868917900223
+  },
+  {
+    "case_id": "HOOA_correction_05_image121_FDI41",
+    "group": "HOOA",
+    "image_id": 121,
+    "FDI": 41,
+    "kind": "correction",
+    "before_FDI": 81,
+    "after_FDI": 41,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.006501336582005024,
+      "GT_fraction": 0.006591796875,
+      "enrichment": 0.98627683851454,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00035948673030361533,
+      "positive_sum": 0.526948094367981
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.009162086062133312,
+      "GT_fraction": 0.006591796875,
+      "enrichment": 1.3899223892777055,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00024277344346046448,
+      "positive_sum": 0.3815343379974365
+    },
+    "enrichment_change": 0.40364555076316555,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.23010297119617462,
+      "GT_fraction": 0.006591796875,
+      "enrichment": 34.907472963686345,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.1420023888349533,
+      "positive_sum": 2.9964847564697266
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.2142334282398224,
+      "GT_fraction": 0.006591796875,
+      "enrichment": 32.50000452112268,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.24735993146896362,
+      "positive_sum": 3.4992406368255615
+    },
+    "HiResCAM_enrichment_change": -2.407468442563662
+  },
+  {
+    "case_id": "HOOA_localization_01_image128_FDI36",
+    "group": "HOOA",
+    "image_id": 128,
+    "FDI": 36,
+    "kind": "localization",
+    "before_FDI": 36,
+    "after_FDI": 36,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.005262343212962151,
+      "GT_fraction": 0.00555419921875,
+      "enrichment": 0.9474530901227679,
+      "peak_inside_GT": false,
+      "raw_maximum": 5.2564209909178317e-05,
+      "positive_sum": 0.05842385068535805
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.0026910228189080954,
+      "GT_fraction": 0.00555419921875,
+      "enrichment": 0.4845023941207718,
+      "peak_inside_GT": false,
+      "raw_maximum": 4.7372748667839915e-05,
+      "positive_sum": 0.07166837900876999
+    },
+    "enrichment_change": -0.4629506960019961,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.5842652916908264,
+      "GT_fraction": 0.00555419921875,
+      "enrichment": 105.1934344951923,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.04198620095849037,
+      "positive_sum": 0.4839167892932892
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.6955689191818237,
+      "GT_fraction": 0.00555419921875,
+      "enrichment": 125.23297991071429,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.040384065359830856,
+      "positive_sum": 0.470474511384964
+    },
+    "HiResCAM_enrichment_change": 20.039545415521985
+  },
+  {
+    "case_id": "HOOA_adverse_01_image148_FDI55",
+    "group": "HOOA",
+    "image_id": 148,
+    "FDI": 55,
+    "kind": "adverse",
+    "before_FDI": 55,
+    "after_FDI": 16,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.007864299230277538,
+      "GT_fraction": 0.0128173828125,
+      "enrichment": 0.6135651361374628,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00011020986858056858,
+      "positive_sum": 0.2501397728919983
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.027693061158061028,
+      "GT_fraction": 0.0128173828125,
+      "enrichment": 2.1605862572079615,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.0003181356587447226,
+      "positive_sum": 0.4366024136543274
+    },
+    "enrichment_change": 1.5470211210704987,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.5813355445861816,
+      "GT_fraction": 0.0128173828125,
+      "enrichment": 45.35524553571429,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.1571408063173294,
+      "positive_sum": 1.4877270460128784
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.6618011593818665,
+      "GT_fraction": 0.0128173828125,
+      "enrichment": 51.633096168154765,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.23380376398563385,
+      "positive_sum": 3.0890555381774902
+    },
+    "HiResCAM_enrichment_change": 6.277850632440476
+  },
+  {
+    "case_id": "Prototype_correction_01_image44_FDI51",
+    "group": "Prototype",
+    "image_id": 44,
+    "FDI": 51,
+    "kind": "correction",
+    "before_FDI": 11,
+    "after_FDI": 51,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.006715604104101658,
+      "GT_fraction": 0.0087890625,
+      "enrichment": 0.7640865114000108,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00022111447469796985,
+      "positive_sum": 0.445838987827301
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.012683696113526821,
+      "GT_fraction": 0.0087890625,
+      "enrichment": 1.4431227578057184,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00010482459765626118,
+      "positive_sum": 0.20197731256484985
+    },
+    "enrichment_change": 0.6790362464057076,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.5616905689239502,
+      "GT_fraction": 0.0087890625,
+      "enrichment": 63.90790473090278,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.29300522804260254,
+      "positive_sum": 3.336009979248047
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.6909993886947632,
+      "GT_fraction": 0.0087890625,
+      "enrichment": 78.62037489149306,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.16990144550800323,
+      "positive_sum": 2.22686505317688
+    },
+    "HiResCAM_enrichment_change": 14.712470160590279,
+    "prototype_CAM": {
+      "positive_mass_inside_GT": 0.01468713115900755,
+      "GT_fraction": 0.0087890625,
+      "enrichment": 1.6710691452026367,
+      "peak_inside_GT": true,
+      "raw_maximum": 2.0959845642209984e-05,
+      "positive_sum": 0.03798562288284302
+    },
+    "prototype_HiResCAM": {
+      "positive_mass_inside_GT": 0.6052553653717041,
+      "GT_fraction": 0.0087890625,
+      "enrichment": 68.86461046006944,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.02492607571184635,
+      "positive_sum": 0.44068315625190735
+    },
+    "prototype_classifier_correct": true
+  },
+  {
+    "case_id": "Prototype_correction_02_image163_FDI14",
+    "group": "Prototype",
+    "image_id": 163,
+    "FDI": 14,
+    "kind": "correction",
+    "before_FDI": 54,
+    "after_FDI": 14,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.013556522317230701,
+      "GT_fraction": 0.0054931640625,
+      "enrichment": 2.467889573838976,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00031822145683690906,
+      "positive_sum": 0.46830546855926514
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.010087684728205204,
+      "GT_fraction": 0.0054931640625,
+      "enrichment": 1.8364069620768229,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.0002631080860737711,
+      "positive_sum": 0.49720537662506104
+    },
+    "enrichment_change": -0.631482611762153,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.43438610434532166,
+      "GT_fraction": 0.0054931640625,
+      "enrichment": 79.07757703993056,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.28000569343566895,
+      "positive_sum": 4.4764180183410645
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.479584276676178,
+      "GT_fraction": 0.0054931640625,
+      "enrichment": 87.30565321180555,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.24760101735591888,
+      "positive_sum": 3.2569468021392822
+    },
+    "HiResCAM_enrichment_change": 8.228076171874989,
+    "prototype_CAM": {
+      "positive_mass_inside_GT": 0.013510112650692463,
+      "GT_fraction": 0.0054931640625,
+      "enrichment": 2.4594409518771703,
+      "peak_inside_GT": false,
+      "raw_maximum": 8.969705231720582e-05,
+      "positive_sum": 0.14482218027114868
+    },
+    "prototype_HiResCAM": {
+      "positive_mass_inside_GT": 0.42568135261535645,
+      "GT_fraction": 0.0054931640625,
+      "enrichment": 77.49292534722223,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.08985747396945953,
+      "positive_sum": 0.9555090069770813
+    },
+    "prototype_classifier_correct": false
+  },
+  {
+    "case_id": "Prototype_correction_03_image118_FDI42",
+    "group": "Prototype",
+    "image_id": 118,
+    "FDI": 42,
+    "kind": "correction",
+    "before_FDI": 83,
+    "after_FDI": 42,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.020184079185128212,
+      "GT_fraction": 0.008056640625,
+      "enrichment": 2.505272374008641,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00029306759824976325,
+      "positive_sum": 0.3128986954689026
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.02961767464876175,
+      "GT_fraction": 0.008056640625,
+      "enrichment": 3.676181677616004,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00013061084609944373,
+      "positive_sum": 0.13285963237285614
+    },
+    "enrichment_change": 1.1709093036073628,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.4760090708732605,
+      "GT_fraction": 0.008056640625,
+      "enrichment": 59.08282285748106,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.20448507368564606,
+      "positive_sum": 2.856326103210449
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.46117186546325684,
+      "GT_fraction": 0.008056640625,
+      "enrichment": 57.2412109375,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.13016173243522644,
+      "positive_sum": 1.6591029167175293
+    },
+    "HiResCAM_enrichment_change": -1.8416119199810623,
+    "prototype_CAM": {
+      "positive_mass_inside_GT": 0.030651312321424484,
+      "GT_fraction": 0.008056640625,
+      "enrichment": 3.8044780384410513,
+      "peak_inside_GT": true,
+      "raw_maximum": 3.2473453757120296e-05,
+      "positive_sum": 0.02940058708190918
+    },
+    "prototype_HiResCAM": {
+      "positive_mass_inside_GT": 0.4334416389465332,
+      "GT_fraction": 0.008056640625,
+      "enrichment": 53.799301609848484,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.037869952619075775,
+      "positive_sum": 0.5402425527572632
+    },
+    "prototype_classifier_correct": true
+  },
+  {
+    "case_id": "Prototype_correction_04_image155_FDI31",
+    "group": "Prototype",
+    "image_id": 155,
+    "FDI": 31,
+    "kind": "correction",
+    "before_FDI": 41,
+    "after_FDI": 31,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.019863160327076912,
+      "GT_fraction": 0.02783203125,
+      "enrichment": 0.7136798657869038,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.0002264861250296235,
+      "positive_sum": 0.7274810671806335
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.1737411618232727,
+      "GT_fraction": 0.02783203125,
+      "enrichment": 6.242489463404605,
+      "peak_inside_GT": false,
+      "raw_maximum": 8.519226685166359e-05,
+      "positive_sum": 0.04507961869239807
+    },
+    "enrichment_change": 5.528809597617702,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.42231571674346924,
+      "GT_fraction": 0.02783203125,
+      "enrichment": 15.173729612116228,
+      "peak_inside_GT": true,
+      "raw_maximum": 1.1036219596862793,
+      "positive_sum": 6.0642547607421875
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.36170536279678345,
+      "GT_fraction": 0.02783203125,
+      "enrichment": 12.996010228207236,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.08222990483045578,
+      "positive_sum": 1.6800317764282227
+    },
+    "HiResCAM_enrichment_change": -2.1777193839089914,
+    "prototype_CAM": {
+      "positive_mass_inside_GT": 0.19659675657749176,
+      "GT_fraction": 0.02783203125,
+      "enrichment": 7.06368697317023,
+      "peak_inside_GT": false,
+      "raw_maximum": 1.5561870895908214e-05,
+      "positive_sum": 0.01385644730180502
+    },
+    "prototype_HiResCAM": {
+      "positive_mass_inside_GT": 0.29146847128868103,
+      "GT_fraction": 0.02783203125,
+      "enrichment": 10.472411038582784,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.013628408312797546,
+      "positive_sum": 0.4001743197441101
+    },
+    "prototype_classifier_correct": true
+  },
+  {
+    "case_id": "Prototype_correction_05_image24_FDI62",
+    "group": "Prototype",
+    "image_id": 24,
+    "FDI": 62,
+    "kind": "correction",
+    "before_FDI": 63,
+    "after_FDI": 62,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.01088582631200552,
+      "GT_fraction": 0.00604248046875,
+      "enrichment": 1.8015492757161458,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00032198571716435254,
+      "positive_sum": 0.39001792669296265
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.015656694769859314,
+      "GT_fraction": 0.00604248046875,
+      "enrichment": 2.591103910195707,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00020472260075621307,
+      "positive_sum": 0.10385123640298843
+    },
+    "enrichment_change": 0.7895546344795614,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.4122685492038727,
+      "GT_fraction": 0.00604248046875,
+      "enrichment": 68.22836272885101,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.23904162645339966,
+      "positive_sum": 3.1537065505981445
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.40245258808135986,
+      "GT_fraction": 0.00604248046875,
+      "enrichment": 66.60387073863636,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.392461359500885,
+      "positive_sum": 5.3059234619140625
+    },
+    "HiResCAM_enrichment_change": -1.6244919902146506,
+    "prototype_CAM": {
+      "positive_mass_inside_GT": 0.01497621275484562,
+      "GT_fraction": 0.00604248046875,
+      "enrichment": 2.478487573488794,
+      "peak_inside_GT": false,
+      "raw_maximum": 5.367934863897972e-05,
+      "positive_sum": 0.02436550334095955
+    },
+    "prototype_HiResCAM": {
+      "positive_mass_inside_GT": 0.38123825192451477,
+      "GT_fraction": 0.00604248046875,
+      "enrichment": 63.0930052477904,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.10315744578838348,
+      "positive_sum": 1.3495675325393677
+    },
+    "prototype_classifier_correct": true
+  },
+  {
+    "case_id": "Prototype_localization_01_image22_FDI64",
+    "group": "Prototype",
+    "image_id": 22,
+    "FDI": 64,
+    "kind": "localization",
+    "before_FDI": 64,
+    "after_FDI": 64,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.0058122617192566395,
+      "GT_fraction": 0.0054931640625,
+      "enrichment": 1.0580899556477865,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00015271705342456698,
+      "positive_sum": 0.07432381808757782
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.00033897047978825867,
+      "GT_fraction": 0.0054931640625,
+      "enrichment": 0.061707692676120335,
+      "peak_inside_GT": false,
+      "raw_maximum": 4.9924747145269066e-05,
+      "positive_sum": 0.07627981901168823
+    },
+    "enrichment_change": -0.9963822629716662,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.5533201694488525,
+      "GT_fraction": 0.0054931640625,
+      "enrichment": 100.72886284722222,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.30375683307647705,
+      "positive_sum": 3.454681158065796
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.4268440902233124,
+      "GT_fraction": 0.0054931640625,
+      "enrichment": 77.70459526909723,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.06629152595996857,
+      "positive_sum": 0.794891893863678
+    },
+    "HiResCAM_enrichment_change": -23.02426757812499,
+    "prototype_CAM": {
+      "positive_mass_inside_GT": 0.0004730145155917853,
+      "GT_fraction": 0.0054931640625,
+      "enrichment": 0.08610966470506456,
+      "peak_inside_GT": false,
+      "raw_maximum": 8.888567208487075e-06,
+      "positive_sum": 0.010801373980939388
+    },
+    "prototype_HiResCAM": {
+      "positive_mass_inside_GT": 0.339292973279953,
+      "GT_fraction": 0.0054931640625,
+      "enrichment": 61.76640082465278,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.007040685974061489,
+      "positive_sum": 0.14932678639888763
+    },
+    "prototype_classifier_correct": true
+  },
+  {
+    "case_id": "Prototype_adverse_01_image139_FDI71",
+    "group": "Prototype",
+    "image_id": 139,
+    "FDI": 71,
+    "kind": "adverse",
+    "before_FDI": 71,
+    "after_FDI": 31,
+    "before_CAM": {
+      "positive_mass_inside_GT": 0.037395548075437546,
+      "GT_fraction": 0.00811767578125,
+      "enrichment": 4.606681651638863,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.0001478370395489037,
+      "positive_sum": 0.16886435449123383
+    },
+    "after_CAM": {
+      "positive_mass_inside_GT": 0.031068861484527588,
+      "GT_fraction": 0.00811767578125,
+      "enrichment": 3.827309974154135,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.00022514298325404525,
+      "positive_sum": 0.18575900793075562
+    },
+    "enrichment_change": -0.7793716774847277,
+    "before_HiResCAM": {
+      "positive_mass_inside_GT": 0.41013774275779724,
+      "GT_fraction": 0.00811767578125,
+      "enrichment": 50.52403591987782,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.09396937489509583,
+      "positive_sum": 2.2080225944519043
+    },
+    "after_HiResCAM": {
+      "positive_mass_inside_GT": 0.3849773705005646,
+      "GT_fraction": 0.00811767578125,
+      "enrichment": 47.42458073895677,
+      "peak_inside_GT": true,
+      "raw_maximum": 0.1357428878545761,
+      "positive_sum": 4.000879764556885
+    },
+    "HiResCAM_enrichment_change": -3.0994551809210478,
+    "prototype_CAM": {
+      "positive_mass_inside_GT": 0.026987450197339058,
+      "GT_fraction": 0.00811767578125,
+      "enrichment": 3.3245292032571663,
+      "peak_inside_GT": false,
+      "raw_maximum": 4.924999666400254e-05,
+      "positive_sum": 0.04236486926674843
+    },
+    "prototype_HiResCAM": {
+      "positive_mass_inside_GT": 0.37098801136016846,
+      "GT_fraction": 0.00811767578125,
+      "enrichment": 45.701259985902254,
+      "peak_inside_GT": false,
+      "raw_maximum": 0.0274762324988842,
+      "positive_sum": 0.8030136227607727
+    },
+    "prototype_classifier_correct": false
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "job_id": "FINAL_dslr_cmfa_dualopt",
+  "task": "dslr_cmfa_dualopt",
+  "cohort": "DSLR",
+  "model": "DENT-STRIDE CMFA+DualOpt",
+  "phase": "final_main",
+  "seed": 0,
+  "augmentation": {
+    "profile": "fixed640",
+    "mosaic": 0.0,
+    "mixup": 0.5,
+    "crop": 0.8,
+    "zoom": 0.5
+  },
+  "config": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/FINAL_dslr_cmfa_dualopt_seed0.yml",
+  "config_sha256": "83f661cb6954077a97cd36c5c7f70e8bb006b166533ebb0a182c765f0a6696f1",
+  "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_dslr_cmfa_dualopt/seed_0",
+  "implementation_dir": "/home/wuxi/Dent-FINE",
+  "train_script": "/home/wuxi/Dent-FINE/train.py",
+  "changes_from_aligned_base": [
+    {
+      "path": "output_dir",
+      "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+      "after": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_dslr_cmfa_dualopt/seed_0"
+    },
+    {
+      "path": "train_dataloader.collate_fn.base_size_repeat",
+      "before": 20,
+      "after": null
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+      "before": 320,
+      "after": 640
+    }
+  ]
+}

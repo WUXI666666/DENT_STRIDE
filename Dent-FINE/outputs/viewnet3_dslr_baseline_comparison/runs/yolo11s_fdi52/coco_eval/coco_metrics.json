@@ -1,0 +1,32 @@
+{
+  "framework": "Ultralytics",
+  "ultralytics_version": "8.4.118",
+  "weights": "/home/wuxi/Dent-FINE/outputs/viewnet3_dslr_baseline_comparison/runs/yolo11s_fdi52/weights/best.pt",
+  "annotation_file": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json",
+  "image_dir": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val",
+  "image_count": 190,
+  "prediction_count": 8743,
+  "num_parameters": 9432924,
+  "inference": {
+    "imgsz": 640,
+    "confidence": 0.001,
+    "iou": 0.7,
+    "max_det": 300,
+    "device": "0"
+  },
+  "metrics": {
+    "AP": 0.5836395418043988,
+    "AP50": 0.7267847920712283,
+    "AP75": 0.6760230027881774,
+    "AP_small": -1.0,
+    "AP_medium": 0.4150666678014836,
+    "AP_large": 0.6056031615630104,
+    "AR1": 0.6426525181016691,
+    "AR10": 0.6926638268348002,
+    "AR100": 0.6928542627213852,
+    "AR_small": -1.0,
+    "AR_medium": 0.46061537999038,
+    "AR_large": 0.7138109680163784
+  },
+  "prediction_file": "/home/wuxi/Dent-FINE/outputs/viewnet3_dslr_baseline_comparison/runs/yolo11s_fdi52/coco_eval/coco_predictions.json"
+}

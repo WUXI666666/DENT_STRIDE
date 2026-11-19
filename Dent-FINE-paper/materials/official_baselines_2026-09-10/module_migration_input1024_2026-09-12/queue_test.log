@@ -1,0 +1,26 @@
+test_custom_memory_limit_is_forwarded (__main__.QueueTests.test_custom_memory_limit_is_forwarded) ... ok
+test_duplicate_or_missing_epoch_is_rejected (__main__.QueueTests.test_duplicate_or_missing_epoch_is_rejected) ... ok
+test_duplicate_queue_lock_does_not_replace_status (__main__.QueueTests.test_duplicate_queue_lock_does_not_replace_status) ... ok
+test_invalid_preflight_resource_values_are_rejected (__main__.QueueTests.test_invalid_preflight_resource_values_are_rejected) ... ok
+test_larger_memory_limit_requires_its_own_headroom (__main__.QueueTests.test_larger_memory_limit_requires_its_own_headroom) ... ok
+test_low_disk_fails_before_launch (__main__.QueueTests.test_low_disk_fails_before_launch) ... ok
+test_main_passes_validated_resource_policy_to_queue (__main__.QueueTests.test_main_passes_validated_resource_policy_to_queue) ... ok
+test_memory_limit_must_be_below_launch_threshold (__main__.QueueTests.test_memory_limit_must_be_below_launch_threshold) ... ok
+test_nonbest_epoch_and_second_weight_are_rejected (__main__.QueueTests.test_nonbest_epoch_and_second_weight_are_rejected) ... ok
+test_nonzero_exit_stops_queue_and_only_signals_owned_group (__main__.QueueTests.test_nonzero_exit_stops_queue_and_only_signals_owned_group) ... ok
+test_preflight_must_have_passed (__main__.QueueTests.test_preflight_must_have_passed) ... ok
+test_preflight_protocol_hash_must_match (__main__.QueueTests.test_preflight_protocol_hash_must_match) ... ok
+test_preflight_recommendation_and_cli_are_lower_bounds (__main__.QueueTests.test_preflight_recommendation_and_cli_are_lower_bounds) ... ok
+test_refuses_unowned_process_group (__main__.QueueTests.test_refuses_unowned_process_group) ... ok
+test_serial_success_and_owned_lock_inheritance (__main__.QueueTests.test_serial_success_and_owned_lock_inheritance) ... ok
+test_signal_forwarding_reaps_only_owned_child (__main__.QueueTests.test_signal_forwarding_reaps_only_owned_child) ... ok
+test_skip_requires_full_verification (__main__.QueueTests.test_skip_requires_full_verification) ... ok
+test_termination_timeout_escalates_only_owned_group (__main__.QueueTests.test_termination_timeout_escalates_only_owned_group) ... ok
+test_valid_finished_run_and_tampered_weight (__main__.QueueTests.test_valid_finished_run_and_tampered_weight) ... ok
+test_waits_for_free_memory_not_for_idle_gpu (__main__.QueueTests.test_waits_for_free_memory_not_for_idle_gpu) ... ok
+test_zero_exit_without_complete_artifacts_fails (__main__.QueueTests.test_zero_exit_without_complete_artifacts_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.029s
+
+OK

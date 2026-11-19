@@ -1,0 +1,13 @@
+Component,Setting,AP,AP50,AP75,AR100,ΔAP
+CMFA gates,Both gates,55.422,84.340,62.160,68.519,+0.000
+CMFA gates,Channel only,54.810,83.574,60.104,69.350,−0.612
+CMFA gates,Spatial only,54.428,83.603,60.809,69.803,−0.994
+CMFA gates,Neither,54.383,83.425,60.625,68.219,−1.039
+HOOA branches,Full HOOA,55.422,84.340,62.160,68.519,+0.000
+HOOA branches,Without high-pass,54.511,83.607,61.141,69.371,−0.911
+HOOA branches,Without second-order,53.943,82.951,59.354,68.935,−1.479
+HOOA branches,Without both,53.561,83.010,58.835,68.556,−1.861
+Factor supervision,All three factors; train/inference fusion off,55.537,84.951,62.152,68.431,+0.000
+Factor supervision,Without quadrant,54.884,83.689,59.929,66.771,−0.654
+Factor supervision,Without position,54.263,82.904,59.844,66.052,−1.274
+Factor supervision,Without dentition,55.293,83.806,63.188,68.188,−0.244

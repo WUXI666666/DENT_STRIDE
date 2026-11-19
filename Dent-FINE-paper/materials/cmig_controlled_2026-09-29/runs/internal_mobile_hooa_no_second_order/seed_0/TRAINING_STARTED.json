@@ -1,0 +1,9 @@
+{
+  "pid": 1153855,
+  "cuda_visible_devices": "0",
+  "seed": 0,
+  "started_unix": 1791041611.2491128,
+  "controls": {
+    "hooa_second_order": false
+  }
+}

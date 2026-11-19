@@ -1,0 +1,41 @@
+{
+  "status": "PREPARATION_ONLY_NO_TRAINING_STARTED",
+  "user_decisions": {
+    "independent_test": "not available; controlled internal validation only",
+    "split_changes": "not authorized; report audit first",
+    "primary_seeds": [
+      0,
+      1,
+      2
+    ],
+    "internal_seeds": [
+      0
+    ],
+    "gpu": 0
+  },
+  "primary_configurations": 14,
+  "primary_training_runs_before_reuse": 42,
+  "additional_internal_training_runs_planned": 20,
+  "total_training_runs_if_no_historical_reuse": 62,
+  "budget": {
+    "epochs": 160,
+    "train_batch": 8,
+    "validation_batch": 16,
+    "AMP": true,
+    "EMA": true
+  },
+  "initialization": {
+    "path": "/home/wuxi/RT-DETR-main/D-FINE/weight/hgnetv2/PPHGNetV2_B0_stage1.pth",
+    "sha256": "70a372e8cbc59b34c5da2943261ecb633faf304a58e7e05461a27bd8d8b7f3d1"
+  },
+  "comparison_controls": "Within each cohort/family: fixed source snapshot, data/hash list, label map, pretraining, augmentation, background losses, batch/epochs/EMA/scheduler, precision and checkpoint rule, except declared variable.",
+  "checkpoint_selection": "Maximum validation native COCO AP over all 160 epochs, earliest epoch on exact ties. Pano selected with all inference priors/factor fusion OFF. Freeze prior weights, thresholds and comparisons before launch.",
+  "checkpoint_retention": "Final best.pth only per experiment. Keep minimal temporary stage checkpoints when required by the original training algorithm; delete only task-owned redundant files after successful verified completion. Do not change solver stage behavior solely to save disk.",
+  "statistics": "Per-seed scores and sample SD (ddof=1). Paired seed differences and Student-t df=2 CI; separately paired resampling of identical validation units, grouping DSLR by patient/all five views. Mobile/Pano patient IDs unavailable: only content-group/image-level internal intervals, never patient-level or independent-test claims.",
+  "evaluation": "Native AP/AP50/AP75/AR100 with no score truncation; P/R/F1 at score>=.30, IoU>=.50, one-to-one class-agnostic localization matching and correct FDI for TP. Matched FDI denominator=localized matches; localization coverage denominator=GT instances. Raw duplicate-image denominator=all evaluated images. Save raw candidate tensors before top-k for prior/factor replays and all retained native predictions.",
+  "external_comparators": "Keep RT-DETR-L. Verify semantic annotation equivalence, image hashes, canonical label maps, training provenance, input/pretraining and native postprocessing before reuse. Do not label framework-native baselines fully controlled.",
+  "cross_device": "Both directions; each photographic controlled base and full model uses source resolution and FDI52 without target fine-tuning. Not independent external validation.",
+  "efficiency": "RTX4090 GPU0; batch1 inference; same CUDA/PyTorch, FP32 and AMP separately; warm-up then synchronized repeated timing; forward-only and end-to-end tensor pipeline separately; mean/SD/P50/P95, throughput, peak allocated/reserved memory, params and MACs with tool/unsupported operators stated. Training peak separately at batch8 AMP.",
+  "figures": "Generate only from newly accepted checkpoints; same image/threshold/class colors/shared zoom across compared methods; success and failure examples; prior help and harm cases; actual seeds with SD; raw prediction PR/F1/duplicate curves and full supported/unsupported FDI confusion/count tables.",
+  "history_reuse": "No old run accepted for reuse yet. Exact semantic configuration/source/initialization/data/stage-rule checks required; Pano previously selected with prior ON is not automatically reusable for prior-OFF selection."
+}

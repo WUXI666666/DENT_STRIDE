@@ -1,0 +1,8 @@
+{
+  "state": "training",
+  "epoch_zero_based": 16,
+  "epochs": 160,
+  "updated_at": "2026-09-13T15:05:52.264389+08:00",
+  "pid": 12198,
+  "best_AP": 0.32762945779671393
+}

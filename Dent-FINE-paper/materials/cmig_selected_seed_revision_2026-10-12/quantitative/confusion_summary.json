@@ -1,0 +1,93 @@
+{
+  "Pano": {
+    "images": 64,
+    "train_images": 570,
+    "train_teeth": 16234,
+    "GT": 1861,
+    "predictions": 1949,
+    "localized_matches": 1834,
+    "correct_FDI_matches": 1698,
+    "TP": 1698,
+    "FP": 251,
+    "FN": 163,
+    "duplicate_image": 25,
+    "duplicate_count": 48,
+    "no_training_support": [],
+    "no_validation_support": []
+  },
+  "Mobile": {
+    "images": 220,
+    "train_images": 878,
+    "train_teeth": 9837,
+    "GT": 2459,
+    "predictions": 2872,
+    "localized_matches": 2342,
+    "correct_FDI_matches": 2167,
+    "TP": 2167,
+    "FP": 705,
+    "FN": 292,
+    "duplicate_image": 86,
+    "duplicate_count": 132,
+    "no_training_support": [
+      18,
+      28,
+      38,
+      48
+    ],
+    "no_validation_support": [
+      17,
+      18,
+      27,
+      28,
+      37,
+      38,
+      48
+    ]
+  },
+  "DSLR": {
+    "images": 190,
+    "train_images": 750,
+    "train_teeth": 10760,
+    "GT": 2742,
+    "predictions": 2884,
+    "localized_matches": 2666,
+    "correct_FDI_matches": 2592,
+    "TP": 2592,
+    "FP": 292,
+    "FN": 150,
+    "duplicate_image": 46,
+    "duplicate_count": 65,
+    "no_training_support": [
+      15,
+      17,
+      18,
+      23,
+      27,
+      28,
+      37,
+      38,
+      47,
+      48
+    ],
+    "no_validation_support": [
+      13,
+      14,
+      15,
+      17,
+      18,
+      23,
+      24,
+      25,
+      27,
+      28,
+      34,
+      35,
+      37,
+      38,
+      44,
+      45,
+      47,
+      48
+    ]
+  }
+}

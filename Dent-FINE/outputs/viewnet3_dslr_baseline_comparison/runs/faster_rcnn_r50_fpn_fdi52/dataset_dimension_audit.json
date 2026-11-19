@@ -1,0 +1,65 @@
+{
+  "policy": "Decoded dimensions normalize only Detectron2 in-memory records; canonical JSON is unchanged.",
+  "schema_version": 1,
+  "splits": {
+    "train": {
+      "annotation_file": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_train_fdi52.json",
+      "annotations_checked": 10760,
+      "corrected_record_count": 5,
+      "corrections": [
+        {
+          "declared_height": 2448,
+          "declared_width": 3264,
+          "decoded_height": 2447,
+          "decoded_width": 3263,
+          "file_name": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/train/d8100c61ecca.jpg",
+          "image_id": 3
+        },
+        {
+          "declared_height": 2448,
+          "declared_width": 3264,
+          "decoded_height": 2447,
+          "decoded_width": 3264,
+          "file_name": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/train/2b9c95fc5b91.jpg",
+          "image_id": 5
+        },
+        {
+          "declared_height": 2448,
+          "declared_width": 3264,
+          "decoded_height": 2447,
+          "decoded_width": 3264,
+          "file_name": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/train/d1f78611fd85.jpg",
+          "image_id": 18
+        },
+        {
+          "declared_height": 2448,
+          "declared_width": 3264,
+          "decoded_height": 2447,
+          "decoded_width": 3264,
+          "file_name": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/train/89173d1b6c73.jpg",
+          "image_id": 20
+        },
+        {
+          "declared_height": 2448,
+          "declared_width": 3264,
+          "decoded_height": 2447,
+          "decoded_width": 3264,
+          "file_name": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/train/c326356787f1.jpg",
+          "image_id": 23
+        }
+      ],
+      "dataset_name": "viewnet3_dslr_fdi52_faster_rcnn_train",
+      "policy": "in-memory record dimensions only; source COCO JSON is unchanged",
+      "records_checked": 750
+    },
+    "validation": {
+      "annotation_file": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json",
+      "annotations_checked": 2742,
+      "corrected_record_count": 0,
+      "corrections": [],
+      "dataset_name": "viewnet3_dslr_fdi52_faster_rcnn_val",
+      "policy": "in-memory record dimensions only; source COCO JSON is unchanged",
+      "records_checked": 190
+    }
+  }
+}

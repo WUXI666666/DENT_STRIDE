@@ -1,0 +1,975 @@
+[
+  {
+    "job_id": "mobile_1024_full_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/mobile_1024_full/seed_0.yml",
+    "declared_ablation_paths": [
+      "DEIMCriterion.losses",
+      "DFINETransformer.factor_alpha_dent",
+      "DFINETransformer.factor_alpha_quad",
+      "DFINETransformer.factor_alpha_tooth",
+      "DFINETransformer.factor_fusion_train",
+      "DFINETransformer.use_factor_heads",
+      "DFINETransformer.use_fdi_factor_prior",
+      "DFINETransformer.use_tooth_prototype",
+      "HybridEncoder.use_cmfa_fusion",
+      "HybridEncoder.use_hooa_attention"
+    ],
+    "actual_semantic_differences": [],
+    "runtime_controls": {},
+    "historical_recipe_exact": true,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/mobile_1024_full/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/mobile_1024_full/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "mobile_1024_full_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/mobile_1024_full/seed_0.yml",
+    "source_frozen_config_sha256": "163902f38816058376e037d4cd506d749338a6c897b7420e75ae2902c9f4e4f6",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "main"
+  },
+  {
+    "job_id": "pano_historical_spatialshape_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/R01_fixed640_mosaic0_mixup0p5_seed0.yml",
+    "source_controlled_config": null,
+    "declared_ablation_paths": [],
+    "actual_semantic_differences": [],
+    "runtime_controls": {},
+    "historical_recipe_exact": true,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "pano_historical_spatialshape_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/pano_historical_spatialshape/seed_0.yml",
+    "source_frozen_config_sha256": "48c44a93675995893d3c64443de1811848d1c2408d0885bff00b0aed57921ace",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "main"
+  },
+  {
+    "job_id": "dslr_cmfa_dualopt_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C02_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/dslr_cmfa_dualopt/seed_0.yml",
+    "declared_ablation_paths": [
+      "HybridEncoder.use_cmfa_fusion",
+      "optimizer.layer_decay_max",
+      "optimizer.layer_decay_min",
+      "optimizer.layer_decay_power",
+      "optimizer.realtime_decay",
+      "optimizer.rollback_weight",
+      "optimizer.type"
+    ],
+    "actual_semantic_differences": [],
+    "runtime_controls": {},
+    "historical_recipe_exact": true,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/dslr_cmfa_dualopt/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/dslr_cmfa_dualopt/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "dslr_cmfa_dualopt_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/dslr_cmfa_dualopt/seed_0.yml",
+    "source_frozen_config_sha256": "883cf1e7d670c67ed72ab03275d8a39e0c8add3a3bdafe08cbef38067bd65780",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "main"
+  },
+  {
+    "job_id": "mobile_1024_full_seed1",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/mobile_1024_full/seed_1.yml",
+    "declared_ablation_paths": [
+      "DEIMCriterion.losses",
+      "DFINETransformer.factor_alpha_dent",
+      "DFINETransformer.factor_alpha_quad",
+      "DFINETransformer.factor_alpha_tooth",
+      "DFINETransformer.factor_fusion_train",
+      "DFINETransformer.use_factor_heads",
+      "DFINETransformer.use_fdi_factor_prior",
+      "DFINETransformer.use_tooth_prototype",
+      "HybridEncoder.use_cmfa_fusion",
+      "HybridEncoder.use_hooa_attention"
+    ],
+    "actual_semantic_differences": [],
+    "runtime_controls": {},
+    "historical_recipe_exact": true,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/mobile_1024_full/seed_1",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/mobile_1024_full/seed_1/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "mobile_1024_full_seed1",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/mobile_1024_full/seed_1.yml",
+    "source_frozen_config_sha256": "647c70ca7ea4fc0e361a0af9c5fe870631fb760ffe9e6a564a97829bbf7a52d7",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "main"
+  },
+  {
+    "job_id": "pano_historical_spatialshape_seed1",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/R01_fixed640_mosaic0_mixup0p5_seed0.yml",
+    "source_controlled_config": null,
+    "declared_ablation_paths": [],
+    "actual_semantic_differences": [],
+    "runtime_controls": {},
+    "historical_recipe_exact": true,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_1",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_1/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "pano_historical_spatialshape_seed1",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/pano_historical_spatialshape/seed_1.yml",
+    "source_frozen_config_sha256": "f05b1c030afd36fc274d9e9adfd91f89178c91e243634861caa10c0d51f75941",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "main"
+  },
+  {
+    "job_id": "dslr_cmfa_dualopt_seed1",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C02_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/dslr_cmfa_dualopt/seed_1.yml",
+    "declared_ablation_paths": [
+      "HybridEncoder.use_cmfa_fusion",
+      "optimizer.layer_decay_max",
+      "optimizer.layer_decay_min",
+      "optimizer.layer_decay_power",
+      "optimizer.realtime_decay",
+      "optimizer.rollback_weight",
+      "optimizer.type"
+    ],
+    "actual_semantic_differences": [],
+    "runtime_controls": {},
+    "historical_recipe_exact": true,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/dslr_cmfa_dualopt/seed_1",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/dslr_cmfa_dualopt/seed_1/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "dslr_cmfa_dualopt_seed1",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/dslr_cmfa_dualopt/seed_1.yml",
+    "source_frozen_config_sha256": "7af5723740670365fb79fe4e65f3154904690d7cdf683ab2c361fa53a74e00e2",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "main"
+  },
+  {
+    "job_id": "mobile_1024_full_seed2",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/mobile_1024_full/seed_2.yml",
+    "declared_ablation_paths": [
+      "DEIMCriterion.losses",
+      "DFINETransformer.factor_alpha_dent",
+      "DFINETransformer.factor_alpha_quad",
+      "DFINETransformer.factor_alpha_tooth",
+      "DFINETransformer.factor_fusion_train",
+      "DFINETransformer.use_factor_heads",
+      "DFINETransformer.use_fdi_factor_prior",
+      "DFINETransformer.use_tooth_prototype",
+      "HybridEncoder.use_cmfa_fusion",
+      "HybridEncoder.use_hooa_attention"
+    ],
+    "actual_semantic_differences": [],
+    "runtime_controls": {},
+    "historical_recipe_exact": true,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/mobile_1024_full/seed_2",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/mobile_1024_full/seed_2/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "mobile_1024_full_seed2",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/mobile_1024_full/seed_2.yml",
+    "source_frozen_config_sha256": "94200d65bf54a8c6ed1bc35473e45094e786b71edd2352d070ee3ae7b03431e6",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "main"
+  },
+  {
+    "job_id": "pano_historical_spatialshape_seed2",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/R01_fixed640_mosaic0_mixup0p5_seed0.yml",
+    "source_controlled_config": null,
+    "declared_ablation_paths": [],
+    "actual_semantic_differences": [],
+    "runtime_controls": {},
+    "historical_recipe_exact": true,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_2",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_2/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "pano_historical_spatialshape_seed2",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/pano_historical_spatialshape/seed_2.yml",
+    "source_frozen_config_sha256": "21d82763f06fd88cd8595d65f5b742d91ffb3f405b88f95529356a1ec5a68a38",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "main"
+  },
+  {
+    "job_id": "dslr_cmfa_dualopt_seed2",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C02_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/dslr_cmfa_dualopt/seed_2.yml",
+    "declared_ablation_paths": [
+      "HybridEncoder.use_cmfa_fusion",
+      "optimizer.layer_decay_max",
+      "optimizer.layer_decay_min",
+      "optimizer.layer_decay_power",
+      "optimizer.realtime_decay",
+      "optimizer.rollback_weight",
+      "optimizer.type"
+    ],
+    "actual_semantic_differences": [],
+    "runtime_controls": {},
+    "historical_recipe_exact": true,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/dslr_cmfa_dualopt/seed_2",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/dslr_cmfa_dualopt/seed_2/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "dslr_cmfa_dualopt_seed2",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/dslr_cmfa_dualopt/seed_2.yml",
+    "source_frozen_config_sha256": "20a8a21885b1148125e3f5f9592d5d73fc23199f5c6f85e04f423e06b3c945ff",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "main"
+  },
+  {
+    "job_id": "internal_dslr_extra_decay_only_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C02_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_dslr_extra_decay_only/seed_0.yml",
+    "declared_ablation_paths": [
+      "optimizer.realtime_decay",
+      "optimizer.rollback_weight"
+    ],
+    "actual_semantic_differences": [
+      {
+        "path": "optimizer.rollback_weight",
+        "before": 0.005,
+        "after": 0.0
+      }
+    ],
+    "runtime_controls": {},
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_dslr_extra_decay_only/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_dslr_extra_decay_only/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_dslr_extra_decay_only_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_dslr_extra_decay_only/seed_0.yml",
+    "source_frozen_config_sha256": "67315cfdf691502728d9fcf7418184e70e35a3eb3956575ef0893c693924b648",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_dslr_rollback_only_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C02_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_dslr_rollback_only/seed_0.yml",
+    "declared_ablation_paths": [
+      "optimizer.realtime_decay",
+      "optimizer.rollback_weight"
+    ],
+    "actual_semantic_differences": [
+      {
+        "path": "optimizer.realtime_decay",
+        "before": 0.01,
+        "after": 0.0
+      }
+    ],
+    "runtime_controls": {},
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_dslr_rollback_only/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_dslr_rollback_only/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_dslr_rollback_only_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_dslr_rollback_only/seed_0.yml",
+    "source_frozen_config_sha256": "ae75357dfb53ba1f31ede633e231a39dfe088ff796d6bb26ee5e7b427419fa87",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_background_arch_only_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_background_arch_only/seed_0.yml",
+    "declared_ablation_paths": [
+      "DEIMCriterion.losses",
+      "DEIMCriterion.use_arch_order_loss"
+    ],
+    "actual_semantic_differences": [
+      {
+        "path": "DEIMCriterion.losses",
+        "before": [
+          "mal",
+          "boxes",
+          "local",
+          "nwd",
+          "quad",
+          "tooth",
+          "dent",
+          "proto"
+        ],
+        "after": [
+          "mal",
+          "boxes",
+          "local",
+          "quad",
+          "tooth",
+          "dent",
+          "proto"
+        ]
+      }
+    ],
+    "runtime_controls": {},
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_background_arch_only/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_background_arch_only/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_background_arch_only_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_background_arch_only/seed_0.yml",
+    "source_frozen_config_sha256": "cde1a3d8aa72d7ba117fdc64d148c3103e4b35f603f99894db711ad2d90379d7",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_background_neither_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_background_neither/seed_0.yml",
+    "declared_ablation_paths": [
+      "DEIMCriterion.losses",
+      "DEIMCriterion.use_arch_order_loss"
+    ],
+    "actual_semantic_differences": [
+      {
+        "path": "DEIMCriterion.losses",
+        "before": [
+          "mal",
+          "boxes",
+          "local",
+          "nwd",
+          "quad",
+          "tooth",
+          "dent",
+          "proto"
+        ],
+        "after": [
+          "mal",
+          "boxes",
+          "local",
+          "quad",
+          "tooth",
+          "dent",
+          "proto"
+        ]
+      },
+      {
+        "path": "DEIMCriterion.use_arch_order_loss",
+        "before": true,
+        "after": false
+      }
+    ],
+    "runtime_controls": {},
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_background_neither/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_background_neither/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_background_neither_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_background_neither/seed_0.yml",
+    "source_frozen_config_sha256": "4cedfb3f97200497ed56a738dd116faaa9594a6d74541c0944cf7a71ef4c4593",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_background_nwd_only_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_background_nwd_only/seed_0.yml",
+    "declared_ablation_paths": [
+      "DEIMCriterion.losses",
+      "DEIMCriterion.use_arch_order_loss"
+    ],
+    "actual_semantic_differences": [
+      {
+        "path": "DEIMCriterion.use_arch_order_loss",
+        "before": true,
+        "after": false
+      }
+    ],
+    "runtime_controls": {},
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_background_nwd_only/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_background_nwd_only/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_background_nwd_only_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_background_nwd_only/seed_0.yml",
+    "source_frozen_config_sha256": "814925c3c91b48e3b13ae55bbdb71f17d31e50eac6b3113ad7500cde1787eb7b",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_cmfa_channel_only_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_cmfa_channel_only/seed_0.yml",
+    "declared_ablation_paths": [],
+    "actual_semantic_differences": [],
+    "runtime_controls": {
+      "cmfa_channel": true,
+      "cmfa_spatial": false
+    },
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_cmfa_channel_only/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_cmfa_channel_only/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_cmfa_channel_only_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_cmfa_channel_only/seed_0.yml",
+    "source_frozen_config_sha256": "8eb697830a2ca4b7ff58cbd8150201ac98edd2207b539b85b9e432e4c1f47e5c",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_cmfa_no_gates_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_cmfa_no_gates/seed_0.yml",
+    "declared_ablation_paths": [],
+    "actual_semantic_differences": [],
+    "runtime_controls": {
+      "cmfa_channel": false,
+      "cmfa_spatial": false
+    },
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_cmfa_no_gates/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_cmfa_no_gates/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_cmfa_no_gates_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_cmfa_no_gates/seed_0.yml",
+    "source_frozen_config_sha256": "31dbd72bf6748cf90fa1144b3cc249afce9703b36ac46221fc603e7ff58fd0c5",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_cmfa_spatial_only_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_cmfa_spatial_only/seed_0.yml",
+    "declared_ablation_paths": [],
+    "actual_semantic_differences": [],
+    "runtime_controls": {
+      "cmfa_channel": false,
+      "cmfa_spatial": true
+    },
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_cmfa_spatial_only/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_cmfa_spatial_only/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_cmfa_spatial_only_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_cmfa_spatial_only/seed_0.yml",
+    "source_frozen_config_sha256": "cd6cffd6388787ce090be25a7c0f08541b0a773253ced9126c30de1d2702b092",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_factor_no_dentition_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_factor_no_dentition/seed_0.yml",
+    "declared_ablation_paths": [
+      "DEIMCriterion.losses",
+      "DFINETransformer.factor_fusion_train"
+    ],
+    "actual_semantic_differences": [
+      {
+        "path": "DEIMCriterion.losses",
+        "before": [
+          "mal",
+          "boxes",
+          "local",
+          "nwd",
+          "quad",
+          "tooth",
+          "dent",
+          "proto"
+        ],
+        "after": [
+          "mal",
+          "boxes",
+          "local",
+          "nwd",
+          "quad",
+          "tooth",
+          "proto"
+        ]
+      },
+      {
+        "path": "DFINETransformer.factor_fusion_train",
+        "before": true,
+        "after": false
+      }
+    ],
+    "runtime_controls": {
+      "factor_inference_fusion": false
+    },
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_factor_no_dentition/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_factor_no_dentition/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_factor_no_dentition_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_factor_no_dentition/seed_0.yml",
+    "source_frozen_config_sha256": "2c5f69dd1b854c15dc8cda1502327f421c00ce1ed1a834a38d6261968dd1b4f3",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_factor_no_position_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_factor_no_position/seed_0.yml",
+    "declared_ablation_paths": [
+      "DEIMCriterion.losses",
+      "DFINETransformer.factor_fusion_train"
+    ],
+    "actual_semantic_differences": [
+      {
+        "path": "DEIMCriterion.losses",
+        "before": [
+          "mal",
+          "boxes",
+          "local",
+          "nwd",
+          "quad",
+          "tooth",
+          "dent",
+          "proto"
+        ],
+        "after": [
+          "mal",
+          "boxes",
+          "local",
+          "nwd",
+          "quad",
+          "dent",
+          "proto"
+        ]
+      },
+      {
+        "path": "DFINETransformer.factor_fusion_train",
+        "before": true,
+        "after": false
+      }
+    ],
+    "runtime_controls": {
+      "factor_inference_fusion": false
+    },
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_factor_no_position/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_factor_no_position/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_factor_no_position_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_factor_no_position/seed_0.yml",
+    "source_frozen_config_sha256": "5ec0a85e816eeae36e5dd58685a70e100cf05b4754d46c63487917adf382adc1",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_factor_no_quadrant_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_factor_no_quadrant/seed_0.yml",
+    "declared_ablation_paths": [
+      "DEIMCriterion.losses",
+      "DFINETransformer.factor_fusion_train"
+    ],
+    "actual_semantic_differences": [
+      {
+        "path": "DEIMCriterion.losses",
+        "before": [
+          "mal",
+          "boxes",
+          "local",
+          "nwd",
+          "quad",
+          "tooth",
+          "dent",
+          "proto"
+        ],
+        "after": [
+          "mal",
+          "boxes",
+          "local",
+          "nwd",
+          "tooth",
+          "dent",
+          "proto"
+        ]
+      },
+      {
+        "path": "DFINETransformer.factor_fusion_train",
+        "before": true,
+        "after": false
+      }
+    ],
+    "runtime_controls": {
+      "factor_inference_fusion": false
+    },
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_factor_no_quadrant/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_factor_no_quadrant/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_factor_no_quadrant_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_factor_no_quadrant/seed_0.yml",
+    "source_frozen_config_sha256": "3bde95f9396c7e703950022809f6f5cce3b05c16f9e3edef7dbecc2e761bbaff",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_factor_train_off_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_factor_train_off/seed_0.yml",
+    "declared_ablation_paths": [
+      "DEIMCriterion.losses",
+      "DFINETransformer.factor_fusion_train"
+    ],
+    "actual_semantic_differences": [
+      {
+        "path": "DFINETransformer.factor_fusion_train",
+        "before": true,
+        "after": false
+      }
+    ],
+    "runtime_controls": {
+      "factor_inference_fusion": false
+    },
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_factor_train_off/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_factor_train_off/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_factor_train_off_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_factor_train_off/seed_0.yml",
+    "source_frozen_config_sha256": "2eecdfe9dc795488a0cdb3d00c4ac8046a9e5bf4095f5e108feb48c547a3cb96",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_hooa_neither_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_hooa_neither/seed_0.yml",
+    "declared_ablation_paths": [],
+    "actual_semantic_differences": [],
+    "runtime_controls": {
+      "hooa_highpass": false,
+      "hooa_second_order": false
+    },
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_hooa_neither/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_hooa_neither/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_hooa_neither_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_hooa_neither/seed_0.yml",
+    "source_frozen_config_sha256": "cdb984d089d24c1646501bcce11e9720ff7b3b285593434ba60884fc5ac2e132",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_hooa_no_highpass_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_hooa_no_highpass/seed_0.yml",
+    "declared_ablation_paths": [],
+    "actual_semantic_differences": [],
+    "runtime_controls": {
+      "hooa_highpass": false
+    },
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_hooa_no_highpass/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_hooa_no_highpass/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_hooa_no_highpass_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_hooa_no_highpass/seed_0.yml",
+    "source_frozen_config_sha256": "5a0c121e0a89be9e1d85f89513604631fbf79aabc4da51baa95deff902eb7983",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_hooa_no_second_order_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_hooa_no_second_order/seed_0.yml",
+    "declared_ablation_paths": [],
+    "actual_semantic_differences": [],
+    "runtime_controls": {
+      "hooa_second_order": false
+    },
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_hooa_no_second_order/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_hooa_no_second_order/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_hooa_no_second_order_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_hooa_no_second_order/seed_0.yml",
+    "source_frozen_config_sha256": "b8ba53781bdf7ff7d83e9abd614592d7d7aee770ca003508a1284239e6f6dcc7",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_proto_k1_tau0p2_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_proto_k1_tau0p2/seed_0.yml",
+    "declared_ablation_paths": [
+      "DFINETransformer.prototype_count",
+      "DFINETransformer.prototype_tau"
+    ],
+    "actual_semantic_differences": [
+      {
+        "path": "DFINETransformer.prototype_count",
+        "before": 4,
+        "after": 1
+      }
+    ],
+    "runtime_controls": {},
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_k1_tau0p2/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_k1_tau0p2/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_proto_k1_tau0p2_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_proto_k1_tau0p2/seed_0.yml",
+    "source_frozen_config_sha256": "38f1090da38f3b59b5ff829f04264251a1f0449909c1cbbacf7c98e7166da3d9",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_proto_k2_tau0p2_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_proto_k2_tau0p2/seed_0.yml",
+    "declared_ablation_paths": [
+      "DFINETransformer.prototype_count",
+      "DFINETransformer.prototype_tau"
+    ],
+    "actual_semantic_differences": [
+      {
+        "path": "DFINETransformer.prototype_count",
+        "before": 4,
+        "after": 2
+      }
+    ],
+    "runtime_controls": {},
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_k2_tau0p2/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_k2_tau0p2/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_proto_k2_tau0p2_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_proto_k2_tau0p2/seed_0.yml",
+    "source_frozen_config_sha256": "71f0213c66776923d2529d24793f7c1750cc4e7b34937abfb15037c878ef290d",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_proto_k4_tau0p1_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_proto_k4_tau0p1/seed_0.yml",
+    "declared_ablation_paths": [
+      "DFINETransformer.prototype_count",
+      "DFINETransformer.prototype_tau"
+    ],
+    "actual_semantic_differences": [
+      {
+        "path": "DFINETransformer.prototype_tau",
+        "before": 0.2,
+        "after": 0.1
+      }
+    ],
+    "runtime_controls": {},
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_k4_tau0p1/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_k4_tau0p1/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_proto_k4_tau0p1_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_proto_k4_tau0p1/seed_0.yml",
+    "source_frozen_config_sha256": "7b7dd7578333dc0e1ba72365735d098b38f59671494a7fea3eedf6d14f23dcc9",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_proto_k4_tau0p5_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_proto_k4_tau0p5/seed_0.yml",
+    "declared_ablation_paths": [
+      "DFINETransformer.prototype_count",
+      "DFINETransformer.prototype_tau"
+    ],
+    "actual_semantic_differences": [
+      {
+        "path": "DFINETransformer.prototype_tau",
+        "before": 0.2,
+        "after": 0.5
+      }
+    ],
+    "runtime_controls": {},
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_k4_tau0p5/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_k4_tau0p5/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_proto_k4_tau0p5_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_proto_k4_tau0p5/seed_0.yml",
+    "source_frozen_config_sha256": "90867188e724596dbdc29bacf0351ca0e6920457a96186e34dde0585a759f096",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_mobile_proto_off_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_proto_off/seed_0.yml",
+    "declared_ablation_paths": [
+      "DEIMCriterion.losses",
+      "DFINETransformer.use_tooth_prototype"
+    ],
+    "actual_semantic_differences": [
+      {
+        "path": "DEIMCriterion.losses",
+        "before": [
+          "mal",
+          "boxes",
+          "local",
+          "nwd",
+          "quad",
+          "tooth",
+          "dent",
+          "proto"
+        ],
+        "after": [
+          "mal",
+          "boxes",
+          "local",
+          "nwd",
+          "quad",
+          "tooth",
+          "dent"
+        ]
+      },
+      {
+        "path": "DFINETransformer.use_tooth_prototype",
+        "before": true,
+        "after": false
+      }
+    ],
+    "runtime_controls": {},
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_off/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_off/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "internal_mobile_proto_off_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_proto_off/seed_0.yml",
+    "source_frozen_config_sha256": "84130dbe20625adbf9c57ec3d4b8922b187f70f93cd9bf3e37823ba3adc15e47",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal"
+  },
+  {
+    "job_id": "internal_dslr_cmfa_adamw_seed0",
+    "historical_anchor": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C02_seed0.yml",
+    "source_controlled_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/dslr_cmfa_adamw/seed_0.yml",
+    "declared_ablation_paths": [
+      "HybridEncoder.use_cmfa_fusion",
+      "optimizer.layer_decay_max",
+      "optimizer.layer_decay_min",
+      "optimizer.layer_decay_power",
+      "optimizer.realtime_decay",
+      "optimizer.rollback_weight",
+      "optimizer.type"
+    ],
+    "actual_semantic_differences": [
+      {
+        "path": "optimizer.layer_decay_max",
+        "before": 1.5,
+        "after": "<absent>"
+      },
+      {
+        "path": "optimizer.layer_decay_min",
+        "before": 0.5,
+        "after": "<absent>"
+      },
+      {
+        "path": "optimizer.layer_decay_power",
+        "before": 1.5,
+        "after": "<absent>"
+      },
+      {
+        "path": "optimizer.realtime_decay",
+        "before": 0.01,
+        "after": "<absent>"
+      },
+      {
+        "path": "optimizer.rollback_weight",
+        "before": 0.005,
+        "after": "<absent>"
+      },
+      {
+        "path": "optimizer.type",
+        "before": "DualOptAdamW",
+        "after": "AdamW"
+      }
+    ],
+    "runtime_controls": {},
+    "historical_recipe_exact": false,
+    "administrative_changes": {
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_dslr_cmfa_adamw/seed_0",
+      "summary_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_dslr_cmfa_adamw/seed_0/tensorboard"
+    },
+    "historical_backbone_directory_preserved": "../RT-DETR-main/D-FINE/weight/hgnetv2/",
+    "only_declared_ablation_variables_changed": true,
+    "source_frozen_job_id": "dslr_cmfa_adamw_seed0",
+    "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/dslr_cmfa_adamw/seed_0.yml",
+    "source_frozen_config_sha256": "655b6225479de7f59c8d4f0950b08c4674fa94035c389d5729f551e6fe2bfbed",
+    "source_frozen_semantic_config_identical": true,
+    "scope_role": "internal_reference"
+  }
+]

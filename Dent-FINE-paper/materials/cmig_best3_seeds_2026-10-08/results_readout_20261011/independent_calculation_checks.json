@@ -1,0 +1,17 @@
+{
+  "reviewed_at": "2026-10-11T18:12:37.346487+08:00",
+  "scope": "Only cmig_best3_seeds_2026-10-08 frozen runs; interrupted logs excluded",
+  "completed_training_jobs": 30,
+  "primary_training_jobs": 9,
+  "internal_training_jobs": 21,
+  "full_160_epoch_logs_checked": 30,
+  "native_best_log_metrics_checked": 30,
+  "fixed_threshold_count_recalculations_checked": 30,
+  "primary_mean_sample_SD_checked": 3,
+  "same_weight_prior_rows_checked": 12,
+  "factor_fusion_rows_checked": 4,
+  "sample_SD_ddof": 1,
+  "CI_method": "Student-t df=2 for same-weight prior seed deltas only; not patient/test uncertainty",
+  "errors": [],
+  "original_outputs_edited": false
+}

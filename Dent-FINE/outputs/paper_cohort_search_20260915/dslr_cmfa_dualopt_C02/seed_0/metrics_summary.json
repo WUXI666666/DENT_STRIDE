@@ -1,0 +1,121 @@
+{
+  "job_id": "dslr_cmfa_dualopt_C02",
+  "task": "dslr_cmfa_dualopt",
+  "cohort": "DSLR",
+  "model": "DENT-STRIDE CMFA+DualOpt",
+  "phase": "core_grid",
+  "seed": 0,
+  "augmentation": {
+    "profile": "legacy640_multiscale",
+    "mosaic": 0.0,
+    "mixup": 0.0,
+    "crop": 0.8,
+    "zoom": 0.5
+  },
+  "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C02_seed0.yml",
+  "config_sha256": "e0a0fa2c90e7e94ba4233fe8cc7a41c74b5ed8fe8816f88c95d3a9654d4f5931",
+  "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C02/seed_0",
+  "implementation_dir": "/home/wuxi/Dent-FINE",
+  "train_script": "/home/wuxi/Dent-FINE/train.py",
+  "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+  "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+  "changes_from_aligned_base": [
+    {
+      "path": "output_dir",
+      "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+      "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C02/seed_0"
+    },
+    {
+      "path": "train_dataloader.collate_fn.mixup_prob",
+      "before": 0.5,
+      "after": 0.0
+    }
+  ],
+  "mosaic_gate": {
+    "outer_probability": 0.0,
+    "inner_probability": 0.0,
+    "active_epochs_zero_based": [
+      4,
+      69
+    ],
+    "native_crop_zoom_exclusion_preserved": true
+  },
+  "epochs_completed": 160,
+  "input_size": [
+    640,
+    640
+  ],
+  "training_scale_repeat": 20,
+  "best_epoch_zero_based": 149,
+  "best_epoch_one_based": 150,
+  "final_epoch_one_based": 160,
+  "checkpoint_internal_epoch": 96,
+  "checkpoint_epoch_note": "Native stage rollback can reset this counter; use verified log epoch.",
+  "metrics_fraction": {
+    "AP": 0.7311508845076412,
+    "AP50": 0.891487761410731,
+    "AP75": 0.8434069244612825,
+    "AP_small": -1.0,
+    "AP_medium": 0.5188758791950835,
+    "AP_large": 0.7500426359261578,
+    "AR1": 0.7812337332995476,
+    "AR10": 0.8355629447775029,
+    "AR100": 0.8387951624489992,
+    "AR_small": -1.0,
+    "AR_medium": 0.5984678631553633,
+    "AR_large": 0.8542509345073587
+  },
+  "metrics_percent": {
+    "AP": 73.11508845076412,
+    "AP50": 89.1487761410731,
+    "AP75": 84.34069244612826,
+    "AP_small": null,
+    "AP_medium": 51.88758791950835,
+    "AP_large": 75.00426359261579,
+    "AR1": 78.12337332995476,
+    "AR10": 83.5562944777503,
+    "AR100": 83.87951624489992,
+    "AR_small": null,
+    "AR_medium": 59.84678631553633,
+    "AR_large": 85.42509345073587
+  },
+  "best_log_metrics_fraction": {
+    "AP": 0.7311508845076412,
+    "AP50": 0.891487761410731,
+    "AP75": 0.8434069244612825,
+    "AP_small": -1.0,
+    "AP_medium": 0.5188758791950835,
+    "AP_large": 0.7500426359261578,
+    "AR1": 0.7812337332995476,
+    "AR10": 0.8355629447775029,
+    "AR100": 0.8387951624489992,
+    "AR_small": -1.0,
+    "AR_medium": 0.5984678631553633,
+    "AR_large": 0.8542509345073587
+  },
+  "final_metrics_fraction": {
+    "AP": 0.729471122166453,
+    "AP50": 0.891051389237427,
+    "AP75": 0.8400837917396161,
+    "AP_small": -1.0,
+    "AP_medium": 0.5192766328451389,
+    "AP_large": 0.7482206632815286,
+    "AR1": 0.7795937648651503,
+    "AR10": 0.8319577081453644,
+    "AR100": 0.8363827299391776,
+    "AR_small": -1.0,
+    "AR_medium": 0.6037025012025012,
+    "AR_large": 0.8517233431436938
+  },
+  "params_trainable": 11153963,
+  "loss_arch_weight": 0.25,
+  "observed_arch_loss_range": [
+    0.04162373938547668,
+    0.05491875797029464
+  ],
+  "checkpoint": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C02/seed_0/best.pth",
+  "checkpoint_sha256": "efc9c306ab8d23a17749ce3641a4fa8385e36e45e301fce5b3788a1b1bea164d",
+  "log_sha256": "d163bbe868e980af45d64d3c0942a83cd2d35f0dfdf958ea86f67abbc31232e5",
+  "verified_best_checkpoint": true,
+  "completed_at": "2026-09-16T06:53:23.743678+08:00"
+}

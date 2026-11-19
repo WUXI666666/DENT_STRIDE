@@ -1,0 +1,19 @@
+{
+  "retained": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C01/seed_0/best.pth",
+  "retained_sha256": "ba3546c659bf5b3556f0e7716aa9d3994f1b12162f41a5f13ea668d284cbe506",
+  "removed_temporary_weights": [
+    {
+      "path": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C01/seed_0/last.pth",
+      "bytes": 171497350
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C01/seed_0/best_stg1.pth",
+      "bytes": 171648928
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C01/seed_0/best_stg2.pth",
+      "bytes": 171648928
+    }
+  ],
+  "reason": "Best-only retention after verification; native solver needed stage/last files during training."
+}

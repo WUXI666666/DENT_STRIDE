@@ -1,0 +1,16 @@
+{
+  "dataset_yaml": "/home/wuxi/Dent-FINE/outputs/cross_dataset_baseline_comparison/phone/yolo_dataset/phone_fdi52.yaml",
+  "annotation": "/home/wuxi/coco/valid/annotations_fdi.json",
+  "images": "/home/wuxi/coco/valid",
+  "gpu": 0,
+  "epochs": 160,
+  "input": 640,
+  "seed": 0,
+  "flips": false,
+  "models": [
+    "yolov8s",
+    "yolo11s",
+    "rtdetr_l",
+    "caf_yolo_s"
+  ]
+}

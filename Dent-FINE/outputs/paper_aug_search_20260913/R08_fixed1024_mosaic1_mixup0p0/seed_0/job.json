@@ -1,0 +1,87 @@
+{
+  "job_id": "R08_fixed1024_mosaic1_mixup0p0",
+  "task": "dentex_spatial_shape",
+  "cohort": "DENTEX2023",
+  "model": "DENT-STRIDE SpatialShape",
+  "phase": "resolution_mosaic_mixup",
+  "seed": 0,
+  "augmentation": {
+    "profile": "fixed1024",
+    "mosaic": 1.0,
+    "mixup": 0.0,
+    "crop": 0.8,
+    "zoom": 0.5
+  },
+  "config": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/R08_fixed1024_mosaic1_mixup0p0_seed0.yml",
+  "config_sha256": "5e040d49116e7522c56ee31fcdd0f743783fd8f8c93d243f8af9831fe65322bb",
+  "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R08_fixed1024_mosaic1_mixup0p0/seed_0",
+  "implementation_dir": "/home/wuxi/Dent-FINE",
+  "train_script": "/home/wuxi/Dent-FINE/train.py",
+  "changes_from_aligned_base": [
+    {
+      "path": "eval_spatial_size[0]",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "eval_spatial_size[1]",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "output_dir",
+      "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+      "after": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R08_fixed1024_mosaic1_mixup0p0/seed_0"
+    },
+    {
+      "path": "train_dataloader.collate_fn.base_size",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "train_dataloader.collate_fn.base_size_repeat",
+      "before": 20,
+      "after": null
+    },
+    {
+      "path": "train_dataloader.collate_fn.mixup_prob",
+      "before": 0.5,
+      "after": 0.0
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.mosaic_prob",
+      "before": 0,
+      "after": 1.0
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+      "before": 320,
+      "after": 640
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[0].probability",
+      "before": 0,
+      "after": 1.0
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[5].size[0]",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[5].size[1]",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "val_dataloader.dataset.transforms.ops[0].size[0]",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "val_dataloader.dataset.transforms.ops[0].size[1]",
+      "before": 640,
+      "after": 1024
+    }
+  ]
+}

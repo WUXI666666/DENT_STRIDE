@@ -1,0 +1,7 @@
+{
+  "job": "dslr_cmfa_extra_decay_only_seed4",
+  "checkpoint_sha256": "7aa76ed2cc6aee87c899da9d304425af4c78a4fd60b46564baa17f43cd274681",
+  "metrics_sha256": "b35347f313cd54962c9736278eeafbe621f69eaa855d827ab61526e62c00604b",
+  "native_metrics_sha256": "4edf798eccb3bfdb6f58b6d46b051c8f98723505770cb718f42ef818358b08e6",
+  "finished_unix": 1791801328.6152277
+}

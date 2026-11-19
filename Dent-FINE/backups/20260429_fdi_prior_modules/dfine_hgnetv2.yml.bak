@@ -1,0 +1,129 @@
+task: detection
+
+model: DEIM
+criterion: DEIMCriterion
+postprocessor: PostProcessor
+
+use_focal_loss: True
+eval_spatial_size: [640,640] # h w
+checkpoint_freq: 4    # save freq
+
+DEIM:
+  backbone: HGNetv2
+  encoder: HybridEncoder
+  decoder: DFINETransformer
+
+# Add, default for step lr scheduler 
+lrsheduler: flatcosine
+lr_gamma: 1
+warmup_iter: 500
+flat_epoch: 4000000
+no_aug_epoch: 0
+
+HGNetv2:
+  pretrained: True
+  local_model_dir: ../RT-DETR-main/D-FINE/weight/hgnetv2/
+
+HybridEncoder:
+  in_channels: [512, 1024, 2048]
+  feat_strides: [8, 16, 32]
+
+  # intra
+  hidden_dim: 256
+  use_encoder_idx: [2]
+  num_encoder_layers: 1
+  nhead: 8
+  dim_feedforward: 1024
+  dropout: 0.
+  enc_act: 'gelu'
+
+  # cross
+  expansion: 1.0
+  depth_mult: 1
+  act: 'silu'
+
+  # legacy Dent-FINE module
+  use_hfsa: False
+
+  # imported from DEIMv2
+  use_wav_enhance: False
+  use_stat_denoise: False
+  use_multipath_fusion: False
+  use_dynamic_rf: False
+  use_mpc_multiscale_perception: False
+  use_pqg_high_frequency: False
+  pqg_high_freq_stages: [0, 1]
+  use_cmfa_fusion: False
+  use_pfesa: False
+  pfesa_cutoff: 0.10
+  use_ucan_lkd: False
+  use_ucm_uncertainty: False
+  use_retinex_prior: False
+  use_hooa_attention: False
+  use_multinex_prior: False
+  apply_extra_modules: proj
+  apply_denoise_modules: proj
+  apply_refine_modules: outs
+
+
+DFINETransformer:
+  feat_channels: [256, 256, 256]
+  feat_strides: [8, 16, 32]
+  hidden_dim: 256
+  num_levels: 3
+
+  num_layers: 6
+  eval_idx: -1
+  num_queries: 300
+
+  num_denoising: 80
+  label_noise_ratio: 0.5
+  box_noise_scale: 1.0
+
+  # NEW
+  reg_max: 32
+  reg_scale: 4
+
+  # Auxiliary decoder layers dimension scaling
+  # "eg. If num_layers: 6 eval_idx: -4,
+  # then layer 3, 4, 5 are auxiliary decoder layers."
+  layer_scale: 1  # 2
+
+
+  num_points: [3, 6, 3] # [4, 4, 4] [3, 6, 3]
+  cross_attn_method: default # default, discrete
+  query_select_method: default # default, agnostic
+
+  # legacy Dent-FINE modules disabled by default
+  use_uni_gate: False
+  use_uni_gate_infer: False
+  uni_gate_apply_last_only: True
+  use_qgp: False
+  qgp_layers: []
+  use_pgr_roi_reasoning: False
+  roi_init_ratio: 0.5
+  use_fdi_factor_prior: False
+  fdi_factor_logit_scale: 0.0
+  use_spegc_prompt_graph: False
+  spegc_num_prompts: 16
+  spegc_graph_topk: 8
+  spegc_ref_bias: 0.25
+  spegc_res_scale: 0.20
+
+
+PostProcessor:
+  num_top_queries: 300
+
+
+DEIMCriterion:
+  weight_dict: {loss_vfl: 1, loss_bbox: 5, loss_giou: 2, loss_fgl: 0.15, loss_ddf: 1.5}
+  losses: ['vfl', 'boxes', 'local']
+  alpha: 0.75
+  gamma: 2.0
+  reg_max: 32
+
+  matcher:
+    type: HungarianMatcher
+    weight_dict: {cost_class: 2, cost_bbox: 5, cost_giou: 2}
+    alpha: 0.25
+    gamma: 2.0

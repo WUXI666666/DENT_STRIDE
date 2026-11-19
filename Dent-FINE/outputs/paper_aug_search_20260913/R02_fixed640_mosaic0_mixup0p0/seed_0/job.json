@@ -1,0 +1,42 @@
+{
+  "job_id": "R02_fixed640_mosaic0_mixup0p0",
+  "task": "dentex_spatial_shape",
+  "cohort": "DENTEX2023",
+  "model": "DENT-STRIDE SpatialShape",
+  "phase": "resolution_mosaic_mixup",
+  "seed": 0,
+  "augmentation": {
+    "profile": "fixed640",
+    "mosaic": 0.0,
+    "mixup": 0.0,
+    "crop": 0.8,
+    "zoom": 0.5
+  },
+  "config": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/R02_fixed640_mosaic0_mixup0p0_seed0.yml",
+  "config_sha256": "888e702c63742b3e64726adc7f4bdaaee54c21c990b3ec350435eed33ed944c4",
+  "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R02_fixed640_mosaic0_mixup0p0/seed_0",
+  "implementation_dir": "/home/wuxi/Dent-FINE",
+  "train_script": "/home/wuxi/Dent-FINE/train.py",
+  "changes_from_aligned_base": [
+    {
+      "path": "output_dir",
+      "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+      "after": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R02_fixed640_mosaic0_mixup0p0/seed_0"
+    },
+    {
+      "path": "train_dataloader.collate_fn.base_size_repeat",
+      "before": 20,
+      "after": null
+    },
+    {
+      "path": "train_dataloader.collate_fn.mixup_prob",
+      "before": 0.5,
+      "after": 0.0
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+      "before": 320,
+      "after": 640
+    }
+  ]
+}

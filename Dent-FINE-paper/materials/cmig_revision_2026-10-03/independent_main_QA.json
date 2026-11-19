@@ -1,0 +1,4694 @@
+{
+  "reviewed_at": "2026-10-03T23:04:39.621939+08:00",
+  "manuscript": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_main_controlled_results_20261003.docx",
+  "manuscript_sha256": "66b483b9bca38c3399ff6b9499ee0da11f5571f9e3224dfec21d11a1acf3400c",
+  "completed_snapshot": 58,
+  "total_planned_runs": 62,
+  "checks": [
+    {
+      "check": "dslr_base_adamw: three completed seeds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "dslr_base_adamw: AP",
+      "passed": true,
+      "detail": {
+        "mean": 72.46550234527592,
+        "SD": 0.2339967851436705,
+        "CI95_low": 71.88422210687219,
+        "CI95_high": 73.04678258367966
+      }
+    },
+    {
+      "check": "dslr_base_adamw: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 88.79463196075163,
+        "SD": 0.3204381960869647,
+        "CI95_low": 87.99861935356675,
+        "CI95_high": 89.59064456793651
+      }
+    },
+    {
+      "check": "dslr_base_adamw: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 83.28978036107625,
+        "SD": 0.12102670847321552,
+        "CI95_low": 82.98913335042893,
+        "CI95_high": 83.59042737172358
+      }
+    },
+    {
+      "check": "dslr_base_adamw: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 82.33601549244923,
+        "SD": 0.5393013782524473,
+        "CI95_low": 80.9963166007334,
+        "CI95_high": 83.67571438416508
+      }
+    },
+    {
+      "check": "dslr_base_adamw: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 90.13186829830802,
+        "SD": 0.24234522568149294,
+        "CI95_low": 89.52984938392999,
+        "CI95_high": 90.73388721268606
+      }
+    },
+    {
+      "check": "dslr_base_adamw: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 94.9307075127644,
+        "SD": 0.2391480132860024,
+        "CI95_low": 94.33663091427047,
+        "CI95_high": 95.52478411125833
+      }
+    },
+    {
+      "check": "dslr_base_adamw: F1",
+      "passed": true,
+      "detail": {
+        "mean": 92.46893422904533,
+        "SD": 0.19884968934949318,
+        "CI95_low": 91.97496421676242,
+        "CI95_high": 92.96290424132825
+      }
+    },
+    {
+      "check": "dslr_base_adamw: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 97.46626790643016,
+        "SD": 0.18536607141452394,
+        "CI95_low": 97.00579305795034,
+        "CI95_high": 97.92674275490998
+      }
+    },
+    {
+      "check": "dslr_base_adamw: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 97.39849258448821,
+        "SD": 0.12807748301547228,
+        "CI95_low": 97.0803304789034,
+        "CI95_high": 97.71665469007301
+      }
+    },
+    {
+      "check": "dslr_base_adamw: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 23.684210526315788,
+        "SD": 1.0526315789473681,
+        "CI95_low": 21.069328724473333,
+        "CI95_high": 26.299092328158242
+      }
+    },
+    {
+      "check": "dslr_base_dualopt: three completed seeds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "dslr_base_dualopt: AP",
+      "passed": true,
+      "detail": {
+        "mean": 72.36434836713559,
+        "SD": 0.39880526863684823,
+        "CI95_low": 71.37366115967008,
+        "CI95_high": 73.3550355746011
+      }
+    },
+    {
+      "check": "dslr_base_dualopt: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 88.6976209058275,
+        "SD": 0.3296564622405338,
+        "CI95_low": 87.87870885605359,
+        "CI95_high": 89.51653295560142
+      }
+    },
+    {
+      "check": "dslr_base_dualopt: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 83.41189206887886,
+        "SD": 0.433256781073778,
+        "CI95_low": 82.33562256014193,
+        "CI95_high": 84.48816157761578
+      }
+    },
+    {
+      "check": "dslr_base_dualopt: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 82.3059239050936,
+        "SD": 1.6221645269150722,
+        "CI95_low": 78.27624382912023,
+        "CI95_high": 86.33560398106695
+      }
+    },
+    {
+      "check": "dslr_base_dualopt: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 89.24230945501859,
+        "SD": 0.4203428033547448,
+        "CI95_low": 88.19812004534221,
+        "CI95_high": 90.28649886469496
+      }
+    },
+    {
+      "check": "dslr_base_dualopt: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 94.68757597860443,
+        "SD": 0.20085961149840273,
+        "CI95_low": 94.18861304291373,
+        "CI95_high": 95.18653891429513
+      }
+    },
+    {
+      "check": "dslr_base_dualopt: F1",
+      "passed": true,
+      "detail": {
+        "mean": 91.88420433458096,
+        "SD": 0.31034895825163034,
+        "CI95_low": 91.11325478358566,
+        "CI95_high": 92.65515388557625
+      }
+    },
+    {
+      "check": "dslr_base_dualopt: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 97.28947763764596,
+        "SD": 0.1529553766650318,
+        "CI95_low": 96.90951541825737,
+        "CI95_high": 97.66943985703455
+      }
+    },
+    {
+      "check": "dslr_base_dualopt: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 97.32555312424022,
+        "SD": 0.05570843295594268,
+        "CI95_low": 97.18716570507185,
+        "CI95_high": 97.46394054340858
+      }
+    },
+    {
+      "check": "dslr_base_dualopt: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 26.666666666666668,
+        "SD": 2.9927582647775406,
+        "CI95_low": 19.232242998980297,
+        "CI95_high": 34.10109033435304
+      }
+    },
+    {
+      "check": "dslr_cmfa_adamw: three completed seeds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "dslr_cmfa_adamw: AP",
+      "passed": true,
+      "detail": {
+        "mean": 72.96391332277862,
+        "SD": 0.09779245440182671,
+        "CI95_low": 72.72098339887442,
+        "CI95_high": 73.20684324668282
+      }
+    },
+    {
+      "check": "dslr_cmfa_adamw: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 88.98156731988422,
+        "SD": 0.44119653270347514,
+        "CI95_low": 87.88557437470203,
+        "CI95_high": 90.07756026506641
+      }
+    },
+    {
+      "check": "dslr_cmfa_adamw: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 83.96563186106248,
+        "SD": 0.3863955757683847,
+        "CI95_low": 83.00577203964275,
+        "CI95_high": 84.9254916824822
+      }
+    },
+    {
+      "check": "dslr_cmfa_adamw: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 82.77201938686925,
+        "SD": 0.6189110803958063,
+        "CI95_low": 81.23455903183788,
+        "CI95_high": 84.30947974190062
+      }
+    },
+    {
+      "check": "dslr_cmfa_adamw: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 89.8521943988025,
+        "SD": 0.27576488294605633,
+        "CI95_low": 89.16715645349979,
+        "CI95_high": 90.5372323441052
+      }
+    },
+    {
+      "check": "dslr_cmfa_adamw: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 94.93070751276441,
+        "SD": 0.13149348196440333,
+        "CI95_low": 94.60405959536727,
+        "CI95_high": 95.25735543016155
+      }
+    },
+    {
+      "check": "dslr_cmfa_adamw: F1",
+      "passed": true,
+      "detail": {
+        "mean": 92.32145806778,
+        "SD": 0.1443969430706354,
+        "CI95_low": 91.96275617603676,
+        "CI95_high": 92.68015995952324
+      }
+    },
+    {
+      "check": "dslr_cmfa_adamw: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 97.43001743610814,
+        "SD": 0.14582786114184845,
+        "CI95_low": 97.06776094682179,
+        "CI95_high": 97.7922739253945
+      }
+    },
+    {
+      "check": "dslr_cmfa_adamw: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 97.4349623146122,
+        "SD": 0.23446756044232836,
+        "CI95_low": 96.85251260553532,
+        "CI95_high": 98.01741202368909
+      }
+    },
+    {
+      "check": "dslr_cmfa_adamw: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 27.19298245614035,
+        "SD": 2.487271382238215,
+        "CI95_low": 21.014257816165028,
+        "CI95_high": 33.37170709611567
+      }
+    },
+    {
+      "check": "dslr_cmfa_dualopt: three completed seeds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "dslr_cmfa_dualopt: AP",
+      "passed": true,
+      "detail": {
+        "mean": 72.8778416372863,
+        "SD": 0.4035187238179733,
+        "CI95_low": 71.8754455580527,
+        "CI95_high": 73.88023771651989
+      }
+    },
+    {
+      "check": "dslr_cmfa_dualopt: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 88.79550590604379,
+        "SD": 0.3974870728349447,
+        "CI95_low": 87.80809327848125,
+        "CI95_high": 89.78291853360632
+      }
+    },
+    {
+      "check": "dslr_cmfa_dualopt: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 83.59124367869326,
+        "SD": 0.06424207035759698,
+        "CI95_low": 83.43165752903704,
+        "CI95_high": 83.75082982834948
+      }
+    },
+    {
+      "check": "dslr_cmfa_dualopt: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 82.32134190389897,
+        "SD": 1.6088073762169883,
+        "CI95_low": 78.32484282969625,
+        "CI95_high": 86.31784097810169
+      }
+    },
+    {
+      "check": "dslr_cmfa_dualopt: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 89.77739188626524,
+        "SD": 0.035567237639794254,
+        "CI95_low": 89.68903796994144,
+        "CI95_high": 89.86574580258903
+      }
+    },
+    {
+      "check": "dslr_cmfa_dualopt: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 95.1252127400924,
+        "SD": 0.28327693162486584,
+        "CI95_low": 94.42151383137414,
+        "CI95_high": 95.82891164881065
+      }
+    },
+    {
+      "check": "dslr_cmfa_dualopt: F1",
+      "passed": true,
+      "detail": {
+        "mean": 92.37384744679468,
+        "SD": 0.14459264600570698,
+        "CI95_low": 92.01465940201014,
+        "CI95_high": 92.73303549157923
+      }
+    },
+    {
+      "check": "dslr_cmfa_dualopt: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 97.54425330341562,
+        "SD": 0.2904806830648494,
+        "CI95_low": 96.82265928407922,
+        "CI95_high": 98.26584732275201
+      }
+    },
+    {
+      "check": "dslr_cmfa_dualopt: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 97.5200583515682,
+        "SD": 0.0,
+        "CI95_low": 97.5200583515682,
+        "CI95_high": 97.5200583515682
+      }
+    },
+    {
+      "check": "dslr_cmfa_dualopt: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 25.964912280701753,
+        "SD": 1.691868554560166,
+        "CI95_low": 21.762077800994323,
+        "CI95_high": 30.167746760409184
+      }
+    },
+    {
+      "check": "mobile_1024_base: three completed seeds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "mobile_1024_base: AP",
+      "passed": true,
+      "detail": {
+        "mean": 54.7302829048845,
+        "SD": 0.14850130205301934,
+        "CI95_low": 54.361385220210565,
+        "CI95_high": 55.09918058955843
+      }
+    },
+    {
+      "check": "mobile_1024_base: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 83.55604174975653,
+        "SD": 0.5915788084134626,
+        "CI95_low": 82.08647852230432,
+        "CI95_high": 85.02560497720874
+      }
+    },
+    {
+      "check": "mobile_1024_base: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 61.98763762654971,
+        "SD": 1.7475213303242871,
+        "CI95_low": 57.646553987803046,
+        "CI95_high": 66.32872126529638
+      }
+    },
+    {
+      "check": "mobile_1024_base: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 68.10915737760457,
+        "SD": 0.8580713386732568,
+        "CI95_low": 65.97759000583424,
+        "CI95_high": 70.2407247493749
+      }
+    },
+    {
+      "check": "mobile_1024_base: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 73.90869644643816,
+        "SD": 1.0163575863995862,
+        "CI95_low": 71.3839242374394,
+        "CI95_high": 76.43346865543691
+      }
+    },
+    {
+      "check": "mobile_1024_base: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 87.40680493425512,
+        "SD": 0.6624260118135148,
+        "CI95_low": 85.7612474970648,
+        "CI95_high": 89.05236237144544
+      }
+    },
+    {
+      "check": "mobile_1024_base: F1",
+      "passed": true,
+      "detail": {
+        "mean": 80.09149767403194,
+        "SD": 0.8037936015403522,
+        "CI95_low": 78.09476367598194,
+        "CI95_high": 82.08823167208195
+      }
+    },
+    {
+      "check": "mobile_1024_base: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 91.6427079224318,
+        "SD": 0.6332333718417256,
+        "CI95_low": 90.06966902310094,
+        "CI95_high": 93.21574682176265
+      }
+    },
+    {
+      "check": "mobile_1024_base: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 95.37752473905381,
+        "SD": 0.08465498167817083,
+        "CI95_low": 95.16723010657954,
+        "CI95_high": 95.58781937152808
+      }
+    },
+    {
+      "check": "mobile_1024_base: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 36.36363636363636,
+        "SD": 3.2777738867854462,
+        "CI95_low": 28.221194640882175,
+        "CI95_high": 44.506078086390545
+      }
+    },
+    {
+      "check": "mobile_1024_features: three completed seeds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "mobile_1024_features: AP",
+      "passed": true,
+      "detail": {
+        "mean": 54.404746474992095,
+        "SD": 0.6567158943062515,
+        "CI95_low": 52.773373756040094,
+        "CI95_high": 56.036119193944096
+      }
+    },
+    {
+      "check": "mobile_1024_features: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 82.56052402156224,
+        "SD": 1.1671719288682414,
+        "CI95_low": 79.66110821696427,
+        "CI95_high": 85.45993982616022
+      }
+    },
+    {
+      "check": "mobile_1024_features: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 61.03519145392514,
+        "SD": 1.7883046755379284,
+        "CI95_low": 56.59279636932193,
+        "CI95_high": 65.47758653852834
+      }
+    },
+    {
+      "check": "mobile_1024_features: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 67.4791573450458,
+        "SD": 0.5721557518262823,
+        "CI95_low": 66.05784366493927,
+        "CI95_high": 68.90047102515234
+      }
+    },
+    {
+      "check": "mobile_1024_features: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 74.32297144618897,
+        "SD": 0.8437677206370856,
+        "CI95_low": 72.22693623139676,
+        "CI95_high": 76.41900666098118
+      }
+    },
+    {
+      "check": "mobile_1024_features: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 87.13569201572454,
+        "SD": 0.8217673615956418,
+        "CI95_low": 85.09430872249924,
+        "CI95_high": 89.17707530894985
+      }
+    },
+    {
+      "check": "mobile_1024_features: F1",
+      "passed": true,
+      "detail": {
+        "mean": 80.2202764340959,
+        "SD": 0.7931671043055327,
+        "CI95_low": 78.2499401185707,
+        "CI95_high": 82.19061274962108
+      }
+    },
+    {
+      "check": "mobile_1024_features: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 91.67079026763678,
+        "SD": 0.707101307948046,
+        "CI95_low": 89.91425324253505,
+        "CI95_high": 93.4273272927385
+      }
+    },
+    {
+      "check": "mobile_1024_features: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 95.05218923681714,
+        "SD": 0.2856351837563476,
+        "CI95_low": 94.34263210504527,
+        "CI95_high": 95.76174636858902
+      }
+    },
+    {
+      "check": "mobile_1024_features: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 38.18181818181818,
+        "SD": 2.0829889522526557,
+        "CI95_low": 33.00738677236805,
+        "CI95_high": 43.35624959126831
+      }
+    },
+    {
+      "check": "mobile_1024_full: three completed seeds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "mobile_1024_full: AP",
+      "passed": true,
+      "detail": {
+        "mean": 55.02630840648379,
+        "SD": 0.39585304735987725,
+        "CI95_low": 54.042954923225835,
+        "CI95_high": 56.00966188974175
+      }
+    },
+    {
+      "check": "mobile_1024_full: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 83.40810540324219,
+        "SD": 0.637356350617746,
+        "CI95_low": 81.82482445684909,
+        "CI95_high": 84.99138634963529
+      }
+    },
+    {
+      "check": "mobile_1024_full: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 62.67150629901209,
+        "SD": 0.7383201242807544,
+        "CI95_low": 60.837417434942076,
+        "CI95_high": 64.5055951630821
+      }
+    },
+    {
+      "check": "mobile_1024_full: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 69.10186615352539,
+        "SD": 0.24357335584535278,
+        "CI95_low": 68.49679639469237,
+        "CI95_high": 69.70693591235842
+      }
+    },
+    {
+      "check": "mobile_1024_full: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 74.71416353926406,
+        "SD": 0.9214945870273489,
+        "CI95_low": 72.42504408445564,
+        "CI95_high": 77.00328299407249
+      }
+    },
+    {
+      "check": "mobile_1024_full: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 87.27124847498983,
+        "SD": 0.4880032533550178,
+        "CI95_low": 86.05898118987378,
+        "CI95_high": 88.48351576010589
+      }
+    },
+    {
+      "check": "mobile_1024_full: F1",
+      "passed": true,
+      "detail": {
+        "mean": 80.5021913811083,
+        "SD": 0.40290392690649585,
+        "CI95_low": 79.50132254206758,
+        "CI95_high": 81.50306022014902
+      }
+    },
+    {
+      "check": "mobile_1024_full: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 91.56546852099753,
+        "SD": 0.26424910736793755,
+        "CI95_low": 90.90903734808848,
+        "CI95_high": 92.22189969390658
+      }
+    },
+    {
+      "check": "mobile_1024_full: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 95.30974650942117,
+        "SD": 0.27077381531025757,
+        "CI95_low": 94.63710706345445,
+        "CI95_high": 95.9823859553879
+      }
+    },
+    {
+      "check": "mobile_1024_full: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 35.75757575757576,
+        "SD": 5.068402631417494,
+        "CI95_low": 23.166965642536947,
+        "CI95_high": 48.348185872614565
+      }
+    },
+    {
+      "check": "mobile_1024_identity: three completed seeds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "mobile_1024_identity: AP",
+      "passed": true,
+      "detail": {
+        "mean": 54.35081846872457,
+        "SD": 0.24543016651694274,
+        "CI95_low": 53.741136136478666,
+        "CI95_high": 54.96050080097047
+      }
+    },
+    {
+      "check": "mobile_1024_identity: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 83.5966617648539,
+        "SD": 0.33265548348545554,
+        "CI95_low": 82.77029973330714,
+        "CI95_high": 84.42302379640067
+      }
+    },
+    {
+      "check": "mobile_1024_identity: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 61.465938336463815,
+        "SD": 1.5452141506035968,
+        "CI95_low": 57.62741359221916,
+        "CI95_high": 65.30446308070846
+      }
+    },
+    {
+      "check": "mobile_1024_identity: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 69.67918094951268,
+        "SD": 0.16151599990807838,
+        "CI95_low": 69.27795296308996,
+        "CI95_high": 70.08040893593541
+      }
+    },
+    {
+      "check": "mobile_1024_identity: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 73.21825634950814,
+        "SD": 0.8117704951319675,
+        "CI95_low": 71.20170664926458,
+        "CI95_high": 75.2348060497517
+      }
+    },
+    {
+      "check": "mobile_1024_identity: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 87.29835976684289,
+        "SD": 0.6225274503567931,
+        "CI95_low": 85.7519158508118,
+        "CI95_high": 88.84480368287399
+      }
+    },
+    {
+      "check": "mobile_1024_identity: F1",
+      "passed": true,
+      "detail": {
+        "mean": 79.64000763971484,
+        "SD": 0.6916507904329755,
+        "CI95_low": 77.92185182783835,
+        "CI95_high": 81.35816345159132
+      }
+    },
+    {
+      "check": "mobile_1024_identity: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 91.63307166059997,
+        "SD": 0.48005375314827886,
+        "CI95_low": 90.44055202873705,
+        "CI95_high": 92.82559129246289
+      }
+    },
+    {
+      "check": "mobile_1024_identity: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 95.26907957164158,
+        "SD": 0.31059886776167983,
+        "CI95_low": 94.49750921100784,
+        "CI95_high": 96.04064993227533
+      }
+    },
+    {
+      "check": "mobile_1024_identity: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 42.42424242424242,
+        "SD": 1.720881316909173,
+        "CI95_low": 38.149336247461775,
+        "CI95_high": 46.69914860102307
+      }
+    },
+    {
+      "check": "mobile_640_base: three completed seeds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "mobile_640_base: AP",
+      "passed": true,
+      "detail": {
+        "mean": 53.48294076678465,
+        "SD": 0.3085426966173741,
+        "CI95_low": 52.71647821843229,
+        "CI95_high": 54.24940331513701
+      }
+    },
+    {
+      "check": "mobile_640_base: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 83.93447597054404,
+        "SD": 0.2857014685996063,
+        "CI95_low": 83.2247541780933,
+        "CI95_high": 84.64419776299478
+      }
+    },
+    {
+      "check": "mobile_640_base: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 59.43972487395781,
+        "SD": 1.246463001638421,
+        "CI95_low": 56.34333912528629,
+        "CI95_high": 62.53611062262932
+      }
+    },
+    {
+      "check": "mobile_640_base: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 66.38923643431232,
+        "SD": 0.6100915120737171,
+        "CI95_low": 64.87368510155122,
+        "CI95_high": 67.90478776707343
+      }
+    },
+    {
+      "check": "mobile_640_base: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 72.19498992903544,
+        "SD": 0.28467538620007754,
+        "CI95_low": 71.48781706656874,
+        "CI95_high": 72.90216279150215
+      }
+    },
+    {
+      "check": "mobile_640_base: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 86.93235732682662,
+        "SD": 0.1539625415697478,
+        "CI95_low": 86.54989317111628,
+        "CI95_high": 87.31482148253696
+      }
+    },
+    {
+      "check": "mobile_640_base: F1",
+      "passed": true,
+      "detail": {
+        "mean": 78.88090007185349,
+        "SD": 0.14906913243411687,
+        "CI95_low": 78.510591818316,
+        "CI95_high": 79.25120832539098
+      }
+    },
+    {
+      "check": "mobile_640_base: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 91.57699936346825,
+        "SD": 0.5031402951085003,
+        "CI95_low": 90.32712958208803,
+        "CI95_high": 92.82686914484846
+      }
+    },
+    {
+      "check": "mobile_640_base: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 94.93018842347838,
+        "SD": 0.5784624723695782,
+        "CI95_low": 93.49320798103278,
+        "CI95_high": 96.36716886592399
+      }
+    },
+    {
+      "check": "mobile_640_base: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 44.84848484848485,
+        "SD": 8.922685978385125,
+        "CI95_low": 22.683304119472464,
+        "CI95_high": 67.01366557749724
+      }
+    },
+    {
+      "check": "mobile_640_full: three completed seeds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "mobile_640_full: AP",
+      "passed": true,
+      "detail": {
+        "mean": 53.75212604022175,
+        "SD": 0.22784908632020467,
+        "CI95_low": 53.18611753230587,
+        "CI95_high": 54.31813454813762
+      }
+    },
+    {
+      "check": "mobile_640_full: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 83.27412316681018,
+        "SD": 0.3368725996783671,
+        "CI95_low": 82.43728523789378,
+        "CI95_high": 84.1109610957266
+      }
+    },
+    {
+      "check": "mobile_640_full: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 59.842016707961065,
+        "SD": 1.3666081845608413,
+        "CI95_low": 56.44717377950682,
+        "CI95_high": 63.23685963641531
+      }
+    },
+    {
+      "check": "mobile_640_full: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 66.9582903783635,
+        "SD": 0.292662895015868,
+        "CI95_low": 66.23127544402456,
+        "CI95_high": 67.68530531270244
+      }
+    },
+    {
+      "check": "mobile_640_full: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 75.55217517887782,
+        "SD": 0.42940494214789254,
+        "CI95_low": 74.48547416847627,
+        "CI95_high": 76.61887618927936
+      }
+    },
+    {
+      "check": "mobile_640_full: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 87.24413718313677,
+        "SD": 0.5551198381304914,
+        "CI95_low": 85.86514305869608,
+        "CI95_high": 88.62313130757747
+      }
+    },
+    {
+      "check": "mobile_640_full: F1",
+      "passed": true,
+      "detail": {
+        "mean": 80.97638148585835,
+        "SD": 0.05839732560158476,
+        "CI95_low": 80.8313144870661,
+        "CI95_high": 81.12144848465061
+      }
+    },
+    {
+      "check": "mobile_640_full: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 91.99482426435438,
+        "SD": 0.30830001568178944,
+        "CI95_low": 91.22896456886603,
+        "CI95_high": 92.76068395984272
+      }
+    },
+    {
+      "check": "mobile_640_full: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 94.83529890199267,
+        "SD": 0.2932534587607928,
+        "CI95_low": 94.10681692598376,
+        "CI95_high": 95.56378087800158
+      }
+    },
+    {
+      "check": "mobile_640_full: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 32.727272727272734,
+        "SD": 3.181818181818182,
+        "CI95_low": 24.823198189885318,
+        "CI95_high": 40.63134726466015
+      }
+    },
+    {
+      "check": "pano_base: three completed seeds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "pano_base: AP",
+      "passed": true,
+      "detail": {
+        "mean": 53.0218661254819,
+        "SD": 0.3917726585966052,
+        "CI95_low": 52.04864888982939,
+        "CI95_high": 53.99508336113441
+      }
+    },
+    {
+      "check": "pano_base: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 93.31948718961877,
+        "SD": 0.5269822201936779,
+        "CI95_low": 92.01039078301373,
+        "CI95_high": 94.6285835962238
+      }
+    },
+    {
+      "check": "pano_base: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 53.40556205356843,
+        "SD": 1.7422766707966515,
+        "CI95_low": 49.07750687133965,
+        "CI95_high": 57.73361723579721
+      }
+    },
+    {
+      "check": "pano_base: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 67.62831574396513,
+        "SD": 0.6607871814036497,
+        "CI95_low": 65.98682938719912,
+        "CI95_high": 69.26980210073114
+      }
+    },
+    {
+      "check": "pano_base: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 82.34733625718327,
+        "SD": 2.529309690505877,
+        "CI95_low": 76.06418267030206,
+        "CI95_high": 88.63048984406448
+      }
+    },
+    {
+      "check": "pano_base: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 91.33082572093856,
+        "SD": 0.21716560367154178,
+        "CI95_low": 90.79135645516305,
+        "CI95_high": 91.87029498671407
+      }
+    },
+    {
+      "check": "pano_base: F1",
+      "passed": true,
+      "detail": {
+        "mean": 86.59317548591851,
+        "SD": 1.4235158457824921,
+        "CI95_low": 83.05696609013606,
+        "CI95_high": 90.12938488170096
+      }
+    },
+    {
+      "check": "pano_base: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 92.59128510380775,
+        "SD": 0.23570370326929313,
+        "CI95_low": 92.00576464571729,
+        "CI95_high": 93.1768055618982
+      }
+    },
+    {
+      "check": "pano_base: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 98.63872469998209,
+        "SD": 0.06204731533473258,
+        "CI95_low": 98.48459062404622,
+        "CI95_high": 98.79285877591796
+      }
+    },
+    {
+      "check": "pano_base: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 76.5625,
+        "SD": 12.203515118604148,
+        "CI95_low": 46.24728787796012,
+        "CI95_high": 106.87771212203988
+      }
+    },
+    {
+      "check": "pano_factor: three completed seeds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "pano_factor: AP",
+      "passed": true,
+      "detail": {
+        "mean": 53.28230185068854,
+        "SD": 0.15753617118118654,
+        "CI95_low": 52.8909603068926,
+        "CI95_high": 53.67364339448448
+      }
+    },
+    {
+      "check": "pano_factor: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 93.40542215509097,
+        "SD": 0.34571705515471923,
+        "CI95_low": 92.54661338078587,
+        "CI95_high": 94.26423092939608
+      }
+    },
+    {
+      "check": "pano_factor: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 53.54231568483808,
+        "SD": 0.24926378680113576,
+        "CI95_low": 52.92311011187169,
+        "CI95_high": 54.16152125780447
+      }
+    },
+    {
+      "check": "pano_factor: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 66.77088206825616,
+        "SD": 0.9484303126381654,
+        "CI95_low": 64.41485056166454,
+        "CI95_high": 69.12691357484778
+      }
+    },
+    {
+      "check": "pano_factor: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 85.19725068948267,
+        "SD": 0.6733282619769209,
+        "CI95_low": 83.5246105615185,
+        "CI95_high": 86.86989081744684
+      }
+    },
+    {
+      "check": "pano_factor: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 91.29500268672757,
+        "SD": 0.47760313902823753,
+        "CI95_low": 90.10857071781719,
+        "CI95_high": 92.48143465563795
+      }
+    },
+    {
+      "check": "pano_factor: F1",
+      "passed": true,
+      "detail": {
+        "mean": 88.13825894441011,
+        "SD": 0.13607348866346625,
+        "CI95_low": 87.80023365965177,
+        "CI95_high": 88.47628422916846
+      }
+    },
+    {
+      "check": "pano_factor: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 92.60515325384104,
+        "SD": 0.4080194014625906,
+        "CI95_low": 91.59157687154202,
+        "CI95_high": 93.61872963614006
+      }
+    },
+    {
+      "check": "pano_factor: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 98.5849901486656,
+        "SD": 0.08208088294744875,
+        "CI95_low": 98.38108993192208,
+        "CI95_high": 98.78889036540912
+      }
+    },
+    {
+      "check": "pano_factor: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 57.8125,
+        "SD": 13.621559198564604,
+        "CI95_low": 23.97467110200605,
+        "CI95_high": 91.65032889799394
+      }
+    },
+    {
+      "check": "pano_factor_prototype: three completed seeds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "pano_factor_prototype: AP",
+      "passed": true,
+      "detail": {
+        "mean": 53.16598974553054,
+        "SD": 0.5262308751484603,
+        "CI95_low": 51.85875978348687,
+        "CI95_high": 54.47321970757421
+      }
+    },
+    {
+      "check": "pano_factor_prototype: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 93.78721310160637,
+        "SD": 0.39028491794507947,
+        "CI95_low": 92.81769161861162,
+        "CI95_high": 94.75673458460112
+      }
+    },
+    {
+      "check": "pano_factor_prototype: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 53.047175998693135,
+        "SD": 1.1455899569334513,
+        "CI95_low": 50.20137278447231,
+        "CI95_high": 55.89297921291396
+      }
+    },
+    {
+      "check": "pano_factor_prototype: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 67.34747459284554,
+        "SD": 1.3430467366556027,
+        "CI95_low": 64.01116154567615,
+        "CI95_high": 70.68378764001494
+      }
+    },
+    {
+      "check": "pano_factor_prototype: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 83.97823003653478,
+        "SD": 0.2586173732259515,
+        "CI95_low": 83.33578886679038,
+        "CI95_high": 84.62067120627918
+      }
+    },
+    {
+      "check": "pano_factor_prototype: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 91.81443668278703,
+        "SD": 0.11185738847212161,
+        "CI95_low": 91.53656752574553,
+        "CI95_high": 92.09230583982854
+      }
+    },
+    {
+      "check": "pano_factor_prototype: F1",
+      "passed": true,
+      "detail": {
+        "mean": 87.72152920516893,
+        "SD": 0.15485060017218877,
+        "CI95_low": 87.33685898959403,
+        "CI95_high": 88.10619942074383
+      }
+    },
+    {
+      "check": "pano_factor_prototype: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 93.04777699100285,
+        "SD": 0.10963782951945013,
+        "CI95_low": 92.77542152405913,
+        "CI95_high": 93.32013245794657
+      }
+    },
+    {
+      "check": "pano_factor_prototype: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 98.67454773419308,
+        "SD": 0.11185738847212387,
+        "CI95_low": 98.39667857715158,
+        "CI95_high": 98.95241689123459
+      }
+    },
+    {
+      "check": "pano_factor_prototype: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 75.0,
+        "SD": 4.133986423538423,
+        "CI95_low": 64.73060842542432,
+        "CI95_high": 85.26939157457568
+      }
+    },
+    {
+      "check": "pano_prototype: three completed seeds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "pano_prototype: AP",
+      "passed": true,
+      "detail": {
+        "mean": 53.036407508735614,
+        "SD": 0.20981924919115638,
+        "CI95_low": 52.51518759916872,
+        "CI95_high": 53.55762741830251
+      }
+    },
+    {
+      "check": "pano_prototype: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 93.37817387745794,
+        "SD": 0.3619555504189087,
+        "CI95_low": 92.47902644468498,
+        "CI95_high": 94.2773213102309
+      }
+    },
+    {
+      "check": "pano_prototype: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 54.11081232244621,
+        "SD": 0.3748872626529098,
+        "CI95_low": 53.179540735635264,
+        "CI95_high": 55.04208390925715
+      }
+    },
+    {
+      "check": "pano_prototype: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 67.61285534894843,
+        "SD": 0.5870209159678229,
+        "CI95_low": 66.15461455400654,
+        "CI95_high": 69.07109614389032
+      }
+    },
+    {
+      "check": "pano_prototype: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 81.92509708078833,
+        "SD": 1.8490502737015835,
+        "CI95_low": 77.33180156496395,
+        "CI95_high": 86.51839259661271
+      }
+    },
+    {
+      "check": "pano_prototype: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 91.31291420383306,
+        "SD": 0.16416176589489284,
+        "CI95_low": 90.90511377034603,
+        "CI95_high": 91.72071463732009
+      }
+    },
+    {
+      "check": "pano_prototype: F1",
+      "passed": true,
+      "detail": {
+        "mean": 86.35652845422935,
+        "SD": 0.9902699125478487,
+        "CI95_low": 83.89656161965753,
+        "CI95_high": 88.81649528880116
+      }
+    },
+    {
+      "check": "pano_prototype: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 92.82599680598891,
+        "SD": 0.04746220485442735,
+        "CI95_low": 92.7080941530272,
+        "CI95_high": 92.94389945895061
+      }
+    },
+    {
+      "check": "pano_prototype: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 98.3700519433996,
+        "SD": 0.22371477694423184,
+        "CI95_low": 97.81431362931663,
+        "CI95_high": 98.92579025748257
+      }
+    },
+    {
+      "check": "pano_prototype: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 83.33333333333333,
+        "SD": 5.022734771350497,
+        "CI95_low": 70.85616847170188,
+        "CI95_high": 95.81049819496478
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 1024: AP",
+      "passed": true,
+      "detail": {
+        "mean": 0.29602550159929325,
+        "SD": 0.25090294089015347,
+        "CI95_low": -0.3272519558550013,
+        "CI95_high": 0.9193029590535877
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 1024: AP50",
+      "passed": true,
+      "detail": {
+        "mean": -0.14793634651434692,
+        "SD": 0.7580437162155411,
+        "CI95_low": -2.0310213291207386,
+        "CI95_high": 1.735148636092045
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 1024: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 0.6838686724623718,
+        "SD": 2.0233806246090524,
+        "CI95_low": -4.3424874423539155,
+        "CI95_high": 5.7102247872786585
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 1024: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 0.9927087759208177,
+        "SD": 1.082308994676503,
+        "CI95_low": -1.6958958135216715,
+        "CI95_high": 3.681313365363307
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 1024: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 0.8054670928259119,
+        "SD": 1.936525630546912,
+        "CI95_low": -4.005129255786762,
+        "CI95_high": 5.616063441438585
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 1024: Recall",
+      "passed": true,
+      "detail": {
+        "mean": -0.1355564592652835,
+        "SD": 0.8696768297327072,
+        "CI95_low": -2.295953469039773,
+        "CI95_high": 2.0248405505092064
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 1024: F1",
+      "passed": true,
+      "detail": {
+        "mean": 0.4106937070763668,
+        "SD": 1.2066856969703026,
+        "CI95_low": -2.5868797389972937,
+        "CI95_high": 3.4082671531500277
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 1024: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": -0.07723940143426944,
+        "SD": 0.6424932938751421,
+        "CI95_low": -1.673281222296198,
+        "CI95_high": 1.518802419427659
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 1024: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": -0.06777822963263702,
+        "SD": 0.34586826141176447,
+        "CI95_low": -0.926962621103123,
+        "CI95_high": 0.791406161837849
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 1024: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": -0.6060606060606043,
+        "SD": 8.13539015676291,
+        "CI95_low": -20.815490094277784,
+        "CI95_high": 19.603368882156573
+      }
+    },
+    {
+      "check": "Mobile: features minus base, 1024: AP",
+      "passed": true,
+      "detail": {
+        "mean": -0.32553642989240217,
+        "SD": 0.793490996953327,
+        "CI95_low": -2.2966773393585287,
+        "CI95_high": 1.6456044795737246
+      }
+    },
+    {
+      "check": "Mobile: features minus base, 1024: AP50",
+      "passed": true,
+      "detail": {
+        "mean": -0.9955177281942914,
+        "SD": 1.5175895255986285,
+        "CI95_low": -4.7654190996911385,
+        "CI95_high": 2.774383643302556
+      }
+    },
+    {
+      "check": "Mobile: features minus base, 1024: AP75",
+      "passed": true,
+      "detail": {
+        "mean": -0.9524461726245784,
+        "SD": 3.321705056405193,
+        "CI95_low": -9.204018970552479,
+        "CI95_high": 7.299126625303322
+      }
+    },
+    {
+      "check": "Mobile: features minus base, 1024: AR100",
+      "passed": true,
+      "detail": {
+        "mean": -0.6300000325587595,
+        "SD": 1.1424114988799299,
+        "CI95_low": -3.4679075192636146,
+        "CI95_high": 2.2079074541460955
+      }
+    },
+    {
+      "check": "Mobile: features minus base, 1024: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 0.4142749997508209,
+        "SD": 1.6088019023840057,
+        "CI95_low": -3.5822104766969627,
+        "CI95_high": 4.410760476198605
+      }
+    },
+    {
+      "check": "Mobile: features minus base, 1024: Recall",
+      "passed": true,
+      "detail": {
+        "mean": -0.271112918530567,
+        "SD": 1.4379850667062883,
+        "CI95_low": -3.8432658516694733,
+        "CI95_high": 3.301040014608339
+      }
+    },
+    {
+      "check": "Mobile: features minus base, 1024: F1",
+      "passed": true,
+      "detail": {
+        "mean": 0.1287787600639471,
+        "SD": 1.5459537114632442,
+        "CI95_low": -3.7115831552022884,
+        "CI95_high": 3.9691406753301823
+      }
+    },
+    {
+      "check": "Mobile: features minus base, 1024: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 0.02808234520497403,
+        "SD": 1.2567911607680153,
+        "CI95_low": -3.0939599730533263,
+        "CI95_high": 3.150124663463274
+      }
+    },
+    {
+      "check": "Mobile: features minus base, 1024: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": -0.32533550223667856,
+        "SD": 0.366002440016274,
+        "CI95_low": -1.2345359660737434,
+        "CI95_high": 0.5838649616003861
+      }
+    },
+    {
+      "check": "Mobile: features minus base, 1024: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 1.8181818181818177,
+        "SD": 2.98065387468273,
+        "CI95_low": -5.586172877592298,
+        "CI95_high": 9.222536513955934
+      }
+    },
+    {
+      "check": "Mobile: identity minus base, 1024: AP",
+      "passed": true,
+      "detail": {
+        "mean": -0.3794644361599282,
+        "SD": 0.26723329002920265,
+        "CI95_low": -1.0433087297565842,
+        "CI95_high": 0.2843798574367279
+      }
+    },
+    {
+      "check": "Mobile: identity minus base, 1024: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 0.04062001509736982,
+        "SD": 0.6089122621105364,
+        "CI95_low": -1.4720018983586158,
+        "CI95_high": 1.5532419285533556
+      }
+    },
+    {
+      "check": "Mobile: identity minus base, 1024: AP75",
+      "passed": true,
+      "detail": {
+        "mean": -0.5216992900859007,
+        "SD": 1.8780719203343714,
+        "CI95_low": -5.187088572767876,
+        "CI95_high": 4.143689992596074
+      }
+    },
+    {
+      "check": "Mobile: identity minus base, 1024: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 1.570023571908114,
+        "SD": 1.0172393369097275,
+        "CI95_low": -0.9569390267852402,
+        "CI95_high": 4.096986170601468
+      }
+    },
+    {
+      "check": "Mobile: identity minus base, 1024: Precision",
+      "passed": true,
+      "detail": {
+        "mean": -0.690440096930009,
+        "SD": 0.8996215909640323,
+        "CI95_low": -2.9252240173485924,
+        "CI95_high": 1.5443438234885742
+      }
+    },
+    {
+      "check": "Mobile: identity minus base, 1024: Recall",
+      "passed": true,
+      "detail": {
+        "mean": -0.10844516741222776,
+        "SD": 0.6929308889322059,
+        "CI95_low": -1.8297809202454005,
+        "CI95_high": 1.612890585420945
+      }
+    },
+    {
+      "check": "Mobile: identity minus base, 1024: F1",
+      "passed": true,
+      "detail": {
+        "mean": -0.45149003431710355,
+        "SD": 0.7360565211511495,
+        "CI95_low": -2.279955796488429,
+        "CI95_high": 1.376975727854222
+      }
+    },
+    {
+      "check": "Mobile: identity minus base, 1024: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": -0.009636261831829529,
+        "SD": 0.369785492545693,
+        "CI95_low": -0.9282343491227564,
+        "CI95_high": 0.9089618254590973
+      }
+    },
+    {
+      "check": "Mobile: identity minus base, 1024: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": -0.10844516741222776,
+        "SD": 0.3843689000612138,
+        "CI95_low": -1.063270447278283,
+        "CI95_high": 0.8463801124538276
+      }
+    },
+    {
+      "check": "Mobile: identity minus base, 1024: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 6.06060606060606,
+        "SD": 2.1480980119330058,
+        "CI95_low": 0.7244347806273677,
+        "CI95_high": 11.396777340584752
+      }
+    },
+    {
+      "check": "Mobile: full minus features, 1024: AP",
+      "passed": true,
+      "detail": {
+        "mean": 0.6215619314916955,
+        "SD": 1.043694138444185,
+        "CI95_low": -1.971118037350275,
+        "CI95_high": 3.214241900333666
+      }
+    },
+    {
+      "check": "Mobile: full minus features, 1024: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 0.8475813816799445,
+        "SD": 1.796378502632264,
+        "CI95_low": -3.614870201286454,
+        "CI95_high": 5.310032964646343
+      }
+    },
+    {
+      "check": "Mobile: full minus features, 1024: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 1.6363148450869502,
+        "SD": 1.2987108123737843,
+        "CI95_low": -1.5898616605886757,
+        "CI95_high": 4.862491350762577
+      }
+    },
+    {
+      "check": "Mobile: full minus features, 1024: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 1.622708808479577,
+        "SD": 0.45469021193966414,
+        "CI95_low": 0.49319570583650685,
+        "CI95_high": 2.752221911122647
+      }
+    },
+    {
+      "check": "Mobile: full minus features, 1024: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 0.39119209307509095,
+        "SD": 0.9480663664803846,
+        "CI95_low": -1.9639353211409425,
+        "CI95_high": 2.7463195072911244
+      }
+    },
+    {
+      "check": "Mobile: full minus features, 1024: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 0.1355564592652835,
+        "SD": 1.1005147618161684,
+        "CI95_low": -2.598273762900194,
+        "CI95_high": 2.8693866814307607
+      }
+    },
+    {
+      "check": "Mobile: full minus features, 1024: F1",
+      "passed": true,
+      "detail": {
+        "mean": 0.28191494701241976,
+        "SD": 0.47934632059078386,
+        "CI95_low": -0.9088473249559106,
+        "CI95_high": 1.4726772189807502
+      }
+    },
+    {
+      "check": "Mobile: full minus features, 1024: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": -0.10532174663924347,
+        "SD": 0.9268694847566733,
+        "CI95_low": -2.407793187593894,
+        "CI95_high": 2.1971496943154074
+      }
+    },
+    {
+      "check": "Mobile: full minus features, 1024: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 0.25755727260404154,
+        "SD": 0.24512866097364028,
+        "CI95_low": -0.35137607835143997,
+        "CI95_high": 0.8664906235595231
+      }
+    },
+    {
+      "check": "Mobile: full minus features, 1024: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": -2.424242424242422,
+        "SD": 5.498559791401228,
+        "CI95_low": -16.083422162376248,
+        "CI95_high": 11.234937313891404
+      }
+    },
+    {
+      "check": "Mobile: full minus identity, 1024: AP",
+      "passed": true,
+      "detail": {
+        "mean": 0.6754899377592215,
+        "SD": 0.4707346705150927,
+        "CI95_low": -0.493879809495687,
+        "CI95_high": 1.84485968501413
+      }
+    },
+    {
+      "check": "Mobile: full minus identity, 1024: AP50",
+      "passed": true,
+      "detail": {
+        "mean": -0.18855636161171674,
+        "SD": 0.3047581529056045,
+        "CI95_low": -0.9456175822079026,
+        "CI95_high": 0.5685048589844691
+      }
+    },
+    {
+      "check": "Mobile: full minus identity, 1024: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 1.2055679625482725,
+        "SD": 0.9970308359105085,
+        "CI95_low": -1.2711939367149778,
+        "CI95_high": 3.6823298618115228
+      }
+    },
+    {
+      "check": "Mobile: full minus identity, 1024: AR100",
+      "passed": true,
+      "detail": {
+        "mean": -0.5773147959872963,
+        "SD": 0.14925360330392098,
+        "CI95_low": -0.9480813005691903,
+        "CI95_high": -0.20654829140540232
+      }
+    },
+    {
+      "check": "Mobile: full minus identity, 1024: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 1.4959071897559209,
+        "SD": 1.5491148798701853,
+        "CI95_low": -2.35230750316319,
+        "CI95_high": 5.344121882675032
+      }
+    },
+    {
+      "check": "Mobile: full minus identity, 1024: Recall",
+      "passed": true,
+      "detail": {
+        "mean": -0.027111291853055757,
+        "SD": 0.33121300590675506,
+        "CI95_low": -0.8498900104482112,
+        "CI95_high": 0.7956674267420998
+      }
+    },
+    {
+      "check": "Mobile: full minus identity, 1024: F1",
+      "passed": true,
+      "detail": {
+        "mean": 0.8621837413934704,
+        "SD": 0.9634912420205971,
+        "CI95_low": -1.5312611878510598,
+        "CI95_high": 3.255628670638001
+      }
+    },
+    {
+      "check": "Mobile: full minus identity, 1024: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": -0.06760313960243991,
+        "SD": 0.3453149152028541,
+        "CI95_low": -0.9254129428877176,
+        "CI95_high": 0.7902066636828378
+      }
+    },
+    {
+      "check": "Mobile: full minus identity, 1024: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 0.04066693777959074,
+        "SD": 0.04066693777959074,
+        "CI95_low": -0.06035533598009489,
+        "CI95_high": 0.14168921153927638
+      }
+    },
+    {
+      "check": "Mobile: full minus identity, 1024: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": -6.666666666666664,
+        "SD": 6.053025562253993,
+        "CI95_low": -21.70321573605056,
+        "CI95_high": 8.369882402717229
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 640: AP",
+      "passed": true,
+      "detail": {
+        "mean": 0.2691852734370978,
+        "SD": 0.23374933985555618,
+        "CI95_low": -0.311480276794834,
+        "CI95_high": 0.8498508236690296
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 640: AP50",
+      "passed": true,
+      "detail": {
+        "mean": -0.6603528037338625,
+        "SD": 0.4622466869563771,
+        "CI95_low": -1.808637230933849,
+        "CI95_high": 0.48793162346612384
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 640: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 0.4022918340032528,
+        "SD": 2.28298683232911,
+        "CI95_low": -5.268961851614919,
+        "CI95_high": 6.073545519621425
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 640: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 0.5690539440511723,
+        "SD": 0.7670588709359021,
+        "CI95_low": -1.3364259243733323,
+        "CI95_high": 2.4745338124756766
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 640: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 3.3571852498423644,
+        "SD": 0.23932376406527406,
+        "CI95_low": 2.7626720622097785,
+        "CI95_high": 3.9516984374749504
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 640: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 0.31177985631015775,
+        "SD": 0.6158501662789975,
+        "CI95_low": -1.218076766531212,
+        "CI95_high": 1.8416364791515274
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 640: F1",
+      "passed": true,
+      "detail": {
+        "mean": 2.0954814140048703,
+        "SD": 0.13466902999808117,
+        "CI95_low": 1.7609449979818002,
+        "CI95_high": 2.4300178300279405
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 640: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 0.4178249008861267,
+        "SD": 0.21456342655871563,
+        "CI95_low": -0.11518019859075129,
+        "CI95_high": 0.9508300003630048
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 640: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": -0.09488952148570225,
+        "SD": 0.8572271521627943,
+        "CI95_low": -2.2243598177096393,
+        "CI95_high": 2.0345807747382345
+      }
+    },
+    {
+      "check": "Mobile: full minus base, 640: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": -12.12121212121212,
+        "SD": 7.390150544398301,
+        "CI95_low": -30.479363784064176,
+        "CI95_high": 6.23693954163994
+      }
+    },
+    {
+      "check": "Mobile: base 1024 minus base 640: AP",
+      "passed": true,
+      "detail": {
+        "mean": 1.247342138099846,
+        "SD": 0.45050127208474494,
+        "CI95_low": 0.1282349389226345,
+        "CI95_high": 2.366449337277057
+      }
+    },
+    {
+      "check": "Mobile: base 1024 minus base 640: AP50",
+      "passed": true,
+      "detail": {
+        "mean": -0.3784342207875113,
+        "SD": 0.8766861614177871,
+        "CI95_low": -2.5562433757350744,
+        "CI95_high": 1.7993749341600518
+      }
+    },
+    {
+      "check": "Mobile: base 1024 minus base 640: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 2.5479127525919054,
+        "SD": 2.8408642230826255,
+        "CI95_low": -4.50918519792995,
+        "CI95_high": 9.605010703113761
+      }
+    },
+    {
+      "check": "Mobile: base 1024 minus base 640: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 1.7199209432922469,
+        "SD": 0.9947677324930206,
+        "CI95_low": -0.7512190954260307,
+        "CI95_high": 4.191060982010525
+      }
+    },
+    {
+      "check": "Mobile: base 1024 minus base 640: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 1.7137065174027033,
+        "SD": 1.0291496413164638,
+        "CI95_low": -0.8428429176258512,
+        "CI95_high": 4.270255952431258
+      }
+    },
+    {
+      "check": "Mobile: base 1024 minus base 640: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 0.47444760742849706,
+        "SD": 0.7187049555001559,
+        "CI95_low": -1.3109144761512836,
+        "CI95_high": 2.259809691008278
+      }
+    },
+    {
+      "check": "Mobile: base 1024 minus base 640: F1",
+      "passed": true,
+      "detail": {
+        "mean": 1.2105976021784575,
+        "SD": 0.8914300115421312,
+        "CI95_low": -1.0038373068793838,
+        "CI95_high": 3.4250325112362985
+      }
+    },
+    {
+      "check": "Mobile: base 1024 minus base 640: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 0.06570855896354999,
+        "SD": 0.1519669890107583,
+        "CI95_low": -0.3117983693792229,
+        "CI95_high": 0.4432154873063229
+      }
+    },
+    {
+      "check": "Mobile: base 1024 minus base 640: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 0.44733631557543657,
+        "SD": 0.6339348218023588,
+        "CI95_low": -1.1274450820555288,
+        "CI95_high": 2.022117713206402
+      }
+    },
+    {
+      "check": "Mobile: base 1024 minus base 640: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": -8.484848484848486,
+        "SD": 6.943296507508847,
+        "CI95_low": -25.73295318301558,
+        "CI95_high": 8.763256213318607
+      }
+    },
+    {
+      "check": "Mobile: full 1024 minus full 640: AP",
+      "passed": true,
+      "detail": {
+        "mean": 1.2741823662620415,
+        "SD": 0.6164386213266796,
+        "CI95_low": -0.25713605995494526,
+        "CI95_high": 2.8055007924790285
+      }
+    },
+    {
+      "check": "Mobile: full 1024 minus full 640: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 0.13398223643200424,
+        "SD": 0.9550399006282415,
+        "CI95_low": -2.2384683969448993,
+        "CI95_high": 2.506432869808908
+      }
+    },
+    {
+      "check": "Mobile: full 1024 minus full 640: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 2.8294895910510243,
+        "SD": 0.6354279408028598,
+        "CI95_low": 1.2509990802027833,
+        "CI95_high": 4.407980101899265
+      }
+    },
+    {
+      "check": "Mobile: full 1024 minus full 640: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 2.1435757751618922,
+        "SD": 0.07112186607499006,
+        "CI95_low": 1.9668992655149529,
+        "CI95_high": 2.3202522848088316
+      }
+    },
+    {
+      "check": "Mobile: full 1024 minus full 640: Precision",
+      "passed": true,
+      "detail": {
+        "mean": -0.838011639613749,
+        "SD": 0.8589180925015537,
+        "CI95_low": -2.9716824645015176,
+        "CI95_high": 1.2956591852740198
+      }
+    },
+    {
+      "check": "Mobile: full 1024 minus full 640: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 0.027111291853055757,
+        "SD": 0.778358531650021,
+        "CI95_low": -1.906438489881375,
+        "CI95_high": 1.9606610735874868
+      }
+    },
+    {
+      "check": "Mobile: full 1024 minus full 640: F1",
+      "passed": true,
+      "detail": {
+        "mean": -0.4741901047500458,
+        "SD": 0.4367805301863004,
+        "CI95_low": -1.5592130915441387,
+        "CI95_high": 0.610832882044047
+      }
+    },
+    {
+      "check": "Mobile: full 1024 minus full 640: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": -0.4293557433568462,
+        "SD": 0.3498852672967118,
+        "CI95_low": -1.298518930634453,
+        "CI95_high": 0.4398074439207605
+      }
+    },
+    {
+      "check": "Mobile: full 1024 minus full 640: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 0.4744476074285018,
+        "SD": 0.4851709412545195,
+        "CI95_low": -0.7307838243872546,
+        "CI95_high": 1.6796790392442582
+      }
+    },
+    {
+      "check": "Mobile: full 1024 minus full 640: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 3.0303030303030276,
+        "SD": 4.320174978600986,
+        "CI95_low": -7.701606555399861,
+        "CI95_high": 13.762212616005916
+      }
+    },
+    {
+      "check": "Pano: factor minus base: AP",
+      "passed": true,
+      "detail": {
+        "mean": 0.2604357252066383,
+        "SD": 0.38685918419855064,
+        "CI95_low": -0.700575763397949,
+        "CI95_high": 1.2214472138112258
+      }
+    },
+    {
+      "check": "Pano: factor minus base: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 0.08593496547219577,
+        "SD": 0.1951126447198499,
+        "CI95_low": -0.3987517133157275,
+        "CI95_high": 0.5706216442601191
+      }
+    },
+    {
+      "check": "Pano: factor minus base: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 0.13675363126965104,
+        "SD": 1.5417078487576847,
+        "CI95_low": -3.69306097633079,
+        "CI95_high": 3.966568238870092
+      }
+    },
+    {
+      "check": "Pano: factor minus base: AR100",
+      "passed": true,
+      "detail": {
+        "mean": -0.8574336757089706,
+        "SD": 0.9568654991150282,
+        "CI95_low": -3.234419347133415,
+        "CI95_high": 1.519551995715474
+      }
+    },
+    {
+      "check": "Pano: factor minus base: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 2.849914432299395,
+        "SD": 2.4520556597084666,
+        "CI95_low": -3.2413295032932443,
+        "CI95_high": 8.941158367892035
+      }
+    },
+    {
+      "check": "Pano: factor minus base: Recall",
+      "passed": true,
+      "detail": {
+        "mean": -0.03582303421099672,
+        "SD": 0.6930160172721824,
+        "CI95_low": -1.757370257563844,
+        "CI95_high": 1.6857241891418506
+      }
+    },
+    {
+      "check": "Pano: factor minus base: F1",
+      "passed": true,
+      "detail": {
+        "mean": 1.5450834584916038,
+        "SD": 1.3889421700193785,
+        "CI95_low": -1.9052401654938746,
+        "CI95_high": 4.995407082477082
+      }
+    },
+    {
+      "check": "Pano: factor minus base: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 0.013868150033298813,
+        "SD": 0.6433232224688051,
+        "CI95_low": -1.584235327746208,
+        "CI95_high": 1.6119716278128058
+      }
+    },
+    {
+      "check": "Pano: factor minus base: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": -0.05373455131649507,
+        "SD": 0.09307097300209888,
+        "CI95_low": -0.28493566522030583,
+        "CI95_high": 0.1774665625873157
+      }
+    },
+    {
+      "check": "Pano: factor minus base: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": -18.75,
+        "SD": 13.531646934131853,
+        "CI95_low": -52.36447445116768,
+        "CI95_high": 14.86447445116768
+      }
+    },
+    {
+      "check": "Pano: prototype minus base: AP",
+      "passed": true,
+      "detail": {
+        "mean": 0.01454138325371209,
+        "SD": 0.40020324010106717,
+        "CI95_low": -0.9796185778460212,
+        "CI95_high": 1.0087013443534454
+      }
+    },
+    {
+      "check": "Pano: prototype minus base: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 0.058686687839170304,
+        "SD": 0.4700773894999514,
+        "CI95_low": -1.1090502828588082,
+        "CI95_high": 1.2264236585371489
+      }
+    },
+    {
+      "check": "Pano: prototype minus base: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 0.7052502688777764,
+        "SD": 1.772750100461865,
+        "CI95_low": -3.698505109188731,
+        "CI95_high": 5.109005646944284
+      }
+    },
+    {
+      "check": "Pano: prototype minus base: AR100",
+      "passed": true,
+      "detail": {
+        "mean": -0.015460395016698195,
+        "SD": 0.4439095613153634,
+        "CI95_low": -1.1181928768867384,
+        "CI95_high": 1.0872720868533419
+      }
+    },
+    {
+      "check": "Pano: prototype minus base: Precision",
+      "passed": true,
+      "detail": {
+        "mean": -0.4222391763949389,
+        "SD": 3.5246104777996234,
+        "CI95_low": -9.177856983527336,
+        "CI95_high": 8.333378630737458
+      }
+    },
+    {
+      "check": "Pano: prototype minus base: Recall",
+      "passed": true,
+      "detail": {
+        "mean": -0.01791151710549836,
+        "SD": 0.2034357279527311,
+        "CI95_low": -0.5232738808302586,
+        "CI95_high": 0.4874508466192619
+      }
+    },
+    {
+      "check": "Pano: prototype minus base: F1",
+      "passed": true,
+      "detail": {
+        "mean": -0.23664703168915935,
+        "SD": 1.9580299686233722,
+        "CI95_low": -5.100663117483796,
+        "CI95_high": 4.627369054105477
+      }
+    },
+    {
+      "check": "Pano: prototype minus base: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 0.2347117021811679,
+        "SD": 0.25412214028160407,
+        "CI95_low": -0.39656268988307275,
+        "CI95_high": 0.8659860942454085
+      }
+    },
+    {
+      "check": "Pano: prototype minus base: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": -0.2686727565824801,
+        "SD": 0.2843365191901768,
+        "CI95_low": -0.97500382673062,
+        "CI95_high": 0.4376583135656598
+      }
+    },
+    {
+      "check": "Pano: prototype minus base: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 6.770833333333333,
+        "SD": 15.01409927645789,
+        "CI95_low": -30.52625688727907,
+        "CI95_high": 44.06792355394574
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus base: AP",
+      "passed": true,
+      "detail": {
+        "mean": 0.1441236200486339,
+        "SD": 0.8411625161875902,
+        "CI95_low": -1.9454399081237572,
+        "CI95_high": 2.233687148221025
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus base: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 0.46772591198759034,
+        "SD": 0.9172497909223226,
+        "CI95_low": -1.8108488847376576,
+        "CI95_high": 2.7463007087128384
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus base: AP75",
+      "passed": true,
+      "detail": {
+        "mean": -0.3583860548752919,
+        "SD": 2.6930987627088916,
+        "CI95_low": -7.048414252788606,
+        "CI95_high": 6.331642143038022
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus base: AR100",
+      "passed": true,
+      "detail": {
+        "mean": -0.2808411511195838,
+        "SD": 1.6727202438959028,
+        "CI95_low": -4.436108590189608,
+        "CI95_high": 3.8744262879504405
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus base: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 1.63089377935151,
+        "SD": 2.637906964625982,
+        "CI95_low": -4.922030391564738,
+        "CI95_high": 8.183817950267759
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus base: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 0.48361096184846986,
+        "SD": 0.279212919006272,
+        "CI95_low": -0.2099923798629012,
+        "CI95_high": 1.177214303559841
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus base: F1",
+      "passed": true,
+      "detail": {
+        "mean": 1.1283537192504223,
+        "SD": 1.522443998836538,
+        "CI95_low": -2.653606832287399,
+        "CI95_high": 4.910314270788243
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus base: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 0.45649188719510886,
+        "SD": 0.34525692689616183,
+        "CI95_low": -0.40117386515067394,
+        "CI95_high": 1.3141576395408916
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus base: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 0.03582303421100145,
+        "SD": 0.08208088294744875,
+        "CI95_low": -0.16807718253252069,
+        "CI95_high": 0.23972325095452357
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus base: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": -1.5625,
+        "SD": 10.245997694221876,
+        "CI95_low": -27.014969266723497,
+        "CI95_high": 23.889969266723497
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus factor: AP",
+      "passed": true,
+      "detail": {
+        "mean": -0.11631210515800443,
+        "SD": 0.6685851428500589,
+        "CI95_low": -1.777169672027818,
+        "CI95_high": 1.544545461711809
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus factor: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 0.3817909465153946,
+        "SD": 0.7337466133021556,
+        "CI95_low": -1.4409366864575774,
+        "CI95_high": 2.204518579488367
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus factor: AP75",
+      "passed": true,
+      "detail": {
+        "mean": -0.4951396861449429,
+        "SD": 1.2250829992405674,
+        "CI95_low": -3.5384145645826384,
+        "CI95_high": 2.548135192292752
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus factor: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 0.5765925245893868,
+        "SD": 0.8327243600815412,
+        "CI95_low": -1.4920094617823318,
+        "CI95_high": 2.6451945109611055
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus factor: Precision",
+      "passed": true,
+      "detail": {
+        "mean": -1.2190206529478853,
+        "SD": 0.48999288309287814,
+        "CI95_low": -2.436230452328175,
+        "CI95_high": -0.0018108535675953608
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus factor: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 0.5194339960594666,
+        "SD": 0.43099442649169417,
+        "CI95_low": -0.5512155123427568,
+        "CI95_high": 1.5900835044616901
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus factor: F1",
+      "passed": true,
+      "detail": {
+        "mean": -0.41672973924118156,
+        "SD": 0.13477034297711118,
+        "CI95_low": -0.7515178306561499,
+        "CI95_high": -0.08194164782621327
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus factor: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 0.44262373716181,
+        "SD": 0.2984307541989814,
+        "CI95_low": -0.29871935368997315,
+        "CI95_high": 1.183966828013593
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus factor: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 0.08955758552749653,
+        "SD": 0.17273241556499377,
+        "CI95_low": -0.33953352201923437,
+        "CI95_high": 0.5186486930742275
+      }
+    },
+    {
+      "check": "Pano: factor+prototype minus factor: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 17.1875,
+        "SD": 15.857643070456593,
+        "CI95_low": -22.205069170797536,
+        "CI95_high": 56.580069170797536
+      }
+    },
+    {
+      "check": "DSLR: CMFA+AdamW minus base+AdamW: AP",
+      "passed": true,
+      "detail": {
+        "mean": 0.4984109775026961,
+        "SD": 0.14513918628868308,
+        "CI95_low": 0.13786525139022188,
+        "CI95_high": 0.8589567036151703
+      }
+    },
+    {
+      "check": "DSLR: CMFA+AdamW minus base+AdamW: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 0.1869353591325904,
+        "SD": 0.6606591922061814,
+        "CI95_low": -1.4542330548412952,
+        "CI95_high": 1.828103773106476
+      }
+    },
+    {
+      "check": "DSLR: CMFA+AdamW minus base+AdamW: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 0.6758514999862228,
+        "SD": 0.2800161394209089,
+        "CI95_low": -0.01974715184799558,
+        "CI95_high": 1.3714501518204414
+      }
+    },
+    {
+      "check": "DSLR: CMFA+AdamW minus base+AdamW: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 0.4360038944200113,
+        "SD": 1.120893277243991,
+        "CI95_low": -2.3484493664292057,
+        "CI95_high": 3.2204571552692283
+      }
+    },
+    {
+      "check": "DSLR: CMFA+AdamW minus base+AdamW: Precision",
+      "passed": true,
+      "detail": {
+        "mean": -0.27967389950552973,
+        "SD": 0.5180818013838216,
+        "CI95_low": -1.566660440094626,
+        "CI95_high": 1.0073126410835667
+      }
+    },
+    {
+      "check": "DSLR: CMFA+AdamW minus base+AdamW: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 4.736951571734001e-15,
+        "SD": 0.10940919037199848,
+        "CI95_low": -0.27178749581514794,
+        "CI95_high": 0.2717874958151574
+      }
+    },
+    {
+      "check": "DSLR: CMFA+AdamW minus base+AdamW: F1",
+      "passed": true,
+      "detail": {
+        "mean": -0.14747616126533103,
+        "SD": 0.30122650455898325,
+        "CI95_low": -0.8957642810190344,
+        "CI95_high": 0.6008119584883723
+      }
+    },
+    {
+      "check": "DSLR: CMFA+AdamW minus base+AdamW: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": -0.03625047032202152,
+        "SD": 0.32011026995083985,
+        "CI95_low": -0.8314484638254817,
+        "CI95_high": 0.7589475231814385
+      }
+    },
+    {
+      "check": "DSLR: CMFA+AdamW minus base+AdamW: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 0.036469730123997124,
+        "SD": 0.23914801328599591,
+        "CI95_low": -0.5576068683699146,
+        "CI95_high": 0.6305463286179088
+      }
+    },
+    {
+      "check": "DSLR: CMFA+AdamW minus base+AdamW: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 3.5087719298245617,
+        "SD": 3.3425541900452016,
+        "CI95_low": -4.7945929872358075,
+        "CI95_high": 11.81213684688493
+      }
+    },
+    {
+      "check": "DSLR: base+DualOpt minus base+AdamW: AP",
+      "passed": true,
+      "detail": {
+        "mean": -0.10115397814032671,
+        "SD": 0.4233499064088264,
+        "CI95_low": -1.1528134459164656,
+        "CI95_high": 0.9505054896358122
+      }
+    },
+    {
+      "check": "DSLR: base+DualOpt minus base+AdamW: AP50",
+      "passed": true,
+      "detail": {
+        "mean": -0.09701105492412883,
+        "SD": 0.24829685104401483,
+        "CI95_low": -0.7138146263114207,
+        "CI95_high": 0.5197925164631629
+      }
+    },
+    {
+      "check": "DSLR: base+DualOpt minus base+AdamW: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 0.12211170780260261,
+        "SD": 0.5398010069376521,
+        "CI95_low": -1.218828330372021,
+        "CI95_high": 1.4630517459772263
+      }
+    },
+    {
+      "check": "DSLR: base+DualOpt minus base+AdamW: AR100",
+      "passed": true,
+      "detail": {
+        "mean": -0.030091587355651466,
+        "SD": 1.7877022227647883,
+        "CI95_low": -4.470990096305554,
+        "CI95_high": 4.410806921594251
+      }
+    },
+    {
+      "check": "DSLR: base+DualOpt minus base+AdamW: Precision",
+      "passed": true,
+      "detail": {
+        "mean": -0.8895588432894405,
+        "SD": 0.5991638556039361,
+        "CI95_low": -2.377964372512908,
+        "CI95_high": 0.5988466859340272
+      }
+    },
+    {
+      "check": "DSLR: base+DualOpt minus base+AdamW: Recall",
+      "passed": true,
+      "detail": {
+        "mean": -0.24313153415998082,
+        "SD": 0.4099128446410882,
+        "CI95_low": -1.2614114900637627,
+        "CI95_high": 0.775148421743801
+      }
+    },
+    {
+      "check": "DSLR: base+DualOpt minus base+AdamW: F1",
+      "passed": true,
+      "detail": {
+        "mean": -0.5847298944643645,
+        "SD": 0.5062540005075185,
+        "CI95_low": -1.8423345488495624,
+        "CI95_high": 0.6728747599208335
+      }
+    },
+    {
+      "check": "DSLR: base+DualOpt minus base+AdamW: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": -0.17679026878420245,
+        "SD": 0.3376859611831405,
+        "CI95_low": -1.0156486996879002,
+        "CI95_high": 0.6620681621194953
+      }
+    },
+    {
+      "check": "DSLR: base+DualOpt minus base+AdamW: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": -0.07293946024799425,
+        "SD": 0.12633485102617645,
+        "CI95_low": -0.3867726279904792,
+        "CI95_high": 0.24089370749449068
+      }
+    },
+    {
+      "check": "DSLR: base+DualOpt minus base+AdamW: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 2.982456140350878,
+        "SD": 2.3732893435909967,
+        "CI95_low": -2.913121418958706,
+        "CI95_high": 8.878033699660461
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+AdamW: AP",
+      "passed": true,
+      "detail": {
+        "mean": 0.41233929201036784,
+        "SD": 0.47463176361915205,
+        "CI95_low": -0.7667113711905365,
+        "CI95_high": 1.5913899552112722
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+AdamW: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 0.0008739452921465348,
+        "SD": 0.5254628464598443,
+        "CI95_low": -1.3044481277224267,
+        "CI95_high": 1.3061960183067196
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+AdamW: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 0.3014633176170018,
+        "SD": 0.059129346477984575,
+        "CI95_low": 0.1545778781598887,
+        "CI95_high": 0.4483487570741149
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+AdamW: AR100",
+      "passed": true,
+      "detail": {
+        "mean": -0.014673588550275932,
+        "SD": 1.162060090368536,
+        "CI95_low": -2.901390882354754,
+        "CI95_high": 2.8720437052542023
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+AdamW: Precision",
+      "passed": true,
+      "detail": {
+        "mean": -0.3544764120427904,
+        "SD": 0.2562829753474957,
+        "CI95_low": -0.9911186159830849,
+        "CI95_high": 0.2821657918975042
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+AdamW: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 0.1945052273279894,
+        "SD": 0.39335496443869633,
+        "CI95_low": -0.7826426739383866,
+        "CI95_high": 1.1716531285943654
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+AdamW: F1",
+      "passed": true,
+      "detail": {
+        "mean": -0.09508678225063723,
+        "SD": 0.3094864906873879,
+        "CI95_low": -0.8638938450444452,
+        "CI95_high": 0.6737202805431707
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+AdamW: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 0.07798539698544478,
+        "SD": 0.4302454446539415,
+        "CI95_low": -0.990803537388201,
+        "CI95_high": 1.1467743313590906
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+AdamW: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 0.12156576707999041,
+        "SD": 0.12807748301547228,
+        "CI95_low": -0.19659633850480684,
+        "CI95_high": 0.43972787266478763
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+AdamW: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 2.2807017543859645,
+        "SD": 1.8483603075180235,
+        "CI95_low": -2.3108797904219966,
+        "CI95_high": 6.872283299193926
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus CMFA+AdamW: AP",
+      "passed": true,
+      "detail": {
+        "mean": -0.08607168549232824,
+        "SD": 0.44855794335548543,
+        "CI95_low": -1.2003513884868584,
+        "CI95_high": 1.028208017502202
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus CMFA+AdamW: AP50",
+      "passed": true,
+      "detail": {
+        "mean": -0.18606141384044386,
+        "SD": 0.804344232117954,
+        "CI95_low": -2.1841632540735154,
+        "CI95_high": 1.8120404263926275
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus CMFA+AdamW: AP75",
+      "passed": true,
+      "detail": {
+        "mean": -0.37438818236922106,
+        "SD": 0.33549051755279546,
+        "CI95_low": -1.2077928289567565,
+        "CI95_high": 0.4590164642183145
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus CMFA+AdamW: AR100",
+      "passed": true,
+      "detail": {
+        "mean": -0.45067748297028726,
+        "SD": 2.2276504846432954,
+        "CI95_low": -5.9844680604716,
+        "CI95_high": 5.083113094531025
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus CMFA+AdamW: Precision",
+      "passed": true,
+      "detail": {
+        "mean": -0.07480251253726067,
+        "SD": 0.2654356962171967,
+        "CI95_low": -0.7341813355551037,
+        "CI95_high": 0.5845763104805823
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus CMFA+AdamW: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 0.19450522732798467,
+        "SD": 0.31443027367803494,
+        "CI95_low": -0.5865828732315993,
+        "CI95_high": 0.9755933278875687
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus CMFA+AdamW: F1",
+      "passed": true,
+      "detail": {
+        "mean": 0.052389379014693795,
+        "SD": 0.015158169990638461,
+        "CI95_low": 0.014734397299826632,
+        "CI95_high": 0.09004436072956096
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus CMFA+AdamW: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 0.11423586730746631,
+        "SD": 0.16460714243089866,
+        "CI95_low": -0.2946709428285871,
+        "CI95_high": 0.5231426774435197
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus CMFA+AdamW: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 0.08509603695599328,
+        "SD": 0.23446756044232836,
+        "CI95_low": -0.4973536721208947,
+        "CI95_high": 0.6675457460328813
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus CMFA+AdamW: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": -1.228070175438597,
+        "SD": 3.950291315507964,
+        "CI95_low": -11.041137804691758,
+        "CI95_high": 8.584997453814562
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+DualOpt: AP",
+      "passed": true,
+      "detail": {
+        "mean": 0.5134932701506946,
+        "SD": 0.09102026447854628,
+        "CI95_low": 0.2873863986260487,
+        "CI95_high": 0.7396001416753404
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+DualOpt: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 0.09788500021627537,
+        "SD": 0.30551456696861606,
+        "CI95_low": -0.6610552570795359,
+        "CI95_high": 0.8568252575120866
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+DualOpt: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 0.17935160981439915,
+        "SD": 0.4824848781055585,
+        "CI95_low": -1.0192072712368803,
+        "CI95_high": 1.3779104908656787
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+DualOpt: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 0.015417998805375532,
+        "SD": 2.894486275194685,
+        "CI95_low": -7.174884513549488,
+        "CI95_high": 7.205720511160239
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+DualOpt: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 0.53508243124665,
+        "SD": 0.4409252112346029,
+        "CI95_low": -0.5602365140427077,
+        "CI95_high": 1.6304013765360077
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+DualOpt: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 0.4376367614879702,
+        "SD": 0.18234865061998562,
+        "CI95_low": -0.01534239820392147,
+        "CI95_high": 0.8906159211798619
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+DualOpt: F1",
+      "passed": true,
+      "detail": {
+        "mean": 0.48964311221372725,
+        "SD": 0.280900190460765,
+        "CI95_low": -0.2081516441477097,
+        "CI95_high": 1.1874378685751643
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+DualOpt: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 0.2547756657696472,
+        "SD": 0.2117195614182592,
+        "CI95_low": -0.2711648810646909,
+        "CI95_high": 0.7807162126039853
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+DualOpt: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 0.19450522732798467,
+        "SD": 0.05570843295594268,
+        "CI95_low": 0.05611780815961248,
+        "CI95_high": 0.33289264649635686
+      }
+    },
+    {
+      "check": "DSLR: CMFA+DualOpt minus base+DualOpt: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": -0.7017543859649132,
+        "SD": 4.2214769879003375,
+        "CI95_low": -11.188484570894337,
+        "CI95_high": 9.784975798964512
+      }
+    },
+    {
+      "check": "Mobile feature-identity AP interaction",
+      "passed": true,
+      "detail": {
+        "mean": 1.0010263676516236,
+        "SD": 1.2451299242257328,
+        "CI95_low": -2.092047833146351,
+        "CI95_high": 4.094100568449599
+      }
+    },
+    {
+      "check": "Pano factor-prototype AP interaction",
+      "passed": true,
+      "detail": {
+        "mean": -0.1308534884117165,
+        "SD": 0.34165870232979184,
+        "CI95_low": -0.9795807554168332,
+        "CI95_high": 0.7178737785934002
+      }
+    },
+    {
+      "check": "DSLR CMFA-DualOpt AP interaction",
+      "passed": true,
+      "detail": {
+        "mean": 0.015082292647998466,
+        "SD": 0.0670632104398414,
+        "CI95_low": -0.15151195747666008,
+        "CI95_high": 0.181676542772657
+      }
+    },
+    {
+      "check": "Prior none: AP",
+      "passed": true,
+      "detail": {
+        "mean": 53.16598974553054,
+        "SD": 0.5262308751484603,
+        "CI95_low": 51.85875978348687,
+        "CI95_high": 54.47321970757421
+      }
+    },
+    {
+      "check": "Prior none: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 93.78721310160637,
+        "SD": 0.39028491794507947,
+        "CI95_low": 92.81769161861162,
+        "CI95_high": 94.75673458460112
+      }
+    },
+    {
+      "check": "Prior none: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 53.047175998693135,
+        "SD": 1.1455899569334513,
+        "CI95_low": 50.20137278447231,
+        "CI95_high": 55.89297921291396
+      }
+    },
+    {
+      "check": "Prior none: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 67.34747459284554,
+        "SD": 1.3430467366556027,
+        "CI95_low": 64.01116154567615,
+        "CI95_high": 70.68378764001494
+      }
+    },
+    {
+      "check": "Prior none: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 83.97823003653478,
+        "SD": 0.2586173732259515,
+        "CI95_low": 83.33578886679038,
+        "CI95_high": 84.62067120627918
+      }
+    },
+    {
+      "check": "Prior none: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 91.81443668278703,
+        "SD": 0.11185738847212161,
+        "CI95_low": 91.53656752574553,
+        "CI95_high": 92.09230583982854
+      }
+    },
+    {
+      "check": "Prior none: F1",
+      "passed": true,
+      "detail": {
+        "mean": 87.72152920516893,
+        "SD": 0.15485060017218877,
+        "CI95_low": 87.33685898959403,
+        "CI95_high": 88.10619942074383
+      }
+    },
+    {
+      "check": "Prior none: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 93.04777699100285,
+        "SD": 0.10963782951945013,
+        "CI95_low": 92.77542152405913,
+        "CI95_high": 93.32013245794657
+      }
+    },
+    {
+      "check": "Prior none: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 98.67454773419308,
+        "SD": 0.11185738847212387,
+        "CI95_low": 98.39667857715158,
+        "CI95_high": 98.95241689123459
+      }
+    },
+    {
+      "check": "Prior none: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 75.0,
+        "SD": 4.133986423538423,
+        "CI95_low": 64.73060842542432,
+        "CI95_high": 85.26939157457568
+      }
+    },
+    {
+      "check": "Prior none: paired AP",
+      "passed": true,
+      "detail": {
+        "mean": 0.0,
+        "SD": 0.0,
+        "CI95_low": 0.0,
+        "CI95_high": 0.0
+      }
+    },
+    {
+      "check": "Prior center: AP",
+      "passed": true,
+      "detail": {
+        "mean": 53.618850336613576,
+        "SD": 0.6131741864077778,
+        "CI95_low": 52.09564121628619,
+        "CI95_high": 55.14205945694096
+      }
+    },
+    {
+      "check": "Prior center: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 94.09147132050965,
+        "SD": 0.4515073400033958,
+        "CI95_low": 92.96986491007515,
+        "CI95_high": 95.21307773094416
+      }
+    },
+    {
+      "check": "Prior center: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 53.92786242655324,
+        "SD": 1.2969991695316803,
+        "CI95_low": 50.70593787741073,
+        "CI95_high": 57.14978697569575
+      }
+    },
+    {
+      "check": "Prior center: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 69.52894603046566,
+        "SD": 0.9453826422895901,
+        "CI95_low": 67.18048535671991,
+        "CI95_high": 71.87740670421141
+      }
+    },
+    {
+      "check": "Prior center: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 84.36791346827752,
+        "SD": 0.27479922278469815,
+        "CI95_low": 83.68527435579837,
+        "CI95_high": 85.05055258075667
+      }
+    },
+    {
+      "check": "Prior center: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 91.83234819989254,
+        "SD": 0.05373455131649507,
+        "CI95_low": 91.69886417454325,
+        "CI95_high": 91.96583222524183
+      }
+    },
+    {
+      "check": "Prior center: F1",
+      "passed": true,
+      "detail": {
+        "mean": 87.94184584806511,
+        "SD": 0.1445149564711554,
+        "CI95_low": 87.58285079478316,
+        "CI95_high": 88.30084090134707
+      }
+    },
+    {
+      "check": "Prior center: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 93.09978823235102,
+        "SD": 0.11727393642988475,
+        "CI95_low": 92.80846362426013,
+        "CI95_high": 93.3911128404419
+      }
+    },
+    {
+      "check": "Prior center: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 98.63872469998209,
+        "SD": 0.1352289886310401,
+        "CI95_low": 98.30279726960187,
+        "CI95_high": 98.97465213036232
+      }
+    },
+    {
+      "check": "Prior center: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 74.47916666666667,
+        "SD": 3.608439182435161,
+        "CI95_low": 65.51530681302195,
+        "CI95_high": 83.44302652031139
+      }
+    },
+    {
+      "check": "Prior center: paired AP",
+      "passed": true,
+      "detail": {
+        "mean": 0.4528605910830403,
+        "SD": 0.14335542406607832,
+        "CI95_low": 0.09674597597653412,
+        "CI95_high": 0.8089752061895464
+      }
+    },
+    {
+      "check": "Prior shape: AP",
+      "passed": true,
+      "detail": {
+        "mean": 53.19437337554494,
+        "SD": 0.5979599505318475,
+        "CI95_low": 51.708958512312414,
+        "CI95_high": 54.67978823877747
+      }
+    },
+    {
+      "check": "Prior shape: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 93.77228229029807,
+        "SD": 0.4061788862955319,
+        "CI95_low": 92.76327800113458,
+        "CI95_high": 94.78128657946155
+      }
+    },
+    {
+      "check": "Prior shape: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 53.15091522352239,
+        "SD": 1.2916095554346718,
+        "CI95_low": 49.94237921801004,
+        "CI95_high": 56.35945122903474
+      }
+    },
+    {
+      "check": "Prior shape: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 67.7129103064946,
+        "SD": 1.2994895378573599,
+        "CI95_low": 64.48479933947813,
+        "CI95_high": 70.94102127351108
+      }
+    },
+    {
+      "check": "Prior shape: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 84.26547122411968,
+        "SD": 0.21279798072931405,
+        "CI95_low": 83.73685173520568,
+        "CI95_high": 84.79409071303368
+      }
+    },
+    {
+      "check": "Prior shape: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 91.79652516568153,
+        "SD": 0.11185738847212387,
+        "CI95_low": 91.51865600864002,
+        "CI95_high": 92.07439432272304
+      }
+    },
+    {
+      "check": "Prior shape: F1",
+      "passed": true,
+      "detail": {
+        "mean": 87.86977729091987,
+        "SD": 0.10660392556020903,
+        "CI95_low": 87.60495845921513,
+        "CI95_high": 88.13459612262461
+      }
+    },
+    {
+      "check": "Prior shape: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 93.04653173130832,
+        "SD": 0.1327724383511144,
+        "CI95_low": 92.71670671011927,
+        "CI95_high": 93.37635675249737
+      }
+    },
+    {
+      "check": "Prior shape: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 98.6566362170876,
+        "SD": 0.10746910263299725,
+        "CI95_low": 98.389668166389,
+        "CI95_high": 98.92360426778619
+      }
+    },
+    {
+      "check": "Prior shape: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 74.47916666666667,
+        "SD": 3.608439182435161,
+        "CI95_low": 65.51530681302195,
+        "CI95_high": 83.44302652031139
+      }
+    },
+    {
+      "check": "Prior shape: paired AP",
+      "passed": true,
+      "detail": {
+        "mean": 0.028383630014407874,
+        "SD": 0.07206296127351482,
+        "CI95_low": -0.15063068970553392,
+        "CI95_high": 0.2073979497343497
+      }
+    },
+    {
+      "check": "Prior both: AP",
+      "passed": true,
+      "detail": {
+        "mean": 53.579673528891234,
+        "SD": 0.6463313979976395,
+        "CI95_low": 51.97409732883698,
+        "CI95_high": 55.185249728945486
+      }
+    },
+    {
+      "check": "Prior both: AP50",
+      "passed": true,
+      "detail": {
+        "mean": 94.02168254002393,
+        "SD": 0.4475160963047445,
+        "CI95_low": 92.90999092857803,
+        "CI95_high": 95.13337415146984
+      }
+    },
+    {
+      "check": "Prior both: AP75",
+      "passed": true,
+      "detail": {
+        "mean": 53.86490600597501,
+        "SD": 1.3275460067197393,
+        "CI95_low": 50.56709890659894,
+        "CI95_high": 57.162713105351074
+      }
+    },
+    {
+      "check": "Prior both: AR100",
+      "passed": true,
+      "detail": {
+        "mean": 69.63244858008004,
+        "SD": 0.877046705045442,
+        "CI95_low": 67.45374378511029,
+        "CI95_high": 71.81115337504978
+      }
+    },
+    {
+      "check": "Prior both: Precision",
+      "passed": true,
+      "detail": {
+        "mean": 84.61861531886207,
+        "SD": 0.2610800842435593,
+        "CI95_low": 83.97005643580569,
+        "CI95_high": 85.26717420191845
+      }
+    },
+    {
+      "check": "Prior both: Recall",
+      "passed": true,
+      "detail": {
+        "mean": 91.83234819989254,
+        "SD": 0.09307097300209477,
+        "CI95_low": 91.60114708598874,
+        "CI95_high": 92.06354931379633
+      }
+    },
+    {
+      "check": "Prior both: F1",
+      "passed": true,
+      "detail": {
+        "mean": 88.07778954991029,
+        "SD": 0.10585576321138493,
+        "CI95_low": 87.81482925651078,
+        "CI95_high": 88.34074984330981
+      }
+    },
+    {
+      "check": "Prior both: matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": {
+        "mean": 93.09981794660685,
+        "SD": 0.16733468607552027,
+        "CI95_low": 92.68413554244275,
+        "CI95_high": 93.51550035077095
+      }
+    },
+    {
+      "check": "Prior both: localization_coverage",
+      "passed": true,
+      "detail": {
+        "mean": 98.63872469998209,
+        "SD": 0.1352289886310401,
+        "CI95_low": 98.30279726960187,
+        "CI95_high": 98.97465213036232
+      }
+    },
+    {
+      "check": "Prior both: raw_duplicate_image_rate",
+      "passed": true,
+      "detail": {
+        "mean": 74.47916666666667,
+        "SD": 3.608439182435161,
+        "CI95_low": 65.51530681302195,
+        "CI95_high": 83.44302652031139
+      }
+    },
+    {
+      "check": "Prior both: paired AP",
+      "passed": true,
+      "detail": {
+        "mean": 0.41368378336070083,
+        "SD": 0.15798764902560958,
+        "CI95_low": 0.02122070642540863,
+        "CI95_high": 0.806146860295993
+      }
+    },
+    {
+      "check": "Pano: chosen AP",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: paired chosen AP",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: chosen AP50",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: paired chosen AP50",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: chosen AP75",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: paired chosen AP75",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: chosen AR100",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: paired chosen AR100",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: chosen Precision",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: paired chosen Precision",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: chosen Recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: paired chosen Recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: chosen F1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: paired chosen F1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: chosen matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: paired chosen matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: chosen localization_coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: paired chosen localization_coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: chosen raw_duplicate_image_rate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Pano: paired chosen raw_duplicate_image_rate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: chosen AP",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: paired chosen AP",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: chosen AP50",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: paired chosen AP50",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: chosen AP75",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: paired chosen AP75",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: chosen AR100",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: paired chosen AR100",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: chosen Precision",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: paired chosen Precision",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: chosen Recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: paired chosen Recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: chosen F1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: paired chosen F1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: chosen matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: paired chosen matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: chosen localization_coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: paired chosen localization_coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: chosen raw_duplicate_image_rate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Mobile: paired chosen raw_duplicate_image_rate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: chosen AP",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: paired chosen AP",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: chosen AP50",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: paired chosen AP50",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: chosen AP75",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: paired chosen AP75",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: chosen AR100",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: paired chosen AR100",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: chosen Precision",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: paired chosen Precision",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: chosen Recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: paired chosen Recall",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: chosen F1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: paired chosen F1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: chosen matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: paired chosen matched_tooth_FDI_accuracy",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: chosen localization_coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: paired chosen localization_coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: chosen raw_duplicate_image_rate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "DSLR: paired chosen raw_duplicate_image_rate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Snapshot completeness",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "11 main tables",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table3 mobile_1024_base",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table3 mobile_1024_features",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table3 mobile_1024_identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table3 mobile_1024_full",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table3 mobile_640_base",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table3 mobile_640_full",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table3 pano_base",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table3 pano_factor",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table3 pano_prototype",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table3 pano_factor_prototype",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table3 dslr_base_adamw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table3 dslr_cmfa_adamw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table3 dslr_base_dualopt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table3 dslr_cmfa_dualopt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table4 Pano",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table4 Mobile",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table4 DSLR",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table5 deim_s/dentex",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table5 deim_s/phone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table5 deim_s/dslr",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table5 rtdetrv2_s/dentex",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table5 rtdetrv2_s/phone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table5 rtdetrv2_s/dslr",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table6 none",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table6 center",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table6 shape",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table6 both",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table7 row 1",
+      "passed": true,
+      "detail": [
+        "CMFA gates",
+        "Both gates",
+        "54.583",
+        "+0.000"
+      ]
+    },
+    {
+      "check": "Table7 row 2",
+      "passed": true,
+      "detail": [
+        "",
+        "Channel only",
+        "55.872",
+        "+1.289"
+      ]
+    },
+    {
+      "check": "Table7 row 3",
+      "passed": true,
+      "detail": [
+        "",
+        "Spatial only",
+        "54.835",
+        "+0.251"
+      ]
+    },
+    {
+      "check": "Table7 row 4",
+      "passed": true,
+      "detail": [
+        "",
+        "Neither",
+        "54.950",
+        "+0.367"
+      ]
+    },
+    {
+      "check": "Table7 row 5",
+      "passed": true,
+      "detail": [
+        "HOOA branches",
+        "Full module",
+        "54.583",
+        "+0.000"
+      ]
+    },
+    {
+      "check": "Table7 row 6",
+      "passed": true,
+      "detail": [
+        "",
+        "Without high-pass",
+        "55.228",
+        "+0.645"
+      ]
+    },
+    {
+      "check": "Table7 row 7",
+      "passed": true,
+      "detail": [
+        "",
+        "Without second-order",
+        "—",
+        "—"
+      ]
+    },
+    {
+      "check": "Table7 row 8",
+      "passed": true,
+      "detail": [
+        "",
+        "Without both",
+        "—",
+        "—"
+      ]
+    },
+    {
+      "check": "Table7 row 9",
+      "passed": true,
+      "detail": [
+        "Factor supervision",
+        "All three factors",
+        "54.023",
+        "+0.000"
+      ]
+    },
+    {
+      "check": "Table7 row 10",
+      "passed": true,
+      "detail": [
+        "",
+        "Without quadrant",
+        "55.123",
+        "+1.100"
+      ]
+    },
+    {
+      "check": "Table7 row 11",
+      "passed": true,
+      "detail": [
+        "",
+        "Without position",
+        "55.188",
+        "+1.165"
+      ]
+    },
+    {
+      "check": "Table7 row 12",
+      "passed": true,
+      "detail": [
+        "",
+        "Without dentition",
+        "55.227",
+        "+1.204"
+      ]
+    },
+    {
+      "check": "Table7 row 13",
+      "passed": true,
+      "detail": [
+        "Prototype design",
+        "Four prototypes; τ = 0.20",
+        "54.583",
+        "+0.000"
+      ]
+    },
+    {
+      "check": "Table7 row 14",
+      "passed": true,
+      "detail": [
+        "",
+        "No prototype",
+        "55.649",
+        "+1.066"
+      ]
+    },
+    {
+      "check": "Table7 row 15",
+      "passed": true,
+      "detail": [
+        "",
+        "One prototype; τ = 0.20",
+        "55.386",
+        "+0.803"
+      ]
+    },
+    {
+      "check": "Table7 row 16",
+      "passed": true,
+      "detail": [
+        "",
+        "Two prototypes; τ = 0.20",
+        "—",
+        "—"
+      ]
+    },
+    {
+      "check": "Table7 row 17",
+      "passed": true,
+      "detail": [
+        "",
+        "Four prototypes; τ = 0.10",
+        "54.291",
+        "-0.292"
+      ]
+    },
+    {
+      "check": "Table7 row 18",
+      "passed": true,
+      "detail": [
+        "",
+        "Four prototypes; τ = 0.50",
+        "—",
+        "—"
+      ]
+    },
+    {
+      "check": "Table7 row 19",
+      "passed": true,
+      "detail": [
+        "DualOpt operations",
+        "Neither; base AdamW",
+        "72.908",
+        "+0.000"
+      ]
+    },
+    {
+      "check": "Table7 row 20",
+      "passed": true,
+      "detail": [
+        "",
+        "Rollback only",
+        "72.830",
+        "-0.078"
+      ]
+    },
+    {
+      "check": "Table7 row 21",
+      "passed": true,
+      "detail": [
+        "",
+        "Extra decay only",
+        "73.097",
+        "+0.189"
+      ]
+    },
+    {
+      "check": "Table7 row 22",
+      "passed": true,
+      "detail": [
+        "",
+        "Both operations",
+        "73.339",
+        "+0.431"
+      ]
+    },
+    {
+      "check": "Table7 row 23",
+      "passed": true,
+      "detail": [
+        "Mobile background losses",
+        "NWD + arch-position",
+        "54.583",
+        "+0.000"
+      ]
+    },
+    {
+      "check": "Table7 row 24",
+      "passed": true,
+      "detail": [
+        "",
+        "Neither",
+        "54.910",
+        "+0.327"
+      ]
+    },
+    {
+      "check": "Table7 row 25",
+      "passed": true,
+      "detail": [
+        "",
+        "NWD only",
+        "54.009",
+        "-0.575"
+      ]
+    },
+    {
+      "check": "Table7 row 26",
+      "passed": true,
+      "detail": [
+        "",
+        "Arch-position only",
+        "55.249",
+        "+0.666"
+      ]
+    },
+    {
+      "check": "Table7 row 27",
+      "passed": true,
+      "detail": [
+        "Factor fusion",
+        "On / On",
+        "54.583",
+        "+0.560"
+      ]
+    },
+    {
+      "check": "Table7 row 28",
+      "passed": true,
+      "detail": [
+        "",
+        "On / Off",
+        "54.632",
+        "+0.609"
+      ]
+    },
+    {
+      "check": "Table7 row 29",
+      "passed": true,
+      "detail": [
+        "",
+        "Off / Off",
+        "54.023",
+        "+0.000"
+      ]
+    },
+    {
+      "check": "Table7 row 30",
+      "passed": true,
+      "detail": [
+        "",
+        "Off / On",
+        "53.859",
+        "-0.164"
+      ]
+    },
+    {
+      "check": "Table7 four incomplete training conditions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table8 mobile_640_base",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table8 mobile_640_full",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table8 mobile_1024_base",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table8 mobile_1024_full",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table9 Pano base",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table9 Pano combined",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table9 Mobile base",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table9 Mobile combined",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table9 DSLR base",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table9 DSLR combined",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table10 no invented transfer data",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Table11 no invented cost metrics",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main table ref 2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main table ref 8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main table ref 5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main table ref 6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main table ref 1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main table ref 11",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main table ref 7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main table ref 3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main table ref 9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main table ref 4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main table ref 10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 14",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 12C",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 12B",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 13",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 15",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 11",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 12A",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 12",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Main figure ref 10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "All expected figure captions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "No internal run identifiers in manuscript",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Editable math preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Figure7 three-seed value agrees with Table5: Official DEIM-s",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Figure7 three-seed value agrees with Table5: RT-DETRv2-S",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Figure7 exactly five real SD-bearing model groups",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Figure7 Word embeds latest exported artifact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "AI declaration immediately before references",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Supplementary table reference S8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Supplementary table reference S7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Supplementary figure reference S8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Supplementary figure reference S6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Supplementary figure reference S1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Supplementary figure reference S7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Supplementary figure reference S4",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "errors": [],
+  "recommendations": [
+    {
+      "severity": "submission prerequisite",
+      "location": "Title page and ethics statement",
+      "issue": "Accurate per-author affiliation superscripts, clinical image publication permission, and actual ethical approval/consent details remain author-supplied information.",
+      "suggestion": "Keep the missing-information checklist outside the manuscript and obtain the real institutional information before submission."
+    }
+  ],
+  "document_summary": {
+    "tables": 11,
+    "inline_figures": 17,
+    "editable_math_elements": 51
+  },
+  "overall": "No substantive numerical errors identified"
+}

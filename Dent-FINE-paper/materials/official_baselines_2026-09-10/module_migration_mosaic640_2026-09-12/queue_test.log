@@ -1,0 +1,18 @@
+test_duplicate_or_missing_epoch_is_rejected (test_queue.QueueTests.test_duplicate_or_missing_epoch_is_rejected) ... ok
+test_duplicate_queue_lock_does_not_replace_status (test_queue.QueueTests.test_duplicate_queue_lock_does_not_replace_status) ... ok
+test_low_disk_fails_before_launch (test_queue.QueueTests.test_low_disk_fails_before_launch) ... ok
+test_nonbest_epoch_and_second_weight_are_rejected (test_queue.QueueTests.test_nonbest_epoch_and_second_weight_are_rejected) ... ok
+test_nonzero_exit_stops_queue_and_only_signals_owned_group (test_queue.QueueTests.test_nonzero_exit_stops_queue_and_only_signals_owned_group) ... ok
+test_refuses_unowned_process_group (test_queue.QueueTests.test_refuses_unowned_process_group) ... ok
+test_serial_success_and_owned_lock_inheritance (test_queue.QueueTests.test_serial_success_and_owned_lock_inheritance) ... ok
+test_signal_forwarding_reaps_only_owned_child (test_queue.QueueTests.test_signal_forwarding_reaps_only_owned_child) ... ok
+test_skip_requires_full_verification (test_queue.QueueTests.test_skip_requires_full_verification) ... ok
+test_termination_timeout_escalates_only_owned_group (test_queue.QueueTests.test_termination_timeout_escalates_only_owned_group) ... ok
+test_valid_finished_run_and_tampered_weight (test_queue.QueueTests.test_valid_finished_run_and_tampered_weight) ... ok
+test_waits_for_free_memory_not_for_idle_gpu (test_queue.QueueTests.test_waits_for_free_memory_not_for_idle_gpu) ... ok
+test_zero_exit_without_complete_artifacts_fails (test_queue.QueueTests.test_zero_exit_without_complete_artifacts_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.020s
+
+OK

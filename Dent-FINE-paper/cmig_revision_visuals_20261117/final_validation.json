@@ -1,0 +1,186 @@
+{
+  "archive": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_Overleaf_Visual_20261117.zip",
+  "archive_bytes": 5784882,
+  "flat_files": 25,
+  "source_bytes": 6163087,
+  "pdf": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_Visual_20261117.pdf",
+  "pdf_bytes": 6364554,
+  "pages": 25,
+  "clean_compile_seconds": 5.332626732997596,
+  "compile_steps": [
+    {
+      "step": 1,
+      "seconds": 1.6591000779881142,
+      "exit_code": 0
+    },
+    {
+      "step": 2,
+      "seconds": 0.0051781630027107894,
+      "exit_code": 0
+    },
+    {
+      "step": 3,
+      "seconds": 1.865572157985298,
+      "exit_code": 0
+    },
+    {
+      "step": 4,
+      "seconds": 1.8027763340214733,
+      "exit_code": 0
+    }
+  ],
+  "abstract_original_exact": false,
+  "abstract_unchanged_except_author_approved_values": true,
+  "abstract_author_approved_changes": {
+    "DSLR_AP": [
+      "72.91",
+      "73.22"
+    ],
+    "DSLR_F1": [
+      "92.49",
+      "92.84"
+    ]
+  },
+  "introduction_original_exact": true,
+  "all_manuscript_in_single_tex": true,
+  "figure_pdfs": 20,
+  "numbered_figures": 18,
+  "editable_tables": 8,
+  "numbered_equations": 13,
+  "cited_bib_entries": 33,
+  "undefined_references": 0,
+  "undefined_citations": 0,
+  "missing_glyphs": 0,
+  "outside_page_text": [],
+  "overfull_box_log_entries": [
+    "Overfull \\hbox (123.62721pt too wide) detected at line 82"
+  ],
+  "overfull_note": "The remaining 123.62721pt box comes from the CAS keyword label in its zero-width box; rendered content remains within the page.",
+  "files": [
+    {
+      "name": "Figure_1.pdf",
+      "bytes": 207601,
+      "sha256": "bd88f3e37bd5c742182f0a5f163f306c6ad553472f62f36948a0b560202eb34c"
+    },
+    {
+      "name": "Figure_10.pdf",
+      "bytes": 21584,
+      "sha256": "a5447b8c0981216a67a5a8de29b55ce0c9bd556348921b74bedbe32a1b9e7c4a"
+    },
+    {
+      "name": "Figure_11A.pdf",
+      "bytes": 698728,
+      "sha256": "255d760a8587292f91319ee94b7cf32b1f9689fb2ad55a48c5c78d30c86603c0"
+    },
+    {
+      "name": "Figure_11B.pdf",
+      "bytes": 647769,
+      "sha256": "d3592fc01167b428963d661c96caecdbafb2813b2074df0432ec4309c2f7304d"
+    },
+    {
+      "name": "Figure_11C.pdf",
+      "bytes": 866848,
+      "sha256": "18afb56c08d8e2a0a82d56d84e54842c6abe128442ddfb5cfdc0f82ae85e2b13"
+    },
+    {
+      "name": "Figure_12.pdf",
+      "bytes": 48289,
+      "sha256": "314893e73a331972918123fc1b14b0eddd51d73afb31b8bdb20927674b9503a1"
+    },
+    {
+      "name": "Figure_13.pdf",
+      "bytes": 79625,
+      "sha256": "166eecebed49bc5645817c9979f37d52e89d794641f08c42446482e068a145c4"
+    },
+    {
+      "name": "Figure_14.pdf",
+      "bytes": 115464,
+      "sha256": "bdf3cbe9952e3a22831040b60ed2d63e6d342347f949a698701c6b47dd6ba39f"
+    },
+    {
+      "name": "Figure_15.pdf",
+      "bytes": 180729,
+      "sha256": "624ef43e3bcef7677989033a04c33bae61ab2ba06f31358eab05ff0417b4cf39"
+    },
+    {
+      "name": "Figure_16.pdf",
+      "bytes": 231071,
+      "sha256": "a4d0b019c9f8a5e46324d33500183d2cefd0efe9253217761c3dff992009d2ea"
+    },
+    {
+      "name": "Figure_17.pdf",
+      "bytes": 929197,
+      "sha256": "3e8ff1ceb16404ad1b4649e867e57ad06c7e682d68d5cdc17859a19dcf7888a1"
+    },
+    {
+      "name": "Figure_18.pdf",
+      "bytes": 48065,
+      "sha256": "c952088d4dd3f7bd32078e6f3d5fe3ea80fb54cccab268fdc201b74dcabd4e56"
+    },
+    {
+      "name": "Figure_2.pdf",
+      "bytes": 60058,
+      "sha256": "f0c4d744e7c1d9392e317f6fb5134f3c13d55cf8637bcd0a78f6e4658bb00fb1"
+    },
+    {
+      "name": "Figure_3.pdf",
+      "bytes": 182951,
+      "sha256": "5cc7efc0b51a2228aded8cb480b614301f63a97b759a17decdec0cbe8eab3d62"
+    },
+    {
+      "name": "Figure_4.pdf",
+      "bytes": 42540,
+      "sha256": "ecb0c9182488b26b9201402317715483906777ae56e0b524c9764d573dff43f7"
+    },
+    {
+      "name": "Figure_5.pdf",
+      "bytes": 38918,
+      "sha256": "e0bbf642cc2b4b7c31b7bde5bca90efa05529c5dde5f6acc49e188b4b9ec9f33"
+    },
+    {
+      "name": "Figure_6.pdf",
+      "bytes": 13051,
+      "sha256": "c4de1d20acb51c6c0b49d4ff230b0007c4fb133a3fb061d9e9ad619b2b36eabc"
+    },
+    {
+      "name": "Figure_7.pdf",
+      "bytes": 922910,
+      "sha256": "d731235e2a1d3a68d24557e1577edf5e6b34b3de275150a188855fbc792ce0f8"
+    },
+    {
+      "name": "Figure_8.pdf",
+      "bytes": 18070,
+      "sha256": "2e3968d116fb4a903c0ff029a0a67b1d6a91b56aca634ce8f6313b86e67092e2"
+    },
+    {
+      "name": "Figure_9.pdf",
+      "bytes": 591389,
+      "sha256": "005be9ff6af8d683f871a1194d014881d50bca28bb661b87791cbc77b679257b"
+    },
+    {
+      "name": "cas-common.sty",
+      "bytes": 76661,
+      "sha256": "14068160bb07790605f0ab13049e0bbede3efbeef2a123469efaf865e1a562d2"
+    },
+    {
+      "name": "cas-dc-template.tex",
+      "bytes": 90808,
+      "sha256": "44e9872fb6faebb01ce19c5b0ad0115795c569afe66e21a4340f641913da9370"
+    },
+    {
+      "name": "cas-dc.cls",
+      "bytes": 4131,
+      "sha256": "ebcccfc804c19c739e4a5c0832cb033b379668288b406153ce04e1b311f16ad3"
+    },
+    {
+      "name": "cas-model2-names.bst",
+      "bytes": 31802,
+      "sha256": "6f6204eb7670d762042ab363c2d05cf87196052bfbdf6dbee51a1327a8ce479a"
+    },
+    {
+      "name": "cas-refs.bib",
+      "bytes": 14828,
+      "sha256": "e4e6252d8875f73f14aad3c2681d57c98be156d015a6039457fc02dde77e4ffa"
+    }
+  ]
+}

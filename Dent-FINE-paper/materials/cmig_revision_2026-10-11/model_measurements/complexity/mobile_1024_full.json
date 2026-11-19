@@ -1,0 +1,31 @@
+{
+  "source_configuration": "mobile_1024_full",
+  "seed": 0,
+  "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/mobile_1024_full/seed_0/best.pth",
+  "checkpoint_sha256": "44c6c89020afc7c2cb0005f642c423aa29274af870548aff227c584ffb8052ea",
+  "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/configs/mobile_1024_full/seed_0.yml",
+  "config_sha256": "d08ee15dcf61ec4bf45bcbe146a05d8fe381bcd06614dd3ff85f7646002bf6bb",
+  "frozen_implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile",
+  "source_inference_resolution": [
+    1024,
+    1024
+  ],
+  "weight_state": "EMA",
+  "strict_checkpoint_loading": true,
+  "created_utc": "2026-10-11T10:36:04.153947+00:00",
+  "parameters_total": 12513167,
+  "parameters_trainable": 12513162,
+  "calflops_reported_parameters": 12513162,
+  "GMACs": 38.938095888,
+  "GFLOPs": 78.353257344,
+  "tool": "calflops",
+  "tool_version": "0.3.2",
+  "batch_size": 1,
+  "precision": "FP32",
+  "device": "CPU",
+  "profile_scope": "native evaluation-mode model forward, including native decoder and auxiliary outputs, at the source configuration resolution; excludes postprocessing (top-k, FDI label decoding and pixel-space conversion) and data loading",
+  "latency_ms": null,
+  "throughput_images_per_s": null,
+  "latency_status": "Not measured because RTX 4090 GPUs are contended by unrelated jobs; no timing values are inferred from MACs.",
+  "inference_vram_mib": null
+}

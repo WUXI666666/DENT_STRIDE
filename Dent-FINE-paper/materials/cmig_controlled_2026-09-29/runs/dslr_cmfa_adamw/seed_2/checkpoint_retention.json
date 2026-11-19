@@ -1,0 +1,7 @@
+{
+  "retained_weight": "best.pth",
+  "removed_task_owned_temporary_weights": [
+    "best_stg1.pth"
+  ],
+  "best_replay_verified": true
+}

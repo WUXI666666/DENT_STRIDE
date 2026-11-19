@@ -1,0 +1,13 @@
+{
+  "dataset_yaml": "/home/wuxi/Dent-FINE/outputs/viewnet3_dslr_baseline_comparison/yolo_dataset/viewnet3_dslr_fdi52.yaml",
+  "annotation": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json",
+  "images": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val",
+  "gpu": 1,
+  "epochs": 160,
+  "input": 640,
+  "seed": 0,
+  "flips": false,
+  "models": [
+    "rtdetr_l"
+  ]
+}

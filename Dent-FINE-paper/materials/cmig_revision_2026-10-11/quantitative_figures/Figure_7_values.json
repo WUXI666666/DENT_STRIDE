@@ -1,0 +1,74 @@
+[
+  {
+    "model": "RT-DETR-L",
+    "AP": 74.019,
+    "Params_M": 32.091,
+    "SD": null,
+    "n": 1,
+    "source": "Original main manuscript Table 4"
+  },
+  {
+    "model": "DENT-STRIDE-DSLR",
+    "AP": 72.29283371540679,
+    "Params_M": 11.153968,
+    "SD": 0.6506080392844289,
+    "n": 3,
+    "source": "Current DSLR CMFA + DualOpt; seeds 0/1/2; native COCO evaluator"
+  },
+  {
+    "model": "Official DEIM-s",
+    "AP": 72.40510717714518,
+    "Params_M": 10.286,
+    "SD": 0.20202879528332565,
+    "n": 3,
+    "source": "Official upstream implementation; completed seeds0/1/2 best-validation checkpoints"
+  },
+  {
+    "model": "YOLOv8-s",
+    "AP": 71.854,
+    "Params_M": 11.15,
+    "SD": null,
+    "n": 1,
+    "source": "Original main manuscript Table 4"
+  },
+  {
+    "model": "Dome-DETR-S",
+    "AP": 71.363,
+    "Params_M": 13.291,
+    "SD": null,
+    "n": 1,
+    "source": "Original main manuscript Table 4"
+  },
+  {
+    "model": "RT-DETRv2-S",
+    "AP": 70.9494630056139,
+    "Params_M": 20.149,
+    "SD": 0.5058767400225146,
+    "n": 3,
+    "source": "Official upstream implementation; completed seeds0/1/2 best-validation checkpoints"
+  },
+  {
+    "model": "YOLO11-s",
+    "AP": 71.094,
+    "Params_M": 9.43,
+    "SD": null,
+    "n": 1,
+    "source": "Original main manuscript Table 4"
+  },
+  {
+    "model": "CAF-YOLO-s",
+    "AP": 67.46,
+    "Params_M": 11.5,
+    "SD": null,
+    "n": 1,
+    "source": "Original main manuscript Table 4"
+  },
+  {
+    "model": "Faster R-CNN R50-FPN",
+    "AP": 63.151,
+    "Params_M": 41.556,
+    "SD": null,
+    "n": 1,
+    "source": "Original main manuscript Table 4"
+  }
+]

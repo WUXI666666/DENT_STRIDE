@@ -1,0 +1,23 @@
+{
+  "job": "pano_spatialshape_original_seed3",
+  "native_reference": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_shape_metrics.json",
+  "native_reference_sha256": "1a5e2048c4c3272fc709b5354d7ef6f415dc4dee428a60f3b2c6448c7f7bc111",
+  "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2",
+  "log_sha256": "e0f11ddcb3b1fb206516c7a9d980bea1684e4ed9580498571d33c2242d29cbc3",
+  "config_sha256": "1f8055240f1266f70cefe240834d5a31a1e8dd875359ab82930af51613396414",
+  "script_sha256": "9a1d2c0651d4305b454c4ce1321f534f37825e42ea9e9b07a4231af8a24ea9de",
+  "native_export_minus_reference_fraction": {
+    "AP": 0.0,
+    "AP50": 0.0,
+    "AP75": 0.0,
+    "AR100": 0.0
+  },
+  "retained_original_training_and_native_validation": true,
+  "files": {
+    "pre_topk_candidates.npz": "40eeb650fb291c50f01ee621a8ab3c9f45316c8cfe5a6d4798d3dde2c0c15cea",
+    "predictions_coco.json.gz": "16f10caf99db1a196b218a8254e392e5f9428a77869d5614dba52f79aabbda10",
+    "coco_precision_recall.npz": "4158c54c15dd7e74ea93665a5a8a0b8922ebfeee049ef6fecacf7b96bdfa39af",
+    "per_image_counts.json": "cd1a25c1c79e6287f84a3d0233701a2d0160945ef3e06aee175def66cadd5a28",
+    "metrics.json": "f20f64b8c31edd5f60dd26caa66db7bbaaefbe5016bf2581906a205287dd8a2c"
+  }
+}

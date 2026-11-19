@@ -1,0 +1,9 @@
+[
+  {
+    "file": "/home/wuxi/RT-DETR-main/D-FINE/weight/hgnetv2/PPHGNetV2_B0_stage1.pth",
+    "official_release_url": "https://github.com/Peterande/storage/releases/download/dfinev1.0/PPHGNetV2_B0_stage1.pth",
+    "sha256": "70a372e8cbc59b34c5da2943261ecb633faf304a58e7e05461a27bd8d8b7f3d1",
+    "exact_official_bytes": true,
+    "verified_at": "2026-09-10T23:48:57.337217+08:00"
+  }
+]

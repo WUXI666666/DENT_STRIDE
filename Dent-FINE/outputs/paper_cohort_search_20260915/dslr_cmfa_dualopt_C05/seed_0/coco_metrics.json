@@ -1,0 +1,32 @@
+{
+  "names": [
+    "AP",
+    "AP50",
+    "AP75",
+    "AP_small",
+    "AP_medium",
+    "AP_large",
+    "AR1",
+    "AR10",
+    "AR100",
+    "AR_small",
+    "AR_medium",
+    "AR_large"
+  ],
+  "metrics_fraction": {
+    "AP": 0.7268228747565085,
+    "AP50": 0.8808300276456361,
+    "AP75": 0.8303512309623098,
+    "AP_small": -1.0,
+    "AP_medium": 0.5460199081824976,
+    "AP_large": 0.7443007952888303,
+    "AR1": 0.7737174004504572,
+    "AR10": 0.8113493828755877,
+    "AR100": 0.8163311659265771,
+    "AR_small": -1.0,
+    "AR_medium": 0.6255073051948052,
+    "AR_large": 0.83203192340416
+  },
+  "source": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C05/seed_0/best_evaluation/eval.pth",
+  "unavailable_metric_sentinel": -1
+}

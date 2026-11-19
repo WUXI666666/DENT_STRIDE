@@ -1,0 +1,9 @@
+{
+  "pid": 1044197,
+  "cuda_visible_devices": "1",
+  "seed": 0,
+  "started_unix": 1790952201.2705643,
+  "controls": {
+    "hooa_highpass": false
+  }
+}

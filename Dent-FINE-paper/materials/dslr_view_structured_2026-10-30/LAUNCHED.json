@@ -1,0 +1,39 @@
+{
+  "workers": [
+    {
+      "gpu": 0,
+      "pid": 123699,
+      "first_job": "D01_cmfa_factor_seed0",
+      "command": [
+        "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+        "-u",
+        "/home/wuxi/Dent-FINE-paper/materials/dslr_view_structured_2026-10-30/queue_worker.py",
+        "--gpu",
+        "0",
+        "--first-job",
+        "D01_cmfa_factor_seed0"
+      ]
+    },
+    {
+      "gpu": 1,
+      "pid": 123700,
+      "first_job": "D02_cmfa_factor_viewproto_seed0",
+      "command": [
+        "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+        "-u",
+        "/home/wuxi/Dent-FINE-paper/materials/dslr_view_structured_2026-10-30/queue_worker.py",
+        "--gpu",
+        "1",
+        "--first-job",
+        "D02_cmfa_factor_viewproto_seed0"
+      ]
+    }
+  ],
+  "launched_unix": 1793363348.9328377,
+  "jobs": [
+    "D01_cmfa_factor_seed0",
+    "D02_cmfa_factor_viewproto_seed0",
+    "D03_cmfa_hooa_factor_viewproto_seed0"
+  ],
+  "policy": "three independent seed-0 160-epoch runs; dynamic claim of remaining third job; no persistent assistant monitoring"
+}

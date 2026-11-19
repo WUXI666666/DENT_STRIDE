@@ -1,0 +1,23 @@
+[
+  {
+    "a": "dslr_cmfa_dualopt_C02",
+    "b": "dslr_cmfa_dualopt_R01_crop0p5",
+    "factor": "crop",
+    "before": 0.8,
+    "after": 0.5
+  },
+  {
+    "a": "dslr_cmfa_dualopt_C02",
+    "b": "dslr_cmfa_dualopt_R02_zoom0",
+    "factor": "zoom",
+    "before": 0.5,
+    "after": 0.0
+  },
+  {
+    "a": "dslr_cmfa_dualopt_C02",
+    "b": "dslr_cmfa_dualopt_R03_mosaic0p25",
+    "factor": "mosaic",
+    "before": 0.0,
+    "after": 0.25
+  }
+]

@@ -1,0 +1,61 @@
+{
+  "model": "Official DEIM-S + paper modules",
+  "task": "phone_dualopt",
+  "cohort": "phone",
+  "seed": 0,
+  "epochs_completed": 160,
+  "best_epoch_zero_based": 139,
+  "final_epoch_zero_based": 159,
+  "best_metrics": {
+    "AP": 52.96732248044718,
+    "AP50": 83.24996413093476,
+    "AP75": 56.75571189493144,
+    "AP_small": 35.0,
+    "AP_medium": 37.65713919139867,
+    "AP_large": 54.57647115126999,
+    "AR1": 60.556987031113586,
+    "AR10": 65.78727376615618,
+    "AR100": 66.24612559391197,
+    "AR_small": 35.0,
+    "AR_medium": 46.85063932980599,
+    "AR_large": 67.81263992423176
+  },
+  "final_epoch_metrics": {
+    "AP": 52.935680374599144,
+    "AP50": 83.23294592959219,
+    "AP75": 56.73559345394344,
+    "AP_small": 35.0,
+    "AP_medium": 37.66134123064654,
+    "AP_large": 54.54394703027664,
+    "AR1": 60.54291243168749,
+    "AR10": 65.74967344319876,
+    "AR100": 66.21233719976651,
+    "AR_small": 35.0,
+    "AR_medium": 46.81977513227513,
+    "AR_large": 67.77174869821684
+  },
+  "params_training_total": 10285925,
+  "params_trainable": 10285923,
+  "additional_parameters_over_official": 0,
+  "elapsed_seconds": 11691.969788469025,
+  "stage1_RAM_restores": 15,
+  "peak_cuda_allocated_bytes": 5304693760,
+  "checkpoint_sha256": "997ca7ad076d8253bf8c59c5084faa65253615d0009ea48efacf70090ad9e499",
+  "completed_at": "2026-09-12T01:43:07.113866+08:00",
+  "smoke_only": false,
+  "compute_profile": {
+    "task": "phone_dualopt",
+    "params_training_total": 10285925,
+    "params_trainable": 10285923,
+    "params_deploy_total": 10215931,
+    "GMACs": 12.4699364,
+    "GFLOPs": 25.046627056,
+    "profile": "calflops; deployed model forward; FP32 CPU; batch 1; 640x640; excludes postprocessing (including SpatialShape)"
+  },
+  "delta_vs_official_deim_seed0": {
+    "AP": -0.6379041617610426,
+    "AP50": 0.1654119517632182,
+    "AP75": -3.662969466790855,
+    "AR100": -1.1125269925016
+  }
+}

@@ -1,0 +1,588 @@
+{
+  "passed": true,
+  "verified_at": "2026-09-12T22:14:46.237549+08:00",
+  "protocol_sha256": "973f89156d6c4c39beb5a1d6a1a1169e7c36264b5123eadb3ad67fc3be4a58bd",
+  "source_sha256": {
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_2026-09-11/paper_modules.py": "07b85a2d6f88530827833cb5aad4d0143fd7b2f49b124be96d60bd355a775d1a",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/augmentation_runtime.py": "3afcf5bd40de286c93224184327609492b3cd9a1f41451e45036a46f1fdfb66b",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/paper_modules.py": "07b85a2d6f88530827833cb5aad4d0143fd7b2f49b124be96d60bd355a775d1a",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/preflight.py": "1032a1ffbe386d976fe90ada875a619e925de1bcdfa1662bbcba9e0f429c2dd5",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/prepare_migration.py": "68c7421096b2200f399376d6d8c61d55a5eb92f46c022f40aed92736894234f0",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/run_experiment.py": "200c63a0d0412e287d76babf207b9c7633d427e4795629e7a6fc1513a316b7e2",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/run_queue.py": "06df4d08c4e7176ab8e3245f95f8f0366a47467c8d3a41e6e1e907f8728315f4",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/test_augmentation_runtime.py": "3a6da1990fd0412f97ad82aa1fab4b09a8bb5f9c719f5778e1080bdb32e4c8cf",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/test_queue.py": "78a6f88e1ebf07f00d4d4f9b6baee3b8ce7d75860e9cf4503d4d5836041bbb28",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/scripts/prepare_comparison.py": "394d5075e09529ab7c55583232848a0553940334dc1e3b956699a5aa68af799c",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/scripts/run_official.py": "b65df52003bf0c6e39bd2dbda2a85ed974aa739ae5204db740d35c750f69d6a0"
+  },
+  "config_audit": true,
+  "augmentation_validation": {
+    "cohorts": {
+      "dentex_spatial_shape": {
+        "native_metadata_mismatch_observed": false,
+        "stages": {
+          "130": {
+            "batch_shape": [
+              3,
+              3,
+              640,
+              640
+            ],
+            "collated_box_counts": [
+              27,
+              28,
+              29
+            ],
+            "native_image_box_label_rng_equivalence": true,
+            "sample_box_counts": [
+              27,
+              28,
+              29
+            ]
+          },
+          "4": {
+            "batch_shape": [
+              3,
+              3,
+              640,
+              640
+            ],
+            "collated_box_counts": [
+              229,
+              231,
+              236
+            ],
+            "native_image_box_label_rng_equivalence": true,
+            "sample_box_counts": [
+              112,
+              119,
+              117
+            ]
+          },
+          "70": {
+            "batch_shape": [
+              3,
+              3,
+              640,
+              640
+            ],
+            "collated_box_counts": [
+              56,
+              55,
+              57
+            ],
+            "native_image_box_label_rng_equivalence": true,
+            "sample_box_counts": [
+              27,
+              28,
+              29
+            ]
+          }
+        },
+        "validation_unmodified": true
+      },
+      "dslr_cmfa_dualopt": {
+        "native_metadata_mismatch_observed": true,
+        "stages": {
+          "130": {
+            "batch_shape": [
+              3,
+              3,
+              640,
+              640
+            ],
+            "collated_box_counts": [
+              20,
+              16,
+              10
+            ],
+            "native_image_box_label_rng_equivalence": true,
+            "sample_box_counts": [
+              20,
+              16,
+              10
+            ]
+          },
+          "4": {
+            "batch_shape": [
+              3,
+              3,
+              640,
+              640
+            ],
+            "collated_box_counts": [
+              136,
+              122,
+              108
+            ],
+            "native_image_box_label_rng_equivalence": true,
+            "sample_box_counts": [
+              75,
+              47,
+              61
+            ]
+          },
+          "70": {
+            "batch_shape": [
+              3,
+              3,
+              640,
+              640
+            ],
+            "collated_box_counts": [
+              30,
+              36,
+              26
+            ],
+            "native_image_box_label_rng_equivalence": true,
+            "sample_box_counts": [
+              20,
+              16,
+              10
+            ]
+          }
+        },
+        "validation_unmodified": true
+      },
+      "phone_dualopt": {
+        "native_metadata_mismatch_observed": true,
+        "stages": {
+          "130": {
+            "batch_shape": [
+              3,
+              3,
+              640,
+              640
+            ],
+            "collated_box_counts": [
+              8,
+              11,
+              15
+            ],
+            "native_image_box_label_rng_equivalence": true,
+            "sample_box_counts": [
+              8,
+              11,
+              15
+            ]
+          },
+          "4": {
+            "batch_shape": [
+              3,
+              3,
+              640,
+              640
+            ],
+            "collated_box_counts": [
+              101,
+              82,
+              93
+            ],
+            "native_image_box_label_rng_equivalence": true,
+            "sample_box_counts": [
+              45,
+              37,
+              56
+            ]
+          },
+          "70": {
+            "batch_shape": [
+              3,
+              3,
+              640,
+              640
+            ],
+            "collated_box_counts": [
+              23,
+              19,
+              26
+            ],
+            "native_image_box_label_rng_equivalence": true,
+            "sample_box_counts": [
+              8,
+              11,
+              15
+            ]
+          }
+        },
+        "validation_unmodified": true
+      }
+    },
+    "device": "cpu",
+    "explicit_crop_removal": {
+      "cropped_image_shape": [
+        3,
+        62,
+        50
+      ],
+      "remaining_labels": [
+        1,
+        3
+      ],
+      "seed": 10
+    },
+    "installation": {
+      "changes": [
+        "align existing area/iscrowd with native keep mask",
+        "recompute existing box area",
+        "MixUp concatenates existing crowd flags with native source permutation"
+      ],
+      "composite_source_metadata": "retained unchanged; training-only, not clinical image metadata",
+      "native_mosaic_modified": false,
+      "native_sanitizer_registration_modified": false,
+      "registered_train_collator": "AlignedBatchImageCollateFunction",
+      "registered_transform": "AlignedSanitizeBoundingBoxes"
+    },
+    "passed": true
+  },
+  "queue_validation": {
+    "passed": true,
+    "test_count": 13,
+    "test_kind": "CPU/mocked subprocess, signals, GPU memory and completed-run validation",
+    "log": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/queue_test.log"
+  },
+  "gpu_full_batch_probes": {
+    "phone_dualopt": {
+      "task": "phone_dualopt",
+      "passed": true,
+      "phases": [
+        {
+          "phase": "epoch4_real_max_count_sources",
+          "batch_size": 8,
+          "input_size": [
+            640,
+            640
+          ],
+          "gt_counts": [
+            114,
+            80,
+            72,
+            113,
+            102,
+            87,
+            110,
+            118
+          ],
+          "actual_dn_queries": 236,
+          "loss": 31.689191818237305,
+          "grad_norm": 3.0389256477355957,
+          "peak_allocated_bytes": 4018603008,
+          "peak_reserved_bytes": 4580179968,
+          "passed": true
+        },
+        {
+          "phase": "epoch70_real_max_count_sources",
+          "batch_size": 8,
+          "input_size": [
+            640,
+            640
+          ],
+          "gt_counts": [
+            23,
+            22,
+            22,
+            22,
+            21,
+            21,
+            21,
+            3
+          ],
+          "actual_dn_queries": 184,
+          "loss": 29.26093292236328,
+          "grad_norm": 4.733232498168945,
+          "peak_allocated_bytes": 3716517888,
+          "peak_reserved_bytes": 4278190080,
+          "passed": true
+        },
+        {
+          "phase": "epoch130_real_max_count_sources",
+          "batch_size": 8,
+          "input_size": [
+            640,
+            640
+          ],
+          "gt_counts": [
+            23,
+            22,
+            22,
+            22,
+            21,
+            21,
+            21,
+            21
+          ],
+          "actual_dn_queries": 184,
+          "loss": 29.999282836914062,
+          "grad_norm": 4.151117324829102,
+          "peak_allocated_bytes": 3739759616,
+          "peak_reserved_bytes": 4177526784,
+          "passed": true
+        },
+        {
+          "phase": "validation_FP32",
+          "batch_size": 16,
+          "input_size": [
+            640,
+            640
+          ],
+          "peak_allocated_bytes": 1746179072,
+          "peak_reserved_bytes": 2019557376,
+          "passed": true
+        }
+      ],
+      "updated_at": "2026-09-12T22:14:13.497055+08:00",
+      "protocol_sha256": "973f89156d6c4c39beb5a1d6a1a1169e7c36264b5123eadb3ad67fc3be4a58bd",
+      "memory_limit_mib": 9216,
+      "maximum_peak_allocated_bytes": 4018603008,
+      "maximum_peak_reserved_bytes": 4580179968
+    },
+    "dentex_spatial_shape": {
+      "task": "dentex_spatial_shape",
+      "passed": true,
+      "phases": [
+        {
+          "phase": "epoch4_real_max_count_sources",
+          "batch_size": 8,
+          "input_size": [
+            640,
+            640
+          ],
+          "gt_counts": [
+            230,
+            230,
+            226,
+            228,
+            227,
+            237,
+            236,
+            224
+          ],
+          "actual_dn_queries": 474,
+          "loss": 38.037567138671875,
+          "grad_norm": 2.859762191772461,
+          "peak_allocated_bytes": 5946145792,
+          "peak_reserved_bytes": 6597640192,
+          "passed": true
+        },
+        {
+          "phase": "synthetic_dense_upper_bound_272_GT",
+          "batch_size": 8,
+          "input_size": [
+            640,
+            640
+          ],
+          "gt_counts": [
+            272,
+            272,
+            272,
+            272,
+            272,
+            272,
+            272,
+            272
+          ],
+          "actual_dn_queries": 544,
+          "loss": 38.216209411621094,
+          "grad_norm": 3.3097903728485107,
+          "peak_allocated_bytes": 6808834560,
+          "peak_reserved_bytes": 7491026944,
+          "passed": true
+        },
+        {
+          "phase": "epoch70_real_max_count_sources",
+          "batch_size": 8,
+          "input_size": [
+            640,
+            640
+          ],
+          "gt_counts": [
+            34,
+            32,
+            32,
+            32,
+            32,
+            32,
+            32,
+            9
+          ],
+          "actual_dn_queries": 136,
+          "loss": 35.67919158935547,
+          "grad_norm": 4.2753376960754395,
+          "peak_allocated_bytes": 3573858816,
+          "peak_reserved_bytes": 4055891968,
+          "passed": true
+        },
+        {
+          "phase": "epoch130_real_max_count_sources",
+          "batch_size": 8,
+          "input_size": [
+            640,
+            640
+          ],
+          "gt_counts": [
+            34,
+            32,
+            32,
+            32,
+            32,
+            32,
+            32,
+            32
+          ],
+          "actual_dn_queries": 136,
+          "loss": 35.709503173828125,
+          "grad_norm": 3.81290864944458,
+          "peak_allocated_bytes": 3607306752,
+          "peak_reserved_bytes": 4024434688,
+          "passed": true
+        },
+        {
+          "phase": "validation_FP32",
+          "batch_size": 16,
+          "input_size": [
+            640,
+            640
+          ],
+          "peak_allocated_bytes": 1705780224,
+          "peak_reserved_bytes": 1969225728,
+          "passed": true
+        }
+      ],
+      "updated_at": "2026-09-12T22:14:28.235680+08:00",
+      "protocol_sha256": "973f89156d6c4c39beb5a1d6a1a1169e7c36264b5123eadb3ad67fc3be4a58bd",
+      "memory_limit_mib": 9216,
+      "maximum_peak_allocated_bytes": 6808834560,
+      "maximum_peak_reserved_bytes": 7491026944
+    },
+    "dslr_cmfa_dualopt": {
+      "task": "dslr_cmfa_dualopt",
+      "passed": true,
+      "phases": [
+        {
+          "phase": "epoch4_real_max_count_sources",
+          "batch_size": 8,
+          "input_size": [
+            640,
+            640
+          ],
+          "gt_counts": [
+            118,
+            107,
+            115,
+            126,
+            128,
+            124,
+            136,
+            140
+          ],
+          "actual_dn_queries": 280,
+          "loss": 31.126123428344727,
+          "grad_norm": 2.6000421047210693,
+          "peak_allocated_bytes": 4599449600,
+          "peak_reserved_bytes": 5333057536,
+          "passed": true
+        },
+        {
+          "phase": "epoch70_real_max_count_sources",
+          "batch_size": 8,
+          "input_size": [
+            640,
+            640
+          ],
+          "gt_counts": [
+            24,
+            24,
+            24,
+            24,
+            24,
+            24,
+            24,
+            23
+          ],
+          "actual_dn_queries": 192,
+          "loss": 29.948333740234375,
+          "grad_norm": 4.800586700439453,
+          "peak_allocated_bytes": 4065589760,
+          "peak_reserved_bytes": 4852809728,
+          "passed": true
+        },
+        {
+          "phase": "epoch130_real_max_count_sources",
+          "batch_size": 8,
+          "input_size": [
+            640,
+            640
+          ],
+          "gt_counts": [
+            24,
+            24,
+            24,
+            24,
+            24,
+            24,
+            24,
+            23
+          ],
+          "actual_dn_queries": 192,
+          "loss": 29.655378341674805,
+          "grad_norm": 4.497592926025391,
+          "peak_allocated_bytes": 4066603520,
+          "peak_reserved_bytes": 4747952128,
+          "passed": true
+        },
+        {
+          "phase": "validation_FP32",
+          "batch_size": 16,
+          "input_size": [
+            640,
+            640
+          ],
+          "peak_allocated_bytes": 1730466816,
+          "peak_reserved_bytes": 2055208960,
+          "passed": true
+        }
+      ],
+      "updated_at": "2026-09-12T22:14:43.638314+08:00",
+      "protocol_sha256": "973f89156d6c4c39beb5a1d6a1a1169e7c36264b5123eadb3ad67fc3be4a58bd",
+      "memory_limit_mib": 9216,
+      "maximum_peak_allocated_bytes": 4599449600,
+      "maximum_peak_reserved_bytes": 5333057536
+    }
+  },
+  "three_epoch_solver_smokes": {
+    "phone_dualopt": {
+      "passed": true,
+      "epochs": 3,
+      "stage1_RAM_restores": 2,
+      "config_sha256": "657491ddc8afca86c51b9981f9354d3391e5de05c6ef733a9305a4acc7d8eaa9",
+      "peak_reserved_bytes": 5393874944,
+      "one_best_checkpoint": true,
+      "verified_best_checkpoint": true
+    },
+    "dentex_spatial_shape": {
+      "passed": true,
+      "epochs": 3,
+      "stage1_RAM_restores": 2,
+      "config_sha256": "e9f3a253adf29c90e4a64351df1a092b2bb4b50c0d4c06bf0aaf5096d842a68f",
+      "peak_reserved_bytes": 7514095616,
+      "one_best_checkpoint": true,
+      "verified_best_checkpoint": true
+    },
+    "dslr_cmfa_dualopt": {
+      "passed": true,
+      "epochs": 3,
+      "stage1_RAM_restores": 2,
+      "config_sha256": "093dafe6a441eae51c270a598af59390baf2ea6bd9dcb6c294cb27278dee3a6e",
+      "peak_reserved_bytes": 6169821184,
+      "one_best_checkpoint": true,
+      "verified_best_checkpoint": true
+    }
+  },
+  "recommended_min_free_gpu_mib": 9216,
+  "original_code_configs_manuscripts_unchanged": true,
+  "limitations": [
+    "Shared GPU performance is not an efficiency benchmark",
+    "Only global best checkpoint is persistent; exact interrupted-run resume is unsupported",
+    "Original upstream EMA decay closure and validation-guided rollback retained identically"
+  ]
+}

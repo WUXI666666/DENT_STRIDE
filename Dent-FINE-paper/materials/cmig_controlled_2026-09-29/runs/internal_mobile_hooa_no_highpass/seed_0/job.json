@@ -1,0 +1,19 @@
+{
+  "id": "internal_mobile_hooa_no_highpass_seed0",
+  "configuration": "internal_mobile_hooa_no_highpass",
+  "cohort": "Mobile",
+  "seed": 0,
+  "phase": "internal",
+  "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_hooa_no_highpass/seed_0.yml",
+  "config_sha256": "e92fd34e1004f752aeadf9fd491b778b78cc9476d1de65bf24fa76f65fb22305",
+  "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/internal_mobile_hooa_no_highpass/seed_0",
+  "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/source_snapshots/mobile",
+  "controls": {
+    "hooa_highpass": false
+  },
+  "epochs": 160,
+  "expected_input": 1024,
+  "gpu": 1,
+  "queue_order": 27,
+  "job_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/jobs/internal_mobile_hooa_no_highpass_seed0.json"
+}

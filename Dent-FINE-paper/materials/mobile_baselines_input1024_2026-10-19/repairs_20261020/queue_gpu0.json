@@ -1,0 +1,21 @@
+{
+  "state": "completed_with_failures",
+  "completed": [
+    "deim_s",
+    "rtdetr_l",
+    "faster_rcnn",
+    "caf_yolo_s",
+    "yolov8s",
+    "yolo11s",
+    "dome_detr_s"
+  ],
+  "failed": [
+    {
+      "family": "rtdetrv2_s",
+      "returncode": 1,
+      "log": "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/logs/rtdetrv2_s.log"
+    }
+  ],
+  "pid": 188919,
+  "updated_at": "2026-10-20T13:48:17.436421+08:00"
+}

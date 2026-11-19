@@ -1,0 +1,38 @@
+{
+  "pid": 188919,
+  "command": [
+    "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+    "-u",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/run_queue.py"
+  ],
+  "root": "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19",
+  "gpu": 0,
+  "models": [
+    "deim_s",
+    "rtdetr_l",
+    "rtdetrv2_s",
+    "faster_rcnn",
+    "caf_yolo_s",
+    "yolov8s",
+    "yolo11s",
+    "dome_detr_s"
+  ],
+  "seed": 0,
+  "epochs": 160,
+  "input": [
+    1024,
+    1024
+  ],
+  "started_at": "2026-10-19T21:49:37.481544+08:00",
+  "scripts": {
+    "common.py": "6fef3acd952841ae28a5b45c80effc143ec3c4373aa494ee537d334be10161eb",
+    "finalize.py": "983e082ccb4606dc406b09a986bd178238154dff40f895b6a6a0baf4cfa33ca8",
+    "launch.py": "de8c782379fa893d5e8250ae0721fc241b2a09d40509a76e1923d63df9f259bd",
+    "prepare.py": "c7aab50f944dd61702911acdd3fd4281152d2327f909e41b888ab9fb1978921d",
+    "profile_benchmark.py": "9f75ec7dcf05018a0308147abb31b9f2fb603bc9710b8bb520502c1dc3b1a4f2",
+    "run_faster.py": "b23a5fdb14ae137545be6b45ef505ce4683a9057fe8e1d55db8f8f55d11b63b4",
+    "run_queue.py": "a96cd88b69ce03e76d14ad3e0983b10e7e5b0eae91f9cdfb973966b283a2af2c",
+    "run_transformer.py": "1d4b1c61c9a15c3a39d1a2cb7e74a824055fc692d4dee906767320dc4827b08d",
+    "run_ultralytics.py": "34412e10dd67b3225a807e43e4201110b7e8a4b6006e2538724f9fa87a023b9c"
+  }
+}

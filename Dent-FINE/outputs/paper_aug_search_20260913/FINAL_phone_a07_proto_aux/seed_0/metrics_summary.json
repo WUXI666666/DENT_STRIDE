@@ -1,0 +1,125 @@
+{
+  "job_id": "FINAL_phone_a07_proto_aux",
+  "task": "phone_a07_proto_aux",
+  "cohort": "Smartphone",
+  "model": "A07 CMFA+HOOA+NWD+Arch+Factor fusion+Prototype auxiliary",
+  "phase": "final_a07",
+  "seed": 0,
+  "augmentation": {
+    "profile": "fixed640",
+    "mosaic": 0.0,
+    "mixup": 0.5,
+    "crop": 0.8,
+    "zoom": 0.5
+  },
+  "config": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/FINAL_phone_a07_proto_aux_seed0.yml",
+  "config_sha256": "d2b96f542645fe3e1a6c27db7c2e24ea3afb240d795c2ccb6308a2bbe77c577e",
+  "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_phone_a07_proto_aux/seed_0",
+  "implementation_dir": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024",
+  "train_script": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/train.py",
+  "changes_from_aligned_base": [
+    {
+      "path": "output_dir",
+      "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+      "after": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_phone_a07_proto_aux/seed_0"
+    },
+    {
+      "path": "train_dataloader.collate_fn.base_size_repeat",
+      "before": 20,
+      "after": null
+    },
+    {
+      "path": "train_dataloader.collate_fn.mixup_prob",
+      "before": 0.0,
+      "after": 0.5
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+      "before": 320,
+      "after": 640
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[2].p",
+      "before": "<absent>",
+      "after": 0.5
+    }
+  ],
+  "epochs_completed": 160,
+  "input_size": [
+    640,
+    640
+  ],
+  "training_scale_repeat": null,
+  "best_epoch_zero_based": 144,
+  "best_epoch_one_based": 145,
+  "final_epoch_one_based": 160,
+  "checkpoint_internal_epoch": 144,
+  "checkpoint_epoch_note": "Native stage rollback can reset this counter; use verified log epoch.",
+  "metrics_fraction": {
+    "AP": 0.5370795009626372,
+    "AP50": 0.8325793390159181,
+    "AP75": 0.614642519521539,
+    "AP_small": 0.4375,
+    "AP_medium": 0.3667131712733365,
+    "AP_large": 0.552913411561025,
+    "AR1": 0.6025135999489645,
+    "AR10": 0.6691796039406356,
+    "AR100": 0.6760168536926752,
+    "AR_small": 0.45,
+    "AR_medium": 0.47342261904761895,
+    "AR_large": 0.692048890816348
+  },
+  "metrics_percent": {
+    "AP": 53.70795009626372,
+    "AP50": 83.25793390159181,
+    "AP75": 61.4642519521539,
+    "AP_small": 43.75,
+    "AP_medium": 36.67131712733365,
+    "AP_large": 55.291341156102504,
+    "AR1": 60.25135999489645,
+    "AR10": 66.91796039406356,
+    "AR100": 67.60168536926751,
+    "AR_small": 45.0,
+    "AR_medium": 47.3422619047619,
+    "AR_large": 69.2048890816348
+  },
+  "best_log_metrics_fraction": {
+    "AP": 0.5370795009626372,
+    "AP50": 0.8325793390159181,
+    "AP75": 0.614642519521539,
+    "AP_small": 0.4375,
+    "AP_medium": 0.3667131712733365,
+    "AP_large": 0.552913411561025,
+    "AR1": 0.6025135999489645,
+    "AR10": 0.6691796039406356,
+    "AR100": 0.6760168536926752,
+    "AR_small": 0.45,
+    "AR_medium": 0.47342261904761895,
+    "AR_large": 0.692048890816348
+  },
+  "final_metrics_fraction": {
+    "AP": 0.532918825963659,
+    "AP50": 0.8250436740112229,
+    "AP75": 0.607815995787168,
+    "AP_small": 0.425,
+    "AP_medium": 0.3886222980823124,
+    "AP_large": 0.5475864088195751,
+    "AR1": 0.6014312981669077,
+    "AR10": 0.668354074918297,
+    "AR100": 0.6764155579148776,
+    "AR_small": 0.425,
+    "AR_medium": 0.4601917989417989,
+    "AR_large": 0.692688286811195
+  },
+  "params_trainable": 12513162,
+  "loss_arch_weight": 0.1,
+  "observed_arch_loss_range": [
+    0.02476498834925507,
+    0.02811602039108856
+  ],
+  "checkpoint": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_phone_a07_proto_aux/seed_0/best.pth",
+  "checkpoint_sha256": "398f190e050e556c44b3ebb863fd6cb5f3e4e5cb267b72354718550fffcd2e18",
+  "log_sha256": "4e35cd67b67ebac0a691311d454402d3dd6f52a7f574f94b59dfe4fb49628229",
+  "verified_best_checkpoint": true,
+  "completed_at": "2026-09-15T01:02:31.473172+08:00"
+}

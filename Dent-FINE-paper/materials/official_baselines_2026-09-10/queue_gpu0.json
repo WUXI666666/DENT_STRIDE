@@ -1,0 +1,45 @@
+{
+  "state": "completed",
+  "model": "deim_s",
+  "gpu": 0,
+  "completed": [
+    {
+      "cohort": "phone",
+      "seed": 0
+    },
+    {
+      "cohort": "dslr",
+      "seed": 0
+    },
+    {
+      "cohort": "dentex",
+      "seed": 0
+    },
+    {
+      "cohort": "phone",
+      "seed": 1
+    },
+    {
+      "cohort": "dslr",
+      "seed": 1
+    },
+    {
+      "cohort": "dentex",
+      "seed": 1
+    },
+    {
+      "cohort": "phone",
+      "seed": 2
+    },
+    {
+      "cohort": "dslr",
+      "seed": 2
+    },
+    {
+      "cohort": "dentex",
+      "seed": 2
+    }
+  ],
+  "total": 9,
+  "updated_at": "2026-09-11T19:08:31.937952+08:00"
+}

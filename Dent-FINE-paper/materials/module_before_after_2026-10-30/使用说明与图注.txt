@@ -1,0 +1,41 @@
+本目录只包含新生成的可视化、原始响应汇总和复现脚本；没有修改论文、训练代码、数据集或模型权重，也没有启动训练。
+
+1. CMFA 前后热力图
+
+优先查看 Figure_CMFA_before_after_overlay.png：蓝色特征响应叠加到原图，依次为原图、CMFA 前、CMFA 后、响应幅度差值。对应的不叠加原图版本为 Figure_CMFA_before_after_heatmaps.png。
+
+CMFA 位于 encoder.top_down_fusions.1。它有两路已完成空间对齐的 256 通道输入，故“处理前”是按原通道顺序直接拼接得到的 512 通道特征，“处理后”是原生 CMFA 的 512 通道输出，不是两张不同尺度的图直接作差。该比较展示单次前向传播中的局部特征处理，而非训练时有无 CMFA 的模型消融。
+
+2. HOOA 前后热力图
+
+优先查看 Figure_HOOA_before_after_overlay.png；不叠加版本为 Figure_HOOA_before_after_heatmaps.png。HOOA 位于 encoder.hooa_attention.0。“处理前”和“处理后”是该模块真实的 256 通道输入与输出。它与本图 CMFA 插入点并非简单的串行关系，不能把两张图合读成 CMFA 后接 HOOA 的连续中间状态。
+
+三张病例均使用最终 Mobile 温度 0.50、seed 2 的同一最佳权重。响应汇总为通道 RMS，即 sqrt(mean_c(F_c^2))。同一模块的处理前后、不同病例之间，均使用共同的绝对 RMS 色阶；未对每张图分别拉伸。蓝色越深表示特征响应幅度越大，不是注意力概率。叠加图透明度固定为 0.60。共同上限取展示区域内前后响应合并后的第 99.5 百分位，截断比例保存在 JSON 中。
+
+右侧差值定义为 RMS(after)-RMS(before)，红色表示幅度增加、蓝色表示减少，零对应白色。它不是直接特征张量残差的 RMS，也不意味着红色区域必然检测更准确。真正的张量更新 RMS 也保存在原始 NPZ 中，但不与该有符号幅度差值混用。
+
+(a) 为较完整的口腔视野；(b)、(c) 为分别围绕标注 FDI 41 和 81 的局部切牙区域。每行各列使用完全相同的坐标裁切；为避免长宽比不同而裁掉感兴趣牙齿，后两行没有宣称展示完整牙弓。
+
+3. 手机因子融合前后预测图
+
+查看 Figure_Mobile_factor_fusion_before_after.png。列为原图、GT、推理因子融合关闭、推理因子融合开启。
+
+(a) 同一查询最高分 FDI 从 16 改为与 GT 一致的 55；(b) 从 65 改为与 GT 一致的 64；(c) 是保留的反例，从正确的 81 改为错误的 41。
+
+只改变推理的因子分数融合，开启时 quadrant/position/dentition 权重为 0.10/0.05/0.03，关闭时为零。训练好的因子监督、Prototype、CMFA、HOOA 和所有权重都不变；该图不是“去掉因子头重新训练”的证据。逐图验证了全部 220 张验证图的查询框坐标完全一致。使用原生 top-300 后处理；展示预测 score >=0.30，一对一定位匹配 IoU >=0.50。
+
+为了准确展示排序变化，图中只标注目标 GT 框及被跟踪查询的最高分 FDI；原生 top-300 输出中可能同时存在该查询的其他类别候选，因此图中改号不表示旧条件下完全没有正确类别候选。完整预测和各例相关类别分数保存在 JSON/NPZ 中。两条有利案例及一条不利案例只说明可能出现的变化，不表示总体发生率或统计显著性。
+
+4. 文件格式与原始来源
+
+全部五张图均提供 600 dpi PNG、SVG 和 PDF，字体使用 Times New Roman。
+capture_forward_comparisons.py：真实前向捕获和推理开关比较。
+render_comparisons.py：同色阶绘图及实际病例选择。
+capture_provenance.json：权重、配置、精度、模块插入点、逐图坐标检查和 hook 不变性检查。
+figure_sources_and_display_scales.json：裁切、色阶、截断比例、所选病例及相关类别分数。
+figure_captions.json：各张图可复制的英文图注。
+features_image_*.npz：真实输入输出通道 RMS、幅度差值和真实特征更新 RMS。
+same_weight_factor_candidates.npz：推理开关前后全部普通查询的原始类别 logits 和查询框。
+factor_fusion_*_predictions.json.gz：全部原生 top-300 预测。
+
+这些 batch=1 GPU FP32 结果用于本次机制诊断，不替换论文已归档的评估数字。

@@ -1,0 +1,46 @@
+Traceback (most recent call last):
+  File "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/run_ultralytics.py", line 163, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/run_ultralytics.py", line 17, in main
+    import torch
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/__init__.py", line 2475, in <module>
+    from torch import (
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/export/__init__.py", line 28, in <module>
+    from torch.fx.passes.infra.pass_base import PassResult
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/fx/passes/infra/__init__.py", line 2, in <module>
+    from . import pass_manager
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/fx/passes/infra/pass_manager.py", line 4, in <module>
+    from queue import Queue
+ImportError: cannot import name 'Queue' from 'queue' (/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/queue.py)
+
+                   from  n    params  module                                       arguments                     
+  0                  -1  1       928  ultralytics.nn.modules.conv.Conv             [3, 32, 3, 2]                 
+  1                  -1  1     18560  ultralytics.nn.modules.conv.Conv             [32, 64, 3, 2]                
+  2                  -1  1     29056  ultralytics.nn.modules.block.C2f             [64, 64, 1, True]             
+  3                  -1  1     73984  ultralytics.nn.modules.conv.Conv             [64, 128, 3, 2]               
+  4                  -1  2    197632  ultralytics.nn.modules.block.C2f             [128, 128, 2, True]           
+  5                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+  6                  -1  2    788480  ultralytics.nn.modules.block.C2f             [256, 256, 2, True]           
+  7                  -1  1   1180672  ultralytics.nn.modules.conv.Conv             [256, 512, 3, 2]              
+  8                  -1  1   1838080  ultralytics.nn.modules.block.C2f             [512, 512, 1, True]           
+  9                  -1  1    656896  ultralytics.nn.modules.block.SPPF            [512, 512, 5]                 
+ 10                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 11             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 12                  -1  1    591360  ultralytics.nn.modules.block.C2f             [768, 256, 1]                 
+ 13                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 14             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 15                  -1  1    148224  ultralytics.nn.modules.block.C2f             [384, 128, 1]                 
+ 16                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+ 17            [-1, 12]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 18                  -1  1    493056  ultralytics.nn.modules.block.C2f             [384, 256, 1]                 
+ 19                  -1  1    352521  ultralytics.nn.CAFMAttention.CAFMAttention   [256, 256]                    
+ 20                  -1  1    590336  ultralytics.nn.modules.conv.Conv             [256, 256, 3, 2]              
+ 21             [-1, 9]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 22                  -1  1   1969152  ultralytics.nn.modules.block.C2f             [768, 512, 1]                 
+ 23        [16, 19, 22]  1   2147008  ultralytics.nn.modules.head.Detect           [80, [128, 256, 512]]         
+YOLOv8s-CAFMAttention summary: 231 layers, 11519081 parameters, 11519065 gradients, 25.9 GFLOPs
+
+Transferred 240/363 items from pretrained weights
+Overriding model.yaml nc=80 with nc=52
+Transferred 357/363 items from pretrained weights

@@ -1,0 +1,7 @@
+{
+  "job": "D01_cmfa_factor_seed0",
+  "gpu": 0,
+  "checkpoint_sha256": "22684198f47b4386bafcd970a4cbfe1c1c55c074e7e30720e62b9446b243a704",
+  "metrics_sha256": "e7788b7df1514c39008d8687444a5622035cc2e6542f361f0456bebb4aa84378",
+  "finished_unix": 1793372973.848495
+}

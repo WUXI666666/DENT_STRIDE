@@ -1,0 +1,50 @@
+{
+  "configuration": "mobile_1024_full",
+  "seed": 0,
+  "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/mobile_1024_full/seed_0/best.pth",
+  "checkpoint_sha256": "218be04858532ae94570be8881044193b2c14c88238c02966bfb1d20dc75a701",
+  "config_sha256": "6ff9e5b68e88bbdc0af1a7629a8cb795766d6d4bfa5a17187245b0d5f601a914",
+  "selected_cases": [
+    {
+      "image_id": 56,
+      "CMFA_module": "encoder.top_down_fusions.0",
+      "HOOA_module": "encoder.hooa_attention.0",
+      "shape_of_input": [
+        16,
+        3,
+        1024,
+        1024
+      ],
+      "raw_tensor_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/mechanism/internal_tensors_image_56.npz",
+      "CMFA_reconstruction_max_abs_error": 0.0,
+      "HOOA_reconstruction_max_abs_error": 4.76837158203125e-07,
+      "HOOA_interaction_max_abs_error": 0.0,
+      "HOOA_residual_coefficient": 0.08433781564235687
+    },
+    {
+      "image_id": 111,
+      "CMFA_module": "encoder.top_down_fusions.0",
+      "HOOA_module": "encoder.hooa_attention.0",
+      "shape_of_input": [
+        16,
+        3,
+        1024,
+        1024
+      ],
+      "raw_tensor_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/mechanism/internal_tensors_image_111.npz",
+      "CMFA_reconstruction_max_abs_error": 0.0,
+      "HOOA_reconstruction_max_abs_error": 4.76837158203125e-07,
+      "HOOA_interaction_max_abs_error": 0.0,
+      "HOOA_residual_coefficient": 0.08433781564235687
+    }
+  ],
+  "captured_queries_total": 2335,
+  "capture_matching": "Unique ordinary queries with maximum sigmoid score >=0.30; class-agnostic maximum-total-IoU Hungarian localization and IoU>=0.50. This is separate from post-top-k detection matching.",
+  "factor_labels": {
+    "quadrant": "FDI first digit minus one",
+    "position": "FDI second digit minus one",
+    "dentition": "0 primary, 1 permanent"
+  },
+  "attention_display": "Response RMS across channels; channel gates retain all256 channels; spatial gates use actual scalar values, not Grad-CAM.",
+  "prediction_invariance_max_abs_error": 0.0
+}

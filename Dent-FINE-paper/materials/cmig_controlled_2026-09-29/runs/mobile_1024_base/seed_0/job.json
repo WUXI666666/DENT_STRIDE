@@ -1,0 +1,17 @@
+{
+  "id": "mobile_1024_base_seed0",
+  "configuration": "mobile_1024_base",
+  "cohort": "Mobile",
+  "seed": 0,
+  "phase": "primary",
+  "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/mobile_1024_base/seed_0.yml",
+  "config_sha256": "e0986ee9857b530c4d4e362a62ea7f389dbe4fdde90de32e02aac60ced5bdfc8",
+  "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/mobile_1024_base/seed_0",
+  "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/source_snapshots/mobile",
+  "controls": {},
+  "epochs": 160,
+  "expected_input": 1024,
+  "gpu": 1,
+  "queue_order": 3,
+  "job_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/jobs/mobile_1024_base_seed0.json"
+}

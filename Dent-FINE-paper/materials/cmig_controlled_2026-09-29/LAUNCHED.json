@@ -1,0 +1,33 @@
+{
+  "launched_unix": 1790692986.9481933,
+  "manifest_sha256": "421d501b71ae88750282bbba423eee66c45d8ebc861e7e2aa9789657850db272",
+  "workers": [
+    {
+      "gpu": 0,
+      "pid": 169367,
+      "command": [
+        "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+        "-u",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/queue_worker.py",
+        "--gpu",
+        "0"
+      ],
+      "log": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/gpu0_queue.log",
+      "jobs": 31
+    },
+    {
+      "gpu": 1,
+      "pid": 169368,
+      "command": [
+        "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+        "-u",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/queue_worker.py",
+        "--gpu",
+        "1"
+      ],
+      "log": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/gpu1_queue.log",
+      "jobs": 31
+    }
+  ],
+  "assistant_monitoring": "Startup confirmation only, as requested."
+}

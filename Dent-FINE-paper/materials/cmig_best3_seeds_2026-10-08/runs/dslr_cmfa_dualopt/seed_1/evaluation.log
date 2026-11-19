@@ -1,0 +1,33 @@
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/pytorch_wavelets/dtcwt/coeffs.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_stream
+building val_dataloader with batch_size=16...
+     ### Transform @Resize ###    
+     ### Transform @ConvertPILImage ###    
+Evaluate annotation type *bbox*
+COCOeval_opt.evaluate() finished...
+DONE (t=0.18s).
+Accumulating evaluation results...
+COCOeval_opt.accumulate() finished...
+DONE (t=0.00s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.716
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.874
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.826
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.513
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.736
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.789
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.812
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.816
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.590
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.834
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.955
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.916
+Traceback (most recent call last):
+  File "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/evaluate_controlled.py", line 149, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/evaluate_controlled.py", line 131, in main
+    assert abs(result['replay_minus_logged_AP_points'])<.02, 'Best checkpoint replay differs by >=0.02 AP points; review required'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Best checkpoint replay differs by >=0.02 AP points; review required

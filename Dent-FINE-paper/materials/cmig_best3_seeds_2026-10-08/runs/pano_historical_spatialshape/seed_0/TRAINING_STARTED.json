@@ -1,0 +1,13 @@
+{
+  "job": "pano_historical_spatialshape_seed0",
+  "pid": 3403191,
+  "started_unix": 1791451194.6564484,
+  "seed": 0,
+  "cuda_visible_devices": "1",
+  "PYTHONHASHSEED": "0",
+  "controls": {},
+  "native_cwd": "/home/wuxi/Dent-FINE",
+  "native_entrypoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/train.py",
+  "initialization": "Fresh pretrained backbone; no resume or tuning",
+  "checkpoint_policy": "Native selection and stage-1 rollback preserved; final best only"
+}

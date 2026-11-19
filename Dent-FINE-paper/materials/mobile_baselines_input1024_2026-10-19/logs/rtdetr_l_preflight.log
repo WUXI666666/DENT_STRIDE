@@ -1,0 +1,77 @@
+Traceback (most recent call last):
+  File "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/run_ultralytics.py", line 163, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/run_ultralytics.py", line 17, in main
+    import torch
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/__init__.py", line 2475, in <module>
+    from torch import (
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/export/__init__.py", line 28, in <module>
+    from torch.fx.passes.infra.pass_base import PassResult
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/fx/passes/infra/__init__.py", line 2, in <module>
+    from . import pass_manager
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/fx/passes/infra/pass_manager.py", line 4, in <module>
+    from queue import Queue
+ImportError: cannot import name 'Queue' from 'queue' (/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/queue.py)
+Overriding model.yaml nc=80 with nc=52
+WARNING ⚠️ no model scale passed. Assuming scale='l'.
+Transferred 926/941 items from pretrained weights
+Traceback (most recent call last):
+  File "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/run_ultralytics.py", line 163, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/run_ultralytics.py", line 135, in main
+    with torch.autocast('cuda',dtype=torch.float16,enabled=args['amp']):loss=net(batch)
+                                                                             ^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/ultralytics/nn/tasks.py", line 156, in forward
+    return self.loss(x, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/ultralytics/nn/tasks.py", line 410, in loss
+    self.criterion = self.init_criterion()
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/ultralytics/nn/tasks.py", line 597, in init_criterion
+    return E2ELoss(self) if getattr(self, "end2end", False) else v8DetectionLoss(self)
+                                                                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/ultralytics/utils/loss.py", line 350, in __init__
+    self.stride = m.stride  # model strides
+                  ^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1931, in __getattr__
+    raise AttributeError(
+AttributeError: 'RTDETRDecoder' object has no attribute 'stride'
+Overriding model.yaml nc=80 with nc=52
+WARNING ⚠️ no model scale passed. Assuming scale='l'.
+Transferred 926/941 items from pretrained weights
+Traceback (most recent call last):
+  File "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/run_ultralytics.py", line 165, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/run_ultralytics.py", line 137, in main
+    with torch.autocast('cuda',dtype=torch.float16,enabled=args['amp']):loss=net(batch)
+                                                                             ^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/ultralytics/nn/tasks.py", line 156, in forward
+    return self.loss(x, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/ultralytics/nn/tasks.py", line 1007, in loss
+    self.criterion = self.init_criterion()
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/ultralytics/nn/tasks.py", line 993, in init_criterion
+    return RTDETRDetectionLoss(nc=self.nc, use_vfl=True)
+                                  ^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1931, in __getattr__
+    raise AttributeError(
+AttributeError: 'RTDETRDetectionModel' object has no attribute 'nc'
+Overriding model.yaml nc=80 with nc=52
+WARNING ⚠️ no model scale passed. Assuming scale='l'.
+Transferred 926/941 items from pretrained weights

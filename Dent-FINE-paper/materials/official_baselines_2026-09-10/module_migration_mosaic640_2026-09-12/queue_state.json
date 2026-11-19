@@ -1,0 +1,41 @@
+{
+  "state": "interrupted",
+  "gpu": 0,
+  "queue_pid": 2863135,
+  "queue_pgid": 2863135,
+  "jobs": [
+    "phone_dualopt",
+    "dentex_spatial_shape",
+    "dslr_cmfa_dualopt"
+  ],
+  "completed": [],
+  "skipped": [],
+  "verification": {},
+  "active_task": "phone_dualopt",
+  "child_pid": null,
+  "child_pgid": null,
+  "command": [
+    "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+    "-B",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/run_experiment.py",
+    "--task",
+    "phone_dualopt",
+    "--gpu",
+    "0"
+  ],
+  "wait_reason": null,
+  "started_at": "2026-09-12T22:19:18.143357+08:00",
+  "updated_at": "2026-09-12T22:45:51.821360+08:00",
+  "gpu_snapshot": {
+    "index": 0,
+    "uuid": "GPU-ef21a1d6-6053-a86e-9497-82c61bedaa30",
+    "free_mib": 11788,
+    "used_mib": 12303,
+    "total_mib": 24564,
+    "utilization_percent": 100,
+    "observed_at": "2026-09-12T22:19:18.166983+08:00"
+  },
+  "disk_free_bytes": 32715898880,
+  "error": "QueueInterrupted('Queue received SIGTERM')",
+  "stop_signal": 15
+}

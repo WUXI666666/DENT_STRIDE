@@ -1,0 +1,22 @@
+{
+  "gpu": 0,
+  "gpu_uuid": "GPU-ef21a1d6-6053-a86e-9497-82c61bedaa30",
+  "worker_pid": 123699,
+  "state": "queue_drained",
+  "completed": [
+    "D01_cmfa_factor_seed0"
+  ],
+  "started_unix": 1793363348.9679623,
+  "current_job": "D01_cmfa_factor_seed0",
+  "output_dir": "/home/wuxi/Dent-FINE-paper/materials/dslr_view_structured_2026-10-30/runs/D01_cmfa_factor/seed_0",
+  "command": [
+    "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+    "-u",
+    "/home/wuxi/Dent-FINE-paper/materials/dslr_view_structured_2026-10-30/evaluate_view_runs.py",
+    "/home/wuxi/Dent-FINE-paper/materials/dslr_view_structured_2026-10-30/jobs/D01_cmfa_factor_seed0.json"
+  ],
+  "external_compute_pids": [
+    567632
+  ],
+  "finished_unix": 1793380124.1779165
+}

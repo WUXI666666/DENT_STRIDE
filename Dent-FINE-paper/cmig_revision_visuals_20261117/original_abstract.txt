@@ -1,0 +1,10 @@
+
+Automatic tooth detection using the F\'ed\'eration Dentaire Internationale (FDI) numbering system provides individual tooth identification for dental assessment and structured clinical records.
+Although recent detectors have improved tooth localization, variations in image acquisition, similarities in tooth appearance, and image degradation caused by blur and acquisition artifacts continue to challenge reliable FDI identity assignment.
+We propose DENT-STRIDE, a framework that accounts for acquisition characteristics to achieve structured FDI tooth detection across radiographic and photographic images.
+Separate prediction heads for quadrant, tooth position, and dentition type provide explicit supervision of tooth identity, complemented by prototype learning employed exclusively during training.
+An independent anatomical prior adjusts classification scores using statistics of tooth center locations and bounding box shapes derived from training data, without modifying the predicted boxes.
+Feature exchange across multiple scales and local contextual refinement are adapted to each acquisition domain within a shared query based detector built on DEIM and D-FINE.
+We evaluate the proposed framework on DENTEX2023 panoramic radiographs containing 32 permanent tooth classes and intraoral photographs acquired using smartphones and digital single lens reflex (DSLR) cameras, covering 52 classes of permanent and primary teeth.
+Averaged across three training seeds, the COCO AP values evaluated using FDI tooth labels reach 54.21, 55.46, and 72.91 for the panoramic, smartphone, and DSLR cohorts, respectively.
+At a fixed confidence threshold, the corresponding F1 scores are 89.35\%, 80.73\%, and 92.49\%, respectively.

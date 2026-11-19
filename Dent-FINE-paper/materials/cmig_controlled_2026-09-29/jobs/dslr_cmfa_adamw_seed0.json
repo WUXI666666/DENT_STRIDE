@@ -1,0 +1,17 @@
+{
+  "id": "dslr_cmfa_adamw_seed0",
+  "configuration": "dslr_cmfa_adamw",
+  "cohort": "DSLR",
+  "seed": 0,
+  "phase": "primary",
+  "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/dslr_cmfa_adamw/seed_0.yml",
+  "config_sha256": "f8e5f2ebcf87fdb65552b3bd681dc24cdee6e45aabd9ac3f75fa989eb3c5b782",
+  "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/dslr_cmfa_adamw/seed_0",
+  "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/source_snapshots/local",
+  "controls": {},
+  "epochs": 160,
+  "expected_input": 640,
+  "gpu": 0,
+  "queue_order": 2,
+  "job_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/jobs/dslr_cmfa_adamw_seed0.json"
+}

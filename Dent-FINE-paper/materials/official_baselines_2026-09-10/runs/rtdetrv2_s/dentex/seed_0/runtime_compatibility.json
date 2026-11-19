@@ -1,0 +1,17 @@
+{
+  "adapter": "run_official_safe_images.py",
+  "sha256": "a9271b8f88c6984c2b58f123d38430a3df0886be2549d592cf34ba5e87a85a72",
+  "PIL.Image.MAX_IMAGE_PIXELS": null,
+  "scope": "this process and its forked workers only; original trusted local dataset",
+  "reason": "Native augmentation crop exceeded Pillow default guard; DEIM already disables the same guard.",
+  "no_changes": [
+    "original images",
+    "annotations",
+    "augmentation operations or parameters",
+    "model",
+    "loss",
+    "optimizer",
+    "seed",
+    "evaluation"
+  ]
+}

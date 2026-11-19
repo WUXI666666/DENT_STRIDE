@@ -1,0 +1,39 @@
+{
+  "names": [
+    "AP",
+    "AP50",
+    "AP75",
+    "AP_small",
+    "AP_medium",
+    "AP_large",
+    "AR1",
+    "AR10",
+    "AR100",
+    "AR_small",
+    "AR_medium",
+    "AR_large"
+  ],
+  "metrics_fraction": {
+    "AP": 0.5180542120892012,
+    "AP50": 0.9336293626621653,
+    "AP75": 0.502077020766483,
+    "AP_small": -1.0,
+    "AP_medium": 0.3190928963225993,
+    "AP_large": 0.523773743529565,
+    "AR1": 0.5928187905980477,
+    "AR10": 0.6626736581481539,
+    "AR100": 0.664548335052236,
+    "AR_small": -1.0,
+    "AR_medium": 0.3281111111111111,
+    "AR_large": 0.6740248370190871
+  },
+  "source": "/home/wuxi/Dent-FINE/outputs/paper_main_input1024_20260913/dentex_spatial_shape/seed_0/best_evaluation/eval.pth",
+  "evaluation_split": {
+    "images": 64,
+    "annotations": 1861,
+    "categories": 32,
+    "ann_file": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+    "ann_sha256": "52532169c776f6ceaa126816787e54f8f796ebb6163c0bf8a04f98372d4f3903",
+    "img_folder": "/home/wuxi/DENTEX2023/val2017"
+  }
+}

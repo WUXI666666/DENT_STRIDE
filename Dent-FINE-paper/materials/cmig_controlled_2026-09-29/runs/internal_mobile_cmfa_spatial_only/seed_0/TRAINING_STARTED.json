@@ -1,0 +1,10 @@
+{
+  "pid": 948635,
+  "cuda_visible_devices": "1",
+  "seed": 0,
+  "started_unix": 1790902927.4936664,
+  "controls": {
+    "cmfa_channel": false,
+    "cmfa_spatial": true
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "task": "phone_dualopt",
+  "passed": true,
+  "phases": [
+    {
+      "phase": "epoch4_real_max_count_sources",
+      "batch_size": 8,
+      "input_size": [
+        1024,
+        1024
+      ],
+      "gt_counts": [
+        114,
+        80,
+        72,
+        113,
+        102,
+        87,
+        110,
+        118
+      ],
+      "actual_dn_queries": 236,
+      "loss": 32.06814956665039,
+      "grad_norm": 3.3434858322143555,
+      "peak_allocated_bytes": 8250629120,
+      "peak_reserved_bytes": 8967421952,
+      "passed": true
+    },
+    {
+      "phase": "epoch70_real_max_count_sources",
+      "batch_size": 8,
+      "input_size": [
+        1024,
+        1024
+      ],
+      "gt_counts": [
+        23,
+        22,
+        22,
+        22,
+        21,
+        21,
+        21,
+        3
+      ],
+      "actual_dn_queries": 184,
+      "loss": 29.406234741210938,
+      "grad_norm": 6.3579325675964355,
+      "peak_allocated_bytes": 7998560256,
+      "peak_reserved_bytes": 8631877632,
+      "passed": true
+    },
+    {
+      "phase": "epoch130_real_max_count_sources",
+      "batch_size": 8,
+      "input_size": [
+        1024,
+        1024
+      ],
+      "gt_counts": [
+        23,
+        22,
+        22,
+        22,
+        21,
+        21,
+        21,
+        21
+      ],
+      "actual_dn_queries": 184,
+      "loss": 29.925893783569336,
+      "grad_norm": 3.840519428253174,
+      "peak_allocated_bytes": 7998517760,
+      "peak_reserved_bytes": 8636071936,
+      "passed": true
+    },
+    {
+      "phase": "validation_FP32",
+      "batch_size": 16,
+      "input_size": [
+        1024,
+        1024
+      ],
+      "peak_allocated_bytes": 4118499328,
+      "peak_reserved_bytes": 4745854976,
+      "passed": true
+    }
+  ],
+  "updated_at": "2026-09-12T22:52:36.982994+08:00",
+  "protocol_sha256": "652e8fa684fae1179b52fdf6c211bce1ccac3891fcc9ed5127ab25f9a5bfb760",
+  "memory_limit_mib": 10752,
+  "maximum_peak_allocated_bytes": 8250629120,
+  "maximum_peak_reserved_bytes": 8967421952
+}

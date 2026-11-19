@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "tests_run": 21,
+  "log": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/queue_test.log",
+  "method": "python -B test_queue.py; CPU mocked processes, no GPU launched"
+}

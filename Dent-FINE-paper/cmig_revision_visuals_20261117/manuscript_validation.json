@@ -1,0 +1,15 @@
+{
+  "abstract_exact": true,
+  "introduction_exact": true,
+  "pages": 26,
+  "referenced_figures": 20,
+  "missing_figures": [],
+  "missing_labels": [],
+  "duplicate_labels": [],
+  "cited_keys": 33,
+  "missing_citations": [],
+  "tables": 8,
+  "equations": 13,
+  "external_input_commands": [],
+  "source_file_bytes": 6169898
+}

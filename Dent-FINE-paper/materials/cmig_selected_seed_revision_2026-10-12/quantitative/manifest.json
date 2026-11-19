@@ -1,0 +1,803 @@
+{
+  "font": "Times New Roman",
+  "PNG_dpi": 600,
+  "SVG_editable_text": true,
+  "figures": {
+    "Figure_6_training_seed_variation": {
+      "caption": "Figure 6. Training-seed variation of the domain-configured detectors. All five completed runs are shown in each cohort. Filled circles identify the post-hoc selected seeds: 1/3/4 for DENTEX2023 and 0/2/3 for Mobile and DSLR; open circles show the remaining runs. Diamonds and squares show the selected-three and all-five means, respectively, with sample-standard-deviation bars. (A) DENTEX2023. (B) Mobile. (C) DSLR. Independent AP-axis ranges display within-cohort variation. The selected-three summaries are exploratory and do not represent prespecified repeated-seed evidence. All-five and fixed-0/1/2 results are reported in the supplementary tables.",
+      "source_paths": [
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_0/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_1/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_3/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_4/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_0/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_1/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_2/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_4/native_coco_metrics.json"
+      ],
+      "files": {
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_6_training_seed_variation.svg",
+        "pdf": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_6_training_seed_variation.pdf",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_6_training_seed_variation.png"
+      }
+    },
+    "Figure_7_Mobile_framework_AP": {
+      "caption": "Figure 7. Framework-level detection AP on Mobile images. The blue diamond shows DENT-STRIDE-Mobile with K=4 and temperature 0.50 for the post-hoc selected seeds 0/2/3 (55.459 ± 0.275 AP); the purple square shows all five completed seeds (55.292 ± 0.301 AP). Error bars indicate sample standard deviation. The two repeated-seed official controls retain their original seeds 0/1/2; open circles identify single-seed external results without dispersion estimates. All external systems, including RT-DETR-L, are retained. These recipe-level validation comparisons use framework-specific resolution, pretraining, optimization, and post-processing and do not establish statistical superiority or an isolated prototype-temperature effect.",
+      "source_paths": [
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/quantitative_figures/Figure_7_Mobile_values.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_0/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_1/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_3/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_4/native_coco_metrics.json"
+      ],
+      "files": {
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_7_Mobile_framework_AP.svg",
+        "pdf": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_7_Mobile_framework_AP.pdf",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_7_Mobile_framework_AP.png"
+      }
+    },
+    "Figure_9_Pano_prior_comparison": {
+      "caption": "Figure 9. Same-checkpoint anatomical scoring on DENTEX2023. All five checkpoints are evaluated with no prior, center-only, shape-only, and combined scoring from candidates before top-k selection. Circles show actual runs; diamonds show the post-hoc selected seeds 1/3/4 and squares show all-five summaries, with sample-standard-deviation bars. (A) AP. (B) AR100. Center-only and joint scoring change selected-three mean AP by +0.595 and +0.563 points; the corresponding all-five changes are +0.555 and +0.523 points. Weights are fixed within each seed, so the comparison concerns inference scoring rather than training effects.",
+      "source_paths": [
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_prior_none_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_prior_center_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_prior_shape_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_prior_both_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_none_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_center_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_shape_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_both_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_prior_none_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_prior_center_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_prior_shape_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_prior_both_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_none_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_center_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_shape_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_both_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_none_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_center_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_shape_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_both_metrics.json"
+      ],
+      "files": {
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_9_Pano_prior_comparison.svg",
+        "pdf": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_9_Pano_prior_comparison.pdf",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_9_Pano_prior_comparison.png"
+      }
+    },
+    "Figure_S3_prior_paired_AP": {
+      "caption": "Figure S3. Paired changes in DENTEX2023 AP relative to no prior. Each circle represents one of the five same-checkpoint comparisons; filled circles identify post-hoc selected seeds 1/3/4 and open circles the other seeds. Diamonds and squares show selected-three and all-five mean changes, respectively, with sample-standard-deviation bars, not confidence intervals. All center, shape, and joint settings are retained; shape-only effects are small relative to center-only and joint effects. No selection-adjusted significance claim is made.",
+      "source_paths": [
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_prior_none_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_prior_center_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_prior_shape_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_prior_both_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_none_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_center_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_shape_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_both_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_prior_none_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_prior_center_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_prior_shape_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_prior_both_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_none_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_center_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_shape_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_both_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_none_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_center_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_shape_metrics.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_both_metrics.json"
+      ],
+      "files": {
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_S3_prior_paired_AP.svg",
+        "pdf": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_S3_prior_paired_AP.pdf",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_S3_prior_paired_AP.png"
+      }
+    },
+    "Figure_S8_learning_curves": {
+      "caption": "Figure S8. Validation-AP trajectories over all 160 epochs. Thin grey lines show all five actual runs. Blue lines and bands show the epoch-wise mean and sample standard deviation of the post-hoc selected seeds (DENTEX2023: 1/3/4; Mobile and DSLR: 0/2/3); dashed purple lines show all-five means. No smoothing or synthetic intervals are applied. Epoch-wise means are not the mean of individually selected best checkpoints, and seed selection used the observed best-validation results.",
+      "source_paths": [
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/log.txt",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/log.txt",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/log.txt",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/log.txt",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/log.txt",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_0/log.txt",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_1/log.txt",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/log.txt",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_3/log.txt",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_4/log.txt",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_0/log.txt",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_1/log.txt",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_2/log.txt",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/log.txt",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_4/log.txt"
+      ],
+      "files": {
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_S8_learning_curves.svg",
+        "pdf": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_S8_learning_curves.pdf",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_S8_learning_curves.png"
+      }
+    },
+    "Fig_S5_Pano_complete_FDI_confusion": {
+      "caption": "Figure S5. Complete validation FDI outcome matrix for the DENTEX2023 representative checkpoint (seed 3), selected by AP from the stated three-seed subset. Rows include every FDI category and columns include missed ground-truth teeth. Row-normalized percentages use score ≥0.30 and class-agnostic one-to-one Hungarian localization matching at IoU ≥0.50. Grey rows have no validation support; training and validation class counts are shown beside the matrix. Extra predictions do not belong to a ground-truth row and are counted separately. This figure illustrates one selected checkpoint, not a mean or independent-test estimate.",
+      "files": {
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Fig_S5_Pano_complete_FDI_confusion.png",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Fig_S5_Pano_complete_FDI_confusion.svg",
+        "pdf": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Fig_S5_Pano_complete_FDI_confusion.pdf"
+      },
+      "source_paths": [
+        "/home/wuxi/DENTEX2023/annotations/instances_train2017.json",
+        "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/evaluation/predictions_coco.json.gz",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_coco_metrics.json"
+      ],
+      "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2"
+    },
+    "Fig_S6_Mobile_complete_FDI_confusion": {
+      "caption": "Figure S6. Complete validation FDI outcome matrix for the Mobile representative checkpoint (seed 2), selected by AP from the stated three-seed subset. Rows include every FDI category and columns include missed ground-truth teeth. Row-normalized percentages use score ≥0.30 and class-agnostic one-to-one Hungarian localization matching at IoU ≥0.50. Grey rows have no validation support; training and validation class counts are shown beside the matrix. Extra predictions do not belong to a ground-truth row and are counted separately. This figure illustrates one selected checkpoint, not a mean or independent-test estimate.",
+      "files": {
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Fig_S6_Mobile_complete_FDI_confusion.png",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Fig_S6_Mobile_complete_FDI_confusion.svg",
+        "pdf": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Fig_S6_Mobile_complete_FDI_confusion.pdf"
+      },
+      "source_paths": [
+        "/home/wuxi/coco/train/annotations_fdi_types.json",
+        "/home/wuxi/coco/valid/annotations_fdi_types.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/evaluation/predictions_coco.json.gz",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/native_coco_metrics.json"
+      ],
+      "checkpoint_sha256": "1f19ea4d30234effb359b2de0cfb494ee1fe3582ca93a0bbc54792cf3a3e60cf"
+    },
+    "Fig_S7_DSLR_complete_FDI_confusion": {
+      "caption": "Figure S7. Complete validation FDI outcome matrix for the DSLR representative checkpoint (seed 3), selected by AP from the stated three-seed subset. Rows include every FDI category and columns include missed ground-truth teeth. Row-normalized percentages use score ≥0.30 and class-agnostic one-to-one Hungarian localization matching at IoU ≥0.50. Grey rows have no validation support; training and validation class counts are shown beside the matrix. Extra predictions do not belong to a ground-truth row and are counted separately. This figure illustrates one selected checkpoint, not a mean or independent-test estimate.",
+      "files": {
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Fig_S7_DSLR_complete_FDI_confusion.png",
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Fig_S7_DSLR_complete_FDI_confusion.svg",
+        "pdf": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Fig_S7_DSLR_complete_FDI_confusion.pdf"
+      },
+      "source_paths": [
+        "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_train_fdi52.json",
+        "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/evaluation/predictions_coco.json.gz",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/native_coco_metrics.json"
+      ],
+      "checkpoint_sha256": "62029c9bae0c2446775add2956b27777a87641d67bbcd7e9afb53be6f5c5af5e"
+    },
+    "Figure_S4_detection_curves": {
+      "caption": "Figure S4. Detection and numbering-threshold curves from the representative best-validation checkpoints: DENTEX2023 seed 3, Mobile seed 2, and DSLR seed 3. (A) Supported-class macro COCO precision–recall curves at IoU 0.50. (B) F1 versus score threshold. (C) Raw-query duplicate-image rate versus score threshold. Threshold endpoints use one-to-one class-agnostic localization matching at IoU 0.50 and FDI-correct matches as true positives; dotted lines identify the common reporting threshold 0.30. Predictions are native top-300 outputs without added NMS. These single-checkpoint diagnostics are not averages across seeds or clinical charting-error estimates.",
+      "source_paths": [
+        "/home/wuxi/DENTEX2023/annotations/instances_train2017.json",
+        "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/evaluation/predictions_coco.json.gz",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_coco_metrics.json",
+        "/home/wuxi/coco/train/annotations_fdi_types.json",
+        "/home/wuxi/coco/valid/annotations_fdi_types.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/evaluation/predictions_coco.json.gz",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/native_coco_metrics.json",
+        "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_train_fdi52.json",
+        "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/evaluation/predictions_coco.json.gz",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/native_coco_metrics.json"
+      ],
+      "files": {
+        "svg": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_S4_detection_curves.svg",
+        "pdf": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_S4_detection_curves.pdf",
+        "png": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_seed_revision_2026-10-12/quantitative/Figure_S4_detection_curves.png"
+      }
+    }
+  },
+  "sources": [
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_coco_metrics.json",
+      "sha256": "3d7951e357091e5367a82123129b6a1d9ce9422f30f5811241710503ff44e46c",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/metrics_summary.json",
+      "sha256": "d67104bd1c4bc26d5ae961b1bf286649a54c6012a6ba71ca29b432beafa0ca8e",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/evaluation/metrics.json",
+      "sha256": "d67104bd1c4bc26d5ae961b1bf286649a54c6012a6ba71ca29b432beafa0ca8e",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/best.pth",
+      "sha256": "65086233b4666ebbb73d62ecef0e4e62b5069151f219c67cf9fe0221dab9a36c",
+      "role": "best checkpoint"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_prior_none_metrics.json",
+      "sha256": "89a715489532f55cb572d44a7211afb6e1e1ea5d3cfcf7d5ec10bf433e9beb66",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_prior_center_metrics.json",
+      "sha256": "fac28f7827b93f008eff4c7d1002f9d182022603b7d57a4943bb26d539c13d3c",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_prior_shape_metrics.json",
+      "sha256": "2237a52263950ca3f409ab5a95c0daa8c0d8878c4514cebae6dafc55abd0851f",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/native_prior_both_metrics.json",
+      "sha256": "7474671c42f53802c8923db734f277d9999dc3ae8e222e3ad805e30dbb1f67de",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_coco_metrics.json",
+      "sha256": "d004da97c5e559c65652661dba02ce0cd0adbc300b47b980d82f28991f47058f",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/metrics_summary.json",
+      "sha256": "e32f0fcdded50a9b1017b6109f74a407675bacfeeefdc5b1fe95ea39db77c5c7",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/evaluation/metrics.json",
+      "sha256": "e32f0fcdded50a9b1017b6109f74a407675bacfeeefdc5b1fe95ea39db77c5c7",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/best.pth",
+      "sha256": "e6aaeac0fe3514357d8b4f0caa50e2ba86a1eb2481ae38bf4b36986810de83cc",
+      "role": "best checkpoint"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_none_metrics.json",
+      "sha256": "233513d3949ddfbb6d61d01fadb00d2d7a3a8bda23fa0770b0d57f440bb2340f",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_center_metrics.json",
+      "sha256": "222e22b6f314027b093ddc33a31d0dd9b8decf1690bf34802bfd1aaee6d6902a",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_shape_metrics.json",
+      "sha256": "f3f2cd8af018edb6f7baa2c6004116375c8450f2986e58fcf8d9686f69062ddc",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/native_prior_both_metrics.json",
+      "sha256": "c9b0c096540f09034d842a46b92fef8b7a46ef5acf7b11e3952ef054263051d9",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_coco_metrics.json",
+      "sha256": "fcfaadcb3732107f58008503f33111c9292ed12eb02aa9d5a950394500fc7a80",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/metrics_summary.json",
+      "sha256": "4965f260ecfcc8703c62084b819dad825b20783a5f92adff311f30386aab0069",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/evaluation/metrics.json",
+      "sha256": "4965f260ecfcc8703c62084b819dad825b20783a5f92adff311f30386aab0069",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/best.pth",
+      "sha256": "ccbff2ef62fd0e1f53e503d74692839d484eecc48ae85476ad765924b5a67ff1",
+      "role": "best checkpoint"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_prior_none_metrics.json",
+      "sha256": "e86b9f49e82189b6d3411de5ded51fc2348d7bf80452add7ad34762df87887fa",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_prior_center_metrics.json",
+      "sha256": "da8c6804e58b5e1ca67967f3a2568c6bac77ead334f50c4e3fb2c4ce8df5b666",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_prior_shape_metrics.json",
+      "sha256": "c7ad1e28f70f97db976fcdda2b552f67415f775029a2ae02c877592ccb362d33",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/native_prior_both_metrics.json",
+      "sha256": "175738df5ddeef5b3864122da5ca92334f315e36830df0a185609adbe0b83382",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_coco_metrics.json",
+      "sha256": "50e66624cb7440ebc92b263ba3c3bdc9838d84bb4add854b60ea40b3ad7dce05",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/metrics_summary.json",
+      "sha256": "2567d1e8aaf42f2fdb4162a37888b932aa1b7250a1d37519e1fb1445e13e50be",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/evaluation/metrics.json",
+      "sha256": "2567d1e8aaf42f2fdb4162a37888b932aa1b7250a1d37519e1fb1445e13e50be",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/best.pth",
+      "sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2",
+      "role": "best checkpoint"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_none_metrics.json",
+      "sha256": "bf9b1ea923c08d22fd695c659667947cdc798171dd5a34c6a912ed48f0cb1ffa",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_center_metrics.json",
+      "sha256": "4f90105344aebdf512164257b705d1e7446f077b7d02f7e779ba5998e69f38b9",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_shape_metrics.json",
+      "sha256": "1a5e2048c4c3272fc709b5354d7ef6f415dc4dee428a60f3b2c6448c7f7bc111",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_prior_both_metrics.json",
+      "sha256": "5f72fec96474385dee84b24816c42122d13d9cf8edac867c447e18e2e7560dc1",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_coco_metrics.json",
+      "sha256": "42733465409675899ce720c04f180c10d90e0d2df0543c44cdc0b2b283b9139b",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/metrics_summary.json",
+      "sha256": "233bb68ee6e2fc6f20281a02cedce4bc9a50660dfd758abc950d2834b82fda0a",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/evaluation/metrics.json",
+      "sha256": "233bb68ee6e2fc6f20281a02cedce4bc9a50660dfd758abc950d2834b82fda0a",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/best.pth",
+      "sha256": "5690150e5e54306e9b168d8aadd87d1b43801cd44a2036e1fee9ea7bba0b8c0c",
+      "role": "best checkpoint"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_none_metrics.json",
+      "sha256": "fd04539e2003b19bd65fcbed442095f8b3fbd838a626df1ec5ba98bc4141e854",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_center_metrics.json",
+      "sha256": "ec24999af9dae03e13cfafed15851eb9f5d2900a947e34e552d4163eda328283",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_shape_metrics.json",
+      "sha256": "f5ed9dba3463ec0bd6b403d704dadf86b5232801674bd3079073c510b23a56a1",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/native_prior_both_metrics.json",
+      "sha256": "78c241e0fa3bb4394c42ccb29fecfc57f5c5a85db41f58bf0e547e6fa9b9110e",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_0/native_coco_metrics.json",
+      "sha256": "6ff03d60ed4f42e62b219251299532262364e73b3e11d71ddcf4c29019203172",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_0/metrics_summary.json",
+      "sha256": "2e2c83d14e7ffc1441556437d4607fba561e3ef2e2fc684280c9e0791cdb9a26",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_0/evaluation/metrics.json",
+      "sha256": "2e2c83d14e7ffc1441556437d4607fba561e3ef2e2fc684280c9e0791cdb9a26",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_0/best.pth",
+      "sha256": "a95706ef6e45bcd852032da22925e4e35d4a011aa635f572af36ee2803c02bff",
+      "role": "best checkpoint"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_1/native_coco_metrics.json",
+      "sha256": "3d305f474d23d512dc7be98a8a05e51df01c2becb504957eaab571ebcf27250d",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_1/metrics_summary.json",
+      "sha256": "e28c8e894640c81b93ceb8199ffe91f6b0b246072c334de2c25820fe9dfc9170",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_1/evaluation/metrics.json",
+      "sha256": "e28c8e894640c81b93ceb8199ffe91f6b0b246072c334de2c25820fe9dfc9170",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_1/best.pth",
+      "sha256": "c9c7af69304aebc2cb4342ead5fe8b51aee3065ecee110567f3fc8cd3b7476d9",
+      "role": "best checkpoint"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/native_coco_metrics.json",
+      "sha256": "ba996dc9a241b08323393ef90ed5bdb07730f93932e7d9d54de826a5ea51f86e",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/metrics_summary.json",
+      "sha256": "898145640750bf6320dd37ed20b71a49420f8dab4d1b25da6922665ca4243196",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/evaluation/metrics.json",
+      "sha256": "898145640750bf6320dd37ed20b71a49420f8dab4d1b25da6922665ca4243196",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/best.pth",
+      "sha256": "1f19ea4d30234effb359b2de0cfb494ee1fe3582ca93a0bbc54792cf3a3e60cf",
+      "role": "best checkpoint"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_3/native_coco_metrics.json",
+      "sha256": "414a723e81564b47dcfcbf2a07b4d25f160db958fd7b58e4c847ff71a5cf49ce",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_3/metrics_summary.json",
+      "sha256": "feaf7ed1eebe4f3a8f98c0927de298f50f7a4edbdf10885cfde5e35f9d7c9b54",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_3/evaluation/metrics.json",
+      "sha256": "feaf7ed1eebe4f3a8f98c0927de298f50f7a4edbdf10885cfde5e35f9d7c9b54",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_3/best.pth",
+      "sha256": "ee46078178f097e95f141f81d248b2e78d6efa86c91929963901e7b3aefdff6f",
+      "role": "best checkpoint"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_4/native_coco_metrics.json",
+      "sha256": "e77f853a203494c2d90958b3bb4c5d078fd9a8bc1cae7f3fd3801b51f98f66ff",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_4/metrics_summary.json",
+      "sha256": "7ce57e134ac6d2aac40689acd2c62d53a870730e2acee1732d12a155a007e650",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_4/evaluation/metrics.json",
+      "sha256": "7ce57e134ac6d2aac40689acd2c62d53a870730e2acee1732d12a155a007e650",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_4/best.pth",
+      "sha256": "dab1055093c3e67f8953b19891ada4f09b54809912f86ff57ecbb603a5807572",
+      "role": "best checkpoint"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_0/native_coco_metrics.json",
+      "sha256": "af9c49a0570103bbaa1e53b96574d6aab81a4080ead8cc68069f0c6d1a1db947",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_0/metrics_summary.json",
+      "sha256": "d9711f9d4b75fb724d4f62f91d17975ae891f1dcc1c73743195488bbc3aa7119",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_0/evaluation/metrics.json",
+      "sha256": "d9711f9d4b75fb724d4f62f91d17975ae891f1dcc1c73743195488bbc3aa7119",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_0/best.pth",
+      "sha256": "e4f742b1e0c09aaef68a948c7e78936bbac0198a8ca001b5ec612155dc60bd83",
+      "role": "best checkpoint"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_1/native_coco_metrics.json",
+      "sha256": "7416fef5e71c397030b315014941603d6932a20a5af964aa6ff2d57d87604c5d",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_1/metrics_summary.json",
+      "sha256": "18e12403d2a9606478c6357d3416029c4a2ce3f4b13a4a2d76b2e37bae06d0fb",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_1/evaluation/metrics.json",
+      "sha256": "18e12403d2a9606478c6357d3416029c4a2ce3f4b13a4a2d76b2e37bae06d0fb",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_1/best.pth",
+      "sha256": "b378fb41560d2e3c7dd7d977a63cfdd661de781cfc7a017555d1c949e4f5f8c6",
+      "role": "best checkpoint"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_2/native_coco_metrics.json",
+      "sha256": "1ec9f148beb08d973a5ce459b57a27e7634ef8826c7b9bd649d3a61c4c3e667d",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_2/metrics_summary.json",
+      "sha256": "2727ae702ca01328c08fef233cea6a57731697eaeeae07915c513830c4b014b1",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_2/evaluation/metrics.json",
+      "sha256": "2727ae702ca01328c08fef233cea6a57731697eaeeae07915c513830c4b014b1",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_2/best.pth",
+      "sha256": "f4523ea15ddd11a23ffe9eabf8ee34218fc4988d007304a53c68e21fd77dee07",
+      "role": "best checkpoint"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/native_coco_metrics.json",
+      "sha256": "e8b4032249a58699805459c53e3b7ddb5f1822f00091369caa52f1c8def58546",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/metrics_summary.json",
+      "sha256": "ea7994e78a3ec02abbc326e106a2f90ce341865c177237d9a368dab0a4846f88",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/evaluation/metrics.json",
+      "sha256": "ea7994e78a3ec02abbc326e106a2f90ce341865c177237d9a368dab0a4846f88",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/best.pth",
+      "sha256": "62029c9bae0c2446775add2956b27777a87641d67bbcd7e9afb53be6f5c5af5e",
+      "role": "best checkpoint"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_4/native_coco_metrics.json",
+      "sha256": "4edf798eccb3bfdb6f58b6d46b051c8f98723505770cb718f42ef818358b08e6",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_4/metrics_summary.json",
+      "sha256": "b35347f313cd54962c9736278eeafbe621f69eaa855d827ab61526e62c00604b",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_4/evaluation/metrics.json",
+      "sha256": "b35347f313cd54962c9736278eeafbe621f69eaa855d827ab61526e62c00604b",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_4/best.pth",
+      "sha256": "7aa76ed2cc6aee87c899da9d304425af4c78a4fd60b46564baa17f43cd274681",
+      "role": "best checkpoint"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/quantitative_figures/Figure_7_Mobile_values.json",
+      "sha256": "ef3868f139976c4d0071a86806a6d7946e928b599c8807f2aed53d49c44a4207",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/phone/seed_0/metrics_summary.json",
+      "sha256": "1b6a7c5c0bf66231043405706e0f0723eb7d8bc9462b74423ee7c3d948a07024",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/phone/seed_1/metrics_summary.json",
+      "sha256": "4986a3371ab433d35fb44e4f3b34b28a87014b2274ee9167bf03103647df4c5e",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/phone/seed_2/metrics_summary.json",
+      "sha256": "5ec70685a3cced5de62ae448f3d3baf471967aeb34c1dcd5fd89d72f1af450dc",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/rtdetrv2_s/phone/seed_0/metrics_summary.json",
+      "sha256": "6c6bc3b01868fe560d967ed39086de3759d08434dbc6bbd8a4615685284ec30b",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/rtdetrv2_s/phone/seed_1/metrics_summary.json",
+      "sha256": "136e976de3c879071d871a63ac922320b6dd02f21664545f11801bb934f1c918",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/rtdetrv2_s/phone/seed_2/metrics_summary.json",
+      "sha256": "f765b92de5df635d63526bf39e9e268c19ad4742b5f269b6158c5734adbefb1b",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_main_final_20261006.docx",
+      "sha256": "6166d6fe56928ef8e7a11280a9d851ec3e4ff2bcc04293e30f8330aecdeed4d4",
+      "role": "unchanged single-seed conventional comparator table"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_0/log.txt",
+      "sha256": "d36b0bef13048df96f1e854c29b2c0c333fdbb454b456e9dbd8d76d914728aa7",
+      "role": "complete 160-epoch training log"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_1/log.txt",
+      "sha256": "50e92c2d528d103d3107cb1ea90a578d5de0f5bafd50d9b0bf6fa2195d31e901",
+      "role": "complete 160-epoch training log"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2/log.txt",
+      "sha256": "cb960cc61044f46910f4b02647c4dadd4f621e33a2262dc06d046a47cb444fad",
+      "role": "complete 160-epoch training log"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/log.txt",
+      "sha256": "e0f11ddcb3b1fb206516c7a9d980bea1684e4ed9580498571d33c2242d29cbc3",
+      "role": "complete 160-epoch training log"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_4/log.txt",
+      "sha256": "d2dc758e88deb7587c11237da1197a479100d72adda17b9b63ced3b645bbe5c2",
+      "role": "complete 160-epoch training log"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_0/log.txt",
+      "sha256": "c1ec70f54d748c913ca9c8b2d2810554964530c0cce91e41242badcadc43d020",
+      "role": "complete 160-epoch training log"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_1/log.txt",
+      "sha256": "183f4c706a63aafa797f3c5c59f0057136c27997a1c54f56d5ca8b33d7b7bdce",
+      "role": "complete 160-epoch training log"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/log.txt",
+      "sha256": "2aa8592af46bb8fbf92a8d9c8d131bda62ca2259a2f3ea36d0e28f8350272df9",
+      "role": "complete 160-epoch training log"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_3/log.txt",
+      "sha256": "5c814826bab368e1d40ea370ef653813545f3394d44a8c2b82e80d62dbea547d",
+      "role": "complete 160-epoch training log"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_4/log.txt",
+      "sha256": "0ad2884a9fbd9214a88096697a06ee3232719f649c10877ef3c9c9e8ba038aad",
+      "role": "complete 160-epoch training log"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_0/log.txt",
+      "sha256": "30f01b203b61b4f1c69f5cfd8f9bd45c898026e28826a7b26091c2fc91a29e89",
+      "role": "complete 160-epoch training log"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_1/log.txt",
+      "sha256": "bf24e65260f15096098c9a871507abd8f4635b74374321e16e812507f7fbc36f",
+      "role": "complete 160-epoch training log"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_2/log.txt",
+      "sha256": "4bf9b3f45e7af941294b5bf1f893eea3121980c97ffa0690623dbe6b8106f312",
+      "role": "complete 160-epoch training log"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/log.txt",
+      "sha256": "4d514bcb8acf328fb1f596e8dafb48bfdce9f55c4f7482b025540354949d1e54",
+      "role": "complete 160-epoch training log"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_4/log.txt",
+      "sha256": "77e4fc2ee141146a5df5a133dba83e86ada270867cff722f0230b6ae31f2e622",
+      "role": "complete 160-epoch training log"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/config.yml",
+      "sha256": "1f8055240f1266f70cefe240834d5a31a1e8dd875359ab82930af51613396414",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/DENTEX2023/annotations/instances_train2017.json",
+      "sha256": "cdde8f96874c0aafabdd3de12fa5c8b3827ebd4eed40768119bdd4d74901cb50",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+      "sha256": "52532169c776f6ceaa126816787e54f8f796ebb6163c0bf8a04f98372d4f3903",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/evaluation/predictions_coco.json.gz",
+      "sha256": "a89bbf92e08cbeb5f9f4cba07f7585780c8e76f0c48788f4d2145c05514b2788",
+      "role": "full native top-300 predictions"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/evaluation/coco_precision_recall.npz",
+      "sha256": "2d631b0e5af6c1c0a99c08beb67717cc060271c836c96102e8bf6ef34ed0f100",
+      "role": "native COCO precision/recall arrays"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/config.yml",
+      "sha256": "87f0b82f46138daa099fe9dd7150ba3dd5f354b4457875d7316a0318b0d4c833",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/coco/train/annotations_fdi_types.json",
+      "sha256": "8e7a4a0ad3cf08d05ede15b638cfee008be9c89297b2a07f52d20c711c4412f5",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/coco/valid/annotations_fdi_types.json",
+      "sha256": "f5c0e4e86654b32770dd1befb5d8e650b29066d41657675e0253792b0806c649",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/evaluation/predictions_coco.json.gz",
+      "sha256": "b410aa36ac9ecf1dafe7a6da3712a3bb0e0e7e55ff933cc0e6aa2362b037848d",
+      "role": "full native top-300 predictions"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/evaluation/coco_precision_recall.npz",
+      "sha256": "47c9628a07910c7d42ba760f10aad0ec301341471911f2b708a8a16373e599af",
+      "role": "native COCO precision/recall arrays"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/config.yml",
+      "sha256": "4984f67ba217c2024c0d137ab45aba5d2e7c8eba91479ce132322b05188b5f3a",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_train_fdi52.json",
+      "sha256": "f38177d7f8521516653c754f7293339c3267c2aacd70eee7f0c8801af2c40c98",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json",
+      "sha256": "de3b8dc99b2a0a2679386c75d2e8aeff4871a0eaf448d5cc5abef5e1e725dbcf",
+      "role": "source"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/evaluation/predictions_coco.json.gz",
+      "sha256": "e7fa572d857807ea805da240cddcc196113d372a03ab142339083a5ffbeae1c1",
+      "role": "full native top-300 predictions"
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/evaluation/coco_precision_recall.npz",
+      "sha256": "712a5c95f44646861923f12a0004e202423ad7588b66e6875b39e3e9146a7efa",
+      "role": "native COCO precision/recall arrays"
+    }
+  ],
+  "checks": {
+    "all15_native_vs_export_primary_metrics": true,
+    "checkpoint_SHA256": true,
+    "mean_SD_independent_scalar_recalculation": true,
+    "all5_and_fixed012_retained": true,
+    "all20_prior_replays_same_weights": true,
+    "representative_endpoint_counts_independently_recomputed": true,
+    "FDI_matrix_row_totals_equal_GT_support": true,
+    "perclass_macro_equals_native_COCO": true
+  },
+  "no_training_or_gpu_inference": true
+}

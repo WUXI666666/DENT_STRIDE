@@ -1,0 +1,797 @@
+                                                                                   DENT-STRIDE | Supplementary material
+
+
+
+
+Supplementary material
+DENT-STRIDE: Domain-Configured Structured FDI Tooth Detection Across Panoramic Radiographs
+and Intraoral Photographs
+Supplementary component descriptions, historical experimental families, and detailed controlled internal-
+validation results. Each numerical family is identified by its training and inference protocol; historical
+results are kept separate from the current three-seed controlled study.
+
+S1. Optional feature-processing components
+The main article shows HOOA in the Mobile configuration (Fig. 5). Figs. S1–S3 describe CEDv2,
+SMWG, MPF, and UCM, which were evaluated in earlier feature-processing families and are not active
+in the three domain-configured models of the controlled study.
+CEDv2 operates on projected features before the main encoder. Coarse features are upsampled and
+laterally projected to provide sigmoid guidance for the adjacent finer level; aligned branches are
+concatenated and refined. The bottom-up path fuses learned stride-2 features reciprocally with coarser
+branches (Fig. S1).
+
+
+
+
+Fig. S1. CEDv2 comparison architecture. Guided top-down and bottom-up operations refine the projected pyramid before the
+main encoder. CEDv2 is inactive in the domain-configured models. ↑ denotes resizing/upsampling except the labelled learned
+stride-2 operation; C denotes concatenation, σ sigmoid, and ⊙ element-wise multiplication.
+
+The auxiliary SMWG refiner acts on projected P3/P4/P5 before encoder aggregation. A pre-projection is
+transformed with rFFT2 into a complex spectrum. Fixed radial low-, mid-, and high-frequency masks are
+mixed by per-channel softmax weights and applied through the bounded modulation 1 + 0.20 × tanh(M).
+After irFFT2 and post-projection, a dynamic channel gate computed from the pre-FFT feature controls a
+residual update with α_s = 0.35 × sigmoid(s). Fine-to-coarse guidance computes a local high-pass
+residual P−AvgPool3×3(P), resizes and projects it to the next coarser level, predicts a sigmoid guide, and
+applies depthwise 3×3 refinement with a bounded residual update. The evaluated implementation is
+Fourier-based and does not perform a discrete wavelet decomposition (Fig. S2).
+
+
+
+
+                                                              1
+                                                                                  DENT-STRIDE | Supplementary material
+
+
+
+
+Fig. S2. SMWG, an optional Fourier spectral-modulation and fine-to-coarse detail-guidance refiner. This evaluated
+implementation uses rFFT2/irFFT2 with radial frequency-band masks; it does not perform a discrete wavelet decomposition.
+
+After FPN/PAN aggregation, the auxiliary MPF and UCM refiners can be applied independently to each
+output level. MPF combines a depthwise 5×5 local-spatial branch, a global-average-pooled channel-
+reweighting branch, and a 1×1→3×3 context branch using three softmax-normalized weights; the mixture
+is injected with α_m=0.35×sigmoid(s). UCM computes μ=AvgPool₅×₅(x) and v=ReLU[AvgPool₅×₅(x²)
+−μ²]. A learned uncertainty map U interpolates a depthwise detail update D from x−μ and a projected
+context update C from μ, yielding R=U⊙ D+(1−U)⊙ C and P_ucm=x+α_uR with α_u=0.35×sigmoid(s).
+Fig. S3 reflects this per-level refinement view, and when both are enabled MPF precedes UCM on each
+level.
+
+
+
+
+                                                             2
+                                                                                  DENT-STRIDE | Supplementary material
+
+
+
+
+Fig. S3. MPF and UCM per-level comparison refiners. MPF mixes local, channel-reweighting, and context paths; UCM uses
+local mean/variance to interpolate detail and context updates. MPF precedes UCM when both are enabled.
+
+S2. Historical recipe and feature-combination results
+Table S1 reports earlier cohort-specific configurations, and Table S2 contains a separate 16-way feature-
+combination family. These individual-run results describe those experimental families; they do not
+constitute the factorial ablations of the current domain-configured models. The current controlled
+comparisons are reported in the main article and detailed in Tables S7–S13.
+Table S1. Historical recipe-level development/validation comparisons.
+
+                                                                                                             Params
+  Cohort       Configuration                                      AP     AP50          AP75      AR100
+                                                                                                              (M)
+  DENTEX       Prototype                                       53.633    93.189       54.455      66.512       10.65
+  DENTEX       CMFA + HOOA                                     53.444    93.390       54.930      68.884       12.42
+  DENTEX       CMFA + SMWG + UCM + MPF + DualOpt               53.201    94.007       53.777      68.073       13.40
+  DENTEX       UCM                                             53.190    93.585       52.935      67.156       11.06
+  DENTEX       DualOpt-only                                    53.180    93.297       53.739      67.112       10.60
+  DENTEX       CMFA                                            53.127    93.728       52.941      68.383       11.13
+  DENTEX       SMWG                                            53.013    93.261       53.491      68.131       11.19
+  DENTEX       MPF                                             52.808    93.316       53.993      67.690       11.83
+  Smartphon
+            CMFA + SMWG + UCM + MPF + DualOpt                  53.998    83.613       60.057      68.683       13.42
+  e
+  Smartphon
+            MPF                                                53.726    83.882       59.323      67.040       11.86
+  e
+  Smartphon
+            CMFA                                               53.551    83.914       58.898      67.082       11.15
+  e
+  Smartphon
+            Prototype                                          53.305    83.327       57.481      68.276       10.70
+  e
+
+
+
+
+                                                              3
+                                                                                      DENT-STRIDE | Supplementary material
+
+
+
+                                                                                                                    Params
+  Cohort         Configuration                                     AP         AP50         AP75        AR100
+                                                                                                                     (M)
+  Smartphon
+            SMWG                                                53.236       83.707       59.507       67.179        11.22
+  e
+  Smartphon
+            UCM                                                 52.606       82.100       58.973       67.982        11.08
+  e
+  Smartphon
+            CMFA + HOOA                                         52.369       82.657       56.582       66.302        12.45
+  e
+  Smartphon
+            SpatialShape                                        52.227       82.298       57.393       66.822        10.70
+  e
+  DSLR           CMFA + HOOA + DualOpt                          72.995       89.086       83.696       81.168        12.45
+                 CMFA + HOOA + CEDv2 + SpatialShape +
+  DSLR                                                          72.838       88.590       83.353       84.086        16.59
+                 DualOpt
+  DSLR           CMFA + HOOA + CEDv2 + SpatialShape             72.812       88.491       83.946       82.935        16.59
+  DSLR           MPF + DualOpt                                  72.700       88.181       83.244       81.765        11.86
+  DSLR           CMFA + HOOA + Prototype                        72.670       88.183       83.886       83.069        12.51
+  DSLR           CMFA + HOOA + SpatialShape                     72.417       88.569       83.685       83.231        12.51
+  DSLR           CMFA + HOOA + CEDv2 + DualOpt                  72.402       88.011       83.215       82.253        16.52
+  DSLR           CMFA + HOOA + CEDv2                            72.353       88.056       82.285       81.783        16.52
+  DSLR           Prototype + DualOpt                            72.292       87.958       83.116       81.785        10.70
+  DSLR           CMFA + HOOA + SpatialShape + DualOpt           72.266       88.127       82.935       83.645        12.51
+  DSLR           SpatialShape + DualOpt                         71.533       87.085       82.554       82.804        10.70
+Numerical precision is retained from the original result records. “Prototype” denotes the earlier auxiliary-supervision
+configuration, not prototype-score fusion. “SpatialShape” denotes a prior-enabled complete configuration rather than a same-
+checkpoint switch.
+
+In Table S2, DualOpt is active in every row, with the same seed, input policy, training budget, and
+checkpoint-selection rule within that family. All four-feature combinations are included. Its 73.431 AP
+CMFA + DualOpt result belongs to this historical feature family and is separate from the three-seed
+DSLR results of the controlled study.
+Table S2. Complete four-feature-module ablation on DSLR with DualOpt fixed.
+
+           CMF SMW
+                   UCM MPF                    AP            AP50            AP75          AR100        Params (M)
+            A   G
+             −        −      −         −     73.173         89.677         83.736          80.538         10.629
+             +        −      −         −     73.431         89.580         84.660          82.054         11.154
+             −        +      −         −     72.092         87.901         82.995          81.149         11.216
+             −        −      +         −     73.107         88.902         84.196          81.623         11.083
+             −        −      −         +     72.700         88.181         83.244          81.765         11.858
+             +        +      −         −     72.640         88.407         83.458          80.992         11.740
+             +        −      +         −     72.551         88.484         83.706          81.069         11.608
+             +        −      −         +     72.528         88.260         82.936          82.250         12.383
+             −        +      +         −     71.999         87.329         82.592          80.347         11.670
+             −        +      −         +     72.335         88.132         83.498          81.501         12.444
+             −        −      +         +     72.759         88.616         83.451          80.904         12.312
+             +        +      +         −     72.582         88.514         83.490          81.228         12.194
+             +        +      −         +     73.123         89.630         83.501          82.297         12.969
+             +        −      +         +     72.231         87.686         83.315          81.489         12.837
+             −        +      +         +     73.148         89.503         83.793          81.974         12.899
+             +        +      +         +     72.262         87.864         82.798          81.413         13.423
+
+
+
+
+                                                               4
+                                                                                          DENT-STRIDE | Supplementary material
+
+
+  +/− indicate enabled/disabled CMFA, SMWG, UCM, and MPF. Metrics are percentage points and parameters are millions. All
+  entries are individual-run results; no across-seed error bars are inferred for this historical family.
+
+  S3. Historical progressive identity-supervision study
+  The eight experiments in Table S3 hold a historical feature stack fixed within each cohort and
+  progressively enable factor auxiliary heads, prototype auxiliary learning, and the geometric prior. The
+  common stack contains CMFA, HOOA, EFRUF, SINF, and SMWG; these are not the smaller final
+  recipes. Factor and prototype inference-fusion weights are zero in this family. Thus, the factor/prototype
+  rows test auxiliary supervision, whereas the final row also adds inference-time geometric/view scoring.
+  All rows belong to the same recorded run family, but each is a single training run; no across-seed variance
+  is estimated.
+  Table S3. Progressive identity ablation on a fixed historical feature stack.
+
+Cohort        Setting                                                             AP           AP50             AP75         Params (M)
+Smartphone Fixed feature reference                                               53.546        83.165           60.308          15.548
+Smartphone + factor auxiliary                                                    53.595        83.976           58.780          15.562
+Smartphone + factor + prototype auxiliary                                        54.242        84.000           61.782          15.615
+Smartphone + factor + prototype + geometric prior                                52.924        83.106           58.568          15.615
+DENTEX        Fixed feature reference                                            53.590        93.939           53.191          15.523
+DENTEX        + factor auxiliary                                                 53.572        93.149           56.037          15.537
+DENTEX        + factor + prototype auxiliary                                     53.746        93.921           54.996          15.569
+DENTEX        + factor + prototype + geometric prior                             54.234        94.301           55.792          15.569
+  The bank uses four prototypes per class and temperature 0.20. The approximately 15.5 M-parameter reference is a distinct
+  historical feature stack. This family does not isolate center versus shape, final-Mobile factor fusion, or the current controlled base
+  models.
+
+  Relative to the factor-only row, prototype auxiliary supervision changes AP by +0.647 on smartphone
+  photographs and +0.174 on DENTEX. Adding the combined geometric prior changes AP by −1.318 and
+  +0.489, respectively. The opposing directions motivate acquisition-specific evaluation and do not
+  establish a universal benefit of spatial scoring.
+
+  S4. Historical upstream baseline repeats and module migration
+  Table S4 reports prior training runs of the official DEIM-s and RT-DETRv2-S implementations with
+  seeds 0, 1, and 2. Mean and sample standard deviation are calculated across each implementation’s three
+  validation-selected checkpoints. These values belong to the upstream comparator family; current DENT-
+  STRIDE training-seed results are independently provided in Table S7.
+  Table S4. Three-seed official baseline AP.
+
+   Cohort           Implementation                              Seed 0           Seed 1    Seed 2               Mean ± SD
+   DENTEX           Official DEIM-s                             53.349           53.966    54.165             53.827 ± 0.425
+   Smartphone       Official DEIM-s                             53.605           53.438    53.614             53.553 ± 0.099
+   DSLR             Official DEIM-s                             72.557           72.176    72.482             72.405 ± 0.202
+   DENTEX           RT-DETRv2-S                                 50.797           50.552    50.977             50.775 ± 0.213
+   Smartphone       RT-DETRv2-S                                 50.986           50.031    50.669             50.562 ± 0.486
+   DSLR             RT-DETRv2-S                                 71.206           71.276    70.367             70.949 ± 0.506
+  All entries are internal-validation estimates selected by maximum validation AP. Sample standard deviations describe variability
+  among the three corresponding training runs and are not transferred to another architecture or configuration.
+
+  Prior seed-0 module-migration experiments yielded different effects in the official scaffold: Pano Factor
+  + Prototype + SpatialShape changed AP from 53.349 to 54.151; Mobile DualOpt from 53.605 to 52.967;
+  and DSLR CMFA + DualOpt from 72.557 to 72.095. These separate implementation comparisons
+  illustrate configuration dependence and are not substitutes for the current controlled models.
+
+
+
+                                                                    5
+                                                                                     DENT-STRIDE | Supplementary material
+
+
+
+S5. Additional historical cross-framework comparisons
+Table S5 records earlier Pano and Mobile framework comparators using the same image-level validation
+cohorts and FDI category definitions. Framework-native pretraining, optimization, training, and post-
+processing are retained. Detection-relevant image, category, and box annotations are equivalent for the
+smartphone annotation variants, which differ only in additional tooth-type metadata. The current same-
+image comparisons use these stored external predictions evaluated against the controlled study’s
+validation annotations. Training resolution and other framework settings remain different, so these are
+system-level references.
+Table S5. Historical conventional-detector development comparisons.
+
+  Cohort         Model                                                AP             AP50            AP75           AR100
+  DENTEX         Faster R-CNN                                       47.695          91.056          42.930          58.417
+  DENTEX         CAF-YOLO-s                                         48.058          88.747          46.379          57.519
+  DENTEX         YOLOv8-s                                           51.431          91.337          51.910          63.708
+  DENTEX         YOLO11-s                                           50.644          92.008          48.440          61.157
+  DENTEX         RT-DETR-L                                          51.978          92.908          51.351          63.421
+  DENTEX         Dome-DETR-S                                        51.711          92.725          50.759          66.621
+  Smartphone     Faster R-CNN                                       41.182          69.211          44.811          57.194
+  Smartphone     CAF-YOLO-s                                         43.771          70.389          48.601          50.959
+  Smartphone     YOLOv8-s                                           46.937          74.108          52.272          57.278
+  Smartphone     YOLO11-s                                           47.064          73.483          52.526          56.297
+  Smartphone     RT-DETR-L                                          54.751          83.674          61.117          67.004
+  Smartphone     Dome-DETR-S                                        51.828          79.595          56.832          67.802
+All values are single-run framework references. They do not inherit standard deviations from the controlled detector family. The
+stronger RT-DETR-L reference is retained alongside the smaller conventional and transformer models.
+
+S6. Training geometry and current controlled visual evidence
+Main Fig. 3 shows the training-derived Pano center templates. Fig. S4 complements these with
+width/height distributions; inference uses the joint quadratic log-shape score. Figs. S5–S8 present
+learning curves, internal sensitivity, threshold diagnostics, and class-wise prototype evidence from the
+completed controlled runs.
+
+
+
+
+Fig. S4. Normalized width and height of the 16,234 DENTEX training boxes by permanent FDI class. These distributions
+describe training geometry; the SpatialShape inference term is a joint quadratic score in log-width and log-height.
+
+
+
+
+                                                                6
+                                                                                    DENT-STRIDE | Supplementary material
+
+
+
+
+Fig. S5. Validation learning curves of controlled base and combined models across the three acquisition domains. Lines show the
+mean COCO AP at each actual epoch; shaded bands show the sample standard deviation across seeds 0, 1, and 2. All 160
+recorded epochs are displayed without smoothing. Pano curves exclude factor inference fusion and anatomical priors. Curves
+represent online training-validation records; endpoint tables use frozen-checkpoint FP32 replay.
+
+
+
+
+                                                               7
+                                                                                        DENT-STRIDE | Supplementary material
+
+
+
+
+Fig. S6. Internal branch, temperature, and background-loss sensitivity at seed 0. (A) HOOA branches relative to the intact Mobile
+combined model. (B) Prototype temperature at four prototypes per class, relative to τ = 0.20. (C) NWD and arch-position losses
+relative to their joint use. (D) Training/inference factor fusion relative to fusion disabled in both phases. Each inference pair uses
+the same frozen weight within its training state. Positive values mean that the displayed alternative exceeds its specified
+reference. “—” denotes an incomplete training/replay condition and has no numeric point. The remaining internal families are
+shown in main Fig. 11.
+
+
+
+
+                                                                  8
+                                                                                     DENT-STRIDE | Supplementary material
+
+
+
+
+Fig. S7. Detection and threshold diagnostics for seed-0 controlled base and domain-configured models. Rows show Mobile,
+Pano, and DSLR. Columns show category-macro-averaged COCO interpolated precision at IoU 0.50 and maxDets = 100; F1;
+and the fraction of validation images containing repeated raw FDI labels. Categories without validation support are omitted from
+the precision macro-average. Threshold curves use native top-300 outputs without added NMS and score thresholds 0.05–0.95 in
+steps of 0.05. Class-agnostic Hungarian localization matching at IoU ≥0.50 is followed by exact FDI comparison. Pano includes
+the combined prior. Dotted lines indicate score 0.30. These single-seed diagnostics do not measure clinical charting-error rates.
+
+
+
+
+                                                                9
+                                                                                     DENT-STRIDE | Supplementary material
+
+
+
+
+Fig. S8. Within-class prototype cohesion for every FDI slot in the Mobile seed-0 checkpoint. (A) Permanent and (B) primary FDI
+classes. Cohesion is the mean of the six pairwise cosine similarities among the four normalized prototypes of a class. FDI 18, 28,
+38, and 48 have no smartphone training instances and are shown as unavailable; their initialized prototype slots are excluded
+from learned-evidence interpretation. The bank supplies training auxiliary supervision and is distinct from the fixed Pano center
+and shape templates.
+
+S7. Evaluation scope and visualization methods
+The current study uses completed frozen checkpoints and their full validation predictions. Historical
+feature, identity, and upstream comparator families remain identified in Sections S2–S5; their results are
+not attributed to current weights. Native online metrics characterize learning trajectories, while FP32
+checkpoint replay provides the numerical endpoints. Table S6 summarizes the scope of each evidence
+family.
+Table S6. Evaluation scope of the experimental families.
+
+ Evidence family                  Comparison                                   Interpretation
+                                                                               Within-cohort module and resolution
+ Controlled primary models        14 configurations × seeds 0/1/2
+                                                                               comparisons
+                                                                               Single-seed sensitivity; uncompleted cells
+ Internal training ablations      Named component change; seed 0
+                                                                               unavailable
+ Pano prior replays               None / center / shape / joint; same weight   Score-correction effects without retraining
+                                                                               Same-weight inference switches within training
+ Mobile fusion replays            Training fusion × inference fusion
+                                                                               state
+ Historical feature family        16 combinations; DualOpt fixed               Earlier within-family feature response
+ Historical identity family       Progressive supervision / prior              Earlier configuration-specific identity response
+ Official upstream repeats        DEIM-s and RT-DETRv2-S, three seeds          Upstream baseline training variation
+                                                                               System-level references on common validation
+ External detector outputs        Framework-native archived predictions
+                                                                               labels
+
+
+S7.1. Predictions and operating-point definitions
+Validation image identifiers align predictions with the corresponding unchanged images and ground truth.
+Clinical FDI codes are decoded through each cohort’s label map; zero-based category indices are not
+
+
+                                                               10
+                                                                       DENT-STRIDE | Supplementary material
+
+
+
+displayed as tooth numbers. COCO AP uses the native detector outputs with no additional display score
+cutoff. Fixed-threshold endpoints use score ≥0.30 and class-agnostic one-to-one Hungarian assignment
+that maximizes total IoU, accepting only pairs with IoU ≥0.50. Exact FDI agreement defines a correct
+detection. Wrong-number matches contribute both a false positive and a false negative. The denominators
+for FDI accuracy, recall, localization coverage, and repeated-label image rate are explicitly distinguished
+in Table S12.
+Same-image qualitative panels use controlled seed-0 checkpoints, stored external predictions, the same
+image, a common display threshold, consistent FDI decoding, and shared target crops. Examples include
+favorable and adverse changes. Pano prior panels recompute scores from all ordinary candidates before
+native top-k selection, switching only center and/or shape scoring for the same checkpoint. Selected
+examples explain local mechanisms and do not estimate population frequencies of benefit or harm.
+
+S7.2. Internal tensors and structured-identity diagnostics
+Main Figs. 13–15 derive from the controlled Mobile combined seed-0 checkpoint. Four learned
+prototypes per FDI class are L2-normalized; class centroids are formed by averaging then renormalizing.
+Cosine similarity is computed between supported class centroids. Within-class cohesion is the mean
+pairwise cosine similarity of the four prototypes. Unsupported FDI slots are masked, rather than
+interpreted as learned representations.
+Auxiliary-head confusion matrices use unique ordinary queries, retaining a query when its maximum
+sigmoid class score is at least 0.30. Class-agnostic Hungarian matching against ground-truth boxes
+accepts IoU ≥0.50 and yields 2,335 localized queries. This query-level subset differs from the post-top-k
+detection denominator in Table S12, because native top-k outputs can retain multiple class scores from
+one query. Factor labels follow quadrant 1–8, within-quadrant position 1–8, and dentition as primary or
+permanent. Confusion values are normalized by the reference row; these branches are not objectness
+heads.
+CMFA and HOOA tensors are captured during an actual forward pass of the same seed-0 checkpoint.
+CMFA channel gates gA and gB each contain 256 channel values displayed on a 16 × 16 grid; grid
+location indexes channels and has no anatomical spatial meaning. The CMFA spatial gate is the actual
+scalar gate at each feature location. HOOA panels show local, context, high-pass, and multiplicative
+local–context responses, channel gates, spatial gates, input, and output. Response maps summarize root-
+mean-square magnitude across channels and are normalized independently for display, while sigmoid
+gate values retain their [0,1] scale. These maps are internal responses, not Grad-CAM, and do not
+substitute for retrained causal ablations.
+
+S7.3. Statistical and graphical conventions
+Open symbols in repeated-seed plots represent actual seed outcomes; mean markers and error bars show
+the mean and sample standard deviation. Seed-paired differences and df = 2 Student-t intervals are
+calculated from the three actual within-seed differences. No error bars are added to single-run external or
+internal results. Missing completed measurements are shown as “—” and are excluded from calculations.
+No smoothing, interpolated training results, synthetic predictions, or generated clinical image content is
+used.
+Figures use a common Times New Roman typeface, restrained colors, and concise subplot labels;
+descriptions and thresholds are placed in captions. Performance figures are generated from numerical
+records and prediction arrays, and response/prototype figures from captured tensors. Standalone high-
+resolution raster, vector PDF, and SVG sources accompany the figure assets. Clinical pixels, detection
+boxes, identities, and gate values are not retouched.
+
+
+
+
+                                                    11
+                                                                                        DENT-STRIDE | Supplementary material
+
+
+
+S8. Controlled experiments: detailed results
+The controlled study comprises 14 training configurations, each evaluated with seeds 0, 1, and 2. All use
+the original cohort partitions, 160 recorded epochs, a training batch size of 8, a validation batch size of
+16, mixed-precision training, and exponential moving average weights. The checkpoint with maximum
+validation COCO AP is frozen and replayed in FP32. Within each cohort, data, initialization, common
+losses, augmentation, optimization schedules, and checkpoint selection are held fixed except for the stated
+variable. Mobile resolution is an explicit experimental factor. Pano training comparisons disable factor-
+score fusion and all anatomical priors; the prior comparison is a subsequent same-weight replay. These
+are internal-validation estimates.
+Tables S7–S13 provide run-level endpoints, controlled sensitivity analyses, seed-paired differences, and
+effective training settings. Means and sample standard deviations in the main article use exactly three
+completed training seeds. “—” denotes a training condition without a completed 160-epoch checkpoint
+replay; its partial validation maximum is excluded. The internal ablations use seed 0, and reused intact
+configurations are identified in the table notes.
+Table S7. Individual-seed results for all 14 controlled training configurations.
+
+                                                                                                     Params     Best
+      Cohort     Configuration                   Seed       AP          AP50       AP75     AR100
+                                                                                                      (M)      epoch
+      Mobile     Base, 1024                        0      54.574        83.238     60.024   68.847   10.629      87
+      Mobile     Base, 1024                        1      54.747        83.192     62.566   68.313   10.629      123
+      Mobile     Base, 1024                        2      54.869        84.239     63.372   67.168   10.629      136
+      Mobile     Features, 1024                    0      55.163        83.907     62.879   67.786   12.446      105
+      Mobile     Features, 1024                    1      54.013        81.838     59.308   66.819   12.446      139
+      Mobile     Features, 1024                    2      54.038        81.937     60.918   67.833   12.446      130
+      Mobile     Identity, 1024                    0      54.427        83.225     61.235   69.520   10.696      64
+      Mobile     Identity, 1024                    1      54.076        83.866     60.049   69.675   10.696      126
+      Mobile     Identity, 1024                    2      54.549        83.699     63.114   69.843   10.696      68
+      Mobile     Combined, 1024                    0      54.583        82.693     63.024   68.996   12.513      151
+      Mobile     Combined, 1024                    1      55.150        83.918     61.823   68.929   12.513      106
+      Mobile     Combined, 1024                    2      55.346        83.613     63.168   69.380   12.513      116
+      Mobile     Base, 640                         0      53.735        84.111     60.352   65.982   10.629      91
+      Mobile     Base, 640                         1      53.575        84.088     59.948   67.091   10.629      105
+      Mobile     Base, 640                         2      53.139        83.605     58.019   66.095   10.629      65
+      Mobile     Combined, 640                     0      54.015        83.582     60.355   66.773   12.513      159
+      Mobile     Combined, 640                     1      53.605        82.914     58.293   66.806   12.513      152
+      Mobile     Combined, 640                     2      53.636        83.327     60.878   67.296   12.513      106
+      Pano       Base                              0      52.672        92.841     52.260   68.330   10.604      46
+      Pano       Base                              1      52.948        93.884     52.546   67.018   10.604      151
+      Pano       Base                              2      53.445        93.234     55.411   67.538   10.604      58
+      Pano       Factor                            0      53.137        93.137     53.538   67.515   10.617      77
+      Pano       Factor                            1      53.450        93.796     53.295   67.095   10.617      67
+      Pano       Factor                            2      53.259        93.283     53.794   65.703   10.617      135
+      Pano       Prototype                         0      53.144        92.992     54.460   68.258   10.636      59
+      Pano       Prototype                         1      52.795        93.433     53.715   67.472   10.636      60
+      Pano       Prototype                         2      53.171        93.709     54.157   67.109   10.636      45
+      Pano       Factor + Prototype                0      53.767        94.138     54.341   67.479   10.650      67
+      Pano       Factor + Prototype                1      52.789        93.367     52.638   68.620   10.650      55
+
+
+
+
+                                                                   12
+                                                                                        DENT-STRIDE | Supplementary material
+
+
+
+                                                                                                      Params       Best
+      Cohort      Configuration                Seed       AP          AP50          AP75     AR100
+                                                                                                       (M)        epoch
+      Pano        Factor + Prototype             2      52.942        93.856      52.162     65.944    10.650       160
+      DSLR        Base + AdamW                   0      72.416        88.664      83.313     82.658    10.629       134
+      DSLR        Base + AdamW                   1      72.720        89.160      83.159     82.637    10.629       113
+      DSLR        Base + AdamW                   2      72.260        88.560      83.398     81.713    10.629       125
+      DSLR        CMFA + AdamW                   0      72.908        88.655      83.855     82.151    11.154       158
+      DSLR        CMFA + AdamW                   1      73.077        88.806      83.647     82.776    11.154       134
+      DSLR        CMFA + AdamW                   2      72.907        89.484      84.395     83.389    11.154       138
+      DSLR        Base + DualOpt                 0      72.794        88.854      83.603     80.570    10.629       129
+      DSLR        Base + DualOpt                 1      72.293        88.920      83.717     83.784    10.629       56
+      DSLR        Base + DualOpt                 2      72.006        88.319      82.916     82.563    10.629       154
+      DSLR        CMFA + DualOpt                 0      73.339        89.234      83.617     83.919    11.154       105
+      DSLR        CMFA + DualOpt                 1      72.704        88.694      83.518     82.343    11.154       146
+      DSLR        CMFA + DualOpt                 2      72.590        88.459      83.639     80.702    11.154       128
+Metrics are percentage points; epoch is one-based. Features denote CMFA + HOOA; identity denotes Factor + Prototype. Pano
+rows exclude inference priors and factor fusion. Parameter counts include all executable parameters, including auxiliary heads;
+only the appropriate branches are used during inference. These controlled base models are separate from the official DEIM-s
+references in Table S4.
+
+S8.1. Module-internal ablations
+Internal comparisons retain the Mobile combined architecture and its background losses except for the
+named change. CMFA channel and spatial switches preserve the concatenated 2C output and downstream
+network. Removing the HOOA high-pass branch sets only its response to zero; removing the
+multiplicative interaction substitutes the direct context response, preserving local and context branches
+and the same projection. Factor-loss removal retains all heads and disables both training and inference
+fusion, isolating the selected auxiliary loss. Prototype supervision is removed by disabling the branch and
+its loss; prototype-number and temperature comparisons otherwise preserve the training setup. DSLR
+DualOpt comparisons retain ordinary AdamW weight decay and toggle only rollback or additional rank-
+dependent decay.
+Table S8. Module-internal and background-loss sensitivity at seed 0.
+
+      Component         Setting                                  AP            AP50        AP75       AR100        ΔAP
+      CMFA              Neither gate                           54.950          83.122      62.426     69.517      +0.367
+      CMFA              Channel only                           55.872          85.205      62.463     69.435      +1.289
+      CMFA              Spatial only                           54.835          83.735      62.580     68.776      +0.251
+      CMFA              Both gates                             54.583          82.693      63.024     68.996      +0.000
+      HOOA              Intact                                 54.583          82.693      63.024     68.996      +0.000
+      HOOA              No high-pass                           55.228          84.292      60.703     69.286      +0.645
+      HOOA              No interaction                           —              —           —          —            —
+      HOOA              Neither branch                           —              —           —          —            —
+      Factor losses     All three                              54.023          82.978      57.909     67.782      +0.000
+      Factor losses     No quadrant CE                         55.123          83.587      63.678     68.060      +1.100
+      Factor losses     No position CE                         55.188          84.730      63.187     66.741      +1.165
+      Factor losses     No dentition CE                        55.227          84.430      62.102     68.195      +1.204
+      Prototype         No supervision                         55.649          84.851      63.507     68.457      +1.066
+      Prototype         K = 1, τ = 0.20                        55.386          84.276      60.449     69.184      +0.803
+      Prototype         K = 2, τ = 0.20                          —              —           —          —            —
+
+
+
+
+                                                                 13
+                                                                                      DENT-STRIDE | Supplementary material
+
+
+
+      Component        Setting                                   AP         AP50          AP75        AR100           ΔAP
+      Prototype        K = 4, τ = 0.20                          54.583      82.693       63.024          68.996      +0.000
+      Prototype        K = 4, τ = 0.10                          54.291      82.982       62.115          68.740      -0.292
+      Prototype        K = 4, τ = 0.50                           —            —            —              —            —
+      DualOpt          Neither operation                        72.908      88.655       83.855          82.151      +0.000
+      DualOpt          Rollback only                            72.830      88.777       83.333          81.664      -0.078
+      DualOpt          Additional decay only                    73.097      88.510       83.330          83.351      +0.189
+      DualOpt          Both operations                          73.339      89.234       83.617          83.919      +0.431
+      Background       Neither loss                             54.910      83.736       62.914          70.104      +0.327
+      Background       NWD only                                 54.009      82.445       59.926          69.458      -0.575
+      Background       Arch only                                55.249      84.402       62.300          68.835      +0.666
+      Background       Both losses                              54.583      82.693       63.024          68.996      +0.000
+ΔAP uses the intact setting in each family: both CMFA gates; intact HOOA; all factor losses with fusion disabled; K = 4 and τ =
+0.20; CMFA + ordinary AdamW for DualOpt; both background losses. Positive ΔAP means the displayed alternative exceeds its
+reference, not that the intact module improves AP. The intact Mobile and DSLR configurations reuse their controlled seed-0 runs.
+“—” denotes an incomplete training/replay condition. No uncertainty bars are assigned to these single-seed measurements.
+
+The internal results identify non-monotonic responses: channel-only CMFA, removal of the HOOA high-
+pass response, and removal of prototype supervision exceed the intact Mobile seed-0 configuration. These
+comparisons motivate reporting the full sensitivity range rather than treating every enabled branch as
+necessary. They are not used to replace the predefined combined models with a retrospectively selected
+single-seed alternative.
+
+S8.2. Paired training-seed differences
+Table S9. Paired AP differences across seeds 0, 1, and 2.
+
+     Comparison                                        Seed 0     Seed 1    Seed 2       Mean ± SD                95% CI
+     Mobile1024: combined − base                      +0.009      +0.403    +0.476     +0.296 ± 0.251         [-0.327, 0.919]
+     Mobile1024: features − base                      +0.589      -0.734    -0.831      -0.326 ± 0.793        [-2.297, 1.646]
+     Mobile1024: identity − base                       -0.147     -0.671    -0.321      -0.379 ± 0.267        [-1.043, 0.284]
+     Mobile1024: combined − features                   -0.580     +1.137    +1.307     +0.622 ± 1.044         [-1.971, 3.214]
+     Mobile1024: combined − identity                  +0.156      +1.074    +0.797     +0.675 ± 0.471         [-0.494, 1.845]
+     Mobile640: combined − base                       +0.280      +0.030    +0.498     +0.269 ± 0.234         [-0.311, 0.850]
+     Mobile base: 1024 − 640                          +0.839      +1.172    +1.731     +1.247 ± 0.451         [0.128, 2.366]
+     Mobile combined: 1024 − 640                      +0.569      +1.545    +1.709     +1.274 ± 0.616         [-0.257, 2.806]
+     Pano: Factor − base                              +0.465      +0.502    -0.186     +0.260 ± 0.387         [-0.701, 1.221]
+     Pano: Prototype − base                           +0.471      -0.153    -0.274     +0.015 ± 0.400         [-0.980, 1.009]
+     Pano: Factor + Prototype − base                  +1.095      -0.159    -0.503     +0.144 ± 0.841         [-1.945, 2.234]
+     Pano: Factor + Prototype − Factor                +0.630      -0.661    -0.317      -0.116 ± 0.669        [-1.777, 1.545]
+     DSLR: CMFA − base, AdamW                         +0.492      +0.357    +0.647     +0.498 ± 0.145         [0.138, 0.859]
+     DSLR base: DualOpt − AdamW                       +0.377      -0.427    -0.254      -0.101 ± 0.423        [-1.153, 0.951]
+     DSLR: CMFA + DualOpt − base + AdamW              +0.923      -0.016    +0.330     +0.412 ± 0.475         [-0.767, 1.591]
+     DSLR CMFA: DualOpt − AdamW                       +0.431      -0.373    -0.317      -0.086 ± 0.449        [-1.200, 1.028]
+     DSLR: CMFA − base, DualOpt                       +0.545      +0.411    +0.584     +0.513 ± 0.091         [0.287, 0.740]
+     Mobile: feature–identity interaction              -0.433     +1.808    +1.628     +1.001 ± 1.245         [-2.092, 4.094]
+     Pano: factor–prototype interaction               +0.158      -0.508    -0.043      -0.131 ± 0.342        [-0.980, 0.718]
+     DSLR: CMFA–DualOpt interaction                   +0.053      +0.054    -0.062     +0.015 ± 0.067         [-0.152, 0.182]
+All values are AP percentage points. Intervals are two-sided Student-t intervals for the mean of the three within-seed differences
+(df = 2). Interaction = combined − component A − component B + base. Intervals describe training-seed variation on the same
+
+
+
+                                                                 14
+                                                                                       DENT-STRIDE | Supplementary material
+
+
+internal-validation partition; they are not patient-sampling or independent-test intervals. The multiple exploratory comparisons
+are not adjusted for multiplicity.
+
+S8.3. Same-weight anatomical priors and factor fusion
+Table S10. Pano same-checkpoint prior replays for each training seed.
+
+       Seed       Prior                               AP              AP50          AP75          AR100           ΔAP
+       0          None                               53.767           94.138       54.341          67.479        +0.000
+       0          Center                             54.285           94.389       55.425          69.633        +0.517
+       0          Shape                              53.879           94.127       54.614          68.015        +0.112
+       0          Center + shape                     54.287           94.322       55.397          69.720        +0.520
+       1          None                               52.789           93.367       52.638          68.620        +0.000
+       1          Center                             53.077           93.572       53.205          70.418        +0.289
+       1          Shape                              52.772           93.329       52.668          68.835         -0.016
+       1          Center + shape                     53.021           93.507       53.142          70.462        +0.232
+       2          None                               52.942           93.856       52.162          65.944        +0.000
+       2          Center                             53.495           94.313       53.153          68.536        +0.553
+       2          Shape                              52.932           93.861       52.170          66.289         -0.010
+       2          Center + shape                     53.431           94.236       53.056          68.715        +0.489
+All settings within a seed use the same frozen Factor + Prototype checkpoint selected without anatomical priors. Class scores are
+recomputed from every ordinary query and class before native top-k selection. Factor fusion, appearance scoring, view scoring,
+and global assignment are disabled. Center and log-shape weights are 0.20 and 0.05; ΔAP is relative to no prior within the same
+seed.
+
+Table S11. Mobile training-fusion × inference-fusion comparison at seed 0.
+
+       Training           Inference
+                                               AP             AP50              AP75             AR100              F1
+       fusion             fusion
+       On                 On                54.583            82.693            63.024            68.996          80.89
+       On                 Off               54.632            82.894            63.021            66.797          80.17
+       Off                Off               54.023            82.978            57.909            67.782          80.76
+       Off                On                53.859            82.580            57.866            68.671          81.28
+The two training states retain all factor and prototype supervision. Each frozen checkpoint is replayed with inference fusion on
+and off. Weights for quadrant, within-quadrant position, and dentition fusion are 0.10, 0.05, and 0.03. Training-state checkpoints
+are selected by validation AP under their specified inference setting; the inference replays do not change weights or model
+selection. F1 uses score ≥0.30 and IoU ≥0.50.
+
+S8.4. Fixed-threshold detection and identity endpoints
+Table S12. Individual-seed fixed-threshold endpoints for controlled base and domain-configured models.
+
+                                                                               Matched                          Duplicate
+     Cohort     Model            Seed      P            R             F1                       Coverage
+                                                                                FDI                              images
+     Mobile     Base                  0   72.78       87.11          79.30       91.30           95.40            40.00
+     Mobile     Base                  1   74.18       86.95          80.06       91.25           95.28            33.64
+     Mobile     Base                  2   74.76       88.17          80.91       92.37           95.45            35.45
+     Mobile     Combined              0   75.75       86.78          80.89       91.27           95.08            30.00
+     Mobile     Combined              1   74.39       87.76          80.52       91.79           95.61            37.73
+     Mobile     Combined              2   74.00       87.27          80.09       91.63           95.24            39.55
+     Pano       Base                  0   79.43       91.30          84.95       92.49           98.71            90.62
+     Pano       Base                  1   83.92       91.13          87.38       92.43           98.60            70.31
+     Pano       Base                  2   83.69       91.56          87.45       92.86           98.60            68.75
+
+
+
+
+                                                                15
+                                                                                         DENT-STRIDE | Supplementary material
+
+
+
+                                                                                    Matched                       Duplicate
+     Cohort     Model             Seed       P            R            F1                        Coverage
+                                                                                     FDI                           images
+     Pano       Combined           0       84.61       91.89          88.10          93.04          98.76            76.56
+     Pano       Combined           1       84.36       91.89          87.96          93.29          98.50            70.31
+     Pano       Combined           2       84.88       91.72          88.17          92.97          98.66            76.56
+     DSLR       Base               0       89.89       94.97          92.36          97.38          97.52            23.68
+     DSLR       Base               1       90.37       95.15          92.70          97.68          97.41            24.74
+     DSLR       Base               2       90.14       94.68          92.35          97.34          97.26            22.63
+     DSLR       Combined           0       89.81       95.44          92.54          97.87          97.52            27.89
+     DSLR       Combined           1       89.79       94.89          92.27          97.31          97.52            25.26
+     DSLR       Combined           2       89.74       95.04          92.31          97.46          97.52            24.74
+All metrics are percentages. Mobile uses 1024 × 1024; Pano combined includes the joint center/shape prior; DSLR combined
+uses CMFA + DualOpt. Native top-300 predictions are retained at score ≥0.30, without added NMS. Class-agnostic Hungarian
+matching maximizes total IoU and accepts matches at IoU ≥0.50; a detection is correct only when FDI also agrees. P = correct
+detections / retained predictions; R = correct detections / GT teeth; matched FDI = correct identities / localized matches;
+coverage = localized matches / GT teeth. Duplicate-image rate counts images containing repeated raw predicted FDI labels and is
+not a clinical charting-error rate.
+
+S8.5. Effective training and inference controls
+Table S13 lists effective settings rather than inactive configuration entries. Mobile base and module
+comparisons share NWD and arch-position losses; they therefore represent controlled local references,
+not the unmodified official DEIM-s implementation. Pano and DSLR share an arch-position loss of 0.25
+and do not use NWD. Prototype scores are excluded from detection logits in all configurations; prototype
+supervision is weighted only through its criterion loss. Pano inference priors are disabled for every
+training-time validation and are evaluated separately in Table S10.
+Table S13. Effective component, loss, and optimization settings for the controlled primary study.
+
+                                                                         Factor
+                                                                                         Auxiliary          NWD /
+   Cohort Configuration                Features       Identity           train /                                        Optimizer
+                                                                                        q/p/d; proto         arch
+                                                                          infer
+   Mobile    Base, 1024                —              —                 Off / Off       —/—/—; —            0.50/0.10    AdamW
+                                       CMFA +
+   Mobile    Features, 1024                           —                 Off / Off       —/—/—; —            0.50/0.10    AdamW
+                                       HOOA
+                                                      Factor +
+   Mobile    Identity, 1024            —                                On / On      0.08/0.08/0.03; 0.03 0.50/0.10      AdamW
+                                                      Proto
+                                       CMFA +         Factor +
+   Mobile    Combined, 1024                                             On / On      0.08/0.08/0.03; 0.03 0.50/0.10      AdamW
+                                       HOOA           Proto
+   Mobile    Base, 640                 —              —                 Off / Off       —/—/—; —            0.50/0.10    AdamW
+                                       CMFA +         Factor +
+   Mobile    Combined, 640                                              On / On      0.08/0.08/0.03; 0.03 0.50/0.10      AdamW
+                                       HOOA           Proto
+   Pano      Base                      —              —                 Off / Off       —/—/—; —            —/0.25       AdamW
+   Pano      Factor                    —              Factor            Off / Off     0.10/0.10/0.05; —     —/0.25       AdamW
+   Pano      Prototype                 —              Proto             Off / Off      —/—/—; 0.05          —/0.25       AdamW
+                                                      Factor +
+   Pano      Factor + Prototype        —                                Off / Off    0.10/0.10/0.05; 0.05   —/0.25       AdamW
+                                                      Proto
+   DSLR      Base + AdamW              —              —                 Off / Off       —/—/—; —            —/0.25       AdamW
+   DSLR      CMFA + AdamW              CMFA           —                 Off / Off       —/—/—; —            —/0.25       AdamW
+   DSLR      Base + DualOpt            —              —                 Off / Off       —/—/—; —            —/0.25      DualOpt
+   DSLR      CMFA + DualOpt            CMFA           —                 Off / Off       —/—/—; —            —/0.25      DualOpt
+Auxiliary entries are cross-entropy coefficients for quadrant (q), position (p), dentition (d), and prototypes; “—” means inactive.
+Every active bank contains four 256-dimensional prototypes per class at τ = 0.20; prototype inference fusion is zero. Mobile
+
+
+
+                                                                 16
+                                                                                      DENT-STRIDE | Supplementary material
+
+
+factor coefficients are 0.10/0.05/0.03. Ordinary AdamW uses learning rate 5 × 10 ⁻⁴, backbone learning rate 2.5 × 10 ⁻⁴, β = (0.9,
+0.999), and weight decay 10⁻⁴; normalization-parameter decay exclusions follow the common detector. DualOpt retains this base
+decay and adds rollback 0.005, rank-dependent decay 0.01, rank exponent 1.5, and multiplier range [0.5, 1.5].
+
+All Mobile conditions use fixed square training and evaluation at their stated 640 or 1024 resolution, no
+Mosaic, and no MixUp. Pano uses fixed 640, no Mosaic, and MixUp probability 0.50 during its
+scheduled training interval. DSLR uses the common 640 evaluation resolution and a 480–800 multiscale
+training schedule, no Mosaic, and no MixUp. The common photometric distortion, random zoom-out
+probability 0.50, random IoU-crop probability 0.80, augmentation shutdown, and native stage schedule
+are identical within each cohort. Geometric flips are disabled. Automatic mixed precision, gradient
+clipping at 0.10, EMA decay 0.9999, ImageNet backbone initialization, and the validation-AP checkpoint
+rule are shared. At best-AP ties, the earlier checkpoint is retained.
+
+
+
+
+                                                               17
+                                                                                    DENT-STRIDE | Supplementary material
+
+
+
+
+S9. Complete FDI errors and class support
+Figs. S9–S11 include every FDI category for the three domain-configured seed-0 checkpoints. Native top-
+300 detections use score ≥0.30 and class-agnostic Hungarian assignment maximizing total IoU, accepting
+pairs at IoU ≥0.50. Each reference tooth contributes one predicted FDI outcome or “Missed”. Color
+shows its reference-row percentage; gray rows have no validation support and are unavailable, not zero-
+accuracy classes. Training and validation tooth counts appear beside the corresponding row. Unmatched
+predictions are counted separately because they have no reference row; wrong-FDI localized matches
+remain off diagonal. Figure data include raw counts, per-class COCO AP/AP50/AP75/AR100, and both
+support counts; unavailable class metrics are left missing.
+
+
+
+
+Fig. S9. Complete Pano FDI outcome matrix and class support. The Factor + Prototype checkpoint includes the joint
+SpatialShape prior. All 32 permanent classes are shown in clinical FDI order after decoding the native enumeration. The matrix
+contains 1,861 reference teeth: 1,710 correct identities, 128 wrong-FDI localized matches, and 23 missed teeth. Its 183
+unmatched predictions are excluded from the reference-row matrix. The training support totals 16,234 teeth.
+
+
+
+
+                                                              18
+                                                                                    DENT-STRIDE | Supplementary material
+
+
+
+
+Fig. S10. Complete Mobile FDI outcome matrix and class support for the combined 1024-resolution model. All 52 clinical FDI
+slots are shown. The matrix contains 2,459 reference teeth: 2,134 correct identities, 204 wrong-FDI localized matches, and 121
+missed teeth. Its 479 unmatched predictions are excluded from the reference-row matrix. Training support totals 9,837 teeth; FDI
+18, 28, 38, and 48 have no training instances. Gray rows indicate absent validation support.
+
+
+
+
+                                                              19
+                                                                                  DENT-STRIDE | Supplementary material
+
+
+
+
+Fig. S11. Complete DSLR FDI outcome matrix and class support for CMFA + DualOpt. All 52 clinical FDI slots are shown. The
+matrix contains 2,742 reference teeth: 2,617 correct identities, 57 wrong-FDI localized matches, and 68 missed teeth. Its 240
+unmatched predictions are excluded from the reference-row matrix. Training support totals 10,760 teeth. Gray rows indicate
+absent validation support; zero training support is separately visible in the count column.
+
+
+
+
+                                                             20
+

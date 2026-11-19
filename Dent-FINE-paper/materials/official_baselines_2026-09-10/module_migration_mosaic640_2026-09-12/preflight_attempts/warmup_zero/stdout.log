@@ -1,0 +1,66 @@
+/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/DEIM/engine/backbone/hgnetv2.py:494: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(model_path, map_location='cpu')
+/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/DEIM/engine/core/workspace.py:180: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  return module(**module_kwargs)
+Not init distributed mode.
+Loaded stage1 B0 HGNetV2 from local file.
+Initial lr: [0.00025, 0.0005, 0.0005]
+building train_dataloader with batch_size=8...
+     ### Transform @Mosaic ###    
+     ### Transform @RandomPhotometricDistort ###    
+     ### Transform @RandomZoomOut ###    
+     ### Transform @RandomIoUCrop ###    
+     ### Transform @AlignedSanitizeBoundingBoxes ###    
+     ### Transform @Resize ###    
+     ### Transform @AlignedSanitizeBoundingBoxes ###    
+     ### Transform @ConvertPILImage ###    
+     ### Transform @ConvertBoxes ###    
+     ### Mosaic with Prob.@1.0 and ZoomOut/IoUCrop existed ### 
+     ### ImgTransforms Epochs: [0, 1, 2] ### 
+     ### Policy_ops@['Mosaic', 'RandomPhotometricDistort', 'RandomZoomOut', 'RandomIoUCrop'] ###
+     ### Using MixUp with Prob@1.0 in [0, 1] epochs ### 
+     ### Multi-scale Training until 2 epochs ### 
+     ### Multi-scales@ None ###        
+building val_dataloader with batch_size=16...
+     ### Transform @Resize ###    
+     ### Transform @ConvertPILImage ###    
+
+------------------------------------- Calculate Flops Results -------------------------------------
+Notations:
+number of parameters (Params), number of multiply-accumulate operations(MACs),
+number of floating-point operations (FLOPs), floating-point operations per second (FLOPS),
+fwd FLOPs (model forward propagation FLOPs), bwd FLOPs (model backward propagation FLOPs),
+default model backpropagation takes 2.00 times as much computation as forward propagation.
+
+Total Training Params:                                                  10.22 M 
+fwd MACs:                                                               12.4699 GMACs
+fwd FLOPs:                                                              25.0466 GFLOPS
+fwd+bwd MACs:                                                           37.4098 GMACs
+fwd+bwd FLOPs:                                                          75.1399 GFLOPS
+---------------------------------------------------------------------------------------------------
+{'Model FLOPs:25.0466 GFLOPS   MACs:12.4699 GMACs   Params:10215931'}
+------------------------------------------Start training-------------------------------------------
+     ## Using Self-defined Scheduler-flatcosine ## 
+[0.00025, 0.0005, 0.0005] [0.000125, 0.00025, 0.00025] 6 0 0 2
+number of trainable parameters: 10285923
+Traceback (most recent call last):
+  File "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/run_experiment.py", line 243, in <module>
+    main()
+  File "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/run_experiment.py", line 193, in main
+    solver.fit()
+  File "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/DEIM/engine/solver/det_solver.py", line 76, in fit
+    train_stats = train_one_epoch(
+                  ^^^^^^^^^^^^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/scripts/run_official.py", line 114, in train_epoch
+    return self.original_train(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/DEIM/engine/solver/det_engine.py", line 96, in train_one_epoch
+    optimizer = lr_scheduler.step(cur_iters + i, optimizer)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/DEIM/engine/optim/lr_scheduler.py", line 72, in step
+    group["lr"] = self.lr_func(current_iter, self.base_lrs[i], self.min_lrs[i])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/DEIM/engine/optim/lr_scheduler.py", line 27, in flat_cosine_schedule
+    return init_lr * (current_iter / float(warmup_iter)) ** 2
+                      ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+ZeroDivisionError: float division by zero

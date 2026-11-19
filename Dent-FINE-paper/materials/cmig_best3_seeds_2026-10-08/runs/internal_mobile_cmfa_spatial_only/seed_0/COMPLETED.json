@@ -1,0 +1,7 @@
+{
+  "job": "internal_mobile_cmfa_spatial_only_seed0",
+  "checkpoint_sha256": "5d48c627a38e42449829380ff58e60695a425f82fd5c3ce5cba6bff61548f99a",
+  "metrics_sha256": "42d2cdff40571a10668902e55acc191ff7f3b644314596882b9658e753dbd2db",
+  "native_metrics_sha256": "99d6660b9fb29b8eec2a1f49f0affe19cd928fcb5adaea30c693864d61eb3e11",
+  "finished_unix": 1791653153.1216648
+}

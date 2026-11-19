@@ -1,0 +1,4414 @@
+[
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "localization",
+    "image_id": 32,
+    "image_record": {
+      "id": 32,
+      "file_name": "0b2a7ca22a2e.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_034/left_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_034/left_buccal.JPG",
+      "patient_key": "case_034",
+      "patient_id": "case_034",
+      "view": "left_buccal",
+      "view_id": 3
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/0b2a7ca22a2e.jpg",
+    "target_annotation": {
+      "id": 449,
+      "image_id": 32,
+      "category_id": 41,
+      "segmentation": [
+        [
+          2594.1176470588234,
+          1466.6666666666667,
+          2680.392156862745,
+          1433.3333333333333,
+          2747.0588235294117,
+          1370.5882352941176,
+          2811.7647058823527,
+          1307.8431372549019,
+          2878.4313725490197,
+          1286.2745098039215,
+          2925.4901960784314,
+          1329.4117647058824,
+          2933.3333333333335,
+          1417.6470588235293,
+          2892.156862745098,
+          1503.921568627451,
+          2829.4117647058824,
+          1541.1764705882354,
+          2786.2745098039213,
+          1521.5686274509803,
+          2729.4117647058824,
+          1539.2156862745098,
+          2676.470588235294,
+          1535.2941176470588,
+          2607.843137254902,
+          1507.8431372549019,
+          2550.943396226415,
+          1516.9811320754716
+        ]
+      ],
+      "bbox": [
+        2550.0,
+        1286.0,
+        384.0,
+        256.0
+      ],
+      "area": 52506.0,
+      "iscrowd": 0,
+      "original_fdi": 65
+    },
+    "target_FDI": 65,
+    "competitor_category": 46,
+    "competitor_FDI": 75,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          2403.01611328125,
+          1282.888427734375,
+          534.5075073242188,
+          267.52996826171875
+        ],
+        "category_id": 41,
+        "FDI": 65,
+        "score": 0.8874387741088867
+      },
+      "query": 9,
+      "IoU": 0.6874560332105377,
+      "GT_class_logit": 2.0648422241210938
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          2520.189697265625,
+          1281.33349609375,
+          415.19354248046875,
+          267.6452941894531
+        ],
+        "category_id": 41,
+        "FDI": 65,
+        "score": 0.9096028804779053
+      },
+      "query": 2,
+      "IoU": 0.8846285936486414,
+      "GT_class_logit": 2.308795690536499
+    },
+    "area_fraction": 0.008192,
+    "IoU_gain": 0.19717256043810372
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "localization",
+    "image_id": 32,
+    "image_record": {
+      "id": 32,
+      "file_name": "0b2a7ca22a2e.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_034/left_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_034/left_buccal.JPG",
+      "patient_key": "case_034",
+      "patient_id": "case_034",
+      "view": "left_buccal",
+      "view_id": 3
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/0b2a7ca22a2e.jpg",
+    "target_annotation": {
+      "id": 458,
+      "image_id": 32,
+      "category_id": 50,
+      "segmentation": [
+        [
+          192.06349206349205,
+          1755.5555555555557,
+          223.8095238095238,
+          1790.4761904761904,
+          225.3968253968254,
+          1836.5079365079364,
+          169.84126984126985,
+          1885.7142857142858,
+          120.63492063492063,
+          1941.2698412698412,
+          131.74603174603175,
+          1882.5396825396824,
+          163.4920634920635,
+          1811.111111111111
+        ]
+      ],
+      "bbox": [
+        120.0,
+        1755.0,
+        106.0,
+        187.0
+      ],
+      "area": 7713.0,
+      "iscrowd": 0,
+      "original_fdi": 84
+    },
+    "target_FDI": 84,
+    "competitor_category": 45,
+    "competitor_FDI": 74,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          138.16061401367188,
+          1753.076416015625,
+          91.20464324951172,
+          138.58258056640625
+        ],
+        "category_id": 50,
+        "FDI": 84,
+        "score": 0.6147375702857971
+      },
+      "query": 17,
+      "IoU": 0.5867839198301913,
+      "GT_class_logit": 0.4672706723213196
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          115.91801452636719,
+          1749.7977294921875,
+          114.38159942626953,
+          178.21865844726562
+        ],
+        "category_id": 50,
+        "FDI": 84,
+        "score": 0.722838819026947
+      },
+      "query": 21,
+      "IoU": 0.8386868229296653,
+      "GT_class_logit": 0.9585870504379272
+    },
+    "area_fraction": 0.0016518333333333333,
+    "IoU_gain": 0.25190290309947405
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "correction",
+    "image_id": 36,
+    "image_record": {
+      "id": 36,
+      "file_name": "ed6d46c46c93.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_035/frontal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_035/frontal.JPG",
+      "patient_key": "case_035",
+      "patient_id": "case_035",
+      "view": "frontal",
+      "view_id": 0
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/ed6d46c46c93.jpg",
+    "target_annotation": {
+      "id": 504,
+      "image_id": 36,
+      "category_id": 35,
+      "segmentation": [
+        [
+          666.25,
+          1412.5,
+          707.5,
+          1405.0,
+          762.5,
+          1432.5,
+          817.5,
+          1466.25,
+          865.0,
+          1483.75,
+          881.25,
+          1545.0,
+          877.5,
+          1587.5,
+          855.0,
+          1630.0,
+          827.5,
+          1660.0,
+          766.25,
+          1658.75,
+          725.0,
+          1652.5,
+          696.25,
+          1637.5,
+          682.5,
+          1577.5,
+          668.75,
+          1521.25,
+          653.75,
+          1452.5
+        ]
+      ],
+      "bbox": [
+        653.0,
+        1405.0,
+        229.0,
+        256.0
+      ],
+      "area": 42106.0,
+      "iscrowd": 0,
+      "original_fdi": 54
+    },
+    "target_FDI": 54,
+    "competitor_category": 36,
+    "competitor_FDI": 55,
+    "before": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          652.3287353515625,
+          1404.0572509765625,
+          230.3971710205078,
+          260.2395324707031
+        ],
+        "category_id": 36,
+        "FDI": 55,
+        "score": 0.6386587619781494
+      },
+      "query": 13,
+      "IoU": 0.977743703257021,
+      "GT_class_logit": -0.3761064410209656
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          653.818115234375,
+          1403.5657958984375,
+          228.56903076171875,
+          258.9600524902344
+        ],
+        "category_id": 35,
+        "FDI": 54,
+        "score": 0.8581393361091614
+      },
+      "query": 9,
+      "IoU": 0.9834153167893349,
+      "GT_class_logit": 1.7999207973480225
+    },
+    "area_fraction": 0.0048853333333333335,
+    "IoU_gain": 0.005671613532313935
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "localization",
+    "image_id": 36,
+    "image_record": {
+      "id": 36,
+      "file_name": "ed6d46c46c93.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_035/frontal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_035/frontal.JPG",
+      "patient_key": "case_035",
+      "patient_id": "case_035",
+      "view": "frontal",
+      "view_id": 0
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/ed6d46c46c93.jpg",
+    "target_annotation": {
+      "id": 508,
+      "image_id": 36,
+      "category_id": 39,
+      "segmentation": [
+        [
+          2767.777777777778,
+          1564.4444444444443,
+          2834.4444444444443,
+          1530.0,
+          2891.111111111111,
+          1493.3333333333333,
+          2961.111111111111,
+          1465.5555555555554,
+          3022.222222222222,
+          1465.5555555555554,
+          3087.777777777778,
+          1495.5555555555554,
+          3067.777777777778,
+          1554.4444444444443,
+          3072.222222222222,
+          1617.7777777777778,
+          2996.6666666666665,
+          1662.2222222222222,
+          2951.7241379310344,
+          1687.3563218390805,
+          2927.5862068965516,
+          1642.528735632184,
+          2898.8505747126437,
+          1567.816091954023,
+          2859.770114942529,
+          1556.3218390804598,
+          2814.942528735632,
+          1581.6091954022988,
+          2787.3563218390805,
+          1605.7471264367816
+        ]
+      ],
+      "bbox": [
+        2767.0,
+        1465.0,
+        321.0,
+        223.0
+      ],
+      "area": 36569.0,
+      "iscrowd": 0,
+      "original_fdi": 63
+    },
+    "target_FDI": 63,
+    "competitor_category": 40,
+    "competitor_FDI": 64,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          2761.835693359375,
+          1462.746826171875,
+          424.3638610839844,
+          227.91900634765625
+        ],
+        "category_id": 39,
+        "FDI": 63,
+        "score": 0.5686197876930237
+      },
+      "query": 11,
+      "IoU": 0.7401009754661362,
+      "GT_class_logit": 0.2762221693992615
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          2765.624755859375,
+          1463.5548095703125,
+          330.2340393066406,
+          225.51405334472656
+        ],
+        "category_id": 39,
+        "FDI": 63,
+        "score": 0.7721973657608032
+      },
+      "query": 16,
+      "IoU": 0.9612015522945839,
+      "GT_class_logit": 1.220760703086853
+    },
+    "area_fraction": 0.00596525,
+    "IoU_gain": 0.22110057682844775,
+    "case_id": "CMFA_localization_01_image36_FDI63",
+    "image_sha256": "91d0e099f17f9488dd00aa03d273046b5c8566fd9df618d0d3b73d5e04fc13f4"
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "correction",
+    "image_id": 37,
+    "image_record": {
+      "id": 37,
+      "file_name": "052813f2c915.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_035/left_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_035/left_buccal.JPG",
+      "patient_key": "case_035",
+      "patient_id": "case_035",
+      "view": "left_buccal",
+      "view_id": 3
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/052813f2c915.jpg",
+    "target_annotation": {
+      "id": 521,
+      "image_id": 37,
+      "category_id": 37,
+      "segmentation": [
+        [
+          919.047619047619,
+          1338.095238095238,
+          1009.5238095238095,
+          1285.7142857142858,
+          1145.2380952380952,
+          1261.904761904762,
+          1254.7619047619048,
+          1307.142857142857,
+          1192.857142857143,
+          1352.3809523809525,
+          1150.0,
+          1307.142857142857,
+          1061.904761904762,
+          1304.7619047619048,
+          935.7142857142858,
+          1366.6666666666667
+        ]
+      ],
+      "bbox": [
+        919.0,
+        1261.0,
+        336.0,
+        106.0
+      ],
+      "area": 13334.0,
+      "iscrowd": 0,
+      "original_fdi": 61
+    },
+    "target_FDI": 61,
+    "competitor_category": 38,
+    "competitor_FDI": 62,
+    "before": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          988.306884765625,
+          1273.0572509765625,
+          285.4220886230469,
+          75.62032318115234
+        ],
+        "category_id": 38,
+        "FDI": 62,
+        "score": 0.6856865286827087
+      },
+      "query": 14,
+      "IoU": 0.5445905324860483,
+      "GT_class_logit": -0.8217377662658691
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          1000.6451416015625,
+          1265.0595703125,
+          278.4944763183594,
+          88.63252258300781
+        ],
+        "category_id": 37,
+        "FDI": 61,
+        "score": 0.665116548538208
+      },
+      "query": 10,
+      "IoU": 0.597107662303533,
+      "GT_class_logit": 0.6861797571182251
+    },
+    "area_fraction": 0.002968,
+    "IoU_gain": 0.05251712981748469
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "correction",
+    "image_id": 37,
+    "image_record": {
+      "id": 37,
+      "file_name": "052813f2c915.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_035/left_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_035/left_buccal.JPG",
+      "patient_key": "case_035",
+      "patient_id": "case_035",
+      "view": "left_buccal",
+      "view_id": 3
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/052813f2c915.jpg",
+    "target_annotation": {
+      "id": 522,
+      "image_id": 37,
+      "category_id": 38,
+      "segmentation": [
+        [
+          1497.6190476190477,
+          1278.5714285714287,
+          1435.7142857142858,
+          1319.047619047619,
+          1352.3809523809525,
+          1371.4285714285716,
+          1426.1904761904761,
+          1414.2857142857144,
+          1511.904761904762,
+          1457.142857142857,
+          1566.6666666666667,
+          1514.2857142857144,
+          1664.2857142857144,
+          1526.1904761904761,
+          1683.3333333333335,
+          1476.1904761904761,
+          1666.6666666666667,
+          1366.6666666666667,
+          1621.4285714285716,
+          1307.142857142857,
+          1566.6666666666667,
+          1278.5714285714287
+        ]
+      ],
+      "bbox": [
+        1352.0,
+        1278.0,
+        332.0,
+        249.0
+      ],
+      "area": 48814.0,
+      "iscrowd": 0,
+      "original_fdi": 62
+    },
+    "target_FDI": 62,
+    "competitor_category": 39,
+    "competitor_FDI": 63,
+    "before": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          1350.2364501953125,
+          1270.62744140625,
+          335.62469482421875,
+          258.1402587890625
+        ],
+        "category_id": 39,
+        "FDI": 63,
+        "score": 0.8466541767120361
+      },
+      "query": 2,
+      "IoU": 0.954174483608431,
+      "GT_class_logit": -1.5167447328567505
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          1349.451904296875,
+          1268.4434814453125,
+          337.9065856933594,
+          257.03643798828125
+        ],
+        "category_id": 38,
+        "FDI": 62,
+        "score": 0.791986346244812
+      },
+      "query": 12,
+      "IoU": 0.9405258695697035,
+      "GT_class_logit": 1.3369405269622803
+    },
+    "area_fraction": 0.006889,
+    "IoU_gain": -0.013648614038727525,
+    "case_id": "CMFA_correction_03_image37_FDI62",
+    "image_sha256": "1ceab14ee345091041f9c574d6d9bfdc30763bd0212bc04064c306d8419e63e4"
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "correction",
+    "image_id": 37,
+    "image_record": {
+      "id": 37,
+      "file_name": "052813f2c915.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_035/left_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_035/left_buccal.JPG",
+      "patient_key": "case_035",
+      "patient_id": "case_035",
+      "view": "left_buccal",
+      "view_id": 3
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/052813f2c915.jpg",
+    "target_annotation": {
+      "id": 526,
+      "image_id": 37,
+      "category_id": 32,
+      "segmentation": [
+        [
+          483.0985915492958,
+          1502.8169014084508,
+          440.84507042253523,
+          1461.9718309859156,
+          418.3098591549296,
+          1435.2112676056338,
+          446.47887323943667,
+          1361.9718309859156,
+          526.7605633802817,
+          1347.887323943662,
+          591.5492957746479,
+          1335.2112676056338,
+          695.774647887324,
+          1349.2957746478874,
+          729.5774647887324,
+          1376.0563380281692,
+          649.2957746478874,
+          1398.5915492957747,
+          600.0,
+          1395.774647887324,
+          540.8450704225353,
+          1423.943661971831,
+          492.9577464788733,
+          1474.6478873239437
+        ]
+      ],
+      "bbox": [
+        418.0,
+        1335.0,
+        312.0,
+        168.0
+      ],
+      "area": 22057.0,
+      "iscrowd": 0,
+      "original_fdi": 51
+    },
+    "target_FDI": 51,
+    "competitor_category": 33,
+    "competitor_FDI": 52,
+    "before": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          420.2081604003906,
+          1333.8470458984375,
+          361.73846435546875,
+          170.84527587890625
+        ],
+        "category_id": 33,
+        "FDI": 52,
+        "score": 0.6526684761047363
+      },
+      "query": 11,
+      "IoU": 0.8371098733544069,
+      "GT_class_logit": -0.01001344621181488
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          419.91522216796875,
+          1335.7515869140625,
+          336.5444641113281,
+          170.2938995361328
+        ],
+        "category_id": 32,
+        "FDI": 51,
+        "score": 0.5603809356689453
+      },
+      "query": 14,
+      "IoU": 0.8962246313246034,
+      "GT_class_logit": 0.24270814657211304
+    },
+    "area_fraction": 0.004368,
+    "IoU_gain": 0.059114757970196496
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "adverse",
+    "image_id": 37,
+    "image_record": {
+      "id": 37,
+      "file_name": "052813f2c915.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_035/left_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_035/left_buccal.JPG",
+      "patient_key": "case_035",
+      "patient_id": "case_035",
+      "view": "left_buccal",
+      "view_id": 3
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/052813f2c915.jpg",
+    "target_annotation": {
+      "id": 530,
+      "image_id": 37,
+      "category_id": 49,
+      "segmentation": [
+        [
+          133.80281690140845,
+          1740.8450704225354,
+          130.98591549295776,
+          1814.0845070422536,
+          143.66197183098592,
+          1907.042253521127,
+          190.14084507042256,
+          1919.718309859155,
+          249.29577464788733,
+          1900.0,
+          329.5774647887324,
+          1832.3943661971832,
+          373.23943661971833,
+          1787.323943661972,
+          407.0422535211268,
+          1798.5915492957747,
+          405.63380281690144,
+          1707.042253521127,
+          349.29577464788736,
+          1709.8591549295775,
+          311.2676056338028,
+          1676.0563380281692,
+          281.69014084507046,
+          1678.8732394366198,
+          242.25352112676057,
+          1735.2112676056338,
+          171.83098591549296,
+          1767.605633802817
+        ]
+      ],
+      "bbox": [
+        130.0,
+        1676.0,
+        278.0,
+        244.0
+      ],
+      "area": 40267.0,
+      "iscrowd": 0,
+      "original_fdi": 83
+    },
+    "target_FDI": 83,
+    "competitor_category": 50,
+    "competitor_FDI": 84,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          134.3290557861328,
+          1670.6478271484375,
+          261.5318298339844,
+          253.5481414794922
+        ],
+        "category_id": 49,
+        "FDI": 83,
+        "score": 0.4593677520751953
+      },
+      "query": 10,
+      "IoU": 0.9073589381172154,
+      "GT_class_logit": -0.16288822889328003
+    },
+    "after": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          110.38932037353516,
+          1653.0850830078125,
+          311.22393798828125,
+          276.47711181640625
+        ],
+        "category_id": 34,
+        "FDI": 53,
+        "score": 0.3310784101486206
+      },
+      "query": 8,
+      "IoU": 0.7883198053082979,
+      "GT_class_logit": -1.130522608757019
+    },
+    "area_fraction": 0.005652666666666667,
+    "IoU_gain": -0.11903913280891742
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "localization",
+    "image_id": 59,
+    "image_record": {
+      "id": 59,
+      "file_name": "a7dc2357e2b8.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_056/right_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_056/right_buccal.JPG",
+      "patient_key": "case_056",
+      "patient_id": "case_056",
+      "view": "right_buccal",
+      "view_id": 4
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/a7dc2357e2b8.jpg",
+    "target_annotation": {
+      "id": 836,
+      "image_id": 59,
+      "category_id": 40,
+      "segmentation": [
+        [
+          3928.5714285714284,
+          1663.4920634920634,
+          3987.3015873015875,
+          1615.873015873016,
+          3984.126984126984,
+          1703.1746031746031,
+          3984.126984126984,
+          1771.4285714285713,
+          3955.5555555555557,
+          1852.3809523809523,
+          3895.2380952380954,
+          1885.7142857142858,
+          3788.8888888888887,
+          1855.5555555555554,
+          3760.3174603174602,
+          1757.142857142857,
+          3823.809523809524,
+          1809.5238095238094,
+          3895.2380952380954,
+          1803.1746031746031
+        ]
+      ],
+      "bbox": [
+        3760.0,
+        1615.0,
+        228.0,
+        271.0
+      ],
+      "area": 24348.0,
+      "iscrowd": 0,
+      "original_fdi": 64
+    },
+    "target_FDI": 64,
+    "competitor_category": 39,
+    "competitor_FDI": 63,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          3786.09716796875,
+          1599.265380859375,
+          207.58509826660156,
+          375.75048828125
+        ],
+        "category_id": 40,
+        "FDI": 64,
+        "score": 0.7069966793060303
+      },
+      "query": 22,
+      "IoU": 0.6431648835423663,
+      "GT_class_logit": 0.8808417916297913
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          3762.0439453125,
+          1598.2625732421875,
+          230.50714111328125,
+          277.8341064453125
+        ],
+        "category_id": 40,
+        "FDI": 64,
+        "score": 0.41445839405059814
+      },
+      "query": 18,
+      "IoU": 0.8827250893295067,
+      "GT_class_logit": -0.34556466341018677
+    },
+    "area_fraction": 0.005149,
+    "IoU_gain": 0.23956020578714032
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "localization",
+    "image_id": 61,
+    "image_record": {
+      "id": 61,
+      "file_name": "e6de8859f36d.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_057/frontal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_057/frontal.JPG",
+      "patient_key": "case_057",
+      "patient_id": "case_057",
+      "view": "frontal",
+      "view_id": 0
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/e6de8859f36d.jpg",
+    "target_annotation": {
+      "id": 871,
+      "image_id": 61,
+      "category_id": 46,
+      "segmentation": [
+        [
+          3205.405405405405,
+          1407.2072072072071,
+          3152.2522522522518,
+          1445.0450450450448,
+          3107.207207207207,
+          1489.1891891891892,
+          3073.8738738738734,
+          1532.4324324324323,
+          3116.216216216216,
+          1572.972972972973,
+          3176.5765765765764,
+          1611.7117117117116,
+          3218.0180180180178,
+          1624.3243243243242,
+          3290.9909909909907,
+          1623.4234234234232,
+          3376.5765765765764,
+          1606.3063063063062,
+          3453.1531531531527,
+          1613.5135135135133,
+          3532.432432432432,
+          1614.4144144144143,
+          3591.8918918918916,
+          1558.5585585585584,
+          3590.0900900900897,
+          1500.9009009009008,
+          3524.324324324324,
+          1409.0090090090089,
+          3466.6666666666665,
+          1381.9819819819818,
+          3462.162162162162,
+          1414.4144144144143,
+          3405.405405405405,
+          1431.5315315315313,
+          3360.36036036036,
+          1405.4054054054052,
+          3279.279279279279,
+          1408.108108108108
+        ]
+      ],
+      "bbox": [
+        3073.0,
+        1381.0,
+        519.0,
+        244.0
+      ],
+      "area": 91197.0,
+      "iscrowd": 0,
+      "original_fdi": 75
+    },
+    "target_FDI": 75,
+    "competitor_category": 45,
+    "competitor_FDI": 74,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          2905.889404296875,
+          1378.059326171875,
+          691.7791137695312,
+          261.1844787597656
+        ],
+        "category_id": 46,
+        "FDI": 75,
+        "score": 0.8400213718414307
+      },
+      "query": 14,
+      "IoU": 0.7008779065011157,
+      "GT_class_logit": 1.6583871841430664
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          3048.345703125,
+          1387.0408935546875,
+          547.8782958984375,
+          240.7542724609375
+        ],
+        "category_id": 46,
+        "FDI": 75,
+        "score": 0.801550030708313
+      },
+      "query": 6,
+      "IoU": 0.9145545267614007,
+      "GT_class_logit": 1.396010398864746
+    },
+    "area_fraction": 0.010553,
+    "IoU_gain": 0.213676620260285
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "localization",
+    "image_id": 62,
+    "image_record": {
+      "id": 62,
+      "file_name": "c97d71116462.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_057/left_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_057/left_buccal.JPG",
+      "patient_key": "case_057",
+      "patient_id": "case_057",
+      "view": "left_buccal",
+      "view_id": 3
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/c97d71116462.jpg",
+    "target_annotation": {
+      "id": 891,
+      "image_id": 62,
+      "category_id": 33,
+      "segmentation": [
+        [
+          125.0,
+          1714.5833333333335,
+          54.16666666666667,
+          1689.5833333333335,
+          6.25,
+          1662.5,
+          0.0,
+          1787.5,
+          4.166666666666667,
+          1900.0,
+          68.75,
+          1872.9166666666667,
+          135.41666666666669,
+          1845.8333333333335,
+          181.25,
+          1793.75,
+          127.08333333333334,
+          1752.0833333333335
+        ]
+      ],
+      "bbox": [
+        0.0,
+        1662.0,
+        182.0,
+        239.0
+      ],
+      "area": 25751.0,
+      "iscrowd": 0,
+      "original_fdi": 52
+    },
+    "target_FDI": 52,
+    "competitor_category": 34,
+    "competitor_FDI": 53,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          -3.3170433044433594,
+          1575.016357421875,
+          181.7759552001953,
+          337.0599670410156
+        ],
+        "category_id": 33,
+        "FDI": 52,
+        "score": 0.6184588074684143
+      },
+      "query": 14,
+      "IoU": 0.6866487169295239,
+      "GT_class_logit": 0.4830116927623749
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          2.2309274673461914,
+          1661.6474609375,
+          177.19561767578125,
+          250.83697509765625
+        ],
+        "category_id": 33,
+        "FDI": 52,
+        "score": 0.6661942601203918
+      },
+      "query": 14,
+      "IoU": 0.9288151441350183,
+      "GT_class_logit": 0.6910219788551331
+    },
+    "area_fraction": 0.003624833333333333,
+    "IoU_gain": 0.24216642720549442
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "localization",
+    "image_id": 66,
+    "image_record": {
+      "id": 66,
+      "file_name": "042b343c77a1.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_072/frontal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_072/frontal.JPG",
+      "patient_key": "case_072",
+      "patient_id": "case_072",
+      "view": "frontal",
+      "view_id": 0
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/042b343c77a1.jpg",
+    "target_annotation": {
+      "id": 936,
+      "image_id": 66,
+      "category_id": 41,
+      "segmentation": [
+        [
+          3236.9230769230767,
+          1336.923076923077,
+          3303.076923076923,
+          1316.923076923077,
+          3367.6923076923076,
+          1287.6923076923076,
+          3426.153846153846,
+          1236.923076923077,
+          3467.6923076923076,
+          1200.0,
+          3449.230769230769,
+          1284.6153846153845,
+          3410.7692307692305,
+          1333.8461538461538,
+          3376.9230769230767,
+          1396.923076923077,
+          3361.5384615384614,
+          1429.2307692307693,
+          3318.4615384615386,
+          1440.0,
+          3292.3076923076924,
+          1466.1538461538462,
+          3240.0,
+          1464.6153846153845,
+          3183.076923076923,
+          1444.6153846153845,
+          3209.230769230769,
+          1396.923076923077
+        ]
+      ],
+      "bbox": [
+        3183.0,
+        1200.0,
+        285.0,
+        267.0
+      ],
+      "area": 29441.0,
+      "iscrowd": 0,
+      "original_fdi": 65
+    },
+    "target_FDI": 65,
+    "competitor_category": 13,
+    "competitor_FDI": 26,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          3191.20654296875,
+          1156.5621337890625,
+          310.07574462890625,
+          306.21502685546875
+        ],
+        "category_id": 41,
+        "FDI": 65,
+        "score": 0.8894656300544739
+      },
+      "query": 19,
+      "IoU": 0.7398543200909831,
+      "GT_class_logit": 2.085294246673584
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          3190.00390625,
+          1187.0396728515625,
+          297.0063781738281,
+          276.6315002441406
+        ],
+        "category_id": 41,
+        "FDI": 65,
+        "score": 0.7268677353858948
+      },
+      "query": 24,
+      "IoU": 0.8627863958639459,
+      "GT_class_logit": 0.9787881970405579
+    },
+    "area_fraction": 0.00634125,
+    "IoU_gain": 0.12293207577296283
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "correction",
+    "image_id": 67,
+    "image_record": {
+      "id": 67,
+      "file_name": "92b75ded79f9.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_072/left_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_072/left_buccal.JPG",
+      "patient_key": "case_072",
+      "patient_id": "case_072",
+      "view": "left_buccal",
+      "view_id": 3
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/92b75ded79f9.jpg",
+    "target_annotation": {
+      "id": 964,
+      "image_id": 67,
+      "category_id": 25,
+      "segmentation": [
+        [
+          306.77966101694915,
+          1357.6271186440679,
+          269.49152542372883,
+          1311.864406779661,
+          201.6949152542373,
+          1281.35593220339,
+          122.03389830508475,
+          1310.1694915254238,
+          88.13559322033899,
+          1335.5932203389832,
+          32.20338983050848,
+          1383.0508474576272,
+          18.64406779661017,
+          1489.8305084745764,
+          22.033898305084747,
+          1579.6610169491526,
+          27.118644067796613,
+          1664.406779661017,
+          86.4406779661017,
+          1700.0,
+          159.32203389830508,
+          1659.322033898305,
+          249.15254237288136,
+          1600.0,
+          255.93220338983053,
+          1522.033898305085,
+          259.3220338983051,
+          1440.677966101695,
+          261.0169491525424,
+          1364.406779661017
+        ]
+      ],
+      "bbox": [
+        18.0,
+        1281.0,
+        289.0,
+        420.0
+      ],
+      "area": 81467.0,
+      "iscrowd": 0,
+      "original_fdi": 42
+    },
+    "target_FDI": 42,
+    "competitor_category": 48,
+    "competitor_FDI": 82,
+    "before": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          14.041095733642578,
+          1276.9986572265625,
+          272.3590393066406,
+          426.0998229980469
+        ],
+        "category_id": 48,
+        "FDI": 82,
+        "score": 0.8647202849388123
+      },
+      "query": 12,
+      "IoU": 0.9039645081026468,
+      "GT_class_logit": -1.6664469242095947
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          10.657906532287598,
+          1286.15966796875,
+          258.2149963378906,
+          413.8219299316406
+        ],
+        "category_id": 25,
+        "FDI": 42,
+        "score": 0.8869712948799133
+      },
+      "query": 11,
+      "IoU": 0.834416396691428,
+      "GT_class_logit": 2.0601706504821777
+    },
+    "area_fraction": 0.010115,
+    "IoU_gain": -0.06954811141121886
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "correction",
+    "image_id": 68,
+    "image_record": {
+      "id": 68,
+      "file_name": "80e953be8020.jpg",
+      "width": 4000,
+      "height": 2999,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_072/lower_occlusal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_072/lower_occlusal.JPG",
+      "patient_key": "case_072",
+      "patient_id": "case_072",
+      "view": "lower_occlusal",
+      "view_id": 2
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/80e953be8020.jpg",
+    "target_annotation": {
+      "id": 966,
+      "image_id": 68,
+      "category_id": 17,
+      "segmentation": [
+        [
+          2392.3076923076924,
+          2002.5641025641025,
+          2446.153846153846,
+          1948.7179487179487,
+          2500.0,
+          1897.4358974358975,
+          2533.333333333333,
+          1841.0256410256409,
+          2602.5641025641025,
+          1835.8974358974358,
+          2684.6153846153843,
+          1792.3076923076922,
+          2741.025641025641,
+          1843.5897435897434,
+          2735.897435897436,
+          1966.6666666666665,
+          2717.948717948718,
+          2066.6666666666665,
+          2710.25641025641,
+          2143.5897435897436,
+          2676.9230769230767,
+          2189.74358974359,
+          2620.5128205128203,
+          2210.25641025641,
+          2561.5384615384614,
+          2217.948717948718,
+          2500.0,
+          2166.6666666666665,
+          2474.358974358974,
+          2120.5128205128203,
+          2476.9230769230767,
+          2074.358974358974,
+          2464.102564102564,
+          2023.076923076923
+        ]
+      ],
+      "bbox": [
+        2392.0,
+        1792.0,
+        350.0,
+        426.0
+      ],
+      "area": 93701.0,
+      "iscrowd": 0,
+      "original_fdi": 32
+    },
+    "target_FDI": 32,
+    "competitor_category": 43,
+    "competitor_FDI": 72,
+    "before": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          2402.034912109375,
+          1795.8779296875,
+          346.49896240234375,
+          428.6441345214844
+        ],
+        "category_id": 43,
+        "FDI": 72,
+        "score": 0.6754549741744995
+      },
+      "query": 11,
+      "IoU": 0.9311487452247077,
+      "GT_class_logit": -0.4122745394706726
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          2406.569580078125,
+          1797.9725341796875,
+          340.2316589355469,
+          425.2440490722656
+        ],
+        "category_id": 17,
+        "FDI": 32,
+        "score": 0.9213355183601379
+      },
+      "query": 3,
+      "IoU": 0.9215031163986321,
+      "GT_class_logit": 2.460632085800171
+    },
+    "area_fraction": 0.012429143047682561,
+    "IoU_gain": -0.009645628826075558
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "correction",
+    "image_id": 68,
+    "image_record": {
+      "id": 68,
+      "file_name": "80e953be8020.jpg",
+      "width": 4000,
+      "height": 2999,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_072/lower_occlusal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_072/lower_occlusal.JPG",
+      "patient_key": "case_072",
+      "patient_id": "case_072",
+      "view": "lower_occlusal",
+      "view_id": 2
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/80e953be8020.jpg",
+    "target_annotation": {
+      "id": 974,
+      "image_id": 68,
+      "category_id": 49,
+      "segmentation": [
+        [
+          1056.4102564102564,
+          1741.0256410256409,
+          1002.5641025641025,
+          1787.179487179487,
+          987.1794871794872,
+          1882.051282051282,
+          994.8717948717948,
+          1989.7435897435896,
+          994.8717948717948,
+          2110.25641025641,
+          1030.7692307692307,
+          2161.5384615384614,
+          1102.5641025641025,
+          2194.871794871795,
+          1182.051282051282,
+          2158.974358974359,
+          1258.974358974359,
+          2089.74358974359,
+          1300.0,
+          2043.5897435897434,
+          1320.5128205128206,
+          1964.102564102564,
+          1328.2051282051282,
+          1910.2564102564102,
+          1258.974358974359,
+          1848.7179487179487,
+          1194.871794871795,
+          1815.3846153846152,
+          1141.0256410256409,
+          1774.3589743589744
+        ]
+      ],
+      "bbox": [
+        987.0,
+        1741.0,
+        342.0,
+        454.0
+      ],
+      "area": 109449.0,
+      "iscrowd": 0,
+      "original_fdi": 83
+    },
+    "target_FDI": 83,
+    "competitor_category": 26,
+    "competitor_FDI": 43,
+    "before": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          988.4570922851562,
+          1731.4991455078125,
+          344.7207946777344,
+          477.5277099609375
+        ],
+        "category_id": 26,
+        "FDI": 43,
+        "score": 0.8044388890266418
+      },
+      "query": 7,
+      "IoU": 0.935448448003389,
+      "GT_class_logit": 0.4005177617073059
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          987.3004760742188,
+          1732.123046875,
+          344.6434631347656,
+          477.5445251464844
+        ],
+        "category_id": 49,
+        "FDI": 83,
+        "score": 0.8446024060249329
+      },
+      "query": 7,
+      "IoU": 0.9417952667884096,
+      "GT_class_logit": 1.692879319190979
+    },
+    "area_fraction": 0.012943314438146048,
+    "IoU_gain": 0.006346818785020636,
+    "case_id": "CMFA_correction_02_image68_FDI83",
+    "image_sha256": "25c33bb21887906d9506a3c18b3552ea6a907a63437760ef1da89a5ccddeb54d"
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "correction",
+    "image_id": 68,
+    "image_record": {
+      "id": 68,
+      "file_name": "80e953be8020.jpg",
+      "width": 4000,
+      "height": 2999,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_072/lower_occlusal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_072/lower_occlusal.JPG",
+      "patient_key": "case_072",
+      "patient_id": "case_072",
+      "view": "lower_occlusal",
+      "view_id": 2
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/80e953be8020.jpg",
+    "target_annotation": {
+      "id": 975,
+      "image_id": 68,
+      "category_id": 50,
+      "segmentation": [
+        [
+          935.8974358974359,
+          1551.2820512820513,
+          1051.2820512820513,
+          1574.3589743589744,
+          1082.051282051282,
+          1661.5384615384614,
+          1117.948717948718,
+          1746.1538461538462,
+          1071.7948717948718,
+          1743.5897435897434,
+          1012.8205128205128,
+          1776.923076923077,
+          984.6153846153845,
+          1846.1538461538462,
+          917.9487179487179,
+          1900.0,
+          861.5384615384615,
+          1989.7435897435896,
+          815.3846153846154,
+          2051.2820512820513,
+          735.8974358974359,
+          2023.076923076923,
+          712.8205128205128,
+          1953.8461538461538,
+          669.2307692307692,
+          1843.5897435897434,
+          664.1025641025641,
+          1743.5897435897434,
+          717.9487179487179,
+          1671.7948717948718,
+          794.8717948717948,
+          1617.9487179487178
+        ]
+      ],
+      "bbox": [
+        664.0,
+        1551.0,
+        454.0,
+        501.0
+      ],
+      "area": 130411.0,
+      "iscrowd": 0,
+      "original_fdi": 84
+    },
+    "target_FDI": 84,
+    "competitor_category": 27,
+    "competitor_FDI": 44,
+    "before": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          656.70703125,
+          1678.5789794921875,
+          349.55908203125,
+          379.8427734375
+        ],
+        "category_id": 27,
+        "FDI": 44,
+        "score": 0.8236327171325684
+      },
+      "query": 13,
+      "IoU": 0.5499018751721128,
+      "GT_class_logit": -0.8928002715110779
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          654.3563842773438,
+          1650.4444580078125,
+          399.0774841308594,
+          409.2456970214844
+        ],
+        "category_id": 50,
+        "FDI": 84,
+        "score": 0.7523167729377747
+      },
+      "query": 10,
+      "IoU": 0.6671602474149267,
+      "GT_class_logit": 1.1110068559646606
+    },
+    "area_fraction": 0.018960820273424474,
+    "IoU_gain": 0.11725837224281399
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "adverse",
+    "image_id": 69,
+    "image_record": {
+      "id": 69,
+      "file_name": "b89462074e63.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_072/right_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_072/right_buccal.JPG",
+      "patient_key": "case_072",
+      "patient_id": "case_072",
+      "view": "right_buccal",
+      "view_id": 4
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/b89462074e63.jpg",
+    "target_annotation": {
+      "id": 985,
+      "image_id": 69,
+      "category_id": 16,
+      "segmentation": [
+        [
+          3244.186046511628,
+          1402.3255813953488,
+          3253.4883720930234,
+          1544.1860465116279,
+          3344.186046511628,
+          1637.2093023255813,
+          3432.5581395348836,
+          1700.0,
+          3541.860465116279,
+          1688.3720930232557,
+          3602.3255813953488,
+          1609.3023255813953,
+          3623.2558139534885,
+          1497.6744186046512,
+          3623.2558139534885,
+          1334.8837209302326,
+          3500.0,
+          1341.860465116279,
+          3348.837209302326,
+          1351.1627906976744,
+          3320.93023255814,
+          1386.046511627907
+        ]
+      ],
+      "bbox": [
+        3244.0,
+        1334.0,
+        380.0,
+        367.0
+      ],
+      "area": 109632.0,
+      "iscrowd": 0,
+      "original_fdi": 31
+    },
+    "target_FDI": 31,
+    "competitor_category": 42,
+    "competitor_FDI": 71,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          3227.7626953125,
+          1342.673583984375,
+          399.00445556640625,
+          365.5407409667969
+        ],
+        "category_id": 16,
+        "FDI": 31,
+        "score": 0.7864543795585632
+      },
+      "query": 2,
+      "IoU": 0.9129436280583497,
+      "GT_class_logit": 1.3036842346191406
+    },
+    "after": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          3227.469970703125,
+          1347.5458984375,
+          402.3017883300781,
+          358.42315673828125
+        ],
+        "category_id": 42,
+        "FDI": 71,
+        "score": 0.7810164093971252
+      },
+      "query": 7,
+      "IoU": 0.8993639299508173,
+      "GT_class_logit": 0.0025439783930778503
+    },
+    "area_fraction": 0.011621666666666667,
+    "IoU_gain": -0.013579698107532456
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "adverse",
+    "image_id": 77,
+    "image_record": {
+      "id": 77,
+      "file_name": "1b01d95551d6.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_082/left_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_082/left_buccal.JPG",
+      "patient_key": "case_082",
+      "patient_id": "case_082",
+      "view": "left_buccal",
+      "view_id": 3
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/1b01d95551d6.jpg",
+    "target_annotation": {
+      "id": 1099,
+      "image_id": 77,
+      "category_id": 49,
+      "segmentation": [
+        [
+          635.0,
+          1362.5,
+          615.0,
+          1415.0,
+          560.0,
+          1442.5,
+          502.5,
+          1475.0,
+          477.5,
+          1535.0,
+          442.5,
+          1572.5,
+          412.5,
+          1595.0,
+          397.5,
+          1562.5,
+          427.5,
+          1477.5,
+          425.0,
+          1425.0,
+          480.0,
+          1420.0,
+          537.5,
+          1427.5,
+          587.5,
+          1382.5
+        ]
+      ],
+      "bbox": [
+        397.0,
+        1362.0,
+        239.0,
+        234.0
+      ],
+      "area": 16207.0,
+      "iscrowd": 0,
+      "original_fdi": 83
+    },
+    "target_FDI": 83,
+    "competitor_category": 48,
+    "competitor_FDI": 82,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          381.4731750488281,
+          1308.037109375,
+          253.09288024902344,
+          291.5743713378906
+        ],
+        "category_id": 49,
+        "FDI": 83,
+        "score": 0.3717590570449829
+      },
+      "query": 18,
+      "IoU": 0.74989538198762,
+      "GT_class_logit": -0.5246776938438416
+    },
+    "after": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          380.4736022949219,
+          1344.6505126953125,
+          255.54872131347656,
+          246.8166046142578
+        ],
+        "category_id": 48,
+        "FDI": 82,
+        "score": 0.4288005530834198
+      },
+      "query": 13,
+      "IoU": 0.8548192451009897,
+      "GT_class_logit": -0.3458091616630554
+    },
+    "area_fraction": 0.0046605,
+    "IoU_gain": 0.10492386311336976
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "localization",
+    "image_id": 87,
+    "image_record": {
+      "id": 87,
+      "file_name": "3fd9d96c614c.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_086/left_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_086/left_buccal.JPG",
+      "patient_key": "case_086",
+      "patient_id": "case_086",
+      "view": "left_buccal",
+      "view_id": 3
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/3fd9d96c614c.jpg",
+    "target_annotation": {
+      "id": 1242,
+      "image_id": 87,
+      "category_id": 50,
+      "segmentation": [
+        [
+          333.1210191082802,
+          1538.8535031847134,
+          310.1910828025478,
+          1568.7898089171974,
+          287.8980891719745,
+          1561.1464968152866,
+          285.9872611464968,
+          1514.6496815286623,
+          302.54777070063693,
+          1466.2420382165606,
+          341.4012738853503,
+          1406.3694267515923,
+          373.8853503184713,
+          1370.0636942675158,
+          422.92993630573244,
+          1352.8662420382166,
+          400.6369426751592,
+          1400.6369426751592,
+          373.2484076433121,
+          1466.8789808917197
+        ]
+      ],
+      "bbox": [
+        285.0,
+        1352.0,
+        138.0,
+        217.0
+      ],
+      "area": 11593.0,
+      "iscrowd": 0,
+      "original_fdi": 84
+    },
+    "target_FDI": 84,
+    "competitor_category": 51,
+    "competitor_FDI": 85,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          296.4360656738281,
+          1300.69775390625,
+          158.4047393798828,
+          254.30068969726562
+        ],
+        "category_id": 50,
+        "FDI": 84,
+        "score": 0.5749399065971375
+      },
+      "query": 14,
+      "IoU": 0.5768858442536534,
+      "GT_class_logit": 0.3020348846912384
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          285.0628356933594,
+          1338.653564453125,
+          148.88697814941406,
+          221.7076416015625
+        ],
+        "category_id": 50,
+        "FDI": 84,
+        "score": 0.5682903528213501
+      },
+      "query": 13,
+      "IoU": 0.8400137053026109,
+      "GT_class_logit": 0.2748790979385376
+    },
+    "area_fraction": 0.0024955,
+    "IoU_gain": 0.26312786104895747
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "localization",
+    "image_id": 101,
+    "image_record": {
+      "id": 101,
+      "file_name": "ddaaefc18b20.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_111/frontal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_111/frontal.JPG",
+      "patient_key": "case_111",
+      "patient_id": "case_111",
+      "view": "frontal",
+      "view_id": 0
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/ddaaefc18b20.jpg",
+    "target_annotation": {
+      "id": 1434,
+      "image_id": 101,
+      "category_id": 45,
+      "segmentation": [
+        [
+          2930.188679245283,
+          1562.264150943396,
+          2911.320754716981,
+          1611.3207547169811,
+          2898.1132075471696,
+          1660.377358490566,
+          2860.3773584905657,
+          1728.3018867924527,
+          2830.188679245283,
+          1716.9811320754716,
+          2852.830188679245,
+          1750.943396226415,
+          2896.2264150943397,
+          1801.8867924528302,
+          2954.7169811320755,
+          1835.8490566037735,
+          3005.66037735849,
+          1860.377358490566,
+          3030.188679245283,
+          1815.0943396226414,
+          3037.7358490566035,
+          1747.1698113207547,
+          3015.094339622641,
+          1698.1132075471696,
+          2990.566037735849,
+          1635.8490566037735,
+          2971.698113207547,
+          1603.7735849056603
+        ]
+      ],
+      "bbox": [
+        2830.0,
+        1562.0,
+        208.0,
+        299.0
+      ],
+      "area": 31987.0,
+      "iscrowd": 0,
+      "original_fdi": 74
+    },
+    "target_FDI": 74,
+    "competitor_category": 46,
+    "competitor_FDI": 75,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          2764.350830078125,
+          1561.671142578125,
+          281.1972961425781,
+          292.8249816894531
+        ],
+        "category_id": 45,
+        "FDI": 74,
+        "score": 0.7964967489242554
+      },
+      "query": 16,
+      "IoU": 0.7269205939315687,
+      "GT_class_logit": 1.364540934562683
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          2807.7177734375,
+          1568.090576171875,
+          239.4645233154297,
+          291.3197326660156
+        ],
+        "category_id": 45,
+        "FDI": 74,
+        "score": 0.6188150644302368
+      },
+      "query": 14,
+      "IoU": 0.849159039388105,
+      "GT_class_logit": 0.4845218360424042
+    },
+    "area_fraction": 0.005182666666666667,
+    "IoU_gain": 0.12223844545653628
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "correction",
+    "image_id": 108,
+    "image_record": {
+      "id": 108,
+      "file_name": "17118c8bbfb7.jpg",
+      "width": 3264,
+      "height": 2447,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_114/lower_occlusal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_114/lower_occlusal.JPG",
+      "patient_key": "case_114",
+      "patient_id": "case_114",
+      "view": "lower_occlusal",
+      "view_id": 2
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/17118c8bbfb7.jpg",
+    "target_annotation": {
+      "id": 1545,
+      "image_id": 108,
+      "category_id": 47,
+      "segmentation": [
+        [
+          1529.5454545454545,
+          1443.1818181818182,
+          1593.1818181818182,
+          1450.0,
+          1640.909090909091,
+          1490.909090909091,
+          1638.6363636363637,
+          1545.4545454545455,
+          1609.090909090909,
+          1609.090909090909,
+          1554.5454545454545,
+          1627.2727272727273,
+          1481.8181818181818,
+          1629.5454545454545,
+          1443.1818181818182,
+          1602.2727272727273,
+          1413.6363636363637,
+          1550.0,
+          1397.7272727272727,
+          1493.1818181818182,
+          1397.7272727272727,
+          1475.0,
+          1429.5454545454545,
+          1465.909090909091,
+          1465.909090909091,
+          1445.4545454545455
+        ]
+      ],
+      "bbox": [
+        1397.0,
+        1443.0,
+        244.0,
+        187.0
+      ],
+      "area": 36297.0,
+      "iscrowd": 0,
+      "original_fdi": 81
+    },
+    "target_FDI": 81,
+    "competitor_category": 24,
+    "competitor_FDI": 41,
+    "before": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          1393.6993408203125,
+          1435.7716064453125,
+          248.4066162109375,
+          199.94607543945312
+        ],
+        "category_id": 24,
+        "FDI": 41,
+        "score": 0.6539866924285889
+      },
+      "query": 8,
+      "IoU": 0.9186612022502574,
+      "GT_class_logit": 0.6196656823158264
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          1392.1383056640625,
+          1439.07763671875,
+          249.6038818359375,
+          199.80123901367188
+        ],
+        "category_id": 47,
+        "FDI": 81,
+        "score": 0.7088100910186768
+      },
+      "query": 7,
+      "IoU": 0.9149174850384013,
+      "GT_class_logit": 0.889612078666687
+    },
+    "area_fraction": 0.005712777550742405,
+    "IoU_gain": -0.003743717211856068
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "correction",
+    "image_id": 119,
+    "image_record": {
+      "id": 119,
+      "file_name": "2042705871fe.jpg",
+      "width": 2080,
+      "height": 1560,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_118/right_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_118/right_buccal.JPG",
+      "patient_key": "case_118",
+      "patient_id": "case_118",
+      "view": "right_buccal",
+      "view_id": 4
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/2042705871fe.jpg",
+    "target_annotation": {
+      "id": 1713,
+      "image_id": 119,
+      "category_id": 38,
+      "segmentation": [
+        [
+          1766.6603773584905,
+          696.2264150943396,
+          1800.6226415094338,
+          681.132075471698,
+          1842.132075471698,
+          669.8113207547169,
+          1876.0943396226414,
+          652.8301886792452,
+          1898.7358490566037,
+          652.8301886792452,
+          1887.4150943396226,
+          677.3584905660377,
+          1876.0943396226414,
+          713.2075471698113,
+          1876.0943396226414,
+          739.622641509434,
+          1864.7735849056603,
+          779.2452830188679,
+          1836.4716981132074,
+          803.7735849056603,
+          1810.0566037735848,
+          783.0188679245283,
+          1783.6415094339623,
+          750.9433962264151,
+          1761.0,
+          728.3018867924528,
+          1742.132075471698,
+          698.1132075471697
+        ]
+      ],
+      "bbox": [
+        1742.0,
+        652.0,
+        157.0,
+        152.0
+      ],
+      "area": 12195.0,
+      "iscrowd": 0,
+      "original_fdi": 62
+    },
+    "target_FDI": 62,
+    "competitor_category": 39,
+    "competitor_FDI": 63,
+    "before": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          1737.9720458984375,
+          647.6588134765625,
+          166.3638916015625,
+          192.82749938964844
+        ],
+        "category_id": 39,
+        "FDI": 63,
+        "score": 0.36929595470428467
+      },
+      "query": 12,
+      "IoU": 0.7439010988375389,
+      "GT_class_logit": -1.9861685037612915
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          1744.38720703125,
+          651.8168334960938,
+          155.32826232910156,
+          187.1959228515625
+        ],
+        "category_id": 38,
+        "FDI": 62,
+        "score": 0.807055652141571
+      },
+      "query": 14,
+      "IoU": 0.7982814167186301,
+      "GT_class_logit": 1.4309905767440796
+    },
+    "area_fraction": 0.007354536489151874,
+    "IoU_gain": 0.05438031788109121
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "correction",
+    "image_id": 123,
+    "image_record": {
+      "id": 123,
+      "file_name": "ce2f5ca44bb2.jpg",
+      "width": 4000,
+      "height": 2999,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/lower_occlusal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/lower_occlusal.JPG",
+      "patient_key": "case_120",
+      "patient_id": "case_120",
+      "view": "lower_occlusal",
+      "view_id": 2
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/ce2f5ca44bb2.jpg",
+    "target_annotation": {
+      "id": 1758,
+      "image_id": 123,
+      "category_id": 16,
+      "segmentation": [
+        [
+          2185.666666666667,
+          2125.3333333333335,
+          2079.0,
+          2122.0,
+          2049.0,
+          2165.3333333333335,
+          1989.0,
+          2238.666666666667,
+          1969.0,
+          2285.3333333333335,
+          2002.3333333333335,
+          2365.3333333333335,
+          2085.666666666667,
+          2445.3333333333335,
+          2185.666666666667,
+          2475.3333333333335,
+          2299.0,
+          2385.3333333333335,
+          2345.666666666667,
+          2292.0,
+          2325.666666666667,
+          2238.666666666667,
+          2292.3333333333335,
+          2208.666666666667,
+          2255.666666666667,
+          2172.0
+        ]
+      ],
+      "bbox": [
+        1969.0,
+        2122.0,
+        377.0,
+        354.0
+      ],
+      "area": 90482.0,
+      "iscrowd": 0,
+      "original_fdi": 31
+    },
+    "target_FDI": 31,
+    "competitor_category": 42,
+    "competitor_FDI": 71,
+    "before": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          1970.2373046875,
+          2155.43017578125,
+          367.9967041015625,
+          305.0902099609375
+        ],
+        "category_id": 42,
+        "FDI": 71,
+        "score": 0.6661776900291443
+      },
+      "query": 12,
+      "IoU": 0.8412549478896818,
+      "GT_class_logit": 0.6817269921302795
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          1969.552490234375,
+          2149.863525390625,
+          365.7474365234375,
+          309.265380859375
+        ],
+        "category_id": 16,
+        "FDI": 31,
+        "score": 0.7978816032409668
+      },
+      "query": 11,
+      "IoU": 0.8475546449677649,
+      "GT_class_logit": 1.3731067180633545
+    },
+    "area_fraction": 0.011125208402800934,
+    "IoU_gain": 0.0062996970780830885
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "adverse",
+    "image_id": 124,
+    "image_record": {
+      "id": 124,
+      "file_name": "152e9c2ddc73.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/right_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/right_buccal.JPG",
+      "patient_key": "case_120",
+      "patient_id": "case_120",
+      "view": "right_buccal",
+      "view_id": 4
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/152e9c2ddc73.jpg",
+    "target_annotation": {
+      "id": 1772,
+      "image_id": 124,
+      "category_id": 5,
+      "segmentation": [
+        [
+          1005.6666666666667,
+          1208.6666666666667,
+          932.3333333333335,
+          1185.3333333333335,
+          829.0,
+          1188.6666666666667,
+          759.0,
+          1195.3333333333335,
+          642.3333333333335,
+          1142.0,
+          579.0,
+          1152.0,
+          512.3333333333335,
+          1175.3333333333335,
+          532.3333333333335,
+          1255.3333333333335,
+          495.66666666666674,
+          1335.3333333333335,
+          504.87804878048775,
+          1404.8780487804877,
+          632.3333333333335,
+          1402.0,
+          675.6097560975609,
+          1402.4390243902437,
+          702.4390243902438,
+          1407.3170731707316,
+          749.0,
+          1385.3333333333335,
+          863.4146341463414,
+          1426.8292682926829,
+          929.2682926829268,
+          1475.6097560975609,
+          979.0,
+          1442.0,
+          1049.0,
+          1378.6666666666667,
+          1049.0,
+          1302.0,
+          1045.6666666666667,
+          1252.0
+        ]
+      ],
+      "bbox": [
+        495.0,
+        1142.0,
+        555.0,
+        334.0
+      ],
+      "area": 125879.0,
+      "iscrowd": 0,
+      "original_fdi": 16
+    },
+    "target_FDI": 16,
+    "competitor_category": 29,
+    "competitor_FDI": 46,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          478.658447265625,
+          1152.2930908203125,
+          589.588623046875,
+          343.868408203125
+        ],
+        "category_id": 5,
+        "FDI": 16,
+        "score": 0.502011775970459
+      },
+      "query": 5,
+      "IoU": 0.8618577900494401,
+      "GT_class_logit": 0.008047260344028473
+    },
+    "after": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          483.0927734375,
+          1154.390625,
+          584.7910766601562,
+          330.9803771972656
+        ],
+        "category_id": 36,
+        "FDI": 55,
+        "score": 0.6713854074478149
+      },
+      "query": 9,
+      "IoU": 0.8905461234159638,
+      "GT_class_logit": -0.39737626910209656
+    },
+    "area_fraction": 0.0154475,
+    "IoU_gain": 0.028688333366523766
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "correction",
+    "image_id": 124,
+    "image_record": {
+      "id": 124,
+      "file_name": "152e9c2ddc73.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/right_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/right_buccal.JPG",
+      "patient_key": "case_120",
+      "patient_id": "case_120",
+      "view": "right_buccal",
+      "view_id": 4
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/152e9c2ddc73.jpg",
+    "target_annotation": {
+      "id": 1773,
+      "image_id": 124,
+      "category_id": 24,
+      "segmentation": [
+        [
+          3119.0,
+          1488.6666666666667,
+          3069.0,
+          1465.3333333333335,
+          3022.3333333333335,
+          1458.6666666666667,
+          2935.666666666667,
+          1442.0,
+          2892.3333333333335,
+          1442.0,
+          2855.666666666667,
+          1478.6666666666667,
+          2835.666666666667,
+          1498.6666666666667,
+          2825.666666666667,
+          1565.3333333333335,
+          2825.666666666667,
+          1638.6666666666667,
+          2812.3333333333335,
+          1685.3333333333335,
+          2862.3333333333335,
+          1768.6666666666667,
+          2905.666666666667,
+          1822.0,
+          2929.0,
+          1862.0,
+          2982.3333333333335,
+          1902.0,
+          3055.666666666667,
+          1902.0,
+          3089.0,
+          1822.0,
+          3115.666666666667,
+          1702.0,
+          3119.0,
+          1648.6666666666667,
+          3132.3333333333335,
+          1578.6666666666667
+        ]
+      ],
+      "bbox": [
+        2812.0,
+        1442.0,
+        321.0,
+        461.0
+      ],
+      "area": 112318.0,
+      "iscrowd": 0,
+      "original_fdi": 41
+    },
+    "target_FDI": 41,
+    "competitor_category": 47,
+    "competitor_FDI": 81,
+    "before": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          2813.796875,
+          1432.1162109375,
+          313.5013427734375,
+          481.0901184082031
+        ],
+        "category_id": 47,
+        "FDI": 81,
+        "score": 0.7354727387428284
+      },
+      "query": 8,
+      "IoU": 0.9367702252175172,
+      "GT_class_logit": 0.8990229368209839
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          2817.579345703125,
+          1431.8140869140625,
+          307.7142333984375,
+          480.1302490234375
+        ],
+        "category_id": 24,
+        "FDI": 41,
+        "score": 0.7818467617034912
+      },
+      "query": 10,
+      "IoU": 0.9219362118687269,
+      "GT_class_logit": 1.2764610052108765
+    },
+    "area_fraction": 0.01233175,
+    "IoU_gain": -0.01483401334879031,
+    "case_id": "CMFA_correction_05_image124_FDI41",
+    "image_sha256": "690d311fef465dd1692ffbc7fb4809ae229c40a993c2fb6721214dc034c0a64f"
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "correction",
+    "image_id": 124,
+    "image_record": {
+      "id": 124,
+      "file_name": "152e9c2ddc73.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/right_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/right_buccal.JPG",
+      "patient_key": "case_120",
+      "patient_id": "case_120",
+      "view": "right_buccal",
+      "view_id": 4
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/152e9c2ddc73.jpg",
+    "target_annotation": {
+      "id": 1778,
+      "image_id": 124,
+      "category_id": 16,
+      "segmentation": [
+        [
+          3122.3333333333335,
+          1728.6666666666667,
+          3175.666666666667,
+          1778.6666666666667,
+          3192.3333333333335,
+          1868.6666666666667,
+          3209.0,
+          1908.6666666666667,
+          3252.3333333333335,
+          1932.0,
+          3322.3333333333335,
+          1875.3333333333335,
+          3322.3333333333335,
+          1758.6666666666667,
+          3325.666666666667,
+          1648.6666666666667,
+          3329.2682926829266,
+          1617.0731707317073,
+          3297.560975609756,
+          1585.3658536585365,
+          3256.0975609756097,
+          1539.0243902439024,
+          3209.7560975609754,
+          1456.0975609756097,
+          3126.8292682926826,
+          1470.731707317073,
+          3129.2682926829266,
+          1495.121951219512,
+          3125.666666666667,
+          1588.6666666666667,
+          3112.3333333333335,
+          1688.6666666666667
+        ]
+      ],
+      "bbox": [
+        3112.0,
+        1456.0,
+        218.0,
+        477.0
+      ],
+      "area": 70890.0,
+      "iscrowd": 0,
+      "original_fdi": 31
+    },
+    "target_FDI": 31,
+    "competitor_category": 42,
+    "competitor_FDI": 71,
+    "before": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          3112.2255859375,
+          1466.427001953125,
+          239.32766723632812,
+          479.52069091796875
+        ],
+        "category_id": 42,
+        "FDI": 71,
+        "score": 0.8654534816741943
+      },
+      "query": 12,
+      "IoU": 0.8673968991278032,
+      "GT_class_logit": -0.40420693159103394
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          3112.66650390625,
+          1460.71435546875,
+          235.55445861816406,
+          480.149658203125
+        ],
+        "category_id": 16,
+        "FDI": 31,
+        "score": 0.8540440201759338
+      },
+      "query": 12,
+      "IoU": 0.8968891305890234,
+      "GT_class_logit": 1.7666778564453125
+    },
+    "area_fraction": 0.0086655,
+    "IoU_gain": 0.029492231461220264
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "localization",
+    "image_id": 124,
+    "image_record": {
+      "id": 124,
+      "file_name": "152e9c2ddc73.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/right_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/right_buccal.JPG",
+      "patient_key": "case_120",
+      "patient_id": "case_120",
+      "view": "right_buccal",
+      "view_id": 4
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/152e9c2ddc73.jpg",
+    "target_annotation": {
+      "id": 1786,
+      "image_id": 124,
+      "category_id": 36,
+      "segmentation": [
+        [
+          1159.1836734693877,
+          1146.938775510204,
+          1102.0408163265306,
+          1197.9591836734694,
+          1057.142857142857,
+          1242.857142857143,
+          1055.1020408163265,
+          1275.5102040816328,
+          1112.0,
+          1369.0,
+          1161.0,
+          1378.0,
+          1243.0,
+          1354.0,
+          1322.0,
+          1330.0,
+          1315.0,
+          1273.0,
+          1287.0,
+          1229.0,
+          1261.0,
+          1196.0,
+          1226.0,
+          1156.0,
+          1179.0,
+          1145.0
+        ]
+      ],
+      "bbox": [
+        1055.0,
+        1145.0,
+        268.0,
+        234.0
+      ],
+      "area": 42938.0,
+      "iscrowd": 0,
+      "original_fdi": 55
+    },
+    "target_FDI": 55,
+    "competitor_category": 5,
+    "competitor_FDI": 16,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          1017.475830078125,
+          1155.600830078125,
+          287.3574523925781,
+          179.4759979248047
+        ],
+        "category_id": 36,
+        "FDI": 55,
+        "score": 0.48141083121299744
+      },
+      "query": 14,
+      "IoU": 0.6456614589265975,
+      "GT_class_logit": -0.07439084351062775
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          1031.1700439453125,
+          1151.306884765625,
+          288.54559326171875,
+          240.8439483642578
+        ],
+        "category_id": 36,
+        "FDI": 55,
+        "score": 0.7092655301094055
+      },
+      "query": 17,
+      "IoU": 0.8379227055717599,
+      "GT_class_logit": 0.8918195366859436
+    },
+    "area_fraction": 0.005226,
+    "IoU_gain": 0.1922612466451623
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "adverse",
+    "image_id": 125,
+    "image_record": {
+      "id": 125,
+      "file_name": "9b395c158625.jpg",
+      "width": 4000,
+      "height": 2999,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/upper_occlusal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/upper_occlusal.JPG",
+      "patient_key": "case_120",
+      "patient_id": "case_120",
+      "view": "upper_occlusal",
+      "view_id": 1
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/9b395c158625.jpg",
+    "target_annotation": {
+      "id": 1790,
+      "image_id": 125,
+      "category_id": 41,
+      "segmentation": [
+        [
+          3099.9999999999995,
+          1831.7073170731705,
+          3026.8292682926826,
+          1843.90243902439,
+          2951.2195121951218,
+          1863.4146341463413,
+          2902.4390243902435,
+          1917.0731707317073,
+          2853.6585365853657,
+          1963.4146341463413,
+          2819.512195121951,
+          2012.1951219512193,
+          2814.6341463414633,
+          2082.9268292682927,
+          2858.5365853658536,
+          2146.341463414634,
+          2931.7073170731705,
+          2229.2682926829266,
+          2995.121951219512,
+          2278.048780487805,
+          3090.243902439024,
+          2280.487804878049,
+          3173.170731707317,
+          2234.1463414634145,
+          3248.780487804878,
+          2202.439024390244,
+          3290.243902439024,
+          2146.341463414634,
+          3280.4878048780483,
+          2073.170731707317,
+          3292.682926829268,
+          1992.6829268292681,
+          3282.9268292682923,
+          1946.341463414634,
+          3229.2682926829266,
+          1875.6097560975609,
+          3160.975609756097,
+          1834.1463414634145
+        ]
+      ],
+      "bbox": [
+        2814.0,
+        1831.0,
+        479.0,
+        450.0
+      ],
+      "area": 162904.0,
+      "iscrowd": 0,
+      "original_fdi": 65
+    },
+    "target_FDI": 65,
+    "competitor_category": 40,
+    "competitor_FDI": 64,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          2790.762939453125,
+          1825.6787109375,
+          507.9891662597656,
+          482.5866394042969
+        ],
+        "category_id": 41,
+        "FDI": 65,
+        "score": 0.5929793119430542
+      },
+      "query": 7,
+      "IoU": 0.8792619685927971,
+      "GT_class_logit": 0.3762955069541931
+    },
+    "after": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          2790.3271484375,
+          1819.792236328125,
+          509.6979064941406,
+          494.89422607421875
+        ],
+        "category_id": 40,
+        "FDI": 64,
+        "score": 0.8150336742401123
+      },
+      "query": 7,
+      "IoU": 0.8545211130553757,
+      "GT_class_logit": -1.3773895502090454
+    },
+    "area_fraction": 0.017968489496498832,
+    "IoU_gain": -0.024740855537421447
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "correction",
+    "image_id": 125,
+    "image_record": {
+      "id": 125,
+      "file_name": "9b395c158625.jpg",
+      "width": 4000,
+      "height": 2999,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/upper_occlusal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/upper_occlusal.JPG",
+      "patient_key": "case_120",
+      "patient_id": "case_120",
+      "view": "upper_occlusal",
+      "view_id": 1
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/9b395c158625.jpg",
+    "target_annotation": {
+      "id": 1795,
+      "image_id": 125,
+      "category_id": 5,
+      "segmentation": [
+        [
+          739.0243902439024,
+          2156.0975609756097,
+          658.5365853658536,
+          2126.8292682926826,
+          568.2926829268292,
+          2141.4634146341464,
+          512.1951219512194,
+          2187.80487804878,
+          480.48780487804873,
+          2258.5365853658536,
+          480.48780487804873,
+          2329.2682926829266,
+          458.5365853658536,
+          2341.4634146341464,
+          409.7560975609756,
+          2409.7560975609754,
+          397.56097560975604,
+          2504.8780487804875,
+          424.390243902439,
+          2563.414634146341,
+          482.92682926829264,
+          2609.7560975609754,
+          548.780487804878,
+          2665.853658536585,
+          587.8048780487804,
+          2712.1951219512193,
+          641.4634146341463,
+          2746.341463414634,
+          695.1219512195122,
+          2773.170731707317,
+          748.780487804878,
+          2778.048780487805,
+          797.560975609756,
+          2714.6341463414633,
+          848.780487804878,
+          2651.2195121951218,
+          848.780487804878,
+          2595.121951219512,
+          917.0731707317073,
+          2558.5365853658536,
+          946.3414634146341,
+          2475.609756097561,
+          914.6341463414633,
+          2370.731707317073,
+          895.1219512195121,
+          2329.2682926829266,
+          868.2926829268292,
+          2302.4390243902435,
+          829.2682926829268,
+          2265.853658536585,
+          785.3658536585365,
+          2209.7560975609754
+        ]
+      ],
+      "bbox": [
+        397.0,
+        2126.0,
+        550.0,
+        653.0
+      ],
+      "area": 236010.0,
+      "iscrowd": 0,
+      "original_fdi": 16
+    },
+    "target_FDI": 16,
+    "competitor_category": 36,
+    "competitor_FDI": 55,
+    "before": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          398.9147033691406,
+          2142.566650390625,
+          557.4595947265625,
+          621.4410400390625
+        ],
+        "category_id": 36,
+        "FDI": 55,
+        "score": 0.8025921583175659
+      },
+      "query": 4,
+      "IoU": 0.9332208525515815,
+      "GT_class_logit": 0.6690294146537781
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          403.1790771484375,
+          2138.32861328125,
+          552.5125732421875,
+          633.3321533203125
+        ],
+        "category_id": 5,
+        "FDI": 16,
+        "score": 0.8742785453796387
+      },
+      "query": 4,
+      "IoU": 0.9445076504928058,
+      "GT_class_logit": 1.9393304586410522
+    },
+    "area_fraction": 0.029939146382127375,
+    "IoU_gain": 0.011286797941224336,
+    "case_id": "CMFA_correction_01_image125_FDI16",
+    "image_sha256": "66d89681bc2fde1ad46b07fe5c53abb33d20688a0c8e41e953df04fca5fead29"
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "adverse",
+    "image_id": 126,
+    "image_record": {
+      "id": 126,
+      "file_name": "6bf18072aeea.jpg",
+      "width": 2080,
+      "height": 1560,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_124/frontal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_124/frontal.JPG",
+      "patient_key": "case_124",
+      "patient_id": "case_124",
+      "view": "frontal",
+      "view_id": 0
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/6bf18072aeea.jpg",
+    "target_annotation": {
+      "id": 1814,
+      "image_id": 126,
+      "category_id": 49,
+      "segmentation": [
+        [
+          677.5100401606425,
+          855.8232931726907,
+          665.4618473895582,
+          858.6345381526104,
+          644.9799196787149,
+          870.2811244979919,
+          623.293172690763,
+          884.3373493975903,
+          595.9839357429719,
+          896.3855421686746,
+          576.305220883534,
+          907.2289156626505,
+          549.3975903614457,
+          911.2449799196786,
+          532.9317269076305,
+          898.3935742971887,
+          515.2610441767068,
+          882.730923694779,
+          506.42570281124495,
+          866.2650602409637,
+          516.4658634538152,
+          846.9879518072288,
+          529.718875502008,
+          828.1124497991967,
+          542.5702811244979,
+          853.012048192771,
+          553.0120481927711,
+          863.4538152610442,
+          578.3132530120481,
+          868.6746987951807,
+          603.2128514056225,
+          863.4538152610442,
+          624.4979919678715,
+          843.3734939759036,
+          638.9558232931727,
+          826.9076305220883,
+          651.4056224899598,
+          821.6867469879518,
+          675.5020080321284,
+          836.9477911646586,
+          683.5341365461846,
+          840.1606425702811
+        ]
+      ],
+      "bbox": [
+        506.0,
+        821.0,
+        178.0,
+        91.0
+      ],
+      "area": 7036.0,
+      "iscrowd": 0,
+      "original_fdi": 83
+    },
+    "target_FDI": 83,
+    "competitor_category": 50,
+    "competitor_FDI": 84,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          507.0776672363281,
+          821.498046875,
+          172.86831665039062,
+          86.20671844482422
+        ],
+        "category_id": 49,
+        "FDI": 83,
+        "score": 0.7598848938941956
+      },
+      "query": 14,
+      "IoU": 0.9200156172011735,
+      "GT_class_logit": 1.1520484685897827
+    },
+    "after": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          508.46636962890625,
+          821.9669799804688,
+          171.27163696289062,
+          86.8199462890625
+        ],
+        "category_id": 50,
+        "FDI": 84,
+        "score": 0.6798228025436401
+      },
+      "query": 15,
+      "IoU": 0.9180022070337301,
+      "GT_class_logit": 0.3032270073890686
+    },
+    "area_fraction": 0.004991987179487179,
+    "IoU_gain": -0.0020134101674433857
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "correction",
+    "image_id": 129,
+    "image_record": {
+      "id": 129,
+      "file_name": "11d83e7bb1a9.jpg",
+      "width": 2080,
+      "height": 1560,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_124/right_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_124/right_buccal.JPG",
+      "patient_key": "case_124",
+      "patient_id": "case_124",
+      "view": "right_buccal",
+      "view_id": 4
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/11d83e7bb1a9.jpg",
+    "target_annotation": {
+      "id": 1853,
+      "image_id": 129,
+      "category_id": 43,
+      "segmentation": [
+        [
+          1848.9361702127658,
+          790.4255319148936,
+          1875.5319148936169,
+          819.1489361702127,
+          1915.9574468085104,
+          860.6382978723403,
+          1959.0425531914893,
+          868.6170212765957,
+          1986.7021276595744,
+          860.6382978723403,
+          2010.6382978723402,
+          818.6170212765957,
+          2005.31914893617,
+          750.0,
+          1990.4255319148936,
+          712.2340425531914,
+          1963.8297872340424,
+          686.7021276595744,
+          1924.468085106383,
+          680.3191489361702,
+          1845.7446808510638,
+          689.8936170212766,
+          1809.5744680851062,
+          704.2553191489361,
+          1832.4468085106382,
+          725.0
+        ]
+      ],
+      "bbox": [
+        1809.0,
+        680.0,
+        202.0,
+        189.0
+      ],
+      "area": 25974.0,
+      "iscrowd": 0,
+      "original_fdi": 72
+    },
+    "target_FDI": 72,
+    "competitor_category": 17,
+    "competitor_FDI": 32,
+    "before": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          1809.022216796875,
+          680.913330078125,
+          196.24734497070312,
+          179.51168823242188
+        ],
+        "category_id": 17,
+        "FDI": 32,
+        "score": 0.7817335724830627
+      },
+      "query": 9,
+      "IoU": 0.9227485443856244,
+      "GT_class_logit": -0.1963035762310028
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          1811.6240234375,
+          680.6172485351562,
+          196.0552978515625,
+          181.00714111328125
+        ],
+        "category_id": 43,
+        "FDI": 72,
+        "score": 0.7190930247306824
+      },
+      "query": 3,
+      "IoU": 0.9295250630259905,
+      "GT_class_logit": 0.9399673342704773
+    },
+    "area_fraction": 0.011765902366863906,
+    "IoU_gain": 0.006776518640366103,
+    "case_id": "CMFA_correction_04_image129_FDI72",
+    "image_sha256": "9cae8e2f9e136611e3ee8a93600f182525751507994d22e1ad50176954768062"
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "adverse",
+    "image_id": 129,
+    "image_record": {
+      "id": 129,
+      "file_name": "11d83e7bb1a9.jpg",
+      "width": 2080,
+      "height": 1560,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_124/right_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_124/right_buccal.JPG",
+      "patient_key": "case_124",
+      "patient_id": "case_124",
+      "view": "right_buccal",
+      "view_id": 4
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/11d83e7bb1a9.jpg",
+    "target_annotation": {
+      "id": 1859,
+      "image_id": 129,
+      "category_id": 8,
+      "segmentation": [
+        [
+          1784.9462365591396,
+          562.3655913978495,
+          1832.258064516129,
+          552.6881720430107,
+          1859.1397849462364,
+          558.0645161290322,
+          1898.9247311827955,
+          566.6666666666666,
+          1910.752688172043,
+          581.7204301075268,
+          1909.6774193548385,
+          593.5483870967741,
+          1869.8924731182794,
+          601.0752688172042,
+          1852.6881720430106,
+          610.752688172043,
+          1841.9354838709676,
+          601.0752688172042,
+          1829.032258064516,
+          615.0537634408602,
+          1797.8494623655913,
+          619.3548387096774,
+          1777.4193548387095,
+          616.1290322580645,
+          1756.989247311828,
+          604.3010752688172,
+          1736.5591397849462,
+          592.4731182795699,
+          1732.258064516129,
+          582.7956989247311,
+          1756.989247311828,
+          566.6666666666666,
+          1774.1935483870966,
+          559.1397849462365
+        ]
+      ],
+      "bbox": [
+        1732.0,
+        552.0,
+        179.0,
+        68.0
+      ],
+      "area": 7974.0,
+      "iscrowd": 0,
+      "original_fdi": 21
+    },
+    "target_FDI": 21,
+    "competitor_category": 37,
+    "competitor_FDI": 61,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          1733.8416748046875,
+          550.7127075195312,
+          190.31178283691406,
+          64.89324188232422
+        ],
+        "category_id": 8,
+        "FDI": 21,
+        "score": 0.604865550994873
+      },
+      "query": 8,
+      "IoU": 0.8502071064825476,
+      "GT_class_logit": 0.4257800579071045
+    },
+    "after": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          1732.718994140625,
+          551.3637084960938,
+          184.57769775390625,
+          62.69004821777344
+        ],
+        "category_id": 37,
+        "FDI": 61,
+        "score": 0.601144015789032
+      },
+      "query": 8,
+      "IoU": 0.8724649530814801,
+      "GT_class_logit": -0.39028769731521606
+    },
+    "area_fraction": 0.003751232741617357,
+    "IoU_gain": 0.022257846598932485
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "adverse",
+    "image_id": 131,
+    "image_record": {
+      "id": 131,
+      "file_name": "c9c1eb071acd.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_125/frontal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_125/frontal.JPG",
+      "patient_key": "case_125",
+      "patient_id": "case_125",
+      "view": "frontal",
+      "view_id": 0
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/c9c1eb071acd.jpg",
+    "target_annotation": {
+      "id": 1882,
+      "image_id": 131,
+      "category_id": 40,
+      "segmentation": [
+        [
+          3104.6511627906975,
+          1146.5116279069769,
+          3169.767441860465,
+          1081.3953488372092,
+          3223.2558139534885,
+          1013.953488372093,
+          3281.3953488372094,
+          997.6744186046511,
+          3353.4883720930234,
+          955.8139534883721,
+          3341.860465116279,
+          1020.9302325581396,
+          3330.232558139535,
+          1086.046511627907,
+          3311.6279069767443,
+          1162.7906976744187,
+          3286.046511627907,
+          1211.6279069767443,
+          3248.837209302326,
+          1265.1162790697674,
+          3193.0232558139537,
+          1260.46511627907,
+          3144.186046511628,
+          1220.9302325581396
+        ]
+      ],
+      "bbox": [
+        3104.0,
+        955.0,
+        250.0,
+        311.0
+      ],
+      "area": 41829.0,
+      "iscrowd": 0,
+      "original_fdi": 64
+    },
+    "target_FDI": 64,
+    "competitor_category": 11,
+    "competitor_FDI": 24,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          3086.6064453125,
+          952.6583862304688,
+          267.53497314453125,
+          325.5556335449219
+        ],
+        "category_id": 40,
+        "FDI": 64,
+        "score": 0.675723671913147
+      },
+      "query": 6,
+      "IoU": 0.8926775860605956,
+      "GT_class_logit": 0.7341881394386292
+    },
+    "after": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          3091.50830078125,
+          952.0615234375,
+          267.11822509765625,
+          324.25250244140625
+        ],
+        "category_id": 11,
+        "FDI": 24,
+        "score": 0.5247409343719482
+      },
+      "query": 17,
+      "IoU": 0.8976634772192637,
+      "GT_class_logit": -0.20144489407539368
+    },
+    "area_fraction": 0.006479166666666667,
+    "IoU_gain": 0.004985891158668099
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "localization",
+    "image_id": 131,
+    "image_record": {
+      "id": 131,
+      "file_name": "c9c1eb071acd.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_125/frontal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_125/frontal.JPG",
+      "patient_key": "case_125",
+      "patient_id": "case_125",
+      "view": "frontal",
+      "view_id": 0
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/c9c1eb071acd.jpg",
+    "target_annotation": {
+      "id": 1892,
+      "image_id": 131,
+      "category_id": 25,
+      "segmentation": [
+        [
+          1483.7209302325582,
+          1546.5116279069769,
+          1488.3720930232557,
+          1593.0232558139535,
+          1532.5581395348838,
+          1623.2558139534883,
+          1604.6511627906978,
+          1646.5116279069769,
+          1662.7906976744187,
+          1613.953488372093,
+          1709.3023255813953,
+          1586.046511627907,
+          1688.3720930232557,
+          1581.3953488372094,
+          1569.7674418604652,
+          1574.418604651163
+        ]
+      ],
+      "bbox": [
+        1483.0,
+        1546.0,
+        227.0,
+        101.0
+      ],
+      "area": 10935.0,
+      "iscrowd": 0,
+      "original_fdi": 42
+    },
+    "target_FDI": 42,
+    "competitor_category": 48,
+    "competitor_FDI": 82,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          1491.8465576171875,
+          1519.7388916015625,
+          176.17332458496094,
+          123.41433715820312
+        ],
+        "category_id": 25,
+        "FDI": 42,
+        "score": 0.6986690759658813
+      },
+      "query": 16,
+      "IoU": 0.6211841164109343,
+      "GT_class_logit": 0.8409680128097534
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          1483.3453369140625,
+          1540.9591064453125,
+          202.75115966796875,
+          106.46241760253906
+        ],
+        "category_id": 25,
+        "FDI": 42,
+        "score": 0.6642339825630188
+      },
+      "query": 20,
+      "IoU": 0.852018792693945,
+      "GT_class_logit": 0.6822196245193481
+    },
+    "area_fraction": 0.0019105833333333334,
+    "IoU_gain": 0.2308346762830107
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "localization",
+    "image_id": 132,
+    "image_record": {
+      "id": 132,
+      "file_name": "55e562510d13.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_125/left_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_125/left_buccal.JPG",
+      "patient_key": "case_125",
+      "patient_id": "case_125",
+      "view": "left_buccal",
+      "view_id": 3
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/55e562510d13.jpg",
+    "target_annotation": {
+      "id": 1913,
+      "image_id": 132,
+      "category_id": 41,
+      "segmentation": [
+        [
+          2746.428571428571,
+          1160.7142857142856,
+          2828.5714285714284,
+          1150.0,
+          2889.285714285714,
+          1107.142857142857,
+          2957.142857142857,
+          1092.8571428571427,
+          3039.285714285714,
+          1128.5714285714284,
+          3099.9999999999995,
+          1175.0,
+          3099.9999999999995,
+          1282.142857142857,
+          3053.5714285714284,
+          1392.8571428571427,
+          3046.428571428571,
+          1464.2857142857142,
+          3014.285714285714,
+          1596.4285714285713,
+          2967.8571428571427,
+          1671.4285714285713,
+          2885.7142857142853,
+          1639.2857142857142,
+          2796.428571428571,
+          1639.2857142857142,
+          2724.9999999999995,
+          1628.5714285714284,
+          2624.9999999999995,
+          1621.4285714285713,
+          2546.428571428571,
+          1585.7142857142856,
+          2528.5714285714284,
+          1535.7142857142856,
+          2460.7142857142853,
+          1478.5714285714284,
+          2453.5714285714284,
+          1421.4285714285713,
+          2532.142857142857,
+          1432.142857142857,
+          2642.8571428571427,
+          1392.8571428571427,
+          2685.7142857142853,
+          1332.142857142857,
+          2710.7142857142853,
+          1235.7142857142856
+        ]
+      ],
+      "bbox": [
+        2453.0,
+        1092.0,
+        647.0,
+        580.0
+      ],
+      "area": 225001.0,
+      "iscrowd": 0,
+      "original_fdi": 65
+    },
+    "target_FDI": 65,
+    "competitor_category": 46,
+    "competitor_FDI": 75,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          2530.94384765625,
+          1262.5125732421875,
+          515.9315795898438,
+          422.220458984375
+        ],
+        "category_id": 41,
+        "FDI": 65,
+        "score": 0.7057337760925293
+      },
+      "query": 15,
+      "IoU": 0.5533035034681992,
+      "GT_class_logit": 0.8747533559799194
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          2430.536865234375,
+          1067.9454345703125,
+          657.8445434570312,
+          616.61328125
+        ],
+        "category_id": 41,
+        "FDI": 65,
+        "score": 0.5623255968093872
+      },
+      "query": 14,
+      "IoU": 0.8936565583089063,
+      "GT_class_logit": 0.2506057024002075
+    },
+    "area_fraction": 0.03127166666666667,
+    "IoU_gain": 0.3403530548407071
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "adverse",
+    "image_id": 134,
+    "image_record": {
+      "id": 134,
+      "file_name": "2d7367fc53c7.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_125/right_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_125/right_buccal.JPG",
+      "patient_key": "case_125",
+      "patient_id": "case_125",
+      "view": "right_buccal",
+      "view_id": 4
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/2d7367fc53c7.jpg",
+    "target_annotation": {
+      "id": 1933,
+      "image_id": 134,
+      "category_id": 9,
+      "segmentation": [
+        [
+          3796.666666666667,
+          1340.0,
+          3876.666666666667,
+          1283.3333333333335,
+          3983.3333333333335,
+          1263.3333333333335,
+          3993.3333333333335,
+          1390.0,
+          3993.3333333333335,
+          1520.0,
+          3993.3333333333335,
+          1630.0,
+          3963.3333333333335,
+          1613.3333333333335,
+          3923.3333333333335,
+          1636.6666666666667,
+          3856.666666666667,
+          1643.3333333333335,
+          3800.0,
+          1610.0,
+          3810.0,
+          1513.3333333333335,
+          3806.666666666667,
+          1416.6666666666667
+        ]
+      ],
+      "bbox": [
+        3796.0,
+        1263.0,
+        198.0,
+        381.0
+      ],
+      "area": 64579.0,
+      "iscrowd": 0,
+      "original_fdi": 22
+    },
+    "target_FDI": 22,
+    "competitor_category": 38,
+    "competitor_FDI": 62,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          3784.605224609375,
+          1249.4248046875,
+          211.32565307617188,
+          398.8005676269531
+        ],
+        "category_id": 9,
+        "FDI": 22,
+        "score": 0.5525220036506653
+      },
+      "query": 14,
+      "IoU": 0.8951219053214626,
+      "GT_class_logit": 0.2108657956123352
+    },
+    "after": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          3781.24853515625,
+          1246.2230224609375,
+          213.47927856445312,
+          403.6193542480469
+        ],
+        "category_id": 38,
+        "FDI": 62,
+        "score": 0.6019493341445923
+      },
+      "query": 11,
+      "IoU": 0.8755127259954381,
+      "GT_class_logit": -0.5916739702224731
+    },
+    "area_fraction": 0.0062865,
+    "IoU_gain": -0.019609179326024573
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "adverse",
+    "image_id": 139,
+    "image_record": {
+      "id": 139,
+      "file_name": "47c536b73b7f.jpg",
+      "width": 2080,
+      "height": 1560,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_134/right_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_134/right_buccal.JPG",
+      "patient_key": "case_134",
+      "patient_id": "case_134",
+      "view": "right_buccal",
+      "view_id": 4
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/47c536b73b7f.jpg",
+    "target_annotation": {
+      "id": 2006,
+      "image_id": 139,
+      "category_id": 44,
+      "segmentation": [
+        [
+          1735.5555555555557,
+          746.6666666666666,
+          1751.5555555555557,
+          775.1111111111111,
+          1783.111111111111,
+          796.8888888888889,
+          1798.6666666666667,
+          800.8888888888889,
+          1788.888888888889,
+          752.8888888888889,
+          1770.6666666666667,
+          692.0,
+          1769.7777777777778,
+          669.7777777777778,
+          1736.0,
+          642.6666666666666,
+          1724.888888888889,
+          638.6666666666666,
+          1719.111111111111,
+          644.0,
+          1728.888888888889,
+          678.2222222222222,
+          1730.6666666666667,
+          711.1111111111111
+        ]
+      ],
+      "bbox": [
+        1719.0,
+        638.0,
+        80.0,
+        163.0
+      ],
+      "area": 6459.0,
+      "iscrowd": 0,
+      "original_fdi": 73
+    },
+    "target_FDI": 73,
+    "competitor_category": 43,
+    "competitor_FDI": 72,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          1709.1439208984375,
+          635.7379150390625,
+          81.98059844970703,
+          156.6512908935547
+        ],
+        "category_id": 44,
+        "FDI": 73,
+        "score": 0.5615023970603943
+      },
+      "query": 7,
+      "IoU": 0.755079495837497,
+      "GT_class_logit": 0.24726173281669617
+    },
+    "after": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          1698.8123779296875,
+          634.1336669921875,
+          91.8757553100586,
+          157.82418823242188
+        ],
+        "category_id": 43,
+        "FDI": 72,
+        "score": 0.7106330394744873
+      },
+      "query": 7,
+      "IoU": 0.6687736418050658,
+      "GT_class_logit": -1.2596837282180786
+    },
+    "area_fraction": 0.004018737672583827,
+    "IoU_gain": -0.08630585403243118
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "adverse",
+    "image_id": 147,
+    "image_record": {
+      "id": 147,
+      "file_name": "9945e391f57a.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_147/left_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_147/left_buccal.JPG",
+      "patient_key": "case_147",
+      "patient_id": "case_147",
+      "view": "left_buccal",
+      "view_id": 3
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/9945e391f57a.jpg",
+    "target_annotation": {
+      "id": 2120,
+      "image_id": 147,
+      "category_id": 42,
+      "segmentation": [
+        [
+          1223.9130434782608,
+          1565.2173913043478,
+          1162.2516556291391,
+          1575.4966887417218,
+          1154.3478260869565,
+          1630.4347826086955,
+          1152.1739130434783,
+          1713.0434782608695,
+          1160.8695652173913,
+          1863.0434782608695,
+          1180.4347826086955,
+          1860.8695652173913,
+          1326.086956521739,
+          1819.5652173913043,
+          1389.1304347826087,
+          1782.6086956521738,
+          1441.304347826087,
+          1773.9130434782608,
+          1436.9565217391303,
+          1680.4347826086955,
+          1463.0434782608695,
+          1584.782608695652,
+          1419.5652173913043,
+          1526.086956521739
+        ]
+      ],
+      "bbox": [
+        1152.0,
+        1526.0,
+        312.0,
+        338.0
+      ],
+      "area": 78459.0,
+      "iscrowd": 0,
+      "original_fdi": 71
+    },
+    "target_FDI": 71,
+    "competitor_category": 43,
+    "competitor_FDI": 72,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          1141.9703369140625,
+          1527.5177001953125,
+          319.518798828125,
+          326.5219421386719
+        ],
+        "category_id": 42,
+        "FDI": 71,
+        "score": 0.7921603918075562
+      },
+      "query": 11,
+      "IoU": 0.9294046813601035,
+      "GT_class_logit": 1.337997317314148
+    },
+    "after": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          1143.934326171875,
+          1529.436767578125,
+          315.1514587402344,
+          319.6633605957031
+        ],
+        "category_id": 43,
+        "FDI": 72,
+        "score": 0.7891007661819458
+      },
+      "query": 8,
+      "IoU": 0.9086380327050224,
+      "GT_class_logit": 0.15893854200839996
+    },
+    "area_fraction": 0.008788,
+    "IoU_gain": -0.020766648655081044,
+    "case_id": "CMFA_adverse_01_image147_FDI71",
+    "image_sha256": "ce9064308a5b27720f45a6d6d762f81ad768301b16fa42b9e131c5bc4c287c8d"
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "adverse",
+    "image_id": 149,
+    "image_record": {
+      "id": 149,
+      "file_name": "a989e235313b.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_147/right_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_147/right_buccal.JPG",
+      "patient_key": "case_147",
+      "patient_id": "case_147",
+      "view": "right_buccal",
+      "view_id": 4
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/a989e235313b.jpg",
+    "target_annotation": {
+      "id": 2142,
+      "image_id": 149,
+      "category_id": 47,
+      "segmentation": [
+        [
+          2267.5675675675675,
+          1521.6216216216217,
+          2386.4864864864867,
+          1516.2162162162163,
+          2467.5675675675675,
+          1529.7297297297298,
+          2491.891891891892,
+          1581.081081081081,
+          2478.3783783783783,
+          1791.8918918918919,
+          2424.324324324324,
+          1805.4054054054054,
+          2251.3513513513512,
+          1767.5675675675675,
+          2181.0810810810813,
+          1716.2162162162163,
+          2151.3513513513512,
+          1608.1081081081081,
+          2156.7567567567567,
+          1543.2432432432433
+        ]
+      ],
+      "bbox": [
+        2151.0,
+        1516.0,
+        341.0,
+        290.0
+      ],
+      "area": 80765.0,
+      "iscrowd": 0,
+      "original_fdi": 81
+    },
+    "target_FDI": 81,
+    "competitor_category": 48,
+    "competitor_FDI": 82,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          2146.841552734375,
+          1506.9415283203125,
+          340.3132019042969,
+          309.1959228515625
+        ],
+        "category_id": 47,
+        "FDI": 81,
+        "score": 0.8029416799545288
+      },
+      "query": 13,
+      "IoU": 0.9142473904855779,
+      "GT_class_logit": 1.4047825336456299
+    },
+    "after": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          2147.589111328125,
+          1513.746826171875,
+          339.6344299316406,
+          301.4536437988281
+        ],
+        "category_id": 48,
+        "FDI": 82,
+        "score": 0.8065648078918457
+      },
+      "query": 12,
+      "IoU": 0.9396320593802844,
+      "GT_class_logit": -0.05002265423536301
+    },
+    "area_fraction": 0.008240833333333333,
+    "IoU_gain": 0.025384668894706475
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "localization",
+    "image_id": 161,
+    "image_record": {
+      "id": 161,
+      "file_name": "a1477e10f8e7.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_165/frontal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_165/frontal.JPG",
+      "patient_key": "case_165",
+      "patient_id": "case_165",
+      "view": "frontal",
+      "view_id": 0
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/a1477e10f8e7.jpg",
+    "target_annotation": {
+      "id": 2312,
+      "image_id": 161,
+      "category_id": 41,
+      "segmentation": [
+        [
+          3507.7922077922076,
+          1250.6493506493507,
+          3476.6233766233763,
+          1481.168831168831,
+          3464.935064935065,
+          1538.9610389610389,
+          3414.935064935065,
+          1592.2077922077922,
+          3377.9220779220777,
+          1579.2207792207791,
+          3331.8181818181815,
+          1600.0,
+          3303.246753246753,
+          1592.857142857143,
+          3275.3246753246754,
+          1567.5324675324675,
+          3303.246753246753,
+          1540.2597402597403,
+          3322.077922077922,
+          1490.2597402597403,
+          3333.7662337662337,
+          1414.2857142857142,
+          3370.779220779221,
+          1384.4155844155844,
+          3453.246753246753,
+          1294.155844155844
+        ]
+      ],
+      "bbox": [
+        3275.0,
+        1250.0,
+        233.0,
+        351.0
+      ],
+      "area": 39905.0,
+      "iscrowd": 0,
+      "original_fdi": 65
+    },
+    "target_FDI": 65,
+    "competitor_category": 50,
+    "competitor_FDI": 84,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          3200.375,
+          1268.635498046875,
+          314.40234375,
+          335.0394592285156
+        ],
+        "category_id": 41,
+        "FDI": 65,
+        "score": 0.8576956391334534
+      },
+      "query": 17,
+      "IoU": 0.7060672180178923,
+      "GT_class_logit": 1.796281099319458
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          3272.813720703125,
+          1260.56884765625,
+          237.324951171875,
+          339.1419982910156
+        ],
+        "category_id": 41,
+        "FDI": 65,
+        "score": 0.875450611114502
+      },
+      "query": 17,
+      "IoU": 0.9491926303267693,
+      "GT_class_logit": 1.9500367641448975
+    },
+    "area_fraction": 0.00681525,
+    "IoU_gain": 0.24312541230887696
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "correction",
+    "image_id": 167,
+    "image_record": {
+      "id": 167,
+      "file_name": "63d30599691d.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_168/left_buccal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_168/left_buccal.JPG",
+      "patient_key": "case_168",
+      "patient_id": "case_168",
+      "view": "left_buccal",
+      "view_id": 3
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/63d30599691d.jpg",
+    "target_annotation": {
+      "id": 2407,
+      "image_id": 167,
+      "category_id": 48,
+      "segmentation": [
+        [
+          415.0,
+          1530.0,
+          378.33333333333337,
+          1516.6666666666667,
+          341.66666666666674,
+          1516.6666666666667,
+          288.33333333333337,
+          1516.6666666666667,
+          238.33333333333337,
+          1516.6666666666667,
+          181.66666666666674,
+          1506.6666666666667,
+          138.33333333333337,
+          1506.6666666666667,
+          118.33333333333337,
+          1516.6666666666667,
+          101.66666666666674,
+          1570.0,
+          105.0,
+          1626.6666666666667,
+          125.0,
+          1693.3333333333335,
+          135.0,
+          1753.3333333333335,
+          135.0,
+          1806.6666666666667,
+          175.0,
+          1913.3333333333335,
+          225.0,
+          1953.3333333333335,
+          258.33333333333337,
+          1963.3333333333335,
+          305.0,
+          1880.0,
+          357.35294117647055,
+          1807.3529411764705,
+          378.33333333333337,
+          1760.0,
+          398.33333333333337,
+          1726.6666666666667,
+          418.33333333333337,
+          1643.3333333333335,
+          408.46153846153845,
+          1568.4615384615383
+        ]
+      ],
+      "bbox": [
+        101.0,
+        1506.0,
+        318.0,
+        458.0
+      ],
+      "area": 104028.0,
+      "iscrowd": 0,
+      "original_fdi": 82
+    },
+    "target_FDI": 82,
+    "competitor_category": 25,
+    "competitor_FDI": 42,
+    "before": {
+      "status": "wrong",
+      "prediction": {
+        "bbox": [
+          82.98298645019531,
+          1499.2266845703125,
+          333.6061706542969,
+          453.44354248046875
+        ],
+        "category_id": 25,
+        "FDI": 42,
+        "score": 0.7717896699905396
+      },
+      "query": 15,
+      "IoU": 0.9038993134058578,
+      "GT_class_logit": 0.5749561786651611
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          85.27350616455078,
+          1497.728759765625,
+          338.4290466308594,
+          459.2633972167969
+        ],
+        "category_id": 48,
+        "FDI": 82,
+        "score": 0.7772258520126343
+      },
+      "query": 12,
+      "IoU": 0.9096704466393526,
+      "GT_class_logit": 1.2495726346969604
+    },
+    "area_fraction": 0.012137,
+    "IoU_gain": 0.005771133233494763
+  },
+  {
+    "group": "CMFA",
+    "cohort": "DSLR",
+    "kind": "localization",
+    "image_id": 183,
+    "image_record": {
+      "id": 183,
+      "file_name": "b656fb87f568.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_180/lower_occlusal.json",
+      "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_180/lower_occlusal.JPG",
+      "patient_key": "case_180",
+      "patient_id": "case_180",
+      "view": "lower_occlusal",
+      "view_id": 2
+    },
+    "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/b656fb87f568.jpg",
+    "target_annotation": {
+      "id": 2641,
+      "image_id": 183,
+      "category_id": 21,
+      "segmentation": [
+        [
+          3466.4750957854408,
+          566.7943805874838,
+          3535.4406130268194,
+          649.553001277139,
+          3638.888888888889,
+          701.2771392081733,
+          3794.0613026819924,
+          739.208173690932,
+          3938.888888888889,
+          708.1736909323114,
+          3976.8199233716473,
+          621.9667943805873,
+          3987.8888888888887,
+          520.1323116219681,
+          3976.8199233716473,
+          318.51851851851836,
+          3983.716475095785,
+          225.41507024265627,
+          3863.026819923372,
+          218.51851851851836,
+          3728.5440613026817,
+          197.82886334610453,
+          3535.4406130268194,
+          197.82886334610453,
+          3435.4406130268194,
+          173.69093231162174,
+          3397.5095785440612,
+          301.2771392081735,
+          3390.6130268199236,
+          359.8978288633459,
+          3428.5440613026817,
+          480.58748403575976
+        ]
+      ],
+      "bbox": [
+        3390.0,
+        173.0,
+        598.0,
+        567.0
+      ],
+      "area": 270809.0,
+      "iscrowd": 0,
+      "original_fdi": 36
+    },
+    "target_FDI": 36,
+    "competitor_category": 34,
+    "competitor_FDI": 53,
+    "before": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          3379.83740234375,
+          21.27210807800293,
+          616.63720703125,
+          684.4112548828125
+        ],
+        "category_id": 21,
+        "FDI": 36,
+        "score": 0.843284010887146
+      },
+      "query": 11,
+      "IoU": 0.7197857690686583,
+      "GT_class_logit": 1.682868242263794
+    },
+    "after": {
+      "status": "correct",
+      "prediction": {
+        "bbox": [
+          3396.974609375,
+          139.2887725830078,
+          593.9142456054688,
+          561.3603515625
+        ],
+        "category_id": 21,
+        "FDI": 36,
+        "score": 0.8388915061950684
+      },
+      "query": 6,
+      "IoU": 0.8647912982977896,
+      "GT_class_logit": 1.650003433227539
+    },
+    "area_fraction": 0.0282555,
+    "IoU_gain": 0.14500552922913124
+  }
+]

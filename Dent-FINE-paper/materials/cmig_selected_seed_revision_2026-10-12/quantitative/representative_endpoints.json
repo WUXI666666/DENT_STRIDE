@@ -1,0 +1,143 @@
+{
+  "Pano": {
+    "cohort": "Pano",
+    "configuration": "pano_spatialshape_original",
+    "seed": 3,
+    "selection": "Highest AP among this cohort's selected three seeds; illustrative representative, not mean performance.",
+    "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/best.pth",
+    "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2",
+    "score_threshold": 0.3,
+    "IoU_threshold": 0.5,
+    "counts": {
+      "GT": 1861,
+      "predictions": 1949,
+      "localized_matches": 1834,
+      "correct_FDI_matches": 1698,
+      "TP": 1698,
+      "FP": 251,
+      "FN": 163,
+      "duplicate_image": 25,
+      "duplicate_count": 48
+    },
+    "Precision": 0.8712160082093381,
+    "Recall": 0.9124126813541107,
+    "F1": 0.8913385826771654,
+    "matched_tooth_FDI_accuracy": 0.925845147219193,
+    "localization_coverage": 0.9854916711445459,
+    "raw_duplicate_image_rate": 0.390625,
+    "metrics_percent": {
+      "AP": 54.367696881771934,
+      "AP50": 93.98797640677229,
+      "AP75": 55.16677350979692,
+      "AR100": 69.48656013335524
+    },
+    "fixed_threshold_percent": {
+      "Precision": 87.1216008209338,
+      "Recall": 91.24126813541108,
+      "F1": 89.13385826771653,
+      "matched_tooth_FDI_accuracy": 92.58451472191929,
+      "localization_coverage": 98.54916711445459,
+      "raw_duplicate_image_rate": 39.0625
+    },
+    "sources": {
+      "train_annotation": "/home/wuxi/DENTEX2023/annotations/instances_train2017.json",
+      "validation_annotation": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+      "prediction": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/evaluation/predictions_coco.json.gz",
+      "native_metrics": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/native_coco_metrics.json"
+    }
+  },
+  "Mobile": {
+    "cohort": "Mobile",
+    "configuration": "mobile_proto_k4_tau0p50",
+    "seed": 2,
+    "selection": "Highest AP among this cohort's selected three seeds; illustrative representative, not mean performance.",
+    "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/best.pth",
+    "checkpoint_sha256": "1f19ea4d30234effb359b2de0cfb494ee1fe3582ca93a0bbc54792cf3a3e60cf",
+    "score_threshold": 0.3,
+    "IoU_threshold": 0.5,
+    "counts": {
+      "GT": 2459,
+      "predictions": 2872,
+      "localized_matches": 2342,
+      "correct_FDI_matches": 2167,
+      "TP": 2167,
+      "FP": 705,
+      "FN": 292,
+      "duplicate_image": 86,
+      "duplicate_count": 132
+    },
+    "Precision": 0.7545264623955432,
+    "Recall": 0.8812525416836112,
+    "F1": 0.812980679047083,
+    "matched_tooth_FDI_accuracy": 0.9252775405636209,
+    "localization_coverage": 0.9524196827978854,
+    "raw_duplicate_image_rate": 0.39090909090909093,
+    "metrics_percent": {
+      "AP": 55.649634870985764,
+      "AP50": 84.06111321207922,
+      "AP75": 64.12049305999426,
+      "AR100": 70.54424102770149
+    },
+    "fixed_threshold_percent": {
+      "Precision": 75.45264623955433,
+      "Recall": 88.12525416836112,
+      "F1": 81.2980679047083,
+      "matched_tooth_FDI_accuracy": 92.52775405636208,
+      "localization_coverage": 95.24196827978854,
+      "raw_duplicate_image_rate": 39.09090909090909
+    },
+    "sources": {
+      "train_annotation": "/home/wuxi/coco/train/annotations_fdi_types.json",
+      "validation_annotation": "/home/wuxi/coco/valid/annotations_fdi_types.json",
+      "prediction": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/evaluation/predictions_coco.json.gz",
+      "native_metrics": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/native_coco_metrics.json"
+    }
+  },
+  "DSLR": {
+    "cohort": "DSLR",
+    "configuration": "dslr_cmfa_extra_decay_only",
+    "seed": 3,
+    "selection": "Highest AP among this cohort's selected three seeds; illustrative representative, not mean performance.",
+    "checkpoint_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/best.pth",
+    "checkpoint_sha256": "62029c9bae0c2446775add2956b27777a87641d67bbcd7e9afb53be6f5c5af5e",
+    "score_threshold": 0.3,
+    "IoU_threshold": 0.5,
+    "counts": {
+      "GT": 2742,
+      "predictions": 2884,
+      "localized_matches": 2666,
+      "correct_FDI_matches": 2592,
+      "TP": 2592,
+      "FP": 292,
+      "FN": 150,
+      "duplicate_image": 46,
+      "duplicate_count": 65
+    },
+    "Precision": 0.8987517337031901,
+    "Recall": 0.9452954048140044,
+    "F1": 0.9214361891219339,
+    "matched_tooth_FDI_accuracy": 0.9722430607651913,
+    "localization_coverage": 0.9722830051057623,
+    "raw_duplicate_image_rate": 0.24210526315789474,
+    "metrics_percent": {
+      "AP": 73.40286777998124,
+      "AP50": 89.48206349740931,
+      "AP75": 84.27930495682766,
+      "AR100": 84.04663174792691
+    },
+    "fixed_threshold_percent": {
+      "Precision": 89.875173370319,
+      "Recall": 94.52954048140045,
+      "F1": 92.14361891219339,
+      "matched_tooth_FDI_accuracy": 97.22430607651913,
+      "localization_coverage": 97.22830051057623,
+      "raw_duplicate_image_rate": 24.210526315789473
+    },
+    "sources": {
+      "train_annotation": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_train_fdi52.json",
+      "validation_annotation": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json",
+      "prediction": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/evaluation/predictions_coco.json.gz",
+      "native_metrics": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/native_coco_metrics.json"
+    }
+  }
+}

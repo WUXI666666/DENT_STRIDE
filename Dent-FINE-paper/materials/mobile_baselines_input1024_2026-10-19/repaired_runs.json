@@ -1,0 +1,13 @@
+{
+  "reason": "Retrain two affected models after correcting evaluation/runner adapters. The other six runs are unchanged.",
+  "seed": 0,
+  "epochs": 160,
+  "runs": {
+    "rtdetr_l": "runs/rtdetr_l/seed_0_repaired_20261020",
+    "rtdetrv2_s": "runs/rtdetrv2_s/seed_0_repaired_20261020"
+  },
+  "excluded_runs": {
+    "rtdetr_l": "runs/rtdetr_l/seed_0: invalid original-image coordinate export also invalidated checkpoint selection",
+    "rtdetrv2_s": "runs/rtdetrv2_s/seed_0: startup failure before epoch 0"
+  }
+}

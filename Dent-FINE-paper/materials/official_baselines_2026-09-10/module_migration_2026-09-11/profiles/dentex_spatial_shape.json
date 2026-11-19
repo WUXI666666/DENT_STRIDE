@@ -1,0 +1,9 @@
+{
+  "task": "dentex_spatial_shape",
+  "params_training_total": 10306891,
+  "params_trainable": 10306889,
+  "params_deploy_total": 10247177,
+  "GMACs": 12.4267748,
+  "GFLOPs": 24.979963856,
+  "profile": "calflops; deployed model forward; FP32 CPU; batch 1; 640x640; excludes postprocessing (including SpatialShape)"
+}

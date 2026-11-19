@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "checks": {
+    "DualOpt": "8 updates bitwise equal to original; anchor-aware restart next update bitwise equal",
+    "CMFA": "Forward, input gradients and parameter gradients bitwise equal to original cat path",
+    "phone_dualopt": {
+      "native_initial_parameters_unchanged": true,
+      "native_outputs_equal_without_active_CMFA": true,
+      "all_added_parameters_have_finite_nonzero_gradients": true,
+      "params_total": 10285925,
+      "additional_params": 0
+    },
+    "dentex_spatial_shape": {
+      "native_initial_parameters_unchanged": true,
+      "native_outputs_equal_without_active_CMFA": true,
+      "all_added_parameters_have_finite_nonzero_gradients": true,
+      "params_total": 10306891,
+      "additional_params": 46646
+    },
+    "dslr_cmfa_dualopt": {
+      "native_initial_parameters_unchanged": true,
+      "native_outputs_equal_without_active_CMFA": true,
+      "all_added_parameters_have_finite_nonzero_gradients": true,
+      "params_total": 10810605,
+      "additional_params": 524680
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "reviewed_document": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_main_reorganized_20261011.docx",
+  "requires_text_updates": [
+    {
+      "section": "3.2.2",
+      "paragraph_indices": [49, 53],
+      "issue": "The previous manuscript states temperature 0.20 for both domains.",
+      "required_update": "Prototype temperatures are 0.50 for Mobile and 0.20 for Pano."
+    },
+    {
+      "section": "3.5",
+      "paragraph_index": 84,
+      "issue": "The previous manuscript describes rollback weight 0.005.",
+      "required_update": "The selected DSLR configuration applies parameter-rank-scaled additional decay 0.01 with rollback disabled (0). The rank exponent 1.5 and scaling bounds 0.5–1.5 are unchanged."
+    }
+  ],
+  "verified_equations": {
+    "1_2_factor_fusion": "Three mapped log-softmax terms are weighted, summed, class-centered, and clipped once in [-6,0]. Mobile training and inference ordinary-query correction; Pano supervision only.",
+    "3_normalization": "Query and prototype L2 normalization; epsilon 1e-12.",
+    "4_prototype_scores": "LogSumExp across four cosine scores divided by temperature; no division by prototype count or subtraction of log(4).",
+    "5_prototype_loss": "Mean matched final-layer class CE, lambda 0.03 Mobile and 0.05 Pano; no inference logit fusion.",
+    "6_7_prior_statistics": "Normalized centers and joint log normalized width/height. Full sample covariance + 1e-3 I.",
+    "8_9_prior_score": "Minus one-half Mahalanobis quadratic form clipped [-20,0], then centered across classes and separately clipped [-6,0].",
+    "10_prior_combination": "Added in logit space with weights .20 center/.05 shape/.20 view before sigmoid and flattened query-class top-300. For panorama, view term is identically zero."
+  },
+  "actual_prior_file": "/home/wuxi/Dent-FINE/outputs/ablation_all_new_modules/priors/dentex_tooth_templates.pt",
+  "prior_numerical_verification": {
+    "training_images": 570,
+    "valid_boxes": 16234,
+    "classes": 32,
+    "spatial_mean_max_abs_error": 0.0,
+    "spatial_cov_max_abs_error": 4.656612873077393e-10,
+    "logshape_mean_max_abs_error": 0.0,
+    "logshape_cov_max_abs_error": 7.450580596923828e-9
+  }
+}

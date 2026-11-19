@@ -1,0 +1,243 @@
+{
+  "selected": {
+    "job_id": "phone_dualopt_C05",
+    "task": "phone_dualopt",
+    "cohort": "Smartphone",
+    "model": "DENT-STRIDE DualOpt",
+    "phase": "core_grid",
+    "seed": 0,
+    "augmentation": {
+      "profile": "fixed1024",
+      "mosaic": 0.0,
+      "mixup": 0.0,
+      "crop": 0.8,
+      "zoom": 0.5
+    },
+    "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_dualopt_C05_seed0.yml",
+    "config_sha256": "1131b35dae8f85e564164faf46ed45a7fe6d54caae478556e36c4ca564273fd1",
+    "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C05/seed_0",
+    "implementation_dir": "/home/wuxi/Dent-FINE",
+    "train_script": "/home/wuxi/Dent-FINE/train.py",
+    "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+    "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+    "changes_from_aligned_base": [
+      {
+        "path": "eval_spatial_size[0]",
+        "before": 640,
+        "after": 1024
+      },
+      {
+        "path": "eval_spatial_size[1]",
+        "before": 640,
+        "after": 1024
+      },
+      {
+        "path": "output_dir",
+        "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+        "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C05/seed_0"
+      },
+      {
+        "path": "train_dataloader.collate_fn.base_size",
+        "before": 640,
+        "after": 1024
+      },
+      {
+        "path": "train_dataloader.collate_fn.base_size_repeat",
+        "before": 20,
+        "after": null
+      },
+      {
+        "path": "train_dataloader.collate_fn.mixup_prob",
+        "before": 0.5,
+        "after": 0.0
+      },
+      {
+        "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+        "before": 320,
+        "after": 640
+      },
+      {
+        "path": "train_dataloader.dataset.transforms.ops[5].size[0]",
+        "before": 640,
+        "after": 1024
+      },
+      {
+        "path": "train_dataloader.dataset.transforms.ops[5].size[1]",
+        "before": 640,
+        "after": 1024
+      },
+      {
+        "path": "val_dataloader.dataset.transforms.ops[0].size[0]",
+        "before": 640,
+        "after": 1024
+      },
+      {
+        "path": "val_dataloader.dataset.transforms.ops[0].size[1]",
+        "before": 640,
+        "after": 1024
+      }
+    ],
+    "mosaic_gate": {
+      "outer_probability": 0.0,
+      "inner_probability": 0.0,
+      "active_epochs_zero_based": [
+        4,
+        69
+      ],
+      "native_crop_zoom_exclusion_preserved": true
+    },
+    "epochs_completed": 160,
+    "input_size": [
+      1024,
+      1024
+    ],
+    "training_scale_repeat": null,
+    "best_epoch_zero_based": 147,
+    "best_epoch_one_based": 148,
+    "final_epoch_one_based": 160,
+    "checkpoint_internal_epoch": 84,
+    "checkpoint_epoch_note": "Native stage rollback can reset this counter; use verified log epoch.",
+    "metrics_fraction": {
+      "AP": 0.5490671634934399,
+      "AP50": 0.8541460832509812,
+      "AP75": 0.598007505102084,
+      "AP_small": 0.4,
+      "AP_medium": 0.38869710571764354,
+      "AP_large": 0.5626273231699574,
+      "AR1": 0.6233906425908933,
+      "AR10": 0.6809045561550677,
+      "AR100": 0.687395060042836,
+      "AR_small": 0.4,
+      "AR_medium": 0.5177799823633157,
+      "AR_large": 0.6985184508224584
+    },
+    "metrics_percent": {
+      "AP": 54.90671634934399,
+      "AP50": 85.41460832509811,
+      "AP75": 59.8007505102084,
+      "AP_small": 40.0,
+      "AP_medium": 38.86971057176435,
+      "AP_large": 56.262732316995745,
+      "AR1": 62.33906425908933,
+      "AR10": 68.09045561550677,
+      "AR100": 68.7395060042836,
+      "AR_small": 40.0,
+      "AR_medium": 51.77799823633157,
+      "AR_large": 69.85184508224584
+    },
+    "best_log_metrics_fraction": {
+      "AP": 0.5490671634934399,
+      "AP50": 0.8541460832509812,
+      "AP75": 0.598007505102084,
+      "AP_small": 0.4,
+      "AP_medium": 0.38869710571764354,
+      "AP_large": 0.5626273231699574,
+      "AR1": 0.6233906425908933,
+      "AR10": 0.6809045561550677,
+      "AR100": 0.687395060042836,
+      "AR_small": 0.4,
+      "AR_medium": 0.5177799823633157,
+      "AR_large": 0.6985184508224584
+    },
+    "final_metrics_fraction": {
+      "AP": 0.5480283870034348,
+      "AP50": 0.8535391090527843,
+      "AP75": 0.5960454189048184,
+      "AP_small": 0.4,
+      "AP_medium": 0.3906329139093687,
+      "AP_large": 0.5613198820375769,
+      "AR1": 0.6226198903956691,
+      "AR10": 0.6790077521663784,
+      "AR100": 0.6875677112212027,
+      "AR_small": 0.4,
+      "AR_medium": 0.5172641093474427,
+      "AR_large": 0.69859715647462
+    },
+    "params_trainable": 10629283,
+    "loss_arch_weight": 0.25,
+    "observed_arch_loss_range": [
+      0.06155781218901687,
+      0.07045201164319975
+    ],
+    "checkpoint": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C05/seed_0/best.pth",
+    "checkpoint_sha256": "5606a4a43d30a6478a578d62c7dbda5116e98c22ecfddd9dcf0d30cd13694558",
+    "log_sha256": "4c453002b523be9d3edcbd2a4f801c473615a26f2c8d9d76de750200d974bdfa",
+    "verified_best_checkpoint": true,
+    "completed_at": "2026-09-17T09:17:19.476834+08:00"
+  },
+  "archive": {
+    "task": "phone_dualopt",
+    "model": "DENT-STRIDE DualOpt",
+    "AP": 54.90671634934399,
+    "AP50": 85.41460832509811,
+    "AP75": 59.8007505102084,
+    "AR100": 68.7395060042836,
+    "seed": 0,
+    "best_epoch_one_based": 148,
+    "params_trainable": 10629283,
+    "augmentation": {
+      "profile": "fixed1024",
+      "mosaic": 0.0,
+      "mixup": 0.0,
+      "crop": 0.8,
+      "zoom": 0.5
+    },
+    "source_output": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C05/seed_0",
+    "bundle_relative_path": "selected_models/phone_dualopt_AP54.907",
+    "files_sha256": {
+      "best.pth": "5606a4a43d30a6478a578d62c7dbda5116e98c22ecfddd9dcf0d30cd13694558",
+      "config.yml": "1131b35dae8f85e564164faf46ed45a7fe6d54caae478556e36c4ca564273fd1",
+      "metrics_summary.json": "27146c9f777efc721b28f77231c8490cc9f1b3ed071af8b2b7dc32737d22c9a0",
+      "coco_metrics.json": "b3d7aeeabfcbc4547c79230e80769ef283c75ae02f554c0fd28a9b00fcc2ba8e",
+      "log.txt": "4c453002b523be9d3edcbd2a4f801c473615a26f2c8d9d76de750200d974bdfa",
+      "COMPLETED.json": "eaa51a53dfc9eca95fb768297ac0532c8c51eae1be970ab8f25813408e90d68a",
+      "run_protocol.json": "5547def6cf24e72a9f6a37106481c8fa48615d1ae74a790b65e31b1f7175aeb4",
+      "job.json": "e248bf40579eb70bca22d807a5bbebd8ff5c0af3c3fb9bbf3117acb606ece5a8",
+      "preflight.json": "76f06aa6d049f3e04910f9c70da878741d5225a7409e7e6a40bab2bf114077c5",
+      "checkpoint_retention.json": "cffa3c7905b6f6cfb2fac8b0b6d32508e2238404f5ddb0e32b8f25cbb1afc134",
+      "best_evaluation.log": "5d06fab465a34655f4c460ee431dc1510cdc77d5923bc20bc66b83f64c1ff7a8"
+    },
+    "assets": {
+      "backbone": {
+        "path": "/home/wuxi/RT-DETR-main/D-FINE/weight/hgnetv2/PPHGNetV2_B0_stage1.pth",
+        "sha256": "70a372e8cbc59b34c5da2943261ecb633faf304a58e7e05461a27bd8d8b7f3d1",
+        "bundle_relative_path": "shared_assets/70a372e8cbc5_PPHGNetV2_B0_stage1.pth"
+      }
+    },
+    "datasets": {
+      "train": {
+        "images": 878,
+        "annotations": 9837,
+        "categories": 52,
+        "ann_file": "/home/wuxi/coco/train/annotations_fdi_types.json",
+        "ann_sha256": "8e7a4a0ad3cf08d05ede15b638cfee008be9c89297b2a07f52d20c711c4412f5",
+        "img_folder": "/home/wuxi/coco/train"
+      },
+      "val": {
+        "images": 220,
+        "annotations": 2459,
+        "categories": 52,
+        "ann_file": "/home/wuxi/coco/valid/annotations_fdi_types.json",
+        "ann_sha256": "f5c0e4e86654b32770dd1befb5d8e650b29066d41657675e0253792b0806c649",
+        "img_folder": "/home/wuxi/coco/valid"
+      }
+    },
+    "fdi_label_order": "fdi52",
+    "implementation_dir": "/home/wuxi/Dent-FINE",
+    "configuration_note": "config.yml is byte-identical to the actual run, including original absolute paths. Shared assets are archived separately. Dataset images and full model source are not in this bundle."
+  },
+  "candidate_count": 9,
+  "ranking": [
+    "phone_dualopt_C05",
+    "phone_dualopt_R03_mosaic0p25",
+    "phone_dualopt_C04",
+    "phone_dualopt_C02",
+    "phone_dualopt_R01_crop0p5",
+    "phone_dualopt_C01",
+    "phone_dualopt_C03",
+    "FINAL_phone_dualopt",
+    "phone_dualopt_R02_zoom0"
+  ],
+  "delta_AP_from_start": 2.713457206622614,
+  "scope": "Best within nine validation candidates, not a global optimum."
+}

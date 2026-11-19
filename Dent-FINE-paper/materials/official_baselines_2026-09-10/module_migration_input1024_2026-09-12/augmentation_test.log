@@ -1,0 +1,133 @@
+     ### Transform @Mosaic ###    
+     ### Transform @RandomPhotometricDistort ###    
+     ### Transform @RandomZoomOut ###    
+     ### Transform @RandomIoUCrop ###    
+     ### Transform @SanitizeBoundingBoxes ###    
+     ### Transform @Resize ###    
+     ### Transform @SanitizeBoundingBoxes ###    
+     ### Transform @ConvertPILImage ###    
+     ### Transform @ConvertBoxes ###    
+     ### Mosaic with Prob.@1.0 and ZoomOut/IoUCrop existed ### 
+     ### ImgTransforms Epochs: [4, 70, 130] ### 
+     ### Policy_ops@['Mosaic', 'RandomPhotometricDistort', 'RandomZoomOut', 'RandomIoUCrop'] ###
+     ### Transform @Mosaic ###    
+     ### Transform @RandomPhotometricDistort ###    
+     ### Transform @RandomZoomOut ###    
+     ### Transform @RandomIoUCrop ###    
+     ### Transform @AlignedSanitizeBoundingBoxes ###    
+     ### Transform @Resize ###    
+     ### Transform @AlignedSanitizeBoundingBoxes ###    
+     ### Transform @ConvertPILImage ###    
+     ### Transform @ConvertBoxes ###    
+     ### Mosaic with Prob.@1.0 and ZoomOut/IoUCrop existed ### 
+     ### ImgTransforms Epochs: [4, 70, 130] ### 
+     ### Policy_ops@['Mosaic', 'RandomPhotometricDistort', 'RandomZoomOut', 'RandomIoUCrop'] ###
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Transform @Resize ###    
+     ### Transform @ConvertPILImage ###    
+     ### Transform @Mosaic ###    
+     ### Transform @RandomPhotometricDistort ###    
+     ### Transform @RandomZoomOut ###    
+     ### Transform @RandomIoUCrop ###    
+     ### Transform @SanitizeBoundingBoxes ###    
+     ### Transform @Resize ###    
+     ### Transform @SanitizeBoundingBoxes ###    
+     ### Transform @ConvertPILImage ###    
+     ### Transform @ConvertBoxes ###    
+     ### Mosaic with Prob.@1.0 and ZoomOut/IoUCrop existed ### 
+     ### ImgTransforms Epochs: [4, 70, 130] ### 
+     ### Policy_ops@['Mosaic', 'RandomPhotometricDistort', 'RandomZoomOut', 'RandomIoUCrop'] ###
+     ### Transform @Mosaic ###    
+     ### Transform @RandomPhotometricDistort ###    
+     ### Transform @RandomZoomOut ###    
+     ### Transform @RandomIoUCrop ###    
+     ### Transform @AlignedSanitizeBoundingBoxes ###    
+     ### Transform @Resize ###    
+     ### Transform @AlignedSanitizeBoundingBoxes ###    
+     ### Transform @ConvertPILImage ###    
+     ### Transform @ConvertBoxes ###    
+     ### Mosaic with Prob.@1.0 and ZoomOut/IoUCrop existed ### 
+     ### ImgTransforms Epochs: [4, 70, 130] ### 
+     ### Policy_ops@['Mosaic', 'RandomPhotometricDistort', 'RandomZoomOut', 'RandomIoUCrop'] ###
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Transform @Resize ###    
+     ### Transform @ConvertPILImage ###    
+     ### Transform @Mosaic ###    
+     ### Transform @RandomPhotometricDistort ###    
+     ### Transform @RandomZoomOut ###    
+     ### Transform @RandomIoUCrop ###    
+     ### Transform @SanitizeBoundingBoxes ###    
+     ### Transform @Resize ###    
+     ### Transform @SanitizeBoundingBoxes ###    
+     ### Transform @ConvertPILImage ###    
+     ### Transform @ConvertBoxes ###    
+     ### Mosaic with Prob.@1.0 and ZoomOut/IoUCrop existed ### 
+     ### ImgTransforms Epochs: [4, 70, 130] ### 
+     ### Policy_ops@['Mosaic', 'RandomPhotometricDistort', 'RandomZoomOut', 'RandomIoUCrop'] ###
+     ### Transform @Mosaic ###    
+     ### Transform @RandomPhotometricDistort ###    
+     ### Transform @RandomZoomOut ###    
+     ### Transform @RandomIoUCrop ###    
+     ### Transform @AlignedSanitizeBoundingBoxes ###    
+     ### Transform @Resize ###    
+     ### Transform @AlignedSanitizeBoundingBoxes ###    
+     ### Transform @ConvertPILImage ###    
+     ### Transform @ConvertBoxes ###    
+     ### Mosaic with Prob.@1.0 and ZoomOut/IoUCrop existed ### 
+     ### ImgTransforms Epochs: [4, 70, 130] ### 
+     ### Policy_ops@['Mosaic', 'RandomPhotometricDistort', 'RandomZoomOut', 'RandomIoUCrop'] ###
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Using MixUp with Prob@1.0 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+     ### Transform @Resize ###    
+     ### Transform @ConvertPILImage ###    
+AUGMENTATION_RUNTIME_TEST_JSON={"cohorts": {"dentex_spatial_shape": {"native_metadata_mismatch_observed": false, "stages": {"130": {"batch_shape": [3, 3, 1024, 1024], "collated_box_counts": [27, 28, 29], "native_image_box_label_rng_equivalence": true, "sample_box_counts": [27, 28, 29]}, "4": {"batch_shape": [3, 3, 1024, 1024], "collated_box_counts": [229, 231, 236], "native_image_box_label_rng_equivalence": true, "sample_box_counts": [112, 119, 117]}, "70": {"batch_shape": [3, 3, 1024, 1024], "collated_box_counts": [56, 55, 57], "native_image_box_label_rng_equivalence": true, "sample_box_counts": [27, 28, 29]}}, "validation_unmodified": true}, "dslr_cmfa_dualopt": {"native_metadata_mismatch_observed": true, "stages": {"130": {"batch_shape": [3, 3, 1024, 1024], "collated_box_counts": [20, 16, 10], "native_image_box_label_rng_equivalence": true, "sample_box_counts": [20, 16, 10]}, "4": {"batch_shape": [3, 3, 1024, 1024], "collated_box_counts": [136, 122, 108], "native_image_box_label_rng_equivalence": true, "sample_box_counts": [75, 47, 61]}, "70": {"batch_shape": [3, 3, 1024, 1024], "collated_box_counts": [30, 36, 26], "native_image_box_label_rng_equivalence": true, "sample_box_counts": [20, 16, 10]}}, "validation_unmodified": true}, "phone_dualopt": {"native_metadata_mismatch_observed": true, "stages": {"130": {"batch_shape": [3, 3, 1024, 1024], "collated_box_counts": [8, 11, 15], "native_image_box_label_rng_equivalence": true, "sample_box_counts": [8, 11, 15]}, "4": {"batch_shape": [3, 3, 1024, 1024], "collated_box_counts": [101, 82, 93], "native_image_box_label_rng_equivalence": true, "sample_box_counts": [45, 37, 56]}, "70": {"batch_shape": [3, 3, 1024, 1024], "collated_box_counts": [23, 19, 26], "native_image_box_label_rng_equivalence": true, "sample_box_counts": [8, 11, 15]}}, "validation_unmodified": true}}, "device": "cpu", "explicit_crop_removal": {"cropped_image_shape": [3, 62, 50], "remaining_labels": [1, 3], "seed": 10}, "installation": {"changes": ["align existing area/iscrowd with native keep mask", "recompute existing box area", "MixUp concatenates existing crowd flags with native source permutation"], "composite_source_metadata": "retained unchanged; training-only, not clinical image metadata", "native_mosaic_modified": false, "native_sanitizer_registration_modified": false, "registered_train_collator": "AlignedBatchImageCollateFunction", "registered_transform": "AlignedSanitizeBoundingBoxes"}, "passed": true}

@@ -1,0 +1,32 @@
+{
+  "names": [
+    "AP",
+    "AP50",
+    "AP75",
+    "AP_small",
+    "AP_medium",
+    "AP_large",
+    "AR1",
+    "AR10",
+    "AR100",
+    "AR_small",
+    "AR_medium",
+    "AR_large"
+  ],
+  "metrics_fraction": {
+    "AP": 0.5515811254701211,
+    "AP50": 0.83953335100097,
+    "AP75": 0.6245718345845527,
+    "AP_small": 0.4,
+    "AP_medium": 0.41692808834333106,
+    "AP_large": 0.563622005974364,
+    "AR1": 0.6250822766308783,
+    "AR10": 0.688636233547064,
+    "AR100": 0.6967230389060918,
+    "AR_small": 0.4,
+    "AR_medium": 0.5390432098765432,
+    "AR_large": 0.7082124860055617
+  },
+  "source": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_R03_mosaic0p25/seed_0/best_evaluation/eval.pth",
+  "unavailable_metric_sentinel": -1
+}

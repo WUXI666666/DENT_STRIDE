@@ -1,0 +1,32 @@
+{
+  "names": [
+    "AP",
+    "AP50",
+    "AP75",
+    "AP_small",
+    "AP_medium",
+    "AP_large",
+    "AR1",
+    "AR10",
+    "AR100",
+    "AR_small",
+    "AR_medium",
+    "AR_large"
+  ],
+  "metrics_fraction": {
+    "AP": 0.5351789739087628,
+    "AP50": 0.9298849865433897,
+    "AP75": 0.5554580653229273,
+    "AP_small": -1.0,
+    "AP_medium": 0.332041220579718,
+    "AP_large": 0.5416599153717442,
+    "AR1": 0.5988767016076493,
+    "AR10": 0.6724354099083062,
+    "AR100": 0.673649658507629,
+    "AR_small": -1.0,
+    "AR_medium": 0.34444444444444444,
+    "AR_large": 0.6825413980269077
+  },
+  "source": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R06_fixed1024_mosaic0_mixup0p0/seed_0/best_evaluation/eval.pth",
+  "unavailable_metric_sentinel": -1
+}

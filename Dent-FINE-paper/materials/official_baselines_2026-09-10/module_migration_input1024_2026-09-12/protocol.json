@@ -1,0 +1,1897 @@
+{
+  "frozen_at": "2026-09-12T22:50:58.647935+08:00",
+  "upstream": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/DEIM",
+  "upstream_commit": "09d35d53d39ee3145a1e61e3a989b28b9468d1dd",
+  "base_protocol_sha256": "f0bf7b632b281b364eebef6d888c392252f0868c02734a73fbb883e68c7cc99d",
+  "source_migration_protocol": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/protocol.json",
+  "source_migration_protocol_sha256": "973f89156d6c4c39beb5a1d6a1a1169e7c36264b5123eadb3ad67fc3be4a58bd",
+  "scope": "Three selected main configurations plus six prepared configurations; no module sweep",
+  "with_baselines": false,
+  "queue_order": [
+    "phone_dualopt",
+    "dentex_spatial_shape",
+    "dslr_cmfa_dualopt"
+  ],
+  "runs": {
+    "phone_plain": {
+      "config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/configs/phone_plain.yml",
+      "output": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules_input1024/phone_plain/seed_0",
+      "modules": {
+        "cohort": "phone",
+        "cmfa": false,
+        "structured": false,
+        "spatial_shape": false,
+        "dualopt": false
+      },
+      "is_plain_control": true,
+      "baseline_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/configs/phone_plain.yml",
+      "baseline_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules_input1024/phone_plain/seed_0/metrics_summary.json",
+      "baseline_task": "phone_plain",
+      "source_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/configs/deim_s_phone.yml",
+      "source_config_sha256": "b07bbc3def66e8a1ca7cce440969ae056b21f15d4f2c39ed19e567b9d287d7a9",
+      "source_selected_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/phone_dualopt.yml",
+      "source_selected_config_sha256": "6babfeebef8d859ff0693d1453cdbc8e75a239155a9da06e93efeba9f2a9df75",
+      "source_640_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/phone_plain.yml",
+      "source_640_config_sha256": "24c0aab735bd9979bcc29fcddc0ed75a31ee015e54811995b9523e3bd3383dfe",
+      "historical_reference": {
+        "comparison_role": "Context only; augmentation/input schedule differs from these new runs",
+        "plain_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/phone/seed_0/metrics_summary.json",
+        "plain_metrics_sha256": "1b6a7c5c0bf66231043405706e0f0723eb7d8bc9462b74423ee7c3d948a07024",
+        "selected_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules/phone_dualopt/seed_0/metrics_summary.json",
+        "selected_metrics_sha256": "583f631f7b38317db7f2b1ee2a62e00c9659704fc64b080a5a9b0cdc4f38c475"
+      },
+      "config_sha256": "6b6c1a71fdbcbcef2ba2d0bc89518da029ca883fbf47ae34899ae6d27c4dd8af",
+      "baseline_config_sha256": "6b6c1a71fdbcbcef2ba2d0bc89518da029ca883fbf47ae34899ae6d27c4dd8af"
+    },
+    "phone_dualopt": {
+      "config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/configs/phone_dualopt.yml",
+      "output": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules_input1024/phone_dualopt/seed_0",
+      "modules": {
+        "cohort": "phone",
+        "cmfa": false,
+        "structured": false,
+        "spatial_shape": false,
+        "dualopt": true
+      },
+      "is_plain_control": false,
+      "baseline_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/configs/phone_plain.yml",
+      "baseline_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules_input1024/phone_plain/seed_0/metrics_summary.json",
+      "baseline_task": "phone_plain",
+      "source_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/configs/deim_s_phone.yml",
+      "source_config_sha256": "b07bbc3def66e8a1ca7cce440969ae056b21f15d4f2c39ed19e567b9d287d7a9",
+      "source_selected_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/phone_dualopt.yml",
+      "source_selected_config_sha256": "6babfeebef8d859ff0693d1453cdbc8e75a239155a9da06e93efeba9f2a9df75",
+      "source_640_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/phone_dualopt.yml",
+      "source_640_config_sha256": "6babfeebef8d859ff0693d1453cdbc8e75a239155a9da06e93efeba9f2a9df75",
+      "historical_reference": {
+        "comparison_role": "Context only; augmentation/input schedule differs from these new runs",
+        "plain_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/phone/seed_0/metrics_summary.json",
+        "plain_metrics_sha256": "1b6a7c5c0bf66231043405706e0f0723eb7d8bc9462b74423ee7c3d948a07024",
+        "selected_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules/phone_dualopt/seed_0/metrics_summary.json",
+        "selected_metrics_sha256": "583f631f7b38317db7f2b1ee2a62e00c9659704fc64b080a5a9b0cdc4f38c475"
+      },
+      "config_sha256": "a03fbb9115358b2ee9a550713f869d8328207741b4c236c9a42f2fff09e31f08",
+      "baseline_config_sha256": "6b6c1a71fdbcbcef2ba2d0bc89518da029ca883fbf47ae34899ae6d27c4dd8af"
+    },
+    "dentex_plain": {
+      "config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/configs/dentex_plain.yml",
+      "output": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules_input1024/dentex_plain/seed_0",
+      "modules": {
+        "cohort": "dentex",
+        "cmfa": false,
+        "structured": false,
+        "spatial_shape": false,
+        "dualopt": false
+      },
+      "is_plain_control": true,
+      "baseline_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/configs/dentex_plain.yml",
+      "baseline_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules_input1024/dentex_plain/seed_0/metrics_summary.json",
+      "baseline_task": "dentex_plain",
+      "source_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/configs/deim_s_dentex.yml",
+      "source_config_sha256": "b84f31f27a906035dc39078c15f4a9239b1aa27c881876294287b177759ea91b",
+      "source_selected_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/dentex_spatial_shape.yml",
+      "source_selected_config_sha256": "7170e95963a6c459c3c1211e4541a35624bd431cf7afbcc209a10f84c2390caa",
+      "source_640_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/dentex_plain.yml",
+      "source_640_config_sha256": "e93300c3b7aa1310f1519b32844f9a6677d1b8b657d5f9472e5b542aa96eccd1",
+      "historical_reference": {
+        "comparison_role": "Context only; augmentation/input schedule differs from these new runs",
+        "plain_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/dentex/seed_0/metrics_summary.json",
+        "plain_metrics_sha256": "085dedaef7ca83b1066baf3e1992b985ae24618019ae9d4e71dd4378e2f95f3b",
+        "selected_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules/dentex_spatial_shape/seed_0/metrics_summary.json",
+        "selected_metrics_sha256": "2b4a71619c7108c9953f13e0249024ee42f7dd4d5abbaea347075092321a4766"
+      },
+      "config_sha256": "334eec7c119c461966a0ada8ad6e0841d9be8a338383b9db69a255c7595b804f",
+      "baseline_config_sha256": "334eec7c119c461966a0ada8ad6e0841d9be8a338383b9db69a255c7595b804f"
+    },
+    "dentex_spatial_shape": {
+      "config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/configs/dentex_spatial_shape.yml",
+      "output": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules_input1024/dentex_spatial_shape/seed_0",
+      "modules": {
+        "cohort": "dentex",
+        "cmfa": false,
+        "structured": true,
+        "spatial_shape": true,
+        "dualopt": false,
+        "prototype_count": 4,
+        "prototype_tau": 0.2,
+        "fdi_codes": [
+          18,
+          17,
+          16,
+          15,
+          14,
+          13,
+          12,
+          11,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          38,
+          37,
+          36,
+          35,
+          34,
+          33,
+          32,
+          31,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "factor_inference_fusion": 0.0,
+        "prototype_inference_fusion": 0.0,
+        "prior_file": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/dentex_train_templates.json",
+        "prior_sha256": "63988b37be3cfab69fd6de4d1fbdf92765898fcac791cf5be2dd31402e295937",
+        "spatial_prior_weight": 0.2,
+        "shape_prior_weight": 0.05,
+        "view_prior_weight": 0.2,
+        "view_type": "panorama"
+      },
+      "is_plain_control": false,
+      "baseline_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/configs/dentex_plain.yml",
+      "baseline_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules_input1024/dentex_plain/seed_0/metrics_summary.json",
+      "baseline_task": "dentex_plain",
+      "source_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/configs/deim_s_dentex.yml",
+      "source_config_sha256": "b84f31f27a906035dc39078c15f4a9239b1aa27c881876294287b177759ea91b",
+      "source_selected_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/dentex_spatial_shape.yml",
+      "source_selected_config_sha256": "7170e95963a6c459c3c1211e4541a35624bd431cf7afbcc209a10f84c2390caa",
+      "source_640_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/dentex_spatial_shape.yml",
+      "source_640_config_sha256": "7170e95963a6c459c3c1211e4541a35624bd431cf7afbcc209a10f84c2390caa",
+      "historical_reference": {
+        "comparison_role": "Context only; augmentation/input schedule differs from these new runs",
+        "plain_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/dentex/seed_0/metrics_summary.json",
+        "plain_metrics_sha256": "085dedaef7ca83b1066baf3e1992b985ae24618019ae9d4e71dd4378e2f95f3b",
+        "selected_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules/dentex_spatial_shape/seed_0/metrics_summary.json",
+        "selected_metrics_sha256": "2b4a71619c7108c9953f13e0249024ee42f7dd4d5abbaea347075092321a4766"
+      },
+      "config_sha256": "cf66548821714e53e6b71f9763cc77e35dec4fadb7d814387a90eeef3dcd86a8",
+      "baseline_config_sha256": "334eec7c119c461966a0ada8ad6e0841d9be8a338383b9db69a255c7595b804f"
+    },
+    "dslr_plain": {
+      "config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/configs/dslr_plain.yml",
+      "output": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules_input1024/dslr_plain/seed_0",
+      "modules": {
+        "cohort": "dslr",
+        "cmfa": false,
+        "structured": false,
+        "spatial_shape": false,
+        "dualopt": false
+      },
+      "is_plain_control": true,
+      "baseline_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/configs/dslr_plain.yml",
+      "baseline_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules_input1024/dslr_plain/seed_0/metrics_summary.json",
+      "baseline_task": "dslr_plain",
+      "source_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/configs/deim_s_dslr.yml",
+      "source_config_sha256": "0bd6de57962f5f5c5135327c1ab38a615907c1d08f7a37c2293cc839f4fe6ba5",
+      "source_selected_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/dslr_cmfa_dualopt.yml",
+      "source_selected_config_sha256": "3cf956df45045c4f5c716cb310b09ae49ae766a32cdaca092c0d3e948793ab79",
+      "source_640_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/dslr_plain.yml",
+      "source_640_config_sha256": "0068d95a74d9a0ba9e88710129ab9c8cdfd89ec2174389b0d5b1463e076c930f",
+      "historical_reference": {
+        "comparison_role": "Context only; augmentation/input schedule differs from these new runs",
+        "plain_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/dslr/seed_0/metrics_summary.json",
+        "plain_metrics_sha256": "29b55756bbaf973a45ed39e7f6a9331379c6fad8531ab3015282be46d151e0b6",
+        "selected_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules/dslr_cmfa_dualopt/seed_0/metrics_summary.json",
+        "selected_metrics_sha256": "3088f8a7d9199e5e1f6de1d1c635f40981950a89e52d2c993c972357d813c8bf"
+      },
+      "config_sha256": "4d5b5aa949b1bf82b5fd65c1553077b8967bb4cebad1fe5a7865525a28cc1c82",
+      "baseline_config_sha256": "4d5b5aa949b1bf82b5fd65c1553077b8967bb4cebad1fe5a7865525a28cc1c82"
+    },
+    "dslr_cmfa_dualopt": {
+      "config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/configs/dslr_cmfa_dualopt.yml",
+      "output": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules_input1024/dslr_cmfa_dualopt/seed_0",
+      "modules": {
+        "cohort": "dslr",
+        "cmfa": true,
+        "structured": false,
+        "spatial_shape": false,
+        "dualopt": true
+      },
+      "is_plain_control": false,
+      "baseline_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/configs/dslr_plain.yml",
+      "baseline_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules_input1024/dslr_plain/seed_0/metrics_summary.json",
+      "baseline_task": "dslr_plain",
+      "source_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/configs/deim_s_dslr.yml",
+      "source_config_sha256": "0bd6de57962f5f5c5135327c1ab38a615907c1d08f7a37c2293cc839f4fe6ba5",
+      "source_selected_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/dslr_cmfa_dualopt.yml",
+      "source_selected_config_sha256": "3cf956df45045c4f5c716cb310b09ae49ae766a32cdaca092c0d3e948793ab79",
+      "source_640_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/dslr_cmfa_dualopt.yml",
+      "source_640_config_sha256": "3cf956df45045c4f5c716cb310b09ae49ae766a32cdaca092c0d3e948793ab79",
+      "historical_reference": {
+        "comparison_role": "Context only; augmentation/input schedule differs from these new runs",
+        "plain_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/dslr/seed_0/metrics_summary.json",
+        "plain_metrics_sha256": "29b55756bbaf973a45ed39e7f6a9331379c6fad8531ab3015282be46d151e0b6",
+        "selected_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules/dslr_cmfa_dualopt/seed_0/metrics_summary.json",
+        "selected_metrics_sha256": "3088f8a7d9199e5e1f6de1d1c635f40981950a89e52d2c993c972357d813c8bf"
+      },
+      "config_sha256": "1cd4fcd87469b02f9f9661a9e0a92d64366c0fca0850da6429c27632f67c1e0f",
+      "baseline_config_sha256": "4d5b5aa949b1bf82b5fd65c1553077b8967bb4cebad1fe5a7865525a28cc1c82"
+    }
+  },
+  "seeds": [
+    0
+  ],
+  "epochs": 160,
+  "dataset_annotations": {
+    "/home/wuxi/coco/train/annotations_fdi_types.json": "8e7a4a0ad3cf08d05ede15b638cfee008be9c89297b2a07f52d20c711c4412f5",
+    "/home/wuxi/coco/valid/annotations_fdi_types.json": "f5c0e4e86654b32770dd1befb5d8e650b29066d41657675e0253792b0806c649",
+    "/home/wuxi/DENTEX2023/annotations/instances_train2017.json": "cdde8f96874c0aafabdd3de12fa5c8b3827ebd4eed40768119bdd4d74901cb50",
+    "/home/wuxi/DENTEX2023/annotations/instances_val2017.json": "52532169c776f6ceaa126816787e54f8f796ebb6163c0bf8a04f98372d4f3903",
+    "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_train_fdi52.json": "f38177d7f8521516653c754f7293339c3267c2aacd70eee7f0c8801af2c40c98",
+    "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json": "de3b8dc99b2a0a2679386c75d2e8aeff4871a0eaf448d5cc5abef5e1e725dbcf"
+  },
+  "dataset_evidence": {
+    "phone": {
+      "train": {
+        "annotation": "/home/wuxi/coco/train/annotations_fdi_types.json",
+        "sha256": "8e7a4a0ad3cf08d05ede15b638cfee008be9c89297b2a07f52d20c711c4412f5",
+        "image_root": "/home/wuxi/coco/train",
+        "images": 878,
+        "annotations": 9837,
+        "category_map": [
+          {
+            "supercategory": null,
+            "id": 0,
+            "name": "11"
+          },
+          {
+            "supercategory": null,
+            "id": 1,
+            "name": "12"
+          },
+          {
+            "supercategory": null,
+            "id": 2,
+            "name": "13"
+          },
+          {
+            "supercategory": null,
+            "id": 3,
+            "name": "14"
+          },
+          {
+            "supercategory": null,
+            "id": 4,
+            "name": "15"
+          },
+          {
+            "supercategory": null,
+            "id": 5,
+            "name": "16"
+          },
+          {
+            "supercategory": null,
+            "id": 6,
+            "name": "17"
+          },
+          {
+            "supercategory": null,
+            "id": 7,
+            "name": "18"
+          },
+          {
+            "supercategory": null,
+            "id": 8,
+            "name": "21"
+          },
+          {
+            "supercategory": null,
+            "id": 9,
+            "name": "22"
+          },
+          {
+            "supercategory": null,
+            "id": 10,
+            "name": "23"
+          },
+          {
+            "supercategory": null,
+            "id": 11,
+            "name": "24"
+          },
+          {
+            "supercategory": null,
+            "id": 12,
+            "name": "25"
+          },
+          {
+            "supercategory": null,
+            "id": 13,
+            "name": "26"
+          },
+          {
+            "supercategory": null,
+            "id": 14,
+            "name": "27"
+          },
+          {
+            "supercategory": null,
+            "id": 15,
+            "name": "28"
+          },
+          {
+            "supercategory": null,
+            "id": 16,
+            "name": "31"
+          },
+          {
+            "supercategory": null,
+            "id": 17,
+            "name": "32"
+          },
+          {
+            "supercategory": null,
+            "id": 18,
+            "name": "33"
+          },
+          {
+            "supercategory": null,
+            "id": 19,
+            "name": "34"
+          },
+          {
+            "supercategory": null,
+            "id": 20,
+            "name": "35"
+          },
+          {
+            "supercategory": null,
+            "id": 21,
+            "name": "36"
+          },
+          {
+            "supercategory": null,
+            "id": 22,
+            "name": "37"
+          },
+          {
+            "supercategory": null,
+            "id": 23,
+            "name": "38"
+          },
+          {
+            "supercategory": null,
+            "id": 24,
+            "name": "41"
+          },
+          {
+            "supercategory": null,
+            "id": 25,
+            "name": "42"
+          },
+          {
+            "supercategory": null,
+            "id": 26,
+            "name": "43"
+          },
+          {
+            "supercategory": null,
+            "id": 27,
+            "name": "44"
+          },
+          {
+            "supercategory": null,
+            "id": 28,
+            "name": "45"
+          },
+          {
+            "supercategory": null,
+            "id": 29,
+            "name": "46"
+          },
+          {
+            "supercategory": null,
+            "id": 30,
+            "name": "47"
+          },
+          {
+            "supercategory": null,
+            "id": 31,
+            "name": "48"
+          },
+          {
+            "supercategory": null,
+            "id": 32,
+            "name": "51"
+          },
+          {
+            "supercategory": null,
+            "id": 33,
+            "name": "52"
+          },
+          {
+            "supercategory": null,
+            "id": 34,
+            "name": "53"
+          },
+          {
+            "supercategory": null,
+            "id": 35,
+            "name": "54"
+          },
+          {
+            "supercategory": null,
+            "id": 36,
+            "name": "55"
+          },
+          {
+            "supercategory": null,
+            "id": 37,
+            "name": "61"
+          },
+          {
+            "supercategory": null,
+            "id": 38,
+            "name": "62"
+          },
+          {
+            "supercategory": null,
+            "id": 39,
+            "name": "63"
+          },
+          {
+            "supercategory": null,
+            "id": 40,
+            "name": "64"
+          },
+          {
+            "supercategory": null,
+            "id": 41,
+            "name": "65"
+          },
+          {
+            "supercategory": null,
+            "id": 42,
+            "name": "71"
+          },
+          {
+            "supercategory": null,
+            "id": 43,
+            "name": "72"
+          },
+          {
+            "supercategory": null,
+            "id": 44,
+            "name": "73"
+          },
+          {
+            "supercategory": null,
+            "id": 45,
+            "name": "74"
+          },
+          {
+            "supercategory": null,
+            "id": 46,
+            "name": "75"
+          },
+          {
+            "supercategory": null,
+            "id": 47,
+            "name": "81"
+          },
+          {
+            "supercategory": null,
+            "id": 48,
+            "name": "82"
+          },
+          {
+            "supercategory": null,
+            "id": 49,
+            "name": "83"
+          },
+          {
+            "supercategory": null,
+            "id": 50,
+            "name": "84"
+          },
+          {
+            "supercategory": null,
+            "id": 51,
+            "name": "85"
+          }
+        ],
+        "annotation_id_zero_present": true
+      },
+      "val": {
+        "annotation": "/home/wuxi/coco/valid/annotations_fdi_types.json",
+        "sha256": "f5c0e4e86654b32770dd1befb5d8e650b29066d41657675e0253792b0806c649",
+        "image_root": "/home/wuxi/coco/valid",
+        "images": 220,
+        "annotations": 2459,
+        "category_map": [
+          {
+            "supercategory": null,
+            "id": 0,
+            "name": "11"
+          },
+          {
+            "supercategory": null,
+            "id": 1,
+            "name": "12"
+          },
+          {
+            "supercategory": null,
+            "id": 2,
+            "name": "13"
+          },
+          {
+            "supercategory": null,
+            "id": 3,
+            "name": "14"
+          },
+          {
+            "supercategory": null,
+            "id": 4,
+            "name": "15"
+          },
+          {
+            "supercategory": null,
+            "id": 5,
+            "name": "16"
+          },
+          {
+            "supercategory": null,
+            "id": 6,
+            "name": "17"
+          },
+          {
+            "supercategory": null,
+            "id": 7,
+            "name": "18"
+          },
+          {
+            "supercategory": null,
+            "id": 8,
+            "name": "21"
+          },
+          {
+            "supercategory": null,
+            "id": 9,
+            "name": "22"
+          },
+          {
+            "supercategory": null,
+            "id": 10,
+            "name": "23"
+          },
+          {
+            "supercategory": null,
+            "id": 11,
+            "name": "24"
+          },
+          {
+            "supercategory": null,
+            "id": 12,
+            "name": "25"
+          },
+          {
+            "supercategory": null,
+            "id": 13,
+            "name": "26"
+          },
+          {
+            "supercategory": null,
+            "id": 14,
+            "name": "27"
+          },
+          {
+            "supercategory": null,
+            "id": 15,
+            "name": "28"
+          },
+          {
+            "supercategory": null,
+            "id": 16,
+            "name": "31"
+          },
+          {
+            "supercategory": null,
+            "id": 17,
+            "name": "32"
+          },
+          {
+            "supercategory": null,
+            "id": 18,
+            "name": "33"
+          },
+          {
+            "supercategory": null,
+            "id": 19,
+            "name": "34"
+          },
+          {
+            "supercategory": null,
+            "id": 20,
+            "name": "35"
+          },
+          {
+            "supercategory": null,
+            "id": 21,
+            "name": "36"
+          },
+          {
+            "supercategory": null,
+            "id": 22,
+            "name": "37"
+          },
+          {
+            "supercategory": null,
+            "id": 23,
+            "name": "38"
+          },
+          {
+            "supercategory": null,
+            "id": 24,
+            "name": "41"
+          },
+          {
+            "supercategory": null,
+            "id": 25,
+            "name": "42"
+          },
+          {
+            "supercategory": null,
+            "id": 26,
+            "name": "43"
+          },
+          {
+            "supercategory": null,
+            "id": 27,
+            "name": "44"
+          },
+          {
+            "supercategory": null,
+            "id": 28,
+            "name": "45"
+          },
+          {
+            "supercategory": null,
+            "id": 29,
+            "name": "46"
+          },
+          {
+            "supercategory": null,
+            "id": 30,
+            "name": "47"
+          },
+          {
+            "supercategory": null,
+            "id": 31,
+            "name": "48"
+          },
+          {
+            "supercategory": null,
+            "id": 32,
+            "name": "51"
+          },
+          {
+            "supercategory": null,
+            "id": 33,
+            "name": "52"
+          },
+          {
+            "supercategory": null,
+            "id": 34,
+            "name": "53"
+          },
+          {
+            "supercategory": null,
+            "id": 35,
+            "name": "54"
+          },
+          {
+            "supercategory": null,
+            "id": 36,
+            "name": "55"
+          },
+          {
+            "supercategory": null,
+            "id": 37,
+            "name": "61"
+          },
+          {
+            "supercategory": null,
+            "id": 38,
+            "name": "62"
+          },
+          {
+            "supercategory": null,
+            "id": 39,
+            "name": "63"
+          },
+          {
+            "supercategory": null,
+            "id": 40,
+            "name": "64"
+          },
+          {
+            "supercategory": null,
+            "id": 41,
+            "name": "65"
+          },
+          {
+            "supercategory": null,
+            "id": 42,
+            "name": "71"
+          },
+          {
+            "supercategory": null,
+            "id": 43,
+            "name": "72"
+          },
+          {
+            "supercategory": null,
+            "id": 44,
+            "name": "73"
+          },
+          {
+            "supercategory": null,
+            "id": 45,
+            "name": "74"
+          },
+          {
+            "supercategory": null,
+            "id": 46,
+            "name": "75"
+          },
+          {
+            "supercategory": null,
+            "id": 47,
+            "name": "81"
+          },
+          {
+            "supercategory": null,
+            "id": 48,
+            "name": "82"
+          },
+          {
+            "supercategory": null,
+            "id": 49,
+            "name": "83"
+          },
+          {
+            "supercategory": null,
+            "id": 50,
+            "name": "84"
+          },
+          {
+            "supercategory": null,
+            "id": 51,
+            "name": "85"
+          }
+        ],
+        "annotation_id_zero_present": true
+      }
+    },
+    "dentex": {
+      "train": {
+        "annotation": "/home/wuxi/DENTEX2023/annotations/instances_train2017.json",
+        "sha256": "cdde8f96874c0aafabdd3de12fa5c8b3827ebd4eed40768119bdd4d74901cb50",
+        "image_root": "/home/wuxi/DENTEX2023/train2017",
+        "images": 570,
+        "annotations": 16234,
+        "category_map": [
+          {
+            "id": 0,
+            "name": "1",
+            "supercategory": "1"
+          },
+          {
+            "id": 1,
+            "name": "2",
+            "supercategory": "2"
+          },
+          {
+            "id": 2,
+            "name": "3",
+            "supercategory": "3"
+          },
+          {
+            "id": 3,
+            "name": "4",
+            "supercategory": "4"
+          },
+          {
+            "id": 4,
+            "name": "5",
+            "supercategory": "5"
+          },
+          {
+            "id": 5,
+            "name": "6",
+            "supercategory": "6"
+          },
+          {
+            "id": 6,
+            "name": "7",
+            "supercategory": "7"
+          },
+          {
+            "id": 7,
+            "name": "8",
+            "supercategory": "8"
+          },
+          {
+            "id": 8,
+            "name": "9",
+            "supercategory": "9"
+          },
+          {
+            "id": 9,
+            "name": "10",
+            "supercategory": "10"
+          },
+          {
+            "id": 10,
+            "name": "11",
+            "supercategory": "11"
+          },
+          {
+            "id": 11,
+            "name": "12",
+            "supercategory": "12"
+          },
+          {
+            "id": 12,
+            "name": "13",
+            "supercategory": "13"
+          },
+          {
+            "id": 13,
+            "name": "14",
+            "supercategory": "14"
+          },
+          {
+            "id": 14,
+            "name": "15",
+            "supercategory": "15"
+          },
+          {
+            "id": 15,
+            "name": "16",
+            "supercategory": "16"
+          },
+          {
+            "id": 16,
+            "name": "17",
+            "supercategory": "17"
+          },
+          {
+            "id": 17,
+            "name": "18",
+            "supercategory": "18"
+          },
+          {
+            "id": 18,
+            "name": "19",
+            "supercategory": "19"
+          },
+          {
+            "id": 19,
+            "name": "20",
+            "supercategory": "20"
+          },
+          {
+            "id": 20,
+            "name": "21",
+            "supercategory": "21"
+          },
+          {
+            "id": 21,
+            "name": "22",
+            "supercategory": "22"
+          },
+          {
+            "id": 22,
+            "name": "23",
+            "supercategory": "23"
+          },
+          {
+            "id": 23,
+            "name": "24",
+            "supercategory": "24"
+          },
+          {
+            "id": 24,
+            "name": "25",
+            "supercategory": "25"
+          },
+          {
+            "id": 25,
+            "name": "26",
+            "supercategory": "26"
+          },
+          {
+            "id": 26,
+            "name": "27",
+            "supercategory": "27"
+          },
+          {
+            "id": 27,
+            "name": "28",
+            "supercategory": "28"
+          },
+          {
+            "id": 28,
+            "name": "29",
+            "supercategory": "29"
+          },
+          {
+            "id": 29,
+            "name": "30",
+            "supercategory": "30"
+          },
+          {
+            "id": 30,
+            "name": "31",
+            "supercategory": "31"
+          },
+          {
+            "id": 31,
+            "name": "32",
+            "supercategory": "32"
+          }
+        ],
+        "annotation_id_zero_present": false
+      },
+      "val": {
+        "annotation": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+        "sha256": "52532169c776f6ceaa126816787e54f8f796ebb6163c0bf8a04f98372d4f3903",
+        "image_root": "/home/wuxi/DENTEX2023/val2017",
+        "images": 64,
+        "annotations": 1861,
+        "category_map": [
+          {
+            "id": 0,
+            "name": "1",
+            "supercategory": "1"
+          },
+          {
+            "id": 1,
+            "name": "2",
+            "supercategory": "2"
+          },
+          {
+            "id": 2,
+            "name": "3",
+            "supercategory": "3"
+          },
+          {
+            "id": 3,
+            "name": "4",
+            "supercategory": "4"
+          },
+          {
+            "id": 4,
+            "name": "5",
+            "supercategory": "5"
+          },
+          {
+            "id": 5,
+            "name": "6",
+            "supercategory": "6"
+          },
+          {
+            "id": 6,
+            "name": "7",
+            "supercategory": "7"
+          },
+          {
+            "id": 7,
+            "name": "8",
+            "supercategory": "8"
+          },
+          {
+            "id": 8,
+            "name": "9",
+            "supercategory": "9"
+          },
+          {
+            "id": 9,
+            "name": "10",
+            "supercategory": "10"
+          },
+          {
+            "id": 10,
+            "name": "11",
+            "supercategory": "11"
+          },
+          {
+            "id": 11,
+            "name": "12",
+            "supercategory": "12"
+          },
+          {
+            "id": 12,
+            "name": "13",
+            "supercategory": "13"
+          },
+          {
+            "id": 13,
+            "name": "14",
+            "supercategory": "14"
+          },
+          {
+            "id": 14,
+            "name": "15",
+            "supercategory": "15"
+          },
+          {
+            "id": 15,
+            "name": "16",
+            "supercategory": "16"
+          },
+          {
+            "id": 16,
+            "name": "17",
+            "supercategory": "17"
+          },
+          {
+            "id": 17,
+            "name": "18",
+            "supercategory": "18"
+          },
+          {
+            "id": 18,
+            "name": "19",
+            "supercategory": "19"
+          },
+          {
+            "id": 19,
+            "name": "20",
+            "supercategory": "20"
+          },
+          {
+            "id": 20,
+            "name": "21",
+            "supercategory": "21"
+          },
+          {
+            "id": 21,
+            "name": "22",
+            "supercategory": "22"
+          },
+          {
+            "id": 22,
+            "name": "23",
+            "supercategory": "23"
+          },
+          {
+            "id": 23,
+            "name": "24",
+            "supercategory": "24"
+          },
+          {
+            "id": 24,
+            "name": "25",
+            "supercategory": "25"
+          },
+          {
+            "id": 25,
+            "name": "26",
+            "supercategory": "26"
+          },
+          {
+            "id": 26,
+            "name": "27",
+            "supercategory": "27"
+          },
+          {
+            "id": 27,
+            "name": "28",
+            "supercategory": "28"
+          },
+          {
+            "id": 28,
+            "name": "29",
+            "supercategory": "29"
+          },
+          {
+            "id": 29,
+            "name": "30",
+            "supercategory": "30"
+          },
+          {
+            "id": 30,
+            "name": "31",
+            "supercategory": "31"
+          },
+          {
+            "id": 31,
+            "name": "32",
+            "supercategory": "32"
+          }
+        ],
+        "annotation_id_zero_present": false
+      }
+    },
+    "dslr": {
+      "train": {
+        "annotation": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_train_fdi52.json",
+        "sha256": "f38177d7f8521516653c754f7293339c3267c2aacd70eee7f0c8801af2c40c98",
+        "image_root": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/train",
+        "images": 750,
+        "annotations": 10760,
+        "category_map": [
+          {
+            "id": 0,
+            "name": "11",
+            "supercategory": "tooth",
+            "fdi": 11
+          },
+          {
+            "id": 1,
+            "name": "12",
+            "supercategory": "tooth",
+            "fdi": 12
+          },
+          {
+            "id": 2,
+            "name": "13",
+            "supercategory": "tooth",
+            "fdi": 13
+          },
+          {
+            "id": 3,
+            "name": "14",
+            "supercategory": "tooth",
+            "fdi": 14
+          },
+          {
+            "id": 4,
+            "name": "15",
+            "supercategory": "tooth",
+            "fdi": 15
+          },
+          {
+            "id": 5,
+            "name": "16",
+            "supercategory": "tooth",
+            "fdi": 16
+          },
+          {
+            "id": 6,
+            "name": "17",
+            "supercategory": "tooth",
+            "fdi": 17
+          },
+          {
+            "id": 7,
+            "name": "18",
+            "supercategory": "tooth",
+            "fdi": 18
+          },
+          {
+            "id": 8,
+            "name": "21",
+            "supercategory": "tooth",
+            "fdi": 21
+          },
+          {
+            "id": 9,
+            "name": "22",
+            "supercategory": "tooth",
+            "fdi": 22
+          },
+          {
+            "id": 10,
+            "name": "23",
+            "supercategory": "tooth",
+            "fdi": 23
+          },
+          {
+            "id": 11,
+            "name": "24",
+            "supercategory": "tooth",
+            "fdi": 24
+          },
+          {
+            "id": 12,
+            "name": "25",
+            "supercategory": "tooth",
+            "fdi": 25
+          },
+          {
+            "id": 13,
+            "name": "26",
+            "supercategory": "tooth",
+            "fdi": 26
+          },
+          {
+            "id": 14,
+            "name": "27",
+            "supercategory": "tooth",
+            "fdi": 27
+          },
+          {
+            "id": 15,
+            "name": "28",
+            "supercategory": "tooth",
+            "fdi": 28
+          },
+          {
+            "id": 16,
+            "name": "31",
+            "supercategory": "tooth",
+            "fdi": 31
+          },
+          {
+            "id": 17,
+            "name": "32",
+            "supercategory": "tooth",
+            "fdi": 32
+          },
+          {
+            "id": 18,
+            "name": "33",
+            "supercategory": "tooth",
+            "fdi": 33
+          },
+          {
+            "id": 19,
+            "name": "34",
+            "supercategory": "tooth",
+            "fdi": 34
+          },
+          {
+            "id": 20,
+            "name": "35",
+            "supercategory": "tooth",
+            "fdi": 35
+          },
+          {
+            "id": 21,
+            "name": "36",
+            "supercategory": "tooth",
+            "fdi": 36
+          },
+          {
+            "id": 22,
+            "name": "37",
+            "supercategory": "tooth",
+            "fdi": 37
+          },
+          {
+            "id": 23,
+            "name": "38",
+            "supercategory": "tooth",
+            "fdi": 38
+          },
+          {
+            "id": 24,
+            "name": "41",
+            "supercategory": "tooth",
+            "fdi": 41
+          },
+          {
+            "id": 25,
+            "name": "42",
+            "supercategory": "tooth",
+            "fdi": 42
+          },
+          {
+            "id": 26,
+            "name": "43",
+            "supercategory": "tooth",
+            "fdi": 43
+          },
+          {
+            "id": 27,
+            "name": "44",
+            "supercategory": "tooth",
+            "fdi": 44
+          },
+          {
+            "id": 28,
+            "name": "45",
+            "supercategory": "tooth",
+            "fdi": 45
+          },
+          {
+            "id": 29,
+            "name": "46",
+            "supercategory": "tooth",
+            "fdi": 46
+          },
+          {
+            "id": 30,
+            "name": "47",
+            "supercategory": "tooth",
+            "fdi": 47
+          },
+          {
+            "id": 31,
+            "name": "48",
+            "supercategory": "tooth",
+            "fdi": 48
+          },
+          {
+            "id": 32,
+            "name": "51",
+            "supercategory": "tooth",
+            "fdi": 51
+          },
+          {
+            "id": 33,
+            "name": "52",
+            "supercategory": "tooth",
+            "fdi": 52
+          },
+          {
+            "id": 34,
+            "name": "53",
+            "supercategory": "tooth",
+            "fdi": 53
+          },
+          {
+            "id": 35,
+            "name": "54",
+            "supercategory": "tooth",
+            "fdi": 54
+          },
+          {
+            "id": 36,
+            "name": "55",
+            "supercategory": "tooth",
+            "fdi": 55
+          },
+          {
+            "id": 37,
+            "name": "61",
+            "supercategory": "tooth",
+            "fdi": 61
+          },
+          {
+            "id": 38,
+            "name": "62",
+            "supercategory": "tooth",
+            "fdi": 62
+          },
+          {
+            "id": 39,
+            "name": "63",
+            "supercategory": "tooth",
+            "fdi": 63
+          },
+          {
+            "id": 40,
+            "name": "64",
+            "supercategory": "tooth",
+            "fdi": 64
+          },
+          {
+            "id": 41,
+            "name": "65",
+            "supercategory": "tooth",
+            "fdi": 65
+          },
+          {
+            "id": 42,
+            "name": "71",
+            "supercategory": "tooth",
+            "fdi": 71
+          },
+          {
+            "id": 43,
+            "name": "72",
+            "supercategory": "tooth",
+            "fdi": 72
+          },
+          {
+            "id": 44,
+            "name": "73",
+            "supercategory": "tooth",
+            "fdi": 73
+          },
+          {
+            "id": 45,
+            "name": "74",
+            "supercategory": "tooth",
+            "fdi": 74
+          },
+          {
+            "id": 46,
+            "name": "75",
+            "supercategory": "tooth",
+            "fdi": 75
+          },
+          {
+            "id": 47,
+            "name": "81",
+            "supercategory": "tooth",
+            "fdi": 81
+          },
+          {
+            "id": 48,
+            "name": "82",
+            "supercategory": "tooth",
+            "fdi": 82
+          },
+          {
+            "id": 49,
+            "name": "83",
+            "supercategory": "tooth",
+            "fdi": 83
+          },
+          {
+            "id": 50,
+            "name": "84",
+            "supercategory": "tooth",
+            "fdi": 84
+          },
+          {
+            "id": 51,
+            "name": "85",
+            "supercategory": "tooth",
+            "fdi": 85
+          }
+        ],
+        "annotation_id_zero_present": false
+      },
+      "val": {
+        "annotation": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json",
+        "sha256": "de3b8dc99b2a0a2679386c75d2e8aeff4871a0eaf448d5cc5abef5e1e725dbcf",
+        "image_root": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val",
+        "images": 190,
+        "annotations": 2742,
+        "category_map": [
+          {
+            "id": 0,
+            "name": "11",
+            "supercategory": "tooth",
+            "fdi": 11
+          },
+          {
+            "id": 1,
+            "name": "12",
+            "supercategory": "tooth",
+            "fdi": 12
+          },
+          {
+            "id": 2,
+            "name": "13",
+            "supercategory": "tooth",
+            "fdi": 13
+          },
+          {
+            "id": 3,
+            "name": "14",
+            "supercategory": "tooth",
+            "fdi": 14
+          },
+          {
+            "id": 4,
+            "name": "15",
+            "supercategory": "tooth",
+            "fdi": 15
+          },
+          {
+            "id": 5,
+            "name": "16",
+            "supercategory": "tooth",
+            "fdi": 16
+          },
+          {
+            "id": 6,
+            "name": "17",
+            "supercategory": "tooth",
+            "fdi": 17
+          },
+          {
+            "id": 7,
+            "name": "18",
+            "supercategory": "tooth",
+            "fdi": 18
+          },
+          {
+            "id": 8,
+            "name": "21",
+            "supercategory": "tooth",
+            "fdi": 21
+          },
+          {
+            "id": 9,
+            "name": "22",
+            "supercategory": "tooth",
+            "fdi": 22
+          },
+          {
+            "id": 10,
+            "name": "23",
+            "supercategory": "tooth",
+            "fdi": 23
+          },
+          {
+            "id": 11,
+            "name": "24",
+            "supercategory": "tooth",
+            "fdi": 24
+          },
+          {
+            "id": 12,
+            "name": "25",
+            "supercategory": "tooth",
+            "fdi": 25
+          },
+          {
+            "id": 13,
+            "name": "26",
+            "supercategory": "tooth",
+            "fdi": 26
+          },
+          {
+            "id": 14,
+            "name": "27",
+            "supercategory": "tooth",
+            "fdi": 27
+          },
+          {
+            "id": 15,
+            "name": "28",
+            "supercategory": "tooth",
+            "fdi": 28
+          },
+          {
+            "id": 16,
+            "name": "31",
+            "supercategory": "tooth",
+            "fdi": 31
+          },
+          {
+            "id": 17,
+            "name": "32",
+            "supercategory": "tooth",
+            "fdi": 32
+          },
+          {
+            "id": 18,
+            "name": "33",
+            "supercategory": "tooth",
+            "fdi": 33
+          },
+          {
+            "id": 19,
+            "name": "34",
+            "supercategory": "tooth",
+            "fdi": 34
+          },
+          {
+            "id": 20,
+            "name": "35",
+            "supercategory": "tooth",
+            "fdi": 35
+          },
+          {
+            "id": 21,
+            "name": "36",
+            "supercategory": "tooth",
+            "fdi": 36
+          },
+          {
+            "id": 22,
+            "name": "37",
+            "supercategory": "tooth",
+            "fdi": 37
+          },
+          {
+            "id": 23,
+            "name": "38",
+            "supercategory": "tooth",
+            "fdi": 38
+          },
+          {
+            "id": 24,
+            "name": "41",
+            "supercategory": "tooth",
+            "fdi": 41
+          },
+          {
+            "id": 25,
+            "name": "42",
+            "supercategory": "tooth",
+            "fdi": 42
+          },
+          {
+            "id": 26,
+            "name": "43",
+            "supercategory": "tooth",
+            "fdi": 43
+          },
+          {
+            "id": 27,
+            "name": "44",
+            "supercategory": "tooth",
+            "fdi": 44
+          },
+          {
+            "id": 28,
+            "name": "45",
+            "supercategory": "tooth",
+            "fdi": 45
+          },
+          {
+            "id": 29,
+            "name": "46",
+            "supercategory": "tooth",
+            "fdi": 46
+          },
+          {
+            "id": 30,
+            "name": "47",
+            "supercategory": "tooth",
+            "fdi": 47
+          },
+          {
+            "id": 31,
+            "name": "48",
+            "supercategory": "tooth",
+            "fdi": 48
+          },
+          {
+            "id": 32,
+            "name": "51",
+            "supercategory": "tooth",
+            "fdi": 51
+          },
+          {
+            "id": 33,
+            "name": "52",
+            "supercategory": "tooth",
+            "fdi": 52
+          },
+          {
+            "id": 34,
+            "name": "53",
+            "supercategory": "tooth",
+            "fdi": 53
+          },
+          {
+            "id": 35,
+            "name": "54",
+            "supercategory": "tooth",
+            "fdi": 54
+          },
+          {
+            "id": 36,
+            "name": "55",
+            "supercategory": "tooth",
+            "fdi": 55
+          },
+          {
+            "id": 37,
+            "name": "61",
+            "supercategory": "tooth",
+            "fdi": 61
+          },
+          {
+            "id": 38,
+            "name": "62",
+            "supercategory": "tooth",
+            "fdi": 62
+          },
+          {
+            "id": 39,
+            "name": "63",
+            "supercategory": "tooth",
+            "fdi": 63
+          },
+          {
+            "id": 40,
+            "name": "64",
+            "supercategory": "tooth",
+            "fdi": 64
+          },
+          {
+            "id": 41,
+            "name": "65",
+            "supercategory": "tooth",
+            "fdi": 65
+          },
+          {
+            "id": 42,
+            "name": "71",
+            "supercategory": "tooth",
+            "fdi": 71
+          },
+          {
+            "id": 43,
+            "name": "72",
+            "supercategory": "tooth",
+            "fdi": 72
+          },
+          {
+            "id": 44,
+            "name": "73",
+            "supercategory": "tooth",
+            "fdi": 73
+          },
+          {
+            "id": 45,
+            "name": "74",
+            "supercategory": "tooth",
+            "fdi": 74
+          },
+          {
+            "id": 46,
+            "name": "75",
+            "supercategory": "tooth",
+            "fdi": 75
+          },
+          {
+            "id": 47,
+            "name": "81",
+            "supercategory": "tooth",
+            "fdi": 81
+          },
+          {
+            "id": 48,
+            "name": "82",
+            "supercategory": "tooth",
+            "fdi": 82
+          },
+          {
+            "id": 49,
+            "name": "83",
+            "supercategory": "tooth",
+            "fdi": 83
+          },
+          {
+            "id": 50,
+            "name": "84",
+            "supercategory": "tooth",
+            "fdi": 84
+          },
+          {
+            "id": 51,
+            "name": "85",
+            "supercategory": "tooth",
+            "fdi": 85
+          }
+        ],
+        "annotation_id_zero_present": false
+      }
+    }
+  },
+  "pretrained_backbone": {
+    "path": "/home/wuxi/RT-DETR-main/D-FINE/weight/hgnetv2/PPHGNetV2_B0_stage1.pth",
+    "sha256": "70a372e8cbc59b34c5da2943261ecb633faf304a58e7e05461a27bd8d8b7f3d1"
+  },
+  "pretrained_evidence": {
+    "file": "/home/wuxi/RT-DETR-main/D-FINE/weight/hgnetv2/PPHGNetV2_B0_stage1.pth",
+    "official_release_url": "https://github.com/Peterande/storage/releases/download/dfinev1.0/PPHGNetV2_B0_stage1.pth",
+    "sha256": "70a372e8cbc59b34c5da2943261ecb633faf304a58e7e05461a27bd8d8b7f3d1",
+    "exact_official_bytes": true,
+    "verified_at": "2026-09-10T23:48:57.337217+08:00"
+  },
+  "source_sha256": {
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/augmentation_runtime.py": "3afcf5bd40de286c93224184327609492b3cd9a1f41451e45036a46f1fdfb66b",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/paper_modules.py": "07b85a2d6f88530827833cb5aad4d0143fd7b2f49b124be96d60bd355a775d1a",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/preflight.py": "550f44ab87caa4a62fc574ab995783b9e467d1ddba16a42956a59452ba6ac290",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/prepare_migration.py": "22198486ee5dbe7ebbe311a6cfce48df13fb192a3d698922adb1e2637e06a977",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/run_experiment.py": "9e536eca7b8dc56770dd6d9b2c77a717e17606da17cd997a640fcfe1a5d101ba",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/run_queue.py": "caa1495ab59af9d6e5627cca5377db1c3f2f6e1bfa6086a77b14bf2165d160b0",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/test_augmentation_runtime.py": "5542adcd971936937a8ea4c34ef04fff15cd317da54197a17774d50e09032e98",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/test_queue.py": "16f61c3ded6c85a99551e3b76525d203197c76a63c92379c9a9f1184d7b4152b",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/paper_modules.py": "07b85a2d6f88530827833cb5aad4d0143fd7b2f49b124be96d60bd355a775d1a",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/scripts/prepare_comparison.py": "394d5075e09529ab7c55583232848a0553940334dc1e3b956699a5aa68af799c",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/scripts/run_official.py": "b65df52003bf0c6e39bd2dbda2a85ed974aa739ae5204db740d35c750f69d6a0"
+  },
+  "config_audit": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/config_audit.json",
+  "config_audit_sha256": "f8f25b6867925d1e2c2e8cf0304ecc9ed4e047b5198d1d496544bf3aeea36f87",
+  "initialization": "Fresh verified official ImageNet HGNetv2-B0 backbone; no detector checkpoint fine-tuning",
+  "selection": "Maximum validation COCO AP; earliest epoch on exact tie",
+  "scaffold": "Official DEIM-D-FINE-S, unchanged native decoder, nearest upsampling and sinusoidal encoder positions",
+  "matching": "Within each cohort, every new Plain/selected setting is identical except the explicit paper modules/losses/DualOpt/SpatialShape",
+  "denoising_queries": 100,
+  "denoising_note": "num_denoising=100 is the native grouping target, not an upper bound on the realized number of DN queries; Mosaic/MixUp can increase DN slots",
+  "input": "Fixed 1024x1024 training and validation; unchanged Mosaic output_size=640 resizes each source image before its larger composite is resized to model input",
+  "resolution_change": {
+    "previous_model_input": [
+      640,
+      640
+    ],
+    "model_input": [
+      1024,
+      1024
+    ],
+    "mosaic_output_size_unchanged": 640,
+    "all_six_configs_verified_against_frozen_640": true,
+    "continuation": "Fresh initialization; do not resume the superseded 640 training or reuse its preflight as 1024 evidence",
+    "comparison_caveat": "640 versus 1024 changes input resolution; differences are not pure module effects"
+  },
+  "batches": {
+    "train": 8,
+    "validation": 16
+  },
+  "amp": true,
+  "ema": true,
+  "augmentation": {
+    "Mosaic": {
+      "type": "Mosaic",
+      "output_size": 640,
+      "rotation_range": 10,
+      "translation_range": [
+        0.1,
+        0.1
+      ],
+      "scaling_range": [
+        0.5,
+        1.5
+      ],
+      "probability": 1.0,
+      "fill_value": 0,
+      "use_cache": false,
+      "max_cached_images": 50,
+      "random_pop": true
+    },
+    "RandomIoUCrop": {
+      "type": "RandomIoUCrop",
+      "p": 0.5
+    },
+    "compose_mosaic_prob": 1.0,
+    "policy_epochs_zero_based": [
+      4,
+      70,
+      130
+    ],
+    "effective_schedule": [
+      "0-3: policy-listed Mosaic/photometric/ZoomOut/IoUCrop disabled",
+      "4-69: Mosaic always selected; native Compose skips ZoomOut and IoUCrop on Mosaic samples",
+      "70-129: Mosaic disabled; IoUCrop p=0.5 and native ZoomOut/photometric active",
+      "130-159: policy-listed augmentation disabled; no_aug_epoch=30 aligns the flat-cosine schedule"
+    ],
+    "MixUp": {
+      "probability": 0.5,
+      "epochs_zero_based_start_inclusive_end_exclusive": [
+        4,
+        80
+      ]
+    },
+    "sanitizer": "AlignedSanitizeBoundingBoxes keeps per-instance fields aligned in every configuration"
+  },
+  "postprocessing": "Native top-300, no score cutoff or NMS; SpatialShape only in the selected DENTEX run",
+  "storage": "One global best.pth per run; native stage-1 rollback state in RAM only",
+  "excluded": [
+    "QueryFusion",
+    "DySample",
+    "learned row/column positions",
+    "query/graph/ROI refiners",
+    "HOOA",
+    "CEDv2",
+    "SMWG",
+    "MPF",
+    "UCM",
+    "all other unselected modules"
+  ],
+  "interpretation": "New seed-0 development experiments on unchanged internal-validation splits; no guaranteed leading result, independent test, repeated-seed conclusion, or pure module attribution against unmatched historical baselines"
+}

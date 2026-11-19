@@ -1,0 +1,133 @@
+{
+  "frozen_at": "2026-09-11T22:21:00.026167+08:00",
+  "upstream_commit": "09d35d53d39ee3145a1e61e3a989b28b9468d1dd",
+  "upstream": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/DEIM",
+  "base_protocol_sha256": "f0bf7b632b281b364eebef6d888c392252f0868c02734a73fbb883e68c7cc99d",
+  "scope": "User selected only the three primary recipes; no module sweep",
+  "runs": {
+    "phone_dualopt": {
+      "config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_2026-09-11/configs/phone_dualopt.yml",
+      "config_sha256": "5782ebccbfa0e2601d824766528b0d74a256a0e61115b538051338698e1c2cbb",
+      "baseline_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/configs/deim_s_phone.yml",
+      "baseline_config_sha256": "b07bbc3def66e8a1ca7cce440969ae056b21f15d4f2c39ed19e567b9d287d7a9",
+      "baseline_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/phone/seed_0/metrics_summary.json",
+      "baseline_metrics_sha256": "1b6a7c5c0bf66231043405706e0f0723eb7d8bc9462b74423ee7c3d948a07024",
+      "output": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules/phone_dualopt/seed_0",
+      "modules": {
+        "cohort": "phone",
+        "cmfa": false,
+        "structured": false,
+        "spatial_shape": false,
+        "dualopt": true
+      }
+    },
+    "dentex_spatial_shape": {
+      "config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_2026-09-11/configs/dentex_spatial_shape.yml",
+      "config_sha256": "ef423e224f12c064ef57ba2a7b137942c6194c7584b384fd75268e0dda0833dd",
+      "baseline_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/configs/deim_s_dentex.yml",
+      "baseline_config_sha256": "b84f31f27a906035dc39078c15f4a9239b1aa27c881876294287b177759ea91b",
+      "baseline_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/dentex/seed_0/metrics_summary.json",
+      "baseline_metrics_sha256": "085dedaef7ca83b1066baf3e1992b985ae24618019ae9d4e71dd4378e2f95f3b",
+      "output": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules/dentex_spatial_shape/seed_0",
+      "modules": {
+        "cohort": "dentex",
+        "cmfa": false,
+        "structured": true,
+        "spatial_shape": true,
+        "dualopt": false,
+        "prototype_count": 4,
+        "prototype_tau": 0.2,
+        "fdi_codes": [
+          18,
+          17,
+          16,
+          15,
+          14,
+          13,
+          12,
+          11,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          38,
+          37,
+          36,
+          35,
+          34,
+          33,
+          32,
+          31,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "factor_inference_fusion": 0.0,
+        "prototype_inference_fusion": 0.0,
+        "prior_file": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_2026-09-11/dentex_train_templates.json",
+        "prior_sha256": "63988b37be3cfab69fd6de4d1fbdf92765898fcac791cf5be2dd31402e295937",
+        "spatial_prior_weight": 0.2,
+        "shape_prior_weight": 0.05,
+        "view_prior_weight": 0.2,
+        "view_type": "panorama"
+      }
+    },
+    "dslr_cmfa_dualopt": {
+      "config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_2026-09-11/configs/dslr_cmfa_dualopt.yml",
+      "config_sha256": "1177c7f161200f2b7859f2f61fdad150ab89c1088c52694453f3b0994244ba9e",
+      "baseline_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/configs/deim_s_dslr.yml",
+      "baseline_config_sha256": "0bd6de57962f5f5c5135327c1ab38a615907c1d08f7a37c2293cc839f4fe6ba5",
+      "baseline_metrics": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/dslr/seed_0/metrics_summary.json",
+      "baseline_metrics_sha256": "29b55756bbaf973a45ed39e7f6a9331379c6fad8531ab3015282be46d151e0b6",
+      "output": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules/dslr_cmfa_dualopt/seed_0",
+      "modules": {
+        "cohort": "dslr",
+        "cmfa": true,
+        "structured": false,
+        "spatial_shape": false,
+        "dualopt": true
+      }
+    }
+  },
+  "seeds": [
+    0
+  ],
+  "epochs": 160,
+  "initialization": "Fresh official ImageNet HGNetv2-B0 backbone; no trained detector checkpoint fine-tuning",
+  "selection": "Maximum validation COCO AP; earliest epoch on exact tie",
+  "scaffold": "Official DEIM-D-FINE-S with unchanged native decoder, nearest upsampling and sinusoidal positions",
+  "matching": "Every native model/data/training setting equals its completed official DEIM cohort baseline except the explicitly listed modules/losses/optimizer/prior",
+  "denoising_queries": 100,
+  "denoising_note": "Retain the official comparison config (100), not the historical local setting (80)",
+  "input": "Native 480-800 multiscale training before epoch 130; fixed 640x640 validation",
+  "batches": {
+    "train": 8,
+    "validation": 16
+  },
+  "amp": true,
+  "ema": true,
+  "postprocessing": "Native top-300; no score cutoff, NMS, uniqueness assignment or non-paper prior; SpatialShape only for DENTEX",
+  "storage": "One global best.pth per run; required native stage-1 rollback stored in RAM",
+  "excluded": [
+    "QueryFusion",
+    "DySample",
+    "learned row/column positions",
+    "query/graph/ROI refiners",
+    "HOOA",
+    "CEDv2",
+    "SMWG",
+    "MPF",
+    "UCM",
+    "all other unselected modules"
+  ],
+  "interpretation": "New seed-0 migration experiments on existing internal-validation splits, not new three-seed means or independent tests"
+}

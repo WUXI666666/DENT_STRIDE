@@ -1,0 +1,42 @@
+{
+  "framework": "Dome-DETR",
+  "checkpoint": "/home/wuxi/Dent-FINE/outputs/cross_dataset_baseline_comparison/dentex/runs/dome_detr_s_tuned301/best.pth",
+  "config": "/home/wuxi/Dent-FINE/third_party/dome_detr/configs/dome/Dome-S-ViewNet3-DSLR-FDI52.yml",
+  "annotation": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+  "prediction_count": 19264,
+  "num_parameters": 13265687,
+  "metrics": {
+    "AP": 0.5171104685375298,
+    "AP50": 0.9272478393643097,
+    "AP75": 0.50759241574001,
+    "AP_small": -1.0,
+    "AP_medium": 0.4657504015815115,
+    "AP_large": 0.52000732783952,
+    "AR1": 0.5900153928667049,
+    "AR10": 0.6589563431189065,
+    "AR100": 0.6662137569746353,
+    "AR_small": -1.0,
+    "AR_medium": 0.4905555555555555,
+    "AR_large": 0.671691236172977
+  },
+  "prediction_file": "/home/wuxi/Dent-FINE/outputs/cross_dataset_baseline_comparison/dentex/runs/dome_detr_s_tuned301/coco_eval/coco_predictions.json",
+  "updates": [
+    "num_classes=32",
+    "remap_mscoco_category=False",
+    "train_dataloader.dataset.img_folder=/home/wuxi/DENTEX2023/train2017",
+    "train_dataloader.dataset.ann_file=/home/wuxi/DENTEX2023/annotations/instances_train2017.json",
+    "val_dataloader.dataset.img_folder=/home/wuxi/DENTEX2023/val2017",
+    "val_dataloader.dataset.ann_file=/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+    "train_dataloader.total_batch_size=8",
+    "val_dataloader.total_batch_size=8",
+    "train_dataloader.num_workers=4",
+    "val_dataloader.num_workers=4",
+    "epoches=40",
+    "eval_spatial_size=[640,640]",
+    "train_dataloader.collate_fn.base_size=640",
+    "train_dataloader.collate_fn.base_size_repeat=null",
+    "DomeTransformer.max_num_select=301",
+    "val_dataloader.total_batch_size=8",
+    "val_dataloader.num_workers=4"
+  ]
+}

@@ -1,0 +1,200 @@
+/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/DEIM/engine/backbone/hgnetv2.py:494: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(model_path, map_location='cpu')
+/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/DEIM/engine/core/workspace.py:180: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  return module(**module_kwargs)
+Not init distributed mode.
+Loaded stage1 B0 HGNetV2 from local file.
+Initial lr: [0.00025, 0.0005, 0.0005]
+building train_dataloader with batch_size=8...
+     ### Transform @Mosaic ###    
+     ### Transform @RandomPhotometricDistort ###    
+     ### Transform @RandomZoomOut ###    
+     ### Transform @RandomIoUCrop ###    
+     ### Transform @SanitizeBoundingBoxes ###    
+     ### Transform @Resize ###    
+     ### Transform @SanitizeBoundingBoxes ###    
+     ### Transform @ConvertPILImage ###    
+     ### Transform @ConvertBoxes ###    
+     ### ImgTransforms Epochs: [4, 70, 130] ### 
+     ### Policy_ops@['Mosaic', 'RandomPhotometricDistort', 'RandomZoomOut', 'RandomIoUCrop'] ###
+     ### Using MixUp with Prob@0.5 in [4, 80] epochs ### 
+     ### Multi-scale Training until 1 epochs ### 
+     ### Multi-scales@ [480, 512, 544, 576, 608, 640, 640, 640, 640, 640, 640, 640, 640, 640, 640, 640, 640, 640, 640, 640, 640, 640, 640, 640, 640, 800, 768, 736, 704, 672] ###        
+building val_dataloader with batch_size=16...
+     ### Transform @Resize ###    
+     ### Transform @ConvertPILImage ###    
+
+------------------------------------- Calculate Flops Results -------------------------------------
+Notations:
+number of parameters (Params), number of multiply-accumulate operations(MACs),
+number of floating-point operations (FLOPs), floating-point operations per second (FLOPS),
+fwd FLOPs (model forward propagation FLOPs), bwd FLOPs (model backward propagation FLOPs),
+default model backpropagation takes 2.00 times as much computation as forward propagation.
+
+Total Training Params:                                                  10.74 M 
+fwd MACs:                                                               12.4714 GMACs
+fwd FLOPs:                                                              25.0548 GFLOPS
+fwd+bwd MACs:                                                           37.4143 GMACs
+fwd+bwd FLOPs:                                                          75.1643 GFLOPS
+---------------------------------------------------------------------------------------------------
+{'Model FLOPs:25.0548 GFLOPS   MACs:12.4714 GMACs   Params:10740611'}
+------------------------------------------Start training-------------------------------------------
+     ## Using Self-defined Scheduler-flatcosine ## 
+[0.00025, 0.0005, 0.0005] [0.000125, 0.00025, 0.00025] 4 50 140 50
+number of trainable parameters: 10810603
+Epoch: [0]  [0/2]  eta: 0:00:01  lr: 0.000000  loss: 32.3876 (32.3876)  loss_mal: 0.8096 (0.8096)  loss_bbox: 0.7040 (0.7040)  loss_giou: 1.6883 (1.6883)  loss_fgl: 0.5019 (0.5019)  loss_mal_aux_0: 0.7827 (0.7827)  loss_bbox_aux_0: 0.7040 (0.7040)  loss_giou_aux_0: 1.6883 (1.6883)  loss_fgl_aux_0: 0.5019 (0.5019)  loss_mal_aux_1: 0.8018 (0.8018)  loss_bbox_aux_1: 0.7040 (0.7040)  loss_giou_aux_1: 1.6883 (1.6883)  loss_fgl_aux_1: 0.5019 (0.5019)  loss_mal_pre: 0.7827 (0.7827)  loss_bbox_pre: 0.7040 (0.7040)  loss_giou_pre: 1.6883 (1.6883)  loss_mal_enc_0: 0.7754 (0.7754)  loss_bbox_enc_0: 0.7040 (0.7040)  loss_giou_enc_0: 1.6883 (1.6883)  loss_mal_dn_0: 1.2031 (1.2031)  loss_bbox_dn_0: 0.5372 (0.5372)  loss_giou_dn_0: 1.3765 (1.3765)  loss_fgl_dn_0: 0.8176 (0.8176)  loss_mal_dn_1: 1.2402 (1.2402)  loss_bbox_dn_1: 0.5372 (0.5372)  loss_giou_dn_1: 1.3765 (1.3765)  loss_fgl_dn_1: 0.8176 (0.8176)  loss_mal_dn_2: 1.2139 (1.2139)  loss_bbox_dn_2: 0.5372 (0.5372)  loss_giou_dn_2: 1.3765 (1.3765)  loss_fgl_dn_2: 0.8176 (0.8176)  loss_mal_dn_pre: 1.2031 (1.2031)  loss_bbox_dn_pre: 0.5372 (0.5372)  loss_giou_dn_pre: 1.3765 (1.3765)  time: 0.9824  data: 0.4930  max mem: 3774
+Epoch: [0]  [1/2]  eta: 0:00:00  lr: 0.000000  loss: 32.3876 (32.6856)  loss_mal: 0.8096 (0.8486)  loss_bbox: 0.7040 (0.7236)  loss_giou: 1.6221 (1.6552)  loss_fgl: 0.5019 (0.5268)  loss_mal_aux_0: 0.7827 (0.8413)  loss_bbox_aux_0: 0.7040 (0.7236)  loss_giou_aux_0: 1.6221 (1.6552)  loss_fgl_aux_0: 0.5019 (0.5268)  loss_mal_aux_1: 0.8018 (0.8723)  loss_bbox_aux_1: 0.7040 (0.7236)  loss_giou_aux_1: 1.6221 (1.6552)  loss_fgl_aux_1: 0.5019 (0.5268)  loss_mal_pre: 0.7827 (0.8413)  loss_bbox_pre: 0.7040 (0.7236)  loss_giou_pre: 1.6221 (1.6552)  loss_mal_enc_0: 0.7754 (0.8247)  loss_bbox_enc_0: 0.7040 (0.7236)  loss_giou_enc_0: 1.6221 (1.6552)  loss_mal_dn_0: 1.1768 (1.1899)  loss_bbox_dn_0: 0.5372 (0.5522)  loss_giou_dn_0: 1.3765 (1.3768)  loss_fgl_dn_0: 0.8155 (0.8166)  loss_mal_dn_1: 1.2295 (1.2349)  loss_bbox_dn_1: 0.5372 (0.5522)  loss_giou_dn_1: 1.3765 (1.3768)  loss_fgl_dn_1: 0.8155 (0.8166)  loss_mal_dn_2: 1.1914 (1.2026)  loss_bbox_dn_2: 0.5372 (0.5522)  loss_giou_dn_2: 1.3765 (1.3768)  loss_fgl_dn_2: 0.8155 (0.8166)  loss_mal_dn_pre: 1.1768 (1.1899)  loss_bbox_dn_pre: 0.5372 (0.5522)  loss_giou_dn_pre: 1.3765 (1.3768)  time: 0.8118  data: 0.4949  max mem: 3774
+Epoch: [0] Total time: 0:00:01 (0.8124 s / it)
+Averaged stats: lr: 0.000000  loss: 32.3876 (32.6856)  loss_mal: 0.8096 (0.8486)  loss_bbox: 0.7040 (0.7236)  loss_giou: 1.6221 (1.6552)  loss_fgl: 0.5019 (0.5268)  loss_mal_aux_0: 0.7827 (0.8413)  loss_bbox_aux_0: 0.7040 (0.7236)  loss_giou_aux_0: 1.6221 (1.6552)  loss_fgl_aux_0: 0.5019 (0.5268)  loss_mal_aux_1: 0.8018 (0.8723)  loss_bbox_aux_1: 0.7040 (0.7236)  loss_giou_aux_1: 1.6221 (1.6552)  loss_fgl_aux_1: 0.5019 (0.5268)  loss_mal_pre: 0.7827 (0.8413)  loss_bbox_pre: 0.7040 (0.7236)  loss_giou_pre: 1.6221 (1.6552)  loss_mal_enc_0: 0.7754 (0.8247)  loss_bbox_enc_0: 0.7040 (0.7236)  loss_giou_enc_0: 1.6221 (1.6552)  loss_mal_dn_0: 1.1768 (1.1899)  loss_bbox_dn_0: 0.5372 (0.5522)  loss_giou_dn_0: 1.3765 (1.3768)  loss_fgl_dn_0: 0.8155 (0.8166)  loss_mal_dn_1: 1.2295 (1.2349)  loss_bbox_dn_1: 0.5372 (0.5522)  loss_giou_dn_1: 1.3765 (1.3768)  loss_fgl_dn_1: 0.8155 (0.8166)  loss_mal_dn_2: 1.1914 (1.2026)  loss_bbox_dn_2: 0.5372 (0.5522)  loss_giou_dn_2: 1.3765 (1.3768)  loss_fgl_dn_2: 0.8155 (0.8166)  loss_mal_dn_pre: 1.1768 (1.1899)  loss_bbox_dn_pre: 0.5372 (0.5522)  loss_giou_dn_pre: 1.3765 (1.3768)
+Test:  [0/1]  eta: 0:00:00    time: 0.1961  data: 0.1502  max mem: 3774
+Test: Total time: 0:00:00 (0.1964 s / it)
+Averaged stats: 
+Accumulating evaluation results...
+COCOeval_opt.accumulate() finished...
+DONE (t=0.01s).
+IoU metric: bbox
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+[official-comparison] retained global best AP=0.00000000, epoch=0
+best_stat: {'epoch': -1, 'coco_eval_bbox': 0.0}
+Load last_epoch
+Load model.state_dict
+Load criterion.state_dict
+Load postprocessor.state_dict
+Load ema.state_dict
+Load scaler.state_dict
+Load optimizer.state_dict
+Load lr_warmup_scheduler.state_dict
+Refresh EMA at epoch 1 with decay 0.9999
+Epoch: [1]  [0/2]  eta: 0:00:00  lr: 0.000000  loss: 32.9570 (32.9570)  loss_mal: 0.7690 (0.7690)  loss_bbox: 0.8031 (0.8031)  loss_giou: 1.7164 (1.7164)  loss_fgl: 0.4742 (0.4742)  loss_mal_aux_0: 0.7739 (0.7739)  loss_bbox_aux_0: 0.8031 (0.8031)  loss_giou_aux_0: 1.7164 (1.7164)  loss_fgl_aux_0: 0.4742 (0.4742)  loss_mal_aux_1: 0.7671 (0.7671)  loss_bbox_aux_1: 0.8031 (0.8031)  loss_giou_aux_1: 1.7164 (1.7164)  loss_fgl_aux_1: 0.4742 (0.4742)  loss_mal_pre: 0.7739 (0.7739)  loss_bbox_pre: 0.8031 (0.8031)  loss_giou_pre: 1.7164 (1.7164)  loss_mal_enc_0: 0.7900 (0.7900)  loss_bbox_enc_0: 0.8031 (0.8031)  loss_giou_enc_0: 1.7164 (1.7164)  loss_mal_dn_0: 1.1807 (1.1807)  loss_bbox_dn_0: 0.5729 (0.5729)  loss_giou_dn_0: 1.3742 (1.3742)  loss_fgl_dn_0: 0.8208 (0.8208)  loss_mal_dn_1: 1.2363 (1.2363)  loss_bbox_dn_1: 0.5729 (0.5729)  loss_giou_dn_1: 1.3742 (1.3742)  loss_fgl_dn_1: 0.8208 (0.8208)  loss_mal_dn_2: 1.2139 (1.2139)  loss_bbox_dn_2: 0.5729 (0.5729)  loss_giou_dn_2: 1.3742 (1.3742)  loss_fgl_dn_2: 0.8208 (0.8208)  loss_mal_dn_pre: 1.1807 (1.1807)  loss_bbox_dn_pre: 0.5729 (0.5729)  loss_giou_dn_pre: 1.3742 (1.3742)  time: 0.4993  data: 0.3789  max mem: 3774
+Epoch: [1]  [1/2]  eta: 0:00:00  lr: 0.000001  loss: 32.4671 (32.7121)  loss_mal: 0.7690 (0.7842)  loss_bbox: 0.7048 (0.7540)  loss_giou: 1.6745 (1.6954)  loss_fgl: 0.4742 (0.4945)  loss_mal_aux_0: 0.7739 (0.7991)  loss_bbox_aux_0: 0.7048 (0.7540)  loss_giou_aux_0: 1.6745 (1.6954)  loss_fgl_aux_0: 0.4742 (0.4945)  loss_mal_aux_1: 0.7671 (0.8059)  loss_bbox_aux_1: 0.7048 (0.7540)  loss_giou_aux_1: 1.6745 (1.6954)  loss_fgl_aux_1: 0.4742 (0.4945)  loss_mal_pre: 0.7739 (0.7991)  loss_bbox_pre: 0.7048 (0.7540)  loss_giou_pre: 1.6745 (1.6954)  loss_mal_enc_0: 0.7900 (0.8132)  loss_bbox_enc_0: 0.7048 (0.7540)  loss_giou_enc_0: 1.6745 (1.6954)  loss_mal_dn_0: 1.1748 (1.1777)  loss_bbox_dn_0: 0.5426 (0.5578)  loss_giou_dn_0: 1.3742 (1.3806)  loss_fgl_dn_0: 0.8073 (0.8141)  loss_mal_dn_1: 1.2207 (1.2285)  loss_bbox_dn_1: 0.5426 (0.5578)  loss_giou_dn_1: 1.3742 (1.3806)  loss_fgl_dn_1: 0.8073 (0.8141)  loss_mal_dn_2: 1.1875 (1.2007)  loss_bbox_dn_2: 0.5426 (0.5578)  loss_giou_dn_2: 1.3742 (1.3806)  loss_fgl_dn_2: 0.8073 (0.8141)  loss_mal_dn_pre: 1.1748 (1.1777)  loss_bbox_dn_pre: 0.5426 (0.5578)  loss_giou_dn_pre: 1.3742 (1.3806)  loss_ddf_aux_0: 0.0000 (0.0000)  loss_ddf_aux_1: 0.0000 (0.0000)  loss_ddf_dn_0: 0.0000 (0.0000)  loss_ddf_dn_1: 0.0000 (0.0000)  time: 0.5092  data: 0.3915  max mem: 3875
+Epoch: [1] Total time: 0:00:01 (0.5099 s / it)
+Averaged stats: lr: 0.000001  loss: 32.4671 (32.7121)  loss_mal: 0.7690 (0.7842)  loss_bbox: 0.7048 (0.7540)  loss_giou: 1.6745 (1.6954)  loss_fgl: 0.4742 (0.4945)  loss_mal_aux_0: 0.7739 (0.7991)  loss_bbox_aux_0: 0.7048 (0.7540)  loss_giou_aux_0: 1.6745 (1.6954)  loss_fgl_aux_0: 0.4742 (0.4945)  loss_mal_aux_1: 0.7671 (0.8059)  loss_bbox_aux_1: 0.7048 (0.7540)  loss_giou_aux_1: 1.6745 (1.6954)  loss_fgl_aux_1: 0.4742 (0.4945)  loss_mal_pre: 0.7739 (0.7991)  loss_bbox_pre: 0.7048 (0.7540)  loss_giou_pre: 1.6745 (1.6954)  loss_mal_enc_0: 0.7900 (0.8132)  loss_bbox_enc_0: 0.7048 (0.7540)  loss_giou_enc_0: 1.6745 (1.6954)  loss_mal_dn_0: 1.1748 (1.1777)  loss_bbox_dn_0: 0.5426 (0.5578)  loss_giou_dn_0: 1.3742 (1.3806)  loss_fgl_dn_0: 0.8073 (0.8141)  loss_mal_dn_1: 1.2207 (1.2285)  loss_bbox_dn_1: 0.5426 (0.5578)  loss_giou_dn_1: 1.3742 (1.3806)  loss_fgl_dn_1: 0.8073 (0.8141)  loss_mal_dn_2: 1.1875 (1.2007)  loss_bbox_dn_2: 0.5426 (0.5578)  loss_giou_dn_2: 1.3742 (1.3806)  loss_fgl_dn_2: 0.8073 (0.8141)  loss_mal_dn_pre: 1.1748 (1.1777)  loss_bbox_dn_pre: 0.5426 (0.5578)  loss_giou_dn_pre: 1.3742 (1.3806)  loss_ddf_aux_0: 0.0000 (0.0000)  loss_ddf_aux_1: 0.0000 (0.0000)  loss_ddf_dn_0: 0.0000 (0.0000)  loss_ddf_dn_1: 0.0000 (0.0000)
+Test:  [0/1]  eta: 0:00:00    time: 0.1878  data: 0.1593  max mem: 3875
+Test: Total time: 0:00:00 (0.1881 s / it)
+Averaged stats: 
+Accumulating evaluation results...
+COCOeval_opt.accumulate() finished...
+DONE (t=0.00s).
+IoU metric: bbox
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+best_stat: {'epoch': -1, 'coco_eval_bbox': 0.0}
+Load last_epoch
+Load model.state_dict
+Load criterion.state_dict
+Load postprocessor.state_dict
+Load ema.state_dict
+Load scaler.state_dict
+Load optimizer.state_dict
+Load lr_warmup_scheduler.state_dict
+Refresh EMA at epoch 1 with decay 0.9998
+Training time 0:00:03
+Load last_epoch
+Load model.state_dict
+Load criterion.state_dict
+Load postprocessor.state_dict
+Load ema.state_dict
+Load scaler.state_dict
+Load optimizer.state_dict
+Load lr_warmup_scheduler.state_dict
+Test:  [0/1]  eta: 0:00:00    time: 0.1997  data: 0.1700  max mem: 3875
+Test: Total time: 0:00:00 (0.1999 s / it)
+Averaged stats: 
+Accumulating evaluation results...
+COCOeval_opt.accumulate() finished...
+DONE (t=0.00s).
+IoU metric: bbox
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+{
+  "model": "Official DEIM-S + paper modules",
+  "task": "dslr_cmfa_dualopt",
+  "cohort": "dslr",
+  "seed": 0,
+  "epochs_completed": 2,
+  "best_epoch_zero_based": 0,
+  "final_epoch_zero_based": 1,
+  "best_metrics": {
+    "AP": 0.0,
+    "AP50": 0.0,
+    "AP75": 0.0,
+    "AP_small": null,
+    "AP_medium": 0.0,
+    "AP_large": 0.0,
+    "AR1": 0.0,
+    "AR10": 0.0,
+    "AR100": 0.0,
+    "AR_small": null,
+    "AR_medium": 0.0,
+    "AR_large": 0.0
+  },
+  "final_epoch_metrics": {
+    "AP": 0.0,
+    "AP50": 0.0,
+    "AP75": 0.0,
+    "AP_small": null,
+    "AP_medium": 0.0,
+    "AP_large": 0.0,
+    "AR1": 0.0,
+    "AR10": 0.0,
+    "AR100": 0.0,
+    "AR_small": null,
+    "AR_medium": 0.0,
+    "AR_large": 0.0
+  },
+  "params_training_total": 10810605,
+  "params_trainable": 10810603,
+  "additional_parameters_over_official": 524680,
+  "elapsed_seconds": 4.43086248904001,
+  "stage1_RAM_restores": 2,
+  "peak_cuda_allocated_bytes": 4063620096,
+  "checkpoint_sha256": "496e2b64bd2e67c000e7f79299b956eecea36a6a24e22d68f1a312b41373a0dd",
+  "completed_at": "2026-09-11T22:26:16.292371+08:00",
+  "smoke_only": true,
+  "compute_profile": {
+    "task": "dslr_cmfa_dualopt",
+    "params_training_total": 10810605,
+    "params_trainable": 10810603,
+    "params_deploy_total": 10740611,
+    "GMACs": 12.471440688,
+    "GFLOPs": 25.054756144,
+    "profile": "calflops; deployed model forward; FP32 CPU; batch 1; 640x640; excludes postprocessing (including SpatialShape)"
+  }
+}

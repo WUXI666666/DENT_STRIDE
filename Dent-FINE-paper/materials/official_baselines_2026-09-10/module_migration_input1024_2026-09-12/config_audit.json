@@ -1,0 +1,154 @@
+{
+  "passed": true,
+  "pairs": {
+    "phone": {
+      "plain_task": "phone_plain",
+      "selected_task": "phone_dualopt",
+      "all_non_module_settings_exactly_equal": true,
+      "data_transforms_exactly_equal": true,
+      "allowed_differences": [
+        "paper_modules",
+        "output_dir",
+        "optimizer type and five DualOpt coefficients"
+      ]
+    },
+    "dentex": {
+      "plain_task": "dentex_plain",
+      "selected_task": "dentex_spatial_shape",
+      "all_non_module_settings_exactly_equal": true,
+      "data_transforms_exactly_equal": true,
+      "allowed_differences": [
+        "paper_modules",
+        "output_dir",
+        "four auxiliary losses and their weights"
+      ]
+    },
+    "dslr": {
+      "plain_task": "dslr_plain",
+      "selected_task": "dslr_cmfa_dualopt",
+      "all_non_module_settings_exactly_equal": true,
+      "data_transforms_exactly_equal": true,
+      "allowed_differences": [
+        "paper_modules",
+        "output_dir",
+        "optimizer type and five DualOpt coefficients"
+      ]
+    }
+  },
+  "all_six_configs_prepared": true,
+  "source_mosaic640_protocol": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/protocol.json",
+  "source_mosaic640_protocol_sha256": "973f89156d6c4c39beb5a1d6a1a1169e7c36264b5123eadb3ad67fc3be4a58bd",
+  "resolution_comparisons_against_640": {
+    "phone_plain": {
+      "passed": true,
+      "only_input_resolution_and_isolation_paths_changed": true,
+      "allowed_differences": [
+        "eval_spatial_size",
+        "train_dataloader.dataset.transforms.Resize.size",
+        "val_dataloader.dataset.transforms.Resize.size",
+        "train_dataloader.collate_fn.base_size",
+        "output_dir"
+      ],
+      "mosaic_output_size_unchanged": 640,
+      "train_batch_size_unchanged": 8,
+      "validation_batch_size_unchanged": 16,
+      "source_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/phone_plain.yml",
+      "source_config_sha256": "24c0aab735bd9979bcc29fcddc0ed75a31ee015e54811995b9523e3bd3383dfe"
+    },
+    "phone_dualopt": {
+      "passed": true,
+      "only_input_resolution_and_isolation_paths_changed": true,
+      "allowed_differences": [
+        "eval_spatial_size",
+        "train_dataloader.dataset.transforms.Resize.size",
+        "val_dataloader.dataset.transforms.Resize.size",
+        "train_dataloader.collate_fn.base_size",
+        "output_dir"
+      ],
+      "mosaic_output_size_unchanged": 640,
+      "train_batch_size_unchanged": 8,
+      "validation_batch_size_unchanged": 16,
+      "source_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/phone_dualopt.yml",
+      "source_config_sha256": "6babfeebef8d859ff0693d1453cdbc8e75a239155a9da06e93efeba9f2a9df75"
+    },
+    "dentex_plain": {
+      "passed": true,
+      "only_input_resolution_and_isolation_paths_changed": true,
+      "allowed_differences": [
+        "eval_spatial_size",
+        "train_dataloader.dataset.transforms.Resize.size",
+        "val_dataloader.dataset.transforms.Resize.size",
+        "train_dataloader.collate_fn.base_size",
+        "output_dir"
+      ],
+      "mosaic_output_size_unchanged": 640,
+      "train_batch_size_unchanged": 8,
+      "validation_batch_size_unchanged": 16,
+      "source_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/dentex_plain.yml",
+      "source_config_sha256": "e93300c3b7aa1310f1519b32844f9a6677d1b8b657d5f9472e5b542aa96eccd1"
+    },
+    "dentex_spatial_shape": {
+      "passed": true,
+      "only_input_resolution_and_isolation_paths_changed": true,
+      "allowed_differences": [
+        "eval_spatial_size",
+        "train_dataloader.dataset.transforms.Resize.size",
+        "val_dataloader.dataset.transforms.Resize.size",
+        "train_dataloader.collate_fn.base_size",
+        "output_dir",
+        "paper_modules.prior_file (same bytes)"
+      ],
+      "mosaic_output_size_unchanged": 640,
+      "train_batch_size_unchanged": 8,
+      "validation_batch_size_unchanged": 16,
+      "source_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/dentex_spatial_shape.yml",
+      "source_config_sha256": "7170e95963a6c459c3c1211e4541a35624bd431cf7afbcc209a10f84c2390caa"
+    },
+    "dslr_plain": {
+      "passed": true,
+      "only_input_resolution_and_isolation_paths_changed": true,
+      "allowed_differences": [
+        "eval_spatial_size",
+        "train_dataloader.dataset.transforms.Resize.size",
+        "val_dataloader.dataset.transforms.Resize.size",
+        "train_dataloader.collate_fn.base_size",
+        "output_dir"
+      ],
+      "mosaic_output_size_unchanged": 640,
+      "train_batch_size_unchanged": 8,
+      "validation_batch_size_unchanged": 16,
+      "source_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/dslr_plain.yml",
+      "source_config_sha256": "0068d95a74d9a0ba9e88710129ab9c8cdfd89ec2174389b0d5b1463e076c930f"
+    },
+    "dslr_cmfa_dualopt": {
+      "passed": true,
+      "only_input_resolution_and_isolation_paths_changed": true,
+      "allowed_differences": [
+        "eval_spatial_size",
+        "train_dataloader.dataset.transforms.Resize.size",
+        "val_dataloader.dataset.transforms.Resize.size",
+        "train_dataloader.collate_fn.base_size",
+        "output_dir"
+      ],
+      "mosaic_output_size_unchanged": 640,
+      "train_batch_size_unchanged": 8,
+      "validation_batch_size_unchanged": 16,
+      "source_config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_mosaic640_2026-09-12/configs/dslr_cmfa_dualopt.yml",
+      "source_config_sha256": "3cf956df45045c4f5c716cb310b09ae49ae766a32cdaca092c0d3e948793ab79"
+    }
+  },
+  "all_six_configs_differ_from_640_only_in_input_resolution_and_isolation_paths": true,
+  "fixed_model_input": [
+    1024,
+    1024
+  ],
+  "train_multiscale_disabled": true,
+  "no_aug_scheduler_aligned_at_epoch_zero_based": 130,
+  "all_annotation_hashes_match_prior_evidence": true,
+  "prior_reused_byte_for_byte_from_train_only_source": true,
+  "mosaic_op_probability": 1.0,
+  "compose_mosaic_prob": 1.0,
+  "crop_probability_when_scheduled": 0.5,
+  "sanitize_registration": "AlignedSanitizeBoundingBoxes; both outer sanitizer stages; same for every model",
+  "runtime_forward_augmentation_validation": "Required separately before training; this is a static configuration audit"
+}

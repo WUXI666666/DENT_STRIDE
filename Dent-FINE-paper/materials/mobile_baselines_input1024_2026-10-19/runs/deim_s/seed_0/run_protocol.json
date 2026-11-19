@@ -1,0 +1,13 @@
+{
+  "family": "deim_s",
+  "seed": 0,
+  "input": 1024,
+  "epochs": 160,
+  "started_at": "2026-10-19T21:49:39.965895+08:00",
+  "source": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/DEIM",
+  "config": "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/configs/deim_s_phone.yml",
+  "config_sha256": "1fa58b4c706bd3758d2a91c8f58468aea3947962da1aa419f2032abfe630faf1",
+  "params": 10285925,
+  "runner_sha256": "1d4b1c61c9a15c3a39d1a2cb7e74a824055fc692d4dee906767320dc4827b08d",
+  "backbone_initialization": "Fresh native ImageNet backbone; no dental checkpoint tuning"
+}

@@ -1,0 +1,21 @@
+{
+  "author_decision": {
+    "table6": "Word is the later updated result; retain Word and identify new figures as separate archived configurations.",
+    "abstract": "Update only DSLR AP/F1, preserving all other original abstract and introduction wording."
+  },
+  "implemented_abstract_values": {
+    "DSLR_AP": 73.22,
+    "DSLR_F1_percent": 92.84
+  },
+  "body_exact_values": {
+    "DSLR_AP": 73.219,
+    "DSLR_F1_percent": 92.841
+  },
+  "table6_and_fig10_changed": false,
+  "archived_HOOA_temperature": 0.2,
+  "archived_HOOA_AP": [
+    53.560608060219415,
+    54.90991824784207
+  ],
+  "historical_audit_notes": "Earlier source discrepancies are retained as provenance; the author has now confirmed the Word figures are later updated results."
+}

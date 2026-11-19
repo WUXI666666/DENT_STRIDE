@@ -1,0 +1,121 @@
+/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/DEIM/engine/backbone/hgnetv2.py:494: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(model_path, map_location='cpu')
+Not init distributed mode.
+Loaded stage1 B0 HGNetV2 from local file.
+building train_dataloader with batch_size=8...
+     ### Transform @Mosaic ###    
+     ### Transform @RandomPhotometricDistort ###    
+     ### Transform @RandomZoomOut ###    
+     ### Transform @RandomIoUCrop ###    
+     ### Transform @AlignedSanitizeBoundingBoxes ###    
+     ### Transform @Resize ###    
+     ### Transform @AlignedSanitizeBoundingBoxes ###    
+     ### Transform @ConvertPILImage ###    
+     ### Transform @ConvertBoxes ###    
+     ### Mosaic with Prob.@1.0 and ZoomOut/IoUCrop existed ### 
+     ### ImgTransforms Epochs: [4, 70, 130] ### 
+     ### Policy_ops@['Mosaic', 'RandomPhotometricDistort', 'RandomZoomOut', 'RandomIoUCrop'] ###
+     ### Using MixUp with Prob@0.5 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+{"phase": "epoch4_real_max_count_sources", "batch_size": 8, "input_size": [1024, 1024], "gt_counts": [118, 107, 115, 126, 128, 124, 136, 140], "actual_dn_queries": 280, "loss": 31.35686492919922, "grad_norm": 2.7260797023773193, "peak_allocated_bytes": 9228536832, "peak_reserved_bytes": 10229907456, "passed": true}
+{"phase": "epoch70_real_max_count_sources", "batch_size": 8, "input_size": [1024, 1024], "gt_counts": [24, 24, 24, 24, 24, 24, 24, 23], "actual_dn_queries": 192, "loss": 29.349872589111328, "grad_norm": 4.705524921417236, "peak_allocated_bytes": 8701383168, "peak_reserved_bytes": 9888071680, "passed": true}
+{"phase": "epoch130_real_max_count_sources", "batch_size": 8, "input_size": [1024, 1024], "gt_counts": [24, 24, 24, 24, 24, 24, 24, 23], "actual_dn_queries": 192, "loss": 29.721908569335938, "grad_norm": 4.5951080322265625, "peak_allocated_bytes": 8703392256, "peak_reserved_bytes": 9890168832, "passed": true}
+building val_dataloader with batch_size=16...
+     ### Transform @Resize ###    
+     ### Transform @ConvertPILImage ###    
+     ### Attention --- Mixup is closed after epoch@ 0 ###
+{
+  "task": "dslr_cmfa_dualopt",
+  "passed": true,
+  "phases": [
+    {
+      "phase": "epoch4_real_max_count_sources",
+      "batch_size": 8,
+      "input_size": [
+        1024,
+        1024
+      ],
+      "gt_counts": [
+        118,
+        107,
+        115,
+        126,
+        128,
+        124,
+        136,
+        140
+      ],
+      "actual_dn_queries": 280,
+      "loss": 31.35686492919922,
+      "grad_norm": 2.7260797023773193,
+      "peak_allocated_bytes": 9228536832,
+      "peak_reserved_bytes": 10229907456,
+      "passed": true
+    },
+    {
+      "phase": "epoch70_real_max_count_sources",
+      "batch_size": 8,
+      "input_size": [
+        1024,
+        1024
+      ],
+      "gt_counts": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        23
+      ],
+      "actual_dn_queries": 192,
+      "loss": 29.349872589111328,
+      "grad_norm": 4.705524921417236,
+      "peak_allocated_bytes": 8701383168,
+      "peak_reserved_bytes": 9888071680,
+      "passed": true
+    },
+    {
+      "phase": "epoch130_real_max_count_sources",
+      "batch_size": 8,
+      "input_size": [
+        1024,
+        1024
+      ],
+      "gt_counts": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        23
+      ],
+      "actual_dn_queries": 192,
+      "loss": 29.721908569335938,
+      "grad_norm": 4.5951080322265625,
+      "peak_allocated_bytes": 8703392256,
+      "peak_reserved_bytes": 9890168832,
+      "passed": true
+    },
+    {
+      "phase": "validation_FP32",
+      "batch_size": 16,
+      "input_size": [
+        1024,
+        1024
+      ],
+      "peak_allocated_bytes": 4061486080,
+      "peak_reserved_bytes": 4729077760,
+      "passed": true
+    }
+  ],
+  "updated_at": "2026-09-12T22:52:52.187368+08:00",
+  "protocol_sha256": "652e8fa684fae1179b52fdf6c211bce1ccac3891fcc9ed5127ab25f9a5bfb760",
+  "memory_limit_mib": 10752,
+  "maximum_peak_allocated_bytes": 9228536832,
+  "maximum_peak_reserved_bytes": 10229907456
+}

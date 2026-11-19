@@ -1,0 +1,82 @@
+DSLR acquisition-view metadata and geometry priors
+================================================
+
+No original source, annotation, image, or split was modified by these helpers.
+
+Authoritative acquisition metadata is already present in both converted COCO
+JSON files, inside each images[] item:
+  id, file_name, width, height, patient_id, patient_key, view, view_id.
+
+Exact view IDs (do not sort names alphabetically to remap):
+  0 frontal
+  1 upper_occlusal
+  2 lower_occlusal
+  3 left_buccal
+  4 right_buccal
+
+Train: 750 images, 150 patients, 10,760 annotated boxes, 150 images per view.
+Validation: 190 images, 38 patients, 2,742 boxes, 38 images per view.
+Each patient has exactly one image of each of the five views. Patient-ID and
+filename intersections across the existing splits are empty. These identifier
+checks are not an image-content hashing audit. No split changes are made.
+
+Integration API
+---------------
+  from view_prior_ops import load_view_prior, apply_view_priors
+  prior = load_view_prior(PATH)
+  corrected_logits = apply_view_priors(
+      outputs['pred_logits'], outputs['pred_boxes'], per_image_view_ids,
+      prior, spatial_weight=..., shape_weight=...)
+
+Call before score activation and top-k selection. Inputs are normalized cxcywh.
+The views must come from acquisition metadata, not the GT tooth identities.
+Missing/unknown view IDs deliberately raise an error instead of picking a bank.
+The suggested default weights 1.0/0.2 are the existing PostProcessor defaults,
+not empirically selected weights. The experiment configuration must record the
+actual weights. Use a no-prior evaluation alongside corrected evaluation.
+
+Learnable prototype supervision can use the identical view ID tensor; geometry
+priors do not contain learned query prototypes and must remain distinct from
+that training branch. Geometry files here are fixed training-derived inference
+score corrections, not geometry training losses.
+
+Statistics and scoring
+----------------------
+For each view v and class c, collect TRAINING annotations only:
+  center = ((x+w/2)/image_width, (y+h/2)/image_height)
+  log_shape = (log(max(w/image_width,1e-5)),
+               log(max(h/image_height,1e-5))).
+Use sample means and unbiased full 2x2 covariance + 1e-3 I. Numerical negative
+eigenvalues are clamped to zero before adding the ridge. A singleton has ridge
+covariance only. Each score is -0.5*d^T*cov_inv*d clipped to [-20,0]. Subtract
+the maximum score over classes and clip to [-6,0], then add each explicitly
+weighted score to the original class logits. This follows existing SpatialShape
+score correction and does not include a Gaussian determinant normalizer.
+
+Unsupported class/view cells yield neutral zero scores, not fabricated spatial
+evidence. There is no hand-written anatomical visibility penalty. Supported
+class counts by view are 40 / 20 / 25 / 36 / 36. Some class/view pairs have fewer
+than five training examples; see data_checks.json and do not describe all 260
+slots as well-learned. FDI52 mapping is fixed and checked against the annotations.
+
+Training augmentations
+----------------------
+One image must retain one acquisition view. Mixed-view Mosaic or MixUp would
+invalidate routing to a single view-specific prototype bank unless per-instance
+source metadata are also preserved. The current DSLR reference already disables
+both; do not enable them casually. Center/shape priors are applied only to normal
+evaluation boxes, not to artificially cropped/translated training boxes.
+
+Files
+-----
+build_view_priors.py: build priors and split/metadata checks.
+view_prior_ops.py: standalone Torch scoring functions, no project imports.
+test_view_prior_ops.py: covariance, bounds, missing-view, and equivalence checks.
+priors/view_specific_tooth_priors.pt: all five views, native tensors.
+priors/view_specific_tooth_priors.json: inspectable numerical values.
+priors/tooth_priors_<view>.pt: individual files compatible with old PostProcessor.
+priors/image_view_manifest.json: split-qualified image metadata lookup.
+priors/data_checks.json: counts, source annotation hashes, sparsity and checks.
+
+Validation annotations are read for metadata checks only; their tooth coordinates
+and class observations are never included in prior moments.

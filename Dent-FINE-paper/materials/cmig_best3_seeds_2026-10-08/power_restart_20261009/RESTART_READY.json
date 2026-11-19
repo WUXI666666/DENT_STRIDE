@@ -1,0 +1,12 @@
+{
+  "ready": true,
+  "plan_sha256": "3318713ad0a71f3ee2f7000f450fb675a0d80e5d88265787987d2be56a59f94d",
+  "completed_checkpoints_preserved": 11,
+  "restarted_jobs": [
+    "dslr_cmfa_dualopt_seed2",
+    "internal_mobile_cmfa_no_gates_seed0"
+  ],
+  "discarded_model_checkpoints": 3,
+  "deleted_file_count": 11,
+  "remaining_training_jobs": 19
+}

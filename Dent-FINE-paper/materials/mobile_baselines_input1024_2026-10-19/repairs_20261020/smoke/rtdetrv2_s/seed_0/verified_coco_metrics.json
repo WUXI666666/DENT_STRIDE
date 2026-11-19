@@ -1,0 +1,35 @@
+{
+  "verified_at": "2026-10-20T16:19:04.253267+08:00",
+  "matches_selected_checkpoint": true,
+  "metrics_fraction": {
+    "AP": 3.1073080351429737e-07,
+    "AP50": 1.9115362840548214e-06,
+    "AP75": 0.0,
+    "AP_small": 0.0,
+    "AP_medium": 0.0,
+    "AP_large": 3.4051475245674854e-07,
+    "AR1": 0.0,
+    "AR10": 0.00015758499311483348,
+    "AR100": 0.00019401486561027975,
+    "AR_small": 0.0,
+    "AR_medium": 0.0,
+    "AR_large": 0.00020574797347089165
+  },
+  "metrics_percentage_points": {
+    "AP": 3.107308035142974e-05,
+    "AP50": 0.00019115362840548214,
+    "AP75": 0.0,
+    "AP_small": 0.0,
+    "AP_medium": 0.0,
+    "AP_large": 3.4051475245674855e-05,
+    "AR1": 0.0,
+    "AR10": 0.015758499311483348,
+    "AR100": 0.019401486561027973,
+    "AR_small": 0.0,
+    "AR_medium": 0.0,
+    "AR_large": 0.020574797347089165
+  },
+  "prediction_count": 66000,
+  "prediction_sha256": "c1e6f3a8ac8181f98b724388cc1f737d5097e7f7f71631fccc0488c6adb00298",
+  "checkpoint_sha256": "8b4211962cb6283bd36c5aeb55687907babbb8ac9c668057ebb36b19141dec9e"
+}

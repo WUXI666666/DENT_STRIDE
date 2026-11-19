@@ -1,0 +1,50 @@
+task: detection
+
+evaluator:
+  type: CocoEvaluator
+  iou_types: ['bbox', ]
+
+num_classes: 52
+remap_mscoco_category: False
+fdi_label_order: fdi52
+
+train_dataloader: 
+  type: DataLoader
+  dataset: 
+    type: CocoDetection
+    img_folder: /home/wuxi/coco/train
+    ann_file: /home/wuxi/coco/train/annotations_fdi_types.json
+    # img_folder: /home/wuxi/dental_coco/train
+    # ann_file: /home/wuxi/dental_coco/train/annotations.json
+    # img_folder: /home/wuxi/DENTEX2023/enumeration32/train2017
+    # ann_file: /home/wuxi/DENTEX2023/enumeration32/annotations/instances_train2017.json
+    return_masks: False
+    transforms:
+      type: Compose
+      ops: ~
+  shuffle: True
+  num_workers: 8
+  drop_last: True 
+  collate_fn:
+    type: BatchImageCollateFunction
+
+
+val_dataloader:
+  type: DataLoader
+  dataset: 
+    type: CocoDetection
+    img_folder: /home/wuxi/coco/valid
+    ann_file: /home/wuxi/coco/valid/annotations_fdi_types.json
+    # img_folder: /home/wuxi/dental_coco/val
+    # ann_file: /home/wuxi/dental_coco/val/annotations.json
+    # img_folder: /home/wuxi/DENTEX2023/enumeration32/val2017
+    # ann_file: /home/wuxi/DENTEX2023/enumeration32/annotations/instances_val2017.json
+    return_masks: False
+    transforms:
+      type: Compose
+      ops: ~ 
+  shuffle: False
+  num_workers: 8
+  drop_last: False
+  collate_fn:
+    type: BatchImageCollateFunction

@@ -1,0 +1,1532 @@
+{
+  "phone": {
+    "train": {
+      "annotation": "/home/wuxi/coco/train/annotations_fdi_types.json",
+      "sha256": "8e7a4a0ad3cf08d05ede15b638cfee008be9c89297b2a07f52d20c711c4412f5",
+      "image_root": "/home/wuxi/coco/train",
+      "images": 878,
+      "annotations": 9837,
+      "category_map": [
+        {
+          "supercategory": null,
+          "id": 0,
+          "name": "11"
+        },
+        {
+          "supercategory": null,
+          "id": 1,
+          "name": "12"
+        },
+        {
+          "supercategory": null,
+          "id": 2,
+          "name": "13"
+        },
+        {
+          "supercategory": null,
+          "id": 3,
+          "name": "14"
+        },
+        {
+          "supercategory": null,
+          "id": 4,
+          "name": "15"
+        },
+        {
+          "supercategory": null,
+          "id": 5,
+          "name": "16"
+        },
+        {
+          "supercategory": null,
+          "id": 6,
+          "name": "17"
+        },
+        {
+          "supercategory": null,
+          "id": 7,
+          "name": "18"
+        },
+        {
+          "supercategory": null,
+          "id": 8,
+          "name": "21"
+        },
+        {
+          "supercategory": null,
+          "id": 9,
+          "name": "22"
+        },
+        {
+          "supercategory": null,
+          "id": 10,
+          "name": "23"
+        },
+        {
+          "supercategory": null,
+          "id": 11,
+          "name": "24"
+        },
+        {
+          "supercategory": null,
+          "id": 12,
+          "name": "25"
+        },
+        {
+          "supercategory": null,
+          "id": 13,
+          "name": "26"
+        },
+        {
+          "supercategory": null,
+          "id": 14,
+          "name": "27"
+        },
+        {
+          "supercategory": null,
+          "id": 15,
+          "name": "28"
+        },
+        {
+          "supercategory": null,
+          "id": 16,
+          "name": "31"
+        },
+        {
+          "supercategory": null,
+          "id": 17,
+          "name": "32"
+        },
+        {
+          "supercategory": null,
+          "id": 18,
+          "name": "33"
+        },
+        {
+          "supercategory": null,
+          "id": 19,
+          "name": "34"
+        },
+        {
+          "supercategory": null,
+          "id": 20,
+          "name": "35"
+        },
+        {
+          "supercategory": null,
+          "id": 21,
+          "name": "36"
+        },
+        {
+          "supercategory": null,
+          "id": 22,
+          "name": "37"
+        },
+        {
+          "supercategory": null,
+          "id": 23,
+          "name": "38"
+        },
+        {
+          "supercategory": null,
+          "id": 24,
+          "name": "41"
+        },
+        {
+          "supercategory": null,
+          "id": 25,
+          "name": "42"
+        },
+        {
+          "supercategory": null,
+          "id": 26,
+          "name": "43"
+        },
+        {
+          "supercategory": null,
+          "id": 27,
+          "name": "44"
+        },
+        {
+          "supercategory": null,
+          "id": 28,
+          "name": "45"
+        },
+        {
+          "supercategory": null,
+          "id": 29,
+          "name": "46"
+        },
+        {
+          "supercategory": null,
+          "id": 30,
+          "name": "47"
+        },
+        {
+          "supercategory": null,
+          "id": 31,
+          "name": "48"
+        },
+        {
+          "supercategory": null,
+          "id": 32,
+          "name": "51"
+        },
+        {
+          "supercategory": null,
+          "id": 33,
+          "name": "52"
+        },
+        {
+          "supercategory": null,
+          "id": 34,
+          "name": "53"
+        },
+        {
+          "supercategory": null,
+          "id": 35,
+          "name": "54"
+        },
+        {
+          "supercategory": null,
+          "id": 36,
+          "name": "55"
+        },
+        {
+          "supercategory": null,
+          "id": 37,
+          "name": "61"
+        },
+        {
+          "supercategory": null,
+          "id": 38,
+          "name": "62"
+        },
+        {
+          "supercategory": null,
+          "id": 39,
+          "name": "63"
+        },
+        {
+          "supercategory": null,
+          "id": 40,
+          "name": "64"
+        },
+        {
+          "supercategory": null,
+          "id": 41,
+          "name": "65"
+        },
+        {
+          "supercategory": null,
+          "id": 42,
+          "name": "71"
+        },
+        {
+          "supercategory": null,
+          "id": 43,
+          "name": "72"
+        },
+        {
+          "supercategory": null,
+          "id": 44,
+          "name": "73"
+        },
+        {
+          "supercategory": null,
+          "id": 45,
+          "name": "74"
+        },
+        {
+          "supercategory": null,
+          "id": 46,
+          "name": "75"
+        },
+        {
+          "supercategory": null,
+          "id": 47,
+          "name": "81"
+        },
+        {
+          "supercategory": null,
+          "id": 48,
+          "name": "82"
+        },
+        {
+          "supercategory": null,
+          "id": 49,
+          "name": "83"
+        },
+        {
+          "supercategory": null,
+          "id": 50,
+          "name": "84"
+        },
+        {
+          "supercategory": null,
+          "id": 51,
+          "name": "85"
+        }
+      ],
+      "annotation_id_zero_present": true
+    },
+    "val": {
+      "annotation": "/home/wuxi/coco/valid/annotations_fdi_types.json",
+      "sha256": "f5c0e4e86654b32770dd1befb5d8e650b29066d41657675e0253792b0806c649",
+      "image_root": "/home/wuxi/coco/valid",
+      "images": 220,
+      "annotations": 2459,
+      "category_map": [
+        {
+          "supercategory": null,
+          "id": 0,
+          "name": "11"
+        },
+        {
+          "supercategory": null,
+          "id": 1,
+          "name": "12"
+        },
+        {
+          "supercategory": null,
+          "id": 2,
+          "name": "13"
+        },
+        {
+          "supercategory": null,
+          "id": 3,
+          "name": "14"
+        },
+        {
+          "supercategory": null,
+          "id": 4,
+          "name": "15"
+        },
+        {
+          "supercategory": null,
+          "id": 5,
+          "name": "16"
+        },
+        {
+          "supercategory": null,
+          "id": 6,
+          "name": "17"
+        },
+        {
+          "supercategory": null,
+          "id": 7,
+          "name": "18"
+        },
+        {
+          "supercategory": null,
+          "id": 8,
+          "name": "21"
+        },
+        {
+          "supercategory": null,
+          "id": 9,
+          "name": "22"
+        },
+        {
+          "supercategory": null,
+          "id": 10,
+          "name": "23"
+        },
+        {
+          "supercategory": null,
+          "id": 11,
+          "name": "24"
+        },
+        {
+          "supercategory": null,
+          "id": 12,
+          "name": "25"
+        },
+        {
+          "supercategory": null,
+          "id": 13,
+          "name": "26"
+        },
+        {
+          "supercategory": null,
+          "id": 14,
+          "name": "27"
+        },
+        {
+          "supercategory": null,
+          "id": 15,
+          "name": "28"
+        },
+        {
+          "supercategory": null,
+          "id": 16,
+          "name": "31"
+        },
+        {
+          "supercategory": null,
+          "id": 17,
+          "name": "32"
+        },
+        {
+          "supercategory": null,
+          "id": 18,
+          "name": "33"
+        },
+        {
+          "supercategory": null,
+          "id": 19,
+          "name": "34"
+        },
+        {
+          "supercategory": null,
+          "id": 20,
+          "name": "35"
+        },
+        {
+          "supercategory": null,
+          "id": 21,
+          "name": "36"
+        },
+        {
+          "supercategory": null,
+          "id": 22,
+          "name": "37"
+        },
+        {
+          "supercategory": null,
+          "id": 23,
+          "name": "38"
+        },
+        {
+          "supercategory": null,
+          "id": 24,
+          "name": "41"
+        },
+        {
+          "supercategory": null,
+          "id": 25,
+          "name": "42"
+        },
+        {
+          "supercategory": null,
+          "id": 26,
+          "name": "43"
+        },
+        {
+          "supercategory": null,
+          "id": 27,
+          "name": "44"
+        },
+        {
+          "supercategory": null,
+          "id": 28,
+          "name": "45"
+        },
+        {
+          "supercategory": null,
+          "id": 29,
+          "name": "46"
+        },
+        {
+          "supercategory": null,
+          "id": 30,
+          "name": "47"
+        },
+        {
+          "supercategory": null,
+          "id": 31,
+          "name": "48"
+        },
+        {
+          "supercategory": null,
+          "id": 32,
+          "name": "51"
+        },
+        {
+          "supercategory": null,
+          "id": 33,
+          "name": "52"
+        },
+        {
+          "supercategory": null,
+          "id": 34,
+          "name": "53"
+        },
+        {
+          "supercategory": null,
+          "id": 35,
+          "name": "54"
+        },
+        {
+          "supercategory": null,
+          "id": 36,
+          "name": "55"
+        },
+        {
+          "supercategory": null,
+          "id": 37,
+          "name": "61"
+        },
+        {
+          "supercategory": null,
+          "id": 38,
+          "name": "62"
+        },
+        {
+          "supercategory": null,
+          "id": 39,
+          "name": "63"
+        },
+        {
+          "supercategory": null,
+          "id": 40,
+          "name": "64"
+        },
+        {
+          "supercategory": null,
+          "id": 41,
+          "name": "65"
+        },
+        {
+          "supercategory": null,
+          "id": 42,
+          "name": "71"
+        },
+        {
+          "supercategory": null,
+          "id": 43,
+          "name": "72"
+        },
+        {
+          "supercategory": null,
+          "id": 44,
+          "name": "73"
+        },
+        {
+          "supercategory": null,
+          "id": 45,
+          "name": "74"
+        },
+        {
+          "supercategory": null,
+          "id": 46,
+          "name": "75"
+        },
+        {
+          "supercategory": null,
+          "id": 47,
+          "name": "81"
+        },
+        {
+          "supercategory": null,
+          "id": 48,
+          "name": "82"
+        },
+        {
+          "supercategory": null,
+          "id": 49,
+          "name": "83"
+        },
+        {
+          "supercategory": null,
+          "id": 50,
+          "name": "84"
+        },
+        {
+          "supercategory": null,
+          "id": 51,
+          "name": "85"
+        }
+      ],
+      "annotation_id_zero_present": true
+    }
+  },
+  "dentex": {
+    "train": {
+      "annotation": "/home/wuxi/DENTEX2023/annotations/instances_train2017.json",
+      "sha256": "cdde8f96874c0aafabdd3de12fa5c8b3827ebd4eed40768119bdd4d74901cb50",
+      "image_root": "/home/wuxi/DENTEX2023/train2017",
+      "images": 570,
+      "annotations": 16234,
+      "category_map": [
+        {
+          "id": 0,
+          "name": "1",
+          "supercategory": "1"
+        },
+        {
+          "id": 1,
+          "name": "2",
+          "supercategory": "2"
+        },
+        {
+          "id": 2,
+          "name": "3",
+          "supercategory": "3"
+        },
+        {
+          "id": 3,
+          "name": "4",
+          "supercategory": "4"
+        },
+        {
+          "id": 4,
+          "name": "5",
+          "supercategory": "5"
+        },
+        {
+          "id": 5,
+          "name": "6",
+          "supercategory": "6"
+        },
+        {
+          "id": 6,
+          "name": "7",
+          "supercategory": "7"
+        },
+        {
+          "id": 7,
+          "name": "8",
+          "supercategory": "8"
+        },
+        {
+          "id": 8,
+          "name": "9",
+          "supercategory": "9"
+        },
+        {
+          "id": 9,
+          "name": "10",
+          "supercategory": "10"
+        },
+        {
+          "id": 10,
+          "name": "11",
+          "supercategory": "11"
+        },
+        {
+          "id": 11,
+          "name": "12",
+          "supercategory": "12"
+        },
+        {
+          "id": 12,
+          "name": "13",
+          "supercategory": "13"
+        },
+        {
+          "id": 13,
+          "name": "14",
+          "supercategory": "14"
+        },
+        {
+          "id": 14,
+          "name": "15",
+          "supercategory": "15"
+        },
+        {
+          "id": 15,
+          "name": "16",
+          "supercategory": "16"
+        },
+        {
+          "id": 16,
+          "name": "17",
+          "supercategory": "17"
+        },
+        {
+          "id": 17,
+          "name": "18",
+          "supercategory": "18"
+        },
+        {
+          "id": 18,
+          "name": "19",
+          "supercategory": "19"
+        },
+        {
+          "id": 19,
+          "name": "20",
+          "supercategory": "20"
+        },
+        {
+          "id": 20,
+          "name": "21",
+          "supercategory": "21"
+        },
+        {
+          "id": 21,
+          "name": "22",
+          "supercategory": "22"
+        },
+        {
+          "id": 22,
+          "name": "23",
+          "supercategory": "23"
+        },
+        {
+          "id": 23,
+          "name": "24",
+          "supercategory": "24"
+        },
+        {
+          "id": 24,
+          "name": "25",
+          "supercategory": "25"
+        },
+        {
+          "id": 25,
+          "name": "26",
+          "supercategory": "26"
+        },
+        {
+          "id": 26,
+          "name": "27",
+          "supercategory": "27"
+        },
+        {
+          "id": 27,
+          "name": "28",
+          "supercategory": "28"
+        },
+        {
+          "id": 28,
+          "name": "29",
+          "supercategory": "29"
+        },
+        {
+          "id": 29,
+          "name": "30",
+          "supercategory": "30"
+        },
+        {
+          "id": 30,
+          "name": "31",
+          "supercategory": "31"
+        },
+        {
+          "id": 31,
+          "name": "32",
+          "supercategory": "32"
+        }
+      ],
+      "annotation_id_zero_present": false
+    },
+    "val": {
+      "annotation": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+      "sha256": "52532169c776f6ceaa126816787e54f8f796ebb6163c0bf8a04f98372d4f3903",
+      "image_root": "/home/wuxi/DENTEX2023/val2017",
+      "images": 64,
+      "annotations": 1861,
+      "category_map": [
+        {
+          "id": 0,
+          "name": "1",
+          "supercategory": "1"
+        },
+        {
+          "id": 1,
+          "name": "2",
+          "supercategory": "2"
+        },
+        {
+          "id": 2,
+          "name": "3",
+          "supercategory": "3"
+        },
+        {
+          "id": 3,
+          "name": "4",
+          "supercategory": "4"
+        },
+        {
+          "id": 4,
+          "name": "5",
+          "supercategory": "5"
+        },
+        {
+          "id": 5,
+          "name": "6",
+          "supercategory": "6"
+        },
+        {
+          "id": 6,
+          "name": "7",
+          "supercategory": "7"
+        },
+        {
+          "id": 7,
+          "name": "8",
+          "supercategory": "8"
+        },
+        {
+          "id": 8,
+          "name": "9",
+          "supercategory": "9"
+        },
+        {
+          "id": 9,
+          "name": "10",
+          "supercategory": "10"
+        },
+        {
+          "id": 10,
+          "name": "11",
+          "supercategory": "11"
+        },
+        {
+          "id": 11,
+          "name": "12",
+          "supercategory": "12"
+        },
+        {
+          "id": 12,
+          "name": "13",
+          "supercategory": "13"
+        },
+        {
+          "id": 13,
+          "name": "14",
+          "supercategory": "14"
+        },
+        {
+          "id": 14,
+          "name": "15",
+          "supercategory": "15"
+        },
+        {
+          "id": 15,
+          "name": "16",
+          "supercategory": "16"
+        },
+        {
+          "id": 16,
+          "name": "17",
+          "supercategory": "17"
+        },
+        {
+          "id": 17,
+          "name": "18",
+          "supercategory": "18"
+        },
+        {
+          "id": 18,
+          "name": "19",
+          "supercategory": "19"
+        },
+        {
+          "id": 19,
+          "name": "20",
+          "supercategory": "20"
+        },
+        {
+          "id": 20,
+          "name": "21",
+          "supercategory": "21"
+        },
+        {
+          "id": 21,
+          "name": "22",
+          "supercategory": "22"
+        },
+        {
+          "id": 22,
+          "name": "23",
+          "supercategory": "23"
+        },
+        {
+          "id": 23,
+          "name": "24",
+          "supercategory": "24"
+        },
+        {
+          "id": 24,
+          "name": "25",
+          "supercategory": "25"
+        },
+        {
+          "id": 25,
+          "name": "26",
+          "supercategory": "26"
+        },
+        {
+          "id": 26,
+          "name": "27",
+          "supercategory": "27"
+        },
+        {
+          "id": 27,
+          "name": "28",
+          "supercategory": "28"
+        },
+        {
+          "id": 28,
+          "name": "29",
+          "supercategory": "29"
+        },
+        {
+          "id": 29,
+          "name": "30",
+          "supercategory": "30"
+        },
+        {
+          "id": 30,
+          "name": "31",
+          "supercategory": "31"
+        },
+        {
+          "id": 31,
+          "name": "32",
+          "supercategory": "32"
+        }
+      ],
+      "annotation_id_zero_present": false
+    }
+  },
+  "dslr": {
+    "train": {
+      "annotation": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_train_fdi52.json",
+      "sha256": "f38177d7f8521516653c754f7293339c3267c2aacd70eee7f0c8801af2c40c98",
+      "image_root": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/train",
+      "images": 750,
+      "annotations": 10760,
+      "category_map": [
+        {
+          "id": 0,
+          "name": "11",
+          "supercategory": "tooth",
+          "fdi": 11
+        },
+        {
+          "id": 1,
+          "name": "12",
+          "supercategory": "tooth",
+          "fdi": 12
+        },
+        {
+          "id": 2,
+          "name": "13",
+          "supercategory": "tooth",
+          "fdi": 13
+        },
+        {
+          "id": 3,
+          "name": "14",
+          "supercategory": "tooth",
+          "fdi": 14
+        },
+        {
+          "id": 4,
+          "name": "15",
+          "supercategory": "tooth",
+          "fdi": 15
+        },
+        {
+          "id": 5,
+          "name": "16",
+          "supercategory": "tooth",
+          "fdi": 16
+        },
+        {
+          "id": 6,
+          "name": "17",
+          "supercategory": "tooth",
+          "fdi": 17
+        },
+        {
+          "id": 7,
+          "name": "18",
+          "supercategory": "tooth",
+          "fdi": 18
+        },
+        {
+          "id": 8,
+          "name": "21",
+          "supercategory": "tooth",
+          "fdi": 21
+        },
+        {
+          "id": 9,
+          "name": "22",
+          "supercategory": "tooth",
+          "fdi": 22
+        },
+        {
+          "id": 10,
+          "name": "23",
+          "supercategory": "tooth",
+          "fdi": 23
+        },
+        {
+          "id": 11,
+          "name": "24",
+          "supercategory": "tooth",
+          "fdi": 24
+        },
+        {
+          "id": 12,
+          "name": "25",
+          "supercategory": "tooth",
+          "fdi": 25
+        },
+        {
+          "id": 13,
+          "name": "26",
+          "supercategory": "tooth",
+          "fdi": 26
+        },
+        {
+          "id": 14,
+          "name": "27",
+          "supercategory": "tooth",
+          "fdi": 27
+        },
+        {
+          "id": 15,
+          "name": "28",
+          "supercategory": "tooth",
+          "fdi": 28
+        },
+        {
+          "id": 16,
+          "name": "31",
+          "supercategory": "tooth",
+          "fdi": 31
+        },
+        {
+          "id": 17,
+          "name": "32",
+          "supercategory": "tooth",
+          "fdi": 32
+        },
+        {
+          "id": 18,
+          "name": "33",
+          "supercategory": "tooth",
+          "fdi": 33
+        },
+        {
+          "id": 19,
+          "name": "34",
+          "supercategory": "tooth",
+          "fdi": 34
+        },
+        {
+          "id": 20,
+          "name": "35",
+          "supercategory": "tooth",
+          "fdi": 35
+        },
+        {
+          "id": 21,
+          "name": "36",
+          "supercategory": "tooth",
+          "fdi": 36
+        },
+        {
+          "id": 22,
+          "name": "37",
+          "supercategory": "tooth",
+          "fdi": 37
+        },
+        {
+          "id": 23,
+          "name": "38",
+          "supercategory": "tooth",
+          "fdi": 38
+        },
+        {
+          "id": 24,
+          "name": "41",
+          "supercategory": "tooth",
+          "fdi": 41
+        },
+        {
+          "id": 25,
+          "name": "42",
+          "supercategory": "tooth",
+          "fdi": 42
+        },
+        {
+          "id": 26,
+          "name": "43",
+          "supercategory": "tooth",
+          "fdi": 43
+        },
+        {
+          "id": 27,
+          "name": "44",
+          "supercategory": "tooth",
+          "fdi": 44
+        },
+        {
+          "id": 28,
+          "name": "45",
+          "supercategory": "tooth",
+          "fdi": 45
+        },
+        {
+          "id": 29,
+          "name": "46",
+          "supercategory": "tooth",
+          "fdi": 46
+        },
+        {
+          "id": 30,
+          "name": "47",
+          "supercategory": "tooth",
+          "fdi": 47
+        },
+        {
+          "id": 31,
+          "name": "48",
+          "supercategory": "tooth",
+          "fdi": 48
+        },
+        {
+          "id": 32,
+          "name": "51",
+          "supercategory": "tooth",
+          "fdi": 51
+        },
+        {
+          "id": 33,
+          "name": "52",
+          "supercategory": "tooth",
+          "fdi": 52
+        },
+        {
+          "id": 34,
+          "name": "53",
+          "supercategory": "tooth",
+          "fdi": 53
+        },
+        {
+          "id": 35,
+          "name": "54",
+          "supercategory": "tooth",
+          "fdi": 54
+        },
+        {
+          "id": 36,
+          "name": "55",
+          "supercategory": "tooth",
+          "fdi": 55
+        },
+        {
+          "id": 37,
+          "name": "61",
+          "supercategory": "tooth",
+          "fdi": 61
+        },
+        {
+          "id": 38,
+          "name": "62",
+          "supercategory": "tooth",
+          "fdi": 62
+        },
+        {
+          "id": 39,
+          "name": "63",
+          "supercategory": "tooth",
+          "fdi": 63
+        },
+        {
+          "id": 40,
+          "name": "64",
+          "supercategory": "tooth",
+          "fdi": 64
+        },
+        {
+          "id": 41,
+          "name": "65",
+          "supercategory": "tooth",
+          "fdi": 65
+        },
+        {
+          "id": 42,
+          "name": "71",
+          "supercategory": "tooth",
+          "fdi": 71
+        },
+        {
+          "id": 43,
+          "name": "72",
+          "supercategory": "tooth",
+          "fdi": 72
+        },
+        {
+          "id": 44,
+          "name": "73",
+          "supercategory": "tooth",
+          "fdi": 73
+        },
+        {
+          "id": 45,
+          "name": "74",
+          "supercategory": "tooth",
+          "fdi": 74
+        },
+        {
+          "id": 46,
+          "name": "75",
+          "supercategory": "tooth",
+          "fdi": 75
+        },
+        {
+          "id": 47,
+          "name": "81",
+          "supercategory": "tooth",
+          "fdi": 81
+        },
+        {
+          "id": 48,
+          "name": "82",
+          "supercategory": "tooth",
+          "fdi": 82
+        },
+        {
+          "id": 49,
+          "name": "83",
+          "supercategory": "tooth",
+          "fdi": 83
+        },
+        {
+          "id": 50,
+          "name": "84",
+          "supercategory": "tooth",
+          "fdi": 84
+        },
+        {
+          "id": 51,
+          "name": "85",
+          "supercategory": "tooth",
+          "fdi": 85
+        }
+      ],
+      "annotation_id_zero_present": false
+    },
+    "val": {
+      "annotation": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json",
+      "sha256": "de3b8dc99b2a0a2679386c75d2e8aeff4871a0eaf448d5cc5abef5e1e725dbcf",
+      "image_root": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val",
+      "images": 190,
+      "annotations": 2742,
+      "category_map": [
+        {
+          "id": 0,
+          "name": "11",
+          "supercategory": "tooth",
+          "fdi": 11
+        },
+        {
+          "id": 1,
+          "name": "12",
+          "supercategory": "tooth",
+          "fdi": 12
+        },
+        {
+          "id": 2,
+          "name": "13",
+          "supercategory": "tooth",
+          "fdi": 13
+        },
+        {
+          "id": 3,
+          "name": "14",
+          "supercategory": "tooth",
+          "fdi": 14
+        },
+        {
+          "id": 4,
+          "name": "15",
+          "supercategory": "tooth",
+          "fdi": 15
+        },
+        {
+          "id": 5,
+          "name": "16",
+          "supercategory": "tooth",
+          "fdi": 16
+        },
+        {
+          "id": 6,
+          "name": "17",
+          "supercategory": "tooth",
+          "fdi": 17
+        },
+        {
+          "id": 7,
+          "name": "18",
+          "supercategory": "tooth",
+          "fdi": 18
+        },
+        {
+          "id": 8,
+          "name": "21",
+          "supercategory": "tooth",
+          "fdi": 21
+        },
+        {
+          "id": 9,
+          "name": "22",
+          "supercategory": "tooth",
+          "fdi": 22
+        },
+        {
+          "id": 10,
+          "name": "23",
+          "supercategory": "tooth",
+          "fdi": 23
+        },
+        {
+          "id": 11,
+          "name": "24",
+          "supercategory": "tooth",
+          "fdi": 24
+        },
+        {
+          "id": 12,
+          "name": "25",
+          "supercategory": "tooth",
+          "fdi": 25
+        },
+        {
+          "id": 13,
+          "name": "26",
+          "supercategory": "tooth",
+          "fdi": 26
+        },
+        {
+          "id": 14,
+          "name": "27",
+          "supercategory": "tooth",
+          "fdi": 27
+        },
+        {
+          "id": 15,
+          "name": "28",
+          "supercategory": "tooth",
+          "fdi": 28
+        },
+        {
+          "id": 16,
+          "name": "31",
+          "supercategory": "tooth",
+          "fdi": 31
+        },
+        {
+          "id": 17,
+          "name": "32",
+          "supercategory": "tooth",
+          "fdi": 32
+        },
+        {
+          "id": 18,
+          "name": "33",
+          "supercategory": "tooth",
+          "fdi": 33
+        },
+        {
+          "id": 19,
+          "name": "34",
+          "supercategory": "tooth",
+          "fdi": 34
+        },
+        {
+          "id": 20,
+          "name": "35",
+          "supercategory": "tooth",
+          "fdi": 35
+        },
+        {
+          "id": 21,
+          "name": "36",
+          "supercategory": "tooth",
+          "fdi": 36
+        },
+        {
+          "id": 22,
+          "name": "37",
+          "supercategory": "tooth",
+          "fdi": 37
+        },
+        {
+          "id": 23,
+          "name": "38",
+          "supercategory": "tooth",
+          "fdi": 38
+        },
+        {
+          "id": 24,
+          "name": "41",
+          "supercategory": "tooth",
+          "fdi": 41
+        },
+        {
+          "id": 25,
+          "name": "42",
+          "supercategory": "tooth",
+          "fdi": 42
+        },
+        {
+          "id": 26,
+          "name": "43",
+          "supercategory": "tooth",
+          "fdi": 43
+        },
+        {
+          "id": 27,
+          "name": "44",
+          "supercategory": "tooth",
+          "fdi": 44
+        },
+        {
+          "id": 28,
+          "name": "45",
+          "supercategory": "tooth",
+          "fdi": 45
+        },
+        {
+          "id": 29,
+          "name": "46",
+          "supercategory": "tooth",
+          "fdi": 46
+        },
+        {
+          "id": 30,
+          "name": "47",
+          "supercategory": "tooth",
+          "fdi": 47
+        },
+        {
+          "id": 31,
+          "name": "48",
+          "supercategory": "tooth",
+          "fdi": 48
+        },
+        {
+          "id": 32,
+          "name": "51",
+          "supercategory": "tooth",
+          "fdi": 51
+        },
+        {
+          "id": 33,
+          "name": "52",
+          "supercategory": "tooth",
+          "fdi": 52
+        },
+        {
+          "id": 34,
+          "name": "53",
+          "supercategory": "tooth",
+          "fdi": 53
+        },
+        {
+          "id": 35,
+          "name": "54",
+          "supercategory": "tooth",
+          "fdi": 54
+        },
+        {
+          "id": 36,
+          "name": "55",
+          "supercategory": "tooth",
+          "fdi": 55
+        },
+        {
+          "id": 37,
+          "name": "61",
+          "supercategory": "tooth",
+          "fdi": 61
+        },
+        {
+          "id": 38,
+          "name": "62",
+          "supercategory": "tooth",
+          "fdi": 62
+        },
+        {
+          "id": 39,
+          "name": "63",
+          "supercategory": "tooth",
+          "fdi": 63
+        },
+        {
+          "id": 40,
+          "name": "64",
+          "supercategory": "tooth",
+          "fdi": 64
+        },
+        {
+          "id": 41,
+          "name": "65",
+          "supercategory": "tooth",
+          "fdi": 65
+        },
+        {
+          "id": 42,
+          "name": "71",
+          "supercategory": "tooth",
+          "fdi": 71
+        },
+        {
+          "id": 43,
+          "name": "72",
+          "supercategory": "tooth",
+          "fdi": 72
+        },
+        {
+          "id": 44,
+          "name": "73",
+          "supercategory": "tooth",
+          "fdi": 73
+        },
+        {
+          "id": 45,
+          "name": "74",
+          "supercategory": "tooth",
+          "fdi": 74
+        },
+        {
+          "id": 46,
+          "name": "75",
+          "supercategory": "tooth",
+          "fdi": 75
+        },
+        {
+          "id": 47,
+          "name": "81",
+          "supercategory": "tooth",
+          "fdi": 81
+        },
+        {
+          "id": 48,
+          "name": "82",
+          "supercategory": "tooth",
+          "fdi": 82
+        },
+        {
+          "id": 49,
+          "name": "83",
+          "supercategory": "tooth",
+          "fdi": 83
+        },
+        {
+          "id": 50,
+          "name": "84",
+          "supercategory": "tooth",
+          "fdi": 84
+        },
+        {
+          "id": 51,
+          "name": "85",
+          "supercategory": "tooth",
+          "fdi": 85
+        }
+      ],
+      "annotation_id_zero_present": false
+    }
+  }
+}

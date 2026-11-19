@@ -1,0 +1,9 @@
+﻿module,cohort,comparisons,additional_seed0_trainings,definition_and_reuse
+SpatialShape,Pano,none / center / shape / center+shape,0,Same pano_factor_prototype seed checkpoint; full pre-top-k logits and boxes. Repeat replay for seeds 0/1/2. No view/appearance term.
+CMFA gates,Mobile,both off / channel only / spatial only / both on,3,Full1024 anchor. Channel off removes gated cross-residual; spatial off is identity. Keep 2C output. Requires source switch tests before training.
+HOOA,Mobile,full / no high-pass / no second-order / neither,3,"Full1024 anchor. Proposed no high-pass: zero edge contribution. Proposed no second-order: replace local*sigmoid(context) with context, preserving context branch and 3C projection. Freeze this definition before training."
+Factor supervision,Mobile,all / no quadrant / no position / no dentition,3,Anchor: training fusion OFF and inference fusion OFF. Keep all heads; remove only specified CE term. Reuse full-supervision training-fusion-OFF model below.
+Factor fusion,Mobile,train on/off x inference on/off,1,"Two training settings, each replayed with inference on/off before query selection. Training-ON seed0 reuses primary full1024 after equivalence check."
+Prototype,Mobile,"off / K=1,2,4 at tau=.20 / tau=.10,.20,.50 at K=4",5,"K denotes prototypes per FDI class, not class count. Full1024 is K=4,tau=.20 reference; no prototype inference fusion."
+DualOpt,DSLR,none / rollback only / extra decay only / both,2,CMFA architecture fixed. None and both reuse two primary DSLR seed0 runs. AdamW ordinary weight decay stays unchanged.
+Mobile background losses,Mobile,neither / NWD only / arch only / both,3,"Full1024 modules fixed. NWD weight .50 (normalizer .08), arch weight .10. Both reuses primary full1024 seed0."

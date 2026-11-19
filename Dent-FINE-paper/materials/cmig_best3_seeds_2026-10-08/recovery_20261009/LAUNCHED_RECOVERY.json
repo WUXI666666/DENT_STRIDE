@@ -1,0 +1,14 @@
+{
+  "gpu": 0,
+  "worker_pid": 2911259,
+  "command": [
+    "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+    "-u",
+    "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/recovery_20261009/queue_worker_recovery.py",
+    "--gpu",
+    "0"
+  ],
+  "launched_unix": 1791532698.1984932,
+  "original_manifest_sha256": "3591432ecdfa9f33a08756711faf542621c61f13f7245814c0cf76fa7447c643",
+  "recovery_freeze_sha256": "8f8b3519bc1ac4f3bd00e4eb42a8de6dd85d1bd5e1c44ab22dde6eac1e581e28"
+}

@@ -1,0 +1,66 @@
+{
+  "FinalMobile_image118_FDI42_modules_HiResCAM": {
+    "final_checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/best.pth",
+    "cases": [
+      "FinalMobile_image118_FDI42"
+    ],
+    "method": "hirescam"
+  },
+  "FinalMobile_image44_FDI51_modules_HiResCAM": {
+    "final_checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/best.pth",
+    "cases": [
+      "FinalMobile_image44_FDI51"
+    ],
+    "method": "hirescam"
+  },
+  "FinalMobile_image115_FDI64_modules_HiResCAM": {
+    "final_checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/best.pth",
+    "cases": [
+      "FinalMobile_image115_FDI64"
+    ],
+    "method": "hirescam"
+  },
+  "FinalMobile_image77_FDI11_modules_HiResCAM": {
+    "final_checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/best.pth",
+    "cases": [
+      "FinalMobile_image77_FDI11"
+    ],
+    "method": "hirescam"
+  },
+  "FinalMobile_image182_FDI46_modules_HiResCAM": {
+    "final_checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/best.pth",
+    "cases": [
+      "FinalMobile_image182_FDI46"
+    ],
+    "method": "hirescam"
+  },
+  "FinalMobile_all_cases_HiResCAM": {
+    "final_checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/best.pth",
+    "cases": [
+      "FinalMobile_image118_FDI42",
+      "FinalMobile_image44_FDI51",
+      "FinalMobile_image115_FDI64",
+      "FinalMobile_image77_FDI11",
+      "FinalMobile_image182_FDI46"
+    ],
+    "method": "hirescam"
+  },
+  "Recommended_FinalMobile_modules_HiResCAM": {
+    "final_checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/best.pth",
+    "cases": [
+      "FinalMobile_image118_FDI42",
+      "FinalMobile_image44_FDI51",
+      "FinalMobile_image115_FDI64"
+    ],
+    "method": "hirescam"
+  },
+  "Recommended_FinalMobile_modules_GradCAM": {
+    "final_checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/best.pth",
+    "cases": [
+      "FinalMobile_image118_FDI42",
+      "FinalMobile_image44_FDI51",
+      "FinalMobile_image115_FDI64"
+    ],
+    "method": "gradcam"
+  }
+}

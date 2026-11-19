@@ -1,0 +1,622 @@
+{
+  "created_at": "2026-10-19T21:38:12.607936+08:00",
+  "seed": 0,
+  "seeds": [
+    0
+  ],
+  "input": [
+    1024,
+    1024
+  ],
+  "epochs": 160,
+  "models": {
+    "deim_s": {
+      "url": "https://github.com/Intellindust-AI-Lab/DEIM",
+      "commit": "09d35d53d39ee3145a1e61e3a989b28b9468d1dd",
+      "label": "Official DEIM-D-FINE-S (HGNetv2-B0)",
+      "code": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/DEIM",
+      "base_config": "configs/deim_dfine/deim_hgnetv2_s_coco.yml"
+    },
+    "rtdetrv2_s": {
+      "url": "https://github.com/lyuwenyu/RT-DETR",
+      "commit": "29320b6fd828f8e0987a71426cf2d961b09dfed7",
+      "label": "Official RT-DETRv2-S (ResNet18-vd)",
+      "code": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/RT-DETR/rtdetrv2_pytorch",
+      "base_config": "configs/rtdetrv2/rtdetrv2_r18vd_120e_coco.yml"
+    }
+  },
+  "model_order": [
+    "deim_s",
+    "rtdetr_l",
+    "rtdetrv2_s",
+    "faster_rcnn",
+    "caf_yolo_s",
+    "yolov8s",
+    "yolo11s",
+    "dome_detr_s"
+  ],
+  "model_names": {
+    "deim_s": "Official DEIM-s",
+    "rtdetr_l": "RT-DETR-L",
+    "rtdetrv2_s": "RT-DETRv2-S",
+    "faster_rcnn": "Faster R-CNN R50-FPN",
+    "caf_yolo_s": "CAF-YOLO-s",
+    "yolov8s": "YOLOv8-s",
+    "yolo11s": "YOLO11-s",
+    "dome_detr_s": "Dome-DETR-S"
+  },
+  "configs": {
+    "deim_s_phone": {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/configs/deim_s_phone.yml",
+      "sha256": "1fa58b4c706bd3758d2a91c8f58468aea3947962da1aa419f2032abfe630faf1",
+      "origin": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/configs/deim_s_phone.yml",
+      "origin_sha256": "b07bbc3def66e8a1ca7cce440969ae056b21f15d4f2c39ed19e567b9d287d7a9"
+    },
+    "rtdetrv2_s_phone": {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/configs/rtdetrv2_s_phone.yml",
+      "sha256": "56fdeead1ac611ace2753d7eca15074956f4436421026af5fec6a489e0071142",
+      "origin": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/configs/rtdetrv2_s_phone.yml",
+      "origin_sha256": "88b60c6684ac903cfbad3e2cc2fe333d1b781888367e22b13bddd1f82dbe53c8"
+    },
+    "dome_detr_s_phone": {
+      "path": "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/configs/dome_detr_s_phone.yml",
+      "sha256": "0d54d09392120af638bb2cd895f1c8a84096a5c4bcdbb95c28a06f564a62ac5a",
+      "origin": "/home/wuxi/Dent-FINE/third_party/dome_detr/configs/dome/Dome-S-ViewNet3-DSLR-FDI52.yml",
+      "origin_sha256": "b1e5b09aa84df5223d50dcc12b0be866cf131beb6110376b627b9fbc2522a1da"
+    }
+  },
+  "datasets": {
+    "train": {
+      "annotation": "/home/wuxi/coco/train/annotations_fdi_types.json",
+      "sha256": "8e7a4a0ad3cf08d05ede15b638cfee008be9c89297b2a07f52d20c711c4412f5",
+      "images": 878,
+      "boxes": 9837,
+      "label_map": [
+        {
+          "supercategory": null,
+          "id": 0,
+          "name": "11"
+        },
+        {
+          "supercategory": null,
+          "id": 1,
+          "name": "12"
+        },
+        {
+          "supercategory": null,
+          "id": 2,
+          "name": "13"
+        },
+        {
+          "supercategory": null,
+          "id": 3,
+          "name": "14"
+        },
+        {
+          "supercategory": null,
+          "id": 4,
+          "name": "15"
+        },
+        {
+          "supercategory": null,
+          "id": 5,
+          "name": "16"
+        },
+        {
+          "supercategory": null,
+          "id": 6,
+          "name": "17"
+        },
+        {
+          "supercategory": null,
+          "id": 7,
+          "name": "18"
+        },
+        {
+          "supercategory": null,
+          "id": 8,
+          "name": "21"
+        },
+        {
+          "supercategory": null,
+          "id": 9,
+          "name": "22"
+        },
+        {
+          "supercategory": null,
+          "id": 10,
+          "name": "23"
+        },
+        {
+          "supercategory": null,
+          "id": 11,
+          "name": "24"
+        },
+        {
+          "supercategory": null,
+          "id": 12,
+          "name": "25"
+        },
+        {
+          "supercategory": null,
+          "id": 13,
+          "name": "26"
+        },
+        {
+          "supercategory": null,
+          "id": 14,
+          "name": "27"
+        },
+        {
+          "supercategory": null,
+          "id": 15,
+          "name": "28"
+        },
+        {
+          "supercategory": null,
+          "id": 16,
+          "name": "31"
+        },
+        {
+          "supercategory": null,
+          "id": 17,
+          "name": "32"
+        },
+        {
+          "supercategory": null,
+          "id": 18,
+          "name": "33"
+        },
+        {
+          "supercategory": null,
+          "id": 19,
+          "name": "34"
+        },
+        {
+          "supercategory": null,
+          "id": 20,
+          "name": "35"
+        },
+        {
+          "supercategory": null,
+          "id": 21,
+          "name": "36"
+        },
+        {
+          "supercategory": null,
+          "id": 22,
+          "name": "37"
+        },
+        {
+          "supercategory": null,
+          "id": 23,
+          "name": "38"
+        },
+        {
+          "supercategory": null,
+          "id": 24,
+          "name": "41"
+        },
+        {
+          "supercategory": null,
+          "id": 25,
+          "name": "42"
+        },
+        {
+          "supercategory": null,
+          "id": 26,
+          "name": "43"
+        },
+        {
+          "supercategory": null,
+          "id": 27,
+          "name": "44"
+        },
+        {
+          "supercategory": null,
+          "id": 28,
+          "name": "45"
+        },
+        {
+          "supercategory": null,
+          "id": 29,
+          "name": "46"
+        },
+        {
+          "supercategory": null,
+          "id": 30,
+          "name": "47"
+        },
+        {
+          "supercategory": null,
+          "id": 31,
+          "name": "48"
+        },
+        {
+          "supercategory": null,
+          "id": 32,
+          "name": "51"
+        },
+        {
+          "supercategory": null,
+          "id": 33,
+          "name": "52"
+        },
+        {
+          "supercategory": null,
+          "id": 34,
+          "name": "53"
+        },
+        {
+          "supercategory": null,
+          "id": 35,
+          "name": "54"
+        },
+        {
+          "supercategory": null,
+          "id": 36,
+          "name": "55"
+        },
+        {
+          "supercategory": null,
+          "id": 37,
+          "name": "61"
+        },
+        {
+          "supercategory": null,
+          "id": 38,
+          "name": "62"
+        },
+        {
+          "supercategory": null,
+          "id": 39,
+          "name": "63"
+        },
+        {
+          "supercategory": null,
+          "id": 40,
+          "name": "64"
+        },
+        {
+          "supercategory": null,
+          "id": 41,
+          "name": "65"
+        },
+        {
+          "supercategory": null,
+          "id": 42,
+          "name": "71"
+        },
+        {
+          "supercategory": null,
+          "id": 43,
+          "name": "72"
+        },
+        {
+          "supercategory": null,
+          "id": 44,
+          "name": "73"
+        },
+        {
+          "supercategory": null,
+          "id": 45,
+          "name": "74"
+        },
+        {
+          "supercategory": null,
+          "id": 46,
+          "name": "75"
+        },
+        {
+          "supercategory": null,
+          "id": 47,
+          "name": "81"
+        },
+        {
+          "supercategory": null,
+          "id": 48,
+          "name": "82"
+        },
+        {
+          "supercategory": null,
+          "id": 49,
+          "name": "83"
+        },
+        {
+          "supercategory": null,
+          "id": 50,
+          "name": "84"
+        },
+        {
+          "supercategory": null,
+          "id": 51,
+          "name": "85"
+        }
+      ]
+    },
+    "val": {
+      "annotation": "/home/wuxi/coco/valid/annotations_fdi_types.json",
+      "sha256": "f5c0e4e86654b32770dd1befb5d8e650b29066d41657675e0253792b0806c649",
+      "images": 220,
+      "boxes": 2459,
+      "label_map": [
+        {
+          "supercategory": null,
+          "id": 0,
+          "name": "11"
+        },
+        {
+          "supercategory": null,
+          "id": 1,
+          "name": "12"
+        },
+        {
+          "supercategory": null,
+          "id": 2,
+          "name": "13"
+        },
+        {
+          "supercategory": null,
+          "id": 3,
+          "name": "14"
+        },
+        {
+          "supercategory": null,
+          "id": 4,
+          "name": "15"
+        },
+        {
+          "supercategory": null,
+          "id": 5,
+          "name": "16"
+        },
+        {
+          "supercategory": null,
+          "id": 6,
+          "name": "17"
+        },
+        {
+          "supercategory": null,
+          "id": 7,
+          "name": "18"
+        },
+        {
+          "supercategory": null,
+          "id": 8,
+          "name": "21"
+        },
+        {
+          "supercategory": null,
+          "id": 9,
+          "name": "22"
+        },
+        {
+          "supercategory": null,
+          "id": 10,
+          "name": "23"
+        },
+        {
+          "supercategory": null,
+          "id": 11,
+          "name": "24"
+        },
+        {
+          "supercategory": null,
+          "id": 12,
+          "name": "25"
+        },
+        {
+          "supercategory": null,
+          "id": 13,
+          "name": "26"
+        },
+        {
+          "supercategory": null,
+          "id": 14,
+          "name": "27"
+        },
+        {
+          "supercategory": null,
+          "id": 15,
+          "name": "28"
+        },
+        {
+          "supercategory": null,
+          "id": 16,
+          "name": "31"
+        },
+        {
+          "supercategory": null,
+          "id": 17,
+          "name": "32"
+        },
+        {
+          "supercategory": null,
+          "id": 18,
+          "name": "33"
+        },
+        {
+          "supercategory": null,
+          "id": 19,
+          "name": "34"
+        },
+        {
+          "supercategory": null,
+          "id": 20,
+          "name": "35"
+        },
+        {
+          "supercategory": null,
+          "id": 21,
+          "name": "36"
+        },
+        {
+          "supercategory": null,
+          "id": 22,
+          "name": "37"
+        },
+        {
+          "supercategory": null,
+          "id": 23,
+          "name": "38"
+        },
+        {
+          "supercategory": null,
+          "id": 24,
+          "name": "41"
+        },
+        {
+          "supercategory": null,
+          "id": 25,
+          "name": "42"
+        },
+        {
+          "supercategory": null,
+          "id": 26,
+          "name": "43"
+        },
+        {
+          "supercategory": null,
+          "id": 27,
+          "name": "44"
+        },
+        {
+          "supercategory": null,
+          "id": 28,
+          "name": "45"
+        },
+        {
+          "supercategory": null,
+          "id": 29,
+          "name": "46"
+        },
+        {
+          "supercategory": null,
+          "id": 30,
+          "name": "47"
+        },
+        {
+          "supercategory": null,
+          "id": 31,
+          "name": "48"
+        },
+        {
+          "supercategory": null,
+          "id": 32,
+          "name": "51"
+        },
+        {
+          "supercategory": null,
+          "id": 33,
+          "name": "52"
+        },
+        {
+          "supercategory": null,
+          "id": 34,
+          "name": "53"
+        },
+        {
+          "supercategory": null,
+          "id": 35,
+          "name": "54"
+        },
+        {
+          "supercategory": null,
+          "id": 36,
+          "name": "55"
+        },
+        {
+          "supercategory": null,
+          "id": 37,
+          "name": "61"
+        },
+        {
+          "supercategory": null,
+          "id": 38,
+          "name": "62"
+        },
+        {
+          "supercategory": null,
+          "id": 39,
+          "name": "63"
+        },
+        {
+          "supercategory": null,
+          "id": 40,
+          "name": "64"
+        },
+        {
+          "supercategory": null,
+          "id": 41,
+          "name": "65"
+        },
+        {
+          "supercategory": null,
+          "id": 42,
+          "name": "71"
+        },
+        {
+          "supercategory": null,
+          "id": 43,
+          "name": "72"
+        },
+        {
+          "supercategory": null,
+          "id": 44,
+          "name": "73"
+        },
+        {
+          "supercategory": null,
+          "id": 45,
+          "name": "74"
+        },
+        {
+          "supercategory": null,
+          "id": 46,
+          "name": "75"
+        },
+        {
+          "supercategory": null,
+          "id": 47,
+          "name": "81"
+        },
+        {
+          "supercategory": null,
+          "id": 48,
+          "name": "82"
+        },
+        {
+          "supercategory": null,
+          "id": 49,
+          "name": "83"
+        },
+        {
+          "supercategory": null,
+          "id": 50,
+          "name": "84"
+        },
+        {
+          "supercategory": null,
+          "id": 51,
+          "name": "85"
+        }
+      ]
+    }
+  },
+  "selection": "Maximum validation COCO bbox AP, earliest epoch on exact ties",
+  "storage": "One best weight per model; stage rollback snapshots in RAM; atomic temporary replacement only",
+  "scope": "Eight framework baselines on the unchanged Mobile internal-validation split. No manuscript updates.",
+  "augmentation": "No flips, no Mosaic, no MixUp. DEIM/RTv2/DOME share photo/crop/zoom policy; YOLO frameworks retain native color/affine transforms. Faster R-CNN uses fixed-square resize.",
+  "pretraining": "Native ImageNet backbone for DEIM/RTv2/DOME; native COCO detector for YOLO/CAF/RT-DETR-L/Faster R-CNN. No prior dental fine-tuning.",
+  "matching_limit": "Resolution-, split-, seed- and budget-aligned framework comparison, not an isolated module ablation; native losses/optimizers/pretraining remain different.",
+  "dome_history": "Old phone tuned301 output was 40-epoch DSLR-checkpoint tuning; this run is fresh from ImageNet HGNetv2 backbone, 160 epochs, native dynamic 300..1500 queries.",
+  "dome_resolution_adaptation": "Native MWAS window 10 at 640 is incompatible with feature width 128 at input 1024; set window=16 to preserve the original 8x8 window grid, without editing source or selecting against validation outcomes.",
+  "evaluation": "Canonical COCO JSON; native postprocessing, maximum 300 predictions. Fixed endpoints score>=0.30, localization Hungarian IoU>=0.50.",
+  "disk_min_free_GiB": 3,
+  "gpu": 0,
+  "gpu1_policy": "Do not interfere with another user process.",
+  "dome_batch": "Batch 8 exhausted 23.53 GiB in a no-checkpoint forward compatibility preflight; train/validation batch=4. Native optimizer, 160 epochs and all model modules remain unchanged. Batch/optimizer-step counts are not fully matched across frameworks.",
+  "dome_postprocessing": "Preserve native dynamic-query scores, then cap the returned sorted predictions at 300 for the common evaluation protocol. No NMS is added.",
+  "native_duplicate_annotation_handling": "Ultralytics loaders remove two identical training-label rows in images 269.jpg and 314.jpg in memory/cache. Canonical source COCO and all validation GT are unchanged; this native filtering is not described as instance-identical training across frameworks.",
+  "compute_input": "First canonical validation photograph by image ID, square-resized to 1024; static architectures retain fixed operation counts, dynamic DOME/Faster counts are representative-image specific."
+}

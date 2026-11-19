@@ -1,0 +1,19 @@
+{
+  "caption": "Acquisition-configured DENT-STRIDE framework. (A) Backbone features at strides 8, 16, and 32 are projected to 256 channels; the highest-stride feature passes through the transformer before top-down FPN and bottom-up PAN processing. Mobile and DSLR configurations use CMFA at two FPN and two PAN fusion sites; each site includes the corresponding base fusion block. HOOA processes the three output levels in Mobile only. (B) Decoder queries supply box and FDI heads. Mobile and Pano use factor supervision and a four-prototype-per-class auxiliary bank (K = 52 and 32, respectively). Mobile factor fusion uses weights 0.10, 0.05, and 0.03; factor fusion is disabled in Pano. Prototype learning supplies training supervision only. Pano center and shape statistics modify logits before sigmoid scoring and top-300 selection; labels are decoded through the cohort FDI map. (C) The three configurations share the backbone, base hybrid encoder, and decoder; DSLR uses DualOpt during training. Solid arrows show prediction data flow; dashed arrows indicate training supervision or anatomical-prior estimation. Modules are used only in the domains specified in the configuration cards, not simultaneously in a universal detector.",
+  "source_checks": [
+    "Frozen configs/mobile_1024_full/seed_0.yml: CMFA and HOOA enabled; factor heads and prototypes enabled; factor fusion weights 0.10/0.05/0.03; prototype fusion zero; AdamW.",
+    "Frozen configs/pano_historical_spatialshape/seed_0.yml: CMFA/HOOA disabled; factor heads/prototypes enabled with factor fusion zero; center/shape prior weights 0.20/0.05; 32 categories; AdamW.",
+    "Frozen configs/dslr_cmfa_dualopt/seed_0.yml: CMFA enabled; HOOA/factor/prototype/prior disabled; DualOptAdamW.",
+    "hybrid_encoder.py forward: only encoder index 2 is transformed; two top-down and two bottom-up CMFA sites; HOOA after the pyramid outputs.",
+    "dfine_decoder.py: normalized query/prototypes and LogSumExp cosine scoring; prototype_count=4 and prototype_fusion_weight=0.",
+    "postprocessor.py: center/shape terms added to logits before sigmoid and flat top-300 selection."
+  ],
+  "omitted_modules": [
+    "CEDv2",
+    "SMWG",
+    "MPF",
+    "UCM"
+  ],
+  "font": "Times New Roman",
+  "raster_dpi": 600
+}

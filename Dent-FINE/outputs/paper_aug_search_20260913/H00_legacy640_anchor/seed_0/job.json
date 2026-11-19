@@ -1,0 +1,27 @@
+{
+  "job_id": "H00_legacy640_anchor",
+  "task": "dentex_spatial_shape",
+  "cohort": "DENTEX2023",
+  "model": "DENT-STRIDE SpatialShape",
+  "phase": "historical_anchor",
+  "seed": 0,
+  "augmentation": {
+    "profile": "legacy640_multiscale",
+    "mosaic": 0.0,
+    "mixup": 0.5,
+    "crop": 0.8,
+    "zoom": 0.5
+  },
+  "config": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/H00_legacy640_anchor_seed0.yml",
+  "config_sha256": "2bab8358100bcb6dd6710c3dc2e241573776b98a73b2f58c43be4bbbf1b4bcea",
+  "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/H00_legacy640_anchor/seed_0",
+  "implementation_dir": "/home/wuxi/Dent-FINE",
+  "train_script": "/home/wuxi/Dent-FINE/train.py",
+  "changes_from_aligned_base": [
+    {
+      "path": "output_dir",
+      "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+      "after": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/H00_legacy640_anchor/seed_0"
+    }
+  ]
+}

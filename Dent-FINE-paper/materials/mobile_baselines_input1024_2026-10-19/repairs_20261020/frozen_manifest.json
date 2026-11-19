@@ -1,0 +1,49 @@
+{
+  "seed": 0,
+  "epochs": 160,
+  "input": [
+    1024,
+    1024
+  ],
+  "gpu": 0,
+  "families": [
+    "rtdetr_l",
+    "rtdetrv2_s"
+  ],
+  "started_at": "2026-10-20T16:19:34.381951+08:00",
+  "retained_six": {
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/runs/deim_s/seed_0/metrics_summary.json": "1727d7a98923307d675bc69421d153960c15f1eca1673dd5a4371580bf44b157",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/runs/deim_s/seed_0/best.pth": "dd71a9261329c4f2b7f035674c7f483d8164a574a40094264df38b6f021116b8",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/runs/faster_rcnn/seed_0/metrics_summary.json": "a71354076efaca788c0c5f723af919129e914ff7e9a02a1e91b545fb81845126",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/runs/faster_rcnn/seed_0/model_best.pth": "582399845dac486555a0ae2d4805531ec00977fed4e92cf6216743d3763443d9",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/runs/caf_yolo_s/seed_0/metrics_summary.json": "261460d91a2297106ba61d5cf83c7118221c721883a35680586d39c05748f344",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/runs/caf_yolo_s/seed_0/weights/best.pt": "9559d412890a648f764b4e3ba39950e7986b09ef7506be171efaf341a34bebd7",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/runs/yolov8s/seed_0/metrics_summary.json": "aaf6d583535b4a8256cc1724649ecad15f9855bff2e47a66c2d70022d093b31f",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/runs/yolov8s/seed_0/weights/best.pt": "ac2657f5ef0ab05f70c967899e230f8c4908d5c620765ee6879649b5229f80ac",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/runs/yolo11s/seed_0/metrics_summary.json": "3fbf998a6ce4fc69e2a2621eb2c2c06508ffbbb0c431ef740ecdc54e70b7791d",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/runs/yolo11s/seed_0/weights/best.pt": "71469d2d4542297976c2b526d20caf05af61faab3b22f9131175f675c097fe51",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/runs/dome_detr_s/seed_0/metrics_summary.json": "426a07eafc638d5ea4da93c8cafbba78a51fffe1536c9a447f75b1fbec64122e",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/runs/dome_detr_s/seed_0/best.pth": "d00a5e2a39b1270b0b58c485f0baf729d2a8a293dcd123595cfed4877a83bfaf"
+  },
+  "scripts": {
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/coco_export.py": "7bfe20b50ef8b3a810f6763baa6a26c9ad144cfdb256ac3420e65e200055480a",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/common.py": "2ea505e3fa217e2e6bc1f0c16fdd83729cbe239ede1902c7b46bc2518ba11eca",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/finalize.py": "92729f2de71b57bbf0bced68562825b7a67f92365c874b612b66eee775cf6f4a",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/launch.py": "de8c782379fa893d5e8250ae0721fc241b2a09d40509a76e1923d63df9f259bd",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/prepare.py": "c7aab50f944dd61702911acdd3fd4281152d2327f909e41b888ab9fb1978921d",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/profile_benchmark.py": "9f75ec7dcf05018a0308147abb31b9f2fb603bc9710b8bb520502c1dc3b1a4f2",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/repair_queue.py": "82ce92bfabae27ed87f2744ce39617e0120553c2a832d61914a2f61a6bccf23d",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/run_faster.py": "b23a5fdb14ae137545be6b45ef505ce4683a9057fe8e1d55db8f8f55d11b63b4",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/run_queue.py": "a96cd88b69ce03e76d14ad3e0983b10e7e5b0eae91f9cdfb973966b283a2af2c",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/run_transformer.py": "8f006439944fea283164f9d872e5b6525b4cc333a1fe4c8439cad57776b34e5d",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/run_ultralytics.py": "ee08a4c2eb445fa8865a6f5a3bdbebef607f2d81aae362b594455bbef072e322",
+    "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/verify_repairs.py": "d512688bf2aa4cc42ff2ed1bd81ce5430f7c90f9c2e4fb00a8b48da886ce1913"
+  },
+  "run_paths": {
+    "rtdetr_l": "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/runs/rtdetr_l/seed_0_repaired_20261020",
+    "rtdetrv2_s": "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/runs/rtdetrv2_s/seed_0_repaired_20261020"
+  },
+  "checkpoint_policy": "One best checkpoint in each repaired run; no last/periodic weights",
+  "restarts": "Fresh seed-0 training from original pretrained initialization, not the invalid dental run",
+  "repaired_runs_sha256": "fbd473e006233943c44d59ce6c770028683703ea178ee909ad1091df4c18221a"
+}

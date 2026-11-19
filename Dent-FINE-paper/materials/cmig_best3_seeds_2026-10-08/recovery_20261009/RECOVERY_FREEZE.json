@@ -1,0 +1,31 @@
+{
+  "created_unix": 1791532698.1977901,
+  "original_manifest_sha256": "3591432ecdfa9f33a08756711faf542621c61f13f7245814c0cf76fa7447c643",
+  "scripts": {
+    "export_native.py": "9a1d2c0651d4305b454c4ce1321f534f37825e42ea9e9b07a4231af8a24ea9de",
+    "queue_worker_recovery.py": "e60feb64d2c73155f8db5c806bae416790b3979c0ad0f2a4f2b87fe925e73773",
+    "launch_recovery.py": "bdd51d3b3cb093bb293c49a869e0d673a971f75cc182b0134bae965710f59bc2"
+  },
+  "gpu": 0,
+  "assigned_jobs": [
+    "mobile_1024_full_seed0",
+    "pano_historical_spatialshape_seed1",
+    "dslr_cmfa_dualopt_seed1",
+    "pano_historical_spatialshape_seed2",
+    "dslr_cmfa_dualopt_seed2",
+    "internal_dslr_cmfa_adamw_seed0",
+    "internal_dslr_rollback_only_seed0",
+    "internal_mobile_background_neither_seed0",
+    "internal_mobile_cmfa_channel_only_seed0",
+    "internal_mobile_cmfa_spatial_only_seed0",
+    "internal_mobile_factor_no_position_seed0",
+    "internal_mobile_factor_train_off_seed0",
+    "internal_mobile_hooa_no_highpass_seed0",
+    "internal_mobile_proto_k1_tau0p2_seed0",
+    "internal_mobile_proto_k4_tau0p1_seed0",
+    "internal_mobile_proto_off_seed0"
+  ],
+  "recovered_finished_training": "dslr_cmfa_dualopt_seed1",
+  "changes": "Prediction export observes native EMA forward only. All training/source/config/split/checkpoint selection settings remain frozen. Preserve failed export and state; do not interrupt GPU1.",
+  "assistant_monitoring": "Startup check only; no recurring assistant monitoring"
+}

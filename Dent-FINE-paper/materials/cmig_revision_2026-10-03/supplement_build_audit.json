@@ -1,0 +1,34 @@
+{
+  "source": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_supplement_visual.docx",
+  "destination": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_supplement_controlled_results_20261003.docx",
+  "tables": 13,
+  "inline_figures": 11,
+  "historical_tables_S1_to_S5_numeric_cells_unchanged": true,
+  "old_visual_tail_replaced": true,
+  "existing_math_count_before": 0,
+  "existing_math_count_after": 0,
+  "primary_run_rows": 42,
+  "internal_sensitivity_rows": 26,
+  "pending_internal_training_conditions": 4,
+  "new_primary_detail_tables": [
+    "S7",
+    "S8",
+    "S9",
+    "S10",
+    "S11",
+    "S12",
+    "S13"
+  ],
+  "new_figures": [
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "S10",
+    "S11"
+  ],
+  "complete_FDI_confusions_include_Missed_and_support": true,
+  "optional_SMWG_native_reexport": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/methods/SMWG_native_code_aligned.png",
+  "snapshot": "2026-10-03T22:25:14+08:00"
+}

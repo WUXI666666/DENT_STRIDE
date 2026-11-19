@@ -1,0 +1,32 @@
+[
+  {
+    "model": "deim_s",
+    "gpu": 0,
+    "pid": 739804,
+    "command": [
+      "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+      "-u",
+      "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/scripts/run_queue.py",
+      "--model",
+      "deim_s",
+      "--gpu",
+      "0"
+    ],
+    "log": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/queue_gpu0.log"
+  },
+  {
+    "model": "rtdetrv2_s",
+    "gpu": 1,
+    "pid": 739805,
+    "command": [
+      "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+      "-u",
+      "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/scripts/run_queue.py",
+      "--model",
+      "rtdetrv2_s",
+      "--gpu",
+      "1"
+    ],
+    "log": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/queue_gpu1.log"
+  }
+]

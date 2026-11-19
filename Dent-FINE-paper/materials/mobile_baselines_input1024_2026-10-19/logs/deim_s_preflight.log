@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/run_transformer.py", line 86, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/run_transformer.py", line 15, in main
+    import torch
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/__init__.py", line 2475, in <module>
+    from torch import (
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/export/__init__.py", line 28, in <module>
+    from torch.fx.passes.infra.pass_base import PassResult
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/fx/passes/infra/__init__.py", line 2, in <module>
+    from . import pass_manager
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/fx/passes/infra/pass_manager.py", line 4, in <module>
+    from queue import Queue
+ImportError: cannot import name 'Queue' from 'queue' (/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/queue.py)
+Not init distributed mode.
+/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/DEIM/engine/backbone/hgnetv2.py:494: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(model_path, map_location='cpu')
+Loaded stage1 B0 HGNetV2 from local file.
+building train_dataloader with batch_size=2...
+     ### Transform @RandomPhotometricDistort ###    
+     ### Transform @RandomZoomOut ###    
+     ### Transform @RandomIoUCrop ###    
+     ### Transform @SanitizeBoundingBoxes ###    
+     ### Transform @Resize ###    
+     ### Transform @SanitizeBoundingBoxes ###    
+     ### Transform @ConvertPILImage ###    
+     ### Transform @ConvertBoxes ###    
+     ### ImgTransforms Epochs: [4, 70, 130] ### 
+     ### Policy_ops@['RandomPhotometricDistort', 'RandomZoomOut', 'RandomIoUCrop'] ###
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        

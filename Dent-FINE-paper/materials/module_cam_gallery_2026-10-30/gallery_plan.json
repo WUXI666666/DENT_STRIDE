@@ -1,0 +1,2529 @@
+{
+  "groups": [
+    {
+      "name": "CMFA",
+      "cohort": "DSLR",
+      "before": {
+        "job": {
+          "id": "dslr_base_adamw_seed0",
+          "configuration": "dslr_base_adamw",
+          "cohort": "DSLR",
+          "seed": 0,
+          "phase": "primary",
+          "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/dslr_base_adamw/seed_0.yml",
+          "config_sha256": "352e7bf1099e61bec5d06e599bf847d458a0418f77aa28a8e5c51f387f1ac111",
+          "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/dslr_base_adamw/seed_0",
+          "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/source_snapshots/local",
+          "controls": {},
+          "epochs": 160,
+          "expected_input": 640,
+          "gpu": 0,
+          "queue_order": 1,
+          "job_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/jobs/dslr_base_adamw_seed0.json"
+        },
+        "metrics": {
+          "AP": 72.41639344869935,
+          "AP50": 88.66385183638474,
+          "AP75": 83.31278697284469,
+          "APsmall": -100.0,
+          "APmedium": 53.186254192457675,
+          "APlarge": 74.33264181696708,
+          "AR1": 78.00985898963474,
+          "AR10": 82.11143085596014,
+          "AR100": 82.65762320294083,
+          "ARsmall": -100.0,
+          "ARmedium": 59.402221620971616,
+          "ARlarge": 84.40757584005142
+        },
+        "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/dslr_base_adamw/seed_0/best.pth",
+        "checkpoint_sha256": "4e1b58f7e8d9094086c7bec89b1fbce7b6b110187c7086a1a67540ea7baa2b14",
+        "candidates": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/dslr_base_adamw/seed_0/evaluation/pre_topk_candidates.npz"
+      },
+      "after": {
+        "job": {
+          "id": "dslr_cmfa_adamw_seed0",
+          "configuration": "dslr_cmfa_adamw",
+          "cohort": "DSLR",
+          "seed": 0,
+          "phase": "primary",
+          "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/dslr_cmfa_adamw/seed_0.yml",
+          "config_sha256": "f8e5f2ebcf87fdb65552b3bd681dc24cdee6e45aabd9ac3f75fa989eb3c5b782",
+          "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/dslr_cmfa_adamw/seed_0",
+          "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/source_snapshots/local",
+          "controls": {},
+          "epochs": 160,
+          "expected_input": 640,
+          "gpu": 0,
+          "queue_order": 2,
+          "job_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/jobs/dslr_cmfa_adamw_seed0.json"
+        },
+        "metrics": {
+          "AP": 72.90822265080959,
+          "AP50": 88.65529668298302,
+          "AP75": 83.85484662429567,
+          "APsmall": -100.0,
+          "APmedium": 50.939537138426815,
+          "APlarge": 74.89107188124605,
+          "AR1": 76.78488443727683,
+          "AR10": 81.69764973070033,
+          "AR100": 82.15104016500328,
+          "ARsmall": -100.0,
+          "ARmedium": 59.04715307840308,
+          "ARlarge": 83.78056263869763
+        },
+        "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/dslr_cmfa_adamw/seed_0/best.pth",
+        "checkpoint_sha256": "f05649c4b5e442d713826348c3270954687f572a9352071bd29edc508d7cd0c6",
+        "candidates": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/dslr_cmfa_adamw/seed_0/evaluation/pre_topk_candidates.npz"
+      },
+      "config_differences": [
+        {
+          "field": ".HybridEncoder.use_cmfa_fusion",
+          "before": false,
+          "after": true
+        }
+      ],
+      "controls": {
+        "before": {},
+        "after": {}
+      },
+      "inventory_counts": {
+        "correction": 16,
+        "localization": 14,
+        "adverse": 12
+      },
+      "cases": [
+        {
+          "group": "CMFA",
+          "cohort": "DSLR",
+          "kind": "correction",
+          "image_id": 125,
+          "image_record": {
+            "id": 125,
+            "file_name": "9b395c158625.jpg",
+            "width": 4000,
+            "height": 2999,
+            "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/upper_occlusal.json",
+            "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/upper_occlusal.JPG",
+            "patient_key": "case_120",
+            "patient_id": "case_120",
+            "view": "upper_occlusal",
+            "view_id": 1
+          },
+          "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/9b395c158625.jpg",
+          "target_annotation": {
+            "id": 1795,
+            "image_id": 125,
+            "category_id": 5,
+            "segmentation": [
+              [
+                739.0243902439024,
+                2156.0975609756097,
+                658.5365853658536,
+                2126.8292682926826,
+                568.2926829268292,
+                2141.4634146341464,
+                512.1951219512194,
+                2187.80487804878,
+                480.48780487804873,
+                2258.5365853658536,
+                480.48780487804873,
+                2329.2682926829266,
+                458.5365853658536,
+                2341.4634146341464,
+                409.7560975609756,
+                2409.7560975609754,
+                397.56097560975604,
+                2504.8780487804875,
+                424.390243902439,
+                2563.414634146341,
+                482.92682926829264,
+                2609.7560975609754,
+                548.780487804878,
+                2665.853658536585,
+                587.8048780487804,
+                2712.1951219512193,
+                641.4634146341463,
+                2746.341463414634,
+                695.1219512195122,
+                2773.170731707317,
+                748.780487804878,
+                2778.048780487805,
+                797.560975609756,
+                2714.6341463414633,
+                848.780487804878,
+                2651.2195121951218,
+                848.780487804878,
+                2595.121951219512,
+                917.0731707317073,
+                2558.5365853658536,
+                946.3414634146341,
+                2475.609756097561,
+                914.6341463414633,
+                2370.731707317073,
+                895.1219512195121,
+                2329.2682926829266,
+                868.2926829268292,
+                2302.4390243902435,
+                829.2682926829268,
+                2265.853658536585,
+                785.3658536585365,
+                2209.7560975609754
+              ]
+            ],
+            "bbox": [
+              397.0,
+              2126.0,
+              550.0,
+              653.0
+            ],
+            "area": 236010.0,
+            "iscrowd": 0,
+            "original_fdi": 16
+          },
+          "target_FDI": 16,
+          "competitor_category": 36,
+          "competitor_FDI": 55,
+          "before": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                398.9147033691406,
+                2142.566650390625,
+                557.4595947265625,
+                621.4410400390625
+              ],
+              "category_id": 36,
+              "FDI": 55,
+              "score": 0.8025921583175659
+            },
+            "query": 4,
+            "IoU": 0.9332208525515815,
+            "GT_class_logit": 0.6690294146537781
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                403.1790771484375,
+                2138.32861328125,
+                552.5125732421875,
+                633.3321533203125
+              ],
+              "category_id": 5,
+              "FDI": 16,
+              "score": 0.8742785453796387
+            },
+            "query": 4,
+            "IoU": 0.9445076504928058,
+            "GT_class_logit": 1.9393304586410522
+          },
+          "area_fraction": 0.029939146382127375,
+          "IoU_gain": 0.011286797941224336,
+          "case_id": "CMFA_correction_01_image125_FDI16",
+          "image_sha256": "66d89681bc2fde1ad46b07fe5c53abb33d20688a0c8e41e953df04fca5fead29"
+        },
+        {
+          "group": "CMFA",
+          "cohort": "DSLR",
+          "kind": "correction",
+          "image_id": 68,
+          "image_record": {
+            "id": 68,
+            "file_name": "80e953be8020.jpg",
+            "width": 4000,
+            "height": 2999,
+            "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_072/lower_occlusal.json",
+            "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_072/lower_occlusal.JPG",
+            "patient_key": "case_072",
+            "patient_id": "case_072",
+            "view": "lower_occlusal",
+            "view_id": 2
+          },
+          "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/80e953be8020.jpg",
+          "target_annotation": {
+            "id": 974,
+            "image_id": 68,
+            "category_id": 49,
+            "segmentation": [
+              [
+                1056.4102564102564,
+                1741.0256410256409,
+                1002.5641025641025,
+                1787.179487179487,
+                987.1794871794872,
+                1882.051282051282,
+                994.8717948717948,
+                1989.7435897435896,
+                994.8717948717948,
+                2110.25641025641,
+                1030.7692307692307,
+                2161.5384615384614,
+                1102.5641025641025,
+                2194.871794871795,
+                1182.051282051282,
+                2158.974358974359,
+                1258.974358974359,
+                2089.74358974359,
+                1300.0,
+                2043.5897435897434,
+                1320.5128205128206,
+                1964.102564102564,
+                1328.2051282051282,
+                1910.2564102564102,
+                1258.974358974359,
+                1848.7179487179487,
+                1194.871794871795,
+                1815.3846153846152,
+                1141.0256410256409,
+                1774.3589743589744
+              ]
+            ],
+            "bbox": [
+              987.0,
+              1741.0,
+              342.0,
+              454.0
+            ],
+            "area": 109449.0,
+            "iscrowd": 0,
+            "original_fdi": 83
+          },
+          "target_FDI": 83,
+          "competitor_category": 26,
+          "competitor_FDI": 43,
+          "before": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                988.4570922851562,
+                1731.4991455078125,
+                344.7207946777344,
+                477.5277099609375
+              ],
+              "category_id": 26,
+              "FDI": 43,
+              "score": 0.8044388890266418
+            },
+            "query": 7,
+            "IoU": 0.935448448003389,
+            "GT_class_logit": 0.4005177617073059
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                987.3004760742188,
+                1732.123046875,
+                344.6434631347656,
+                477.5445251464844
+              ],
+              "category_id": 49,
+              "FDI": 83,
+              "score": 0.8446024060249329
+            },
+            "query": 7,
+            "IoU": 0.9417952667884096,
+            "GT_class_logit": 1.692879319190979
+          },
+          "area_fraction": 0.012943314438146048,
+          "IoU_gain": 0.006346818785020636,
+          "case_id": "CMFA_correction_02_image68_FDI83",
+          "image_sha256": "25c33bb21887906d9506a3c18b3552ea6a907a63437760ef1da89a5ccddeb54d"
+        },
+        {
+          "group": "CMFA",
+          "cohort": "DSLR",
+          "kind": "correction",
+          "image_id": 37,
+          "image_record": {
+            "id": 37,
+            "file_name": "052813f2c915.jpg",
+            "width": 4000,
+            "height": 3000,
+            "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_035/left_buccal.json",
+            "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_035/left_buccal.JPG",
+            "patient_key": "case_035",
+            "patient_id": "case_035",
+            "view": "left_buccal",
+            "view_id": 3
+          },
+          "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/052813f2c915.jpg",
+          "target_annotation": {
+            "id": 522,
+            "image_id": 37,
+            "category_id": 38,
+            "segmentation": [
+              [
+                1497.6190476190477,
+                1278.5714285714287,
+                1435.7142857142858,
+                1319.047619047619,
+                1352.3809523809525,
+                1371.4285714285716,
+                1426.1904761904761,
+                1414.2857142857144,
+                1511.904761904762,
+                1457.142857142857,
+                1566.6666666666667,
+                1514.2857142857144,
+                1664.2857142857144,
+                1526.1904761904761,
+                1683.3333333333335,
+                1476.1904761904761,
+                1666.6666666666667,
+                1366.6666666666667,
+                1621.4285714285716,
+                1307.142857142857,
+                1566.6666666666667,
+                1278.5714285714287
+              ]
+            ],
+            "bbox": [
+              1352.0,
+              1278.0,
+              332.0,
+              249.0
+            ],
+            "area": 48814.0,
+            "iscrowd": 0,
+            "original_fdi": 62
+          },
+          "target_FDI": 62,
+          "competitor_category": 39,
+          "competitor_FDI": 63,
+          "before": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                1350.2364501953125,
+                1270.62744140625,
+                335.62469482421875,
+                258.1402587890625
+              ],
+              "category_id": 39,
+              "FDI": 63,
+              "score": 0.8466541767120361
+            },
+            "query": 2,
+            "IoU": 0.954174483608431,
+            "GT_class_logit": -1.5167447328567505
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                1349.451904296875,
+                1268.4434814453125,
+                337.9065856933594,
+                257.03643798828125
+              ],
+              "category_id": 38,
+              "FDI": 62,
+              "score": 0.791986346244812
+            },
+            "query": 12,
+            "IoU": 0.9405258695697035,
+            "GT_class_logit": 1.3369405269622803
+          },
+          "area_fraction": 0.006889,
+          "IoU_gain": -0.013648614038727525,
+          "case_id": "CMFA_correction_03_image37_FDI62",
+          "image_sha256": "1ceab14ee345091041f9c574d6d9bfdc30763bd0212bc04064c306d8419e63e4"
+        },
+        {
+          "group": "CMFA",
+          "cohort": "DSLR",
+          "kind": "correction",
+          "image_id": 129,
+          "image_record": {
+            "id": 129,
+            "file_name": "11d83e7bb1a9.jpg",
+            "width": 2080,
+            "height": 1560,
+            "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_124/right_buccal.json",
+            "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_124/right_buccal.JPG",
+            "patient_key": "case_124",
+            "patient_id": "case_124",
+            "view": "right_buccal",
+            "view_id": 4
+          },
+          "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/11d83e7bb1a9.jpg",
+          "target_annotation": {
+            "id": 1853,
+            "image_id": 129,
+            "category_id": 43,
+            "segmentation": [
+              [
+                1848.9361702127658,
+                790.4255319148936,
+                1875.5319148936169,
+                819.1489361702127,
+                1915.9574468085104,
+                860.6382978723403,
+                1959.0425531914893,
+                868.6170212765957,
+                1986.7021276595744,
+                860.6382978723403,
+                2010.6382978723402,
+                818.6170212765957,
+                2005.31914893617,
+                750.0,
+                1990.4255319148936,
+                712.2340425531914,
+                1963.8297872340424,
+                686.7021276595744,
+                1924.468085106383,
+                680.3191489361702,
+                1845.7446808510638,
+                689.8936170212766,
+                1809.5744680851062,
+                704.2553191489361,
+                1832.4468085106382,
+                725.0
+              ]
+            ],
+            "bbox": [
+              1809.0,
+              680.0,
+              202.0,
+              189.0
+            ],
+            "area": 25974.0,
+            "iscrowd": 0,
+            "original_fdi": 72
+          },
+          "target_FDI": 72,
+          "competitor_category": 17,
+          "competitor_FDI": 32,
+          "before": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                1809.022216796875,
+                680.913330078125,
+                196.24734497070312,
+                179.51168823242188
+              ],
+              "category_id": 17,
+              "FDI": 32,
+              "score": 0.7817335724830627
+            },
+            "query": 9,
+            "IoU": 0.9227485443856244,
+            "GT_class_logit": -0.1963035762310028
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                1811.6240234375,
+                680.6172485351562,
+                196.0552978515625,
+                181.00714111328125
+              ],
+              "category_id": 43,
+              "FDI": 72,
+              "score": 0.7190930247306824
+            },
+            "query": 3,
+            "IoU": 0.9295250630259905,
+            "GT_class_logit": 0.9399673342704773
+          },
+          "area_fraction": 0.011765902366863906,
+          "IoU_gain": 0.006776518640366103,
+          "case_id": "CMFA_correction_04_image129_FDI72",
+          "image_sha256": "9cae8e2f9e136611e3ee8a93600f182525751507994d22e1ad50176954768062"
+        },
+        {
+          "group": "CMFA",
+          "cohort": "DSLR",
+          "kind": "correction",
+          "image_id": 124,
+          "image_record": {
+            "id": 124,
+            "file_name": "152e9c2ddc73.jpg",
+            "width": 4000,
+            "height": 3000,
+            "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/right_buccal.json",
+            "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/right_buccal.JPG",
+            "patient_key": "case_120",
+            "patient_id": "case_120",
+            "view": "right_buccal",
+            "view_id": 4
+          },
+          "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/152e9c2ddc73.jpg",
+          "target_annotation": {
+            "id": 1773,
+            "image_id": 124,
+            "category_id": 24,
+            "segmentation": [
+              [
+                3119.0,
+                1488.6666666666667,
+                3069.0,
+                1465.3333333333335,
+                3022.3333333333335,
+                1458.6666666666667,
+                2935.666666666667,
+                1442.0,
+                2892.3333333333335,
+                1442.0,
+                2855.666666666667,
+                1478.6666666666667,
+                2835.666666666667,
+                1498.6666666666667,
+                2825.666666666667,
+                1565.3333333333335,
+                2825.666666666667,
+                1638.6666666666667,
+                2812.3333333333335,
+                1685.3333333333335,
+                2862.3333333333335,
+                1768.6666666666667,
+                2905.666666666667,
+                1822.0,
+                2929.0,
+                1862.0,
+                2982.3333333333335,
+                1902.0,
+                3055.666666666667,
+                1902.0,
+                3089.0,
+                1822.0,
+                3115.666666666667,
+                1702.0,
+                3119.0,
+                1648.6666666666667,
+                3132.3333333333335,
+                1578.6666666666667
+              ]
+            ],
+            "bbox": [
+              2812.0,
+              1442.0,
+              321.0,
+              461.0
+            ],
+            "area": 112318.0,
+            "iscrowd": 0,
+            "original_fdi": 41
+          },
+          "target_FDI": 41,
+          "competitor_category": 47,
+          "competitor_FDI": 81,
+          "before": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                2813.796875,
+                1432.1162109375,
+                313.5013427734375,
+                481.0901184082031
+              ],
+              "category_id": 47,
+              "FDI": 81,
+              "score": 0.7354727387428284
+            },
+            "query": 8,
+            "IoU": 0.9367702252175172,
+            "GT_class_logit": 0.8990229368209839
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                2817.579345703125,
+                1431.8140869140625,
+                307.7142333984375,
+                480.1302490234375
+              ],
+              "category_id": 24,
+              "FDI": 41,
+              "score": 0.7818467617034912
+            },
+            "query": 10,
+            "IoU": 0.9219362118687269,
+            "GT_class_logit": 1.2764610052108765
+          },
+          "area_fraction": 0.01233175,
+          "IoU_gain": -0.01483401334879031,
+          "case_id": "CMFA_correction_05_image124_FDI41",
+          "image_sha256": "690d311fef465dd1692ffbc7fb4809ae229c40a993c2fb6721214dc034c0a64f"
+        },
+        {
+          "group": "CMFA",
+          "cohort": "DSLR",
+          "kind": "localization",
+          "image_id": 36,
+          "image_record": {
+            "id": 36,
+            "file_name": "ed6d46c46c93.jpg",
+            "width": 4000,
+            "height": 3000,
+            "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_035/frontal.json",
+            "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_035/frontal.JPG",
+            "patient_key": "case_035",
+            "patient_id": "case_035",
+            "view": "frontal",
+            "view_id": 0
+          },
+          "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/ed6d46c46c93.jpg",
+          "target_annotation": {
+            "id": 508,
+            "image_id": 36,
+            "category_id": 39,
+            "segmentation": [
+              [
+                2767.777777777778,
+                1564.4444444444443,
+                2834.4444444444443,
+                1530.0,
+                2891.111111111111,
+                1493.3333333333333,
+                2961.111111111111,
+                1465.5555555555554,
+                3022.222222222222,
+                1465.5555555555554,
+                3087.777777777778,
+                1495.5555555555554,
+                3067.777777777778,
+                1554.4444444444443,
+                3072.222222222222,
+                1617.7777777777778,
+                2996.6666666666665,
+                1662.2222222222222,
+                2951.7241379310344,
+                1687.3563218390805,
+                2927.5862068965516,
+                1642.528735632184,
+                2898.8505747126437,
+                1567.816091954023,
+                2859.770114942529,
+                1556.3218390804598,
+                2814.942528735632,
+                1581.6091954022988,
+                2787.3563218390805,
+                1605.7471264367816
+              ]
+            ],
+            "bbox": [
+              2767.0,
+              1465.0,
+              321.0,
+              223.0
+            ],
+            "area": 36569.0,
+            "iscrowd": 0,
+            "original_fdi": 63
+          },
+          "target_FDI": 63,
+          "competitor_category": 40,
+          "competitor_FDI": 64,
+          "before": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                2761.835693359375,
+                1462.746826171875,
+                424.3638610839844,
+                227.91900634765625
+              ],
+              "category_id": 39,
+              "FDI": 63,
+              "score": 0.5686197876930237
+            },
+            "query": 11,
+            "IoU": 0.7401009754661362,
+            "GT_class_logit": 0.2762221693992615
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                2765.624755859375,
+                1463.5548095703125,
+                330.2340393066406,
+                225.51405334472656
+              ],
+              "category_id": 39,
+              "FDI": 63,
+              "score": 0.7721973657608032
+            },
+            "query": 16,
+            "IoU": 0.9612015522945839,
+            "GT_class_logit": 1.220760703086853
+          },
+          "area_fraction": 0.00596525,
+          "IoU_gain": 0.22110057682844775,
+          "case_id": "CMFA_localization_01_image36_FDI63",
+          "image_sha256": "91d0e099f17f9488dd00aa03d273046b5c8566fd9df618d0d3b73d5e04fc13f4"
+        },
+        {
+          "group": "CMFA",
+          "cohort": "DSLR",
+          "kind": "adverse",
+          "image_id": 147,
+          "image_record": {
+            "id": 147,
+            "file_name": "9945e391f57a.jpg",
+            "width": 4000,
+            "height": 3000,
+            "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_147/left_buccal.json",
+            "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_147/left_buccal.JPG",
+            "patient_key": "case_147",
+            "patient_id": "case_147",
+            "view": "left_buccal",
+            "view_id": 3
+          },
+          "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/9945e391f57a.jpg",
+          "target_annotation": {
+            "id": 2120,
+            "image_id": 147,
+            "category_id": 42,
+            "segmentation": [
+              [
+                1223.9130434782608,
+                1565.2173913043478,
+                1162.2516556291391,
+                1575.4966887417218,
+                1154.3478260869565,
+                1630.4347826086955,
+                1152.1739130434783,
+                1713.0434782608695,
+                1160.8695652173913,
+                1863.0434782608695,
+                1180.4347826086955,
+                1860.8695652173913,
+                1326.086956521739,
+                1819.5652173913043,
+                1389.1304347826087,
+                1782.6086956521738,
+                1441.304347826087,
+                1773.9130434782608,
+                1436.9565217391303,
+                1680.4347826086955,
+                1463.0434782608695,
+                1584.782608695652,
+                1419.5652173913043,
+                1526.086956521739
+              ]
+            ],
+            "bbox": [
+              1152.0,
+              1526.0,
+              312.0,
+              338.0
+            ],
+            "area": 78459.0,
+            "iscrowd": 0,
+            "original_fdi": 71
+          },
+          "target_FDI": 71,
+          "competitor_category": 43,
+          "competitor_FDI": 72,
+          "before": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                1141.9703369140625,
+                1527.5177001953125,
+                319.518798828125,
+                326.5219421386719
+              ],
+              "category_id": 42,
+              "FDI": 71,
+              "score": 0.7921603918075562
+            },
+            "query": 11,
+            "IoU": 0.9294046813601035,
+            "GT_class_logit": 1.337997317314148
+          },
+          "after": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                1143.934326171875,
+                1529.436767578125,
+                315.1514587402344,
+                319.6633605957031
+              ],
+              "category_id": 43,
+              "FDI": 72,
+              "score": 0.7891007661819458
+            },
+            "query": 8,
+            "IoU": 0.9086380327050224,
+            "GT_class_logit": 0.15893854200839996
+          },
+          "area_fraction": 0.008788,
+          "IoU_gain": -0.020766648655081044,
+          "case_id": "CMFA_adverse_01_image147_FDI71",
+          "image_sha256": "ce9064308a5b27720f45a6d6d762f81ad768301b16fa42b9e131c5bc4c287c8d"
+        }
+      ]
+    },
+    {
+      "name": "HOOA",
+      "cohort": "Mobile",
+      "before": {
+        "job": {
+          "id": "internal_mobile_hooa_neither_seed0",
+          "configuration": "internal_mobile_hooa_neither",
+          "cohort": "Mobile",
+          "seed": 0,
+          "phase": "internal",
+          "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/configs/internal_mobile_hooa_neither/seed_0.yml",
+          "config_sha256": "d8ad91c9efc5589052e1aa622724ce9ec545a212e829b8ef16cb933f36acbb68",
+          "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_hooa_neither/seed_0",
+          "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile",
+          "controls": {
+            "hooa_highpass": false,
+            "hooa_second_order": false
+          },
+          "epochs": 160,
+          "expected_input": 1024,
+          "native_cwd": "/home/wuxi/Dent-FINE",
+          "train_script": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/train.py",
+          "historical_anchor_config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+          "historical_anchor_config_sha256": "2fa206ae008dbd5855d91bbd24c7ae7eb341e14828e6129a477cd9fde04b0c56",
+          "historical_source_job_id": "phone_a07_proto_aux_C05",
+          "historical_source_seed": 0,
+          "historical_recipe_exact": false,
+          "historical_native_launch": true,
+          "native_checkpoint_selection": true,
+          "fresh_initialization": true,
+          "source_controlled_job_id": "internal_mobile_hooa_neither_seed0",
+          "inference_priors": "off",
+          "prior_selection_policy": "historical native validation",
+          "estimated_gpu_hours": 4.111163839300474,
+          "estimate_basis": "previous matching job elapsed train+replay wall time",
+          "gpu": 1,
+          "queue_order": 10,
+          "job_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/jobs/internal_mobile_hooa_neither_seed0.json",
+          "scope_role": "internal",
+          "source_frozen_job_id": "internal_mobile_hooa_neither_seed0",
+          "source_frozen_job_phase": "internal",
+          "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_hooa_neither/seed_0.yml",
+          "source_frozen_config_sha256": "cdb984d089d24c1646501bcce11e9720ff7b3b285593434ba60884fc5ac2e132",
+          "resume_interrupted_run": false,
+          "reused_training_weights": false
+        },
+        "metrics": {
+          "AP": 53.560608060219415,
+          "AP50": 83.01036177463604,
+          "AP75": 58.83500826644886,
+          "APsmall": 50.0,
+          "APmedium": 38.19154617646646,
+          "APlarge": 54.80453067050867,
+          "AR1": 60.7862463688008,
+          "AR10": 67.83677604870705,
+          "AR100": 68.55570965505817,
+          "ARsmall": 50.0,
+          "ARmedium": 52.908840388007064,
+          "ARlarge": 69.61585490847978
+        },
+        "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_hooa_neither/seed_0/best.pth",
+        "checkpoint_sha256": "581d87b86e34d52a8f83b7d38460ea94c77841ffeb9707ca0fd08986778c1741",
+        "candidates": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_hooa_neither/seed_0/evaluation/pre_topk_candidates.npz"
+      },
+      "after": {
+        "job": {
+          "id": "mobile_1024_full_seed0",
+          "configuration": "mobile_1024_full",
+          "cohort": "Mobile",
+          "seed": 0,
+          "phase": "primary",
+          "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/configs/mobile_1024_full/seed_0.yml",
+          "config_sha256": "d08ee15dcf61ec4bf45bcbe146a05d8fe381bcd06614dd3ff85f7646002bf6bb",
+          "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/mobile_1024_full/seed_0",
+          "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile",
+          "controls": {},
+          "epochs": 160,
+          "expected_input": 1024,
+          "native_cwd": "/home/wuxi/Dent-FINE",
+          "train_script": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/train.py",
+          "historical_anchor_config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+          "historical_anchor_config_sha256": "2fa206ae008dbd5855d91bbd24c7ae7eb341e14828e6129a477cd9fde04b0c56",
+          "historical_source_job_id": "phone_a07_proto_aux_C05",
+          "historical_source_seed": 0,
+          "historical_recipe_exact": true,
+          "historical_native_launch": true,
+          "native_checkpoint_selection": true,
+          "fresh_initialization": true,
+          "source_controlled_job_id": "mobile_1024_full_seed0",
+          "inference_priors": "off",
+          "prior_selection_policy": "historical native validation",
+          "estimated_gpu_hours": 4.94770064704948,
+          "estimate_basis": "previous matching job elapsed train+replay wall time",
+          "gpu": 0,
+          "queue_order": 0,
+          "job_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/jobs/mobile_1024_full_seed0.json",
+          "scope_role": "main",
+          "source_frozen_job_id": "mobile_1024_full_seed0",
+          "source_frozen_job_phase": "primary",
+          "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/mobile_1024_full/seed_0.yml",
+          "source_frozen_config_sha256": "163902f38816058376e037d4cd506d749338a6c897b7420e75ae2902c9f4e4f6",
+          "resume_interrupted_run": false,
+          "reused_training_weights": false
+        },
+        "metrics": {
+          "AP": 54.90991824784207,
+          "AP50": 83.97353366421262,
+          "AP75": 60.20613713643598,
+          "APsmall": 46.25,
+          "APmedium": 39.56430951644542,
+          "APlarge": 56.409463297172316,
+          "AR1": 62.5693515701988,
+          "AR10": 68.45830864738912,
+          "AR100": 69.25980295400238,
+          "ARsmall": 47.5,
+          "ARmedium": 52.477182539682545,
+          "ARlarge": 70.40623277060554
+        },
+        "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/mobile_1024_full/seed_0/best.pth",
+        "checkpoint_sha256": "44c6c89020afc7c2cb0005f642c423aa29274af870548aff227c584ffb8052ea",
+        "candidates": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/mobile_1024_full/seed_0/evaluation/pre_topk_candidates.npz"
+      },
+      "config_differences": [],
+      "controls": {
+        "before": {
+          "hooa_highpass": false,
+          "hooa_second_order": false
+        },
+        "after": {}
+      },
+      "inventory_counts": {
+        "correction": 76,
+        "localization": 25,
+        "adverse": 44
+      },
+      "cases": [
+        {
+          "group": "HOOA",
+          "cohort": "Mobile",
+          "kind": "correction",
+          "image_id": 113,
+          "image_record": {
+            "license": 0,
+            "url": null,
+            "file_name": "JPEGImages/214.jpg",
+            "height": 4608,
+            "width": 3456,
+            "date_captured": null,
+            "id": 113
+          },
+          "image_file": "/home/wuxi/coco/valid/JPEGImages/214.jpg",
+          "target_annotation": {
+            "id": 1800,
+            "image_id": 113,
+            "category_id": 32,
+            "segmentation": [
+              [
+                1063.0434782608695,
+                169.56521739130434,
+                1015.2173913043478,
+                206.52173913043478,
+                997.8260869565217,
+                284.7826086956522,
+                1006.5217391304348,
+                358.695652173913,
+                1134.782608695652,
+                408.695652173913,
+                1260.8695652173913,
+                469.5652173913043,
+                1304.3478260869565,
+                510.86956521739125,
+                1363.0434782608695,
+                471.73913043478257,
+                1382.6086956521738,
+                384.78260869565213,
+                1389.1304347826087,
+                252.17391304347825,
+                1328.2608695652173,
+                186.95652173913044,
+                1202.1739130434783,
+                163.04347826086956,
+                1089.1304347826087,
+                154.3478260869565
+              ]
+            ],
+            "area": 97480.0,
+            "bbox": [
+              997.0,
+              154.0,
+              393.0,
+              357.0
+            ],
+            "iscrowd": 0,
+            "tooth_types": 0
+          },
+          "target_FDI": 51,
+          "competitor_category": 37,
+          "competitor_FDI": 61,
+          "before": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                993.0494384765625,
+                160.11929321289062,
+                394.43212890625,
+                353.7513427734375
+              ],
+              "category_id": 37,
+              "FDI": 61,
+              "score": 0.7259210348129272
+            },
+            "query": 5,
+            "IoU": 0.9593403122762185,
+            "GT_class_logit": -0.8179686665534973
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                996.0374145507812,
+                160.02410888671875,
+                394.36639404296875,
+                351.62445068359375
+              ],
+              "category_id": 32,
+              "FDI": 51,
+              "score": 0.8202332854270935
+            },
+            "query": 4,
+            "IoU": 0.9779999318737513,
+            "GT_class_logit": 1.517928957939148
+          },
+          "area_fraction": 0.00880997269241898,
+          "IoU_gain": 0.018659619597532817,
+          "case_id": "HOOA_correction_01_image113_FDI51",
+          "image_sha256": "c0b2e1947fbbf6d60a5ca807886ccf86fbc7b8a2eb5baca78459d7f8d8bd8f57"
+        },
+        {
+          "group": "HOOA",
+          "cohort": "Mobile",
+          "kind": "correction",
+          "image_id": 74,
+          "image_record": {
+            "license": 0,
+            "url": null,
+            "file_name": "JPEGImages/31.jpg",
+            "height": 4032,
+            "width": 3024,
+            "date_captured": null,
+            "id": 74
+          },
+          "image_file": "/home/wuxi/coco/valid/JPEGImages/31.jpg",
+          "target_annotation": {
+            "id": 1149,
+            "image_id": 74,
+            "category_id": 33,
+            "segmentation": [
+              [
+                819.5121951219512,
+                1073.170731707317,
+                826.8292682926829,
+                1134.1463414634145,
+                826.8292682926829,
+                1200.0,
+                768.2926829268292,
+                1280.4878048780488,
+                653.6585365853658,
+                1346.341463414634,
+                521.951219512195,
+                1317.0731707317073,
+                448.780487804878,
+                1258.5365853658536,
+                526.8292682926829,
+                1207.3170731707316,
+                621.951219512195,
+                1163.4146341463413,
+                675.6097560975609,
+                1131.7073170731705,
+                785.3658536585365,
+                1075.6097560975609
+              ]
+            ],
+            "area": 56712.0,
+            "bbox": [
+              448.0,
+              1073.0,
+              379.0,
+              274.0
+            ],
+            "iscrowd": 0,
+            "tooth_types": 0
+          },
+          "target_FDI": 52,
+          "competitor_category": 1,
+          "competitor_FDI": 12,
+          "before": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                451.6162414550781,
+                1060.719970703125,
+                380.80621337890625,
+                287.6388854980469
+              ],
+              "category_id": 1,
+              "FDI": 12,
+              "score": 0.8181443810462952
+            },
+            "query": 13,
+            "IoU": 0.9306008960532695,
+            "GT_class_logit": -0.9569061398506165
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                453.3456115722656,
+                1072.41552734375,
+                380.0668029785156,
+                271.910888671875
+              ],
+              "category_id": 33,
+              "FDI": 52,
+              "score": 0.762116551399231
+            },
+            "query": 12,
+            "IoU": 0.9581724192605245,
+            "GT_class_logit": 1.1643189191818237
+          },
+          "area_fraction": 0.008517015988494163,
+          "IoU_gain": 0.02757152320725509,
+          "case_id": "HOOA_correction_02_image74_FDI52",
+          "image_sha256": "f4400e7d883e60f3a7d4d7d6d2a92bd53f6fc570194609245c5787219afcb303"
+        },
+        {
+          "group": "HOOA",
+          "cohort": "Mobile",
+          "kind": "correction",
+          "image_id": 77,
+          "image_record": {
+            "license": 0,
+            "url": null,
+            "file_name": "JPEGImages/49.jpg",
+            "height": 3072,
+            "width": 4096,
+            "date_captured": null,
+            "id": 77
+          },
+          "image_file": "/home/wuxi/coco/valid/JPEGImages/49.jpg",
+          "target_annotation": {
+            "id": 1200,
+            "image_id": 77,
+            "category_id": 2,
+            "segmentation": [
+              [
+                979.5454545454545,
+                1527.2727272727273,
+                1093.1818181818182,
+                1637.5,
+                1262.5,
+                1511.3636363636363,
+                1153.409090909091,
+                1377.2727272727273
+              ]
+            ],
+            "area": 36570.0,
+            "bbox": [
+              979.0,
+              1377.0,
+              284.0,
+              261.0
+            ],
+            "iscrowd": 0,
+            "tooth_types": 1
+          },
+          "target_FDI": 13,
+          "competitor_category": 34,
+          "competitor_FDI": 53,
+          "before": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                964.8282470703125,
+                1373.0870361328125,
+                298.79736328125,
+                263.38275146484375
+              ],
+              "category_id": 34,
+              "FDI": 53,
+              "score": 0.6938354969024658
+            },
+            "query": 5,
+            "IoU": 0.931213419631579,
+            "GT_class_logit": -0.5022056102752686
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                980.3866577148438,
+                1379.345947265625,
+                285.1304931640625,
+                252.15811157226562
+              ],
+              "category_id": 2,
+              "FDI": 13,
+              "score": 0.7231332659721375
+            },
+            "query": 10,
+            "IoU": 0.9532430182253973,
+            "GT_class_logit": 0.9600576162338257
+          },
+          "area_fraction": 0.005890846252441406,
+          "IoU_gain": 0.022029598593818256,
+          "case_id": "HOOA_correction_03_image77_FDI13",
+          "image_sha256": "07c0203a689b9fa4cb4812c3e0f497a9f046d77084fd903ab08bc813fb148e3d"
+        },
+        {
+          "group": "HOOA",
+          "cohort": "Mobile",
+          "kind": "correction",
+          "image_id": 155,
+          "image_record": {
+            "license": 0,
+            "url": null,
+            "file_name": "JPEGImages/25.jpg",
+            "height": 4000,
+            "width": 2256,
+            "date_captured": null,
+            "id": 155
+          },
+          "image_file": "/home/wuxi/coco/valid/JPEGImages/25.jpg",
+          "target_annotation": {
+            "id": 2449,
+            "image_id": 155,
+            "category_id": 16,
+            "segmentation": [
+              [
+                1028.3333333333335,
+                2844.0,
+                981.666666666667,
+                2857.3333333333335,
+                961.666666666667,
+                2924.0,
+                961.666666666667,
+                3050.666666666667,
+                1015.0,
+                3244.0,
+                1075.0,
+                3390.666666666667,
+                1128.3333333333335,
+                3424.0,
+                1328.3333333333335,
+                3384.0,
+                1395.0,
+                3297.3333333333335,
+                1395.0,
+                3117.3333333333335,
+                1388.3333333333335,
+                2944.0,
+                1335.0,
+                2890.666666666667,
+                1235.0,
+                2837.3333333333335
+              ]
+            ],
+            "area": 212798.0,
+            "bbox": [
+              961.0,
+              2837.0,
+              435.0,
+              588.0
+            ],
+            "iscrowd": 0,
+            "tooth_types": 1
+          },
+          "target_FDI": 31,
+          "competitor_category": 24,
+          "competitor_FDI": 41,
+          "before": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                959.686279296875,
+                2812.283935546875,
+                447.1308898925781,
+                619.180908203125
+              ],
+              "category_id": 24,
+              "FDI": 41,
+              "score": 0.8455350399017334
+            },
+            "query": 0,
+            "IoU": 0.9238774326398631,
+            "GT_class_logit": -1.6980257034301758
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                959.1121215820312,
+                2825.380126953125,
+                443.89129638671875,
+                591.3953857421875
+              ],
+              "category_id": 16,
+              "FDI": 31,
+              "score": 0.8771080374717712
+            },
+            "query": 10,
+            "IoU": 0.9477977154555944,
+            "GT_class_logit": 1.965324878692627
+          },
+          "area_fraction": 0.028344414893617022,
+          "IoU_gain": 0.02392028281573133,
+          "case_id": "HOOA_correction_04_image155_FDI31",
+          "image_sha256": "39733d981865b7fef82df791f14874127adf6d15a322c5cd99b8a69cd2cb2020"
+        },
+        {
+          "group": "HOOA",
+          "cohort": "Mobile",
+          "kind": "correction",
+          "image_id": 121,
+          "image_record": {
+            "license": 0,
+            "url": null,
+            "file_name": "JPEGImages/210.jpg",
+            "height": 4608,
+            "width": 3456,
+            "date_captured": null,
+            "id": 121
+          },
+          "image_file": "/home/wuxi/coco/valid/JPEGImages/210.jpg",
+          "target_annotation": {
+            "id": 1889,
+            "image_id": 121,
+            "category_id": 24,
+            "segmentation": [
+              [
+                1228.125,
+                3276.5625,
+                1253.125,
+                3268.75,
+                1295.3125,
+                3267.1875,
+                1335.9375,
+                3284.375,
+                1442.1875,
+                3300.0,
+                1528.125,
+                3281.25,
+                1546.875,
+                3281.25,
+                1532.8125,
+                3345.3125,
+                1509.375,
+                3462.5,
+                1462.5,
+                3553.125,
+                1418.75,
+                3598.4375,
+                1320.3125,
+                3612.5,
+                1257.8125,
+                3590.625,
+                1231.25,
+                3571.875,
+                1209.375,
+                3462.5,
+                1209.375,
+                3373.4375
+              ]
+            ],
+            "area": 90312.0,
+            "bbox": [
+              1209.0,
+              3267.0,
+              338.0,
+              346.0
+            ],
+            "iscrowd": 0,
+            "tooth_types": 1
+          },
+          "target_FDI": 41,
+          "competitor_category": 47,
+          "competitor_FDI": 81,
+          "before": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                1209.173828125,
+                3253.322509765625,
+                333.7657470703125,
+                348.8277282714844
+              ],
+              "category_id": 47,
+              "FDI": 81,
+              "score": 0.5724684000015259
+            },
+            "query": 6,
+            "IoU": 0.9205725877795217,
+            "GT_class_logit": 0.1768825799226761
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                1208.6904296875,
+                3256.4501953125,
+                333.6292724609375,
+                348.9093017578125
+              ],
+              "category_id": 24,
+              "FDI": 41,
+              "score": 0.6729501485824585
+            },
+            "query": 2,
+            "IoU": 0.9353860430147206,
+            "GT_class_logit": 0.7215585708618164
+          },
+          "area_fraction": 0.007343559108153292,
+          "IoU_gain": 0.014813455235198947,
+          "case_id": "HOOA_correction_05_image121_FDI41",
+          "image_sha256": "12bfb8fd31aa493091198e8b145446a5960f777e6cb0bce5375ff4ed92e7fb35"
+        },
+        {
+          "group": "HOOA",
+          "cohort": "Mobile",
+          "kind": "localization",
+          "image_id": 128,
+          "image_record": {
+            "license": 0,
+            "url": null,
+            "file_name": "JPEGImages/54.jpg",
+            "height": 3648,
+            "width": 2736,
+            "date_captured": null,
+            "id": 128
+          },
+          "image_file": "/home/wuxi/coco/valid/JPEGImages/54.jpg",
+          "target_annotation": {
+            "id": 1993,
+            "image_id": 128,
+            "category_id": 21,
+            "segmentation": [
+              [
+                1057.6470588235295,
+                1092.9411764705883,
+                1047.0588235294117,
+                1124.7058823529412,
+                1047.0588235294117,
+                1151.764705882353,
+                1041.1764705882354,
+                1169.4117647058824,
+                1022.3529411764706,
+                1197.6470588235295,
+                1015.2941176470589,
+                1237.6470588235295,
+                1016.4705882352941,
+                1258.8235294117646,
+                1035.2941176470588,
+                1261.1764705882354,
+                1063.5294117647059,
+                1267.0588235294117,
+                1072.9411764705883,
+                1270.5882352941176,
+                1091.764705882353,
+                1250.5882352941176,
+                1136.4705882352941,
+                1244.7058823529412,
+                1161.1764705882354,
+                1250.5882352941176,
+                1183.5294117647059,
+                1275.2941176470588,
+                1201.1764705882354,
+                1292.9411764705883,
+                1252.9411764705883,
+                1282.3529411764707,
+                1277.6470588235295,
+                1258.8235294117646,
+                1256.4705882352941,
+                1234.1176470588236,
+                1216.4705882352941,
+                1203.5294117647059,
+                1158.8235294117646,
+                1169.4117647058824,
+                1102.3529411764707,
+                1110.5882352941176
+              ]
+            ],
+            "area": 25610.0,
+            "bbox": [
+              1015.0,
+              1092.0,
+              263.0,
+              201.0
+            ],
+            "iscrowd": 0,
+            "tooth_types": 1
+          },
+          "target_FDI": 36,
+          "competitor_category": 20,
+          "competitor_FDI": 35,
+          "before": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                1007.2373657226562,
+                1130.5396728515625,
+                280.3848571777344,
+                167.17950439453125
+              ],
+              "category_id": 21,
+              "FDI": 36,
+              "score": 0.7777888178825378
+            },
+            "query": 9,
+            "IoU": 0.7494591245017425,
+            "GT_class_logit": 1.2528271675109863
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                1010.1510620117188,
+                1091.5111083984375,
+                263.22314453125,
+                206.40560913085938
+              ],
+              "category_id": 21,
+              "FDI": 36,
+              "score": 0.9015482664108276
+            },
+            "query": 5,
+            "IoU": 0.9397892090788819,
+            "GT_class_logit": 2.2145466804504395
+          },
+          "area_fraction": 0.005296401296552786,
+          "IoU_gain": 0.1903300845771394,
+          "case_id": "HOOA_localization_01_image128_FDI36",
+          "image_sha256": "6165126891ed3f8d787a52999f6dacdbe657411015cc7c7a44ec509fff62e4a9"
+        },
+        {
+          "group": "HOOA",
+          "cohort": "Mobile",
+          "kind": "adverse",
+          "image_id": 148,
+          "image_record": {
+            "license": 0,
+            "url": null,
+            "file_name": "JPEGImages/149.jpg",
+            "height": 3024,
+            "width": 4032,
+            "date_captured": null,
+            "id": 148
+          },
+          "image_file": "/home/wuxi/coco/valid/JPEGImages/149.jpg",
+          "target_annotation": {
+            "id": 2322,
+            "image_id": 148,
+            "category_id": 36,
+            "segmentation": [
+              [
+                857.8947368421052,
+                2342.1052631578946,
+                633.3333333333333,
+                2533.333333333333,
+                605.2631578947368,
+                2840.3508771929824,
+                917.5438596491227,
+                2650.8771929824557
+              ]
+            ],
+            "area": 85957.0,
+            "bbox": [
+              605.0,
+              2342.0,
+              313.0,
+              499.0
+            ],
+            "iscrowd": 0,
+            "tooth_types": 0
+          },
+          "target_FDI": 55,
+          "competitor_category": 50,
+          "competitor_FDI": 84,
+          "before": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                606.87451171875,
+                2336.836181640625,
+                309.12750244140625,
+                496.9802551269531
+              ],
+              "category_id": 36,
+              "FDI": 55,
+              "score": 0.4476832449436188
+            },
+            "query": 11,
+            "IoU": 0.9635619777014487,
+            "GT_class_logit": -0.21003572642803192
+          },
+          "after": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                604.3187866210938,
+                2336.939453125,
+                317.2593688964844,
+                489.22576904296875
+              ],
+              "category_id": 5,
+              "FDI": 16,
+              "score": 0.7310624122619629
+            },
+            "query": 6,
+            "IoU": 0.9480091306233993,
+            "GT_class_logit": -1.4328991174697876
+          },
+          "area_fraction": 0.01280980660010918,
+          "IoU_gain": -0.015552847078049381,
+          "case_id": "HOOA_adverse_01_image148_FDI55",
+          "image_sha256": "40ee99c93dd6525cb9c00d0f1825c0f9025aec514d472dbabc0125fa5bf2a4eb"
+        }
+      ]
+    },
+    {
+      "name": "Prototype",
+      "cohort": "Mobile",
+      "before": {
+        "job": {
+          "id": "internal_mobile_proto_off_seed0",
+          "configuration": "internal_mobile_proto_off",
+          "cohort": "Mobile",
+          "seed": 0,
+          "phase": "internal",
+          "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/configs/internal_mobile_proto_off/seed_0.yml",
+          "config_sha256": "5428d2a202be16a85e350b70b4565ad2d124658be5990c303d5880f756e6ea72",
+          "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_off/seed_0",
+          "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile",
+          "controls": {},
+          "epochs": 160,
+          "expected_input": 1024,
+          "native_cwd": "/home/wuxi/Dent-FINE",
+          "train_script": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/train.py",
+          "historical_anchor_config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+          "historical_anchor_config_sha256": "2fa206ae008dbd5855d91bbd24c7ae7eb341e14828e6129a477cd9fde04b0c56",
+          "historical_source_job_id": "phone_a07_proto_aux_C05",
+          "historical_source_seed": 0,
+          "historical_recipe_exact": false,
+          "historical_native_launch": true,
+          "native_checkpoint_selection": true,
+          "fresh_initialization": true,
+          "source_controlled_job_id": "internal_mobile_proto_off_seed0",
+          "inference_priors": "off",
+          "prior_selection_policy": "historical native validation",
+          "estimated_gpu_hours": 4.471203990313742,
+          "estimate_basis": "previous matching job elapsed train+replay wall time",
+          "gpu": 0,
+          "queue_order": 15,
+          "job_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/jobs/internal_mobile_proto_off_seed0.json",
+          "scope_role": "internal",
+          "source_frozen_job_id": "internal_mobile_proto_off_seed0",
+          "source_frozen_job_phase": "internal",
+          "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_proto_off/seed_0.yml",
+          "source_frozen_config_sha256": "84130dbe20625adbf9c57ec3d4b8922b187f70f93cd9bf3e37823ba3adc15e47",
+          "resume_interrupted_run": false,
+          "reused_training_weights": false
+        },
+        "metrics": {
+          "AP": 54.91815931621537,
+          "AP50": 83.27318199329366,
+          "AP75": 60.396957420145256,
+          "APsmall": 38.75,
+          "APmedium": 38.581723746107606,
+          "APlarge": 56.400425222480166,
+          "AR1": 62.40356096159938,
+          "AR10": 68.19896616152057,
+          "AR100": 68.74239018182887,
+          "ARsmall": 42.5,
+          "ARmedium": 53.071538800705476,
+          "ARlarge": 70.02077747490539
+        },
+        "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_off/seed_0/best.pth",
+        "checkpoint_sha256": "ff35600cf98ac6ac2fdf41decb55f9227cea2f1709c9c6e69dc6cab74061d985",
+        "candidates": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_off/seed_0/evaluation/pre_topk_candidates.npz"
+      },
+      "after": {
+        "job": {
+          "id": "internal_mobile_proto_k4_tau0p5_seed0",
+          "configuration": "internal_mobile_proto_k4_tau0p5",
+          "cohort": "Mobile",
+          "seed": 0,
+          "phase": "internal",
+          "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/configs/internal_mobile_proto_k4_tau0p5/seed_0.yml",
+          "config_sha256": "54da346b3e831b858b7a1ffb2e16a09947931310042a979d31c58498f8d6fbbc",
+          "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_k4_tau0p5/seed_0",
+          "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile",
+          "controls": {},
+          "epochs": 160,
+          "expected_input": 1024,
+          "native_cwd": "/home/wuxi/Dent-FINE",
+          "train_script": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/train.py",
+          "historical_anchor_config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+          "historical_anchor_config_sha256": "2fa206ae008dbd5855d91bbd24c7ae7eb341e14828e6129a477cd9fde04b0c56",
+          "historical_source_job_id": "phone_a07_proto_aux_C05",
+          "historical_source_seed": 0,
+          "historical_recipe_exact": false,
+          "historical_native_launch": true,
+          "native_checkpoint_selection": true,
+          "fresh_initialization": true,
+          "source_controlled_job_id": "internal_mobile_proto_k4_tau0p5_seed0",
+          "inference_priors": "off",
+          "prior_selection_policy": "historical native validation",
+          "estimated_gpu_hours": 4.099868860642116,
+          "estimate_basis": "previous matching job elapsed train+replay wall time",
+          "gpu": 1,
+          "queue_order": 13,
+          "job_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/jobs/internal_mobile_proto_k4_tau0p5_seed0.json",
+          "scope_role": "internal",
+          "source_frozen_job_id": "internal_mobile_proto_k4_tau0p5_seed0",
+          "source_frozen_job_phase": "internal",
+          "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_proto_k4_tau0p5/seed_0.yml",
+          "source_frozen_config_sha256": "90867188e724596dbdc29bacf0351ca0e6920457a96186e34dde0585a759f096",
+          "resume_interrupted_run": false,
+          "reused_training_weights": false
+        },
+        "metrics": {
+          "AP": 55.68289881818389,
+          "AP50": 84.38838458503271,
+          "AP75": 62.671339029813744,
+          "APsmall": 43.75,
+          "APmedium": 40.59792477685135,
+          "APlarge": 57.16854600913182,
+          "AR1": 62.82642894159524,
+          "AR10": 68.53207638837827,
+          "AR100": 69.40744642833899,
+          "ARsmall": 45.0,
+          "ARmedium": 51.76311728395062,
+          "ARlarge": 70.66564801063822
+        },
+        "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_k4_tau0p5/seed_0/best.pth",
+        "checkpoint_sha256": "0f25025e383e1c12006a8fcdca3e2b9eb1bb29480723c6d802c48440d37a0da5",
+        "candidates": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_k4_tau0p5/seed_0/evaluation/pre_topk_candidates.npz"
+      },
+      "config_differences": [
+        {
+          "field": ".DEIMCriterion.losses",
+          "before": [
+            "mal",
+            "boxes",
+            "local",
+            "nwd",
+            "quad",
+            "tooth",
+            "dent"
+          ],
+          "after": [
+            "mal",
+            "boxes",
+            "local",
+            "nwd",
+            "quad",
+            "tooth",
+            "dent",
+            "proto"
+          ]
+        },
+        {
+          "field": ".DFINETransformer.prototype_tau",
+          "before": 0.2,
+          "after": 0.5
+        },
+        {
+          "field": ".DFINETransformer.use_tooth_prototype",
+          "before": false,
+          "after": true
+        }
+      ],
+      "controls": {
+        "before": {},
+        "after": {}
+      },
+      "inventory_counts": {
+        "correction": 63,
+        "localization": 18,
+        "adverse": 45
+      },
+      "cases": [
+        {
+          "group": "Prototype",
+          "cohort": "Mobile",
+          "kind": "correction",
+          "image_id": 44,
+          "image_record": {
+            "license": 0,
+            "url": null,
+            "file_name": "JPEGImages/81.jpg",
+            "height": 3024,
+            "width": 4032,
+            "date_captured": null,
+            "id": 44
+          },
+          "image_file": "/home/wuxi/coco/valid/JPEGImages/81.jpg",
+          "target_annotation": {
+            "id": 716,
+            "image_id": 44,
+            "category_id": 32,
+            "segmentation": [
+              [
+                1804.3478260869565,
+                747.8260869565217,
+                1786.9565217391303,
+                826.0869565217391,
+                1808.695652173913,
+                913.0434782608695,
+                1880.4347826086955,
+                963.0434782608695,
+                2095.6521739130435,
+                934.7826086956521,
+                2295.6521739130435,
+                928.2608695652174,
+                2267.391304347826,
+                850.0,
+                2141.304347826087,
+                808.695652173913,
+                2032.6086956521738,
+                778.2608695652174,
+                1904.3478260869565,
+                754.3478260869565
+              ]
+            ],
+            "area": 73971.0,
+            "bbox": [
+              1786.0,
+              747.0,
+              510.0,
+              217.0
+            ],
+            "iscrowd": 0,
+            "tooth_types": 0
+          },
+          "target_FDI": 51,
+          "competitor_category": 0,
+          "competitor_FDI": 11,
+          "before": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                1787.7166748046875,
+                751.1852416992188,
+                506.1477966308594,
+                211.8821258544922
+              ],
+              "category_id": 0,
+              "FDI": 11,
+              "score": 0.6208259463310242
+            },
+            "query": 3,
+            "IoU": 0.9690403757146735,
+            "GT_class_logit": 0.3765909671783447
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                1784.8779296875,
+                750.135009765625,
+                509.7969055175781,
+                208.9751434326172
+              ],
+              "category_id": 32,
+              "FDI": 51,
+              "score": 0.7943884134292603
+            },
+            "query": 3,
+            "IoU": 0.9584860183262472,
+            "GT_class_logit": 1.35158371925354
+          },
+          "area_fraction": 0.009076692019400352,
+          "IoU_gain": -0.01055435738842625,
+          "case_id": "Prototype_correction_01_image44_FDI51",
+          "image_sha256": "40c6ed2a0a022e11b417cd0d09ccaa87313c1de3e5ced03312659ba6ec602494"
+        },
+        {
+          "group": "Prototype",
+          "cohort": "Mobile",
+          "kind": "correction",
+          "image_id": 163,
+          "image_record": {
+            "license": 0,
+            "url": null,
+            "file_name": "JPEGImages/137.jpg",
+            "height": 3024,
+            "width": 4032,
+            "date_captured": null,
+            "id": 163
+          },
+          "image_file": "/home/wuxi/coco/valid/JPEGImages/137.jpg",
+          "target_annotation": {
+            "id": 2576,
+            "image_id": 163,
+            "category_id": 3,
+            "segmentation": [
+              [
+                1353.191489361702,
+                1751.063829787234,
+                1664.8936170212764,
+                1791.4893617021276,
+                1604.255319148936,
+                1913.8297872340424,
+                1413.8297872340424,
+                1956.3829787234042
+              ]
+            ],
+            "area": 41244.0,
+            "bbox": [
+              1353.0,
+              1751.0,
+              312.0,
+              206.0
+            ],
+            "iscrowd": 0,
+            "tooth_types": 1
+          },
+          "target_FDI": 14,
+          "competitor_category": 35,
+          "competitor_FDI": 54,
+          "before": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                1348.870361328125,
+                1753.4444580078125,
+                311.58099365234375,
+                196.2750244140625
+              ],
+              "category_id": 35,
+              "FDI": 54,
+              "score": 0.8093912601470947
+            },
+            "query": 9,
+            "IoU": 0.9272078409471499,
+            "GT_class_logit": -0.9843128323554993
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                1349.470458984375,
+                1751.9739990234375,
+                307.9329833984375,
+                201.4462432861328
+              ],
+              "category_id": 3,
+              "FDI": 14,
+              "score": 0.7892217636108398
+            },
+            "query": 10,
+            "IoU": 0.9436459712233032,
+            "GT_class_logit": 1.3202404975891113
+          },
+          "area_fraction": 0.005271321491559587,
+          "IoU_gain": 0.016438130276153262,
+          "case_id": "Prototype_correction_02_image163_FDI14",
+          "image_sha256": "ae1672dd3f82488a058068002fad74e5f44802571c83f3d72d5c49f02a999467"
+        },
+        {
+          "group": "Prototype",
+          "cohort": "Mobile",
+          "kind": "correction",
+          "image_id": 118,
+          "image_record": {
+            "license": 0,
+            "url": null,
+            "file_name": "JPEGImages/6.jpg",
+            "height": 4608,
+            "width": 3456,
+            "date_captured": null,
+            "id": 118
+          },
+          "image_file": "/home/wuxi/coco/valid/JPEGImages/6.jpg",
+          "target_annotation": {
+            "id": 1854,
+            "image_id": 118,
+            "category_id": 25,
+            "segmentation": [
+              [
+                2373.3333333333335,
+                2636.666666666667,
+                2326.666666666667,
+                2650.0,
+                2270.0,
+                2680.0,
+                2253.3333333333335,
+                2706.666666666667,
+                2253.3333333333335,
+                2766.666666666667,
+                2263.3333333333335,
+                2813.3333333333335,
+                2276.666666666667,
+                2923.3333333333335,
+                2300.0,
+                3016.666666666667,
+                2353.3333333333335,
+                3043.3333333333335,
+                2410.0,
+                2990.0,
+                2510.0,
+                2916.666666666667,
+                2536.666666666667,
+                2883.3333333333335,
+                2506.666666666667,
+                2833.3333333333335,
+                2480.0,
+                2763.3333333333335,
+                2433.3333333333335,
+                2690.0
+              ]
+            ],
+            "area": 74389.0,
+            "bbox": [
+              2253.0,
+              2636.0,
+              284.0,
+              408.0
+            ],
+            "iscrowd": 0,
+            "tooth_types": 1
+          },
+          "target_FDI": 42,
+          "competitor_category": 49,
+          "competitor_FDI": 83,
+          "before": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                2251.83349609375,
+                2635.08154296875,
+                275.58984375,
+                405.35430908203125
+              ],
+              "category_id": 49,
+              "FDI": 83,
+              "score": 0.8087853789329529
+            },
+            "query": 3,
+            "IoU": 0.9518830287243578,
+            "GT_class_logit": -1.056018590927124
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                2253.54248046875,
+                2638.52880859375,
+                270.740966796875,
+                408.9075622558594
+              ],
+              "category_id": 25,
+              "FDI": 42,
+              "score": 0.8256928324699402
+            },
+            "query": 3,
+            "IoU": 0.9398581845717895,
+            "GT_class_logit": 1.5554038286209106
+          },
+          "area_fraction": 0.0072759934413580245,
+          "IoU_gain": -0.012024844152568326,
+          "case_id": "Prototype_correction_03_image118_FDI42",
+          "image_sha256": "32db8e23a8ff68bb1d21f58fdad8452659c81e8a938b67a15f832f9c2dac97c2"
+        },
+        {
+          "group": "Prototype",
+          "cohort": "Mobile",
+          "kind": "correction",
+          "image_id": 155,
+          "image_record": {
+            "license": 0,
+            "url": null,
+            "file_name": "JPEGImages/25.jpg",
+            "height": 4000,
+            "width": 2256,
+            "date_captured": null,
+            "id": 155
+          },
+          "image_file": "/home/wuxi/coco/valid/JPEGImages/25.jpg",
+          "target_annotation": {
+            "id": 2449,
+            "image_id": 155,
+            "category_id": 16,
+            "segmentation": [
+              [
+                1028.3333333333335,
+                2844.0,
+                981.666666666667,
+                2857.3333333333335,
+                961.666666666667,
+                2924.0,
+                961.666666666667,
+                3050.666666666667,
+                1015.0,
+                3244.0,
+                1075.0,
+                3390.666666666667,
+                1128.3333333333335,
+                3424.0,
+                1328.3333333333335,
+                3384.0,
+                1395.0,
+                3297.3333333333335,
+                1395.0,
+                3117.3333333333335,
+                1388.3333333333335,
+                2944.0,
+                1335.0,
+                2890.666666666667,
+                1235.0,
+                2837.3333333333335
+              ]
+            ],
+            "area": 212798.0,
+            "bbox": [
+              961.0,
+              2837.0,
+              435.0,
+              588.0
+            ],
+            "iscrowd": 0,
+            "tooth_types": 1
+          },
+          "target_FDI": 31,
+          "competitor_category": 24,
+          "competitor_FDI": 41,
+          "before": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                951.6561889648438,
+                2820.530517578125,
+                444.8880310058594,
+                588.624267578125
+              ],
+              "category_id": 24,
+              "FDI": 41,
+              "score": 0.775069534778595
+            },
+            "query": 10,
+            "IoU": 0.9260422296490526,
+            "GT_class_logit": -0.9072995185852051
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                958.8753051757812,
+                2822.9375,
+                450.5123596191406,
+                597.2335205078125
+              ],
+              "category_id": 16,
+              "FDI": 31,
+              "score": 0.7626999020576477
+            },
+            "query": 6,
+            "IoU": 0.9355277360450306,
+            "GT_class_logit": 1.1675388813018799
+          },
+          "area_fraction": 0.028344414893617022,
+          "IoU_gain": 0.009485506395978005,
+          "case_id": "Prototype_correction_04_image155_FDI31",
+          "image_sha256": "39733d981865b7fef82df791f14874127adf6d15a322c5cd99b8a69cd2cb2020"
+        },
+        {
+          "group": "Prototype",
+          "cohort": "Mobile",
+          "kind": "correction",
+          "image_id": 24,
+          "image_record": {
+            "license": 0,
+            "url": null,
+            "file_name": "JPEGImages/218.jpg",
+            "height": 4096,
+            "width": 3072,
+            "date_captured": null,
+            "id": 24
+          },
+          "image_file": "/home/wuxi/coco/valid/JPEGImages/218.jpg",
+          "target_annotation": {
+            "id": 383,
+            "image_id": 24,
+            "category_id": 38,
+            "segmentation": [
+              [
+                2063.917525773196,
+                837.1134020618557,
+                2026.8041237113403,
+                859.7938144329897,
+                1972.1649484536083,
+                900.0,
+                1941.2371134020618,
+                942.2680412371134,
+                1942.2680412371135,
+                1017.5257731958764,
+                1975.2577319587629,
+                1057.7319587628867,
+                2045.360824742268,
+                1091.7525773195878,
+                2089.6907216494847,
+                1108.2474226804125,
+                2137.1134020618556,
+                1117.5257731958764,
+                2191.7525773195875,
+                1115.4639175257732,
+                2195.8762886597938,
+                1050.5154639175257,
+                2173.1958762886597,
+                986.5979381443299,
+                2148.453608247423,
+                935.0515463917526,
+                2104.1237113402062,
+                846.3917525773196,
+                2092.7835051546394,
+                831.9587628865979
+              ]
+            ],
+            "area": 49778.0,
+            "bbox": [
+              1941.0,
+              831.0,
+              255.0,
+              287.0
+            ],
+            "iscrowd": 0,
+            "tooth_types": 0
+          },
+          "target_FDI": 62,
+          "competitor_category": 39,
+          "competitor_FDI": 63,
+          "before": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                1934.193359375,
+                842.2088623046875,
+                267.3255615234375,
+                286.2164306640625
+              ],
+              "category_id": 39,
+              "FDI": 63,
+              "score": 0.7400670051574707
+            },
+            "query": 0,
+            "IoU": 0.8860482736549806,
+            "GT_class_logit": -2.009726047515869
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                1944.047607421875,
+                839.665771484375,
+                253.8299560546875,
+                288.918701171875
+              ],
+              "category_id": 38,
+              "FDI": 62,
+              "score": 0.7334406971931458
+            },
+            "query": 3,
+            "IoU": 0.9179615006963169,
+            "GT_class_logit": 1.0121500492095947
+          },
+          "area_fraction": 0.005816221237182617,
+          "IoU_gain": 0.031913227041336256,
+          "case_id": "Prototype_correction_05_image24_FDI62",
+          "image_sha256": "953d6bbddef45a79abc9c2a9a0eebecd6da39679904d1c0233f935740c5f5737"
+        },
+        {
+          "group": "Prototype",
+          "cohort": "Mobile",
+          "kind": "localization",
+          "image_id": 22,
+          "image_record": {
+            "license": 0,
+            "url": null,
+            "file_name": "JPEGImages/70.jpg",
+            "height": 3072,
+            "width": 4080,
+            "date_captured": null,
+            "id": 22
+          },
+          "image_file": "/home/wuxi/coco/valid/JPEGImages/70.jpg",
+          "target_annotation": {
+            "id": 347,
+            "image_id": 22,
+            "category_id": 40,
+            "segmentation": [
+              [
+                1000.9756097560977,
+                642.0975609756097,
+                1281.4634146341464,
+                625.0243902439023,
+                1283.9285714285713,
+                398.21428571428567,
+                976.5853658536588,
+                564.0487804878047
+              ]
+            ],
+            "area": 46086.0,
+            "bbox": [
+              976.0,
+              398.0,
+              308.0,
+              245.0
+            ],
+            "iscrowd": 0,
+            "tooth_types": 0
+          },
+          "target_FDI": 64,
+          "competitor_category": 41,
+          "competitor_FDI": 65,
+          "before": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                958.8558959960938,
+                438.1006164550781,
+                348.3755187988281,
+                210.9030303955078
+              ],
+              "category_id": 40,
+              "FDI": 64,
+              "score": 0.3078209459781647
+            },
+            "query": 9,
+            "IoU": 0.7353267662554196,
+            "GT_class_logit": -0.8103264570236206
+          },
+          "after": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                965.9029541015625,
+                397.77490234375,
+                339.7085876464844,
+                250.27194213867188
+              ],
+              "category_id": 40,
+              "FDI": 64,
+              "score": 0.772003173828125
+            },
+            "query": 10,
+            "IoU": 0.887560762692396,
+            "GT_class_logit": 1.2196569442749023
+          },
+          "area_fraction": 0.00602053972630719,
+          "IoU_gain": 0.15223399643697644,
+          "case_id": "Prototype_localization_01_image22_FDI64",
+          "image_sha256": "2eafeb8bde7fa4e40bb2d5167d92fb8ff8f957c71f671d7852778be30f147497"
+        },
+        {
+          "group": "Prototype",
+          "cohort": "Mobile",
+          "kind": "adverse",
+          "image_id": 139,
+          "image_record": {
+            "license": 0,
+            "url": null,
+            "file_name": "JPEGImages/204.jpg",
+            "height": 4000,
+            "width": 1808,
+            "date_captured": null,
+            "id": 139
+          },
+          "image_file": "/home/wuxi/coco/valid/JPEGImages/204.jpg",
+          "target_annotation": {
+            "id": 2168,
+            "image_id": 139,
+            "category_id": 42,
+            "segmentation": [
+              [
+                796.8571428571428,
+                2581.428571428571,
+                802.5714285714286,
+                2679.9999999999995,
+                815.4285714285714,
+                2748.5714285714284,
+                871.1428571428572,
+                2782.8571428571427,
+                949.7142857142857,
+                2768.5714285714284,
+                1038.2857142857142,
+                2721.428571428571,
+                1055.4285714285716,
+                2671.428571428571,
+                1028.2857142857142,
+                2619.9999999999995,
+                931.1428571428572,
+                2584.285714285714,
+                869.7142857142857,
+                2561.428571428571,
+                811.1428571428572,
+                2558.5714285714284
+              ]
+            ],
+            "area": 42413.0,
+            "bbox": [
+              796.0,
+              2558.0,
+              260.0,
+              225.0
+            ],
+            "iscrowd": 0,
+            "tooth_types": 0
+          },
+          "target_FDI": 71,
+          "competitor_category": 16,
+          "competitor_FDI": 31,
+          "before": {
+            "status": "correct",
+            "prediction": {
+              "bbox": [
+                794.8062133789062,
+                2559.208984375,
+                259.12152099609375,
+                219.47860717773438
+              ],
+              "category_id": 42,
+              "FDI": 71,
+              "score": 0.6647709608078003
+            },
+            "query": 9,
+            "IoU": 0.9633702877226791,
+            "GT_class_logit": 0.6846287250518799
+          },
+          "after": {
+            "status": "wrong",
+            "prediction": {
+              "bbox": [
+                791.5345458984375,
+                2543.261474609375,
+                389.032958984375,
+                232.42330932617188
+              ],
+              "category_id": 16,
+              "FDI": 31,
+              "score": 0.7134634256362915
+            },
+            "query": 20,
+            "IoU": 0.61304870270647,
+            "GT_class_logit": -1.5853809118270874
+          },
+          "area_fraction": 0.008089048672566372,
+          "IoU_gain": -0.350321585016209,
+          "case_id": "Prototype_adverse_01_image139_FDI71",
+          "image_sha256": "ce1a7635726416c9be74d604a54b124e28d469354f090d41db8fca365e164bcc"
+        }
+      ]
+    }
+  ],
+  "selection": "Native ordinary-query top1 labels at score>=.30, class-agnostic one-to-one Hungarian IoU>=.50 matching. Selected illustrative corrections are not a prevalence sample. Adverse examples retained.",
+  "scope": "Controlled internal-validation examples; no new training or manuscript edits."
+}

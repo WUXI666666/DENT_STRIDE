@@ -1,0 +1,2970 @@
+
+"""
+DEIM: DETR with Improved Matching for Fast Convergence
+Copyright (c) 2024 The DEIM Authors. All Rights Reserved.
+---------------------------------------------------------------------------------
+Modified from D-FINE (https://github.com/Peterande/D-FINE/)
+Copyright (c) 2024 D-FINE Authors. All Rights Reserved.
+"""
+
+import math
+import copy
+import functools
+from collections import OrderedDict
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.nn.init as init
+from typing import List, Optional
+
+from .dfine_utils import weighting_function, distance2bbox
+from .denoising import get_contrastive_denoising_training_group
+from .utils import deformable_attention_core_func_v2, get_activation, inverse_sigmoid
+from .utils import bias_init_with_prob
+from ..core import register
+from .utils_arch import *
+from scipy.optimize import linear_sum_assignment  # 若环境不便，可临时写纯torch匈牙利
+
+__all__ = ['DFINETransformer']
+
+class QueryGraphPrior(nn.Module):
+    """
+    给所有 queries 建立动态 KNN 图（按参考点的欧氏距离），用 MHA 做一次图消息传播。
+    - ref_points: [B, Q, 2] in [0,1]（cx, cy）
+    - 使用 batch_first=True 的 MultiheadAttention，可接受 [B, Q, Q] 的布尔 attn_mask（True=禁止注意）
+    """
+    def __init__(self, dim, num_heads=4, k=6, dropout=0.05,
+                 use_arch_prior: bool = True):  # <<< 新增：是否启用牙弓感知):
+        super().__init__()
+        self.use_arch_prior = use_arch_prior   # <<< 保存开关
+        self.k = k
+        self.mha = nn.MultiheadAttention(dim, num_heads, batch_first=True, dropout=dropout)
+        # self.norm = nn.Identity()
+        self.norm = nn.LayerNorm(dim)
+        self.dp   = nn.Dropout(dropout)
+        # ---------- NEW: debug 开关 & 缓存 ----------
+        self.debug: bool = False
+        self.last_input: Optional[torch.Tensor] = None     # [B,Q,C]
+        self.last_ref: Optional[torch.Tensor] = None       # [B,Q,2]
+        self.last_mask: Optional[torch.Tensor] = None      # [B,Q,Q] bool
+        self.last_attn: Optional[torch.Tensor] = None      # [B,H,Q,Q] float
+    @torch.no_grad()
+    def enable_debug(self, flag: bool = True):
+        self.debug = bool(flag)
+        # 每次启用时清理历史缓存
+        self.last_input = None
+        self.last_ref   = None
+        self.last_mask  = None
+        self.last_attn  = None
+    @torch.no_grad()
+    def _build_mask(self, ref_points: torch.Tensor) -> torch.Tensor:
+        """
+        ref_points: [B, Q, 2]  归一化坐标 (cx, cy)
+        返回: bool mask [B, Q, Q]，True=禁止注意 (Blocked)
+        """
+        # 1. 数据清洗
+        ref_points = torch.nan_to_num(ref_points, nan=0.5, posinf=1.0, neginf=0.0).clamp_(0, 1)
+        B, Q, _ = ref_points.shape
+        device = ref_points.device
+
+        # 2. 初始状态：全黑（全部禁止）
+        #    逻辑：默认谁都不看谁，下面算出邻居了再设为 False (允许)
+        mask = torch.ones((B, Q, Q), device=device, dtype=torch.bool)
+
+        # -----------------------------------------------------------
+        # 策略 A: 简单欧氏距离 KNN (不使用牙弓先验时)
+        # -----------------------------------------------------------
+        if not self.use_arch_prior:
+            dist = torch.cdist(ref_points, ref_points, p=2)      # [B, Q, Q]
+            # 选取最近的 K 个（包含自己，argsort 0 是自己）
+            # 我们取 k+1 个，允许模型看自己 + K 个邻居
+            k_eff = min(self.k + 1, Q)
+            idx  = dist.argsort(dim=-1)[..., :k_eff]             # [B, Q, k_eff]
+            
+            # Scatter 写回：dim=2 表示在最后一个维度（列）上操作
+            mask.scatter_(2, idx, False)
+            return mask
+
+        # -----------------------------------------------------------
+        # 策略 B: 牙弓感知分组 (Arch-aware Grouping)
+        # -----------------------------------------------------------
+        
+        # [改动1] 只分上下颌 (0=下, 1=上)。
+        # 不要分左右！否则中切牙之间会断联。
+        y = ref_points[..., 1]   # [B, Q]
+        is_upper = (y < 0.5)     # [B, Q] (bool)
+        group_id = is_upper.to(torch.int64) # 0 或 1
+
+        # 尝试导入 fit_arch_t，如果失败则回退到 X 排序
+        try:
+            from .utils_arch import fit_arch_t
+            use_curve_fit = True
+        except ImportError:
+            use_curve_fit = False
+
+        for b in range(B):
+            for g in range(2): # 遍历 上颌/下颌
+                # 选出属于该组的 queries
+                sel = (group_id[b] == g)               # [Q] bool
+                idx_q = torch.nonzero(sel, as_tuple=False).squeeze(1)  # [Ng] Indices
+                Ng = int(idx_q.numel())
+                
+                if Ng <= 1: 
+                    # 只有一个点，只能看自己（mask默认是True，稍后会对角线置False）
+                    continue
+
+                # 取出坐标 [Ng, 2]
+                xy_g = ref_points[b, idx_q, :2]
+
+                # [改动2] 计算一维流形坐标 t
+                # 训练初期点很乱，fit_arch_t 可能会崩，或者拟合出奇怪的形状。
+                # 此时直接用 x 坐标排序更稳健。
+                if use_curve_fit and Ng > 5: # 点太少拟合没意义
+                    try:
+                        t = fit_arch_t(xy_g) # [Ng]
+                    except:
+                        t = xy_g[:, 0] # 回退到 X 轴
+                else:
+                    t = xy_g[:, 0] # 直接用 X 轴排序 (牙齿主要就是横向排的)
+
+                # 在 t 轴上做 1D KNN
+                # dist: [Ng, Ng]
+                dist = (t[:, None] - t[None, :]).abs()
+                
+                # 选取最近的 K 个邻居
+                k_eff = min(self.k + 1, Ng)
+                
+                # argsort: [Ng, k_eff]
+                # rank 里存的是在 idx_q 内部的下标 (0 ~ Ng-1)
+                rank = dist.argsort(dim=-1)[..., :k_eff] 
+                
+                # 映射回全局索引 (0 ~ Q-1)
+                nbr = idx_q[rank] # [Ng, k_eff]
+                
+                # src: [Ng, 1] -> [Ng, k_eff]
+                src = idx_q.unsqueeze(1).expand_as(nbr)
+                
+                # 更新 Mask: 允许 [b, src, nbr] 互相关注
+                mask[b, src, nbr] = False
+
+        # 3. 强制允许 Self-Attention (对角线)
+        # 虽然 KNN 里通常包含自己，但这步作为双重保险
+        eye = torch.eye(Q, device=device, dtype=torch.bool)[None]
+        mask = torch.where(eye, False, mask)
+
+        # Debug 保存
+        if self.debug:
+            self.last_mask = mask.detach().cpu()
+            
+        return mask
+
+
+
+    # def forward(self, x: torch.Tensor, ref_points: Optional[torch.Tensor] ):
+    #     if ref_points is None:
+    #         with torch.amp.autocast(device_type="cuda", enabled=False):
+    #             y, _ = self.mha(x.float(), x.float(), x.float(), need_weights=False, average_attn_weights=False)
+    #         y = y.to(x.dtype)
+    #         return self.norm(x + self.dp(y))
+
+    #     mask = self._build_mask(ref_points)  # bool [B,Q,Q], True=禁止注意
+    #     B, Q, _ = mask.shape
+    #     h = self.mha.num_heads
+
+    #     # 构造 float32 的加性 mask：允许处=0，禁止处=-inf，shape=[B*h, Q, Q]
+    #     mask3 = mask.unsqueeze(1).expand(B, h, Q, Q).reshape(B * h, Q, Q)
+    #     attn_mask = mask3.to(dtype=torch.float32)
+    #     attn_mask = attn_mask.masked_fill(attn_mask > 0, float('-inf'))  # True -> -inf, False -> 0
+
+    #     # 在 fp32 下做注意力（amp 安全），再还原 dtype
+    #     with torch.amp.autocast('cuda',enabled=False):
+    #         y, _ = self.mha(x.float(), x.float(), x.float(), attn_mask=attn_mask)
+    #     y = y.to(x.dtype)
+    #     return self.norm(x + self.dp(y))
+    def forward(self, x: torch.Tensor, ref_points: Optional[torch.Tensor]):
+        # ---------- NEW: 保存输入 ----------
+        if self.debug:
+            self.last_input = x.detach().cpu()
+            if ref_points is not None:
+                self.last_ref = ref_points.detach()[..., :2].cpu()
+            else:
+                self.last_ref = None
+
+        # 没有 ref_points 时就当普通 self-attn
+        if ref_points is None:
+            with torch.amp.autocast(device_type="cuda", enabled=False):
+                y, attn = self.mha(
+                    x.float(), x.float(), x.float(),
+                    need_weights=self.debug,
+                    average_attn_weights=False
+                )
+            if self.debug and attn is not None:
+                # attn: [B, num_heads, Q, Q]
+                self.last_attn = attn.detach().cpu()
+            y = y.to(x.dtype)
+            return self.norm(x + self.dp(y))
+
+        # --- 正常 QGP 路径 ---
+        mask = self._build_mask(ref_points)  # bool [B,Q,Q], True=禁止注意
+        B, Q, _ = mask.shape
+        h = self.mha.num_heads
+
+        # 构造 float32 的加性 mask：允许处=0，禁止处=-inf，shape=[B*h, Q, Q]
+        mask3 = mask.unsqueeze(1).expand(B, h, Q, Q).reshape(B * h, Q, Q)
+        attn_mask = mask3.to(dtype=torch.float32)
+        attn_mask = attn_mask.masked_fill(attn_mask > 0, float('-inf'))  # True -> -inf, False -> 0
+
+        with torch.amp.autocast(device_type="cuda", enabled=False):
+            y, attn = self.mha(
+                x.float(), x.float(), x.float(),
+                attn_mask=attn_mask,
+                need_weights=self.debug,          # <---
+                average_attn_weights=False        # [B,H,Q,Q]
+            )
+        if self.debug and attn is not None:
+            self.last_attn = attn.detach().cpu()
+
+        y = y.to(x.dtype)
+        return self.norm(x + self.dp(y))
+
+
+class SemanticPromptGraphRefiner(nn.Module):
+    """
+    SPEGC-inspired query refiner for detection.
+    Learnable semantic prompts form soft clusters, and the cluster similarity
+    graph propagates context among main queries only.
+    """
+    def __init__(
+        self,
+        dim,
+        num_prompts=16,
+        graph_topk=8,
+        dropout=0.0,
+        ref_bias=0.25,
+        res_scale=0.20,
+    ):
+        super().__init__()
+        self.num_prompts = int(num_prompts)
+        self.graph_topk = int(graph_topk)
+        self.ref_bias = float(ref_bias)
+        self.max_res_scale = float(res_scale)
+        self.semantic_prompts = nn.Parameter(torch.empty(self.num_prompts, dim))
+        self.prompt_values = nn.Parameter(torch.empty(self.num_prompts, dim))
+        self.query_proj = nn.Linear(dim, dim, bias=False)
+        self.prompt_proj = nn.Linear(dim, dim, bias=False)
+        self.out_proj = nn.Linear(dim * 2, dim)
+        self.dropout = nn.Dropout(dropout)
+        self.norm = nn.LayerNorm(dim)
+        self.res_gate = nn.Parameter(torch.tensor(-3.0))
+        self.temperature = nn.Parameter(torch.tensor(1.0))
+        self._reset_parameters()
+
+    def _reset_parameters(self):
+        init.normal_(self.semantic_prompts, std=0.02)
+        init.normal_(self.prompt_values, std=0.02)
+        init.xavier_uniform_(self.query_proj.weight)
+        init.xavier_uniform_(self.prompt_proj.weight)
+        init.xavier_uniform_(self.out_proj.weight)
+        init.constant_(self.out_proj.bias, 0.0)
+
+    def _ref_similarity(self, ref_points, q_len):
+        if ref_points is None or ref_points.shape[1] != q_len:
+            return None
+        ref = torch.nan_to_num(ref_points[..., :2], nan=0.5, posinf=1.0, neginf=0.0).clamp(0, 1)
+        dist = torch.cdist(ref, ref, p=2)
+        same_jaw = ((ref[..., 1:2] < 0.5) == (ref[..., 1:2].transpose(1, 2) < 0.5)).to(dist.dtype)
+        return self.ref_bias * same_jaw - dist
+
+    def forward(self, x, ref_points=None):
+        b, q_len, _ = x.shape
+        if q_len <= 1:
+            return x
+
+        q = F.normalize(self.query_proj(x.float()), dim=-1)
+        prompts = F.normalize(self.prompt_proj(self.semantic_prompts.float()), dim=-1)
+        temperature = self.temperature.abs().clamp_min(0.25)
+        assign = torch.softmax(torch.matmul(q, prompts.t()) / temperature, dim=-1)
+        prompt_context = torch.matmul(assign.to(dtype=x.dtype), self.prompt_values.to(dtype=x.dtype))
+
+        sim = torch.bmm(assign, assign.transpose(1, 2))
+        ref_sim = self._ref_similarity(ref_points, q_len)
+        if ref_sim is not None:
+            sim = sim + ref_sim.float()
+
+        k_eff = max(1, min(self.graph_topk, q_len))
+        idx = sim.topk(k_eff, dim=-1).indices
+        mask = torch.full_like(sim, float('-inf'))
+        mask.scatter_(2, idx, 0.0)
+        eye = torch.eye(q_len, dtype=torch.bool, device=x.device).view(1, q_len, q_len)
+        mask = torch.where(eye, torch.zeros_like(mask), mask)
+        attn = torch.softmax(sim + mask, dim=-1).to(dtype=x.dtype)
+
+        enhanced = x + prompt_context
+        graph_context = torch.bmm(attn, enhanced)
+        update = self.out_proj(torch.cat([prompt_context, graph_context], dim=-1))
+        alpha = self.max_res_scale * torch.sigmoid(self.res_gate)
+        return self.norm(x + alpha * self.dropout(update))
+
+
+class ClusterWiseGraphRefiner(nn.Module):
+    """
+    Cluster-wise query graph transformer for dense, ordered tooth instances.
+    Queries are softly assigned to learnable cluster prototypes, cluster tokens
+    exchange messages through a top-k graph, then the graph context is projected
+    back to every query.
+    """
+    def __init__(
+        self,
+        dim,
+        num_clusters=16,
+        graph_topk=6,
+        dropout=0.0,
+        ref_bias=0.25,
+        res_scale=0.20,
+    ):
+        super().__init__()
+        self.num_clusters = int(num_clusters)
+        self.graph_topk = int(graph_topk)
+        self.ref_bias = float(ref_bias)
+        self.max_res_scale = float(res_scale)
+        self.prototypes = nn.Parameter(torch.randn(self.num_clusters, dim) * 0.02)
+        self.norm = nn.LayerNorm(dim)
+        self.cluster_norm = nn.LayerNorm(dim)
+        self.assign_proj = nn.Linear(dim, dim)
+        self.value_proj = nn.Linear(dim, dim)
+        self.ref_proj = nn.Sequential(
+            nn.Linear(2, dim),
+            nn.GELU(),
+            nn.Linear(dim, dim),
+        )
+        self.q_proj = nn.Linear(dim, dim)
+        self.k_proj = nn.Linear(dim, dim)
+        self.v_proj = nn.Linear(dim, dim)
+        self.out_proj = nn.Linear(dim, dim)
+        self.dropout = nn.Dropout(dropout)
+        self.res_gate = nn.Parameter(torch.tensor(-2.5))
+
+    def _cluster_mask(self, cluster_tokens):
+        b, k, _ = cluster_tokens.shape
+        if k <= 1:
+            return None
+        sim = torch.matmul(
+            F.normalize(cluster_tokens, dim=-1),
+            F.normalize(cluster_tokens, dim=-1).transpose(1, 2),
+        )
+        k_eff = min(max(self.graph_topk, 1), k)
+        keep = sim.topk(k_eff, dim=-1).indices
+        mask = torch.ones((b, k, k), dtype=torch.bool, device=cluster_tokens.device)
+        mask.scatter_(2, keep, False)
+        eye = torch.eye(k, dtype=torch.bool, device=cluster_tokens.device).unsqueeze(0)
+        return mask & (~eye)
+
+    def forward(self, x, ref_points=None):
+        if x.numel() == 0 or self.num_clusters <= 0:
+            return x
+        b, q, c = x.shape
+        x_norm = self.norm(x)
+        assign_feat = self.assign_proj(x_norm)
+        if ref_points is not None:
+            ref = torch.nan_to_num(ref_points[..., :2], nan=0.5, posinf=1.0, neginf=0.0).clamp(0, 1)
+            assign_feat = assign_feat + self.ref_bias * self.ref_proj(ref)
+
+        proto = self.prototypes.unsqueeze(0).expand(b, -1, -1)
+        assign_logits = torch.matmul(assign_feat, proto.transpose(1, 2)) / math.sqrt(max(c, 1))
+        assign = torch.softmax(assign_logits, dim=-1)
+        value = self.value_proj(x_norm)
+        denom = assign.sum(dim=1).clamp_min(1e-4).unsqueeze(-1)
+        clusters = torch.bmm(assign.transpose(1, 2), value) / denom
+        clusters = self.cluster_norm(clusters + proto)
+
+        q_c = self.q_proj(clusters)
+        k_c = self.k_proj(clusters)
+        v_c = self.v_proj(clusters)
+        attn = torch.matmul(q_c, k_c.transpose(1, 2)) / math.sqrt(max(c, 1))
+        mask = self._cluster_mask(clusters)
+        if mask is not None:
+            attn = attn.masked_fill(mask, torch.finfo(attn.dtype).min)
+        attn = torch.softmax(attn, dim=-1)
+        cluster_ctx = torch.matmul(self.dropout(attn), v_c)
+        query_ctx = torch.bmm(assign, cluster_ctx)
+        update = self.out_proj(query_ctx)
+        alpha = self.max_res_scale * torch.sigmoid(self.res_gate)
+        return x + alpha * self.dropout(update)
+
+
+class QueryRecoveryMemory(nn.Module):
+    """
+    Decoder-layer recovery memory adapted from long-context degradation findings:
+    keep an initial query anchor and softly restore information when iterative
+    refinement drifts too far from it.
+    """
+    def __init__(self, dim, max_res_scale=0.15, dropout=0.0):
+        super().__init__()
+        self.max_res_scale = float(max_res_scale)
+        self.norm = nn.LayerNorm(dim)
+        self.anchor_norm = nn.LayerNorm(dim)
+        self.mix = nn.Sequential(
+            nn.Linear(dim * 3, dim),
+            nn.GELU(),
+            nn.Dropout(dropout),
+            nn.Linear(dim, dim),
+        )
+        self.gate = nn.Sequential(
+            nn.Linear(dim * 3, dim),
+            nn.GELU(),
+            nn.Linear(dim, 1),
+            nn.Sigmoid(),
+        )
+        self.res_gate = nn.Parameter(torch.tensor(-2.5))
+
+    def forward(self, current, anchor):
+        if anchor is None or current.shape != anchor.shape:
+            return current
+        cur = self.norm(current)
+        mem = self.anchor_norm(anchor)
+        diff = mem - cur
+        packed = torch.cat([cur, mem, diff], dim=-1)
+        candidate = current + self.mix(packed)
+        drift = (1.0 - F.cosine_similarity(cur, mem, dim=-1, eps=1e-6)).clamp(0, 2).unsqueeze(-1) * 0.5
+        gate = self.gate(packed) * drift
+        alpha = self.max_res_scale * torch.sigmoid(self.res_gate)
+        return current + alpha * gate * (candidate - current)
+
+
+class PFRPNQueryAdapter(nn.Module):
+    """
+    PF-RPN-inspired prompt-free query adapter.
+    It compresses multi-level memory into sparse image-aware tokens, lets the
+    selected object queries self-prompt through them, and gates the update with
+    a learned centerness/quality estimate.
+    """
+    def __init__(self, dim, num_levels=3, pool_size=4, cascade_steps=2, res_scale=0.20):
+        super().__init__()
+        self.num_levels = int(num_levels)
+        self.pool_size = max(int(pool_size), 1)
+        self.cascade_steps = max(int(cascade_steps), 1)
+        self.max_res_scale = float(res_scale)
+        self.query_norm = nn.LayerNorm(dim)
+        self.token_norm = nn.LayerNorm(dim)
+        self.level_embed = nn.Parameter(torch.randn(self.num_levels, dim) * 0.02)
+        self.router = nn.Sequential(
+            nn.LayerNorm(dim),
+            nn.Linear(dim, max(dim // 4, 16)),
+            nn.GELU(),
+            nn.Linear(max(dim // 4, 16), self.num_levels),
+        )
+        self.ref_embed = nn.Sequential(
+            nn.Linear(4, dim),
+            nn.GELU(),
+            nn.Linear(dim, dim),
+        )
+        self.q_proj = nn.Linear(dim, dim, bias=False)
+        self.k_proj = nn.Linear(dim, dim, bias=False)
+        self.v_proj = nn.Linear(dim, dim, bias=False)
+        self.self_prompt = nn.Sequential(
+            nn.Linear(dim * 3, dim),
+            nn.GELU(),
+            nn.Linear(dim, dim),
+        )
+        self.centerness = nn.Sequential(
+            nn.LayerNorm(dim),
+            nn.Linear(dim, max(dim // 4, 16)),
+            nn.GELU(),
+            nn.Linear(max(dim // 4, 16), 1),
+            nn.Sigmoid(),
+        )
+        self.out_proj = nn.Linear(dim, dim)
+        self.res_gate = nn.Parameter(torch.tensor(-2.2))
+
+    def _memory_tokens(self, memory, spatial_shapes):
+        tokens = []
+        offset = 0
+        for lvl, (h, w) in enumerate(spatial_shapes):
+            length = int(h) * int(w)
+            feat = memory[:, offset:offset + length, :].transpose(1, 2).reshape(memory.shape[0], -1, int(h), int(w))
+            pooled = F.adaptive_avg_pool2d(feat, (self.pool_size, self.pool_size))
+            tok = pooled.flatten(2).transpose(1, 2)
+            tok = tok + self.level_embed[min(lvl, self.num_levels - 1)].view(1, 1, -1).to(dtype=tok.dtype)
+            tokens.append(tok)
+            offset += length
+        return torch.cat(tokens, dim=1)
+
+    def forward(self, content, memory, spatial_shapes, ref_boxes_sigmoid):
+        if content.numel() == 0:
+            return content
+        b, q, c = content.shape
+        tokens = self._memory_tokens(memory, spatial_shapes)
+        if tokens.numel() == 0:
+            return content
+
+        level_weights = torch.softmax(self.router(content.float()), dim=-1)
+        per_level = self.pool_size * self.pool_size
+        token_weights = []
+        for lvl in range(min(len(spatial_shapes), self.num_levels)):
+            token_weights.append(level_weights[..., lvl:lvl + 1].expand(-1, -1, per_level))
+        token_weights = torch.cat(token_weights, dim=-1).clamp_min(1e-4)
+
+        ref_embed = self.ref_embed(ref_boxes_sigmoid.float()).to(dtype=content.dtype)
+        state = content
+        for _ in range(self.cascade_steps):
+            q_proj = self.q_proj(self.query_norm(state).float())
+            k_proj = self.k_proj(self.token_norm(tokens).float())
+            v_proj = self.v_proj(tokens.float())
+            attn = torch.matmul(q_proj, k_proj.transpose(1, 2)) / math.sqrt(max(c, 1))
+            attn = attn + token_weights.log()
+            context = torch.matmul(torch.softmax(attn, dim=-1), v_proj).to(dtype=content.dtype)
+            update = self.self_prompt(torch.cat([state, context, ref_embed], dim=-1))
+            center_gate = self.centerness(state.float()).to(dtype=content.dtype)
+            state = state + center_gate * update
+
+        alpha = self.max_res_scale * torch.sigmoid(self.res_gate)
+        return content + alpha * self.out_proj(state - content)
+
+
+class AnatomicalRegionLogitPrior(nn.Module):
+    """
+    ARegionCD-inspired anatomical region guidance for detection logits.
+    Class priors are anchored to expected FDI arch locations, adding a small
+    contrastive boost to anatomically plausible query/class pairs.
+    """
+    def __init__(self, num_classes, scale=0.08, sigma=0.18):
+        super().__init__()
+        self.num_classes = int(num_classes)
+        self.scale = float(scale)
+        self.sigma = float(sigma)
+        self._prior_ready = False
+
+    def _ensure_priors(self, device, dtype):
+        if (
+            self._prior_ready
+            and self._class_centers.device == device
+            and self._class_centers.dtype == dtype
+            and self._class_centers.shape[0] == self.num_classes
+        ):
+            return
+
+        from .utils_arch import fdi_index_map, fdi_sequence_targets
+
+        fdi2cls = fdi_index_map(self.num_classes)
+        centers = torch.full((self.num_classes, 2), 0.5, device=device, dtype=dtype)
+        jaw_sign = torch.zeros(self.num_classes, device=device, dtype=dtype)
+        side_sign = torch.zeros(self.num_classes, device=device, dtype=dtype)
+        for fdi, cid in fdi2cls.items():
+            if not isinstance(cid, int) or cid < 0 or cid >= self.num_classes:
+                continue
+            fdi = int(fdi)
+            q = fdi // 10
+            is_upper = q in (1, 2, 5, 6)
+            dentition = "primary" if fdi >= 50 else "perm"
+            seq = fdi_sequence_targets(is_upper, dentition=dentition)
+            if fdi in seq:
+                x = (seq.index(fdi) + 0.5) / float(len(seq))
+            else:
+                x = 0.5
+            y = 0.36 if is_upper else 0.64
+            centers[cid] = torch.tensor([x, y], device=device, dtype=dtype)
+            jaw_sign[cid] = 1.0 if is_upper else -1.0
+            side_sign[cid] = -1.0 if x < 0.5 else 1.0
+
+        self._class_centers = centers
+        self._jaw_sign = jaw_sign
+        self._side_sign = side_sign
+        self._prior_ready = True
+
+    def forward(self, scores, ref_points, dn_meta=None):
+        if scores.numel() == 0 or self.num_classes not in (32, 52):
+            return scores
+        bsz, q_all, num_classes = scores.shape
+        if num_classes != self.num_classes:
+            return scores
+
+        dn_len = 0
+        if dn_meta is not None and 'dn_num_split' in dn_meta:
+            dn_len = int(dn_meta['dn_num_split'][0])
+        dn_len = max(0, min(dn_len, q_all))
+        q_main = q_all - dn_len
+        if q_main <= 0 or ref_points is None:
+            return scores
+
+        main_ref = torch.nan_to_num(ref_points[:, dn_len:, :2].float(), nan=0.5, posinf=1.0, neginf=0.0).clamp(0, 1)
+        self._ensure_priors(scores.device, main_ref.dtype)
+        centers = self._class_centers.float()
+        dist = torch.cdist(main_ref, centers.view(1, self.num_classes, 2).expand(bsz, -1, -1), p=2)
+        region = -dist.pow(2) / (2.0 * max(self.sigma, 1e-4) ** 2)
+        region = region - region.mean(dim=-1, keepdim=True)
+        region = region / region.std(dim=-1, keepdim=True).clamp_min(1e-3)
+
+        jaw_obs = torch.tanh((0.5 - main_ref[..., 1:2]) / 0.10)
+        side_obs = torch.tanh((main_ref[..., 0:1] - 0.5) / 0.18)
+        contrast = jaw_obs * self._jaw_sign.view(1, 1, -1).float()
+        contrast = contrast + 0.5 * side_obs * self._side_sign.view(1, 1, -1).float()
+        update = region + contrast
+
+        out = scores.clone()
+        out[:, dn_len:, :] = scores[:, dn_len:, :] + self.scale * update.to(dtype=scores.dtype)
+        return out
+
+
+class ToothTemplateLogitPrior(nn.Module):
+    """
+    Differentiable tooth-position template matching prior.
+    Each FDI class owns several learnable query-space templates. A query gets
+    a small logit boost when its content is similar to a class template and its
+    reference point is close to that class's expected arch location.
+    """
+    def __init__(
+        self,
+        num_classes,
+        dim,
+        num_templates=4,
+        template_scale=0.08,
+        spatial_scale=0.05,
+        spatial_sigma=0.18,
+        temperature=0.20,
+    ):
+        super().__init__()
+        self.num_classes = int(num_classes)
+        self.dim = int(dim)
+        self.num_templates = max(int(num_templates), 1)
+        self.template_scale = float(template_scale)
+        self.spatial_scale = float(spatial_scale)
+        self.spatial_sigma = float(spatial_sigma)
+        self.temperature = max(float(temperature), 1e-4)
+        self.templates = nn.Parameter(torch.randn(self.num_classes, self.num_templates, self.dim) * 0.02)
+        self.query_proj = nn.Linear(self.dim, self.dim, bias=False)
+        self.template_proj = nn.Linear(self.dim, self.dim, bias=False)
+        self.mix_gate = nn.Sequential(
+            nn.LayerNorm(self.dim),
+            nn.Linear(self.dim, max(self.dim // 4, 16)),
+            nn.GELU(),
+            nn.Linear(max(self.dim // 4, 16), 1),
+            nn.Sigmoid(),
+        )
+        self._prior_ready = False
+
+    def _ensure_priors(self, device, dtype):
+        if (
+            self._prior_ready
+            and self._class_centers.device == device
+            and self._class_centers.dtype == dtype
+            and self._class_centers.shape[0] == self.num_classes
+        ):
+            return
+
+        from .utils_arch import fdi_index_map, fdi_sequence_targets
+
+        fdi2cls = fdi_index_map(self.num_classes)
+        centers = torch.full((self.num_classes, 2), 0.5, device=device, dtype=dtype)
+        for fdi, cid in fdi2cls.items():
+            if not isinstance(cid, int) or cid < 0 or cid >= self.num_classes:
+                continue
+            fdi = int(fdi)
+            is_upper = (fdi // 10) in (1, 2, 5, 6)
+            dentition = "primary" if fdi >= 50 else "perm"
+            seq = fdi_sequence_targets(is_upper, dentition=dentition)
+            x = (seq.index(fdi) + 0.5) / float(len(seq)) if fdi in seq else 0.5
+            y = 0.36 if is_upper else 0.64
+            centers[cid] = torch.tensor([x, y], device=device, dtype=dtype)
+        self._class_centers = centers
+        self._prior_ready = True
+
+    @staticmethod
+    def _normalize_prior(prior):
+        prior = prior - prior.mean(dim=-1, keepdim=True)
+        return prior / prior.std(dim=-1, keepdim=True).clamp_min(1e-3)
+
+    def forward(self, scores, query_feats, ref_points, dn_meta=None):
+        if scores.numel() == 0 or query_feats is None or scores.shape[-1] != self.num_classes:
+            return scores
+        bsz, q_all, _ = scores.shape
+        dn_len = 0
+        if dn_meta is not None and 'dn_num_split' in dn_meta:
+            dn_len = int(dn_meta['dn_num_split'][0])
+        dn_len = max(0, min(dn_len, q_all))
+        if q_all <= dn_len:
+            return scores
+
+        q_feat = query_feats[:, dn_len:, :]
+        q = F.normalize(self.query_proj(q_feat.float()), dim=-1)
+        templates = F.normalize(self.template_proj(self.templates.float()), dim=-1)
+        sim = torch.einsum('bqd,ckd->bqck', q, templates)
+        sim = torch.logsumexp(sim / self.temperature, dim=-1) * self.temperature
+        sim = self._normalize_prior(sim)
+
+        update = self.template_scale * sim
+        if ref_points is not None and self.spatial_scale > 0:
+            ref = torch.nan_to_num(
+                ref_points[:, dn_len:, :2].float(),
+                nan=0.5,
+                posinf=1.0,
+                neginf=0.0,
+            ).clamp(0, 1)
+            self._ensure_priors(scores.device, ref.dtype)
+            centers = self._class_centers.float().view(1, self.num_classes, 2).expand(bsz, -1, -1)
+            dist = torch.cdist(ref, centers, p=2)
+            spatial = -dist.pow(2) / (2.0 * max(self.spatial_sigma, 1e-4) ** 2)
+            update = update + self.spatial_scale * self._normalize_prior(spatial)
+
+        gate = self.mix_gate(q_feat.float()).to(dtype=scores.dtype)
+        out = scores.clone()
+        out[:, dn_len:, :] = scores[:, dn_len:, :] + gate * update.to(dtype=scores.dtype)
+        return out
+
+
+class FDISpatialLogitPrior(nn.Module):
+    """
+    Lightweight FDI topology prior for tooth-position detection logits.
+    It uses jaw location, neighbor class compatibility and class uniqueness.
+    The prior is intentionally small and prediction-conditioned, so it can be
+    ablated without changing the detector heads.
+    """
+    def __init__(
+        self,
+        num_classes,
+        knn=8,
+        sigma=0.12,
+        jaw_scale=0.08,
+        neighbor_scale=0.12,
+        unique_scale=0.04,
+        dent_scale=0.04,
+        eps=1e-6,
+    ):
+        super().__init__()
+        self.num_classes = int(num_classes)
+        self.knn = int(knn)
+        self.sigma = float(sigma)
+        self.jaw_scale = float(jaw_scale)
+        self.neighbor_scale = float(neighbor_scale)
+        self.unique_scale = float(unique_scale)
+        self.dent_scale = float(dent_scale)
+        self.eps = float(eps)
+        self._prior_ready = False
+
+    @staticmethod
+    def _jaw_id(fdi):
+        q = int(fdi) // 10
+        return 1 if q in (1, 2, 5, 6) else -1
+
+    @staticmethod
+    def _dent_id(fdi):
+        return 1 if int(fdi) < 50 else -1
+
+    @staticmethod
+    def _mirror_quadrant(q1, q2):
+        return (q1, q2) in {
+            (1, 2), (2, 1), (3, 4), (4, 3),
+            (5, 6), (6, 5), (7, 8), (8, 7),
+        }
+
+    def _ensure_priors(self, device, dtype):
+        if (
+            self._prior_ready
+            and self._adjacency.device == device
+            and self._adjacency.dtype == dtype
+            and self._adjacency.shape[0] == self.num_classes
+        ):
+            return
+
+        from .utils_arch import fdi_index_map
+
+        fdi2cls = fdi_index_map(self.num_classes)
+        id2fdi = {int(cid): int(fdi) for fdi, cid in fdi2cls.items()}
+        adjacency = torch.zeros(self.num_classes, self.num_classes, device=device, dtype=dtype)
+        jaw_sign = torch.zeros(self.num_classes, device=device, dtype=dtype)
+        dent_sign = torch.ones(self.num_classes, device=device, dtype=dtype)
+
+        for cid in range(self.num_classes):
+            fdi = id2fdi.get(cid)
+            if fdi is None:
+                continue
+            q, p = divmod(fdi, 10)
+            jaw_sign[cid] = float(self._jaw_id(fdi))
+            dent_sign[cid] = float(self._dent_id(fdi))
+            for nid in range(self.num_classes):
+                nfdi = id2fdi.get(nid)
+                if nfdi is None:
+                    continue
+                nq, np = divmod(nfdi, 10)
+                if self._jaw_id(fdi) != self._jaw_id(nfdi):
+                    continue
+
+                same_dent = self._dent_id(fdi) == self._dent_id(nfdi)
+                if same_dent and q == nq and abs(p - np) <= 1:
+                    adjacency[cid, nid] = 1.0
+                if same_dent and self._mirror_quadrant(q, nq):
+                    if p == np:
+                        adjacency[cid, nid] = max(adjacency[cid, nid], 0.75)
+                    if p <= 2 and np <= 2:
+                        adjacency[cid, nid] = max(adjacency[cid, nid], 0.85)
+                if cid == nid:
+                    adjacency[cid, nid] = max(adjacency[cid, nid], 0.25)
+
+        norm = adjacency.sum(dim=-1, keepdim=True).clamp_min(1.0)
+        self._adjacency = adjacency / norm
+        self._jaw_sign = jaw_sign
+        self._dent_sign = dent_sign
+        self._prior_ready = True
+
+    def forward(self, scores, ref_points, dn_meta=None):
+        if scores.numel() == 0 or self.num_classes not in (32, 52):
+            return scores
+
+        bsz, q_all, num_classes = scores.shape
+        if num_classes != self.num_classes:
+            return scores
+
+        dn_len = 0
+        if dn_meta is not None and 'dn_num_split' in dn_meta:
+            dn_len = int(dn_meta['dn_num_split'][0])
+        dn_len = max(0, min(dn_len, q_all))
+        q_main = q_all - dn_len
+        if q_main <= 1:
+            return scores
+
+        main_scores = scores[:, dn_len:, :]
+        main_ref = ref_points[:, dn_len:, :2] if ref_points is not None else None
+        self._ensure_priors(main_scores.device, main_scores.float().dtype)
+
+        probs = main_scores.sigmoid().detach().float()
+        update = torch.zeros_like(probs)
+
+        if main_ref is not None:
+            ref = torch.nan_to_num(main_ref.float(), nan=0.5, posinf=1.0, neginf=0.0).clamp(0, 1)
+            y_sign = torch.tanh((0.5 - ref[..., 1:2]) / 0.08)
+            if self.jaw_scale > 0:
+                update = update + self.jaw_scale * y_sign * self._jaw_sign.view(1, 1, -1)
+
+            if self.neighbor_scale > 0 or self.dent_scale > 0:
+                dist = torch.cdist(ref, ref, p=2)
+                same_jaw = ((ref[..., 1:2] < 0.5) == (ref[..., 1:2].transpose(1, 2) < 0.5)).float()
+                weights = torch.exp(-dist / max(self.sigma, self.eps)) * same_jaw
+                eye = torch.eye(q_main, dtype=torch.bool, device=scores.device).view(1, q_main, q_main)
+                weights = weights.masked_fill(eye, 0.0)
+                k_eff = max(1, min(self.knn, q_main - 1))
+                if k_eff < q_main - 1:
+                    topk_idx = weights.topk(k_eff, dim=-1).indices
+                    sparse = torch.zeros_like(weights)
+                    sparse.scatter_(2, topk_idx, weights.gather(2, topk_idx))
+                    weights = sparse
+                weights = weights / weights.sum(dim=-1, keepdim=True).clamp_min(self.eps)
+                neighbor_context = torch.bmm(weights, probs)
+
+                if self.neighbor_scale > 0:
+                    neighbor_prior = torch.matmul(neighbor_context, self._adjacency.t())
+                    neighbor_prior = neighbor_prior - neighbor_prior.mean(dim=-1, keepdim=True)
+                    neighbor_prior = neighbor_prior / neighbor_prior.std(dim=-1, keepdim=True).clamp_min(1e-3)
+                    update = update + self.neighbor_scale * neighbor_prior
+
+                if self.dent_scale > 0:
+                    dent_context = (neighbor_context * self._dent_sign.view(1, 1, -1)).sum(
+                        dim=-1, keepdim=True
+                    ) / neighbor_context.sum(dim=-1, keepdim=True).clamp_min(self.eps)
+                    update = update + self.dent_scale * dent_context.clamp(-1, 1) * self._dent_sign.view(1, 1, -1)
+
+        if self.unique_scale > 0:
+            class_mass = probs.sum(dim=1, keepdim=True)
+            duplicate = torch.log1p((class_mass - probs).clamp_min(0.0))
+            update = update - self.unique_scale * duplicate
+
+        out = scores.clone()
+        out[:, dn_len:, :] = main_scores + update.to(dtype=main_scores.dtype)
+        return out
+
+from typing import List, Optional  # ← 若已有 List，请补上 Optional
+
+class ClassUniquenessGate(nn.Module):
+    """
+    针对牙位检测优化的唯一性门控 (Optimized for Tooth Detection).
+    v2.1: 修复 AMP (混合精度) 下 Float16/Float32 类型不匹配的 Bug。
+    """
+    def __init__(self, 
+                 d_model=256,         
+                 tau_init: float = 1.0, 
+                 tau_end: float = 0.05, 
+                 iters: int = 5, 
+                 strength: float = 1.0, 
+                 eps: float = 1e-8,
+                 total_steps: int = 60000):
+        super().__init__()
+        self.tau_init = float(tau_init)
+        self.tau_end = float(tau_end)
+        self.iters = int(iters)
+        self.strength = float(strength)
+        self.eps = float(eps)
+        
+        self.total_steps = float(total_steps) 
+
+        self.register_buffer('step_counter', torch.tensor(0.0))
+        self.register_buffer('current_tau', torch.tensor(tau_init))
+        self.register_buffer('current_strength', torch.tensor(0.0))
+
+    def _update_params(self):
+        """自动根据当前步数更新参数"""
+        if self.training:
+            self.step_counter += 1.0
+        
+        progress = self.step_counter.item() / self.total_steps
+        p = max(0.0, min(1.0, progress))
+        
+        # 1. 强度 Warmup
+        if p < 0.05:
+            self.current_strength.fill_(0.0)
+        else:
+            s = self.strength * min(1.0, (p - 0.05) / 0.1) 
+            self.current_strength.fill_(s)
+
+        # 2. 温度退火
+        curr_tau = self.tau_init * (self.tau_end / self.tau_init) ** p
+        self.current_tau.fill_(curr_tau)
+
+    def _sinkhorn_log(self, log_alpha, iters):
+        """ Log-space Sinkhorn 算法 """
+        for _ in range(iters):
+            # Row Norm 
+            log_alpha = log_alpha - torch.logsumexp(log_alpha, dim=-1, keepdim=True)
+            # Col Norm 
+            log_alpha = log_alpha - torch.logsumexp(log_alpha, dim=-2, keepdim=True)
+        return torch.exp(log_alpha)
+
+    def forward(self, scores: torch.Tensor, present_classes: Optional[torch.Tensor] = None, dn_meta: Optional[dict] = None):
+        # --- 自动更新参数 ---
+        self._update_params()
+        
+        curr_str = self.current_strength.item()
+        curr_tau = self.current_tau.item()
+        
+        if curr_str <= 1e-6:
+            return scores
+
+        B, Q_all, C = scores.shape
+        dn_len = int(dn_meta['dn_num_split'][0]) if (dn_meta and 'dn_num_split' in dn_meta) else 0
+        
+        if Q_all <= dn_len: 
+            return scores
+
+        scores_main = scores[:, dn_len:, :] # [B, Qm, C]
+        
+        # gate_adjustment 会继承 scores 的 dtype (在 AMP 模式下通常是 Float16)
+        gate_adjustment = torch.zeros_like(scores_main)
+
+        for b in range(B):
+            # 分支 A: 训练模式 (Teacher Forcing with GT)
+            if self.training and present_classes is not None:
+                raw_mask = present_classes[b]
+                
+                if raw_mask.dtype == torch.bool:
+                    valid_indices = torch.nonzero(raw_mask).squeeze(1)
+                else:
+                    valid_indices = raw_mask[(raw_mask >= 0) & (raw_mask < C)].unique()
+                
+                if valid_indices.numel() == 0:
+                    continue
+
+                # 关键点 1: 强制转为 float32 进行 Sinkhorn 计算，防止 NaN
+                sub_scores = scores_main[b, :, valid_indices].T.float() 
+                
+                log_P = sub_scores / curr_tau
+                P = self._sinkhorn_log(log_P, self.iters) 
+                
+                # penalty 是 float32
+                penalty = torch.log(P.T.clamp(min=self.eps)) * curr_str
+                
+                # 关键点 2: 赋值前转回原始 dtype (Float16)
+                gate_adjustment[b, :, valid_indices] = penalty.to(dtype=gate_adjustment.dtype)
+
+            # 分支 B: 推理模式 (Self-Competition)
+            elif not self.training: 
+                # 关键点 1: 强制转为 float32
+                sub_scores = scores_main[b].T.float() 
+                
+                infer_tau = max(curr_tau, 0.1) 
+                log_P = sub_scores / infer_tau
+                P = self._sinkhorn_log(log_P, self.iters) 
+                
+                penalty = torch.log(P.T.clamp(min=self.eps)) * curr_str
+                
+                # 关键点 2: 赋值前转回原始 dtype
+                gate_adjustment[b] = penalty.to(dtype=gate_adjustment.dtype)
+
+        # 将调整项加回原 Logits
+        out = scores.clone()
+        out[:, dn_len:, :] = scores_main + gate_adjustment
+        return out
+
+
+# --- Stable ClassUniquenessGate ------------------------------------
+# class ClassUniquenessGate(nn.Module):
+#     def __init__(self, tau: float = 0.5, iters: int = 4, strength: float = 0.3, eps: float = 1e-8,
+#                  mode: str = "full",  # "none" | "partial" | "full"
+#                  ):
+#         super().__init__()
+#         self.tau = float(tau); self.iters = int(iters)
+#         self.base_strength = float(strength); self.cur_strength = float(strength)
+#         self.eps = float(eps); self.mode = mode
+#     def _gumbel_like(self, x):
+#         return -torch.log(-torch.log(torch.rand_like(x).clamp_(1e-6, 1-1e-6)))
+#     # @staticmethod
+#     # def _sinkhorn_log(log_alpha: torch.Tensor, iters: int) -> torch.Tensor:
+#     def _sinkhorn_log(self, log_alpha, iters, tau=None, use_gumbel: bool = False):
+#         tau = float(self.tau if tau is None else tau)
+#         if use_gumbel:
+#             log_alpha = (log_alpha + self._gumbel_like(log_alpha)) / max(tau, 1e-3)
+#         for _ in range(iters):
+#             log_alpha = log_alpha - torch.logsumexp(log_alpha, dim=-1, keepdim=True)
+#             log_alpha = log_alpha - torch.logsumexp(log_alpha, dim=-2, keepdim=True)
+#         return torch.exp(log_alpha)
+
+#     @torch.no_grad()
+#     def step_update(self, progress: float):
+#         # progress ∈ [0,1]，训练循环里按 epoch 线性递增
+#         self.cur_strength = self.base_strength * float(max(0.0, min(1.0, progress)))
+
+#     def forward(self, scores: torch.Tensor, present_classes: Optional[torch.Tensor], dn_meta: Optional[dict] = None):
+#         if present_classes is None or self.cur_strength <= 0:
+#             return scores
+#         B, Q, C = scores.shape
+#         dn_len = int(dn_meta['dn_num_split'][0]) if (dn_meta is not None and 'dn_num_split' in dn_meta) else 0
+#         Qm = Q - dn_len
+#         if Qm <= 0: return scores
+
+#         scores_main = scores[:, dn_len:, :]
+#         out_dtype = scores_main.dtype
+#         gate = torch.zeros_like(scores_main)
+
+#         for b in range(B):
+#             cls_mask = present_classes[b]
+#             if int(cls_mask.sum().item()) == 0: continue
+
+#             log_alpha = scores_main[b].transpose(0, 1)[cls_mask].float() / self.tau  # [C_present, Qm]
+
+#             if self.mode == "full":
+#                 P = self._sinkhorn_log(log_alpha, self.iters, tau=self.tau, use_gumbel=False)
+
+#             elif self.mode == "partial":
+#                 with torch.no_grad():
+#                     P = self._sinkhorn_log(log_alpha, self.iters, tau=self.tau, use_gumbel=True)
+
+#             else:  # "none"
+#                 with torch.no_grad():
+#                     P = self._sinkhorn_log(log_alpha, self.iters, tau=self.tau, use_gumbel=True)
+
+
+#             P_qc = P.transpose(0, 1)  # [Qm, C_present]
+#             logP = torch.log(P_qc.clamp_min(self.eps)) * self.cur_strength
+#             gate[b, :, cls_mask] = logP.to(out_dtype)
+
+#         out = scores.clone()
+#         out[:, dn_len:, :] = scores_main + gate
+#         return out
+# -------------------------------------------------------------------
+
+# --- END NEW ------------------------------------------------------------------
+
+class ToothQueryEmbedding(nn.Module):
+    """牙齿Query嵌入：融合FDI位置编码 + 可学习内容（固定只输出 num_teeth 个）"""
+    def __init__(self, hidden_dim=256, num_teeth=52):
+        super().__init__()
+        self.hidden_dim = hidden_dim
+        self.num_teeth = num_teeth
+
+        # FDI位置编码（固定，确保为 float）
+        pos = self._create_fdi_encoding(num_teeth, hidden_dim).float()
+        self.register_buffer('fdi_pos_embed', pos, persistent=False)
+
+        # 可学习内容嵌入（和牙位一一对应：num_teeth）
+        self.content_embed = nn.Embedding(num_teeth, hidden_dim)
+        nn.init.normal_(self.content_embed.weight, mean=0.0, std=0.01)
+
+        # 牙齿类型嵌入：2类(0=乳牙,1=恒牙)
+        self.type_embed = nn.Embedding(2, hidden_dim)
+
+        # 象限嵌入（1-8象限）
+        self.quadrant_embed = nn.Embedding(8, hidden_dim)
+
+        # 预置每个FDI位置的类型：前32恒牙(1)，后20乳牙(0)
+        type_ids = torch.zeros(self.num_teeth, dtype=torch.long)  # 全乳牙(0)
+        type_ids[:32] = 1
+        self.register_buffer('base_type_ids', type_ids, persistent=False)
+
+        self.fusion_mlp = nn.Sequential(
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.GELU(),
+            nn.Linear(hidden_dim, hidden_dim)
+        )
+
+    def _create_fdi_encoding(self, num_teeth, dim):
+        import math
+        encoding = torch.zeros(num_teeth, dim)
+        fdi_list = []
+        for quadrant in [1, 2, 3, 4]:
+            for tooth in range(1, 9):
+                fdi_list.append(quadrant * 10 + tooth)
+        for quadrant in [5, 6, 7, 8]:
+            for tooth in range(1, 6):
+                fdi_list.append(quadrant * 10 + tooth)
+        for idx, fdi in enumerate(fdi_list[:num_teeth]):
+            quadrant = fdi // 10
+            position = fdi % 10
+            for j in range(0, dim, 4):
+                if j < dim:     encoding[idx, j]   = math.sin(quadrant / (10 ** (j / dim)))
+                if j+1 < dim:   encoding[idx, j+1] = math.cos(quadrant / (10 ** ((j+1) / dim)))
+                if j+2 < dim:   encoding[idx, j+2] = math.sin(position / (10 ** ((j+2) / dim)))
+                if j+3 < dim:   encoding[idx, j+3] = math.cos(position / (10 ** ((j+3) / dim)))
+        return encoding
+
+    def _quadrant_ids(self):
+        ids = []
+        for quadrant in [1,2,3,4]:
+            for _ in range(8): ids.append(quadrant - 1)
+        for quadrant in [5,6,7,8]:
+            for _ in range(5): ids.append(quadrant - 1)
+        # 先在 CPU 上建，再搬到 buffer 的 device，避免 Pyright 报错
+        return torch.tensor(ids[:self.num_teeth], dtype=torch.long).to(self.fdi_pos_embed.device)
+
+    def forward(self, batch_size, num_queries=None, tooth_types=None):
+        # 只允许输出 self.num_teeth 个（例如 52）
+        Q = self.num_teeth if num_queries is None else int(num_queries)
+        if Q != self.num_teeth:
+            raise ValueError(f"ToothQueryEmbedding 只支持 {self.num_teeth} 个查询，但收到 {Q}。")
+
+        # 避免 "Tensor|Module" 静态类型告警：显式转 tensor 并对齐 dtype/device
+        base = torch.as_tensor(
+            self.fdi_pos_embed,
+            dtype=self.content_embed.weight.dtype,
+            device=self.content_embed.weight.device
+        ) + self.content_embed.weight  # [52, C]
+
+        embed = base.unsqueeze(0).expand(batch_size, -1, -1)  # [B,52,C]
+
+        quad_ids = self._quadrant_ids()  # [52] (已在正确 device)
+        type_ids = torch.as_tensor(self.base_type_ids, device=embed.device, dtype=torch.long)  # [52]
+
+        if tooth_types is not None:
+            # tooth_types: [B,52] long
+            type_embed = self.type_embed(tooth_types)  # [B,52,C]
+        else:
+            type_embed = self.type_embed(type_ids).unsqueeze(0).expand(batch_size, -1, -1)  # [B,52,C]
+
+        quadrant_embed = self.quadrant_embed(quad_ids).unsqueeze(0).expand(batch_size, -1, -1)  # [B,52,C]
+
+        out = embed + type_embed + quadrant_embed
+        return self.fusion_mlp(out)  # [B,52,C]
+
+class MLP(nn.Module):
+    def __init__(self, input_dim, hidden_dim, output_dim, num_layers, act='relu'):
+        super().__init__()
+        self.num_layers = num_layers
+        h = [hidden_dim] * (num_layers - 1)
+        self.layers = nn.ModuleList(nn.Linear(n, k) for n, k in zip([input_dim] + h, h + [output_dim]))
+        self.act = get_activation(act)
+
+    def forward(self, x):
+        for i, layer in enumerate(self.layers):
+            x = self.act(layer(x)) if i < self.num_layers - 1 else layer(x)
+        return x
+
+
+class MSDeformableAttention(nn.Module):
+    def __init__(
+        self,
+        embed_dim=256,
+        num_heads=8,
+        num_levels=4,
+        num_points=4,
+        method='default',
+        offset_scale=0.3,
+    ):
+        """Multi-Scale Deformable Attention
+        """
+        super(MSDeformableAttention, self).__init__()
+        self.embed_dim = embed_dim
+        self.num_heads = num_heads
+        self.num_levels = num_levels
+        self.offset_scale = offset_scale
+
+        if isinstance(num_points, list):
+            assert len(num_points) == num_levels, ''
+            num_points_list = num_points
+        else:
+            num_points_list = [num_points for _ in range(num_levels)]
+
+        self.num_points_list = num_points_list
+
+        num_points_scale = [1/n for n in num_points_list for _ in range(n)]
+        self.register_buffer('num_points_scale', torch.tensor(num_points_scale, dtype=torch.float32))
+
+        self.total_points = num_heads * sum(num_points_list)
+        self.method = method
+
+        self.head_dim = embed_dim // num_heads
+        assert self.head_dim * num_heads == self.embed_dim, "embed_dim must be divisible by num_heads"
+
+        self.sampling_offsets = nn.Linear(embed_dim, self.total_points * 2)
+        self.attention_weights = nn.Linear(embed_dim, self.total_points)
+
+        self.ms_deformable_attn_core = functools.partial(deformable_attention_core_func_v2, method=self.method)
+
+        self._reset_parameters()
+
+        if method == 'discrete':
+            for p in self.sampling_offsets.parameters():
+                p.requires_grad = False
+        # ---------- NEW: debug & 缓存 ----------
+        self.debug: bool = False
+        self.last_sampling_locations: Optional[torch.Tensor] = None  # [B, Q, H, L, P, 2]
+        self.last_attention_weights: Optional[torch.Tensor] = None   # [B, Q, H, P]
+
+    @torch.no_grad()
+    def enable_debug(self, flag: bool = True):
+        self.debug = bool(flag)
+        self.last_sampling_locations = None
+        self.last_attention_weights = None
+    def _reset_parameters(self):
+        # sampling_offsets
+        init.constant_(self.sampling_offsets.weight, 0)
+        thetas = torch.arange(self.num_heads, dtype=torch.float32) * (2.0 * math.pi / self.num_heads)
+        grid_init = torch.stack([thetas.cos(), thetas.sin()], -1)
+        grid_init = grid_init / grid_init.abs().max(-1, keepdim=True).values
+        grid_init = grid_init.reshape(self.num_heads, 1, 2).tile([1, sum(self.num_points_list), 1])
+        scaling = torch.concat([torch.arange(1, n + 1) for n in self.num_points_list]).reshape(1, -1, 1)
+        grid_init *= scaling
+        self.sampling_offsets.bias.data[...] = grid_init.flatten()
+
+        # attention_weights
+        init.constant_(self.attention_weights.weight, 0)
+        init.constant_(self.attention_weights.bias, 0)
+
+
+    def forward(self,
+                query: torch.Tensor,
+                reference_points: torch.Tensor,
+                value: torch.Tensor,
+                value_spatial_shapes: List[int]):
+        """
+        Args:
+            query (Tensor): [bs, query_length, C]
+            reference_points (Tensor): [bs, query_length, n_levels, 2], range in [0, 1], top-left (0,0),
+                bottom-right (1, 1), including padding area
+            value (Tensor): [bs, value_length, C]
+            value_spatial_shapes (List): [n_levels, 2], [(H_0, W_0), (H_1, W_1), ..., (H_{L-1}, W_{L-1})]
+
+        Returns:
+            output (Tensor): [bs, Length_{query}, C]
+        """
+        bs, Len_q = query.shape[:2]
+
+        sampling_offsets: torch.Tensor = self.sampling_offsets(query)
+        sampling_offsets = sampling_offsets.reshape(bs, Len_q, self.num_heads, sum(self.num_points_list), 2)
+
+        attention_weights = self.attention_weights(query).reshape(bs, Len_q, self.num_heads, sum(self.num_points_list))
+        attention_weights = F.softmax(attention_weights, dim=-1)
+
+        # 替换 forward 中 2D 分支
+        if reference_points.shape[-1] == 2:
+            offset_normalizer = torch.as_tensor(
+                value_spatial_shapes, dtype=query.dtype, device=query.device
+            )
+            offset_normalizer = offset_normalizer.flip(1).view(1, 1, 1, self.num_levels, 1, 2)
+            sampling_locations = reference_points.view(bs, Len_q, 1, self.num_levels, 1, 2) \
+                            + sampling_offsets / offset_normalizer
+
+        elif reference_points.shape[-1] == 4:
+            # reference_points [8, 480, None, 1,  4]
+            # sampling_offsets [8, 480, 8,    12, 2]
+            num_points_scale = self.num_points_scale.to(dtype=query.dtype).unsqueeze(-1)
+            offset = sampling_offsets * num_points_scale * reference_points[:, :, None, :, 2:] * self.offset_scale
+            sampling_locations = reference_points[:, :, None, :, :2] + offset
+        else:
+            raise ValueError(
+                "Last dim of reference_points must be 2 or 4, but get {} instead.".
+                format(reference_points.shape[-1]))
+
+  # ---------- NEW: debug 缓存 ----------
+        if self.debug:
+            # 只存一份 CPU 版，节省显存
+            self.last_sampling_locations = sampling_locations.detach().cpu()
+            self.last_attention_weights  = attention_weights.detach().cpu()
+
+        output = self.ms_deformable_attn_core(
+            value, value_spatial_shapes, sampling_locations, attention_weights, self.num_points_list
+        )
+        return output
+
+class MIInquiryHead(nn.Module):
+    """单个并行询问单元：SA -> Cross (Deformable) -> Gate -> FFN（均带独立参数）"""
+    def __init__(self, d_model=256, n_head=8, dropout=0., activation='relu',
+                 n_levels=4, n_points=4, cross_attn_method='default',
+                 shared_self_attn: Optional[nn.MultiheadAttention] = None,
+                 first_skip_self_attn: bool = False,
+                 ffn_dim: int = 1024):
+        super().__init__()
+        # 确保正确初始化
+        if shared_self_attn is None:
+            self.self_attn = nn.MultiheadAttention(d_model, n_head, dropout=dropout, batch_first=True)
+            self._reset_self_attn_parameters()
+        else:
+            self.self_attn = shared_self_attn
+        # self-attn（可选共享，用于 Lite-MI）
+        # self.self_attn = shared_self_attn or nn.MultiheadAttention(
+        #     d_model, n_head, dropout=dropout, batch_first=True)
+        self.first_skip_self_attn = first_skip_self_attn
+        self.dropout1 = nn.Dropout(dropout)
+        self.norm1 = nn.LayerNorm(d_model)
+
+        # cross-attn（独立参数）
+        self.cross_attn = MSDeformableAttention(
+            d_model, n_head, n_levels, n_points, method=cross_attn_method)
+        self.dropout2 = nn.Dropout(dropout)
+        self.gateway = Gate(d_model)
+
+        # FFN（独立参数）
+        self.linear1 = nn.Linear(d_model, ffn_dim)
+        self.activation = get_activation(activation)
+        self.dropout3 = nn.Dropout(dropout)
+        self.linear2 = nn.Linear(ffn_dim, d_model)
+        self.dropout4 = nn.Dropout(dropout)
+        self.norm3 = nn.LayerNorm(d_model)
+        self._reset_ffn_parameters()
+    def _reset_self_attn_parameters(self):
+        # 复制原始DETR的初始化
+        for p in self.self_attn.parameters():
+            if p.dim() > 1:
+                nn.init.xavier_uniform_(p)
+    
+    def _reset_ffn_parameters(self):
+        nn.init.xavier_uniform_(self.linear1.weight)
+        nn.init.xavier_uniform_(self.linear2.weight)
+        nn.init.constant_(self.linear1.bias, 0.)
+        nn.init.constant_(self.linear2.bias, 0.)
+
+    def forward(self, target, reference_points, value, spatial_shapes,
+                attn_mask=None, query_pos_embed=None, step_idx: int = 0):
+        if attn_mask is not None and attn_mask.dim() == 3:
+            B, Q, _ = attn_mask.shape
+            h = self.self_attn.num_heads
+            m = attn_mask.unsqueeze(1).expand(B, h, Q, Q).reshape(B*h, Q, Q)
+            attn_mask = m.to(torch.float32).masked_fill(m, float('-inf'))
+
+        # (A) self-attn（第0个询问可跳过）
+        if not (self.first_skip_self_attn and step_idx == 0):
+            q = k = (target if query_pos_embed is None else target + query_pos_embed)
+            t2, _ = self.self_attn(q, k, value=target, attn_mask=attn_mask,
+                       need_weights=False, average_attn_weights=False)
+            target = self.norm1(target + self.dropout1(t2))
+
+        # (B) cross-attn
+        t2 = self.cross_attn((target if query_pos_embed is None else target + query_pos_embed),
+                              reference_points, value, spatial_shapes)
+        target = self.gateway(target, self.dropout2(t2))
+
+        # (C) FFN
+        t2 = self.linear2(self.dropout3(self.activation(self.linear1(target))))
+        target = self.norm3(target + self.dropout4(t2))
+        return target
+
+class QueryFusion(nn.Module):
+    """把 K 次询问得到的 K 个 [B,Q,C] 在通道上拼接 -> 线性降回 C，再做残差+LN。"""
+    def __init__(self, d_model: int, k_inquiries: int, dropout: float = 0.0):
+        super().__init__()
+        self.proj = nn.Linear(d_model * k_inquiries, d_model, bias=True)
+        self.drop = nn.Dropout(dropout)
+        self.norm = nn.LayerNorm(d_model)
+
+    def forward(self, target_in: torch.Tensor, heads_out: List[torch.Tensor]) -> torch.Tensor:
+        # heads_out: List of length K, each is [B,Q,C]
+        y = torch.cat(heads_out, dim=-1)          # [B,Q,K*C]
+        y = self.drop(self.proj(y))               # [B,Q,C]
+        return self.norm(target_in + y)           # 残差到输入 queries
+
+class TransformerDecoderLayer(nn.Module):
+    def __init__(self,
+                 d_model=256,
+                 n_head=8,
+                 dim_feedforward=1024,
+                 dropout=0.,
+                 activation='relu',
+                 n_levels=4,
+                 n_points=4,
+                 cross_attn_method='default',
+                 layer_scale=None,
+                 # === MI-DETR ===
+                 mi_steps: int = 2,
+                 mi_first_skip_self_attn: bool = False,
+                 mi_share_self_attn: bool = False,
+                 use_arch_qgp: bool = False,
+                 use_spegc_prompt_graph: bool = False,
+                 spegc_num_prompts: int = 16,
+                 spegc_graph_topk: int = 8,
+                 spegc_ref_bias: float = 0.25,
+                 spegc_res_scale: float = 0.20,
+                 use_cluster_query_refiner: bool = False,
+                 cluster_num: int = 16,
+                 cluster_graph_topk: int = 6,
+                 cluster_ref_bias: float = 0.25,
+                 cluster_res_scale: float = 0.20,
+                 ):
+        super().__init__()
+
+        # ---- 按 layer_scale 放大本层宽度（仅对本层生效）----
+        if layer_scale is not None:
+            d_model = int(round(layer_scale * d_model))
+            dim_feedforward = int(round(layer_scale * dim_feedforward))
+
+        self.mi_k = max(int(mi_steps), 1)
+
+        # 可选共享 self-attn（Lite-MI）
+        shared_sa = None
+        if mi_share_self_attn:
+            shared_sa = nn.MultiheadAttention(d_model, n_head, dropout=dropout, batch_first=True)
+            self._reset_shared_self_attn_parameters(shared_sa)
+        # K 个并行询问单元（各自独立；若 shared_sa 不为空则共享 SA）
+        self.mi_heads = nn.ModuleList([
+            MIInquiryHead(d_model, n_head, dropout, activation,
+                          n_levels, n_points, cross_attn_method,
+                          shared_self_attn=shared_sa,
+                          first_skip_self_attn=mi_first_skip_self_attn,
+                          ffn_dim=dim_feedforward)
+            for _ in range(self.mi_k)
+        ])
+
+        # Query Fusion（concat K 路 -> 线性降维 -> 残差+LN）
+        self.q_fusion = QueryFusion(d_model, self.mi_k, dropout)
+
+        # 可选 Query Graph Prior（放在融合之后）
+        # self.query_graph_prior = QueryGraphPrior(d_model, num_heads=n_head, k=10, dropout=dropout,use_arch_prior=use_arch_qgp)
+        self.query_graph_prior = QueryGraphPrior(
+            d_model,
+            num_heads=n_head,
+            k=3,
+            dropout=dropout,
+            use_arch_prior=use_arch_qgp,
+        )
+        self.dropout_gnn = nn.Dropout(dropout)
+        self.gnn_gate = nn.Parameter(torch.tensor(-5.0))
+        self.semantic_prompt_graph = SemanticPromptGraphRefiner(
+            d_model,
+            num_prompts=spegc_num_prompts,
+            graph_topk=spegc_graph_topk,
+            dropout=dropout,
+            ref_bias=spegc_ref_bias,
+            res_scale=spegc_res_scale,
+        ) if use_spegc_prompt_graph else None
+        self.cluster_query_refiner = ClusterWiseGraphRefiner(
+            d_model,
+            num_clusters=cluster_num,
+            graph_topk=cluster_graph_topk,
+            dropout=dropout,
+            ref_bias=cluster_ref_bias,
+            res_scale=cluster_res_scale,
+        ) if use_cluster_query_refiner else None
+        # === NEW: Arch 1D Refiner ===
+        # self.arch_refiner = nn.Sequential(
+        #     nn.Conv1d(d_model, d_model, kernel_size=3, padding=1, groups=d_model),
+        #     nn.Conv1d(d_model, d_model, kernel_size=1),
+        #     nn.GELU(),
+        #     nn.BatchNorm1d(d_model)   # channel-wise norm for [B, C, L]
+        # )
+
+        # self.arch_gate = nn.Parameter(torch.tensor(-2.0))  # 初始弱
+        # ---- 初始化（仅初始化我们自己拥有的线性层即可）----
+        for head in self.mi_heads:
+            init.xavier_uniform_(head.linear1.weight)
+            init.xavier_uniform_(head.linear2.weight)
+        init.xavier_uniform_(self.q_fusion.proj.weight)
+    @staticmethod
+    def _reset_shared_self_attn_parameters(attn_module):
+        """初始化共享的 self-attention 参数"""
+        for p in attn_module.parameters():
+            if p.dim() > 1:
+                nn.init.xavier_uniform_(p)
+    def forward(self, target, reference_points, value, spatial_shapes,
+                attn_mask=None, query_pos_embed=None, main_slice=None, ref_points_raw=None):
+
+        # (1) 并行多询问
+        outs = []
+        for k in range(self.mi_k):
+            yk = self.mi_heads[k](target, reference_points, value, spatial_shapes,
+                                  attn_mask=attn_mask, query_pos_embed=query_pos_embed, step_idx=k)
+            outs.append(yk)
+
+        # (2) Query Fusion
+        target = self.q_fusion(target, outs)   # [B,Q,C]
+
+        # (3) 可选：Query Graph Prior（仅作用于 MAIN 段）
+        if self.query_graph_prior is not None:
+            gate = torch.sigmoid(self.gnn_gate)
+            if main_slice is not None:
+                s, L = int(main_slice[0]), int(main_slice[1])
+            else:
+                s, L = 0, target.shape[1]
+            if L > 0:
+                t_main = target[:, s:s+L, :]
+                ref_main = ref_points_raw[:, s:s+L, :2] if (ref_points_raw is not None) else None
+                t_main_new = self.query_graph_prior(t_main, ref_main)
+                update = gate * self.dropout_gnn(t_main_new - t_main)
+                target = target.clone()
+                target[:, s:s+L, :] = t_main + update
+
+        if self.semantic_prompt_graph is not None:
+            if main_slice is not None:
+                s, L = int(main_slice[0]), int(main_slice[1])
+            else:
+                s, L = 0, target.shape[1]
+            if L > 0:
+                t_main = target[:, s:s+L, :]
+                ref_main = ref_points_raw[:, s:s+L, :2] if (ref_points_raw is not None) else None
+                t_main_new = self.semantic_prompt_graph(t_main, ref_main)
+                target = target.clone()
+                target[:, s:s+L, :] = t_main_new
+
+        if self.cluster_query_refiner is not None:
+            if main_slice is not None:
+                s, L = int(main_slice[0]), int(main_slice[1])
+            else:
+                s, L = 0, target.shape[1]
+            if L > 0:
+                t_main = target[:, s:s+L, :]
+                ref_main = ref_points_raw[:, s:s+L, :2] if (ref_points_raw is not None) else None
+                t_main_new = self.cluster_query_refiner(t_main, ref_main)
+                target = target.clone()
+                target[:, s:s+L, :] = t_main_new
+        # (2) Query Fusion 已完成，(3) Query Graph Prior / Semantic Prompt Graph 已完成
+
+        # === NEW: 牙弓 1D 顺序细化（仅 main 段）===
+        # gate = torch.sigmoid(self.arch_gate)
+        # if main_slice is not None:
+        #     s, L = int(main_slice[0]), int(main_slice[1])
+        # else:
+        #     s, L = 0, target.shape[1]
+        # print(f"{L>0}*******************************{ref_points_raw is not None}\n")
+        # if L > 0:
+        #     t_main = target[:, s:s+L, :]
+        #     # 按弓形参数排序：ref_points_raw[:, :, :2] -> fit_arch_t -> argsort
+        #     if ref_points_raw is not None:
+        #         xy = ref_points_raw[:, s:s+L, :2]                    # [B,L,2]
+        #         t  = fit_arch_t(xy)                                  # [B,L]
+        #         idx = torch.argsort(t, dim=1).to(dtype=torch.long)   # [B,L]
+
+        #         # --- 排序（使用 gather，避免维度/设备不一致） ---
+        #         idx_exp   = idx.unsqueeze(-1).expand(-1, -1, t_main.size(-1))   # [B,L,C]
+        #         t_sorted  = t_main.gather(dim=1, index=idx_exp)                  # [B,L,C]
+
+        #         # 1D 细化（B, C, L）→（B, L, C）
+        #         y_sorted = self.arch_refiner(
+        #             t_sorted.transpose(1, 2).contiguous()                         # [B,C,L]
+        #         ).transpose(1, 2).contiguous()                                    # [B,L,C]
+
+        #         # --- 反排序（用 gather 还原原顺序） ---
+        #         inv     = torch.argsort(idx, dim=1)                                # [B,L]
+        #         inv_exp = inv.unsqueeze(-1).expand(-1, -1, y_sorted.size(-1))     # [B,L,C]
+        #         y       = y_sorted.gather(dim=1, index=inv_exp)                    # [B,L,C]
+
+        #         # 防御：若任何缘由导致 L 不一致，直接回退（不中断训练/分析）
+        #         if y.shape[1] != t_main.shape[1]:
+        #             y = t_main
+
+        #         target = target.clone()
+        #         target[:, s:s+L, :] = t_main + gate * (y - t_main)
+
+        return target
+
+
+
+class Gate(nn.Module):
+    def __init__(self, d_model):
+        super(Gate, self).__init__()
+        self.gate = nn.Linear(2 * d_model, 2 * d_model)
+        init.constant_(self.gate.weight, 0)
+        with torch.no_grad():
+           b = self.gate.bias
+           half = b.numel() // 2
+           # 更偏向保留 x1（残差），抑制 x2（cross-attn）
+           b[:half].fill_(bias_init_with_prob(0.6))  # gate1
+           b[half:].fill_(bias_init_with_prob(0.4))  # gate2
+        self.norm = nn.LayerNorm(d_model)
+
+    def forward(self, x1, x2):
+        gate_input = torch.cat([x1, x2], dim=-1)
+        gates = torch.sigmoid(self.gate(gate_input))
+        gate1, gate2 = gates.chunk(2, dim=-1)
+        return self.norm(gate1 * x1 + gate2 * x2)
+
+
+class Integral(nn.Module):
+    """
+    A static layer that calculates integral results from a distribution.
+
+    This layer computes the target location using the formula: `sum{Pr(n) * W(n)}`,
+    where Pr(n) is the softmax probability vector representing the discrete
+    distribution, and W(n) is the non-uniform Weighting Function.
+
+    Args:
+        reg_max (int): Max number of the discrete bins. Default is 32.
+                       It can be adjusted based on the dataset or task requirements.
+    """
+
+    def __init__(self, reg_max=32):
+        super(Integral, self).__init__()
+        self.reg_max = reg_max
+
+    def forward(self, x, project):
+        shape = x.shape
+        x = F.softmax(x.reshape(-1, self.reg_max + 1), dim=1)
+        x = F.linear(x, project.to(x.device)).reshape(-1, 4)
+        return x.reshape(list(shape[:-1]) + [-1])
+
+
+class LQE(nn.Module):
+    def __init__(self, k, hidden_dim, num_layers, reg_max, act='relu'):
+        super(LQE, self).__init__()
+        self.k = k
+        self.reg_max = reg_max
+        self.reg_conf = MLP(4 * (k + 1), hidden_dim, 1, num_layers, act=act)
+        init.constant_(self.reg_conf.layers[-1].bias, 0)
+        init.constant_(self.reg_conf.layers[-1].weight, 0)
+
+    def forward(self, scores, pred_corners):
+        B, L, _ = pred_corners.size()
+        prob = F.softmax(pred_corners.reshape(B, L, 4, self.reg_max+1), dim=-1)
+        prob_topk, _ = prob.topk(self.k, dim=-1)
+        stat = torch.cat([prob_topk, prob_topk.mean(dim=-1, keepdim=True)], dim=-1)
+        quality_score = self.reg_conf(stat.reshape(B, L, -1))
+        return scores + quality_score
+
+
+class TransformerDecoder(nn.Module):
+    """
+    Transformer Decoder implementing Fine-grained Distribution Refinement (FDR).
+
+    This decoder refines object detection predictions through iterative updates across multiple layers,
+    utilizing attention mechanisms, location quality estimators, and distribution refinement techniques
+    to improve bounding box accuracy and robustness.
+    """
+
+    def __init__(self, hidden_dim, decoder_layer, decoder_layer_wide, num_layers, num_head, reg_max, reg_scale, up,
+                 eval_idx=-1, layer_scale=2, act='relu',# +++ MrDETR 相关 +++
+                use_mr: bool = True,                  # 是否启用 MrDETR 的 O2M 辅路（仅训练有效）
+                mr_layers: tuple = (),                 # 哪些层产出 O2M 分支（如：(self.eval_idx,) 或 (self.eval_idx-1, self.eval_idx)）
+                mr_detach_ratio: float = 0.5, 
+                 use_uni_gate: bool = False,
+                 use_uni_gate_infer: bool = False,
+                 uni_gate_apply_last_only: bool = True,
+                 use_qgp: bool = False,
+                 qgp_layers: tuple = (1, 3),         # 对共享特征做 stop-grad 混合，降低路由冲突
+                 factor_alpha_quad: float = 0.0,
+                 factor_alpha_tooth: float = 0.0,
+                 factor_alpha_dent: float = 0.0,
+                 factor_fusion_train: bool = False,
+                 use_factor_heads: bool = False,
+                 use_fdi_factor_prior: bool = False,
+                 fdi_factor_logit_scale: float = 0.0,
+                 use_fdi_spatial_prior: bool = False,
+                 use_anatomical_region_prior: bool = False,
+                 anatomical_region_scale: float = 0.08,
+                 anatomical_region_sigma: float = 0.18,
+                 fdi_prior_knn: int = 8,
+                 fdi_prior_sigma: float = 0.12,
+                 fdi_prior_jaw_scale: float = 0.08,
+                 fdi_prior_neighbor_scale: float = 0.12,
+                 fdi_prior_unique_scale: float = 0.04,
+                 fdi_prior_dent_scale: float = 0.04,
+                 use_query_recovery_memory: bool = False,
+                 query_recovery_scale: float = 0.15,
+):
+        super(TransformerDecoder, self).__init__()
+        self.use_mr = use_mr
+        self.mr_layers = set(mr_layers) if isinstance(mr_layers, (list, tuple)) else set([mr_layers])
+        self.mr_detach_ratio = mr_detach_ratio
+        self.mr_bbox_head = None
+        self.mr_score_head = None
+
+        # --- Uniqueness Gate（现在由参数控制） ---
+        self.use_uni_gate = bool(use_uni_gate)                  # 训练期是否启用 Unigate
+        self.use_uni_gate_infer = bool(use_uni_gate_infer)      # 推理期是否启用 Unigate
+        self.uni_gate_apply_last_only = bool(uni_gate_apply_last_only)
+        self.factor_alpha_quad = float(factor_alpha_quad)
+        self.factor_alpha_tooth = float(factor_alpha_tooth)
+        self.factor_alpha_dent = float(factor_alpha_dent)
+        self.factor_fusion_train = bool(factor_fusion_train)
+        self.use_fdi_factor_prior = bool(use_fdi_factor_prior)
+        self.fdi_factor_logit_scale = float(fdi_factor_logit_scale)
+        self.use_factor_heads = bool(
+            use_factor_heads
+            or self.factor_fusion_train
+            or self.factor_alpha_quad != 0.0
+            or self.factor_alpha_tooth != 0.0
+            or self.factor_alpha_dent != 0.0
+            or self.use_fdi_factor_prior
+            or self.fdi_factor_logit_scale > 0.0
+        )
+        self.fdi_spatial_prior = FDISpatialLogitPrior(
+            num_classes=0,
+            knn=fdi_prior_knn,
+            sigma=fdi_prior_sigma,
+            jaw_scale=fdi_prior_jaw_scale,
+            neighbor_scale=fdi_prior_neighbor_scale,
+            unique_scale=fdi_prior_unique_scale,
+            dent_scale=fdi_prior_dent_scale,
+        ) if use_fdi_spatial_prior else None
+        self.anatomical_region_prior = AnatomicalRegionLogitPrior(
+            num_classes=0,
+            scale=anatomical_region_scale,
+            sigma=anatomical_region_sigma,
+        ) if use_anatomical_region_prior else None
+        self.tooth_template_prior = None
+        self.query_recovery_memory = QueryRecoveryMemory(
+            hidden_dim,
+            max_res_scale=query_recovery_scale,
+            dropout=0.0,
+        ) if use_query_recovery_memory else None
+        # self.uni_gate = ClassUniquenessGate(
+        #     tau=0.5, iters=4, strength=0.3, mode="partial"
+        # )
+        # 在 TransformerDecoder.__init__ 中
+        self.uni_gate = ClassUniquenessGate(
+            tau_init=1.0,
+            tau_end=0.05,
+            iters=5,
+            strength=1.0,
+            # 这里的 total_steps 根据你的训练配置来设定
+            # 公式: Epochs * (Images / BatchSize)
+            # 例如: 72 Epochs * (2000 images / 4 batch) = 36000 步
+            # 建议稍微给大一点，保证训练末期才完全收紧
+            total_steps=50000  
+        )
+
+        self.hidden_dim = hidden_dim
+        self.num_layers = num_layers
+        self.layer_scale = layer_scale
+        self.num_head = num_head
+        self.eval_idx = eval_idx if eval_idx >= 0 else num_layers + eval_idx
+        self.up, self.reg_scale, self.reg_max = up, reg_scale, reg_max
+        self.layers = nn.ModuleList([copy.deepcopy(decoder_layer) for _ in range(self.eval_idx + 1)] \
+                    + [copy.deepcopy(decoder_layer_wide) for _ in range(num_layers - self.eval_idx - 1)])
+        self.lqe_layers = nn.ModuleList([copy.deepcopy(LQE(4, 64, 2, reg_max, act=act)) for _ in range(num_layers)])
+        # 仍在 TransformerDecoder.__init__ 末尾
+        # --- QGP：可选开启 / 选择在哪些层启用 ---
+        self.qgp_layers = tuple(qgp_layers) if use_qgp else tuple()
+
+        for li, layer in enumerate(self.layers):
+            if hasattr(layer, "query_graph_prior"):
+                if (not use_qgp) or (li not in self.qgp_layers):
+                    layer.query_graph_prior = None
+                    if hasattr(layer, "gnn_gate"):
+                        layer.gnn_gate.requires_grad = False
+                    if hasattr(layer, "dropout_gnn"):
+                        layer.dropout_gnn = nn.Identity()
+
+        # ====== t-SNE 相关：开关 + buffer + 阈值 ======
+        self.tsne_collect = False           # 外部用 enable_tsne_collect 来打开
+        self.tsne_buffer = []              # 存 [B, Q_main, C] 的 feature
+        self.tsne_label_buffer = []        # 存 [B, Q_main] 的 int64（每个 query 的类别 ID，-1 表示背景）
+        self.tsne_score_thr = 0.4          # 判定“有效类别”的分数阈值
+        # 1 = 最后一层；2 = 倒数第二层；3 = 倒数第三层……
+        self.tsne_from_last = 1
+            # ↓↓↓ 新增：冻结未使用层的 arch 模块，避免 DDP 期望它们产出梯度
+            # ✅ 合并为一个条件
+            # if li not in self.qgp_layers:
+            #     if hasattr(layer, "arch_refiner"):
+            #         for p in layer.arch_refiner.parameters():
+            #             p.requires_grad = False
+            #     if hasattr(layer, "arch_gate"):  # 只检查一次
+            #         layer.arch_gate.requires_grad = False
+    # def value_op(self, memory, value_proj, value_scale, memory_mask, memory_spatial_shapes):
+    #     """
+    #     Preprocess values for MSDeformableAttention.
+    #     """
+    #     value = value_proj(memory) if value_proj is not None else memory
+    #     value = F.interpolate(memory, size=value_scale) if value_scale is not None else value
+    #     if memory_mask is not None:
+    #         value = value * memory_mask.to(value.dtype).unsqueeze(-1)
+    #     value = value.reshape(value.shape[0], value.shape[1], self.num_head, -1)
+    #     split_shape = [h * w for h, w in memory_spatial_shapes]
+    #     return value.permute(0, 2, 3, 1).split(split_shape, dim=-1)
+    def value_op(self, memory, value_proj, value_scale, memory_mask, memory_spatial_shapes):
+        value = value_proj(memory) if value_proj is not None else memory
+        # 删除这行：value = F.interpolate(memory, size=value_scale)
+        if memory_mask is not None:
+            value = value * memory_mask.to(value.dtype).unsqueeze(-1)
+        value = value.reshape(value.shape[0], value.shape[1], self.num_head, -1)
+        split_shape = [h * w for h, w in memory_spatial_shapes]
+        return value.permute(0, 2, 3, 1).split(split_shape, dim=-1)
+
+    def convert_to_deploy(self):
+        self.project = weighting_function(self.reg_max, self.up, self.reg_scale, deploy=True)
+        self.layers = self.layers[:self.eval_idx + 1]
+        self.lqe_layers = nn.ModuleList([nn.Identity()] * (self.eval_idx) + [self.lqe_layers[self.eval_idx]])
+
+    def forward(self,
+                target,
+                ref_points_unact,
+                memory,
+                spatial_shapes,
+                bbox_head,
+                score_head,
+                quad_head,          # ← 新增
+            toothpos_head,      # ← 新增
+            dent_head,          # ← 新增
+                query_pos_head,
+                pre_bbox_head,
+                integral,
+                up,
+                reg_scale,
+                attn_mask=None,
+                memory_mask=None,
+                dn_meta=None,
+                present_classes: Optional[torch.Tensor] = None   # --- NEW
+                ):
+
+        mr_out_bboxes = []
+        mr_out_logits = []
+
+        output = target
+        output_detach = pred_corners_undetach = 0
+        value = self.value_op(memory, None, None, memory_mask, spatial_shapes)
+
+        dec_out_bboxes = []
+        dec_out_logits = []
+        dec_out_pred_corners = []
+        dec_out_refs = []
+        # 新增：收集各层的因子化分类头
+        factor_quads_layers = []
+        factor_tooth_layers = []
+        factor_dent_layers = []
+        layer_feats = []  # <<< 新增：记录每层 decoder 输出 [B, Q, C]
+
+        if not hasattr(self, 'project'):
+            project = weighting_function(self.reg_max, up, reg_scale)
+        else:
+            project = self.project
+
+        ref_points_detach = F.sigmoid(ref_points_unact)
+        recovery_anchor = output.detach()
+
+        for i, layer in enumerate(self.layers):
+            ref_points_input = ref_points_detach.unsqueeze(2)
+            query_pos_embed = query_pos_head(ref_points_detach).clamp(min=-10, max=10)
+
+            # TODO Adjust scale if needed for detachable wider layers
+            if i >= self.eval_idx + 1 and self.layer_scale > 1:
+                query_pos_embed = F.interpolate(query_pos_embed, scale_factor=self.layer_scale)
+                value = self.value_op(memory, None, query_pos_embed.shape[-1], memory_mask, spatial_shapes)
+                output = F.interpolate(output, size=query_pos_embed.shape[-1])
+                output_detach = output.detach()
+            # ==== 新增：计算 MAIN 段（排除 DN） ====
+            if self.training and dn_meta is not None and 'dn_num_split' in dn_meta:
+                dn_len = int(dn_meta['dn_num_split'][0])
+            else:
+                dn_len = 0
+            total_q = output.shape[1]            # 当前 queries 总数（含 DN）
+            main_len = total_q - dn_len
+            main_slice = (dn_len, main_len)      # 从 dn_len 开始，长度=main_len
+
+            # ==== 关键：把 ref_points_raw + main_slice 传下去 ====
+            use_qgp = (i in self.qgp_layers)
+            # use_qgp = False
+            # print(f"layer{i}:\n")
+            output = layer(
+                output, ref_points_input, value, spatial_shapes,
+                attn_mask, query_pos_embed,
+                main_slice=main_slice,
+                ref_points_raw=ref_points_detach
+            )
+            if self.query_recovery_memory is not None:
+                output = self.query_recovery_memory(output, recovery_anchor)
+           
+            layer_feats.append(output)  # <<< 新增：保存该层输出 [B, Q, C]
+            if i == 0 :
+                # Initial bounding box predictions with inverse sigmoid refinement
+                pre_bboxes = F.sigmoid(pre_bbox_head(output) + inverse_sigmoid(ref_points_detach))
+                pre_scores = score_head[0](output)
+                ref_points_initial = pre_bboxes.detach()
+
+            # Refine bounding box corners using FDR, integrating previous layer's corrections
+            pred_corners = bbox_head[i](output + output_detach) + pred_corners_undetach
+            inter_ref_bbox = distance2bbox(ref_points_initial, integral(pred_corners, project), reg_scale)
+            # +++ MrDETR O2M 分支（仅训练阶段，推理不执行） +++
+            if self.training and self.use_mr and (i in self.mr_layers):
+                # 防止 mr_layers 超出已构建的 head 范围
+                max_mr = len(self.mr_bbox_head) - 1 if (self.mr_bbox_head is not None) else -1
+                assert i <= max_mr, f"mr_layers 包含 {i}，但只为 [0..{max_mr}] 构建了 MR 头（遵循 eval_idx）。"
+                assert (self.mr_bbox_head is not None) and (self.mr_score_head is not None), \
+                    "MrDETR heads not attached. Please set in DFINETransformer.__init__"
+                # 对共享特征做 stop-grad 混合，减少与主路冲突
+                if self.mr_detach_ratio > 0:
+                    o = output
+                    o = (1.0 - self.mr_detach_ratio) * o + self.mr_detach_ratio * o.detach()
+                else:
+                    o = output
+
+                mr_pred_corners = self.mr_bbox_head[i](o + output_detach)    # 与主路同形式
+                mr_inter_bbox   = distance2bbox(ref_points_initial, integral(mr_pred_corners, project), reg_scale)
+                mr_scores       = self.mr_score_head[i](o)
+
+                mr_out_logits.append(mr_scores)
+                mr_out_bboxes.append(mr_inter_bbox)
+
+            if self.training or i == self.eval_idx:
+                scores_base = score_head[i](output)                          # [B,Q,C]
+                scores = scores_base
+                if self.fdi_spatial_prior is not None:
+                    scores = self.fdi_spatial_prior(scores, ref_points_detach, dn_meta=dn_meta)
+                if self.anatomical_region_prior is not None:
+                    scores = self.anatomical_region_prior(scores, ref_points_detach, dn_meta=dn_meta)
+                if self.tooth_template_prior is not None:
+                    scores = self.tooth_template_prior(scores, output, ref_points_detach, dn_meta=dn_meta)
+                quad_logits = tooth_logits = dent_logits = None
+                use_factor_prior = (
+                    self.use_factor_heads and
+                    quad_head is not None and
+                    toothpos_head is not None and
+                    dent_head is not None
+                )
+
+                if use_factor_prior:
+                    quad_logits = quad_head[i](output)
+                    tooth_logits = toothpos_head[i](output)
+                    dent_logits = dent_head[i](output)
+
+                    factor_alpha_sum = (
+                        abs(self.factor_alpha_quad)
+                        + abs(self.factor_alpha_tooth)
+                        + abs(self.factor_alpha_dent)
+                    )
+                    use_template_factor_fusion = (
+                        factor_alpha_sum > 0.0
+                        and (not self.training or self.factor_fusion_train)
+                    )
+                    use_legacy_factor_fusion = (
+                        self.fdi_factor_logit_scale > 0.0
+                        and not use_template_factor_fusion
+                    )
+                    if use_template_factor_fusion or use_legacy_factor_fusion:
+                        from .utils_arch import fdi_index_map
+
+                        logp_quad = torch.log_softmax(quad_logits, dim=-1)
+                        logp_tooth = torch.log_softmax(tooth_logits, dim=-1)
+                        logp_dent = torch.log_softmax(dent_logits, dim=-1)
+
+                        if (
+                            not hasattr(self, "_factor_ready") or
+                            self._quad_map.device != output.device
+                        ):
+                            device = output.device
+                            quad_map = torch.zeros((self.num_classes,), dtype=torch.long, device=device)
+                            tooth_map = torch.zeros((self.num_classes,), dtype=torch.long, device=device)
+                            dent_map = torch.ones((self.num_classes,), dtype=torch.long, device=device)
+                            fdi2cls = fdi_index_map(self.num_classes)
+                            items = fdi2cls.items() if isinstance(fdi2cls, dict) else enumerate(fdi2cls)
+                            for fdi, cid in items:
+                                if not (isinstance(cid, int) and 0 <= cid < self.num_classes):
+                                    continue
+                                q, p = int(fdi) // 10, int(fdi) % 10
+                                quad_map[cid] = min(max(q - 1, 0), 7)
+                                tooth_map[cid] = min(max(p - 1, 0), 7)
+                                dent_map[cid] = 0 if int(fdi) >= 50 else 1
+                            self._quad_map = quad_map
+                            self._tooth_map = tooth_map
+                            self._dent_map = dent_map
+                            self._factor_ready = True
+
+                        B, Qs, C = scores_base.shape
+                        q_idx = self._quad_map.view(1, 1, -1).expand(B, Qs, -1)
+                        t_idx = self._tooth_map.view(1, 1, -1).expand(B, Qs, -1)
+                        d_idx = self._dent_map.view(1, 1, -1).expand(B, Qs, -1)
+                        add_q = logp_quad.gather(-1, q_idx)
+                        add_t = logp_tooth.gather(-1, t_idx)
+                        add_d = logp_dent.gather(-1, d_idx)
+
+                        Qm_start = 0
+                        if self.training and dn_meta is not None and 'dn_num_split' in dn_meta:
+                            Qm_start = int(dn_meta['dn_num_split'][0])
+                        Qm_start = max(0, min(Qm_start, Qs))
+                        Qm = Qs - Qm_start
+
+                        if Qm > 0 and use_template_factor_fusion:
+                            mix_all = (
+                                self.factor_alpha_quad * add_q
+                                + self.factor_alpha_tooth * add_t
+                                + self.factor_alpha_dent * add_d
+                            )
+                            mix_all = mix_all - mix_all.amax(dim=-1, keepdim=True)
+                            mix_all = mix_all.clamp(min=-6.0, max=0.0)
+                            scores = scores.clone()
+                            scores[:, Qm_start:, :] = scores[:, Qm_start:, :] + mix_all[:, Qm_start:, :]
+                        elif Qm > 0 and use_legacy_factor_fusion:
+                            mix_all = add_q + add_t + add_d
+                            mix_all = mix_all - mix_all.mean(dim=-1, keepdim=True)
+                            std_all = mix_all.std(dim=-1, keepdim=True).clamp_min(1e-3)
+                            scores = scores.clone()
+                            scores[:, Qm_start:, :] = scores[:, Qm_start:, :] + (
+                                self.fdi_factor_logit_scale
+                                * mix_all[:, Qm_start:, :]
+                                / std_all[:, Qm_start:, :]
+                            )
+
+                # 修复：apply_gate 未定义
+                apply_gate = (
+                    self.use_uni_gate and
+                    (self.training or self.use_uni_gate_infer) and
+                    (not self.uni_gate_apply_last_only or i == self.eval_idx)
+                )
+                if apply_gate:
+                    scores = self.uni_gate(scores, present_classes if self.training else None, dn_meta)
+
+                # LQE
+                scores = self.lqe_layers[i](scores, pred_corners)
+
+                # 记录各层输出（只 append 一次）
+                dec_out_logits.append(scores)
+                dec_out_bboxes.append(inter_ref_bbox)
+                dec_out_pred_corners.append(pred_corners)
+                dec_out_refs.append(ref_points_initial)
+
+                if use_factor_prior:
+                    factor_quads_layers.append(quad_logits)
+                    factor_tooth_layers.append(tooth_logits)
+                    factor_dent_layers.append(dent_logits)
+
+                if not self.training:
+                    break
+
+
+            pred_corners_undetach = pred_corners
+            ref_points_detach = inter_ref_bbox.detach()
+            output_detach = output.detach()
+        # ====== t-SNE：收集所有图片的 main queries（去掉 DN） ======
+        if self.tsne_collect and len(layer_feats) > 0 and len(dec_out_logits) > 0:
+            with torch.no_grad():
+                # 1) 计算 DN 长度（前面已经算过，这里再算一次更稳）
+                if (dn_meta is not None) and ('dn_num_split' in dn_meta):
+                    dn_len = int(dn_meta['dn_num_split'][0])
+                else:
+                    dn_len = 0
+
+                # 2) 选用“倒数第 tsne_from_last 层”的特征和 logits
+                #    例如 tsne_from_last = 1 -> 最后一层
+                #         tsne_from_last = 2 -> 倒数第二层
+                L_all = len(layer_feats)
+                L_log = len(dec_out_logits)
+                # 确保不会越界：取两者最小值
+                L = min(L_all, L_log)
+
+                k = int(getattr(self, "tsne_from_last", 1))
+                if k < 1:
+                    k = 1
+                if k > L:
+                    k = L  # 超界就退回到最靠前的可用层
+
+                idx = L - k  # 0-based index
+
+                feats_src = layer_feats[idx]      # [B, Q_all, C]
+                logits_src = dec_out_logits[idx]  # [B, Q_all, C]
+
+                # 3) 去掉 DN 段，只保留 main queries
+                feats_main = feats_src[:, dn_len:, :]        # [B, Q_main, C]
+                logits_main = logits_src[:, dn_len:, :]      # [B, Q_main, C]
+
+                # 4) softmax 后得到每个 query 的预测类别 + 最大概率
+                prob_main = torch.softmax(logits_main, dim=-1)    # [B, Q_main, C]
+                max_scores, pred_cls = prob_main.max(dim=-1)      # [B, Q_main]
+
+                # 5) 低于阈值的当作“背景”，记为 -1
+                cls_labels = pred_cls.clone()                       # int64
+                cls_labels[max_scores <= self.tsne_score_thr] = -1  # -1 表示无可靠类别
+
+                # 6) 丢进 buffer（转到 CPU）
+                self.tsne_buffer.append(feats_main.detach().cpu())       # [B, Q_main, C]
+                self.tsne_label_buffer.append(cls_labels.detach().cpu()) # [B, Q_main]
+
+
+
+        # 最后一层 decoder 的输出特征（包含 DN + main queries）
+        dec_last_feats = output  # [B, Q_all, C]
+
+        return (
+            torch.stack(dec_out_bboxes),
+            torch.stack(dec_out_logits),
+            torch.stack(dec_out_pred_corners),
+            torch.stack(dec_out_refs),
+            pre_bboxes,
+            pre_scores,
+            (torch.stack(mr_out_bboxes) if len(mr_out_bboxes)>0 else None),
+            (torch.stack(mr_out_logits) if len(mr_out_logits)>0 else None),
+            (torch.stack(factor_quads_layers) if len(factor_quads_layers) > 0 else None),
+            (torch.stack(factor_tooth_layers) if len(factor_tooth_layers) > 0 else None),
+            (torch.stack(factor_dent_layers) if len(factor_dent_layers) > 0 else None),
+            dec_last_feats,
+        )
+
+
+
+
+
+
+class PriorGuidedROIGate(nn.Module):
+    def __init__(self, hidden_dim, act='relu'):
+        super().__init__()
+        self.prior_mlp = MLP(hidden_dim, hidden_dim, hidden_dim, 2, act=act)
+        self.box_mlp = MLP(4, hidden_dim, hidden_dim, 2, act=act)
+        self.gate = Gate(hidden_dim)
+        self.res_scale = nn.Parameter(torch.tensor(-3.0))
+
+    def forward(self, queries, memory, outputs_logits, anchors):
+        valid_mask = torch.isfinite(anchors).all(-1).float()
+        objectness = outputs_logits.max(-1).values.sigmoid() * valid_mask
+        weights = objectness / (objectness.sum(dim=1, keepdim=True) + 1e-6)
+        roi_token = torch.bmm(weights.unsqueeze(1), memory).squeeze(1)
+        safe_anchors = torch.where(torch.isfinite(anchors), anchors, torch.zeros_like(anchors))
+        roi_box = torch.bmm(weights.unsqueeze(1), safe_anchors.sigmoid()).squeeze(1)
+        prior = self.prior_mlp(roi_token) + self.box_mlp(roi_box)
+        refined = self.gate(queries, prior.unsqueeze(1).expand_as(queries))
+        alpha = 0.25 * torch.sigmoid(self.res_scale)
+        return queries + alpha * (refined - queries)
+
+
+@register()
+class DFINETransformer(nn.Module):
+    __share__ = ['num_classes', 'eval_spatial_size', 'fdi_label_order']
+
+    def __init__(self,
+                 num_classes=80,
+                 hidden_dim=256,
+                 num_queries=300,
+                 feat_channels=[512, 1024, 2048],
+                 feat_strides=[8, 16, 32],
+                 num_levels=3,
+                 num_points=4,
+                 nhead=8,
+                 num_layers=6,
+                 dim_feedforward=1024,
+                 dropout=0.,
+                 activation="relu",
+                 num_denoising=100,
+                 label_noise_ratio=0.5,
+                 box_noise_scale=1.0,
+                 learn_query_content=False,
+                 eval_spatial_size=None,
+                 eval_idx=-1,
+                 eps=1e-2,
+                 aux_loss=True,
+                 cross_attn_method='default',
+                 query_select_method='default',
+                 reg_max=32,
+                 reg_scale=4.,
+                 layer_scale=1,
+                 mlp_act='relu',
+                 use_tooth_query_embed=False,
+                 num_teeth=52,# +++ MI-DETR 相关 +++
+mi_steps: int = 1,
+mi_first_skip_self_attn: bool = False,
+
+# +++ MrDETR 相关 +++
+use_mr: bool = False,
+mr_layers: tuple = (),          # 默认空；常用设为 (eval_idx,) 或 (eval_idx-1, eval_idx)
+mr_detach_ratio: float = 0.7,
+                 # +++ Unigate / QGP 消融相关 +++
+                 use_uni_gate: bool = False,
+                 use_uni_gate_infer: bool = False,
+                 uni_gate_apply_last_only: bool = True,
+                 use_qgp: bool = False,
+                 qgp_layers: tuple = (1,3,),
+                 use_pgr_roi_reasoning: bool = False,
+                 roi_init_ratio: float = 0.5,
+                 factor_alpha_quad: float = 0.0,
+                 factor_alpha_tooth: float = 0.0,
+                 factor_alpha_dent: float = 0.0,
+                 factor_fusion_train: bool = False,
+                 use_factor_heads: bool = False,
+                 use_fdi_factor_prior: bool = False,
+                 fdi_factor_logit_scale: float = 0.0,
+                 fdi_label_order=None,
+                 use_tooth_prototype: bool = False,
+                 prototype_count: int = 4,
+                 prototype_tau: float = 0.20,
+                 prototype_weight: float = 0.5,
+                 prototype_fusion_weight: float = 0.0,
+                 prototype_fusion_train: bool = False,
+                 return_query_feats: bool = False,
+                 use_spegc_prompt_graph: bool = False,
+                 spegc_num_prompts: int = 16,
+                 spegc_graph_topk: int = 8,
+                 spegc_ref_bias: float = 0.25,
+                 spegc_res_scale: float = 0.20,
+                 use_cluster_query_refiner: bool = False,
+                 cluster_num: int = 16,
+                 cluster_graph_topk: int = 6,
+                 cluster_ref_bias: float = 0.25,
+                 cluster_res_scale: float = 0.20,
+                 use_query_recovery_memory: bool = False,
+                 query_recovery_scale: float = 0.15,
+                 use_pfrpn_query_adapter: bool = False,
+                 pfrpn_pool_size: int = 4,
+                 pfrpn_cascade_steps: int = 2,
+                 pfrpn_res_scale: float = 0.20,
+                 use_tooth_template_prior: bool = False,
+                 tooth_template_count: int = 4,
+                 tooth_template_scale: float = 0.08,
+                 tooth_template_spatial_scale: float = 0.05,
+                 tooth_template_sigma: float = 0.18,
+                 use_fdi_spatial_prior: bool = False,
+                 use_anatomical_region_prior: bool = False,
+                 anatomical_region_scale: float = 0.08,
+                 anatomical_region_sigma: float = 0.18,
+                 fdi_prior_knn: int = 8,
+                 fdi_prior_sigma: float = 0.12,
+                 fdi_prior_jaw_scale: float = 0.08,
+                 fdi_prior_neighbor_scale: float = 0.12,
+                 fdi_prior_unique_scale: float = 0.04,
+                 fdi_prior_dent_scale: float = 0.04,
+                 ):
+        super().__init__()
+        assert len(feat_channels) <= num_levels
+        assert len(feat_strides) == len(feat_channels)
+        configure_fdi_label_order(fdi_label_order, num_classes=num_classes)
+
+        for _ in range(num_levels - len(feat_strides)):
+            feat_strides.append(feat_strides[-1] * 2)
+        self.use_tooth_query_embed = use_tooth_query_embed
+        self.hidden_dim = hidden_dim
+        scaled_dim = round(layer_scale*hidden_dim)
+        self.nhead = nhead
+        self.feat_strides = feat_strides
+        self.num_levels = num_levels
+        # --- resolve eval_idx early (used by MR heads etc.) ---
+        self.eval_idx = eval_idx if eval_idx >= 0 else num_layers + eval_idx
+
+        self.num_classes = num_classes
+        self.num_queries = num_queries
+        self.return_query_feats = bool(return_query_feats)
+        self.eps = eps
+        self.num_layers = num_layers
+        self.eval_spatial_size = eval_spatial_size
+        self.aux_loss = aux_loss
+        self.reg_max = reg_max
+        self.roi_init_ratio = float(roi_init_ratio)
+        self.use_factor_heads = bool(
+            use_factor_heads
+            or factor_fusion_train
+            or factor_alpha_quad != 0.0
+            or factor_alpha_tooth != 0.0
+            or factor_alpha_dent != 0.0
+            or use_fdi_factor_prior
+            or fdi_factor_logit_scale > 0.0
+        )
+        self.use_fdi_factor_prior = bool(use_fdi_factor_prior)
+        self.fdi_factor_logit_scale = float(fdi_factor_logit_scale)
+        self.use_tooth_prototype = bool(use_tooth_prototype)
+        self.prototype_count = int(prototype_count)
+        self.prototype_tau = float(prototype_tau)
+        self.prototype_weight = float(prototype_weight)
+        self.prototype_fusion_weight = float(prototype_fusion_weight)
+        self.prototype_fusion_train = bool(prototype_fusion_train)
+        self.use_spegc_prompt_graph = bool(use_spegc_prompt_graph)
+        self.use_cluster_query_refiner = bool(use_cluster_query_refiner)
+        self.use_query_recovery_memory = bool(use_query_recovery_memory)
+        self.use_pfrpn_query_adapter = bool(use_pfrpn_query_adapter)
+        self.use_tooth_template_prior = bool(use_tooth_template_prior)
+        self.use_fdi_spatial_prior = bool(use_fdi_spatial_prior)
+        self.use_anatomical_region_prior = bool(use_anatomical_region_prior)
+        self.use_arch_post = False  # 推理后处理开关（可配）
+        # self.use_arch_post = (num_classes == 52)
+        assert query_select_method in ('default', 'one2many', 'agnostic'), ''
+        assert cross_attn_method in ('default', 'discrete'), ''
+        self.cross_attn_method = cross_attn_method
+        self.query_select_method = query_select_method
+        self.num_teeth = num_teeth
+        # 改进的 Query 嵌入
+        if use_tooth_query_embed:
+            self.tooth_query_embedding = ToothQueryEmbedding(hidden_dim, num_teeth)
+            if self.num_queries > self.num_teeth:
+                # 额外的通用 query（放在前面）
+                self.extra_query_embed = nn.Embedding(self.num_queries - self.num_teeth, hidden_dim)
+                nn.init.normal_(self.extra_query_embed.weight, mean=0.0, std=0.01)
+
+        # backbone feature projection
+        self._build_input_proj_layer(feat_channels)
+
+        # Transformer module
+        self.up = nn.Parameter(torch.tensor([0.5]), requires_grad=False)
+        self.reg_scale = nn.Parameter(torch.tensor([reg_scale]), requires_grad=False)
+        # 标记是否是牙科 FDI 任务（Dentex 一般是 52 类）
+        self.is_dentex_fdi = (num_classes == 52 or num_classes==32)
+
+        decoder_layer = TransformerDecoderLayer(
+            hidden_dim, nhead, dim_feedforward, dropout, activation,
+            num_levels, num_points, cross_attn_method=cross_attn_method,
+            mi_steps=mi_steps,
+            mi_first_skip_self_attn=mi_first_skip_self_attn,
+            mi_share_self_attn=False,
+            use_arch_qgp=(self.is_dentex_fdi and use_qgp),
+            use_spegc_prompt_graph=use_spegc_prompt_graph,
+            spegc_num_prompts=spegc_num_prompts,
+            spegc_graph_topk=spegc_graph_topk,
+            spegc_ref_bias=spegc_ref_bias,
+            spegc_res_scale=spegc_res_scale,
+            use_cluster_query_refiner=use_cluster_query_refiner,
+            cluster_num=cluster_num,
+            cluster_graph_topk=cluster_graph_topk,
+            cluster_ref_bias=cluster_ref_bias,
+            cluster_res_scale=cluster_res_scale,
+        )
+        decoder_layer_wide = TransformerDecoderLayer(
+            hidden_dim, nhead, dim_feedforward, dropout, activation,
+            num_levels, num_points, cross_attn_method=cross_attn_method,
+            layer_scale=layer_scale,
+            mi_steps=mi_steps,
+            mi_first_skip_self_attn=mi_first_skip_self_attn,
+            mi_share_self_attn=False,
+            use_arch_qgp=(self.is_dentex_fdi and use_qgp),
+            use_spegc_prompt_graph=use_spegc_prompt_graph,
+            spegc_num_prompts=spegc_num_prompts,
+            spegc_graph_topk=spegc_graph_topk,
+            spegc_ref_bias=spegc_ref_bias,
+            spegc_res_scale=spegc_res_scale,
+            use_cluster_query_refiner=use_cluster_query_refiner,
+            cluster_num=cluster_num,
+            cluster_graph_topk=cluster_graph_topk,
+            cluster_ref_bias=cluster_ref_bias,
+            cluster_res_scale=cluster_res_scale,
+        )
+
+
+        self.decoder = TransformerDecoder(
+            hidden_dim, decoder_layer, decoder_layer_wide, num_layers, nhead,
+            reg_max, self.reg_scale, self.up, eval_idx, layer_scale, act=activation,
+            use_mr=use_mr,
+            mr_layers=(self.eval_idx,),
+            mr_detach_ratio=mr_detach_ratio,
+            # === Unigate / QGP 开关从 DFINETransformer 透传 ===
+            use_uni_gate=use_uni_gate,
+            use_uni_gate_infer=use_uni_gate_infer,
+            uni_gate_apply_last_only=uni_gate_apply_last_only,
+            use_qgp=use_qgp,
+            qgp_layers=qgp_layers,
+            factor_alpha_quad=factor_alpha_quad,
+            factor_alpha_tooth=factor_alpha_tooth,
+            factor_alpha_dent=factor_alpha_dent,
+            factor_fusion_train=factor_fusion_train,
+            use_factor_heads=self.use_factor_heads,
+            use_fdi_factor_prior=use_fdi_factor_prior,
+            fdi_factor_logit_scale=fdi_factor_logit_scale,
+            use_fdi_spatial_prior=use_fdi_spatial_prior,
+            use_anatomical_region_prior=use_anatomical_region_prior,
+            anatomical_region_scale=anatomical_region_scale,
+            anatomical_region_sigma=anatomical_region_sigma,
+            fdi_prior_knn=fdi_prior_knn,
+            fdi_prior_sigma=fdi_prior_sigma,
+            fdi_prior_jaw_scale=fdi_prior_jaw_scale,
+            fdi_prior_neighbor_scale=fdi_prior_neighbor_scale,
+            fdi_prior_unique_scale=fdi_prior_unique_scale,
+            fdi_prior_dent_scale=fdi_prior_dent_scale,
+            use_query_recovery_memory=use_query_recovery_memory,
+            query_recovery_scale=query_recovery_scale,
+        )
+
+        self.decoder.num_classes = num_classes
+        if self.decoder.fdi_spatial_prior is not None:
+            self.decoder.fdi_spatial_prior.num_classes = num_classes
+        if self.decoder.anatomical_region_prior is not None:
+            self.decoder.anatomical_region_prior.num_classes = num_classes
+        self.tooth_template_prior = ToothTemplateLogitPrior(
+            num_classes,
+            hidden_dim,
+            num_templates=tooth_template_count,
+            template_scale=tooth_template_scale,
+            spatial_scale=tooth_template_spatial_scale,
+            spatial_sigma=tooth_template_sigma,
+        ) if use_tooth_template_prior else None
+        self.decoder.tooth_template_prior = self.tooth_template_prior
+        # +++ MrDETR 分支头：仅在训练用，推理不用 +++
+        if use_mr:
+            # 只为 [0..eval_idx] 层建头，与你 dec_*_head 对齐
+            self.mr_score_head = nn.ModuleList(
+                [nn.Linear(hidden_dim, num_classes) for _ in range(self.eval_idx + 1)]
+            )
+            self.mr_bbox_head = nn.ModuleList(
+                [MLP(hidden_dim, hidden_dim, 4 * (self.reg_max+1), 3, act=mlp_act) for _ in range(self.eval_idx + 1)]
+            )
+            # 注入给 decoder（避免修改太多函数签名）
+            self.decoder.mr_score_head = self.mr_score_head
+            self.decoder.mr_bbox_head  = self.mr_bbox_head
+            used = set(self.decoder.mr_layers)  # 例如 {2}
+            for li in range(self.eval_idx + 1):  # 0..2
+                if li not in used:
+                    for p in self.mr_score_head[li].parameters():
+                        p.requires_grad = False
+                    for p in self.mr_bbox_head[li].parameters():
+                        p.requires_grad = False
+      # denoising
+        self.num_denoising = num_denoising
+        self.label_noise_ratio = label_noise_ratio
+        self.box_noise_scale = box_noise_scale
+        if num_denoising > 0:
+            self.denoising_class_embed = nn.Embedding(num_classes+1, hidden_dim, padding_idx=num_classes)
+            init.normal_(self.denoising_class_embed.weight[:-1])
+
+        # decoder embedding
+        self.learn_query_content = learn_query_content
+        if learn_query_content:
+            self.tgt_embed = nn.Embedding(num_queries, hidden_dim)
+        self.query_pos_head = MLP(4, 2 * hidden_dim, hidden_dim, 2, act=mlp_act)
+
+        # if num_select_queries != self.num_queries:
+        #     layer = TransformerEncoderLayer(hidden_dim, nhead, dim_feedforward, activation='gelu')
+        #     self.encoder = TransformerEncoder(layer, 1)
+
+        self.enc_output = nn.Sequential(OrderedDict([
+            ('proj', nn.Linear(hidden_dim, hidden_dim)),
+            ('norm', nn.LayerNorm(hidden_dim,)),
+        ]))
+
+        if query_select_method == 'agnostic':
+            self.enc_score_head = nn.Linear(hidden_dim, 1)
+        else:
+            self.enc_score_head = nn.Linear(hidden_dim, num_classes)
+
+        self.enc_bbox_head = MLP(hidden_dim, hidden_dim, 4, 3, act=mlp_act)
+        self.pgr_roi_reasoning = PriorGuidedROIGate(hidden_dim, act=mlp_act) \
+            if use_pgr_roi_reasoning else None
+        self.pfrpn_query_adapter = PFRPNQueryAdapter(
+            hidden_dim,
+            num_levels=num_levels,
+            pool_size=pfrpn_pool_size,
+            cascade_steps=pfrpn_cascade_steps,
+            res_scale=pfrpn_res_scale,
+        ) if use_pfrpn_query_adapter else None
+
+        # decoder head
+        # self.eval_idx = eval_idx if eval_idx >= 0 else num_layers + eval_idx
+        self.dec_score_head = nn.ModuleList(
+            [nn.Linear(hidden_dim, num_classes) for _ in range(self.eval_idx + 1)]
+          + [nn.Linear(scaled_dim, num_classes) for _ in range(num_layers - self.eval_idx - 1)])
+        self.pre_bbox_head = MLP(hidden_dim, hidden_dim, 4, 3, act=mlp_act)
+        self.dec_bbox_head = nn.ModuleList(
+            [MLP(hidden_dim, hidden_dim, 4 * (self.reg_max+1), 3, act=mlp_act) for _ in range(self.eval_idx + 1)]
+          + [MLP(scaled_dim, scaled_dim, 4 * (self.reg_max+1), 3, act=mlp_act) for _ in range(num_layers - self.eval_idx - 1)])
+        self.integral = Integral(self.reg_max)
+# 位置：DFINETransformer.__init__ 的 decoder head 定义附近（dec_score_head 之后）
+
+        if self.use_factor_heads:
+            # 因子化分类头：象限/牙位序号/恒乳牙列，用于牙位结构先验。
+            self.dec_quad_head = nn.ModuleList(
+                [nn.Linear(hidden_dim, 8) for _ in range(self.eval_idx + 1)]
+            + [nn.Linear(scaled_dim, 8) for _ in range(num_layers - self.eval_idx - 1)]
+            )
+            self.dec_toothpos_head = nn.ModuleList(
+                [nn.Linear(hidden_dim, 8) for _ in range(self.eval_idx + 1)]
+            + [nn.Linear(scaled_dim, 8) for _ in range(num_layers - self.eval_idx - 1)]
+            )
+            self.dec_dent_head = nn.ModuleList(
+                [nn.Linear(hidden_dim, 2) for _ in range(self.eval_idx + 1)]
+            + [nn.Linear(scaled_dim, 2) for _ in range(num_layers - self.eval_idx - 1)]
+            )
+        else:
+            self.dec_quad_head = None
+            self.dec_toothpos_head = None
+            self.dec_dent_head = None
+        if self.use_tooth_prototype:
+            self.tooth_prototypes = nn.Parameter(torch.empty(num_classes, self.prototype_count, hidden_dim))
+            init.normal_(self.tooth_prototypes, mean=0.0, std=0.02)
+        # init encoder output anchors and valid_mask
+        if self.eval_spatial_size:
+            anchors, valid_mask = self._generate_anchors()
+            self.register_buffer('anchors', anchors)
+            self.register_buffer('valid_mask', valid_mask)
+        # init encoder output anchors and valid_mask
+        # if self.eval_spatial_size:
+        #     self.anchors, self.valid_mask = self._generate_anchors()
+
+
+        self._reset_parameters(feat_channels)
+
+    def _prototype_logits(self, query_feats: torch.Tensor) -> torch.Tensor:
+        """Log-sum-exp cosine similarity to a learnable per-tooth prototype bank."""
+        feats = F.normalize(query_feats, dim=-1)
+        protos = F.normalize(self.tooth_prototypes, dim=-1)
+        sim = torch.einsum('bqd,ckd->bqck', feats, protos)
+        return torch.logsumexp(sim / max(self.prototype_tau, 1e-6), dim=-1)
+
+    def _roi_init_from_memory(self, memory: torch.Tensor, spatial_shapes, ref_points_sig: torch.Tensor, hidden_dim: int):
+        """
+        memory: [B, L_all, C], spatial_shapes: List[[H_i, W_i]], ref_points_sig: [B, Q, 2] in [0,1]
+        返回: [B, Q, C] 的局部特征（每层最近邻采样，层间平均）
+        """
+        device = memory.device
+        B, L_all, C = memory.shape
+        level_offsets = []
+        off = 0
+        for (h, w) in spatial_shapes:
+            level_offsets.append(off)
+            off += h * w
+
+        feats = []
+        for lvl, (h, w) in enumerate(spatial_shapes):
+            y = (ref_points_sig[..., 1] * (h - 1)).round().clamp(0, h - 1).long()
+            x = (ref_points_sig[..., 0] * (w - 1)).round().clamp(0, w - 1).long()
+            idx = (y * w + x) + level_offsets[lvl]  # [B,Q]
+            idx = idx.view(B, -1, 1).expand(-1, -1, C)  # gather 需要 [B,Q,C]
+            feat = torch.gather(memory, dim=1, index=idx)  # [B,Q,C]
+            feats.append(feat)
+        return torch.stack(feats, dim=0).mean(0)  # 层间平均: [B,Q,C]
+
+    def convert_to_deploy(self):
+        self.dec_score_head = nn.ModuleList([nn.Identity()] * (self.eval_idx) + [self.dec_score_head[self.eval_idx]])
+        self.dec_bbox_head = nn.ModuleList(
+            [self.dec_bbox_head[i] if i <= self.eval_idx else nn.Identity() for i in range(len(self.dec_bbox_head))]
+        )
+
+    def _reset_parameters(self, feat_channels):
+        bias = bias_init_with_prob(0.01)
+        init.constant_(self.enc_score_head.bias, bias)
+        init.constant_(self.enc_bbox_head.layers[-1].weight, 0)
+        init.constant_(self.enc_bbox_head.layers[-1].bias, 0)
+
+        init.constant_(self.pre_bbox_head.layers[-1].weight, 0)
+        init.constant_(self.pre_bbox_head.layers[-1].bias, 0)
+
+        for cls_, reg_ in zip(self.dec_score_head, self.dec_bbox_head):
+            init.constant_(cls_.bias, bias)
+            if hasattr(reg_, 'layers'):
+                init.constant_(reg_.layers[-1].weight, 0)
+                init.constant_(reg_.layers[-1].bias, 0)
+
+        init.xavier_uniform_(self.enc_output[0].weight)
+        if self.learn_query_content:
+            init.xavier_uniform_(self.tgt_embed.weight)
+        init.xavier_uniform_(self.query_pos_head.layers[0].weight)
+        init.xavier_uniform_(self.query_pos_head.layers[1].weight)
+        for m, in_channels in zip(self.input_proj, feat_channels):
+            if in_channels != self.hidden_dim:
+                init.xavier_uniform_(m[0].weight)
+
+    def _build_input_proj_layer(self, feat_channels):
+        self.input_proj = nn.ModuleList()
+        for in_channels in feat_channels:
+            if in_channels == self.hidden_dim:
+                self.input_proj.append(nn.Identity())
+            else:
+                self.input_proj.append(
+                    nn.Sequential(OrderedDict([
+                        ('conv', nn.Conv2d(in_channels, self.hidden_dim, 1, bias=False)),
+                        ('norm', nn.BatchNorm2d(self.hidden_dim,))])
+                    )
+                )
+
+        in_channels = feat_channels[-1]
+
+        for _ in range(self.num_levels - len(feat_channels)):
+            if in_channels == self.hidden_dim:
+                self.input_proj.append(nn.Identity())
+            else:
+                self.input_proj.append(
+                    nn.Sequential(OrderedDict([
+                        ('conv', nn.Conv2d(in_channels, self.hidden_dim, 3, 2, padding=1, bias=False)),
+                        ('norm', nn.BatchNorm2d(self.hidden_dim))])
+                    )
+                )
+                in_channels = self.hidden_dim
+
+    def _get_encoder_input(self, feats: List[torch.Tensor]):
+        # get projection features
+        proj_feats = [self.input_proj[i](feat) for i, feat in enumerate(feats)]
+        if self.num_levels > len(proj_feats):
+            len_srcs = len(proj_feats)
+            for i in range(len_srcs, self.num_levels):
+                if i == len_srcs:
+                    proj_feats.append(self.input_proj[i](feats[-1]))
+                else:
+                    proj_feats.append(self.input_proj[i](proj_feats[-1]))
+
+        # get encoder inputs
+        feat_flatten = []
+        spatial_shapes = []
+        for i, feat in enumerate(proj_feats):
+            _, _, h, w = feat.shape
+            # [b, c, h, w] -> [b, h*w, c]
+            feat_flatten.append(feat.flatten(2).permute(0, 2, 1))
+            # [num_levels, 2]
+            spatial_shapes.append([h, w])
+
+        # [b, l, c]
+        feat_flatten = torch.concat(feat_flatten, 1)
+        return feat_flatten, spatial_shapes
+
+    def _generate_anchors(self,
+                          spatial_shapes=None,
+                          grid_size=0.05,
+                          dtype=torch.float32,
+                          device='cpu'):
+        if spatial_shapes is None:
+            spatial_shapes = []
+            eval_h, eval_w = self.eval_spatial_size
+            for s in self.feat_strides:
+                spatial_shapes.append([int(eval_h / s), int(eval_w / s)])
+
+        anchors = []
+        for lvl, (h, w) in enumerate(spatial_shapes):
+            grid_y, grid_x = torch.meshgrid(torch.arange(h), torch.arange(w), indexing='ij')
+            grid_xy = torch.stack([grid_x, grid_y], dim=-1)
+            grid_xy = (grid_xy.unsqueeze(0) + 0.5) / torch.tensor([w, h], dtype=dtype)
+            wh = torch.ones_like(grid_xy) * grid_size * (2.0 ** lvl)
+            lvl_anchors = torch.concat([grid_xy, wh], dim=-1).reshape(-1, h * w, 4)
+            anchors.append(lvl_anchors)
+
+        anchors = torch.concat(anchors, dim=1).to(device)
+        valid_mask = ((anchors > self.eps) * (anchors < 1 - self.eps)).all(-1, keepdim=True)
+        anchors = torch.log(anchors / (1 - anchors))
+        anchors = torch.where(valid_mask, anchors, torch.inf)
+
+        return anchors, valid_mask
+
+
+    def _get_decoder_input(self,
+                        memory: torch.Tensor,
+                        spatial_shapes,
+                        denoising_logits=None,
+                        denoising_bbox_unact=None):
+
+        # prepare input for decoder
+        if self.training or self.eval_spatial_size is None:
+            anchors, valid_mask = self._generate_anchors(spatial_shapes, device=memory.device)
+        else:
+            anchors = self.anchors
+            valid_mask = self.valid_mask
+        if memory.shape[0] > 1:
+            anchors = anchors.repeat(memory.shape[0], 1, 1)
+
+        memory = valid_mask.to(memory.dtype) * memory
+
+        output_memory :torch.Tensor = self.enc_output(memory)
+        enc_outputs_logits :torch.Tensor = self.enc_score_head(output_memory)
+
+        enc_topk_bboxes_list, enc_topk_logits_list = [], []
+        enc_topk_memory, enc_topk_logits, enc_topk_anchors = \
+            self._select_topk(output_memory, enc_outputs_logits, anchors, self.num_queries)
+
+        enc_topk_bbox_unact :torch.Tensor = self.enc_bbox_head(enc_topk_memory) + enc_topk_anchors
+
+        # === 关键修改：统一的content构建流程 ===
+        B = memory.shape[0]
+        
+        # 步骤1: 构建基础content（基于enc_topk_memory）
+        base_content = enc_topk_memory.detach()
+        
+        # 步骤2: ROI特征初始化
+        enc_topk_bboxes_sig = torch.sigmoid(enc_topk_bbox_unact)[..., :2]  # 取 (cx, cy)
+        roi_init = self._roi_init_from_memory(memory, spatial_shapes, enc_topk_bboxes_sig, self.hidden_dim)
+        
+        # 步骤3: ROI融合；比例显式配置，便于做纯 top-k query baseline 对照。
+        roi_ratio = max(0.0, min(float(self.roi_init_ratio), 1.0))
+        content = (1.0 - roi_ratio) * base_content + roi_ratio * roi_init if roi_ratio > 0 else base_content
+
+        if self.use_tooth_query_embed:
+            num_extra = max(self.num_queries - self.num_teeth, 0)
+            tooth = self.tooth_query_embedding(B)  # [B, num_teeth, C]
+            alpha = getattr(self, "tooth_alpha", 0.5)  # or nn.Parameter(torch.tensor(0.5))
+
+            if num_extra > 0:
+                extra = self.extra_query_embed.weight.unsqueeze(0).expand(B, -1, -1) \
+                        if hasattr(self, "extra_query_embed") else base_content[:, :num_extra]
+                # 前段保留 top-k 记忆的语义，再与 extra 轻融合
+                extra_fused = 0.5 * base_content[:, :num_extra] + 0.5 * extra
+
+                # 后段牙齿 queries：与对应 tail 的 top-k 记忆做融合，而不是覆盖
+                tail = base_content[:, -self.num_teeth:, :]
+                tooth_fused = (1 - alpha) * tail + alpha * tooth
+                content = torch.cat([extra_fused, tooth_fused], dim=1)
+            else:
+                content = (1 - alpha) * base_content + alpha * tooth
+
+        if self.pfrpn_query_adapter is not None:
+            content = self.pfrpn_query_adapter(
+                content,
+                output_memory,
+                spatial_shapes,
+                torch.sigmoid(enc_topk_bbox_unact),
+            )
+
+        if self.pgr_roi_reasoning is not None:
+            content = self.pgr_roi_reasoning(content, output_memory, enc_outputs_logits, anchors)
+
+        # 训练记录（保持原有逻辑）
+        if self.training:
+            enc_topk_bboxes = F.sigmoid(enc_topk_bbox_unact)
+            enc_topk_bboxes_list.append(enc_topk_bboxes)
+            enc_topk_logits_list.append(enc_topk_logits)
+
+        enc_topk_bbox_unact = enc_topk_bbox_unact.detach()
+
+        # DN处理（保持原有逻辑）
+        if denoising_bbox_unact is not None:
+            enc_topk_bbox_unact = torch.cat([denoising_bbox_unact, enc_topk_bbox_unact], dim=1)
+            content = torch.cat([denoising_logits, content], dim=1)
+
+        return content, enc_topk_bbox_unact, enc_topk_bboxes_list, enc_topk_logits_list
+
+    def _select_topk(self, memory: torch.Tensor, outputs_logits: torch.Tensor, outputs_anchors_unact: torch.Tensor, topk: int):
+        if self.query_select_method == 'default':
+            _, topk_ind = torch.topk(outputs_logits.max(-1).values, topk, dim=-1)
+
+        elif self.query_select_method == 'one2many':
+            _, topk_ind = torch.topk(outputs_logits.flatten(1), topk, dim=-1)
+            topk_ind = topk_ind // self.num_classes
+
+        elif self.query_select_method == 'agnostic':
+            _, topk_ind = torch.topk(outputs_logits.squeeze(-1), topk, dim=-1)
+
+        topk_ind: torch.Tensor
+
+        topk_anchors = outputs_anchors_unact.gather(dim=1, \
+            index=topk_ind.unsqueeze(-1).repeat(1, 1, outputs_anchors_unact.shape[-1]))
+
+        topk_logits = outputs_logits.gather(dim=1, \
+            index=topk_ind.unsqueeze(-1).repeat(1, 1, outputs_logits.shape[-1])) if self.training else None
+
+        topk_memory = memory.gather(dim=1, \
+            index=topk_ind.unsqueeze(-1).repeat(1, 1, memory.shape[-1]))
+
+        return topk_memory, topk_logits, topk_anchors
+
+    def forward(self, feats, targets=None):
+        # input projection and embedding
+        memory, spatial_shapes = self._get_encoder_input(feats)
+
+        # prepare denoising training
+        if self.training and self.num_denoising > 0:
+            denoising_logits, denoising_bbox_unact, attn_mask, dn_meta = \
+                get_contrastive_denoising_training_group(targets, \
+                    self.num_classes,
+                    self.num_queries,
+                    self.denoising_class_embed,
+                    num_denoising=self.num_denoising,
+                    label_noise_ratio=self.label_noise_ratio,
+                    box_noise_scale=1.0,
+                    )
+        else:
+            denoising_logits, denoising_bbox_unact, attn_mask, dn_meta = None, None, None, None
+        # --- NEW: 训练期收集每张图“出现的类别”，供唯一性门用 ---
+        present_classes = None
+        if self.training and targets is not None:
+            device = memory.device
+            B = memory.size(0)
+            present_classes = torch.zeros(B, self.num_classes, dtype=torch.bool, device=device)
+            for b, t in enumerate(targets):
+                if 'labels' in t and t['labels'].numel() > 0:
+                    present_classes[b, t['labels'].unique()] = True
+
+        init_ref_contents, init_ref_points_unact, enc_topk_bboxes_list, enc_topk_logits_list = \
+            self._get_decoder_input(memory, spatial_shapes, denoising_logits, denoising_bbox_unact)
+
+        # decoder
+        out_bboxes, out_logits, out_corners, out_refs, pre_bboxes, pre_logits, \
+        mr_out_bboxes, mr_out_logits, \
+        factor_quads, factor_tooth, factor_dent, \
+        dec_last_feats = self.decoder(
+            init_ref_contents,
+            init_ref_points_unact,
+            memory,
+            spatial_shapes,
+            self.dec_bbox_head,
+            self.dec_score_head,
+            self.dec_quad_head,
+            self.dec_toothpos_head,
+            self.dec_dent_head,
+            self.query_pos_head,
+            self.pre_bbox_head,
+            self.integral,
+            self.up,
+            self.reg_scale,
+            attn_mask=attn_mask,
+            dn_meta=dn_meta,
+            present_classes=present_classes,
+        )
+
+        # 先根据 dn_meta 把各个输出拆成 DN / main
+        if self.training and dn_meta is not None:
+            # the output from the first decoder layer, only one
+            dn_pre_logits, pre_logits = torch.split(pre_logits, dn_meta['dn_num_split'], dim=1)
+            dn_pre_bboxes, pre_bboxes = torch.split(pre_bboxes, dn_meta['dn_num_split'], dim=1)
+
+            dn_out_logits, out_logits = torch.split(out_logits, dn_meta['dn_num_split'], dim=2)
+            dn_out_bboxes, out_bboxes = torch.split(out_bboxes, dn_meta['dn_num_split'], dim=2)
+
+            dn_out_corners, out_corners = torch.split(out_corners, dn_meta['dn_num_split'], dim=2)
+            dn_out_refs, out_refs = torch.split(out_refs, dn_meta['dn_num_split'], dim=2)
+            if factor_quads is not None:
+                dn_factor_quads, factor_quads = torch.split(factor_quads, dn_meta['dn_num_split'], dim=2)
+                dn_factor_tooth, factor_tooth = torch.split(factor_tooth, dn_meta['dn_num_split'], dim=2)
+                dn_factor_dent, factor_dent = torch.split(factor_dent, dn_meta['dn_num_split'], dim=2)
+            else:
+                dn_factor_quads = dn_factor_tooth = dn_factor_dent = None
+
+            # 注意：dec_last_feats 形状是 [B, Q_all, C]，query 维在 dim=1
+            dn_feats, query_feats = torch.split(dec_last_feats, dn_meta['dn_num_split'], dim=1)
+        else:
+            # 无 DN 时，所有 queries 都是 main queries
+            query_feats = dec_last_feats
+
+        proto_logits = None
+        final_logits = out_logits[-1]
+        if self.use_tooth_prototype:
+            proto_logits = self._prototype_logits(query_feats)
+            if self.prototype_fusion_weight > 0 and (not self.training or self.prototype_fusion_train):
+                proto_add = proto_logits - proto_logits.amax(dim=-1, keepdim=True)
+                proto_add = proto_add.clamp(min=-6.0, max=0.0)
+                final_logits = final_logits + self.prototype_fusion_weight * proto_add
+
+        if self.training:
+            out = {
+                'pred_logits': final_logits,
+                'pred_boxes': out_bboxes[-1],
+                'pred_corners': out_corners[-1],
+                'ref_points': out_refs[-1],
+                'up': self.up,
+                'reg_scale': self.reg_scale,
+
+                # === 给 metric loss 用的特征 (只包含 main queries) ===
+                'query_feats': query_feats,   # [B, Q_main, C]
+            }
+            if factor_quads is not None:
+                out.update({
+                    'pred_quad_logits': factor_quads[-1],
+                    'pred_tooth_logits': factor_tooth[-1],
+                    'pred_dent_logits': factor_dent[-1],
+                })
+            if proto_logits is not None:
+                out['pred_proto_logits'] = proto_logits
+
+            # +++ MrDETR: 仅训练阶段输出给 criterion 使用 +++
+            if mr_out_bboxes is not None and mr_out_logits is not None:
+                out['mr_outputs'] = {
+                    'logits': mr_out_logits,   # shape: [#mr_layers, B, Q, C]
+                    'boxes' : mr_out_bboxes,   # shape: [#mr_layers, B, Q, 4]
+                    # 供 O2M 损失使用的辅助信息（可选）：
+                    'mr_layers': tuple(self.decoder.mr_layers),
+                }
+        else:
+            out = {'pred_logits': final_logits, 'pred_boxes': out_bboxes[-1]}
+            if self.return_query_feats or self.use_tooth_prototype:
+                out['query_feats'] = query_feats
+            if proto_logits is not None:
+                out['pred_proto_logits'] = proto_logits
+            if (not self.training) and getattr(self, 'use_arch_post', False) and (out['pred_logits'].size(-1) <= 1024):
+                # >>> SAFE: 不参与计算图 <<<
+                with torch.no_grad():
+                    logits = out['pred_logits']           # [B,Q,C]
+                    boxes  = out['pred_boxes']            # [B,Q,4]
+                    cxcy   = boxes[..., :2]
+                    C = logits.size(-1)
+                    fdi2idx = fdi_index_map(self.num_classes)  # {FDI -> cls_id}
+                    for b in range(boxes.size(0)):
+                        for flag in (True, False):  # True=上颌, False=下颌
+                            sel = (cxcy[b, :, 1] < 0.5) if flag else (cxcy[b, :, 1] >= 0.5)
+                            if sel.sum() == 0:
+                                continue
+                            idx  = torch.nonzero(sel, as_tuple=False).squeeze(1)
+                            xy   = cxcy[b, idx]
+                            t_pred = fit_arch_t(xy).detach()  # [n]
+                            C = logits.size(-1)
+
+                            # 两套候选序列：恒牙vs乳牙
+                            seq_perm = fdi_sequence_targets(flag, dentition="perm")
+                            seq_prim = fdi_sequence_targets(flag, dentition="primary")
+
+                            def solve_for_seq(seq):
+                                # 等距目标
+                                t_tgt = torch.arange(len(seq), device=xy.device, dtype=xy.dtype)
+                                t_tgt = (t_tgt + 0.5) / len(seq)
+                                # 代价 |t_pred - t_tgt| 做匈牙利
+                                cost = (t_pred[:, None] - t_tgt[None, :]).abs().cpu().numpy()
+                                row, col = linear_sum_assignment(cost)
+                                row = torch.tensor(row, device=xy.device, dtype=torch.long)
+                                col = torch.tensor(col, device=xy.device, dtype=torch.long)
+                                new_fdi = torch.tensor(seq, device=xy.device, dtype=torch.long)[col]  # 对应 FDI 编码
+                                return row, new_fdi, float(cost[row.cpu().numpy(), col.cpu().numpy()].mean())
+
+                            row_p, fdi_p, cost_p = solve_for_seq(seq_perm)
+                            row_r, fdi_r, cost_r = solve_for_seq(seq_prim)
+
+                            # 选代价更小的方案
+                            row  = row_p if cost_p <= cost_r else row_r
+                            new_fdi = fdi_p if cost_p <= cost_r else fdi_r
+
+                            # FDI -> 类别ID，并过滤无映射/越界
+                            if isinstance(fdi2idx, dict):
+                                new_cls = torch.tensor([fdi2idx.get(int(v), -1) for v in new_fdi.tolist()],
+                                                    device=xy.device, dtype=torch.long)
+                            else:
+                                # 若你实现成tensor映射，非法项需预先置为 -1
+                                new_cls = fdi2idx[new_fdi]  # 约定 fdi2idx[非法]= -1
+
+                            sel_idx = idx[row]
+                            valid = (new_cls >= 0) & (new_cls < C)
+                            if valid.any():
+                                si = sel_idx[valid]
+                                ci = new_cls[valid].view(-1, 1)
+                                cur = logits[b, si, :]
+                                boost = cur.amax(-1, keepdim=True) + 4.0
+                                logits[b, si, :] = cur.scatter(-1, ci, boost)
+                    out['pred_logits'] = logits
+
+
+        if self.training and self.aux_loss:
+            out['aux_outputs'] = self._set_aux_loss2(
+                out_logits[:-1], out_bboxes[:-1], out_corners[:-1], out_refs[:-1],
+                out_corners[-1], out_logits[-1],
+                extra_factors=(factor_quads[:-1], factor_tooth[:-1], factor_dent[:-1])
+                if factor_quads is not None else None
+            )
+
+            out['enc_aux_outputs'] = self._set_aux_loss(enc_topk_logits_list, enc_topk_bboxes_list)
+            out['pre_outputs'] = {'pred_logits': pre_logits, 'pred_boxes': pre_bboxes}
+            out['enc_meta'] = {'class_agnostic': self.query_select_method == 'agnostic'}
+
+            if dn_meta is not None:
+                out['dn_outputs'] = self._set_aux_loss2(
+                    dn_out_logits, dn_out_bboxes, dn_out_corners, dn_out_refs,
+                    dn_out_corners[-1], dn_out_logits[-1],
+                    extra_factors=(dn_factor_quads, dn_factor_tooth, dn_factor_dent)
+                    if dn_factor_quads is not None else None
+                )
+
+                out['dn_pre_outputs'] = {'pred_logits': dn_pre_logits, 'pred_boxes': dn_pre_bboxes}
+                out['dn_meta'] = dn_meta
+
+        return out
+
+
+    @torch.jit.unused
+    def _set_aux_loss(self, outputs_class, outputs_coord):
+        # this is a workaround to make torchscript happy, as torchscript
+        # doesn't support dictionary with non-homogeneous values, such
+        # as a dict having both a Tensor and a list.
+        return [{'pred_logits': a, 'pred_boxes': b} for a, b in zip(outputs_class, outputs_coord)]
+
+
+    @torch.jit.unused
+    def _set_aux_loss2(self, outputs_class, outputs_coord, outputs_corners, outputs_ref,
+                       teacher_corners=None, teacher_logits=None, extra_factors=None):
+        aux = []
+        L = len(outputs_class)
+        q_list = t_list = d_list = None
+        if extra_factors is not None:
+            q_list, t_list, d_list = extra_factors  # 形如 [L, B, Q, K]
+
+        for i in range(L):
+            item = {
+                'pred_logits':  outputs_class[i],
+                'pred_boxes':   outputs_coord[i],
+                'pred_corners': outputs_corners[i],
+                'ref_points':   outputs_ref[i],
+                'teacher_corners': teacher_corners,
+                'teacher_logits':  teacher_logits,
+            }
+            if q_list is not None: item['pred_quad_logits']   = q_list[i]
+            if t_list is not None: item['pred_tooth_logits']  = t_list[i]
+            if d_list is not None: item['pred_dent_logits']   = d_list[i]
+            aux.append(item)
+        return aux

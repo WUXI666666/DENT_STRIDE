@@ -1,0 +1,93 @@
+{
+  "job_id": "R04_fixed640_mosaic1_mixup0p0",
+  "task": "dentex_spatial_shape",
+  "cohort": "DENTEX2023",
+  "model": "DENT-STRIDE SpatialShape",
+  "phase": "resolution_mosaic_mixup",
+  "seed": 0,
+  "augmentation": {
+    "profile": "fixed640",
+    "mosaic": 1.0,
+    "mixup": 0.0,
+    "crop": 0.8,
+    "zoom": 0.5
+  },
+  "config": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/R04_fixed640_mosaic1_mixup0p0_seed0.yml",
+  "config_sha256": "98ea1dbc2496e8648df8c126359ed22e4b5c35e41be934f62c27c67936bc7140",
+  "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R04_fixed640_mosaic1_mixup0p0/seed_0",
+  "implementation_dir": "/home/wuxi/Dent-FINE",
+  "train_script": "/home/wuxi/Dent-FINE/train.py",
+  "changes_from_aligned_base": [
+    {
+      "path": "output_dir",
+      "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+      "after": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R04_fixed640_mosaic1_mixup0p0/seed_0"
+    },
+    {
+      "path": "train_dataloader.collate_fn.base_size_repeat",
+      "before": 20,
+      "after": null
+    },
+    {
+      "path": "train_dataloader.collate_fn.mixup_prob",
+      "before": 0.5,
+      "after": 0.0
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.mosaic_prob",
+      "before": 0,
+      "after": 1.0
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+      "before": 320,
+      "after": 640
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[0].probability",
+      "before": 0,
+      "after": 1.0
+    }
+  ],
+  "command": [
+    "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+    "-u",
+    "/home/wuxi/Dent-FINE/train.py",
+    "-c",
+    "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/R04_fixed640_mosaic1_mixup0p0_seed0.yml",
+    "--seed",
+    "0",
+    "--use-amp",
+    "-d",
+    "cuda",
+    "--output-dir",
+    "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R04_fixed640_mosaic1_mixup0p0/seed_0"
+  ],
+  "started_at": "2026-09-14T05:30:15.529746+08:00",
+  "gpu": 0,
+  "cwd": "/home/wuxi/Dent-FINE",
+  "manifest_sha256": "103fc189d90f25352fd1666ce55bdc5b38d9a64e3005ad33c0f4062e73dd851c",
+  "queue_script_sha256": "7a07f519a7cc11e2d7a9ec2af00b24bdc90141bb5c9addf0ead8d9c61a27484f",
+  "initialization": "Fresh original pretrained backbone; no prior-run fine tuning",
+  "selection_policy_at_start": {
+    "allowed_final_profiles": [
+      "fixed640",
+      "fixed1024"
+    ],
+    "final_seeds": [
+      0
+    ],
+    "a07_seeds": [
+      0
+    ],
+    "confirm_top_k": 0,
+    "confirmation_seeds": [
+      1,
+      2
+    ],
+    "tie_break": "AP descending; exact ties: smaller fixed input, no Mosaic, no MixUp, higher crop, ZoomOut on, job ID",
+    "final_seed_choice": "User explicitly confirmed this round's final main experiments use seed 0 only.",
+    "resolution_choice": "Until the optional size preference is answered, choose between fixed 640 and fixed 1024 by validation AP; legacy multiscale remains a control.",
+    "note": "Read again before adaptive selection. Do not claim a universal optimum or independent test performance."
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "checkpoint_sha256": "1f19ea4d30234effb359b2de0cfb494ee1fe3582ca93a0bbc54792cf3a3e60cf",
+  "supported_classes": 48,
+  "within_class_pair_cosine_mean": 0.9999999651287393,
+  "within_class_pair_cosine_min": 0.9999995859562595,
+  "interpretation": "The four within-class prototypes are nearly collinear. This does not support distinct multimodal prototype specialization. Auxiliary-supervision learning gains and multimodal diversity are different claims."
+}

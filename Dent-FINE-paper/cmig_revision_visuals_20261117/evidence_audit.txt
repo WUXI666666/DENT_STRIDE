@@ -1,0 +1,253 @@
+Evidence audit for the 2026-11-17 visual revision
+
+Scope and verification
+Read the 2026-10-30 source capture/render scripts, provenance JSON, saved raw maps,
+training job/config files, and native/summary metric exports. Recomputed SHA256 for
+all six checkpoints used by the CMFA, HOOA and Prototype before/after figures;
+every hash matched the capture provenance. Their saved AP values exactly matched
+the source metric exports. No training or new model inference was performed.
+The raw maps and training artifacts chiefly reside in Dent-FINE-paper/materials;
+their archived jobs identify /home/wuxi/Dent-FINE as the native launch directory
+and retain historical configs from that experiment directory. These archived
+snapshots are more specific provenance than the present mutable source tree.
+
+1. Prototype contrast: verified
+No prototype supervision: 54.9181593162 AP.
+Four prototypes, tau=0.50, auxiliary supervision: 55.6828988182 AP.
+Difference: +0.7647395020 AP points, seed 0, 160 epochs, Mobile 1024 inputs.
+Sources:
+materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_off/seed_0/
+materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_k4_tau0p5/seed_0/
+The off configuration records tau=.20, but use_tooth_prototype=False and no proto
+loss, so that temperature is inactive in the control. Active differences are the
+prototype bank/loss and the evaluated bank's tau=.50. Inference prototype fusion
+is disabled in both cases. The first chosen case is image 44, GT FDI 51, with
+prediction 11 in the control and 51 after auxiliary supervision. This supports an
+auxiliary-supervision benefit in this tested seed-0 configuration. It does not
+estimate between-seed variability or show direct prototype-score fusion at inference.
+The auxiliary class scores in the figure are logsumexp(cosine/tau), not probabilities.
+
+2. HOOA contrast: verified, explicitly separate configuration
+No high-pass plus no second-order mechanism: 53.5606080602 AP.
+Full HOOA: 54.9099182478 AP.
+Difference: +1.3493101876 AP points, seed 0, tau=.20, Mobile 1024 inputs.
+The two source YAMLs are identical aside from run-output locations; job runtime
+controls set hooa_highpass=False and hooa_second_order=False for the reduced model.
+The reduced model still contains HOOA. It zeroes E and substitutes the direct
+context response C for L*sigmoid(C), retaining the remaining paths and dimensions.
+Sources: cmig_best3_seeds_2026-10-08/runs/{internal_mobile_hooa_neither,mobile_1024_full}/seed_0/.
+The selected image 77 corrects FDI 53 to reference FDI 13. The positive attribution
+mass inside the GT box changes from 0.2525032 to 0.4613230 in this case. That is a
+descriptive CAM spatial diagnostic, not a cohort-wide detection endpoint.
+This tau=.20 contrast must not be labeled as a tau=.50 experiment or as the same
+full-model reference currently described by the 11-17 Word Table 6.
+
+3. CMFA contrast: verified and scoped
+The illustrated DSLR AdamW seed-0 pair has AP 72.4163934487 -> 72.9082226508
+(+0.4918292021 points). The only active YAML difference is
+HybridEncoder.use_cmfa_fusion=False -> True; implementation and controls match.
+Three paired seeds per optimizer are in effectiveness_evidence_2026-10-30/controlled_evidence.json.
+AdamW mean paired delta is approximately +0.498 +/- 0.145; the historical DualOpt
+control is approximately +0.513 +/- 0.091 (sample SD). The quantitative-analysis
+agent independently audits these six pairs and their data-overlap provenance.
+Historical DualOpt here includes BOTH extra decay and initialization rollback;
+it is not the final DSLR extra-decay-only/no-rollback recipe. Do not merge the
+two scopes or claim that these are final-configuration ablations.
+Selected rows: image125 GT16, prediction55 ->16; image124 GT41, prediction81 ->41.
+The selected cases are illustrations, not estimates of correction prevalence.
+
+4. CAM implementation: verified
+A positive elementwise gradient-times-activation map is computed as
+ReLU(sum_c A_c * d s / d A_c), retaining the spatial gradient, in HiResCAM form.
+CMFA/HOOA before/after figure maps target the reference-FDI detector logit at the
+finest encoder output. Each independently trained model's corresponding native
+query is matched by its archived bounding box and native top-1 category; query
+indices need not be identical across models or CPU/GPU arithmetic.
+For the Prototype panel, the prototype map instead targets its actual auxiliary
+reference-class score. Captures verify that recomputed logsumexp prototype scores
+match model pred_proto_logits within 1e-6. The five displayed scores are the
+highest supported-class auxiliary scores; no extra inference classifier is used.
+All controlled CAM captures are CPU FP32, no AMP, strict EMA loading. Passive
+hooks produced zero reference-logit difference from an unhooked pass.
+Maps are computed on the full image, normalized individually by the full-image
+positive maximum, bilinearly upsampled only for display, then identically cropped.
+GT is used to choose/reference a tooth and for display/post-hoc diagnostics; no GT
+spatial mask enters CAM computation. Native query-content initialization is detached,
+so gradients describe the remaining differentiable paths. These maps are spatial
+attribution, not native attention, segmentation, probability, or a cross-map
+contribution-magnitude scale. No extra theoretical faithfulness guarantee is implied.
+
+5. Final-Mobile illustration: verified
+One seed-2 EMA checkpoint is used for all final-model rows, hash
+1f19ea4d30234effb359b2de0cfb494ee1fe3582ca93a0bbc54792cf3a3e60cf.
+Its config uses four prototypes, tau=.50, and prototype_fusion_weight=0.
+Within each row, all module panels use the same image and the same native query.
+Detection/CMFA/high-pass CAMs target the same reference-FDI detector logit at
+different tensors; Prototype CAM targets the auxiliary class score.
+Recommended retained rows: image44 FDI51 (partial visibility) and image115 FDI64
+(blur), with optional image118 FDI42. These are complementary mechanism
+illustrations and must not be counted as additional ablation experiments.
+The 48 supported classes' within-class prototype pair cosine mean is
+0.9999999651 and minimum 0.9999995860 in the saved diversity check. These support
+near collinearity, not four learned distinct morphological modes.
+
+6. Factor-head occlusion: verified down to the raw arrays
+Checkpoint is the same final Mobile seed-2 EMA. Each 1024x1024 input has a 128x128
+sliding mean-color occluder at stride32: (1+(1024-128)/32)^2 = 29^2 =841 locations.
+The patch is filled with that image's RGB channel means. All 841 perturbed inputs
+are independently forwarded (batched by8), yielding one perturbation sweep per
+image and responses for all three heads in the same forwards. It is NOT 841 new
+forwards separately for each head. There are three displayed images, 2,523 perturbed
+inputs total, plus baseline checks. The actual occlusion capture script runs GPU
+FP32 with AMP/TF32 disabled; do not describe all visual diagnostics as CPU-only.
+For each head h, s_h is correct-factor logit minus the strongest other logit in
+the unperturbed input. Both the target and competitor indices remain fixed.
+Delta_h(p)=s_h(x)-s_h(x with patch p). Positive/red means the occlusion reduces
+the reference-factor decision margin; negative/blue means it increases that margin.
+The unoccluded encoder top-k anchor indices/order are frozen, and the same query
+index is evaluated throughout the sweep. Memory/query contents, decoder states,
+factor logits and boxes are recomputed from each perturbed input. This is a
+conditional-query input sensitivity experiment, not rerun-native-top-k detection
+accuracy under occlusion. The unperturbed conditioned forward has exactly zero
+maximum output-logit change relative to its native baseline.
+Each pixel's map is the mean of the signed drops for all covering patches. The
+three raw .npz files each contain exactly841 unique (x,y) locations and841 values
+per head; recomputing every dense array from those patch values gave max error0.
+No Gaussian smoothing or target spatial masking is used. Render uses nearest
+interpolation and a symmetric diverging color scale shared ACROSS THE THREE CASES
+WITHIN EACH HEAD, with separate scales for quadrant/position/dentition. Therefore
+within-head values can be compared in logit-margin units, whereas shade alone
+cannot compare magnitudes between heads with different scales.
+Dashed boxes are GT locations, used for correspondence/display, not hotspot creation.
+All nine largest-drop occluders intersect their respective GT boxes, though their
+covered fractions vary; surrounding context is also perturbed. The position head
+in image115/FDI64 has strong signed effects (+5.991 and -6.345 extrema), consistent
+with both supportive and interfering context. Mean-color occlusion creates an
+artificial input perturbation, so the map is sensitivity rather than a clinical
+causal claim. See factor_occlusion_selected_cases.csv for exact reported margins.
+
+7. Unresolved discrepancy with the specified 11-17 Word Table 6
+The full mapping is table6_archived_mapping.csv. Verified 10-08 archives have:
+CMFA both=54.910, channel-only=55.422, spatial-only=54.428, neither=54.783.
+The specified Word has both=55.422, channel-only=54.810, spatial-only=54.428,
+neither=54.383. Its HOOA full reference55.422 also differs from the archived54.910.
+Other HOOA removal and all four factor AP values match to three decimals, but their
+archived prototype temperature is.20 rather than the Word's.50.
+Limited targeted searches of small metrics/summary/config files under materials
+and /home/wuxi/Dent-FINE/outputs did not identify a complete newer tau=.50 control
+group that explains the 11-17 Word values. This is NOT proof that no newer group
+exists. The verified historical controls and the user-specified current Word
+must be distinguished. Do not silently relabel historical data as current data,
+silently replace Word numbers, or claim a full provenance audit of Word Table6.
+The new figures can safely be captioned with their verified historical control
+configuration and used separately; whether to retain or reconcile Table6 needs
+the main agent's author-facing handling.
+
+Suggested concise prose
+Methods: "We computed query-specific positive gradient-times-activation maps for
+the reference-FDI logit and, separately, the auxiliary prototype score. Maps were
+calculated on complete inputs and normalized per map before identical cropping.
+For the factor heads, a complementary conditional-query occlusion analysis used
+841 mean-color patches per image (128x128 pixels; stride32) and measured changes
+in the correct-versus-alternative logit margin while holding the baseline anchor
+ordering fixed. Ground-truth boxes identified the target tooth but did not mask
+the computed spatial responses."
+Results: "In the seed-0 prototype control, auxiliary supervision increased AP
+from54.918 to55.683. The selected primary-tooth case changed from FDI11 to the
+reference FDI51, while the auxiliary class score and its spatial attribution
+provided a complementary view of the identity-learning signal. In the separate
+tau=.20 HOOA control, retaining the high-pass and second-order mechanisms increased
+AP from53.561 to54.910 and corrected the illustrated FDI53/13 confusion. The
+factor-head sensitivity maps showed supportive regions near the reference teeth
+and signed context effects, particularly for position prediction."
+Discussion: "The retrained comparisons support the tested feature and identity
+supervision mechanisms, while the query-conditioned visualizations identify
+where those decisions are sensitive to image evidence. Prototype supervision can
+be useful even when same-class prototype slots converge; these results do not
+require interpreting the four slots as distinct morphological modes."
+
+
+SECOND AUDIT: SELECTED SEEDS AND EXACT IMAGE DUPLICATION (2026-11-17)
+==================================================================
+
+Primary provenance:
+1. materials/cmig_selected_seed_revision_2026-10-12/quantitative/quantitative_data.json
+   selection_policy: "User-selected after inspecting five completed seeds; selected-three summaries are exploratory, not prespecified primary evidence."
+   SD_definition: sample standard deviation (n-1).
+   no_significance_inference_from_selected_seeds: true.
+2. Same folder/build_quantitative.py, SPEC lines 35-37:
+   Pano pano_spatialshape_original selected [1,3,4], representative 3;
+   Mobile mobile_proto_k4_tau0p50 selected [0,2,3], representative 2;
+   DSLR dslr_cmfa_extra_decay_only selected [0,2,3], representative 3.
+   The script loops through all five seeds; retains all-five and fixed-0/1/2 reference groups.
+3. Same folder/prior_per_seed.csv contains all four inference-prior settings for all five Pano seeds, with the same selected-run flags.
+
+Independent verification performed here:
+- Re-read the ten small native metric JSONs for Pano/Mobile seeds 0-4, rehashed each against its quantitative_data manifest: all ten SHA256 match.
+- All ten AP values equal metrics_percent.AP in the native metric JSON, and all ten metrics report epochs_completed=160.
+- Pano selected APs: 54.09535268253139, 54.367696881771934, 54.15105269368592. Mean/sample SD = 54.20470075266308 / 0.14387990265845302, matching Word54.205 +/-0.144.
+- Pano all-five AP mean/sample SD = 53.9791644783584 / 0.33671305584401656.
+- Mobile selected APs: 55.58241661847055, 55.649634870985764, 55.14400919864077. Mean/sample SD =55.45868689603236 /0.2745835269905257, matching Word55.459 +/-0.275.
+- Mobile all-five AP mean/sample SD =55.29154218850482 /0.30103366645898555.
+- In both groups, the three selected runs happen also to be the three largest AP values among the five completed runs. The explicit policy and exact numeric matches support post-hoc selection for these Word rows; this is not merely an inference from ranking.
+- The older DSLR selected group averages approximately72.908, not the Nov17 Word73.219. Its selection record cannot establish the seed policy or exact sources behind the newer Word DSLR value. Do not silently replace WordDSLR results or generalize the older policy to the unresolved newer value.
+- Details: selected_seed_source_recheck.csv.
+
+Word/Lite wording requiring minimal qualification:
+- Word block101 / Lite line415: "Each acquisition-specific configuration was trained with three seeds for 160 epochs."
+- Word block112 / Lite459 and Table3 caption: three-seed summaries omit the post-hoc subset policy.
+- Table5 and Fig8: same-checkpoint prior analysis uses the selected Pano seeds[1,3,4], not an unselected three-run sample. Paired effects remain valid conditional on these weights, but the chosen runs are not a prespecified random sample.
+- Lite535 Fig6 caption should identify selected Mobile DENT-STRIDE runs; do not imply the selection policy of the official comparator is the same without checking it.
+- Table7 endpoints are conditional on the same selected runs.
+- Word discussion / Lite754: "Three completed runs characterize each configuration's observed seed variability." This overstates the scope: there were five completed runs for Pano/Mobile.
+- Lite766: "Between-seed standard deviations quantify training variability" should be qualified as dispersion among the reported runs because the reported subset was selected using the results.
+
+Recommended minimum English additions/replacements (main numerical tables may be retained as source-selected descriptive summaries):
+Methods:
+"For Pano and Mobile, five runs (seeds 0--4) completed 160 epochs. The three-run summaries report Pano seeds 1, 3, and 4 and Mobile seeds 0, 2, and 3, selected after inspecting the completed runs. Their means and sample standard deviations are descriptive summaries of these selected runs; all-five-run sensitivity results are reported separately."
+If the newer DSLR source remains unresolved, specify it separately as the supplied three-run summary without inventing its provenance.
+Table3 caption addition:
+"The Pano and Mobile rows summarize three runs selected from five completed runs as described in Section X; the reported SD is conditional on this selection."
+Table5/Fig8:
+"Same-checkpoint Pano anatomical scoring for selected seeds 1, 3, and 4."
+Fig6:
+"The DENT-STRIDE-Mobile estimate uses the selected three-run group described in Section X."
+Table7:
+"Endpoints use the same reported run groups as Table3." (With Table3 and Methods explicit, repetition of the full limitation is unnecessary.)
+Discussion replacement:
+"The reported selected-run summaries describe the displayed configurations; the all-five-run analysis gives AP 53.979 +/-0.337 for Pano and55.292 +/-0.301 for Mobile."
+Limitations replacement:
+"Sample standard deviations describe dispersion among the reported runs. Pano and Mobile three-run summaries were selected after inspecting five runs, so they should not be interpreted as unbiased estimates of training variability or evidence of statistical superiority."
+No reason to change the user-frozen abstract/introduction without authorization; the explicit methods/limitations can state how the three reported runs were obtained.
+
+EXACT CONTENT OVERLAP: NOT PATIENT-OVERLAP COUNTS
+Source: materials/cmig_controlled_2026-09-29/audit/dataset_audit.json and audit_existing_splits.py.
+Definition: SHA256(struct.pack('>II', width,height) + PIL convert(RGB).tobytes()), no resizing or EXIF transpose. Detects exact decoded-pixel duplicates, not all near duplicates or patient identity.
+Audit annotation SHA256s exactly match the current Pano/Mobile train/validation annotation files referenced by the Oct11 selected-run configs. Thus the archived duplicate findings concern the same partitions used by the selected runs, not only the September reference models.
+Independent recheck here: all11 source images across5duplicate groups were decoded and hashed again; all11 hashes match the archived duplicate hashes. Details in pixel_duplicate_recheck.json.
+Pano: one validation image (ID238,train_412.png) matches two training images (ID327,train_612.png and ID616,train_179.png). Affected validation count1/64, not2/64.
+Mobile: four validation images out of220:
+ valid170 JPEGImages/201.jpg <->train12 JPEGImages/836.jpg;
+ valid6 JPEGImages/190.jpg <->train405 JPEGImages/797.jpg;
+ valid110 JPEGImages/189.jpg <->train630 JPEGImages/796.jpg;
+ valid88 JPEGImages/34.jpg <->train820 JPEGImages/157.jpg.
+All five groups have unequal normalized box annotations at six decimal places; pixel identity does not mean identical annotations.
+Patient IDs: none available in Pano/Mobile audit metadata; the absence of intersecting IDs is not evidence of patient independence.
+DSLR: all images have patient IDs, train150patients/750images, validation38patients/190images; no intersecting patient IDs and no cross-partition decoded-pixel duplicate groups. The global known_content_overlap_retained flag in controlled metrics must not be taken as DSLR-specific leakage evidence.
+
+Minimal manuscript text for the overlap finding:
+"An exact decoded-pixel audit identified one Pano and four Mobile validation images that were also present in training. We therefore additionally evaluated the existing predictions after excluding these validation images (63 Pano and216 Mobile images), without retraining or changing checkpoint selection."
+Limits:
+"Removing exact duplicates is a sensitivity analysis of these validation partitions and does not establish patient independence or external generalization."
+The count and sensitivity belong together once in Methods/Results; avoid repeatedly calling all results leaked or treating these counts as patient-overlap counts. Preserve the independently supported DSLR patient-disjoint statement.
+
+Coordination: /root/quantitative_analysis computes full COCO AP sensitivity after removing the five affected validation images and produces source-linked all-five/selected-three tables. No sensitivity numbers are asserted here before those calculations finish.
+
+Quantitative sensitivity completed by the quantitative_analysis agent:
+Source files: quantitative/duplicate_sensitivity_per_seed.csv, duplicate_sensitivity_summary.csv, duplicate_sensitivity.json, verified_duplicate_members.csv, VALIDATION_SENSITIVITY_NOTES.md under this audit directory.
+All-five Pano: original AP53.979164 +/-0.336713; excluding one exact duplicate validation image54.558056 +/-0.428192; paired change+0.578892 +/-0.132369.
+All-five Mobile: original AP55.291542 +/-0.301034; excluding four exact duplicate validation images55.038533 +/-0.318853; paired change-0.253009 +/-0.030787.
+Selected-three Pano:54.204701 +/-0.143880 ->54.854355 +/-0.192752.
+Selected-three Mobile:55.458687 +/-0.274584 ->55.214627 +/-0.286360.
+The agent re-evaluated all ten archived prediction files with COCO evaluation and obtained original AP/AP50/AP75/AR100 agreement with native evaluations within1.4e-14; checkpoint/config/metric provenance hashes were checked. This audit independently checked the native metric hashes/APs and decoded-image duplication, but did not redundantly rerun those ten COCO evaluations.
+Interpretation: removing the few exact duplicates does not uniformly reduce AP. These are dataset-composition sensitivity results; do not attribute the Pano increase to improved generalization or infer that duplicate images caused no bias. No retraining, reselection, or patient-level resplitting was performed.

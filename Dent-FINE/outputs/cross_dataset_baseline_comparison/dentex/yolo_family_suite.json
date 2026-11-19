@@ -1,0 +1,16 @@
+{
+  "dataset_yaml": "/home/wuxi/Dent-FINE/outputs/cross_dataset_baseline_comparison/dentex/yolo_dataset/dentex32.yaml",
+  "annotation": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+  "images": "/home/wuxi/DENTEX2023/val2017",
+  "gpu": 1,
+  "epochs": 160,
+  "input": 640,
+  "seed": 0,
+  "flips": false,
+  "models": [
+    "yolov8s",
+    "yolo11s",
+    "rtdetr_l",
+    "caf_yolo_s"
+  ]
+}

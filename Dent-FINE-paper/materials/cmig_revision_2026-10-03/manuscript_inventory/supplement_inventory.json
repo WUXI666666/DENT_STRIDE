@@ -1,0 +1,2689 @@
+{
+  "path": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_supplement_visual.docx",
+  "paragraphs": [
+    {
+      "index": 0,
+      "body_block": 0,
+      "style": "Title",
+      "text": "Supplementary material",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 1,
+      "body_block": 1,
+      "style": "Normal",
+      "text": "DENT-STRIDE: Domain-Configured Structured FDI Tooth Detection Across Panoramic Radiographs and Intraoral Photographs",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 2,
+      "body_block": 2,
+      "style": "Normal",
+      "text": "Additional component descriptions, complete numerical ablations, comparator protocols, and exploratory visual analyses. Experimental families retain their own configurations; historical outputs are not substituted for final-model predictions.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 3,
+      "body_block": 3,
+      "style": "Heading 1",
+      "text": "S1. Optional feature-processing components",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 4,
+      "body_block": 4,
+      "style": "Normal",
+      "text": "The main article shows the Mobile HOOA architecture (Fig. 5). Figs. S1–S3 document comparison refiners that are not required by the three selected recipes: CEDv2, SMWG, MPF, and UCM.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 5,
+      "body_block": 5,
+      "style": "Normal",
+      "text": "CEDv2 operates on projected features before the main encoder. Coarse features are upsampled and laterally projected to provide sigmoid guidance for the adjacent finer level; aligned branches are concatenated and refined. The bottom-up path fuses learned stride-2 features reciprocally with coarser branches (Fig. S1).",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 6,
+      "body_block": 6,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId21",
+          "target": "media/image11.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 7,
+      "body_block": 7,
+      "style": "Caption",
+      "text": "Fig. S1. CEDv2 comparison architecture. Guided top-down and bottom-up operations refine the projected pyramid before the main encoder. This module is not active in any selected recipe. ↑ denotes resizing/upsampling except the labelled learned stride-2 operation; C denotes concatenation, σ sigmoid, and ⊙ element-wise multiplication.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 8,
+      "body_block": 8,
+      "style": "Normal",
+      "text": "The auxiliary SMWG refiner acts on projected P3/P4/P5 before encoder aggregation. A pre-projection is transformed with rFFT2 into a complex spectrum. Fixed radial low-, mid-, and high-frequency masks are mixed by per-channel softmax weights and applied through the bounded modulation 1 + 0.20 × tanh(M). After irFFT2 and post-projection, a dynamic channel gate computed from the pre-FFT feature controls a residual update with α_s = 0.35 × sigmoid(s). Fine-to-coarse guidance computes a local high-pass residual P−AvgPool3×3(P), resizes and projects it to the next coarser level, predicts a sigmoid guide, and applies depthwise 3×3 refinement with a bounded residual update. The evaluated implementation is Fourier-based and does not perform a discrete wavelet decomposition (Fig. S2).",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 9,
+      "body_block": 9,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId12",
+          "target": "media/image2.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 10,
+      "body_block": 10,
+      "style": "Caption",
+      "text": "Fig. S2. SMWG, an optional Fourier spectral-modulation and fine-to-coarse detail-guidance refiner. This evaluated implementation uses rFFT2/irFFT2 with radial frequency-band masks; it does not perform a discrete wavelet decomposition.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 11,
+      "body_block": 11,
+      "style": "Normal",
+      "text": "After FPN/PAN aggregation, the auxiliary MPF and UCM refiners can be applied independently to each output level. MPF combines a depthwise 5×5 local-spatial branch, a global-average-pooled channel-reweighting branch, and a 1×1→3×3 context branch using three softmax-normalized weights; the mixture is injected with α_m=0.35×sigmoid(s). UCM computes μ=AvgPool₅×₅(x) and v=ReLU[AvgPool₅×₅(x²)−μ²]. A learned uncertainty map U interpolates a depthwise detail update D from x−μ and a projected context update C from μ, yielding R=U⊙D+(1−U)⊙C and P_ucm=x+α_uR with α_u=0.35×sigmoid(s). Fig. S3 reflects this per-level refinement view, and when both are enabled MPF precedes UCM on each level.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 12,
+      "body_block": 12,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId22",
+          "target": "media/image12.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 13,
+      "body_block": 13,
+      "style": "Caption",
+      "text": "Fig. S3. MPF and UCM per-level comparison refiners. MPF mixes local, channel-reweighting, and context paths; UCM uses local mean/variance to interpolate detail and context updates. MPF precedes UCM when both are enabled.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 14,
+      "body_block": 14,
+      "style": "Heading 1",
+      "text": "S2. Complete recipe and inter-module results",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 15,
+      "body_block": 15,
+      "style": "Normal",
+      "text": "Table S1 contains non-selected cohort-specific recipes. Module labels alone do not define a matched comparison because training settings differ across families. Selected models and local references remain in main Table 3. Table S2 is the separate, fixed-recipe 16-way feature experiment visualized in main Fig. 7.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 16,
+      "body_block": 16,
+      "style": "Caption",
+      "text": "Table S1. Historical recipe-level development/validation comparisons.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 17,
+      "body_block": 18,
+      "style": "Caption",
+      "text": "Metric values are copied from the original manuscript tables, retaining their original precision. “Prototype” is the historical configuration label, not prototype-score fusion. “SpatialShape” is a prior-enabled complete recipe, not a same-checkpoint toggle.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 18,
+      "body_block": 19,
+      "style": "Normal",
+      "text": "For Table S2, DualOpt is active in every row, with a common seed, input policy, training budget, and checkpoint-selection rule. All four-feature combinations are included. The 73.431 AP CMFA + DualOpt result belongs to this historical family and is not the selected 73.115 AP DSLR recipe in main Tables 3–4.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 19,
+      "body_block": 20,
+      "style": "Caption",
+      "text": "Table S2. Complete four-feature-module ablation on DSLR with DualOpt fixed.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 20,
+      "body_block": 22,
+      "style": "Caption",
+      "text": "+/− indicate enabled/disabled CMFA, SMWG, UCM, and MPF. Metrics are percentage points and parameters are millions. These are individual-run results, not means across seeds. The main figure displays the same values without smoothing or uncertainty bars.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 21,
+      "body_block": 23,
+      "style": "Heading 1",
+      "text": "S3. Progressive identity-mechanism ablation",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 22,
+      "body_block": 24,
+      "style": "Normal",
+      "text": "The eight experiments in Table S3 hold a historical feature stack fixed within each cohort and progressively enable factor auxiliary heads, prototype auxiliary learning, and the geometric prior. The common stack contains CMFA, HOOA, EFRUF, SINF, and SMWG; these are not the smaller final recipes. Factor and prototype inference-fusion weights are zero in this family. Thus, the factor/prototype rows test auxiliary supervision, whereas the final row also adds inference-time geometric/view scoring. All rows belong to the same recorded run family, but each is a single training run; no across-seed variance is estimated.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 23,
+      "body_block": 25,
+      "style": "Caption",
+      "text": "Table S3. Progressive identity ablation on a fixed historical feature stack.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 24,
+      "body_block": 27,
+      "style": "Caption",
+      "text": "The bank uses four prototypes per class and temperature 0.20. The approximately 15.5 M-parameter reference is not Local DEIM–D-FINE in main Table 3. This family does not isolate center versus shape or the final Mobile factor-score fusion.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 25,
+      "body_block": 28,
+      "style": "Normal",
+      "text": "Relative to the factor-only row, prototype auxiliary supervision changes AP by +0.647 on smartphone photographs and +0.174 on DENTEX. Adding the combined geometric prior changes AP by −1.318 and +0.489, respectively. The opposing directions motivate acquisition-specific evaluation and do not establish a universal benefit of spatial scoring.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 26,
+      "body_block": 29,
+      "style": "Heading 1",
+      "text": "S4. Upstream baselines, repeated runs, and module migration",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 27,
+      "body_block": 30,
+      "style": "Normal",
+      "text": "Table S4 reports existing upstream baseline training runs with seeds 0, 1, and 2. Mean and sample standard deviation are computed over the three run-specific best validation checkpoints. These are repeated runs of the official implementations, not repeated runs of the final DENT-STRIDE configurations. In particular, their standard deviations must not be attached to the selected AP values in main Table 3.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 28,
+      "body_block": 31,
+      "style": "Caption",
+      "text": "Table S4. Three-seed official baseline AP.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 29,
+      "body_block": 33,
+      "style": "Caption",
+      "text": "All entries are validation-selected estimates. Three-seed baseline variability does not remove selection bias or establish uncertainty for a differently configured final model.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 30,
+      "body_block": 34,
+      "style": "Normal",
+      "text": "The available seed-0 migration experiments also show that a module recipe is not universally beneficial when moved to an upstream implementation. The panoramic factor/prototype/SpatialShape migration increases AP from 53.349 to 54.151; the smartphone DualOpt migration decreases AP from 53.605 to 52.967; and the DSLR CMFA + DualOpt migration decreases AP from 72.557 to 72.095. These are distinct implementation-level comparisons and are not replacements for the final cohort-specific results.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 31,
+      "body_block": 35,
+      "style": "Heading 1",
+      "text": "S5. Additional historical cross-framework comparisons",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 32,
+      "body_block": 36,
+      "style": "Normal",
+      "text": "Table S5 restores the available conventional-detector references for DENTEX and smartphone photographs. They retain native framework optimization, pretraining, and post-processing. The archived smartphone comparator annotations and final Mobile annotations have different serialized hashes; therefore these results are shown as historical framework references rather than asserted to be a byte-identical, fully harmonized comparison with the selected 1024-resolution Mobile model. No claim of universal accuracy leadership is drawn from this table.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 33,
+      "body_block": 37,
+      "style": "Caption",
+      "text": "Table S5. Historical conventional-detector development comparisons.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 34,
+      "body_block": 39,
+      "style": "Caption",
+      "text": "Framework-native training and output processing are retained. The main manuscript distinguishes the selected-recipe evidence from these development comparisons.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 35,
+      "body_block": 40,
+      "style": "Heading 1",
+      "text": "S6. Shape statistics and additional visual analyses",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 36,
+      "body_block": 41,
+      "style": "Normal",
+      "text": "Main Fig. 3 shows the training-derived center templates. Fig. S4 provides complementary width/height statistics; the inference model uses their joint log-shape quadratic score, not independent marginal histograms. Figs. S5–S7 contain historical panoramic/DSLR predictions and prior-switch cases, not predictions from the final selected-checkpoint quantitative evaluations.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 37,
+      "body_block": 42,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId23",
+          "target": "media/image13.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 38,
+      "body_block": 43,
+      "style": "Caption",
+      "text": "Fig. S4. Normalized width and height of 16,234 DENTEX training boxes by FDI class. These distributions describe training geometry; the SpatialShape inference term is a joint quadratic score in log-width/log-height.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 39,
+      "body_block": 44,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId24",
+          "target": "media/image14.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 40,
+      "body_block": 45,
+      "style": "Caption",
+      "text": "Fig. S5. Historical same-image panoramic detector comparison using clinical FDI labels and a common display threshold. The DENT-STRIDE prediction source differs from the selected-checkpoint replay in main Table 5; the examples provide qualitative context only.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 41,
+      "body_block": 46,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId25",
+          "target": "media/image15.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 42,
+      "body_block": 47,
+      "style": "Caption",
+      "text": "Fig. S6. Historical same-image DSLR detector comparison. These archived outputs illustrate comparative error patterns and are not a replay of the selected 73.115 AP checkpoint.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 43,
+      "body_block": 48,
+      "style": "Normal",
+      "text": "The acquisition/error atlas is presented in main Fig. 1. Fig. S7 expands historical same-checkpoint prior-help/prior-harm examples: correction can alter an FDI assignment in either direction, without estimating benefit/harm frequencies. Fig. S8 shows genuine intermediate tensors from a refiner-enabled model; responses are not causal ablations or clinically validated explanations.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 44,
+      "body_block": 49,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId26",
+          "target": "media/image16.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 45,
+      "body_block": 50,
+      "style": "Caption",
+      "text": "Fig. S7. Historical same-checkpoint prior-help/prior-harm examples. Only anatomical scoring changes within each displayed comparison. This visual checkpoint differs from the selected checkpoint in main Table 5; no numerical result from that table is attributed to these images.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 46,
+      "body_block": 51,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId27",
+          "target": "media/image17.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 47,
+      "body_block": 52,
+      "style": "Caption",
+      "text": "Fig. S8. Exploratory CMFA/HOOA forward-pass responses from DSLR validation image 46 in a refiner-enabled configuration. Channel-gate grids index channels, not anatomy; display normalization is separate from raw gate values. HOOA is absent from the final DSLR recipe. These tensors are not Grad-CAM maps or evidence of an AP gain from every branch.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 48,
+      "body_block": 53,
+      "style": "Heading 1",
+      "text": "S7. Evaluation families and visualization methods",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 49,
+      "body_block": 54,
+      "style": "Normal",
+      "text": "Native training-log metrics and FP32 replay metrics are kept as separate evaluation streams. Likewise, local and official DEIM models are separate implementations. Table S6 summarizes the valid interpretation of each family.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 50,
+      "body_block": 55,
+      "style": "Caption",
+      "text": "Table S6. Evaluation scope of the experimental families.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 51,
+      "body_block": 57,
+      "style": "Heading 2",
+      "text": "Quantitative visualization",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 52,
+      "body_block": 58,
+      "style": "Normal",
+      "text": "Main Fig. 6 plots all ten rows of main Table 4 without omitting larger or higher-AP comparators. Main Fig. 7 plots all 16 feature combinations from the original ablation summary in design order. AP is multiplied by 100 where source values are proportions; parameter counts are divided by 10⁶ where recorded as integers. No missing observations, confidence intervals, interpolated curves, or synthetic measurements are introduced. The accompanying CSV files and rebuild_quantitative_figures.py reproduce both plots as PNG, SVG, and PDF.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "index": 53,
+      "body_block": 59,
+      "style": "Normal",
+      "text": "Python/Matplotlib plotting code was prepared with assistance from ChatGPT (GPT-6 Astra Pro, OpenAI). Source numeric records were retained and checked against the manuscript tables. Existing anatomical/prediction figures were reused; only surrounding whitespace, obsolete panel labels, or the complementary HOOA/CEDv2 panel boundary was cropped. Clinical pixels, predicted boxes, FDI labels, gate values, and anatomical distributions were not retouched or regenerated. Original high-resolution or editable sources should be retained for editorial assessment.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    }
+  ],
+  "tables": [
+    {
+      "index": 0,
+      "body_block": 17,
+      "preceding_paragraphs": [
+        "S2. Complete recipe and inter-module results",
+        "Table S1 contains non-selected cohort-specific recipes. Module labels alone do not define a matched comparison because training settings differ across families. Selected models and local references remain in main Table 3. Table S2 is the separate, fixed-recipe 16-way feature experiment visualized in main Fig. 7.",
+        "Table S1. Historical recipe-level development/validation comparisons.",
+        "Metric values are copied from the original manuscript tables, retaining their original precision. “Prototype” is the historical configuration label, not prototype-score fusion. “SpatialShape” is a prior-enabled complete recipe, not a same-checkpoint toggle."
+      ],
+      "rows": [
+        [
+          "Cohort",
+          "Configuration",
+          "AP",
+          "AP50",
+          "AP75",
+          "AR100",
+          "Params (M)"
+        ],
+        [
+          "DENTEX",
+          "Prototype",
+          "53.633",
+          "93.189",
+          "54.455",
+          "66.512",
+          "10.65"
+        ],
+        [
+          "DENTEX",
+          "CMFA + HOOA",
+          "53.444",
+          "93.390",
+          "54.930",
+          "68.884",
+          "12.42"
+        ],
+        [
+          "DENTEX",
+          "CMFA + SMWG + UCM + MPF + DualOpt",
+          "53.201",
+          "94.007",
+          "53.777",
+          "68.073",
+          "13.40"
+        ],
+        [
+          "DENTEX",
+          "UCM",
+          "53.190",
+          "93.585",
+          "52.935",
+          "67.156",
+          "11.06"
+        ],
+        [
+          "DENTEX",
+          "DualOpt-only",
+          "53.180",
+          "93.297",
+          "53.739",
+          "67.112",
+          "10.60"
+        ],
+        [
+          "DENTEX",
+          "CMFA",
+          "53.127",
+          "93.728",
+          "52.941",
+          "68.383",
+          "11.13"
+        ],
+        [
+          "DENTEX",
+          "SMWG",
+          "53.013",
+          "93.261",
+          "53.491",
+          "68.131",
+          "11.19"
+        ],
+        [
+          "DENTEX",
+          "MPF",
+          "52.808",
+          "93.316",
+          "53.993",
+          "67.690",
+          "11.83"
+        ],
+        [
+          "Smartphone",
+          "CMFA + SMWG + UCM + MPF + DualOpt",
+          "53.998",
+          "83.613",
+          "60.057",
+          "68.683",
+          "13.42"
+        ],
+        [
+          "Smartphone",
+          "MPF",
+          "53.726",
+          "83.882",
+          "59.323",
+          "67.040",
+          "11.86"
+        ],
+        [
+          "Smartphone",
+          "CMFA",
+          "53.551",
+          "83.914",
+          "58.898",
+          "67.082",
+          "11.15"
+        ],
+        [
+          "Smartphone",
+          "Prototype",
+          "53.305",
+          "83.327",
+          "57.481",
+          "68.276",
+          "10.70"
+        ],
+        [
+          "Smartphone",
+          "SMWG",
+          "53.236",
+          "83.707",
+          "59.507",
+          "67.179",
+          "11.22"
+        ],
+        [
+          "Smartphone",
+          "UCM",
+          "52.606",
+          "82.100",
+          "58.973",
+          "67.982",
+          "11.08"
+        ],
+        [
+          "Smartphone",
+          "CMFA + HOOA",
+          "52.369",
+          "82.657",
+          "56.582",
+          "66.302",
+          "12.45"
+        ],
+        [
+          "Smartphone",
+          "SpatialShape",
+          "52.227",
+          "82.298",
+          "57.393",
+          "66.822",
+          "10.70"
+        ],
+        [
+          "DSLR",
+          "CMFA + HOOA + DualOpt",
+          "72.995",
+          "89.086",
+          "83.696",
+          "81.168",
+          "12.45"
+        ],
+        [
+          "DSLR",
+          "CMFA + HOOA + CEDv2 + SpatialShape + DualOpt",
+          "72.838",
+          "88.590",
+          "83.353",
+          "84.086",
+          "16.59"
+        ],
+        [
+          "DSLR",
+          "CMFA + HOOA + CEDv2 + SpatialShape",
+          "72.812",
+          "88.491",
+          "83.946",
+          "82.935",
+          "16.59"
+        ],
+        [
+          "DSLR",
+          "MPF + DualOpt",
+          "72.700",
+          "88.181",
+          "83.244",
+          "81.765",
+          "11.86"
+        ],
+        [
+          "DSLR",
+          "CMFA + HOOA + Prototype",
+          "72.670",
+          "88.183",
+          "83.886",
+          "83.069",
+          "12.51"
+        ],
+        [
+          "DSLR",
+          "CMFA + HOOA + SpatialShape",
+          "72.417",
+          "88.569",
+          "83.685",
+          "83.231",
+          "12.51"
+        ],
+        [
+          "DSLR",
+          "CMFA + HOOA + CEDv2 + DualOpt",
+          "72.402",
+          "88.011",
+          "83.215",
+          "82.253",
+          "16.52"
+        ],
+        [
+          "DSLR",
+          "CMFA + HOOA + CEDv2",
+          "72.353",
+          "88.056",
+          "82.285",
+          "81.783",
+          "16.52"
+        ],
+        [
+          "DSLR",
+          "Prototype + DualOpt",
+          "72.292",
+          "87.958",
+          "83.116",
+          "81.785",
+          "10.70"
+        ],
+        [
+          "DSLR",
+          "CMFA + HOOA + SpatialShape + DualOpt",
+          "72.266",
+          "88.127",
+          "82.935",
+          "83.645",
+          "12.51"
+        ],
+        [
+          "DSLR",
+          "SpatialShape + DualOpt",
+          "71.533",
+          "87.085",
+          "82.554",
+          "82.804",
+          "10.70"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "index": 1,
+      "body_block": 21,
+      "preceding_paragraphs": [
+        "Metric values are copied from the original manuscript tables, retaining their original precision. “Prototype” is the historical configuration label, not prototype-score fusion. “SpatialShape” is a prior-enabled complete recipe, not a same-checkpoint toggle.",
+        "For Table S2, DualOpt is active in every row, with a common seed, input policy, training budget, and checkpoint-selection rule. All four-feature combinations are included. The 73.431 AP CMFA + DualOpt result belongs to this historical family and is not the selected 73.115 AP DSLR recipe in main Tables 3–4.",
+        "Table S2. Complete four-feature-module ablation on DSLR with DualOpt fixed.",
+        "+/− indicate enabled/disabled CMFA, SMWG, UCM, and MPF. Metrics are percentage points and parameters are millions. These are individual-run results, not means across seeds. The main figure displays the same values without smoothing or uncertainty bars."
+      ],
+      "rows": [
+        [
+          "CMFA",
+          "SMWG",
+          "UCM",
+          "MPF",
+          "AP",
+          "AP50",
+          "AP75",
+          "AR100",
+          "Params (M)"
+        ],
+        [
+          "−",
+          "−",
+          "−",
+          "−",
+          "73.173",
+          "89.677",
+          "83.736",
+          "80.538",
+          "10.629"
+        ],
+        [
+          "+",
+          "−",
+          "−",
+          "−",
+          "73.431",
+          "89.580",
+          "84.660",
+          "82.054",
+          "11.154"
+        ],
+        [
+          "−",
+          "+",
+          "−",
+          "−",
+          "72.092",
+          "87.901",
+          "82.995",
+          "81.149",
+          "11.216"
+        ],
+        [
+          "−",
+          "−",
+          "+",
+          "−",
+          "73.107",
+          "88.902",
+          "84.196",
+          "81.623",
+          "11.083"
+        ],
+        [
+          "−",
+          "−",
+          "−",
+          "+",
+          "72.700",
+          "88.181",
+          "83.244",
+          "81.765",
+          "11.858"
+        ],
+        [
+          "+",
+          "+",
+          "−",
+          "−",
+          "72.640",
+          "88.407",
+          "83.458",
+          "80.992",
+          "11.740"
+        ],
+        [
+          "+",
+          "−",
+          "+",
+          "−",
+          "72.551",
+          "88.484",
+          "83.706",
+          "81.069",
+          "11.608"
+        ],
+        [
+          "+",
+          "−",
+          "−",
+          "+",
+          "72.528",
+          "88.260",
+          "82.936",
+          "82.250",
+          "12.383"
+        ],
+        [
+          "−",
+          "+",
+          "+",
+          "−",
+          "71.999",
+          "87.329",
+          "82.592",
+          "80.347",
+          "11.670"
+        ],
+        [
+          "−",
+          "+",
+          "−",
+          "+",
+          "72.335",
+          "88.132",
+          "83.498",
+          "81.501",
+          "12.444"
+        ],
+        [
+          "−",
+          "−",
+          "+",
+          "+",
+          "72.759",
+          "88.616",
+          "83.451",
+          "80.904",
+          "12.312"
+        ],
+        [
+          "+",
+          "+",
+          "+",
+          "−",
+          "72.582",
+          "88.514",
+          "83.490",
+          "81.228",
+          "12.194"
+        ],
+        [
+          "+",
+          "+",
+          "−",
+          "+",
+          "73.123",
+          "89.630",
+          "83.501",
+          "82.297",
+          "12.969"
+        ],
+        [
+          "+",
+          "−",
+          "+",
+          "+",
+          "72.231",
+          "87.686",
+          "83.315",
+          "81.489",
+          "12.837"
+        ],
+        [
+          "−",
+          "+",
+          "+",
+          "+",
+          "73.148",
+          "89.503",
+          "83.793",
+          "81.974",
+          "12.899"
+        ],
+        [
+          "+",
+          "+",
+          "+",
+          "+",
+          "72.262",
+          "87.864",
+          "82.798",
+          "81.413",
+          "13.423"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "index": 2,
+      "body_block": 26,
+      "preceding_paragraphs": [
+        "S3. Progressive identity-mechanism ablation",
+        "The eight experiments in Table S3 hold a historical feature stack fixed within each cohort and progressively enable factor auxiliary heads, prototype auxiliary learning, and the geometric prior. The common stack contains CMFA, HOOA, EFRUF, SINF, and SMWG; these are not the smaller final recipes. Factor and prototype inference-fusion weights are zero in this family. Thus, the factor/prototype rows test auxiliary supervision, whereas the final row also adds inference-time geometric/view scoring. All rows belong to the same recorded run family, but each is a single training run; no across-seed variance is estimated.",
+        "Table S3. Progressive identity ablation on a fixed historical feature stack.",
+        "The bank uses four prototypes per class and temperature 0.20. The approximately 15.5 M-parameter reference is not Local DEIM–D-FINE in main Table 3. This family does not isolate center versus shape or the final Mobile factor-score fusion."
+      ],
+      "rows": [
+        [
+          "Cohort",
+          "Setting",
+          "AP",
+          "AP50",
+          "AP75",
+          "Params (M)"
+        ],
+        [
+          "Smartphone",
+          "Fixed feature reference",
+          "53.546",
+          "83.165",
+          "60.308",
+          "15.548"
+        ],
+        [
+          "Smartphone",
+          "+ factor auxiliary",
+          "53.595",
+          "83.976",
+          "58.780",
+          "15.562"
+        ],
+        [
+          "Smartphone",
+          "+ factor + prototype auxiliary",
+          "54.242",
+          "84.000",
+          "61.782",
+          "15.615"
+        ],
+        [
+          "Smartphone",
+          "+ factor + prototype + geometric prior",
+          "52.924",
+          "83.106",
+          "58.568",
+          "15.615"
+        ],
+        [
+          "DENTEX",
+          "Fixed feature reference",
+          "53.590",
+          "93.939",
+          "53.191",
+          "15.523"
+        ],
+        [
+          "DENTEX",
+          "+ factor auxiliary",
+          "53.572",
+          "93.149",
+          "56.037",
+          "15.537"
+        ],
+        [
+          "DENTEX",
+          "+ factor + prototype auxiliary",
+          "53.746",
+          "93.921",
+          "54.996",
+          "15.569"
+        ],
+        [
+          "DENTEX",
+          "+ factor + prototype + geometric prior",
+          "54.234",
+          "94.301",
+          "55.792",
+          "15.569"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "index": 3,
+      "body_block": 32,
+      "preceding_paragraphs": [
+        "S4. Upstream baselines, repeated runs, and module migration",
+        "Table S4 reports existing upstream baseline training runs with seeds 0, 1, and 2. Mean and sample standard deviation are computed over the three run-specific best validation checkpoints. These are repeated runs of the official implementations, not repeated runs of the final DENT-STRIDE configurations. In particular, their standard deviations must not be attached to the selected AP values in main Table 3.",
+        "Table S4. Three-seed official baseline AP.",
+        "All entries are validation-selected estimates. Three-seed baseline variability does not remove selection bias or establish uncertainty for a differently configured final model."
+      ],
+      "rows": [
+        [
+          "Cohort",
+          "Implementation",
+          "Seed 0",
+          "Seed 1",
+          "Seed 2",
+          "Mean ± SD"
+        ],
+        [
+          "DENTEX",
+          "Official DEIM-s",
+          "53.349",
+          "53.966",
+          "54.165",
+          "53.827 ± 0.425"
+        ],
+        [
+          "Smartphone",
+          "Official DEIM-s",
+          "53.605",
+          "53.438",
+          "53.614",
+          "53.553 ± 0.099"
+        ],
+        [
+          "DSLR",
+          "Official DEIM-s",
+          "72.557",
+          "72.176",
+          "72.482",
+          "72.405 ± 0.202"
+        ],
+        [
+          "DENTEX",
+          "RT-DETRv2-S",
+          "50.797",
+          "50.552",
+          "50.977",
+          "50.775 ± 0.213"
+        ],
+        [
+          "Smartphone",
+          "RT-DETRv2-S",
+          "50.986",
+          "50.031",
+          "50.669",
+          "50.562 ± 0.486"
+        ],
+        [
+          "DSLR",
+          "RT-DETRv2-S",
+          "71.206",
+          "71.276",
+          "70.367",
+          "70.949 ± 0.506"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "index": 4,
+      "body_block": 38,
+      "preceding_paragraphs": [
+        "S5. Additional historical cross-framework comparisons",
+        "Table S5 restores the available conventional-detector references for DENTEX and smartphone photographs. They retain native framework optimization, pretraining, and post-processing. The archived smartphone comparator annotations and final Mobile annotations have different serialized hashes; therefore these results are shown as historical framework references rather than asserted to be a byte-identical, fully harmonized comparison with the selected 1024-resolution Mobile model. No claim of universal accuracy leadership is drawn from this table.",
+        "Table S5. Historical conventional-detector development comparisons.",
+        "Framework-native training and output processing are retained. The main manuscript distinguishes the selected-recipe evidence from these development comparisons."
+      ],
+      "rows": [
+        [
+          "Cohort",
+          "Model",
+          "AP",
+          "AP50",
+          "AP75",
+          "AR100"
+        ],
+        [
+          "DENTEX",
+          "Faster R-CNN",
+          "47.695",
+          "91.056",
+          "42.930",
+          "58.417"
+        ],
+        [
+          "DENTEX",
+          "CAF-YOLO-s",
+          "48.058",
+          "88.747",
+          "46.379",
+          "57.519"
+        ],
+        [
+          "DENTEX",
+          "YOLOv8-s",
+          "51.431",
+          "91.337",
+          "51.910",
+          "63.708"
+        ],
+        [
+          "DENTEX",
+          "YOLO11-s",
+          "50.644",
+          "92.008",
+          "48.440",
+          "61.157"
+        ],
+        [
+          "DENTEX",
+          "RT-DETR-L",
+          "51.978",
+          "92.908",
+          "51.351",
+          "63.421"
+        ],
+        [
+          "DENTEX",
+          "Dome-DETR-S",
+          "51.711",
+          "92.725",
+          "50.759",
+          "66.621"
+        ],
+        [
+          "Smartphone",
+          "Faster R-CNN",
+          "41.182",
+          "69.211",
+          "44.811",
+          "57.194"
+        ],
+        [
+          "Smartphone",
+          "CAF-YOLO-s",
+          "43.771",
+          "70.389",
+          "48.601",
+          "50.959"
+        ],
+        [
+          "Smartphone",
+          "YOLOv8-s",
+          "46.937",
+          "74.108",
+          "52.272",
+          "57.278"
+        ],
+        [
+          "Smartphone",
+          "YOLO11-s",
+          "47.064",
+          "73.483",
+          "52.526",
+          "56.297"
+        ],
+        [
+          "Smartphone",
+          "RT-DETR-L",
+          "54.751",
+          "83.674",
+          "61.117",
+          "67.004"
+        ],
+        [
+          "Smartphone",
+          "Dome-DETR-S",
+          "51.828",
+          "79.595",
+          "56.832",
+          "67.802"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "index": 5,
+      "body_block": 56,
+      "preceding_paragraphs": [
+        "S7. Evaluation families and visualization methods",
+        "Native training-log metrics and FP32 replay metrics are kept as separate evaluation streams. Likewise, local and official DEIM models are separate implementations. Table S6 summarizes the valid interpretation of each family.",
+        "Table S6. Evaluation scope of the experimental families.",
+        "Quantitative visualization"
+      ],
+      "rows": [
+        [
+          "Evidence family",
+          "Controlled comparison",
+          "Inference supported"
+        ],
+        [
+          "Selected Pano/Mobile/DSLR recipes",
+          "Final recipe versus local/upstream references",
+          "Recipe-level descriptive validation AP"
+        ],
+        [
+          "16-way DSLR feature family",
+          "Four feature toggles; DualOpt fixed",
+          "Within-family inter-module response"
+        ],
+        [
+          "Progressive identity family",
+          "Factors, then prototypes, then geometric prior",
+          "Historical supervision/prior progression"
+        ],
+        [
+          "Selected Pano FP32 replay",
+          "Same weights; combined prior off/on",
+          "Combined geometric score correction"
+        ],
+        [
+          "Final photo cross-device replay",
+          "Same source weights; change target cohort",
+          "Unadapted cross-device performance"
+        ],
+        [
+          "Official baseline three seeds",
+          "Same implementation; seeds 0/1/2",
+          "Variability of those baselines only"
+        ]
+      ],
+      "style": "Normal Table"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "paragraph",
+      "index": 0,
+      "body_block": 0,
+      "style": "Title",
+      "text": "Supplementary material",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 1,
+      "body_block": 1,
+      "style": "Normal",
+      "text": "DENT-STRIDE: Domain-Configured Structured FDI Tooth Detection Across Panoramic Radiographs and Intraoral Photographs",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 2,
+      "body_block": 2,
+      "style": "Normal",
+      "text": "Additional component descriptions, complete numerical ablations, comparator protocols, and exploratory visual analyses. Experimental families retain their own configurations; historical outputs are not substituted for final-model predictions.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 3,
+      "body_block": 3,
+      "style": "Heading 1",
+      "text": "S1. Optional feature-processing components",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 4,
+      "body_block": 4,
+      "style": "Normal",
+      "text": "The main article shows the Mobile HOOA architecture (Fig. 5). Figs. S1–S3 document comparison refiners that are not required by the three selected recipes: CEDv2, SMWG, MPF, and UCM.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 5,
+      "body_block": 5,
+      "style": "Normal",
+      "text": "CEDv2 operates on projected features before the main encoder. Coarse features are upsampled and laterally projected to provide sigmoid guidance for the adjacent finer level; aligned branches are concatenated and refined. The bottom-up path fuses learned stride-2 features reciprocally with coarser branches (Fig. S1).",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 6,
+      "body_block": 6,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId21",
+          "target": "media/image11.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 7,
+      "body_block": 7,
+      "style": "Caption",
+      "text": "Fig. S1. CEDv2 comparison architecture. Guided top-down and bottom-up operations refine the projected pyramid before the main encoder. This module is not active in any selected recipe. ↑ denotes resizing/upsampling except the labelled learned stride-2 operation; C denotes concatenation, σ sigmoid, and ⊙ element-wise multiplication.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 8,
+      "body_block": 8,
+      "style": "Normal",
+      "text": "The auxiliary SMWG refiner acts on projected P3/P4/P5 before encoder aggregation. A pre-projection is transformed with rFFT2 into a complex spectrum. Fixed radial low-, mid-, and high-frequency masks are mixed by per-channel softmax weights and applied through the bounded modulation 1 + 0.20 × tanh(M). After irFFT2 and post-projection, a dynamic channel gate computed from the pre-FFT feature controls a residual update with α_s = 0.35 × sigmoid(s). Fine-to-coarse guidance computes a local high-pass residual P−AvgPool3×3(P), resizes and projects it to the next coarser level, predicts a sigmoid guide, and applies depthwise 3×3 refinement with a bounded residual update. The evaluated implementation is Fourier-based and does not perform a discrete wavelet decomposition (Fig. S2).",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 9,
+      "body_block": 9,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId12",
+          "target": "media/image2.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 10,
+      "body_block": 10,
+      "style": "Caption",
+      "text": "Fig. S2. SMWG, an optional Fourier spectral-modulation and fine-to-coarse detail-guidance refiner. This evaluated implementation uses rFFT2/irFFT2 with radial frequency-band masks; it does not perform a discrete wavelet decomposition.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 11,
+      "body_block": 11,
+      "style": "Normal",
+      "text": "After FPN/PAN aggregation, the auxiliary MPF and UCM refiners can be applied independently to each output level. MPF combines a depthwise 5×5 local-spatial branch, a global-average-pooled channel-reweighting branch, and a 1×1→3×3 context branch using three softmax-normalized weights; the mixture is injected with α_m=0.35×sigmoid(s). UCM computes μ=AvgPool₅×₅(x) and v=ReLU[AvgPool₅×₅(x²)−μ²]. A learned uncertainty map U interpolates a depthwise detail update D from x−μ and a projected context update C from μ, yielding R=U⊙D+(1−U)⊙C and P_ucm=x+α_uR with α_u=0.35×sigmoid(s). Fig. S3 reflects this per-level refinement view, and when both are enabled MPF precedes UCM on each level.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 12,
+      "body_block": 12,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId22",
+          "target": "media/image12.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 13,
+      "body_block": 13,
+      "style": "Caption",
+      "text": "Fig. S3. MPF and UCM per-level comparison refiners. MPF mixes local, channel-reweighting, and context paths; UCM uses local mean/variance to interpolate detail and context updates. MPF precedes UCM when both are enabled.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 14,
+      "body_block": 14,
+      "style": "Heading 1",
+      "text": "S2. Complete recipe and inter-module results",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 15,
+      "body_block": 15,
+      "style": "Normal",
+      "text": "Table S1 contains non-selected cohort-specific recipes. Module labels alone do not define a matched comparison because training settings differ across families. Selected models and local references remain in main Table 3. Table S2 is the separate, fixed-recipe 16-way feature experiment visualized in main Fig. 7.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 16,
+      "body_block": 16,
+      "style": "Caption",
+      "text": "Table S1. Historical recipe-level development/validation comparisons.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "table",
+      "index": 0,
+      "body_block": 17,
+      "preceding_paragraphs": [
+        "S2. Complete recipe and inter-module results",
+        "Table S1 contains non-selected cohort-specific recipes. Module labels alone do not define a matched comparison because training settings differ across families. Selected models and local references remain in main Table 3. Table S2 is the separate, fixed-recipe 16-way feature experiment visualized in main Fig. 7.",
+        "Table S1. Historical recipe-level development/validation comparisons.",
+        "Metric values are copied from the original manuscript tables, retaining their original precision. “Prototype” is the historical configuration label, not prototype-score fusion. “SpatialShape” is a prior-enabled complete recipe, not a same-checkpoint toggle."
+      ],
+      "rows": [
+        [
+          "Cohort",
+          "Configuration",
+          "AP",
+          "AP50",
+          "AP75",
+          "AR100",
+          "Params (M)"
+        ],
+        [
+          "DENTEX",
+          "Prototype",
+          "53.633",
+          "93.189",
+          "54.455",
+          "66.512",
+          "10.65"
+        ],
+        [
+          "DENTEX",
+          "CMFA + HOOA",
+          "53.444",
+          "93.390",
+          "54.930",
+          "68.884",
+          "12.42"
+        ],
+        [
+          "DENTEX",
+          "CMFA + SMWG + UCM + MPF + DualOpt",
+          "53.201",
+          "94.007",
+          "53.777",
+          "68.073",
+          "13.40"
+        ],
+        [
+          "DENTEX",
+          "UCM",
+          "53.190",
+          "93.585",
+          "52.935",
+          "67.156",
+          "11.06"
+        ],
+        [
+          "DENTEX",
+          "DualOpt-only",
+          "53.180",
+          "93.297",
+          "53.739",
+          "67.112",
+          "10.60"
+        ],
+        [
+          "DENTEX",
+          "CMFA",
+          "53.127",
+          "93.728",
+          "52.941",
+          "68.383",
+          "11.13"
+        ],
+        [
+          "DENTEX",
+          "SMWG",
+          "53.013",
+          "93.261",
+          "53.491",
+          "68.131",
+          "11.19"
+        ],
+        [
+          "DENTEX",
+          "MPF",
+          "52.808",
+          "93.316",
+          "53.993",
+          "67.690",
+          "11.83"
+        ],
+        [
+          "Smartphone",
+          "CMFA + SMWG + UCM + MPF + DualOpt",
+          "53.998",
+          "83.613",
+          "60.057",
+          "68.683",
+          "13.42"
+        ],
+        [
+          "Smartphone",
+          "MPF",
+          "53.726",
+          "83.882",
+          "59.323",
+          "67.040",
+          "11.86"
+        ],
+        [
+          "Smartphone",
+          "CMFA",
+          "53.551",
+          "83.914",
+          "58.898",
+          "67.082",
+          "11.15"
+        ],
+        [
+          "Smartphone",
+          "Prototype",
+          "53.305",
+          "83.327",
+          "57.481",
+          "68.276",
+          "10.70"
+        ],
+        [
+          "Smartphone",
+          "SMWG",
+          "53.236",
+          "83.707",
+          "59.507",
+          "67.179",
+          "11.22"
+        ],
+        [
+          "Smartphone",
+          "UCM",
+          "52.606",
+          "82.100",
+          "58.973",
+          "67.982",
+          "11.08"
+        ],
+        [
+          "Smartphone",
+          "CMFA + HOOA",
+          "52.369",
+          "82.657",
+          "56.582",
+          "66.302",
+          "12.45"
+        ],
+        [
+          "Smartphone",
+          "SpatialShape",
+          "52.227",
+          "82.298",
+          "57.393",
+          "66.822",
+          "10.70"
+        ],
+        [
+          "DSLR",
+          "CMFA + HOOA + DualOpt",
+          "72.995",
+          "89.086",
+          "83.696",
+          "81.168",
+          "12.45"
+        ],
+        [
+          "DSLR",
+          "CMFA + HOOA + CEDv2 + SpatialShape + DualOpt",
+          "72.838",
+          "88.590",
+          "83.353",
+          "84.086",
+          "16.59"
+        ],
+        [
+          "DSLR",
+          "CMFA + HOOA + CEDv2 + SpatialShape",
+          "72.812",
+          "88.491",
+          "83.946",
+          "82.935",
+          "16.59"
+        ],
+        [
+          "DSLR",
+          "MPF + DualOpt",
+          "72.700",
+          "88.181",
+          "83.244",
+          "81.765",
+          "11.86"
+        ],
+        [
+          "DSLR",
+          "CMFA + HOOA + Prototype",
+          "72.670",
+          "88.183",
+          "83.886",
+          "83.069",
+          "12.51"
+        ],
+        [
+          "DSLR",
+          "CMFA + HOOA + SpatialShape",
+          "72.417",
+          "88.569",
+          "83.685",
+          "83.231",
+          "12.51"
+        ],
+        [
+          "DSLR",
+          "CMFA + HOOA + CEDv2 + DualOpt",
+          "72.402",
+          "88.011",
+          "83.215",
+          "82.253",
+          "16.52"
+        ],
+        [
+          "DSLR",
+          "CMFA + HOOA + CEDv2",
+          "72.353",
+          "88.056",
+          "82.285",
+          "81.783",
+          "16.52"
+        ],
+        [
+          "DSLR",
+          "Prototype + DualOpt",
+          "72.292",
+          "87.958",
+          "83.116",
+          "81.785",
+          "10.70"
+        ],
+        [
+          "DSLR",
+          "CMFA + HOOA + SpatialShape + DualOpt",
+          "72.266",
+          "88.127",
+          "82.935",
+          "83.645",
+          "12.51"
+        ],
+        [
+          "DSLR",
+          "SpatialShape + DualOpt",
+          "71.533",
+          "87.085",
+          "82.554",
+          "82.804",
+          "10.70"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "type": "paragraph",
+      "index": 17,
+      "body_block": 18,
+      "style": "Caption",
+      "text": "Metric values are copied from the original manuscript tables, retaining their original precision. “Prototype” is the historical configuration label, not prototype-score fusion. “SpatialShape” is a prior-enabled complete recipe, not a same-checkpoint toggle.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 18,
+      "body_block": 19,
+      "style": "Normal",
+      "text": "For Table S2, DualOpt is active in every row, with a common seed, input policy, training budget, and checkpoint-selection rule. All four-feature combinations are included. The 73.431 AP CMFA + DualOpt result belongs to this historical family and is not the selected 73.115 AP DSLR recipe in main Tables 3–4.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 19,
+      "body_block": 20,
+      "style": "Caption",
+      "text": "Table S2. Complete four-feature-module ablation on DSLR with DualOpt fixed.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "table",
+      "index": 1,
+      "body_block": 21,
+      "preceding_paragraphs": [
+        "Metric values are copied from the original manuscript tables, retaining their original precision. “Prototype” is the historical configuration label, not prototype-score fusion. “SpatialShape” is a prior-enabled complete recipe, not a same-checkpoint toggle.",
+        "For Table S2, DualOpt is active in every row, with a common seed, input policy, training budget, and checkpoint-selection rule. All four-feature combinations are included. The 73.431 AP CMFA + DualOpt result belongs to this historical family and is not the selected 73.115 AP DSLR recipe in main Tables 3–4.",
+        "Table S2. Complete four-feature-module ablation on DSLR with DualOpt fixed.",
+        "+/− indicate enabled/disabled CMFA, SMWG, UCM, and MPF. Metrics are percentage points and parameters are millions. These are individual-run results, not means across seeds. The main figure displays the same values without smoothing or uncertainty bars."
+      ],
+      "rows": [
+        [
+          "CMFA",
+          "SMWG",
+          "UCM",
+          "MPF",
+          "AP",
+          "AP50",
+          "AP75",
+          "AR100",
+          "Params (M)"
+        ],
+        [
+          "−",
+          "−",
+          "−",
+          "−",
+          "73.173",
+          "89.677",
+          "83.736",
+          "80.538",
+          "10.629"
+        ],
+        [
+          "+",
+          "−",
+          "−",
+          "−",
+          "73.431",
+          "89.580",
+          "84.660",
+          "82.054",
+          "11.154"
+        ],
+        [
+          "−",
+          "+",
+          "−",
+          "−",
+          "72.092",
+          "87.901",
+          "82.995",
+          "81.149",
+          "11.216"
+        ],
+        [
+          "−",
+          "−",
+          "+",
+          "−",
+          "73.107",
+          "88.902",
+          "84.196",
+          "81.623",
+          "11.083"
+        ],
+        [
+          "−",
+          "−",
+          "−",
+          "+",
+          "72.700",
+          "88.181",
+          "83.244",
+          "81.765",
+          "11.858"
+        ],
+        [
+          "+",
+          "+",
+          "−",
+          "−",
+          "72.640",
+          "88.407",
+          "83.458",
+          "80.992",
+          "11.740"
+        ],
+        [
+          "+",
+          "−",
+          "+",
+          "−",
+          "72.551",
+          "88.484",
+          "83.706",
+          "81.069",
+          "11.608"
+        ],
+        [
+          "+",
+          "−",
+          "−",
+          "+",
+          "72.528",
+          "88.260",
+          "82.936",
+          "82.250",
+          "12.383"
+        ],
+        [
+          "−",
+          "+",
+          "+",
+          "−",
+          "71.999",
+          "87.329",
+          "82.592",
+          "80.347",
+          "11.670"
+        ],
+        [
+          "−",
+          "+",
+          "−",
+          "+",
+          "72.335",
+          "88.132",
+          "83.498",
+          "81.501",
+          "12.444"
+        ],
+        [
+          "−",
+          "−",
+          "+",
+          "+",
+          "72.759",
+          "88.616",
+          "83.451",
+          "80.904",
+          "12.312"
+        ],
+        [
+          "+",
+          "+",
+          "+",
+          "−",
+          "72.582",
+          "88.514",
+          "83.490",
+          "81.228",
+          "12.194"
+        ],
+        [
+          "+",
+          "+",
+          "−",
+          "+",
+          "73.123",
+          "89.630",
+          "83.501",
+          "82.297",
+          "12.969"
+        ],
+        [
+          "+",
+          "−",
+          "+",
+          "+",
+          "72.231",
+          "87.686",
+          "83.315",
+          "81.489",
+          "12.837"
+        ],
+        [
+          "−",
+          "+",
+          "+",
+          "+",
+          "73.148",
+          "89.503",
+          "83.793",
+          "81.974",
+          "12.899"
+        ],
+        [
+          "+",
+          "+",
+          "+",
+          "+",
+          "72.262",
+          "87.864",
+          "82.798",
+          "81.413",
+          "13.423"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "type": "paragraph",
+      "index": 20,
+      "body_block": 22,
+      "style": "Caption",
+      "text": "+/− indicate enabled/disabled CMFA, SMWG, UCM, and MPF. Metrics are percentage points and parameters are millions. These are individual-run results, not means across seeds. The main figure displays the same values without smoothing or uncertainty bars.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 21,
+      "body_block": 23,
+      "style": "Heading 1",
+      "text": "S3. Progressive identity-mechanism ablation",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 22,
+      "body_block": 24,
+      "style": "Normal",
+      "text": "The eight experiments in Table S3 hold a historical feature stack fixed within each cohort and progressively enable factor auxiliary heads, prototype auxiliary learning, and the geometric prior. The common stack contains CMFA, HOOA, EFRUF, SINF, and SMWG; these are not the smaller final recipes. Factor and prototype inference-fusion weights are zero in this family. Thus, the factor/prototype rows test auxiliary supervision, whereas the final row also adds inference-time geometric/view scoring. All rows belong to the same recorded run family, but each is a single training run; no across-seed variance is estimated.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 23,
+      "body_block": 25,
+      "style": "Caption",
+      "text": "Table S3. Progressive identity ablation on a fixed historical feature stack.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "table",
+      "index": 2,
+      "body_block": 26,
+      "preceding_paragraphs": [
+        "S3. Progressive identity-mechanism ablation",
+        "The eight experiments in Table S3 hold a historical feature stack fixed within each cohort and progressively enable factor auxiliary heads, prototype auxiliary learning, and the geometric prior. The common stack contains CMFA, HOOA, EFRUF, SINF, and SMWG; these are not the smaller final recipes. Factor and prototype inference-fusion weights are zero in this family. Thus, the factor/prototype rows test auxiliary supervision, whereas the final row also adds inference-time geometric/view scoring. All rows belong to the same recorded run family, but each is a single training run; no across-seed variance is estimated.",
+        "Table S3. Progressive identity ablation on a fixed historical feature stack.",
+        "The bank uses four prototypes per class and temperature 0.20. The approximately 15.5 M-parameter reference is not Local DEIM–D-FINE in main Table 3. This family does not isolate center versus shape or the final Mobile factor-score fusion."
+      ],
+      "rows": [
+        [
+          "Cohort",
+          "Setting",
+          "AP",
+          "AP50",
+          "AP75",
+          "Params (M)"
+        ],
+        [
+          "Smartphone",
+          "Fixed feature reference",
+          "53.546",
+          "83.165",
+          "60.308",
+          "15.548"
+        ],
+        [
+          "Smartphone",
+          "+ factor auxiliary",
+          "53.595",
+          "83.976",
+          "58.780",
+          "15.562"
+        ],
+        [
+          "Smartphone",
+          "+ factor + prototype auxiliary",
+          "54.242",
+          "84.000",
+          "61.782",
+          "15.615"
+        ],
+        [
+          "Smartphone",
+          "+ factor + prototype + geometric prior",
+          "52.924",
+          "83.106",
+          "58.568",
+          "15.615"
+        ],
+        [
+          "DENTEX",
+          "Fixed feature reference",
+          "53.590",
+          "93.939",
+          "53.191",
+          "15.523"
+        ],
+        [
+          "DENTEX",
+          "+ factor auxiliary",
+          "53.572",
+          "93.149",
+          "56.037",
+          "15.537"
+        ],
+        [
+          "DENTEX",
+          "+ factor + prototype auxiliary",
+          "53.746",
+          "93.921",
+          "54.996",
+          "15.569"
+        ],
+        [
+          "DENTEX",
+          "+ factor + prototype + geometric prior",
+          "54.234",
+          "94.301",
+          "55.792",
+          "15.569"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "type": "paragraph",
+      "index": 24,
+      "body_block": 27,
+      "style": "Caption",
+      "text": "The bank uses four prototypes per class and temperature 0.20. The approximately 15.5 M-parameter reference is not Local DEIM–D-FINE in main Table 3. This family does not isolate center versus shape or the final Mobile factor-score fusion.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 25,
+      "body_block": 28,
+      "style": "Normal",
+      "text": "Relative to the factor-only row, prototype auxiliary supervision changes AP by +0.647 on smartphone photographs and +0.174 on DENTEX. Adding the combined geometric prior changes AP by −1.318 and +0.489, respectively. The opposing directions motivate acquisition-specific evaluation and do not establish a universal benefit of spatial scoring.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 26,
+      "body_block": 29,
+      "style": "Heading 1",
+      "text": "S4. Upstream baselines, repeated runs, and module migration",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 27,
+      "body_block": 30,
+      "style": "Normal",
+      "text": "Table S4 reports existing upstream baseline training runs with seeds 0, 1, and 2. Mean and sample standard deviation are computed over the three run-specific best validation checkpoints. These are repeated runs of the official implementations, not repeated runs of the final DENT-STRIDE configurations. In particular, their standard deviations must not be attached to the selected AP values in main Table 3.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 28,
+      "body_block": 31,
+      "style": "Caption",
+      "text": "Table S4. Three-seed official baseline AP.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "table",
+      "index": 3,
+      "body_block": 32,
+      "preceding_paragraphs": [
+        "S4. Upstream baselines, repeated runs, and module migration",
+        "Table S4 reports existing upstream baseline training runs with seeds 0, 1, and 2. Mean and sample standard deviation are computed over the three run-specific best validation checkpoints. These are repeated runs of the official implementations, not repeated runs of the final DENT-STRIDE configurations. In particular, their standard deviations must not be attached to the selected AP values in main Table 3.",
+        "Table S4. Three-seed official baseline AP.",
+        "All entries are validation-selected estimates. Three-seed baseline variability does not remove selection bias or establish uncertainty for a differently configured final model."
+      ],
+      "rows": [
+        [
+          "Cohort",
+          "Implementation",
+          "Seed 0",
+          "Seed 1",
+          "Seed 2",
+          "Mean ± SD"
+        ],
+        [
+          "DENTEX",
+          "Official DEIM-s",
+          "53.349",
+          "53.966",
+          "54.165",
+          "53.827 ± 0.425"
+        ],
+        [
+          "Smartphone",
+          "Official DEIM-s",
+          "53.605",
+          "53.438",
+          "53.614",
+          "53.553 ± 0.099"
+        ],
+        [
+          "DSLR",
+          "Official DEIM-s",
+          "72.557",
+          "72.176",
+          "72.482",
+          "72.405 ± 0.202"
+        ],
+        [
+          "DENTEX",
+          "RT-DETRv2-S",
+          "50.797",
+          "50.552",
+          "50.977",
+          "50.775 ± 0.213"
+        ],
+        [
+          "Smartphone",
+          "RT-DETRv2-S",
+          "50.986",
+          "50.031",
+          "50.669",
+          "50.562 ± 0.486"
+        ],
+        [
+          "DSLR",
+          "RT-DETRv2-S",
+          "71.206",
+          "71.276",
+          "70.367",
+          "70.949 ± 0.506"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "type": "paragraph",
+      "index": 29,
+      "body_block": 33,
+      "style": "Caption",
+      "text": "All entries are validation-selected estimates. Three-seed baseline variability does not remove selection bias or establish uncertainty for a differently configured final model.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 30,
+      "body_block": 34,
+      "style": "Normal",
+      "text": "The available seed-0 migration experiments also show that a module recipe is not universally beneficial when moved to an upstream implementation. The panoramic factor/prototype/SpatialShape migration increases AP from 53.349 to 54.151; the smartphone DualOpt migration decreases AP from 53.605 to 52.967; and the DSLR CMFA + DualOpt migration decreases AP from 72.557 to 72.095. These are distinct implementation-level comparisons and are not replacements for the final cohort-specific results.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 31,
+      "body_block": 35,
+      "style": "Heading 1",
+      "text": "S5. Additional historical cross-framework comparisons",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 32,
+      "body_block": 36,
+      "style": "Normal",
+      "text": "Table S5 restores the available conventional-detector references for DENTEX and smartphone photographs. They retain native framework optimization, pretraining, and post-processing. The archived smartphone comparator annotations and final Mobile annotations have different serialized hashes; therefore these results are shown as historical framework references rather than asserted to be a byte-identical, fully harmonized comparison with the selected 1024-resolution Mobile model. No claim of universal accuracy leadership is drawn from this table.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 33,
+      "body_block": 37,
+      "style": "Caption",
+      "text": "Table S5. Historical conventional-detector development comparisons.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "table",
+      "index": 4,
+      "body_block": 38,
+      "preceding_paragraphs": [
+        "S5. Additional historical cross-framework comparisons",
+        "Table S5 restores the available conventional-detector references for DENTEX and smartphone photographs. They retain native framework optimization, pretraining, and post-processing. The archived smartphone comparator annotations and final Mobile annotations have different serialized hashes; therefore these results are shown as historical framework references rather than asserted to be a byte-identical, fully harmonized comparison with the selected 1024-resolution Mobile model. No claim of universal accuracy leadership is drawn from this table.",
+        "Table S5. Historical conventional-detector development comparisons.",
+        "Framework-native training and output processing are retained. The main manuscript distinguishes the selected-recipe evidence from these development comparisons."
+      ],
+      "rows": [
+        [
+          "Cohort",
+          "Model",
+          "AP",
+          "AP50",
+          "AP75",
+          "AR100"
+        ],
+        [
+          "DENTEX",
+          "Faster R-CNN",
+          "47.695",
+          "91.056",
+          "42.930",
+          "58.417"
+        ],
+        [
+          "DENTEX",
+          "CAF-YOLO-s",
+          "48.058",
+          "88.747",
+          "46.379",
+          "57.519"
+        ],
+        [
+          "DENTEX",
+          "YOLOv8-s",
+          "51.431",
+          "91.337",
+          "51.910",
+          "63.708"
+        ],
+        [
+          "DENTEX",
+          "YOLO11-s",
+          "50.644",
+          "92.008",
+          "48.440",
+          "61.157"
+        ],
+        [
+          "DENTEX",
+          "RT-DETR-L",
+          "51.978",
+          "92.908",
+          "51.351",
+          "63.421"
+        ],
+        [
+          "DENTEX",
+          "Dome-DETR-S",
+          "51.711",
+          "92.725",
+          "50.759",
+          "66.621"
+        ],
+        [
+          "Smartphone",
+          "Faster R-CNN",
+          "41.182",
+          "69.211",
+          "44.811",
+          "57.194"
+        ],
+        [
+          "Smartphone",
+          "CAF-YOLO-s",
+          "43.771",
+          "70.389",
+          "48.601",
+          "50.959"
+        ],
+        [
+          "Smartphone",
+          "YOLOv8-s",
+          "46.937",
+          "74.108",
+          "52.272",
+          "57.278"
+        ],
+        [
+          "Smartphone",
+          "YOLO11-s",
+          "47.064",
+          "73.483",
+          "52.526",
+          "56.297"
+        ],
+        [
+          "Smartphone",
+          "RT-DETR-L",
+          "54.751",
+          "83.674",
+          "61.117",
+          "67.004"
+        ],
+        [
+          "Smartphone",
+          "Dome-DETR-S",
+          "51.828",
+          "79.595",
+          "56.832",
+          "67.802"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "type": "paragraph",
+      "index": 34,
+      "body_block": 39,
+      "style": "Caption",
+      "text": "Framework-native training and output processing are retained. The main manuscript distinguishes the selected-recipe evidence from these development comparisons.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 35,
+      "body_block": 40,
+      "style": "Heading 1",
+      "text": "S6. Shape statistics and additional visual analyses",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 36,
+      "body_block": 41,
+      "style": "Normal",
+      "text": "Main Fig. 3 shows the training-derived center templates. Fig. S4 provides complementary width/height statistics; the inference model uses their joint log-shape quadratic score, not independent marginal histograms. Figs. S5–S7 contain historical panoramic/DSLR predictions and prior-switch cases, not predictions from the final selected-checkpoint quantitative evaluations.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 37,
+      "body_block": 42,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId23",
+          "target": "media/image13.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 38,
+      "body_block": 43,
+      "style": "Caption",
+      "text": "Fig. S4. Normalized width and height of 16,234 DENTEX training boxes by FDI class. These distributions describe training geometry; the SpatialShape inference term is a joint quadratic score in log-width/log-height.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 39,
+      "body_block": 44,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId24",
+          "target": "media/image14.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 40,
+      "body_block": 45,
+      "style": "Caption",
+      "text": "Fig. S5. Historical same-image panoramic detector comparison using clinical FDI labels and a common display threshold. The DENT-STRIDE prediction source differs from the selected-checkpoint replay in main Table 5; the examples provide qualitative context only.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 41,
+      "body_block": 46,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId25",
+          "target": "media/image15.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 42,
+      "body_block": 47,
+      "style": "Caption",
+      "text": "Fig. S6. Historical same-image DSLR detector comparison. These archived outputs illustrate comparative error patterns and are not a replay of the selected 73.115 AP checkpoint.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 43,
+      "body_block": 48,
+      "style": "Normal",
+      "text": "The acquisition/error atlas is presented in main Fig. 1. Fig. S7 expands historical same-checkpoint prior-help/prior-harm examples: correction can alter an FDI assignment in either direction, without estimating benefit/harm frequencies. Fig. S8 shows genuine intermediate tensors from a refiner-enabled model; responses are not causal ablations or clinically validated explanations.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 44,
+      "body_block": 49,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId26",
+          "target": "media/image16.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 45,
+      "body_block": 50,
+      "style": "Caption",
+      "text": "Fig. S7. Historical same-checkpoint prior-help/prior-harm examples. Only anatomical scoring changes within each displayed comparison. This visual checkpoint differs from the selected checkpoint in main Table 5; no numerical result from that table is attributed to these images.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 46,
+      "body_block": 51,
+      "style": "Normal",
+      "text": "",
+      "images": [
+        {
+          "relationship": "rId27",
+          "target": "media/image17.png"
+        }
+      ],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 47,
+      "body_block": 52,
+      "style": "Caption",
+      "text": "Fig. S8. Exploratory CMFA/HOOA forward-pass responses from DSLR validation image 46 in a refiner-enabled configuration. Channel-gate grids index channels, not anatomy; display normalization is separate from raw gate values. HOOA is absent from the final DSLR recipe. These tensors are not Grad-CAM maps or evidence of an AP gain from every branch.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 48,
+      "body_block": 53,
+      "style": "Heading 1",
+      "text": "S7. Evaluation families and visualization methods",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 49,
+      "body_block": 54,
+      "style": "Normal",
+      "text": "Native training-log metrics and FP32 replay metrics are kept as separate evaluation streams. Likewise, local and official DEIM models are separate implementations. Table S6 summarizes the valid interpretation of each family.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 50,
+      "body_block": 55,
+      "style": "Caption",
+      "text": "Table S6. Evaluation scope of the experimental families.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "table",
+      "index": 5,
+      "body_block": 56,
+      "preceding_paragraphs": [
+        "S7. Evaluation families and visualization methods",
+        "Native training-log metrics and FP32 replay metrics are kept as separate evaluation streams. Likewise, local and official DEIM models are separate implementations. Table S6 summarizes the valid interpretation of each family.",
+        "Table S6. Evaluation scope of the experimental families.",
+        "Quantitative visualization"
+      ],
+      "rows": [
+        [
+          "Evidence family",
+          "Controlled comparison",
+          "Inference supported"
+        ],
+        [
+          "Selected Pano/Mobile/DSLR recipes",
+          "Final recipe versus local/upstream references",
+          "Recipe-level descriptive validation AP"
+        ],
+        [
+          "16-way DSLR feature family",
+          "Four feature toggles; DualOpt fixed",
+          "Within-family inter-module response"
+        ],
+        [
+          "Progressive identity family",
+          "Factors, then prototypes, then geometric prior",
+          "Historical supervision/prior progression"
+        ],
+        [
+          "Selected Pano FP32 replay",
+          "Same weights; combined prior off/on",
+          "Combined geometric score correction"
+        ],
+        [
+          "Final photo cross-device replay",
+          "Same source weights; change target cohort",
+          "Unadapted cross-device performance"
+        ],
+        [
+          "Official baseline three seeds",
+          "Same implementation; seeds 0/1/2",
+          "Variability of those baselines only"
+        ]
+      ],
+      "style": "Normal Table"
+    },
+    {
+      "type": "paragraph",
+      "index": 51,
+      "body_block": 57,
+      "style": "Heading 2",
+      "text": "Quantitative visualization",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 52,
+      "body_block": 58,
+      "style": "Normal",
+      "text": "Main Fig. 6 plots all ten rows of main Table 4 without omitting larger or higher-AP comparators. Main Fig. 7 plots all 16 feature combinations from the original ablation summary in design order. AP is multiplied by 100 where source values are proportions; parameter counts are divided by 10⁶ where recorded as integers. No missing observations, confidence intervals, interpolated curves, or synthetic measurements are introduced. The accompanying CSV files and rebuild_quantitative_figures.py reproduce both plots as PNG, SVG, and PDF.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    },
+    {
+      "type": "paragraph",
+      "index": 53,
+      "body_block": 59,
+      "style": "Normal",
+      "text": "Python/Matplotlib plotting code was prepared with assistance from ChatGPT (GPT-6 Astra Pro, OpenAI). Source numeric records were retained and checked against the manuscript tables. Existing anatomical/prediction figures were reused; only surrounding whitespace, obsolete panel labels, or the complementary HOOA/CEDv2 panel boundary was cropped. Clinical pixels, predicted boxes, FDI labels, gate values, and anatomical distributions were not retouched or regenerated. Original high-resolution or editable sources should be retained for editorial assessment.",
+      "images": [],
+      "equations": 0,
+      "equation_linear_text": []
+    }
+  ]
+}

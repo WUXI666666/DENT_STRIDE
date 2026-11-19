@@ -1,0 +1,67 @@
+{
+  "job_id": "internal_mobile_factor_no_dentition_seed0",
+  "configuration": "internal_mobile_factor_no_dentition",
+  "cohort": "Mobile",
+  "seed": 0,
+  "config_sha256": "2fcf41bf0962a831f48b6fdd5c8f9ea4b90aa0ef0c7020300a9817b737d8e833",
+  "checkpoint_sha256": "20218973df45520ff39891b468b5a444c675b546ecdba0b91e5f7bc44cdd5a21",
+  "precision": "FP32 native validation replay",
+  "params_total": 12513167,
+  "metrics_fraction": {
+    "AP": 0.5522670221398401,
+    "AP50": 0.8442983661161696,
+    "AP75": 0.6210220760914138,
+    "APsmall": 0.4125,
+    "APmedium": 0.40379591404250137,
+    "APlarge": 0.5660340427720927,
+    "AR1": 0.6272267928805567,
+    "AR10": 0.6766424953317651,
+    "AR100": 0.6819499274345051,
+    "ARsmall": 0.425,
+    "ARmedium": 0.5280864197530863,
+    "ARlarge": 0.693507740078381
+  },
+  "metrics_percent": {
+    "AP": 55.22670221398401,
+    "AP50": 84.42983661161696,
+    "AP75": 62.10220760914138,
+    "APsmall": 41.25,
+    "APmedium": 40.379591404250135,
+    "APlarge": 56.603404277209265,
+    "AR1": 62.72267928805567,
+    "AR10": 67.66424953317652,
+    "AR100": 68.19499274345051,
+    "ARsmall": 42.5,
+    "ARmedium": 52.80864197530863,
+    "ARlarge": 69.3507740078381
+  },
+  "fixed_threshold": {
+    "score_threshold": 0.3,
+    "IoU_threshold": 0.5,
+    "counts": {
+      "GT": 2459,
+      "predictions": 2929,
+      "localized_matches": 2349,
+      "correct_FDI_matches": 2152,
+      "TP": 2152,
+      "FP": 777,
+      "FN": 307,
+      "duplicate_image": 94,
+      "duplicate_count": 179
+    },
+    "Precision": 0.7347217480368726,
+    "Recall": 0.8751525010166734,
+    "F1": 0.7988121752041574,
+    "matched_tooth_FDI_accuracy": 0.9161345253299277,
+    "localization_coverage": 0.9552663684424563,
+    "raw_duplicate_image_rate": 0.42727272727272725,
+    "denominators": "P:predictions, R:GT, FDI accuracy:localized matches, coverage:GT, duplicate-image rate:all images"
+  },
+  "controls": {
+    "factor_inference_fusion": false
+  },
+  "prior": "off",
+  "independent_test": false,
+  "known_content_overlap_retained": true,
+  "params_trainable": 12513162
+}

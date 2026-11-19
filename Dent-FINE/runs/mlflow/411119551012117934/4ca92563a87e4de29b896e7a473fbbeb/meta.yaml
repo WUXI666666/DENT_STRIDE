@@ -1,0 +1,14 @@
+artifact_uri: /home/wuxi/Dent-FINE/runs/mlflow/411119551012117934/4ca92563a87e4de29b896e7a473fbbeb/artifacts
+end_time: 1787917367826
+entry_point_name: ''
+experiment_id: '411119551012117934'
+lifecycle_stage: active
+run_id: 4ca92563a87e4de29b896e7a473fbbeb
+run_name: yolo11s
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1787916505465
+status: 3
+tags: []
+user_id: wuxi

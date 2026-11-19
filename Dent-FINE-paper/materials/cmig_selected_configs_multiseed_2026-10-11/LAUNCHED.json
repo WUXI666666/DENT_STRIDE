@@ -1,0 +1,46 @@
+{
+  "launched_unix": 1791726025.3926935,
+  "workers": {
+    "0": {
+      "pid": 3910625,
+      "command": [
+        "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+        "-u",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/queue_worker.py",
+        "--gpu",
+        "0"
+      ]
+    },
+    "1": {
+      "pid": 3910626,
+      "command": [
+        "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+        "-u",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/queue_worker.py",
+        "--gpu",
+        "1"
+      ]
+    }
+  },
+  "protocol": {
+    "primary_seeds": [
+      0,
+      1,
+      2
+    ],
+    "stability_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "primary_endpoint": "Native COCO AP, selected maximum validation AP over 160 epochs",
+    "selection": "All seeds fixed before launch; no ranking-dependent seed inclusion",
+    "summaries": "Per-seed values; mean, sample SD and Student-t 95% CI for fixed 0/1/2 and all 0..4",
+    "failed_seeds": "Recorded explicitly; no replacement seed or result-conditioned retry",
+    "dataset_policy": "Existing images, partitions and FDI maps preserved; internal validation only",
+    "configuration_selection": "Mobile tau=.50 and DSLR decay-only chosen using prior single-seed ablations; not independent confirmatory test evidence"
+  },
+  "not_monitoring_training": true
+}

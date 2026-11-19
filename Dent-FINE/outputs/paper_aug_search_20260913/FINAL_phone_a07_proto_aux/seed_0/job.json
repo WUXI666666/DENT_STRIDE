@@ -1,0 +1,47 @@
+{
+  "job_id": "FINAL_phone_a07_proto_aux",
+  "task": "phone_a07_proto_aux",
+  "cohort": "Smartphone",
+  "model": "A07 CMFA+HOOA+NWD+Arch+Factor fusion+Prototype auxiliary",
+  "phase": "final_a07",
+  "seed": 0,
+  "augmentation": {
+    "profile": "fixed640",
+    "mosaic": 0.0,
+    "mixup": 0.5,
+    "crop": 0.8,
+    "zoom": 0.5
+  },
+  "config": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/FINAL_phone_a07_proto_aux_seed0.yml",
+  "config_sha256": "d2b96f542645fe3e1a6c27db7c2e24ea3afb240d795c2ccb6308a2bbe77c577e",
+  "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_phone_a07_proto_aux/seed_0",
+  "implementation_dir": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024",
+  "train_script": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/train.py",
+  "changes_from_aligned_base": [
+    {
+      "path": "output_dir",
+      "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+      "after": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_phone_a07_proto_aux/seed_0"
+    },
+    {
+      "path": "train_dataloader.collate_fn.base_size_repeat",
+      "before": 20,
+      "after": null
+    },
+    {
+      "path": "train_dataloader.collate_fn.mixup_prob",
+      "before": 0.0,
+      "after": 0.5
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+      "before": 320,
+      "after": 640
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[2].p",
+      "before": "<absent>",
+      "after": 0.5
+    }
+  ]
+}

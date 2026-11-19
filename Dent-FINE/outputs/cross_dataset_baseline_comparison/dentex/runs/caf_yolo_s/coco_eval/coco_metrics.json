@@ -1,0 +1,33 @@
+{
+  "framework": "Ultralytics",
+  "model_family": "yolo",
+  "ultralytics_version": "8.0.228",
+  "weights": "/home/wuxi/Dent-FINE/outputs/cross_dataset_baseline_comparison/dentex/runs/caf_yolo_s/weights/best.pt",
+  "annotation_file": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+  "image_dir": "/home/wuxi/DENTEX2023/val2017",
+  "image_count": 64,
+  "prediction_count": 3418,
+  "num_parameters": 11490489,
+  "inference": {
+    "imgsz": 640,
+    "confidence": 0.001,
+    "iou": 0.7,
+    "max_det": 300,
+    "device": "0"
+  },
+  "metrics": {
+    "AP": 0.4805810534430641,
+    "AP50": 0.8874675455167036,
+    "AP75": 0.46379238513531973,
+    "AP_small": -1.0,
+    "AP_medium": 0.3272293257897218,
+    "AP_large": 0.48475280688809275,
+    "AR1": 0.5697252765792769,
+    "AR10": 0.575190803114229,
+    "AR100": 0.575190803114229,
+    "AR_small": -1.0,
+    "AR_medium": 0.3281111111111111,
+    "AR_large": 0.582390322086868
+  },
+  "prediction_file": "/home/wuxi/Dent-FINE/outputs/cross_dataset_baseline_comparison/dentex/runs/caf_yolo_s/coco_eval/coco_predictions.json"
+}

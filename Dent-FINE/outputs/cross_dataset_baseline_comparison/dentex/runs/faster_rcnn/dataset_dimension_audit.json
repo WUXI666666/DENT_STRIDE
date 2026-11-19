@@ -1,0 +1,24 @@
+{
+  "policy": "Decoded dimensions normalize only Detectron2 in-memory records; canonical JSON is unchanged.",
+  "schema_version": 1,
+  "splits": {
+    "train": {
+      "annotation_file": "/home/wuxi/DENTEX2023/annotations/instances_train2017.json",
+      "annotations_checked": 16234,
+      "corrected_record_count": 0,
+      "corrections": [],
+      "dataset_name": "viewnet3_dslr_fdi52_faster_rcnn_train",
+      "policy": "in-memory record dimensions only; source COCO JSON is unchanged",
+      "records_checked": 570
+    },
+    "validation": {
+      "annotation_file": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+      "annotations_checked": 1861,
+      "corrected_record_count": 0,
+      "corrections": [],
+      "dataset_name": "viewnet3_dslr_fdi52_faster_rcnn_val",
+      "policy": "in-memory record dimensions only; source COCO JSON is unchanged",
+      "records_checked": 64
+    }
+  }
+}

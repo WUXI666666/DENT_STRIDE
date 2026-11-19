@@ -1,0 +1,138 @@
+Not init distributed mode.
+Start training
+Downloading: "https://github.com/lyuwenyu/storage/releases/download/v0.1/ResNet18_vd_pretrained_from_paddle.pth" to /home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/pretrained_cache/hub/checkpoints/ResNet18_vd_pretrained_from_paddle.pth
+  0%|          | 0.00/42.8M [00:00<?, ?B/s]  0%|          | 128k/42.8M [00:00<03:06, 239kB/s]  1%|          | 256k/42.8M [00:01<03:19, 224kB/s]  1%|          | 384k/42.8M [00:01<02:20, 317kB/s]  1%|          | 512k/42.8M [00:02<03:21, 220kB/s]  1%|▏         | 640k/42.8M [00:02<02:55, 252kB/s]  2%|▏         | 768k/42.8M [00:02<02:18, 318kB/s]  2%|▏         | 896k/42.8M [00:03<03:07, 235kB/s]  2%|▏         | 1.00M/42.8M [00:04<02:41, 272kB/s]  3%|▎         | 1.12M/42.8M [00:04<02:21, 309kB/s]  3%|▎         | 1.25M/42.8M [00:04<02:09, 336kB/s]  3%|▎         | 1.38M/42.8M [00:04<01:56, 372kB/s]  4%|▎         | 1.50M/42.8M [00:05<01:37, 442kB/s]  4%|▍         | 1.75M/42.8M [00:05<01:03, 676kB/s]  4%|▍         | 1.88M/42.8M [00:05<01:10, 611kB/s]  5%|▌         | 2.25M/42.8M [00:05<00:39, 1.07MB/s]  6%|▌         | 2.50M/42.8M [00:05<00:35, 1.18MB/s]  7%|▋         | 2.88M/42.8M [00:05<00:26, 1.57MB/s]  8%|▊         | 3.38M/42.8M [00:06<00:18, 2.18MB/s]  9%|▉         | 3.75M/42.8M [00:09<01:59, 343kB/s]  10%|▉         | 4.12M/42.8M [00:09<01:24, 478kB/s] 11%|█         | 4.50M/42.8M [00:09<01:01, 652kB/s] 11%|█▏        | 4.88M/42.8M [00:09<00:45, 865kB/s] 12%|█▏        | 5.25M/42.8M [00:09<00:38, 1.03MB/s] 13%|█▎        | 5.50M/42.8M [00:09<00:32, 1.19MB/s] 14%|█▍        | 6.00M/42.8M [00:10<00:22, 1.68MB/s] 16%|█▌        | 6.75M/42.8M [00:10<00:14, 2.54MB/s] 17%|█▋        | 7.38M/42.8M [00:10<00:11, 3.15MB/s] 19%|█▉        | 8.12M/42.8M [00:10<00:09, 3.94MB/s] 20%|██        | 8.75M/42.8M [00:10<00:08, 4.10MB/s] 22%|██▏       | 9.25M/42.8M [00:10<00:08, 4.16MB/s] 23%|██▎       | 9.88M/42.8M [00:10<00:07, 4.62MB/s] 25%|██▍       | 10.5M/42.8M [00:10<00:06, 4.94MB/s] 26%|██▋       | 11.2M/42.8M [00:11<00:10, 3.14MB/s] 28%|██▊       | 12.0M/42.8M [00:11<00:08, 3.86MB/s] 29%|██▉       | 12.5M/42.8M [00:11<00:08, 3.85MB/s] 30%|███       | 13.0M/42.8M [00:11<00:07, 3.95MB/s] 32%|███▏      | 13.5M/42.8M [00:11<00:07, 4.08MB/s] 33%|███▎      | 14.1M/42.8M [00:11<00:06, 4.47MB/s] 34%|███▍      | 14.6M/42.8M [00:11<00:06, 4.34MB/s] 36%|███▌      | 15.2M/42.8M [00:12<00:06, 4.57MB/s] 37%|███▋      | 16.0M/42.8M [00:12<00:05, 5.15MB/s] 39%|███▉      | 16.9M/42.8M [00:12<00:04, 5.82MB/s] 41%|████      | 17.5M/42.8M [00:12<00:04, 6.00MB/s] 42%|████▏     | 18.1M/42.8M [00:12<00:04, 6.12MB/s] 44%|████▍     | 18.9M/42.8M [00:12<00:03, 6.33MB/s] 46%|████▌     | 19.6M/42.8M [00:12<00:03, 6.30MB/s] 47%|████▋     | 20.2M/42.8M [00:13<00:05, 4.68MB/s] 49%|████▉     | 20.9M/42.8M [00:13<00:05, 3.91MB/s] 51%|█████     | 21.6M/42.8M [00:13<00:04, 4.61MB/s] 52%|█████▏    | 22.2M/42.8M [00:13<00:06, 3.55MB/s] 53%|█████▎    | 22.8M/42.8M [00:13<00:05, 3.73MB/s] 55%|█████▍    | 23.4M/42.8M [00:13<00:04, 4.18MB/s] 56%|█████▌    | 23.9M/42.8M [00:14<00:04, 4.12MB/s] 57%|█████▋    | 24.5M/42.8M [00:14<00:04, 4.61MB/s] 58%|█████▊    | 25.0M/42.8M [00:14<00:04, 4.51MB/s] 60%|█████▉    | 25.5M/42.8M [00:14<00:03, 4.64MB/s] 61%|██████▏   | 26.2M/42.8M [00:14<00:03, 5.20MB/s] 63%|██████▎   | 26.9M/42.8M [00:14<00:03, 4.96MB/s] 64%|██████▍   | 27.5M/42.8M [00:14<00:02, 5.35MB/s] 66%|██████▌   | 28.2M/42.8M [00:14<00:02, 5.86MB/s] 67%|██████▋   | 28.9M/42.8M [00:15<00:03, 4.86MB/s] 69%|██████▉   | 29.5M/42.8M [00:15<00:02, 5.26MB/s] 70%|███████   | 30.1M/42.8M [00:15<00:02, 5.22MB/s] 72%|███████▏  | 30.8M/42.8M [00:15<00:02, 5.21MB/s] 74%|███████▎  | 31.5M/42.8M [00:15<00:02, 5.59MB/s] 75%|███████▌  | 32.1M/42.8M [00:15<00:01, 5.83MB/s] 77%|███████▋  | 32.8M/42.8M [00:15<00:01, 5.36MB/s] 79%|███████▊  | 33.6M/42.8M [00:15<00:01, 6.00MB/s] 80%|████████  | 34.2M/42.8M [00:16<00:01, 5.95MB/s] 81%|████████▏ | 34.9M/42.8M [00:16<00:01, 6.06MB/s] 83%|████████▎ | 35.6M/42.8M [00:16<00:01, 6.36MB/s] 85%|████████▍ | 36.4M/42.8M [00:16<00:01, 6.47MB/s] 86%|████████▋ | 37.0M/42.8M [00:16<00:01, 6.04MB/s] 88%|████████▊ | 37.6M/42.8M [00:16<00:01, 3.60MB/s] 93%|█████████▎| 39.9M/42.8M [00:16<00:00, 7.19MB/s] 96%|█████████▌| 40.9M/42.8M [00:17<00:00, 7.32MB/s] 98%|█████████▊| 41.9M/42.8M [00:17<00:00, 7.50MB/s]100%|█████████▉| 42.8M/42.8M [00:17<00:00, 7.33MB/s]100%|██████████| 42.8M/42.8M [00:17<00:00, 2.59MB/s]
+Load PResNet18 state_dict
+/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/RT-DETR/rtdetrv2_pytorch/src/core/workspace.py:179: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  return module(**module_kwargs)
+Initial lr: [0.0001, 0.0001]
+building train_dataloader with batch_size=8...
+building val_dataloader with batch_size=16...
+number of trainable parameters: 20148512
+Epoch: [0]  [0/2]  eta: 0:00:07  lr: 0.000000  loss: 18.9900 (18.9900)  loss_vfl: 0.2756 (0.2756)  loss_bbox: 0.7083 (0.7083)  loss_giou: 1.8385 (1.8385)  loss_vfl_aux_0: 0.2515 (0.2515)  loss_bbox_aux_0: 0.7088 (0.7088)  loss_giou_aux_0: 1.8483 (1.8483)  loss_vfl_aux_1: 0.2764 (0.2764)  loss_bbox_aux_1: 0.6988 (0.6988)  loss_giou_aux_1: 1.8353 (1.8353)  loss_vfl_dn_0: 0.8101 (0.8101)  loss_bbox_dn_0: 0.3904 (0.3904)  loss_giou_dn_0: 1.3746 (1.3746)  loss_vfl_dn_1: 0.7959 (0.7959)  loss_bbox_dn_1: 0.3904 (0.3904)  loss_giou_dn_1: 1.3746 (1.3746)  loss_vfl_dn_2: 0.7905 (0.7905)  loss_bbox_dn_2: 0.3904 (0.3904)  loss_giou_dn_2: 1.3746 (1.3746)  loss_vfl_enc_0: 0.2456 (0.2456)  loss_bbox_enc_0: 0.7531 (0.7531)  loss_giou_enc_0: 1.8583 (1.8583)  time: 3.7553  data: 2.8806  max mem: 2924
+Epoch: [0]  [1/2]  eta: 0:00:03  lr: 0.000000  loss: 18.1117 (18.5508)  loss_vfl: 0.2756 (0.3331)  loss_bbox: 0.4991 (0.6037)  loss_giou: 1.7306 (1.7845)  loss_vfl_aux_0: 0.2515 (0.3149)  loss_bbox_aux_0: 0.4989 (0.6039)  loss_giou_aux_0: 1.7746 (1.8114)  loss_vfl_aux_1: 0.2764 (0.3419)  loss_bbox_aux_1: 0.4885 (0.5937)  loss_giou_aux_1: 1.7158 (1.7756)  loss_vfl_dn_0: 0.8101 (0.8181)  loss_bbox_dn_0: 0.3439 (0.3671)  loss_giou_dn_0: 1.3589 (1.3667)  loss_vfl_dn_1: 0.7959 (0.8147)  loss_bbox_dn_1: 0.3439 (0.3671)  loss_giou_dn_1: 1.3589 (1.3667)  loss_vfl_dn_2: 0.7905 (0.8005)  loss_bbox_dn_2: 0.3439 (0.3671)  loss_giou_dn_2: 1.3589 (1.3667)  loss_vfl_enc_0: 0.2456 (0.3159)  loss_bbox_enc_0: 0.5050 (0.6291)  loss_giou_enc_0: 1.7581 (1.8082)  time: 3.2076  data: 2.7288  max mem: 2931
+Epoch: [0] Total time: 0:00:06 (3.2083 s / it)
+Averaged stats: lr: 0.000000  loss: 18.1117 (18.5508)  loss_vfl: 0.2756 (0.3331)  loss_bbox: 0.4991 (0.6037)  loss_giou: 1.7306 (1.7845)  loss_vfl_aux_0: 0.2515 (0.3149)  loss_bbox_aux_0: 0.4989 (0.6039)  loss_giou_aux_0: 1.7746 (1.8114)  loss_vfl_aux_1: 0.2764 (0.3419)  loss_bbox_aux_1: 0.4885 (0.5937)  loss_giou_aux_1: 1.7158 (1.7756)  loss_vfl_dn_0: 0.8101 (0.8181)  loss_bbox_dn_0: 0.3439 (0.3671)  loss_giou_dn_0: 1.3589 (1.3667)  loss_vfl_dn_1: 0.7959 (0.8147)  loss_bbox_dn_1: 0.3439 (0.3671)  loss_giou_dn_1: 1.3589 (1.3667)  loss_vfl_dn_2: 0.7905 (0.8005)  loss_bbox_dn_2: 0.3439 (0.3671)  loss_giou_dn_2: 1.3589 (1.3667)  loss_vfl_enc_0: 0.2456 (0.3159)  loss_bbox_enc_0: 0.5050 (0.6291)  loss_giou_enc_0: 1.7581 (1.8082)
+Test:  [0/1]  eta: 0:00:00    time: 0.5186  data: 0.4431  max mem: 2931
+Test: Total time: 0:00:00 (0.5190 s / it)
+Averaged stats: 
+Accumulating evaluation results...
+COCOeval_opt.accumulate() finished...
+DONE (t=0.01s).
+IoU metric: bbox
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+[official-comparison] retained global best AP=0.00000000, epoch=0
+best_stat: {'epoch': 0, 'coco_eval_bbox': 0.0}
+Epoch: [1]  [0/2]  eta: 0:00:04  lr: 0.000000  loss: 18.7254 (18.7254)  loss_vfl: 0.4102 (0.4102)  loss_bbox: 0.5933 (0.5933)  loss_giou: 1.7519 (1.7519)  loss_vfl_aux_0: 0.3760 (0.3760)  loss_bbox_aux_0: 0.6103 (0.6103)  loss_giou_aux_0: 1.7943 (1.7943)  loss_vfl_aux_1: 0.4023 (0.4023)  loss_bbox_aux_1: 0.5944 (0.5944)  loss_giou_aux_1: 1.7640 (1.7640)  loss_vfl_dn_0: 0.8608 (0.8608)  loss_bbox_dn_0: 0.3754 (0.3754)  loss_giou_dn_0: 1.3213 (1.3213)  loss_vfl_dn_1: 0.8525 (0.8525)  loss_bbox_dn_1: 0.3754 (0.3754)  loss_giou_dn_1: 1.3213 (1.3213)  loss_vfl_dn_2: 0.8564 (0.8564)  loss_bbox_dn_2: 0.3754 (0.3754)  loss_giou_dn_2: 1.3213 (1.3213)  loss_vfl_enc_0: 0.3464 (0.3464)  loss_bbox_enc_0: 0.6108 (0.6108)  loss_giou_enc_0: 1.8117 (1.8117)  time: 2.2538  data: 2.1565  max mem: 2931
+Epoch: [1]  [1/2]  eta: 0:00:02  lr: 0.000000  loss: 18.5307 (18.6280)  loss_vfl: 0.3040 (0.3571)  loss_bbox: 0.5832 (0.5882)  loss_giou: 1.7519 (1.8294)  loss_vfl_aux_0: 0.2666 (0.3213)  loss_bbox_aux_0: 0.5796 (0.5949)  loss_giou_aux_0: 1.7943 (1.8595)  loss_vfl_aux_1: 0.3250 (0.3636)  loss_bbox_aux_1: 0.5650 (0.5797)  loss_giou_aux_1: 1.7640 (1.8396)  loss_vfl_dn_0: 0.8027 (0.8318)  loss_bbox_dn_0: 0.2667 (0.3210)  loss_giou_dn_0: 1.3213 (1.3477)  loss_vfl_dn_1: 0.7891 (0.8208)  loss_bbox_dn_1: 0.2667 (0.3210)  loss_giou_dn_1: 1.3213 (1.3477)  loss_vfl_dn_2: 0.7720 (0.8142)  loss_bbox_dn_2: 0.2667 (0.3210)  loss_giou_dn_2: 1.3213 (1.3477)  loss_vfl_enc_0: 0.2893 (0.3179)  loss_bbox_enc_0: 0.6108 (0.6273)  loss_giou_enc_0: 1.8117 (1.8766)  time: 2.9343  data: 2.8443  max mem: 3090
+Epoch: [1] Total time: 0:00:05 (2.9349 s / it)
+Averaged stats: lr: 0.000000  loss: 18.5307 (18.6280)  loss_vfl: 0.3040 (0.3571)  loss_bbox: 0.5832 (0.5882)  loss_giou: 1.7519 (1.8294)  loss_vfl_aux_0: 0.2666 (0.3213)  loss_bbox_aux_0: 0.5796 (0.5949)  loss_giou_aux_0: 1.7943 (1.8595)  loss_vfl_aux_1: 0.3250 (0.3636)  loss_bbox_aux_1: 0.5650 (0.5797)  loss_giou_aux_1: 1.7640 (1.8396)  loss_vfl_dn_0: 0.8027 (0.8318)  loss_bbox_dn_0: 0.2667 (0.3210)  loss_giou_dn_0: 1.3213 (1.3477)  loss_vfl_dn_1: 0.7891 (0.8208)  loss_bbox_dn_1: 0.2667 (0.3210)  loss_giou_dn_1: 1.3213 (1.3477)  loss_vfl_dn_2: 0.7720 (0.8142)  loss_bbox_dn_2: 0.2667 (0.3210)  loss_giou_dn_2: 1.3213 (1.3477)  loss_vfl_enc_0: 0.2893 (0.3179)  loss_bbox_enc_0: 0.6108 (0.6273)  loss_giou_enc_0: 1.8117 (1.8766)
+Test:  [0/1]  eta: 0:00:00    time: 0.3866  data: 0.3546  max mem: 3090
+Test: Total time: 0:00:00 (0.3869 s / it)
+Averaged stats: 
+Accumulating evaluation results...
+COCOeval_opt.accumulate() finished...
+DONE (t=0.00s).
+IoU metric: bbox
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+best_stat: {'epoch': 0, 'coco_eval_bbox': 0.0}
+Training time 0:00:13
+Load last_epoch
+Load model.state_dict
+Load criterion.state_dict
+Load postprocessor.state_dict
+Load ema.state_dict
+Load scaler.state_dict
+Load optimizer.state_dict
+Load lr_scheduler.state_dict
+Load lr_warmup_scheduler.state_dict
+Test:  [0/1]  eta: 0:00:00    time: 0.5197  data: 0.4866  max mem: 3090
+Test: Total time: 0:00:00 (0.5200 s / it)
+Averaged stats: 
+Accumulating evaluation results...
+COCOeval_opt.accumulate() finished...
+DONE (t=0.00s).
+IoU metric: bbox
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+{
+  "model": "rtdetrv2_s",
+  "cohort": "phone",
+  "seed": 0,
+  "epochs_completed": 2,
+  "final_epoch_zero_based": 1,
+  "best_epoch_zero_based": 0,
+  "best_metrics": {
+    "AP": 0.0,
+    "AP50": 0.0,
+    "AP75": 0.0,
+    "AP_small": -100.0,
+    "AP_medium": 0.0,
+    "AP_large": 0.0,
+    "AR1": 0.0,
+    "AR10": 0.0,
+    "AR100": 0.0,
+    "AR_small": -100.0,
+    "AR_medium": 0.0,
+    "AR_large": 0.0
+  },
+  "final_epoch_metrics": {
+    "AP": 0.0,
+    "AP50": 0.0,
+    "AP75": 0.0,
+    "AP_small": -100.0,
+    "AP_medium": 0.0,
+    "AP_large": 0.0,
+    "AR1": 0.0,
+    "AR10": 0.0,
+    "AR100": 0.0,
+    "AR_small": -100.0,
+    "AR_medium": 0.0,
+    "AR_large": 0.0
+  },
+  "params_training_total": 20148512,
+  "params_trainable": 20148512,
+  "stage1_RAM_restores": 0,
+  "elapsed_seconds": 34.614960803999566,
+  "peak_cuda_allocated_bytes": 3239821312,
+  "checkpoint_sha256": "e68837ad16fd43b36b6ae595d2e6fe81c3c1364b108bf6106b43f6728005bc83",
+  "completed_at": "2026-09-10T23:37:29.297322+08:00"
+}

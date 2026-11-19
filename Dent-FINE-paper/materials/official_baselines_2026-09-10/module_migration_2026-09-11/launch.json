@@ -1,0 +1,28 @@
+{
+  "launched_at": "2026-09-11T22:28:12.210330+08:00",
+  "queues": [
+    {
+      "gpu": 0,
+      "queue_pid": 3844019,
+      "command": [
+        "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+        "-B",
+        "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_2026-09-11/run_queue.py",
+        "--gpu",
+        "0"
+      ]
+    },
+    {
+      "gpu": 1,
+      "queue_pid": 3844020,
+      "command": [
+        "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+        "-B",
+        "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_2026-09-11/run_queue.py",
+        "--gpu",
+        "1"
+      ]
+    }
+  ],
+  "preflight_passed": true
+}

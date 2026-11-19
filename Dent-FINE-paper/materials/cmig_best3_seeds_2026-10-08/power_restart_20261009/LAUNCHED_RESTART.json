@@ -1,0 +1,38 @@
+{
+  "launched_unix": 1791549136.9054682,
+  "original_manifest_sha256": "3591432ecdfa9f33a08756711faf542621c61f13f7245814c0cf76fa7447c643",
+  "restart_plan_sha256": "3318713ad0a71f3ee2f7000f450fb675a0d80e5d88265787987d2be56a59f94d",
+  "workers": [
+    {
+      "gpu": 0,
+      "worker_pid": 90143,
+      "command": [
+        "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+        "-u",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/power_restart_20261009/queue_worker_restart.py",
+        "--gpu",
+        "0"
+      ],
+      "log": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/power_restart_20261009/gpu0_restart_queue.log",
+      "jobs": 10,
+      "first_job": "dslr_cmfa_dualopt_seed2"
+    },
+    {
+      "gpu": 1,
+      "worker_pid": 90144,
+      "command": [
+        "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+        "-u",
+        "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/power_restart_20261009/queue_worker_restart.py",
+        "--gpu",
+        "1"
+      ],
+      "log": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/power_restart_20261009/gpu1_restart_queue.log",
+      "jobs": 9,
+      "first_job": "internal_mobile_cmfa_no_gates_seed0"
+    }
+  ],
+  "training_resume": false,
+  "initialization": "Frozen historical pretrained initialization, not interrupted checkpoint",
+  "assistant_monitoring": "Startup confirmation only; no ongoing polling"
+}

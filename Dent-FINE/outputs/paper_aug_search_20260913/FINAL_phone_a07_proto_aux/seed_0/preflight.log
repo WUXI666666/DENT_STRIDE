@@ -1,0 +1,36 @@
+[2026-09-14T19:49:44.784311+08:00] ["/home/wuxi/miniconda3/envs/deimv2/bin/python", "-u", "/home/wuxi/Dent-FINE-paper/materials/augmentation_search_2026-09-13/preflight.py", "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_phone_a07_proto_aux/seed_0/job.json"]
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/pytorch_wavelets/dtcwt/coeffs.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_stream
+/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/hgnetv2.py:494: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(model_path, map_location='cpu')
+Loaded stage1 B0 HGNetV2 from local file.
+/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/core/workspace.py:180: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  return module(**module_kwargs)
+building train_dataloader with batch_size=8...
+     ### Transform @Mosaic ###    
+     ### Transform @RandomPhotometricDistort ###    
+     ### Transform @RandomZoomOut ###    
+     ### Transform @RandomIoUCrop ###    
+     ### Transform @SanitizeBoundingBoxes ###    
+     ### Transform @Resize ###    
+     ### Transform @SanitizeBoundingBoxes ###    
+     ### Transform @ConvertPILImage ###    
+     ### Transform @ConvertBoxes ###    
+     ### ImgTransforms Epochs: [4, 70, 130] ### 
+     ### Policy_ops@['Mosaic', 'RandomPhotometricDistort', 'RandomZoomOut', 'RandomIoUCrop'] ###
+     ### Using MixUp with Prob@0.5 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+building val_dataloader with batch_size=16...
+     ### Transform @Resize ###    
+     ### Transform @ConvertPILImage ###    
+{"epoch": 0, "native_amp_retry": 1, "scale": 32768.0}
+{"epoch_zero_based": 0, "input_shape": [8, 3, 640, 640], "target_counts": [23, 22, 22, 22, 21, 21, 21, 21], "mixup_exercised": false, "loss": 37.6927490234375, "loss_arch": 0.009814980439841747, "gradient_norm": 5.751276016235352, "amp_retries": 1, "peak_allocated_GiB": 4.201939582824707, "peak_reserved_GiB": 4.8046875}
+{"epoch_zero_based": 4, "input_shape": [8, 3, 640, 640], "target_counts": [44, 45, 44, 44, 43, 42, 42, 42], "mixup_exercised": true, "loss": 29.49932289123535, "loss_arch": 0.01564778946340084, "gradient_norm": 3.9179532527923584, "amp_retries": 0, "peak_allocated_GiB": 4.241364002227783, "peak_reserved_GiB": 4.7890625}
+     ### Attention --- Mixup is closed after epoch@ 80 ###
+{"epoch": 80, "native_amp_retry": 1, "scale": 16384.0}
+{"epoch_zero_based": 80, "input_shape": [8, 3, 640, 640], "target_counts": [1, 22, 22, 22, 21, 18, 21, 2], "mixup_exercised": false, "loss": 35.00457763671875, "loss_arch": 0.01609823666512966, "gradient_norm": 7.262338638305664, "amp_retries": 1, "peak_allocated_GiB": 4.28685188293457, "peak_reserved_GiB": 4.818359375}
+{"epoch_zero_based": 130, "input_shape": [8, 3, 640, 640], "target_counts": [23, 22, 22, 22, 21, 21, 21, 21], "mixup_exercised": false, "loss": 33.990238189697266, "loss_arch": 0.009790429845452309, "gradient_norm": 6.257086277008057, "amp_retries": 0, "peak_allocated_GiB": 4.29729700088501, "peak_reserved_GiB": 4.921875}
+     ### Attention --- Mixup is closed after epoch@ 0 ###
+{"passed": true, "job": "FINAL_phone_a07_proto_aux"}
+[2026-09-14T19:49:58.542302+08:00] EXIT 0

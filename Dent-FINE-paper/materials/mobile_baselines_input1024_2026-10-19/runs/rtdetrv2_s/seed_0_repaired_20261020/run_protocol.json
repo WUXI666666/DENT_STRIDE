@@ -1,0 +1,14 @@
+{
+  "family": "rtdetrv2_s",
+  "seed": 0,
+  "input": 1024,
+  "epochs": 160,
+  "started_at": "2026-10-20T17:43:27.493393+08:00",
+  "source": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/RT-DETR/rtdetrv2_pytorch",
+  "config": "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/configs/rtdetrv2_s_phone.yml",
+  "config_sha256": "56fdeead1ac611ace2753d7eca15074956f4436421026af5fec6a489e0071142",
+  "params": 20148512,
+  "runner_sha256": "8f006439944fea283164f9d872e5b6525b4cc333a1fe4c8439cad57776b34e5d",
+  "integration_smoke": false,
+  "backbone_initialization": "Fresh native ImageNet backbone; no dental checkpoint tuning"
+}

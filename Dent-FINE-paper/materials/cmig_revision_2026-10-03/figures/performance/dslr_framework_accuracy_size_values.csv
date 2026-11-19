@@ -1,0 +1,12 @@
+model,AP,Params_M,SD,n,source
+RT-DETR-L,74.019,32.091,,1,Original main manuscript Table 4
+DENT-STRIDE-DSLR,72.8778416372863,11.153968,0.4035187238179733,3,Controlled CMFA + DualOpt; seeds0/1/2 FP32 replay
+Controlled base,72.46550234527592,10.629288,0.23399678514367048,3,Controlled AdamW base; seeds0/1/2 FP32 replay
+Official DEIM-s,72.40510717714518,10.286,0.20202879528332565,3,Official upstream implementation; completed seeds0/1/2 best-validation checkpoints
+YOLOv8-s,71.854,11.15,,1,Original main manuscript Table 4
+Dome-DETR-S,71.363,13.291,,1,Original main manuscript Table 4
+RT-DETRv2-S,70.9494630056139,20.149,0.5058767400225146,3,Official upstream implementation; completed seeds0/1/2 best-validation checkpoints
+YOLO11-s,71.094,9.43,,1,Original main manuscript Table 4
+CAF-YOLO-s,67.46,11.5,,1,Original main manuscript Table 4
+Faster R-CNN R50-FPN,63.151,41.556,,1,Original main manuscript Table 4
+CMFA + AdamW,72.96391332277862,11.153968,0.09779245440182671,3,Controlled mechanism comparator; seeds0/1/2 FP32 replay

@@ -1,0 +1,7 @@
+{
+  "state": "training",
+  "epoch_zero_based": 0,
+  "AP": 0.0,
+  "best_AP": 0.0,
+  "at": "2026-10-19T21:47:39.516717+08:00"
+}

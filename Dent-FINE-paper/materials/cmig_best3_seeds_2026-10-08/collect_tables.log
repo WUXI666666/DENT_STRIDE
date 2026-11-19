@@ -1,0 +1,330 @@
+{
+  "status": "ready",
+  "jobs_total": 30,
+  "completion_markers": 30,
+  "verified_completed_jobs": 30,
+  "not_completed_jobs": 0,
+  "invalid_completed_jobs": 0,
+  "verified_historical_prior_replays": 12,
+  "required_prior_replays": 12,
+  "verified_native_factor_replays": 2,
+  "required_factor_replays": 2,
+  "manifest": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/execution_manifest.json",
+  "manifest_sha256": "3591432ecdfa9f33a08756711faf542621c61f13f7245814c0cf76fa7447c643",
+  "outputs_written": true,
+  "issues": [],
+  "verified_evidence": [
+    {
+      "job_id": "dslr_cmfa_dualopt_seed0",
+      "checkpoint_sha256": "042a12a2af4a5f121ca520592331c69df7c63c84dceecdc4f4eb5cb1ba267d60",
+      "summary_sha256": "078217822906fbc1c25d03b94888170b965fd6425081918226a097b8eecefb18",
+      "native_metrics_sha256": "282f40facc6a27da0961c6807387acd80eefe67799f1ba90adbed5597ecf9293",
+      "native_provenance_sha256": "064ed4bf3ae02b8f63226b8618046e24acb3c353ac8615153fbc1f79c63984c4"
+    },
+    {
+      "job_id": "dslr_cmfa_dualopt_seed1",
+      "checkpoint_sha256": "d951ae15f4dc06f33a1c9a4ed219a9a777b1574baeca01006567b781de5a9755",
+      "summary_sha256": "ecd364f524aee79a35195c17b3e40e7bf2650be380141ea53e66f97c6cb9a982",
+      "native_metrics_sha256": "b1b0530a0b7ad48fec480133d2d66b90b48a19840dab09fe5128dcbe7546e82b",
+      "native_provenance_sha256": "35416a0c66d90ed8c9b6e3c28778e38fa6c46036f3da1718853fb6731551420f"
+    },
+    {
+      "job_id": "dslr_cmfa_dualopt_seed2",
+      "checkpoint_sha256": "a51228b67f90e3a64950fcf1f4099916125181cd15ff1a4966cd7f805750d6bc",
+      "summary_sha256": "78124ff03b7a145a2d179d99c6d0ffc8b6b640b50161b770f4aa3d37e08199bc",
+      "native_metrics_sha256": "b91a638959a3c2dd288596d1bcf277505a44237bf7fc230cc756a15791f8e858",
+      "native_provenance_sha256": "2f144ebcaf8ebf5212f10b9242fc4722544d8bbb2d7481b8078882769714783d"
+    },
+    {
+      "job_id": "internal_dslr_cmfa_adamw_seed0",
+      "checkpoint_sha256": "b939fc547d110361f4d01ce0431d819901adb873e78ebebe2b1742c4681a0c53",
+      "summary_sha256": "c26608b4ebdb81b87b84cd8a8d32eafc6a56e3718cdf9280b94f3ed252ef5d87",
+      "native_metrics_sha256": "d6260d78624a85145f5a8d74539e3c3d620d247d8578f665baa6e16f4727b020",
+      "native_provenance_sha256": "37459128a688c416d1c044864f6887d50a2b413fe4c6855692b1abf7c3638035"
+    },
+    {
+      "job_id": "internal_dslr_extra_decay_only_seed0",
+      "checkpoint_sha256": "797e210b59aa51fdab53fbda1c25393765786b824b051cb290520ef7f1f77e43",
+      "summary_sha256": "caf48582e091be741ef2a49c40962322135c6d9a4ef4aa53c2b5707b5bf390ab",
+      "native_metrics_sha256": "8906e5de658196b0606522854cd24dbb580db738935a0eff47decb54b5103de0",
+      "native_provenance_sha256": "024610f7cd0759cd3274371d501b19bd65b6f6f7388c4e2979df25723ca9e5c8"
+    },
+    {
+      "job_id": "internal_dslr_rollback_only_seed0",
+      "checkpoint_sha256": "00bad4aac271beb1c3311b50c8d15830056ffd094302ec2450d51ef221cd5f0e",
+      "summary_sha256": "ad255c373bf313136893c3d234404c52e8874eca116db46878f3cef2de7ee704",
+      "native_metrics_sha256": "9adbffda9bf99156b116d64ea5e97f22fd3491c9ddd98b9998f37f0f6247f7e9",
+      "native_provenance_sha256": "775e7000bc8166c0bda3ca28a857934ebfd98221cf580afa3bf6c9f9371cb011"
+    },
+    {
+      "job_id": "internal_mobile_background_arch_only_seed0",
+      "checkpoint_sha256": "414901867104d726871bae5a81f9cf95216598567d47fabc8a4053a742ff0058",
+      "summary_sha256": "ddb0e076fc6d93fb18e9762065cd47edf5045d86742f7efeae9839b0a3ce56f2",
+      "native_metrics_sha256": "55824392c33e4b243fa59a9fa889eb6a4da722d58daf4d2aac2b3c9434d563c0",
+      "native_provenance_sha256": "faaa9ce8d4d61d935d8d96d35a546d6b247965c0a177a2994fd1bba9b8250166"
+    },
+    {
+      "job_id": "internal_mobile_background_neither_seed0",
+      "checkpoint_sha256": "8567c43ee99a77a1f9c85001b10eb511866d2163a75943894837c0e20a558f6a",
+      "summary_sha256": "6fb11050ca5e6fb377790973dd57bfad3cd71af24fa18e7e219f3176cfd90ba9",
+      "native_metrics_sha256": "25949fc30cd292116702bf3628cf76b9a73e807c888ef58f365afca2cf042cd0",
+      "native_provenance_sha256": "82c0df8e5ca20ad1cb7c00ed543e3b1bb17b283b5f3d3f2c7e30abf2ef4dafee"
+    },
+    {
+      "job_id": "internal_mobile_background_nwd_only_seed0",
+      "checkpoint_sha256": "c6dce9b5288892bc977270fbf96d09ccce13377a83c044ea007907f557d44883",
+      "summary_sha256": "550a88a4dcaa3d9f8333197a8a5ef1b39b13440665148c0b59129b226f42a20d",
+      "native_metrics_sha256": "1855dc7f3523ac3f1ecd845afb782a2008066df4beee2b36a41befe9bb12df0f",
+      "native_provenance_sha256": "cbe23580e7bcde9a9bb123ec5a635b8227e76c7062b45dd728fd0ec4e7773bae"
+    },
+    {
+      "job_id": "internal_mobile_cmfa_channel_only_seed0",
+      "checkpoint_sha256": "b83e2c377cf47a9f2e983c8a9c3f17b8a2484c7efde8ca9c48d91dffa097c8fb",
+      "summary_sha256": "18a0bdded0ca8b0e4bde2eb2e64feca92ae4a64c3a6e53df5935178a5e2479e9",
+      "native_metrics_sha256": "0cea2724e91ead46326a16c96df43fb071d765691a846fa2ae7a356c6f5baf68",
+      "native_provenance_sha256": "d46aa0c215423b13dd1db1ee20893d36de149287762b9fdb47d41990fb731582"
+    },
+    {
+      "job_id": "internal_mobile_cmfa_no_gates_seed0",
+      "checkpoint_sha256": "4fb803b7686ad46c07e5ffd17255c42e99a5e09f1098f889b6a2d7d3b7ed1b36",
+      "summary_sha256": "65fc6b3c59ae6810aaff6c787181c3c7fb4d6c5edf3b2ad2fbb98ed32e2a7486",
+      "native_metrics_sha256": "be61e2407b939a61a97d8e658e9ec64806aef24a8cd786f941ea6e5ec37049a5",
+      "native_provenance_sha256": "84305d3d93ae3aa7c0cc6d64e13d0ddabe024cb0498189825ca9a1a4dcfe68ab"
+    },
+    {
+      "job_id": "internal_mobile_cmfa_spatial_only_seed0",
+      "checkpoint_sha256": "5d48c627a38e42449829380ff58e60695a425f82fd5c3ce5cba6bff61548f99a",
+      "summary_sha256": "42d2cdff40571a10668902e55acc191ff7f3b644314596882b9658e753dbd2db",
+      "native_metrics_sha256": "99d6660b9fb29b8eec2a1f49f0affe19cd928fcb5adaea30c693864d61eb3e11",
+      "native_provenance_sha256": "81432cb316b99d6b6e5c678b903ee672f63009049f98b22d980dcc7e95b32e31"
+    },
+    {
+      "job_id": "internal_mobile_factor_no_dentition_seed0",
+      "checkpoint_sha256": "8d3a994a7ad8c5859c572a60cdc675876b330abe71bf06a893dbeb96f4bb083b",
+      "summary_sha256": "02b80aae22910769557d746d66a5db26324e4964d821e26af18085961b0911b8",
+      "native_metrics_sha256": "53cb40417a384bb67605d15a573e07435a69c413a582520676edffa85f1320b6",
+      "native_provenance_sha256": "db9fb10243df336564b4ce62dd24a10232f5c2f00b3fb593819f1bf4d3b20d32"
+    },
+    {
+      "job_id": "internal_mobile_factor_no_position_seed0",
+      "checkpoint_sha256": "63ef8e60a715ec973ce73d11e9a198bcda149f1202f18979cb5e5f8b31514312",
+      "summary_sha256": "13cdd8a25a8589f970b5997d9b2e861d5ae7ee154d8f028f848ed6b778939c9d",
+      "native_metrics_sha256": "6edbcbe81b132240164626dd06a170fcf856f42a154f9a3883c64149ddbd346b",
+      "native_provenance_sha256": "d275293dac67328c0e5ddf49f7f2535314cf72919bcfd904c815ec648966b971"
+    },
+    {
+      "job_id": "internal_mobile_factor_no_quadrant_seed0",
+      "checkpoint_sha256": "b54a9781d973bd08254648a865c1914fdaec9180858ca90e960ed01419276c42",
+      "summary_sha256": "510565f392602c018346cb49896c61495bf302880f364e43b7815be20f807ba2",
+      "native_metrics_sha256": "30c140ae7b3bdb44afd77690cf365ccc6007c51112e9b17b392df4d46a531285",
+      "native_provenance_sha256": "0c5d9e05575219bb51bc4a4e2d52df21dbbd8c1f1d29757489caec820133539d"
+    },
+    {
+      "job_id": "internal_mobile_factor_train_off_seed0",
+      "checkpoint_sha256": "92b892836c60ad9cc227c9dc5f0acca36e4e387dc4a6bfdb3b43215a632b2c2f",
+      "summary_sha256": "7de2fd7f93e57c863379e3d587446e8efc976b9678a9d52651664357820cf9a3",
+      "native_metrics_sha256": "c76cd8e3c03c3de98c78c8e3aa340863ea33507dc9ef16b84a2f6406149ca1e8",
+      "native_provenance_sha256": "3e4ffcf78dcada9e4bf55793b27a1fb40a6acceb11a632cc50c2698dfef99755"
+    },
+    {
+      "job_id": "internal_mobile_hooa_neither_seed0",
+      "checkpoint_sha256": "581d87b86e34d52a8f83b7d38460ea94c77841ffeb9707ca0fd08986778c1741",
+      "summary_sha256": "b1723b23f3c487b559ea1e7a54b98c0caf8337243bcbfa7cfd9891339f64f671",
+      "native_metrics_sha256": "cd09d5c4e276142887dc175b9cf88fe189555c7f1a909fac1d0da4f3d0e76757",
+      "native_provenance_sha256": "bbb4d5b086d27c6a0490d7c5fd8ff1c602953b4aa112079d57c45d3bba2c9748"
+    },
+    {
+      "job_id": "internal_mobile_hooa_no_highpass_seed0",
+      "checkpoint_sha256": "3ffaffc2742b33e099f20e1423a716b5e7e22bde7ba67017797580ae3e4737b6",
+      "summary_sha256": "7558f877fdf71aefc45002c0d21c8266a1ca64ba3033a0146652c4a8e6bef5f5",
+      "native_metrics_sha256": "0d8bef6e288a65381325ed2facf8f80d604e43ed9d063bcf75f333a2994feaa9",
+      "native_provenance_sha256": "f55b1c461c21094d63bd7c87731111a76c6642cfbacc56a00c02db8ccf2abfae"
+    },
+    {
+      "job_id": "internal_mobile_hooa_no_second_order_seed0",
+      "checkpoint_sha256": "38db56ee07e756ace8cfa8edd1d9050ff8b81adb55f81310b0288a00f4b0aab8",
+      "summary_sha256": "1f2a006e2a50c6c18369c34b62b763ee309c88799bb9817503082390f1464d96",
+      "native_metrics_sha256": "a3464ac4cbbb69b92cb191185937f14ad780d7ca23e2d85dbfd337307208650d",
+      "native_provenance_sha256": "0ac408a2192c16b681b7d2122fc8c1cf23ff77f755f46d3c71b52f65a76ac8c1"
+    },
+    {
+      "job_id": "internal_mobile_proto_k1_tau0p2_seed0",
+      "checkpoint_sha256": "8f664e8580f5af99af4208713c65439300833d10bd6729d52f2c3bef75a7d18c",
+      "summary_sha256": "7e0fac2525a1aa4a4ce8a86dc9a94c0ae4871f6be27d3552f5bb62a069a69b69",
+      "native_metrics_sha256": "4672f9112fe21ee8f18860ad44282f07a318663fc3ed4281f56e7732bbb45c92",
+      "native_provenance_sha256": "cbf266a9b9a6d5572b6a793bad53600079f3439e33d500574c75dd713e36ca58"
+    },
+    {
+      "job_id": "internal_mobile_proto_k2_tau0p2_seed0",
+      "checkpoint_sha256": "4c5694c2186fee2b300537a1e9d6f2bebd1e4de92ad931a37b1195cca166321c",
+      "summary_sha256": "aff173f530079c00e2f9d81c83fe0bca411132720769b903963e3492a098ac29",
+      "native_metrics_sha256": "5aeed56e051c33d997f70ff35d25ecd23dffe7d2e4fcd7dc0153b8275e8ee88b",
+      "native_provenance_sha256": "29b9fc2cd1e0ad8da85fb76f3b444a517f0e49ed7301244ca9e2523dd5043602"
+    },
+    {
+      "job_id": "internal_mobile_proto_k4_tau0p1_seed0",
+      "checkpoint_sha256": "5363a9fa27258711d41bf98f3e8d1ce689b23be652701c93ec560299775b5afc",
+      "summary_sha256": "181561a0f321ffbc5725844999988077fa63e0db6d968b63876152eb74ce6c60",
+      "native_metrics_sha256": "4e6d4768148604387eb1e176cf42f1a777bd4dd898e9c3407e43e67cac8c2603",
+      "native_provenance_sha256": "07a25a3cf82129ca3f9a228856ffb2a19a347d2e0e10a01783d042d851177370"
+    },
+    {
+      "job_id": "internal_mobile_proto_k4_tau0p5_seed0",
+      "checkpoint_sha256": "0f25025e383e1c12006a8fcdca3e2b9eb1bb29480723c6d802c48440d37a0da5",
+      "summary_sha256": "35a58f4b01ea3b1995c50fe67a09a1e9f46debf40763bb3b65c9973cccb80cfb",
+      "native_metrics_sha256": "85a4e96528e5dd1897ed3e04e80f8893f95b7e9dcce98c798280d7c10e169e09",
+      "native_provenance_sha256": "004bf36ccaaa55d16b6f97587e9d70e3a5e5c00f9de6662fa33e7e5faaefea76"
+    },
+    {
+      "job_id": "internal_mobile_proto_off_seed0",
+      "checkpoint_sha256": "ff35600cf98ac6ac2fdf41decb55f9227cea2f1709c9c6e69dc6cab74061d985",
+      "summary_sha256": "7e483e90490d0563bc0926555b2d98c5b71b4b82f2972d03ab6d11a2db9597c0",
+      "native_metrics_sha256": "bf47dc64a6b41e00ff38344718a757a3ebc1fab633069302e5bc13a08186a8dc",
+      "native_provenance_sha256": "3276f76418b295082b8147979f1afbd04104d5d8e27f7306c76634bfaff5d396"
+    },
+    {
+      "job_id": "mobile_1024_full_seed0",
+      "checkpoint_sha256": "44c6c89020afc7c2cb0005f642c423aa29274af870548aff227c584ffb8052ea",
+      "summary_sha256": "5ab1b19d6e93101b787cbe2361092c7a1e6d89ecc356d505bb00d50a1d45ee7d",
+      "native_metrics_sha256": "5d43161b88b6f0a9dbb2bed968f896801f43d58946e0c1b393354105252d5e0f",
+      "native_provenance_sha256": "97409021e3bd1b304da655e2b99a9c776fa8d7dd82d01f069f4d4d5428e3f3c7"
+    },
+    {
+      "job_id": "mobile_1024_full_seed1",
+      "checkpoint_sha256": "eed4ee3defe5a6fa29221a10871e6d7b23f4fc8df35db8ef8f3414bbd7b898f4",
+      "summary_sha256": "867ec33edaddce27ca4c6433f8386368996a494d7c7563b540b3f29d015f02d6",
+      "native_metrics_sha256": "8ba8884e99a6b08f05c269afce975d400e9b18fc7edc54af9bd6f0b6345bc150",
+      "native_provenance_sha256": "be79eef09edf3d2be4e0e80e7f713974ac63dcd2da1a1f025d3eacd48a3a8120"
+    },
+    {
+      "job_id": "mobile_1024_full_seed2",
+      "checkpoint_sha256": "e490d61bdbff036cf17d6b2d5a5d1722b89e92722e549686d07da22029c9d4fb",
+      "summary_sha256": "e8f3fc4f4674bbf92ce77e25de4922ae3caa7de0b9fccb3e6e22400949a46592",
+      "native_metrics_sha256": "8d6645dc850ad13d3750f0ab77a3b64ee0470475ba669b1c6898865ab15b8105",
+      "native_provenance_sha256": "db7f2a9fcef000d1a745de14905d50ea9d4c0bf8050cd716c95d20c391cbb32b"
+    },
+    {
+      "job_id": "pano_historical_spatialshape_seed0",
+      "checkpoint_sha256": "f0f0bd1bde9d52299f7bfc90f6477273018301d44e031e36744227ba722bb707",
+      "summary_sha256": "2646f49920ef5e1f9372b69edbc385bd840a58375bfbbcfcdc9233bcb0a29ec2",
+      "native_metrics_sha256": "06a7b45acda5bd5687f89e493046ff21a2558f5f50b41d2d3d759b3a17e5b620",
+      "native_provenance_sha256": "196bfbbce7966145f9a77ba3428b859463d18f5e8eefbdf8a257cf0f348d94db"
+    },
+    {
+      "job_id": "pano_historical_spatialshape_seed1",
+      "checkpoint_sha256": "2ad847824f03eac49a63482756c07a40ce6a3a99cf6e365082ccfc743d31ce27",
+      "summary_sha256": "174f04350b6154468a0db18d11c19154f90b41b5ae115323d2f5679b437f76c7",
+      "native_metrics_sha256": "738ecc9aead9eddf522ce8d91fe2b2b9e19dd91db35ffda8bea33745e5537362",
+      "native_provenance_sha256": "50ef1566b75864e8981ac85408f4b81154f1279aaefa3c7c9d4a5051a9595793"
+    },
+    {
+      "job_id": "pano_historical_spatialshape_seed2",
+      "checkpoint_sha256": "3f30ebd60512567118bdf5a69cb7249ff8fe56882b35a64a9d866d8590b05bac",
+      "summary_sha256": "f5a6f678011e8be9722a8c8b7801fd6bb5a22e1f345908e59e24898b7ff6057d",
+      "native_metrics_sha256": "3baa1e8c47095f25f21918b0637620a1da4d94413af439604d09ec1612fdd3e3",
+      "native_provenance_sha256": "4c7ba7066384623a867f5d8da62a879efc2a2e5c0fd41c3be85378e7ea627483"
+    }
+  ],
+  "verified_auxiliary_evidence": [
+    {
+      "job_id": "pano_historical_spatialshape_seed0",
+      "metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_0/native_prior_none_metrics.json",
+      "metric_sha256": "c7e0bd0277c9d229492d85c5c332e72c29dc6123036fc62fc44806b4c00c5492",
+      "provenance_sha256": "178f580a7fa040753fc67c0eb9ac05d614c78fedaadacee689ce793ffd162bab",
+      "secondary_metric_sha256": null
+    },
+    {
+      "job_id": "pano_historical_spatialshape_seed0",
+      "metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_0/native_prior_center_metrics.json",
+      "metric_sha256": "65aab283776056d5678b38d7b18f86ae0d6c3595733851f1c520acd4e1024a0e",
+      "provenance_sha256": "04ad268b77cda70c6c91d784833295fe901ace496cff8b998d57c8470e96b6ce",
+      "secondary_metric_sha256": null
+    },
+    {
+      "job_id": "pano_historical_spatialshape_seed0",
+      "metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_0/native_prior_shape_metrics.json",
+      "metric_sha256": "29e2be811c1e022e6088f7bab7e8ef101726a732370eb2abdeca47ea6d3477be",
+      "provenance_sha256": "636eeed2ed275933fc49885a2c48089979f1a22d5d93c0dea3bb4b6a3e4136a3",
+      "secondary_metric_sha256": null
+    },
+    {
+      "job_id": "pano_historical_spatialshape_seed0",
+      "metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_0/native_prior_both_metrics.json",
+      "metric_sha256": "0add3e847ae5fa83848f1dae4faee0cdc831643cef2f1f0ebbb80ba0a00a6510",
+      "provenance_sha256": "3e0ae28d15cc5218e6f577299acf97132f31f5393994ecfab4f9e20789f59455",
+      "secondary_metric_sha256": null
+    },
+    {
+      "job_id": "pano_historical_spatialshape_seed1",
+      "metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_1/native_prior_none_metrics.json",
+      "metric_sha256": "b5d74fc9eeb9ac5fc4f850f9e7815d7435750ae8f4b88026d65a85a957506ad4",
+      "provenance_sha256": "4c6d43bd2dd6b03a9a5452e30c2907cc9db7a4cc07e0ab9add31eeaec5c47d2c",
+      "secondary_metric_sha256": null
+    },
+    {
+      "job_id": "pano_historical_spatialshape_seed1",
+      "metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_1/native_prior_center_metrics.json",
+      "metric_sha256": "45112047b17979f1494523ba8eda9200b3b24376bd8eded184cf0d566786737a",
+      "provenance_sha256": "7b26a66fd37ccb65c20d1d038e3c84985746aab4f4dd264952d682d765b41123",
+      "secondary_metric_sha256": null
+    },
+    {
+      "job_id": "pano_historical_spatialshape_seed1",
+      "metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_1/native_prior_shape_metrics.json",
+      "metric_sha256": "34111fa301b6812f0f1a2e07eb54fce8851e56a4593c454de4c7ea3332ad4c11",
+      "provenance_sha256": "69a5d6e5afd6b16b771349efdb9f1eea63e0fd0975f1070fcc39ab964eb87a86",
+      "secondary_metric_sha256": null
+    },
+    {
+      "job_id": "pano_historical_spatialshape_seed1",
+      "metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_1/native_prior_both_metrics.json",
+      "metric_sha256": "ed0adf6efffa2e1e4e9fd2da5304091503f241e93b09010c4e63340b535ad72d",
+      "provenance_sha256": "d6bbcba0ae45e3067b9f2efb934c11b3fdf9ee3873e3b0b2e62c2613a04f45ba",
+      "secondary_metric_sha256": null
+    },
+    {
+      "job_id": "pano_historical_spatialshape_seed2",
+      "metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_2/native_prior_none_metrics.json",
+      "metric_sha256": "e160995a23f1823831a6156f3285959751ee5b528111cf68fb7a709a1ce66b89",
+      "provenance_sha256": "0f7c34ca7bd3feca88b1f488692a0e1927971ffdf04039de4d2efb6d565ebd8a",
+      "secondary_metric_sha256": null
+    },
+    {
+      "job_id": "pano_historical_spatialshape_seed2",
+      "metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_2/native_prior_center_metrics.json",
+      "metric_sha256": "7e30d2685d782c9f42035120bd6a6581d49ccd3a602abe614ddb3d8746095ded",
+      "provenance_sha256": "6945f84baabbd4567aa26dc5594466ad8480437065d9b10185325cb0ea506122",
+      "secondary_metric_sha256": null
+    },
+    {
+      "job_id": "pano_historical_spatialshape_seed2",
+      "metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_2/native_prior_shape_metrics.json",
+      "metric_sha256": "05cab1e644648ac5e23dee26214933fbce66cea48b189038e6e71568a4b07963",
+      "provenance_sha256": "68d6be9dc82a2f1da64db1f0b2d467ee89688f50dca6ebd64fe9f45db030bb2d",
+      "secondary_metric_sha256": null
+    },
+    {
+      "job_id": "pano_historical_spatialshape_seed2",
+      "metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/pano_historical_spatialshape/seed_2/native_prior_both_metrics.json",
+      "metric_sha256": "cc77ec26dd1f232c5cc126bcdc5096b874aa68fd37d2cc591e5511cad7b103b3",
+      "provenance_sha256": "ffd64520bbf4165ba7426e317fafc887d9ab7a6f8d36cb49a375b5cb467dd372",
+      "secondary_metric_sha256": null
+    },
+    {
+      "job_id": "mobile_1024_full_seed0",
+      "metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/mobile_1024_full/seed_0/native_factor_off_metrics.json",
+      "metric_sha256": "3156d0c042fc2ea8361b53b75276bdb194d28ea5f926e871db456108d077253c",
+      "provenance_sha256": "332d69319f7901e75de30d7cb684b47569f9c0313f291cbe231b40d63dbb9c12",
+      "secondary_metric_sha256": "ecbabd3f5b5c484e597052f26a39d7708c721b411152118c65ba0b439140ff63"
+    },
+    {
+      "job_id": "internal_mobile_factor_train_off_seed0",
+      "metric_path": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_factor_train_off/seed_0/native_factor_on_metrics.json",
+      "metric_sha256": "a003eaf73601db056901e357dc04173a69b4f7d9ac0405717f7fbfc335b3d8c9",
+      "provenance_sha256": "dae21a42373dbfc28fd04d47ba231d950a95ca3c28e1d75e1af4a50174f46ca0",
+      "secondary_metric_sha256": "3ef4d7825632322357bb61f0d148c9b63f5dfa638217c4ddf243be93a4e8d7f4"
+    }
+  ],
+  "output_directory": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/manuscript_data",
+  "DOCX_edited": false
+}

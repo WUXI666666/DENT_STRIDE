@@ -1,0 +1,518 @@
+{
+  "CMFA_correction_01_image125_FDI16_GradCAM": {
+    "group": "CMFA",
+    "cases": [
+      "CMFA_correction_01_image125_FDI16"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "CMFA_correction_01_image125_FDI16_HiResCAM": {
+    "group": "CMFA",
+    "cases": [
+      "CMFA_correction_01_image125_FDI16"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "CMFA_correction_02_image68_FDI83_GradCAM": {
+    "group": "CMFA",
+    "cases": [
+      "CMFA_correction_02_image68_FDI83"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "CMFA_correction_02_image68_FDI83_HiResCAM": {
+    "group": "CMFA",
+    "cases": [
+      "CMFA_correction_02_image68_FDI83"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "CMFA_correction_03_image37_FDI62_GradCAM": {
+    "group": "CMFA",
+    "cases": [
+      "CMFA_correction_03_image37_FDI62"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "CMFA_correction_03_image37_FDI62_HiResCAM": {
+    "group": "CMFA",
+    "cases": [
+      "CMFA_correction_03_image37_FDI62"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "CMFA_correction_04_image129_FDI72_GradCAM": {
+    "group": "CMFA",
+    "cases": [
+      "CMFA_correction_04_image129_FDI72"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "CMFA_correction_04_image129_FDI72_HiResCAM": {
+    "group": "CMFA",
+    "cases": [
+      "CMFA_correction_04_image129_FDI72"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "CMFA_correction_05_image124_FDI41_GradCAM": {
+    "group": "CMFA",
+    "cases": [
+      "CMFA_correction_05_image124_FDI41"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "CMFA_correction_05_image124_FDI41_HiResCAM": {
+    "group": "CMFA",
+    "cases": [
+      "CMFA_correction_05_image124_FDI41"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "CMFA_localization_01_image36_FDI63_GradCAM": {
+    "group": "CMFA",
+    "cases": [
+      "CMFA_localization_01_image36_FDI63"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "CMFA_localization_01_image36_FDI63_HiResCAM": {
+    "group": "CMFA",
+    "cases": [
+      "CMFA_localization_01_image36_FDI63"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "CMFA_adverse_01_image147_FDI71_GradCAM": {
+    "group": "CMFA",
+    "cases": [
+      "CMFA_adverse_01_image147_FDI71"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "CMFA_adverse_01_image147_FDI71_HiResCAM": {
+    "group": "CMFA",
+    "cases": [
+      "CMFA_adverse_01_image147_FDI71"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "Recommended_CMFA_GradCAM": {
+    "group": "CMFA",
+    "cases": [
+      "CMFA_correction_01_image125_FDI16",
+      "CMFA_correction_04_image129_FDI72",
+      "CMFA_correction_05_image124_FDI41"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "Recommended_CMFA_HiResCAM": {
+    "group": "CMFA",
+    "cases": [
+      "CMFA_correction_01_image125_FDI16",
+      "CMFA_correction_04_image129_FDI72",
+      "CMFA_correction_05_image124_FDI41"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "Supplement_CMFA_native_gates": {
+    "cases": [
+      "CMFA_correction_01_image125_FDI16",
+      "CMFA_correction_04_image129_FDI72",
+      "CMFA_correction_05_image124_FDI41"
+    ],
+    "type": "native_gates_absolute_0_1"
+  },
+  "Gallery_CMFA_all_cases_GradCAM": {
+    "group": "CMFA",
+    "cases": [
+      "CMFA_correction_01_image125_FDI16",
+      "CMFA_correction_02_image68_FDI83",
+      "CMFA_correction_03_image37_FDI62",
+      "CMFA_correction_04_image129_FDI72",
+      "CMFA_correction_05_image124_FDI41",
+      "CMFA_localization_01_image36_FDI63",
+      "CMFA_adverse_01_image147_FDI71"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "HOOA_correction_01_image113_FDI51_GradCAM": {
+    "group": "HOOA",
+    "cases": [
+      "HOOA_correction_01_image113_FDI51"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "HOOA_correction_01_image113_FDI51_HiResCAM": {
+    "group": "HOOA",
+    "cases": [
+      "HOOA_correction_01_image113_FDI51"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "HOOA_correction_02_image74_FDI52_GradCAM": {
+    "group": "HOOA",
+    "cases": [
+      "HOOA_correction_02_image74_FDI52"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "HOOA_correction_02_image74_FDI52_HiResCAM": {
+    "group": "HOOA",
+    "cases": [
+      "HOOA_correction_02_image74_FDI52"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "HOOA_correction_03_image77_FDI13_GradCAM": {
+    "group": "HOOA",
+    "cases": [
+      "HOOA_correction_03_image77_FDI13"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "HOOA_correction_03_image77_FDI13_HiResCAM": {
+    "group": "HOOA",
+    "cases": [
+      "HOOA_correction_03_image77_FDI13"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "HOOA_correction_04_image155_FDI31_GradCAM": {
+    "group": "HOOA",
+    "cases": [
+      "HOOA_correction_04_image155_FDI31"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "HOOA_correction_04_image155_FDI31_HiResCAM": {
+    "group": "HOOA",
+    "cases": [
+      "HOOA_correction_04_image155_FDI31"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "HOOA_correction_05_image121_FDI41_GradCAM": {
+    "group": "HOOA",
+    "cases": [
+      "HOOA_correction_05_image121_FDI41"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "HOOA_correction_05_image121_FDI41_HiResCAM": {
+    "group": "HOOA",
+    "cases": [
+      "HOOA_correction_05_image121_FDI41"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "HOOA_localization_01_image128_FDI36_GradCAM": {
+    "group": "HOOA",
+    "cases": [
+      "HOOA_localization_01_image128_FDI36"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "HOOA_localization_01_image128_FDI36_HiResCAM": {
+    "group": "HOOA",
+    "cases": [
+      "HOOA_localization_01_image128_FDI36"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "HOOA_adverse_01_image148_FDI55_GradCAM": {
+    "group": "HOOA",
+    "cases": [
+      "HOOA_adverse_01_image148_FDI55"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "HOOA_adverse_01_image148_FDI55_HiResCAM": {
+    "group": "HOOA",
+    "cases": [
+      "HOOA_adverse_01_image148_FDI55"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "Recommended_HOOA_GradCAM": {
+    "group": "HOOA",
+    "cases": [
+      "HOOA_correction_03_image77_FDI13"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "Recommended_HOOA_HiResCAM": {
+    "group": "HOOA",
+    "cases": [
+      "HOOA_correction_03_image77_FDI13"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "Supplement_HOOA_internal_responses": {
+    "cases": [
+      "HOOA_correction_03_image77_FDI13",
+      "HOOA_correction_02_image74_FDI52",
+      "HOOA_correction_05_image121_FDI41"
+    ],
+    "type": "native_RMS_and_GradCAM"
+  },
+  "Gallery_HOOA_all_cases_GradCAM": {
+    "group": "HOOA",
+    "cases": [
+      "HOOA_correction_01_image113_FDI51",
+      "HOOA_correction_02_image74_FDI52",
+      "HOOA_correction_03_image77_FDI13",
+      "HOOA_correction_04_image155_FDI31",
+      "HOOA_correction_05_image121_FDI41",
+      "HOOA_localization_01_image128_FDI36",
+      "HOOA_adverse_01_image148_FDI55"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "Prototype_correction_01_image44_FDI51_GradCAM": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_01_image44_FDI51"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "Prototype_correction_01_image44_FDI51_HiResCAM": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_01_image44_FDI51"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "Prototype_correction_01_image44_FDI51_Prototype_detail": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_01_image44_FDI51"
+    ],
+    "method": "gradcam",
+    "prototype_layout": true
+  },
+  "Prototype_correction_02_image163_FDI14_GradCAM": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_02_image163_FDI14"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "Prototype_correction_02_image163_FDI14_HiResCAM": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_02_image163_FDI14"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "Prototype_correction_02_image163_FDI14_Prototype_detail": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_02_image163_FDI14"
+    ],
+    "method": "gradcam",
+    "prototype_layout": true
+  },
+  "Prototype_correction_03_image118_FDI42_GradCAM": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_03_image118_FDI42"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "Prototype_correction_03_image118_FDI42_HiResCAM": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_03_image118_FDI42"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "Prototype_correction_03_image118_FDI42_Prototype_detail": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_03_image118_FDI42"
+    ],
+    "method": "gradcam",
+    "prototype_layout": true
+  },
+  "Prototype_correction_04_image155_FDI31_GradCAM": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_04_image155_FDI31"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "Prototype_correction_04_image155_FDI31_HiResCAM": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_04_image155_FDI31"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "Prototype_correction_04_image155_FDI31_Prototype_detail": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_04_image155_FDI31"
+    ],
+    "method": "gradcam",
+    "prototype_layout": true
+  },
+  "Prototype_correction_05_image24_FDI62_GradCAM": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_05_image24_FDI62"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "Prototype_correction_05_image24_FDI62_HiResCAM": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_05_image24_FDI62"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "Prototype_correction_05_image24_FDI62_Prototype_detail": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_05_image24_FDI62"
+    ],
+    "method": "gradcam",
+    "prototype_layout": true
+  },
+  "Prototype_localization_01_image22_FDI64_GradCAM": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_localization_01_image22_FDI64"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "Prototype_localization_01_image22_FDI64_HiResCAM": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_localization_01_image22_FDI64"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "Prototype_localization_01_image22_FDI64_Prototype_detail": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_localization_01_image22_FDI64"
+    ],
+    "method": "gradcam",
+    "prototype_layout": true
+  },
+  "Prototype_adverse_01_image139_FDI71_GradCAM": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_adverse_01_image139_FDI71"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "Prototype_adverse_01_image139_FDI71_HiResCAM": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_adverse_01_image139_FDI71"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "Prototype_adverse_01_image139_FDI71_Prototype_detail": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_adverse_01_image139_FDI71"
+    ],
+    "method": "gradcam",
+    "prototype_layout": true
+  },
+  "Recommended_Prototype_GradCAM": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_01_image44_FDI51",
+      "Prototype_correction_05_image24_FDI62",
+      "Prototype_correction_03_image118_FDI42"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  },
+  "Recommended_Prototype_HiResCAM": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_01_image44_FDI51",
+      "Prototype_correction_05_image24_FDI62",
+      "Prototype_correction_03_image118_FDI42"
+    ],
+    "method": "hirescam",
+    "prototype_layout": false
+  },
+  "Recommended_Prototype_mechanism": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_01_image44_FDI51",
+      "Prototype_correction_05_image24_FDI62",
+      "Prototype_correction_03_image118_FDI42"
+    ],
+    "method": "hirescam",
+    "prototype_layout": true
+  },
+  "Gallery_Prototype_all_cases_GradCAM": {
+    "group": "Prototype",
+    "cases": [
+      "Prototype_correction_01_image44_FDI51",
+      "Prototype_correction_02_image163_FDI14",
+      "Prototype_correction_03_image118_FDI42",
+      "Prototype_correction_04_image155_FDI31",
+      "Prototype_correction_05_image24_FDI62",
+      "Prototype_localization_01_image22_FDI64",
+      "Prototype_adverse_01_image139_FDI71"
+    ],
+    "method": "gradcam",
+    "prototype_layout": false
+  }
+}

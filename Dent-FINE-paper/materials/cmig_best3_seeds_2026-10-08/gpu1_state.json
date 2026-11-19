@@ -1,0 +1,40 @@
+{
+  "gpu": 1,
+  "worker_pid": 90144,
+  "started_unix": 1791549136.927572,
+  "completed": [
+    "internal_mobile_cmfa_no_gates_seed0",
+    "internal_mobile_factor_train_off_seed0",
+    "internal_mobile_hooa_no_highpass_seed0",
+    "internal_mobile_factor_no_dentition_seed0",
+    "internal_mobile_factor_no_position_seed0",
+    "internal_mobile_cmfa_spatial_only_seed0",
+    "internal_mobile_hooa_no_second_order_seed0",
+    "internal_mobile_proto_k4_tau0p5_seed0",
+    "internal_dslr_rollback_only_seed0"
+  ],
+  "state": "all_completed",
+  "recovery_script": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/power_restart_20261009/queue_worker_restart.py",
+  "restart_after_power_loss": true,
+  "assigned_jobs": [
+    "internal_mobile_cmfa_no_gates_seed0",
+    "internal_mobile_factor_train_off_seed0",
+    "internal_mobile_hooa_no_highpass_seed0",
+    "internal_mobile_factor_no_dentition_seed0",
+    "internal_mobile_factor_no_position_seed0",
+    "internal_mobile_cmfa_spatial_only_seed0",
+    "internal_mobile_hooa_no_second_order_seed0",
+    "internal_mobile_proto_k4_tau0p5_seed0",
+    "internal_dslr_rollback_only_seed0"
+  ],
+  "current_job": "internal_dslr_rollback_only_seed0",
+  "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_dslr_rollback_only/seed_0",
+  "command": [
+    "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+    "-u",
+    "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/power_restart_20261009/export_native.py",
+    "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/jobs/internal_dslr_rollback_only_seed0.json"
+  ],
+  "child_pid": 2486553,
+  "finished_unix": 1791696109.7733946
+}

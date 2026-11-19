@@ -1,0 +1,49 @@
+{
+  "model": "rtdetrv2_s",
+  "cohort": "dslr",
+  "seed": 2,
+  "epochs_completed": 160,
+  "final_epoch_zero_based": 159,
+  "best_epoch_zero_based": 125,
+  "best_metrics": {
+    "AP": 70.36670117888205,
+    "AP50": 86.80873700083664,
+    "AP75": 80.61760790848197,
+    "AP_small": null,
+    "AP_medium": 48.19845313992718,
+    "AP_large": 72.64439385042839,
+    "AR1": 75.38808045737342,
+    "AR10": 81.92746155719716,
+    "AR100": 82.23077839711212,
+    "AR_small": null,
+    "AR_medium": 57.09251743626744,
+    "AR_large": 83.90220703745922
+  },
+  "final_epoch_metrics": {
+    "AP": 69.79993307581557,
+    "AP50": 86.97176384410204,
+    "AP75": 80.61623818361728,
+    "AP_small": null,
+    "AP_medium": 47.608731457563245,
+    "AP_large": 72.02058763838708,
+    "AR1": 74.883975617364,
+    "AR10": 81.39652255516849,
+    "AR100": 81.60286554824641,
+    "AR_small": null,
+    "AR_medium": 51.1749037999038,
+    "AR_large": 83.63225502863982
+  },
+  "params_training_total": 20148512,
+  "params_trainable": 20148512,
+  "stage1_RAM_restores": 0,
+  "elapsed_seconds": 6133.49472485797,
+  "peak_cuda_allocated_bytes": 3245536256,
+  "checkpoint_sha256": "83de9133cebd30c9ea72375c62e1922d877ce7d16b5003f6eb3124243a85019e",
+  "completed_at": "2026-09-11T20:45:40.461695+08:00",
+  "compute_profile": {
+    "GMACs": 29.9698176,
+    "GFLOPs": 60.0884832,
+    "params_deploy_total": 21919520,
+    "profile": "calflops, deployed model forward only, FP32, CPU, batch 1, 640x640; excludes postprocessing"
+  }
+}

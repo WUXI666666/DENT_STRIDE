@@ -1,0 +1,26 @@
+[
+  {
+    "file": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/smoke_runs/deim_s/phone/seed_0/best.pth",
+    "sha256": "ebf81951c2d78113348eb66d08e080a4b410d2d36e8c71a6ac477b45f87b44d6",
+    "bytes": 83415246,
+    "reason": "non-research pipeline test or superseded infrastructure-failed attempt",
+    "removed_at": "2026-09-10T23:53:36.262188+08:00",
+    "recovery": "not retained; requires rerunning the corresponding non-research test"
+  },
+  {
+    "file": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/smoke_runs/rtdetrv2_s/phone/seed_0/best.pth",
+    "sha256": "e68837ad16fd43b36b6ae595d2e6fe81c3c1364b108bf6106b43f6728005bc83",
+    "bytes": 162093966,
+    "reason": "non-research pipeline test or superseded infrastructure-failed attempt",
+    "removed_at": "2026-09-10T23:53:36.350974+08:00",
+    "recovery": "not retained; requires rerunning the corresponding non-research test"
+  },
+  {
+    "file": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/failed_attempts/rtdetrv2_s_phone_seed0_pillow_guard/best.pth",
+    "sha256": "0cedb95d7edf5a1817a9ed561da9ae32efa0214c501c388d0d859dfb4d7d8583",
+    "bytes": 323558478,
+    "reason": "non-research pipeline test or superseded infrastructure-failed attempt",
+    "removed_at": "2026-09-10T23:53:36.526236+08:00",
+    "recovery": "not retained; requires rerunning the corresponding non-research test"
+  }
+]

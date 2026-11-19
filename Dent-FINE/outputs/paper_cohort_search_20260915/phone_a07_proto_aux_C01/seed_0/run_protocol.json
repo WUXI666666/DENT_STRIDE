@@ -1,0 +1,98 @@
+{
+  "job_id": "phone_a07_proto_aux_C01",
+  "task": "phone_a07_proto_aux",
+  "cohort": "Smartphone",
+  "model": "A07 CMFA+HOOA+NWD+Arch+Factor fusion+Prototype auxiliary",
+  "phase": "core_grid",
+  "seed": 0,
+  "augmentation": {
+    "profile": "legacy640_multiscale",
+    "mosaic": 0.0,
+    "mixup": 0.0,
+    "crop": 0.8,
+    "zoom": 0.5
+  },
+  "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C01_seed0.yml",
+  "config_sha256": "00d111572b05428e20e0e6a249b517dd381ff8e8845e359026cc5f1030a1f7a6",
+  "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C01/seed_0",
+  "implementation_dir": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024",
+  "train_script": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/train.py",
+  "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+  "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+  "changes_from_aligned_base": [
+    {
+      "path": "output_dir",
+      "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+      "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C01/seed_0"
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[2].p",
+      "before": "<absent>",
+      "after": 0.5
+    }
+  ],
+  "mosaic_gate": {
+    "outer_probability": 0.0,
+    "inner_probability": 0.0,
+    "active_epochs_zero_based": [
+      4,
+      69
+    ],
+    "native_crop_zoom_exclusion_preserved": true
+  },
+  "command": [
+    "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+    "-u",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/train.py",
+    "-c",
+    "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C01_seed0.yml",
+    "--seed",
+    "0",
+    "--use-amp",
+    "-d",
+    "cuda",
+    "--output-dir",
+    "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C01/seed_0"
+  ],
+  "started_at": "2026-09-15T22:41:07.598796+08:00",
+  "gpu": 0,
+  "cwd": "/home/wuxi/Dent-FINE",
+  "manifest_sha256": "5e55788809a2cc3c0ab2cad77e817409f46ff9a2565ce73d48454879c0f47029",
+  "queue_script_sha256": "7a07f519a7cc11e2d7a9ec2af00b24bdc90141bb5c9addf0ead8d9c61a27484f",
+  "initialization": "Fresh original pretrained backbone; no prior-run fine tuning",
+  "selection_policy_at_start": {
+    "registered_at": "2026-09-15T16:17:48.957980+08:00",
+    "primary_endpoint": "Validation COCO bbox AP, IoU .50:.95",
+    "selection": "Highest independently re-evaluated best-checkpoint AP, separately per model/cohort",
+    "seed": 0,
+    "epochs": 160,
+    "fresh_initialization": true,
+    "secondary_metrics": [
+      "AP50",
+      "AP75",
+      "AR100"
+    ],
+    "core_grid": "legacy640 multiscale / fixed640 / fixed1024 x MixUp 0 / .5; Mosaic 0, IoUCrop .8, ZoomOut .5",
+    "reused_candidates_per_task": 1,
+    "new_core_candidates_per_task": 5,
+    "refinement": "Three separate single-factor trials on each core winner: IoUCrop .5, ZoomOut 0, or Mosaic .25. No untested combinations are claimed optimal.",
+    "total_new_runs": 24,
+    "dentex_retraining": false,
+    "final_allowed_profiles": [
+      "legacy640_multiscale",
+      "fixed640",
+      "fixed1024"
+    ],
+    "tie_break": "AP descending, then smaller evaluation size, lower Mosaic, lower MixUp, higher crop/zoom, lexical job ID",
+    "native_unchanged": [
+      "datasets/splits/label maps",
+      "model/modules/losses",
+      "optimizer/LR",
+      "EMA/stage behavior",
+      "train batch 8, val batch 16",
+      "initial backbone"
+    ],
+    "retention": "Keep every candidate config/log/metrics and best.pth; delete only native temporary last/stage weights after successful final re-evaluation.",
+    "scope": "Exploratory bounded validation selection, not globally optimal or a locked-test/SOTA claim."
+  }
+}

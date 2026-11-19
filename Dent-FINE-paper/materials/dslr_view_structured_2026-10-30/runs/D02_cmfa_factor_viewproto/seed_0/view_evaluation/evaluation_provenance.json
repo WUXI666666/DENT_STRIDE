@@ -1,0 +1,329 @@
+{
+  "job_id": "D02_cmfa_factor_viewproto_seed0",
+  "configuration": "D02_cmfa_factor_viewproto",
+  "cohort": "DSLR",
+  "seed": 0,
+  "checkpoint_sha256": "58b1c832880e1d7117a39d063ae4217643035413cdf20ccda7860ad0f09e981b",
+  "config_sha256": "95400401de09dc16ea018e2828aabd2ddb0d1accd62879d3c7f7862af27a9d07",
+  "training_log_sha256": "09c7a060488bd654166a3a6847792bb4b6e9b46ee5136cd3c82d118b96f3dab1",
+  "view_prior_sha256": "bf2fa39462208332f6407b8800ae8943255639813a518c767e1d59ae3d11c206",
+  "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/source_snapshots/local",
+  "native_train_script_sha256": "3cae0fa70bb25e75865a117ba1246941d46503688472f07a510926c26afa657a",
+  "identity_runtime_sha256": "4a38927bd4868c17d6c96600848626facf5d7188f70400fa17e5a79341600938",
+  "view_prior_ops_sha256": "6a2a8e2f672904480f7935536a33c7a59d3cd16fa8f0ea10c1dc1dbf0efa010a",
+  "evaluator_script_sha256": "a7e3379e6d5e12732f026f04eeaebb9beb7909dc573f39258df69a8c1be4023a",
+  "runtime_installation": {
+    "settings": {
+      "num_views": 5,
+      "attach_dataset_metadata": true,
+      "guard_mixed_view_augmentations": true
+    },
+    "view_names": [
+      "frontal",
+      "upper_occlusal",
+      "lower_occlusal",
+      "left_buccal",
+      "right_buccal"
+    ],
+    "bank_shape_contract": "[5, num_classes, prototype_count, hidden_dim]",
+    "unknown_view_policy": "skip prototype CE; zero unused prototype logits; no view-0 fallback",
+    "prototype_aggregation": "LogSumExp_K(cosine(normalized_query, normalized_prototype)/tau)",
+    "prototype_supervision_scope": "native final decoder main-query matcher indices only",
+    "factor_supervision_scope": "native factor losses, including available auxiliary and denoising heads",
+    "prototype_inference_fusion": false
+  },
+  "native_arguments": [
+    "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/source_snapshots/local/train.py",
+    "-c",
+    "/home/wuxi/Dent-FINE-paper/materials/dslr_view_structured_2026-10-30/configs/D02_cmfa_factor_viewproto_seed0.yml",
+    "--seed",
+    "0",
+    "--use-amp",
+    "-d",
+    "cuda",
+    "--resume",
+    "/home/wuxi/Dent-FINE-paper/materials/dslr_view_structured_2026-10-30/runs/D02_cmfa_factor_viewproto/seed_0/best.pth",
+    "--test-only",
+    "--output-dir",
+    "/home/wuxi/Dent-FINE-paper/materials/dslr_view_structured_2026-10-30/runs/D02_cmfa_factor_viewproto/seed_0/view_evaluation",
+    "--summary-dir",
+    "/home/wuxi/Dent-FINE-paper/materials/dslr_view_structured_2026-10-30/runs/D02_cmfa_factor_viewproto/seed_0/view_evaluation/tensorboard"
+  ],
+  "precision": "native FP32 evaluation, EMA model, no autocast",
+  "evaluated_ema": true,
+  "params_total": 11434086,
+  "params_trainable": 11434081,
+  "validation_images": 190,
+  "validation_boxes": 2742,
+  "candidate_shape": [
+    190,
+    300,
+    52
+  ],
+  "view_counts": {
+    "0": 38,
+    "3": 38,
+    "2": 38,
+    "4": 38,
+    "1": 38
+  },
+  "FDI_label_map": [
+    {
+      "label_index": 0,
+      "FDI": 11
+    },
+    {
+      "label_index": 1,
+      "FDI": 12
+    },
+    {
+      "label_index": 2,
+      "FDI": 13
+    },
+    {
+      "label_index": 3,
+      "FDI": 14
+    },
+    {
+      "label_index": 4,
+      "FDI": 15
+    },
+    {
+      "label_index": 5,
+      "FDI": 16
+    },
+    {
+      "label_index": 6,
+      "FDI": 17
+    },
+    {
+      "label_index": 7,
+      "FDI": 18
+    },
+    {
+      "label_index": 8,
+      "FDI": 21
+    },
+    {
+      "label_index": 9,
+      "FDI": 22
+    },
+    {
+      "label_index": 10,
+      "FDI": 23
+    },
+    {
+      "label_index": 11,
+      "FDI": 24
+    },
+    {
+      "label_index": 12,
+      "FDI": 25
+    },
+    {
+      "label_index": 13,
+      "FDI": 26
+    },
+    {
+      "label_index": 14,
+      "FDI": 27
+    },
+    {
+      "label_index": 15,
+      "FDI": 28
+    },
+    {
+      "label_index": 16,
+      "FDI": 31
+    },
+    {
+      "label_index": 17,
+      "FDI": 32
+    },
+    {
+      "label_index": 18,
+      "FDI": 33
+    },
+    {
+      "label_index": 19,
+      "FDI": 34
+    },
+    {
+      "label_index": 20,
+      "FDI": 35
+    },
+    {
+      "label_index": 21,
+      "FDI": 36
+    },
+    {
+      "label_index": 22,
+      "FDI": 37
+    },
+    {
+      "label_index": 23,
+      "FDI": 38
+    },
+    {
+      "label_index": 24,
+      "FDI": 41
+    },
+    {
+      "label_index": 25,
+      "FDI": 42
+    },
+    {
+      "label_index": 26,
+      "FDI": 43
+    },
+    {
+      "label_index": 27,
+      "FDI": 44
+    },
+    {
+      "label_index": 28,
+      "FDI": 45
+    },
+    {
+      "label_index": 29,
+      "FDI": 46
+    },
+    {
+      "label_index": 30,
+      "FDI": 47
+    },
+    {
+      "label_index": 31,
+      "FDI": 48
+    },
+    {
+      "label_index": 32,
+      "FDI": 51
+    },
+    {
+      "label_index": 33,
+      "FDI": 52
+    },
+    {
+      "label_index": 34,
+      "FDI": 53
+    },
+    {
+      "label_index": 35,
+      "FDI": 54
+    },
+    {
+      "label_index": 36,
+      "FDI": 55
+    },
+    {
+      "label_index": 37,
+      "FDI": 61
+    },
+    {
+      "label_index": 38,
+      "FDI": 62
+    },
+    {
+      "label_index": 39,
+      "FDI": 63
+    },
+    {
+      "label_index": 40,
+      "FDI": 64
+    },
+    {
+      "label_index": 41,
+      "FDI": 65
+    },
+    {
+      "label_index": 42,
+      "FDI": 71
+    },
+    {
+      "label_index": 43,
+      "FDI": 72
+    },
+    {
+      "label_index": 44,
+      "FDI": 73
+    },
+    {
+      "label_index": 45,
+      "FDI": 74
+    },
+    {
+      "label_index": 46,
+      "FDI": 75
+    },
+    {
+      "label_index": 47,
+      "FDI": 81
+    },
+    {
+      "label_index": 48,
+      "FDI": 82
+    },
+    {
+      "label_index": 49,
+      "FDI": 83
+    },
+    {
+      "label_index": 50,
+      "FDI": 84
+    },
+    {
+      "label_index": 51,
+      "FDI": 85
+    }
+  ],
+  "view_routing": "explicit images[] acquisition view metadata, checked against tensor loader targets",
+  "candidate_export": "untruncated logits and normalized cxcywh before score activation and native top300",
+  "prior_role": "fixed training-derived per-view center/log-shape score correction before top300, not a training loss",
+  "postprocessing": "native top300, no added score threshold, NMS or global assignment for COCO",
+  "checkpoint_selection": "maximum native validation COCO bbox AP, no priors",
+  "best_epoch_zero_based": 103,
+  "best_epoch_one_based": 104,
+  "final_epoch_zero_based": 159,
+  "final_epoch_one_based": 160,
+  "completed_epochs": 160,
+  "checkpoint_internal_last_epoch": 103,
+  "checkpoint_epoch_note": "Native stage rollback can reset internal last_epoch; best epoch is from full training log",
+  "logged_best_metrics_fraction": {
+    "AP": 0.7291359556913238,
+    "AP50": 0.8815533105207358,
+    "AP75": 0.8357576088115192,
+    "APsmall": -1.0,
+    "APmedium": 0.5119492756849967,
+    "APlarge": 0.7510907370286456,
+    "AR1": 0.7957697652606689,
+    "AR10": 0.828231001494408,
+    "AR100": 0.8340974640274617,
+    "ARsmall": -1.0,
+    "ARmedium": 0.6025735028860029,
+    "ARlarge": 0.8511018264530806
+  },
+  "native_minus_logged_fraction": {
+    "AP": 0.0,
+    "AP50": 0.0,
+    "AP75": 0.0,
+    "APsmall": 0.0,
+    "APmedium": 0.0,
+    "APlarge": 0.0,
+    "AR1": 0.0,
+    "AR10": 0.0,
+    "AR100": 0.0,
+    "ARsmall": 0.0,
+    "ARmedium": 0.0,
+    "ARlarge": 0.0
+  },
+  "native_replay_tolerance_fraction": 2e-06,
+  "verified_best_checkpoint": true,
+  "authoritative_native_evaluation": true,
+  "independent_test": false,
+  "split_changed": false,
+  "evaluation_seconds": 8.037155389785767,
+  "torch": "2.5.1+cu124",
+  "cuda_runtime": "12.4",
+  "gpu": "NVIDIA GeForce RTX 4090"
+}

@@ -1,0 +1,220 @@
+{
+  "cohort": "DENTEX2023",
+  "model": "DENT-STRIDE SpatialShape",
+  "source_protocol": "/home/wuxi/Dent-FINE-paper/materials/three_seed_primary_2026-09-09/runs/dentex_spatial_shape/seed_1/run_protocol.json",
+  "source_protocol_sha256": "bd32611fbf32bc9700eb2245226775e150dc3b211c433328c81a5b78cce78c33",
+  "source_config": "/home/wuxi/Dent-FINE/configs/deim_dfine/deim_hgnetv2_s_dentex.yml",
+  "source_config_sha256": "d0e169233b6a5f08f5c383f1d61e928a2dc44a10d529389f734b24c479540ac3",
+  "source_cli_updates": [
+    "HybridEncoder.use_hfsa=False",
+    "HybridEncoder.use_wav_enhance=False",
+    "HybridEncoder.use_stat_denoise=False",
+    "HybridEncoder.use_multipath_fusion=False",
+    "HybridEncoder.use_dynamic_rf=False",
+    "HybridEncoder.use_mpc_multiscale_perception=False",
+    "HybridEncoder.use_pqg_high_frequency=False",
+    "HybridEncoder.use_cmfa_fusion=False",
+    "HybridEncoder.use_pfesa=False",
+    "HybridEncoder.use_ucan_lkd=False",
+    "HybridEncoder.use_ucm_uncertainty=False",
+    "HybridEncoder.use_retinex_prior=False",
+    "HybridEncoder.use_hooa_attention=False",
+    "HybridEncoder.use_multinex_prior=False",
+    "HybridEncoder.use_dcsam_dual_consistency=False",
+    "HybridEncoder.use_iqp_quality_prior=False",
+    "HybridEncoder.use_dformer_geometry_prior=False",
+    "HybridEncoder.use_cdml_domain_adapter=False",
+    "HybridEncoder.use_efruf_gradient_fusion=False",
+    "HybridEncoder.use_sinf_spatial_field=False",
+    "HybridEncoder.use_smwg_spectral_wavelet=False",
+    "HybridEncoder.use_structural_entropy_frequency_refiner=False",
+    "HybridEncoder.use_rot_equivariant_detail_refiner=False",
+    "HybridEncoder.use_hedp_prompt_refiner=False",
+    "HybridEncoder.use_sampg_sst_refiner=False",
+    "HybridEncoder.use_segd_entropy_refiner=False",
+    "HybridEncoder.use_fsdetr_frequency_spatial_refiner=False",
+    "HybridEncoder.use_df2net_dynamic_fusion=False",
+    "HybridEncoder.use_sdconet_saliency_refiner=False",
+    "HybridEncoder.use_idgbr_boundary_refiner=False",
+    "HybridEncoder.use_bilalora_layer_adapter=False",
+    "HybridEncoder.use_surmt_structure_bridge=False",
+    "HybridEncoder.use_mav_sparse_interaction=False",
+    "HybridEncoder.use_cnm_ode_refiner=False",
+    "HybridEncoder.use_cldyn_rsc=False",
+    "HybridEncoder.use_ced_cascade_refiner=False",
+    "HybridEncoder.use_dswfm=False",
+    "HybridEncoder.use_dced_cascade=False",
+    "HybridEncoder.use_dug_hoif_fusion=False",
+    "HybridEncoder.paper_refine_apply=proj",
+    "HybridEncoder.apply_extra_modules=proj",
+    "HybridEncoder.apply_denoise_modules=proj",
+    "HybridEncoder.apply_refine_modules=outs",
+    "DFINETransformer.use_factor_heads=False",
+    "DFINETransformer.use_tooth_prototype=False",
+    "DFINETransformer.use_uni_gate=False",
+    "DFINETransformer.use_uni_gate_infer=False",
+    "DFINETransformer.uni_gate_apply_last_only=True",
+    "DFINETransformer.use_qgp=False",
+    "DFINETransformer.qgp_layers=[]",
+    "DFINETransformer.use_pgr_roi_reasoning=False",
+    "DFINETransformer.roi_init_ratio=0.5",
+    "DFINETransformer.use_fdi_factor_prior=False",
+    "DFINETransformer.fdi_factor_logit_scale=0.0",
+    "DFINETransformer.use_spegc_prompt_graph=False",
+    "DFINETransformer.use_cluster_query_refiner=False",
+    "DFINETransformer.use_query_recovery_memory=False",
+    "DFINETransformer.use_pfrpn_query_adapter=False",
+    "DFINETransformer.use_tooth_template_prior=False",
+    "DFINETransformer.use_anatomical_region_prior=False",
+    "PostProcessor.use_dental_spatial_prior=False",
+    "PostProcessor.use_dental_shape_prior=False",
+    "PostProcessor.use_dental_view_prior=False",
+    "PostProcessor.use_global_assignment=False",
+    "DEIMCriterion.losses=[mal,boxes,local]",
+    "DEIMCriterion.use_fdi_anatomy_loss=False",
+    "DEIMCriterion.use_dsfed_dual_scale_kd=False",
+    "DEIMCriterion.use_tooth_size_prior_loss=False",
+    "HGNetv2.pretrained=True",
+    "DFINETransformer.use_mr=False",
+    "DFINETransformer.use_tooth_query_embed=False",
+    "DEIMCriterion.weight_dict.loss_arch=0.0",
+    "checkpoint_freq=1000000",
+    "train_dataloader.total_batch_size=8",
+    "train_dataloader.num_workers=8",
+    "val_dataloader.total_batch_size=16",
+    "val_dataloader.num_workers=8",
+    "epoches=160",
+    "DFINETransformer.use_factor_heads=True",
+    "DFINETransformer.use_tooth_prototype=True",
+    "DEIMCriterion.losses=[mal,boxes,local,quad,tooth,dent,proto]",
+    "PostProcessor.use_dental_spatial_prior=True",
+    "PostProcessor.spatial_prior_weight=0.2",
+    "PostProcessor.use_dental_shape_prior=True",
+    "PostProcessor.shape_prior_weight=0.05",
+    "PostProcessor.use_dental_view_prior=True",
+    "PostProcessor.view_prior_weight=0.2",
+    "fdi_label_order=dentex_enumeration32",
+    "dental_prior_path=/home/wuxi/Dent-FINE/outputs/ablation_all_new_modules/priors/dentex_tooth_templates.pt",
+    "PostProcessor.dental_view_type=panorama"
+  ],
+  "config": "/home/wuxi/Dent-FINE/configs/paper_input1024_20260913/dentex_spatial_shape.yml",
+  "config_sha256": "9a71189d4610cdedbddaa0eac99b9c0d2805da8a7242d8926e0b352203da50f5",
+  "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_main_input1024_20260913/dentex_spatial_shape/seed_0",
+  "changes": [
+    {
+      "path": "eval_spatial_size[0]",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "eval_spatial_size[1]",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "output_dir",
+      "before": "./outputs/deim_hgnetv2_s_dentex",
+      "after": "/home/wuxi/Dent-FINE/outputs/paper_main_input1024_20260913/dentex_spatial_shape/seed_0"
+    },
+    {
+      "path": "train_dataloader.collate_fn.base_size",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "train_dataloader.collate_fn.base_size_repeat",
+      "before": 20,
+      "after": null
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.mosaic_prob",
+      "before": 0,
+      "after": 1.0
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+      "before": 320,
+      "after": 640
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[0].probability",
+      "before": 0,
+      "after": 1.0
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[3].p",
+      "before": 0.8,
+      "after": 0.5
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[5].size[0]",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[5].size[1]",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "val_dataloader.dataset.transforms.ops[0].size[0]",
+      "before": 640,
+      "after": 1024
+    },
+    {
+      "path": "val_dataloader.dataset.transforms.ops[0].size[1]",
+      "before": 640,
+      "after": 1024
+    }
+  ],
+  "datasets": {
+    "train": {
+      "images": 570,
+      "annotations": 16234,
+      "categories": 32,
+      "ann_file": "/home/wuxi/DENTEX2023/annotations/instances_train2017.json",
+      "ann_sha256": "cdde8f96874c0aafabdd3de12fa5c8b3827ebd4eed40768119bdd4d74901cb50",
+      "img_folder": "/home/wuxi/DENTEX2023/train2017"
+    },
+    "val": {
+      "images": 64,
+      "annotations": 1861,
+      "categories": 32,
+      "ann_file": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+      "ann_sha256": "52532169c776f6ceaa126816787e54f8f796ebb6163c0bf8a04f98372d4f3903",
+      "img_folder": "/home/wuxi/DENTEX2023/val2017"
+    }
+  },
+  "initialization_and_prior_files": {
+    "backbone": {
+      "path": "/home/wuxi/RT-DETR-main/D-FINE/weight/hgnetv2/PPHGNetV2_B0_stage1.pth",
+      "sha256": "70a372e8cbc59b34c5da2943261ecb633faf304a58e7e05461a27bd8d8b7f3d1"
+    },
+    "spatial_shape_prior": {
+      "path": "/home/wuxi/Dent-FINE/outputs/ablation_all_new_modules/priors/dentex_tooth_templates.pt",
+      "sha256": "616631a8fba26dd3e7abd1debd7e0c2c8fcba0c365d0d9c139fbc4caf1235302"
+    }
+  },
+  "implementation_dir": "/home/wuxi/Dent-FINE",
+  "train_script": "/home/wuxi/Dent-FINE/train.py",
+  "seed": 0,
+  "command": [
+    "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+    "-u",
+    "/home/wuxi/Dent-FINE/train.py",
+    "-c",
+    "/home/wuxi/Dent-FINE/configs/paper_input1024_20260913/dentex_spatial_shape.yml",
+    "--seed",
+    "0",
+    "--use-amp",
+    "-d",
+    "cuda",
+    "--output-dir",
+    "/home/wuxi/Dent-FINE/outputs/paper_main_input1024_20260913/dentex_spatial_shape/seed_0"
+  ],
+  "started_at": "2026-09-13T18:14:07.972577+08:00",
+  "gpu": 0,
+  "cwd": "/home/wuxi/Dent-FINE",
+  "queue_script_sha256": "05338a4710476a09ef9e48b3fa318237440f241cc8b3b9d7a412c1807eedb6df",
+  "manifest_sha256": "beee816ea688307eca3e3d30d04ac859cc55c5ee8bf6ae2c4ac260167b47d8a2"
+}

@@ -1,0 +1,1416 @@
+{
+  "protocol": {
+    "score_threshold": 0.3,
+    "IoU_threshold": 0.5,
+    "matching": "class-agnostic maximum-total-IoU Hungarian localization, then identity comparison",
+    "representative_seed_by_cohort": {
+      "Mobile": 2,
+      "Pano": 3,
+      "DSLR": 3
+    },
+    "selection": "Highest validation AP among the author-selected seeds supplies each representative checkpoint. Examples include both improvement and adverse outcomes; they are illustrative rather than a random sample."
+  },
+  "figures": {
+    "Figure_10_Pano_same_weight_prior": {
+      "cohort": "Pano",
+      "cases": [
+        {
+          "cohort": "Pano",
+          "image_id": 66,
+          "image_file": "/home/wuxi/DENTEX2023/val2017/train_606.png",
+          "image_sha256": "cbbcb9ab39fba8119c8cea9464800deef7d69c19aaf78fc63f340a9fae8f24d5",
+          "image_record": {
+            "height": 1316,
+            "width": 2844,
+            "id": 66,
+            "file_name": "train_606.png"
+          },
+          "type": "improvement",
+          "target_annotation": {
+            "iscrowd": 0,
+            "image_id": 66,
+            "bbox": [
+              733.2222222222223,
+              337.66666666666674,
+              116.66666666666663,
+              275.0
+            ],
+            "segmentation": [
+              [
+                772,
+                379,
+                766,
+                426,
+                761,
+                454,
+                752,
+                476,
+                744,
+                515,
+                736,
+                537,
+                733,
+                584,
+                752,
+                612,
+                819,
+                609,
+                838,
+                582,
+                849,
+                537,
+                838,
+                451,
+                836,
+                434,
+                836,
+                407,
+                847,
+                343,
+                794,
+                337
+              ]
+            ],
+            "id": 1878,
+            "area": 23067,
+            "category_id": 6
+          },
+          "target_FDI": 12,
+          "statuses": {
+            "No prior": {
+              "status": "wrong",
+              "prediction": {
+                "image_id": 66,
+                "category_id": 5,
+                "bbox": [
+                  723.6126098632812,
+                  350.9880676269531,
+                  128.510009765625,
+                  271.7931213378906
+                ],
+                "score": 0.5893034338951111
+              },
+              "IoU": 0.8368214116232947
+            },
+            "Center": {
+              "status": "correct",
+              "prediction": {
+                "image_id": 66,
+                "category_id": 6,
+                "bbox": [
+                  723.6126098632812,
+                  350.9880676269531,
+                  128.510009765625,
+                  271.7931213378906
+                ],
+                "score": 0.5084248781204224
+              },
+              "IoU": 0.8368214116232947
+            },
+            "Shape": {
+              "status": "wrong",
+              "prediction": {
+                "image_id": 66,
+                "category_id": 5,
+                "bbox": [
+                  723.6126098632812,
+                  350.9880676269531,
+                  128.510009765625,
+                  271.7931213378906
+                ],
+                "score": 0.586341142654419
+              },
+              "IoU": 0.8368214116232947
+            },
+            "Center + shape": {
+              "status": "correct",
+              "prediction": {
+                "image_id": 66,
+                "category_id": 6,
+                "bbox": [
+                  723.6126098632812,
+                  350.9880676269531,
+                  128.510009765625,
+                  271.7931213378906
+                ],
+                "score": 0.5059518218040466
+              },
+              "IoU": 0.8368214116232947
+            }
+          },
+          "counts": {
+            "No prior": {
+              "GT": 30,
+              "predictions": 36,
+              "TP": 25,
+              "FP": 11,
+              "FN": 5,
+              "duplicate_count": 5
+            },
+            "Center": {
+              "GT": 30,
+              "predictions": 35,
+              "TP": 26,
+              "FP": 9,
+              "FN": 4,
+              "duplicate_count": 4
+            },
+            "Shape": {
+              "GT": 30,
+              "predictions": 35,
+              "TP": 25,
+              "FP": 10,
+              "FN": 5,
+              "duplicate_count": 4
+            },
+            "Center + shape": {
+              "GT": 30,
+              "predictions": 34,
+              "TP": 26,
+              "FP": 8,
+              "FN": 4,
+              "duplicate_count": 3
+            }
+          },
+          "mechanism": "same-query highest retained FDI label change",
+          "tracked_no_prior": {
+            "image_id": 66,
+            "category_id": 5,
+            "bbox": [
+              723.6126098632812,
+              350.9880676269531,
+              128.510009765625,
+              271.7931213378906
+            ],
+            "score": 0.5893034338951111
+          },
+          "tracked_combined": {
+            "image_id": 66,
+            "category_id": 6,
+            "bbox": [
+              723.6126098632812,
+              350.9880676269531,
+              128.510009765625,
+              271.7931213378906
+            ],
+            "score": 0.5059518218040466
+          },
+          "same_box_checks": {
+            "no_prior": {
+              "query_index": 19,
+              "maximum_box_coordinate_difference_pixels": 5.650520324707031e-05,
+              "pre_topk_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/evaluation/pre_topk_candidates.npz"
+            },
+            "combined": {
+              "query_index": 19,
+              "maximum_box_coordinate_difference_pixels": 5.650520324707031e-05,
+              "pre_topk_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/evaluation/pre_topk_candidates.npz"
+            }
+          },
+          "crop_xyxy": [
+            278.2222222222223,
+            90.16666666666674,
+            1304.8888888888891,
+            860.1666666666667
+          ]
+        },
+        {
+          "cohort": "Pano",
+          "image_id": 614,
+          "image_file": "/home/wuxi/DENTEX2023/val2017/train_52.png",
+          "image_sha256": "aca4c7e8fd41be08753e478b9bf7f7a96bbe3eaa6064d1b834e7041f607d7626",
+          "image_record": {
+            "height": 1316,
+            "width": 2924,
+            "id": 614,
+            "file_name": "train_52.png"
+          },
+          "type": "adverse",
+          "target_annotation": {
+            "iscrowd": 0,
+            "image_id": 614,
+            "bbox": [
+              1844.8818897637796,
+              737.7952755905511,
+              261.4173228346456,
+              359.0551181102363
+            ],
+            "segmentation": [
+              [
+                1844,
+                775,
+                1953,
+                737,
+                1981,
+                772,
+                2106,
+                1038,
+                1974,
+                1096,
+                1858,
+                869,
+                1851,
+                843
+              ]
+            ],
+            "id": 17505,
+            "area": 49914,
+            "category_id": 22
+          },
+          "target_FDI": 32,
+          "statuses": {
+            "No prior": {
+              "status": "correct",
+              "prediction": {
+                "image_id": 614,
+                "category_id": 22,
+                "bbox": [
+                  1839.4173583984375,
+                  743.8960571289062,
+                  218.1505126953125,
+                  305.97662353515625
+                ],
+                "score": 0.5561588406562805
+              },
+              "IoU": 0.681182503508659
+            },
+            "Center": {
+              "status": "wrong",
+              "prediction": {
+                "image_id": 614,
+                "category_id": 21,
+                "bbox": [
+                  1839.4173583984375,
+                  743.8960571289062,
+                  218.1505126953125,
+                  305.97662353515625
+                ],
+                "score": 0.5505500435829163
+              },
+              "IoU": 0.681182503508659
+            },
+            "Shape": {
+              "status": "correct",
+              "prediction": {
+                "image_id": 614,
+                "category_id": 22,
+                "bbox": [
+                  1839.4173583984375,
+                  743.8960571289062,
+                  218.1505126953125,
+                  305.97662353515625
+                ],
+                "score": 0.5514342784881592
+              },
+              "IoU": 0.681182503508659
+            },
+            "Center + shape": {
+              "status": "wrong",
+              "prediction": {
+                "image_id": 614,
+                "category_id": 21,
+                "bbox": [
+                  1839.4173583984375,
+                  743.8960571289062,
+                  218.1505126953125,
+                  305.97662353515625
+                ],
+                "score": 0.550409734249115
+              },
+              "IoU": 0.681182503508659
+            }
+          },
+          "counts": {
+            "No prior": {
+              "GT": 21,
+              "predictions": 27,
+              "TP": 18,
+              "FP": 9,
+              "FN": 3,
+              "duplicate_count": 3
+            },
+            "Center": {
+              "GT": 21,
+              "predictions": 27,
+              "TP": 17,
+              "FP": 10,
+              "FN": 4,
+              "duplicate_count": 3
+            },
+            "Shape": {
+              "GT": 21,
+              "predictions": 27,
+              "TP": 18,
+              "FP": 9,
+              "FN": 3,
+              "duplicate_count": 3
+            },
+            "Center + shape": {
+              "GT": 21,
+              "predictions": 27,
+              "TP": 17,
+              "FP": 10,
+              "FN": 4,
+              "duplicate_count": 3
+            }
+          },
+          "mechanism": "same-query highest retained FDI label change",
+          "tracked_no_prior": {
+            "image_id": 614,
+            "category_id": 22,
+            "bbox": [
+              1839.4173583984375,
+              743.8960571289062,
+              218.1505126953125,
+              305.97662353515625
+            ],
+            "score": 0.5561588406562805
+          },
+          "tracked_combined": {
+            "image_id": 614,
+            "category_id": 21,
+            "bbox": [
+              1839.4173583984375,
+              743.8960571289062,
+              218.1505126953125,
+              305.97662353515625
+            ],
+            "score": 0.550409734249115
+          },
+          "same_box_checks": {
+            "no_prior": {
+              "query_index": 18,
+              "maximum_box_coordinate_difference_pixels": 4.9591064453125e-05,
+              "pre_topk_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/evaluation/pre_topk_candidates.npz"
+            },
+            "combined": {
+              "query_index": 18,
+              "maximum_box_coordinate_difference_pixels": 4.9591064453125e-05,
+              "pre_topk_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/evaluation/pre_topk_candidates.npz"
+            }
+          },
+          "crop_xyxy": [
+            1305.3543307086613,
+            310.6456692913383,
+            2645.826771653544,
+            1316.0
+          ]
+        }
+      ],
+      "sources": {
+        "No prior": {
+          "prediction_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/replay_prior_none/predictions_coco.json.gz",
+          "prediction_sha256": "c1963b76198e4635530d98c46ab7829b9e63d918047eba75536a2e581c7da2b8",
+          "score_threshold": 0.3,
+          "checkpoint_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/best.pth",
+          "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2",
+          "configuration": "pano_spatialshape_original",
+          "seed": 3,
+          "folder": "replay_prior_none",
+          "prior": "none"
+        },
+        "Center": {
+          "prediction_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/replay_prior_center/predictions_coco.json.gz",
+          "prediction_sha256": "8ae57d4feada3c5ca7ad4562fbeb0b67d95ab55e174cf8844a37b92cc140ea9e",
+          "score_threshold": 0.3,
+          "checkpoint_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/best.pth",
+          "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2",
+          "configuration": "pano_spatialshape_original",
+          "seed": 3,
+          "folder": "replay_prior_center",
+          "prior": "center"
+        },
+        "Shape": {
+          "prediction_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/replay_prior_shape/predictions_coco.json.gz",
+          "prediction_sha256": "16f10caf99db1a196b218a8254e392e5f9428a77869d5614dba52f79aabbda10",
+          "score_threshold": 0.3,
+          "checkpoint_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/best.pth",
+          "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2",
+          "configuration": "pano_spatialshape_original",
+          "seed": 3,
+          "folder": "replay_prior_shape",
+          "prior": "shape"
+        },
+        "Center + shape": {
+          "prediction_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/replay_prior_both/predictions_coco.json.gz",
+          "prediction_sha256": "33104544a546bd3c829c1d55a32b71a309a752abacbdd378ec496418f965cbf1",
+          "score_threshold": 0.3,
+          "checkpoint_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/best.pth",
+          "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2",
+          "configuration": "pano_spatialshape_original",
+          "seed": 3,
+          "folder": "replay_prior_both",
+          "prior": "both"
+        }
+      },
+      "annotation_file": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+      "annotation_sha256": "52532169c776f6ceaa126816787e54f8f796ebb6163c0bf8a04f98372d4f3903"
+    },
+    "Figure_12A_Mobile_same_image": {
+      "cohort": "Mobile",
+      "cases": [
+        {
+          "cohort": "Mobile",
+          "image_id": 182,
+          "image_file": "/home/wuxi/coco/valid/JPEGImages/55.jpg",
+          "image_sha256": "65a5134f754f47bce02fb213c47e6fa32515d10d4e76dba6e294320dc2895f43",
+          "image_record": {
+            "license": 0,
+            "url": null,
+            "file_name": "JPEGImages/55.jpg",
+            "height": 3072,
+            "width": 4096,
+            "date_captured": null,
+            "id": 182
+          },
+          "type": "improvement",
+          "target_annotation": {
+            "id": 2875,
+            "image_id": 182,
+            "category_id": 35,
+            "segmentation": [
+              [
+                1556.0645161290322,
+                1514.2258064516127,
+                1560.9032258064515,
+                1623.9032258064515,
+                1675.4193548387095,
+                1604.548387096774,
+                1648.0,
+                1502.9354838709676
+              ]
+            ],
+            "area": 11280.0,
+            "bbox": [
+              1556.0,
+              1502.0,
+              120.0,
+              122.0
+            ],
+            "iscrowd": 0,
+            "tooth_types": 0
+          },
+          "target_FDI": 54,
+          "statuses": {
+            "Official DEIM-s": {
+              "status": "wrong",
+              "prediction": {
+                "image_id": 182,
+                "category_id": 34,
+                "bbox": [
+                  1531.306884765625,
+                  1499.7216796875,
+                  143.0888671875,
+                  124.449462890625
+                ],
+                "score": 0.5361729264259338
+              },
+              "IoU": 0.8023241058074975
+            },
+            "RT-DETR-L": {
+              "status": "wrong",
+              "prediction": {
+                "image_id": 182,
+                "category_id": 34,
+                "bbox": [
+                  1540.923095703125,
+                  1495.65625,
+                  136.602294921875,
+                  121.3302001953125
+                ],
+                "score": 0.438183069229126
+              },
+              "IoU": 0.7922992194003975
+            },
+            "DENT-STRIDE": {
+              "status": "correct",
+              "prediction": {
+                "image_id": 182,
+                "category_id": 35,
+                "bbox": [
+                  1531.489501953125,
+                  1499.8397216796875,
+                  141.7333984375,
+                  125.3538818359375
+                ],
+                "score": 0.4117155969142914
+              },
+              "IoU": 0.7898751748008535
+            }
+          },
+          "counts": {
+            "Official DEIM-s": {
+              "GT": 19,
+              "predictions": 21,
+              "TP": 16,
+              "FP": 5,
+              "FN": 3,
+              "duplicate_count": 0
+            },
+            "RT-DETR-L": {
+              "GT": 19,
+              "predictions": 23,
+              "TP": 16,
+              "FP": 7,
+              "FN": 3,
+              "duplicate_count": 2
+            },
+            "DENT-STRIDE": {
+              "GT": 19,
+              "predictions": 22,
+              "TP": 18,
+              "FP": 4,
+              "FN": 1,
+              "duplicate_count": 0
+            }
+          },
+          "crop_xyxy": [
+            1388.0,
+            1392.0,
+            1844.0,
+            1734.0
+          ]
+        },
+        {
+          "cohort": "Mobile",
+          "image_id": 155,
+          "image_file": "/home/wuxi/coco/valid/JPEGImages/25.jpg",
+          "image_sha256": "39733d981865b7fef82df791f14874127adf6d15a322c5cd99b8a69cd2cb2020",
+          "image_record": {
+            "license": 0,
+            "url": null,
+            "file_name": "JPEGImages/25.jpg",
+            "height": 4000,
+            "width": 2256,
+            "date_captured": null,
+            "id": 155
+          },
+          "type": "adverse",
+          "target_annotation": {
+            "id": 2450,
+            "image_id": 155,
+            "category_id": 17,
+            "segmentation": [
+              [
+                1528.3333333333335,
+                2870.666666666667,
+                1661.666666666667,
+                2890.666666666667,
+                1755.0,
+                2864.0,
+                1848.333333333334,
+                2897.3333333333335,
+                1901.666666666667,
+                2977.3333333333335,
+                1901.666666666667,
+                3124.0,
+                1921.666666666667,
+                3210.666666666667,
+                1775.0,
+                3290.666666666667,
+                1628.3333333333335,
+                3317.3333333333335,
+                1501.666666666667,
+                3370.666666666667,
+                1381.666666666667,
+                3257.3333333333335,
+                1401.666666666667,
+                3097.3333333333335,
+                1401.666666666667,
+                2964.0,
+                1441.666666666667,
+                2897.3333333333335
+              ]
+            ],
+            "area": 210884.0,
+            "bbox": [
+              1381.0,
+              2864.0,
+              541.0,
+              507.0
+            ],
+            "iscrowd": 0,
+            "tooth_types": 1
+          },
+          "target_FDI": 32,
+          "statuses": {
+            "Official DEIM-s": {
+              "status": "correct",
+              "prediction": {
+                "image_id": 155,
+                "category_id": 17,
+                "bbox": [
+                  1392.88818359375,
+                  2866.681640625,
+                  511.91943359375,
+                  484.785888671875
+                ],
+                "score": 0.8861386179924011
+              },
+              "IoU": 0.9047870206869045
+            },
+            "RT-DETR-L": {
+              "status": "correct",
+              "prediction": {
+                "image_id": 155,
+                "category_id": 17,
+                "bbox": [
+                  1393.9615478515625,
+                  2863.76953125,
+                  516.818115234375,
+                  473.6123046875
+                ],
+                "score": 0.8915604948997498
+              },
+              "IoU": 0.8915701908259026
+            },
+            "DENT-STRIDE": {
+              "status": "wrong",
+              "prediction": {
+                "image_id": 155,
+                "category_id": 16,
+                "bbox": [
+                  1388.92724609375,
+                  2857.116455078125,
+                  523.663330078125,
+                  483.6240234375
+                ],
+                "score": 0.7159907221794128
+              },
+              "IoU": 0.8983771103880716
+            }
+          },
+          "counts": {
+            "Official DEIM-s": {
+              "GT": 16,
+              "predictions": 21,
+              "TP": 16,
+              "FP": 5,
+              "FN": 0,
+              "duplicate_count": 2
+            },
+            "RT-DETR-L": {
+              "GT": 16,
+              "predictions": 25,
+              "TP": 14,
+              "FP": 11,
+              "FN": 2,
+              "duplicate_count": 4
+            },
+            "DENT-STRIDE": {
+              "GT": 16,
+              "predictions": 26,
+              "TP": 11,
+              "FP": 15,
+              "FN": 5,
+              "duplicate_count": 5
+            }
+          },
+          "crop_xyxy": [
+            200.20000000000027,
+            2346.575,
+            2256.0,
+            3888.4249999999997
+          ]
+        }
+      ],
+      "sources": {
+        "Official DEIM-s": {
+          "prediction_file": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/phone/seed_0/best_predictions.coco.json.gz",
+          "prediction_sha256": "35d52755b7e42d959074c7a1f20c19535926118c5d360e895d97922b80f1fd53",
+          "score_threshold": 0.3,
+          "method": "Official DEIM-s",
+          "checkpoint_sha256": "e4702bed463b4bff55c5b48c61d6a76316d5f3fbfcafe2ac3b37ed5dcd9e940c",
+          "seed": 0,
+          "role": "framework-level reference, native training protocol"
+        },
+        "RT-DETR-L": {
+          "prediction_file": "/home/wuxi/Dent-FINE/outputs/cross_dataset_baseline_comparison/phone/runs/rtdetr_l/coco_eval/coco_predictions.json",
+          "prediction_sha256": "e6d673b44363b4c766bbe59b2635f97699f7391745ebc710e9eeb60ce59b6ff1",
+          "score_threshold": 0.3,
+          "method": "RT-DETR-L",
+          "checkpoint_file": "/home/wuxi/Dent-FINE/outputs/cross_dataset_baseline_comparison/phone/runs/rtdetr_l/weights/best.pt",
+          "checkpoint_sha256": "2975c2f7b2de82866eab645f52764049e2252fe9f409d27956d4067decf59836",
+          "role": "framework-level reference, native training and post-processing"
+        },
+        "DENT-STRIDE": {
+          "prediction_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/evaluation/predictions_coco.json.gz",
+          "prediction_sha256": "b410aa36ac9ecf1dafe7a6da3712a3bb0e0e7e55ff933cc0e6aa2362b037848d",
+          "score_threshold": 0.3,
+          "checkpoint_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/best.pth",
+          "checkpoint_sha256": "1f19ea4d30234effb359b2de0cfb494ee1fe3582ca93a0bbc54792cf3a3e60cf",
+          "configuration": "mobile_proto_k4_tau0p50",
+          "seed": 2,
+          "folder": "evaluation",
+          "prior": "off"
+        }
+      },
+      "annotation_file": "/home/wuxi/coco/valid/annotations_fdi_types.json",
+      "annotation_sha256": "f5c0e4e86654b32770dd1befb5d8e650b29066d41657675e0253792b0806c649"
+    },
+    "Figure_12B_Pano_same_image": {
+      "cohort": "Pano",
+      "cases": [
+        {
+          "cohort": "Pano",
+          "image_id": 21,
+          "image_file": "/home/wuxi/DENTEX2023/val2017/train_176.png",
+          "image_sha256": "4871283bff9d98010b86ae43b61e2c1c295ca77702122991d984e5b7fe0ee5fe",
+          "image_record": {
+            "height": 1316,
+            "width": 3002,
+            "id": 21,
+            "file_name": "train_176.png"
+          },
+          "type": "improvement",
+          "target_annotation": {
+            "iscrowd": 0,
+            "image_id": 21,
+            "bbox": [
+              1038.3177570093458,
+              788.7850467289719,
+              289.7196261682243,
+              256.07476635514024
+            ],
+            "segmentation": [
+              [
+                1165,
+                788,
+                1204,
+                803,
+                1247,
+                803,
+                1270,
+                814,
+                1296,
+                809,
+                1328,
+                842,
+                1294,
+                887,
+                1255,
+                915,
+                1191,
+                1009,
+                1114,
+                1044,
+                1038,
+                994,
+                1057,
+                936,
+                1142,
+                833
+              ]
+            ],
+            "id": 605,
+            "area": 38740,
+            "category_id": 28
+          },
+          "target_FDI": 45,
+          "statuses": {
+            "Official DEIM-s": {
+              "status": "wrong",
+              "prediction": {
+                "image_id": 21,
+                "category_id": 29,
+                "bbox": [
+                  1088.5152587890625,
+                  797.3817138671875,
+                  222.70166015625,
+                  272.08544921875
+                ],
+                "score": 0.4312030076980591
+              },
+              "IoU": 0.6917760150182891
+            },
+            "RT-DETR-L": {
+              "status": "wrong",
+              "prediction": {
+                "image_id": 21,
+                "category_id": 29,
+                "bbox": [
+                  1104.6826171875,
+                  797.5848999023438,
+                  199.4066162109375,
+                  249.39447021484375
+                ],
+                "score": 0.7242978811264038
+              },
+              "IoU": 0.6608574669930106
+            },
+            "DENT-STRIDE": {
+              "status": "correct",
+              "prediction": {
+                "image_id": 21,
+                "category_id": 28,
+                "bbox": [
+                  1085.028564453125,
+                  797.793701171875,
+                  231.686279296875,
+                  266.687744140625
+                ],
+                "score": 0.5217654705047607
+              },
+              "IoU": 0.7270100794825488
+            }
+          },
+          "counts": {
+            "Official DEIM-s": {
+              "GT": 28,
+              "predictions": 41,
+              "TP": 18,
+              "FP": 23,
+              "FN": 10,
+              "duplicate_count": 9
+            },
+            "RT-DETR-L": {
+              "GT": 28,
+              "predictions": 37,
+              "TP": 18,
+              "FP": 19,
+              "FN": 10,
+              "duplicate_count": 5
+            },
+            "DENT-STRIDE": {
+              "GT": 28,
+              "predictions": 35,
+              "TP": 20,
+              "FP": 15,
+              "FN": 8,
+              "duplicate_count": 3
+            }
+          },
+          "crop_xyxy": [
+            632.7102803738318,
+            490.29906542056074,
+            1733.6448598130842,
+            1316.0
+          ]
+        },
+        {
+          "cohort": "Pano",
+          "image_id": 154,
+          "image_file": "/home/wuxi/DENTEX2023/val2017/train_276.png",
+          "image_sha256": "319491f2b00465b4e11641f4aba83e102f1e925b2ec4a83a90d6d444a499c81a",
+          "image_record": {
+            "height": 1316,
+            "width": 2873,
+            "id": 154,
+            "file_name": "train_276.png"
+          },
+          "type": "adverse",
+          "target_annotation": {
+            "iscrowd": 0,
+            "image_id": 154,
+            "bbox": [
+              686.1111111111111,
+              751.5555555555555,
+              222.22222222222229,
+              200.0000000000001
+            ],
+            "segmentation": [
+              [
+                822,
+                751,
+                780,
+                782,
+                741,
+                804,
+                711,
+                834,
+                686,
+                884,
+                694,
+                929,
+                727,
+                951,
+                847,
+                887,
+                872,
+                865,
+                900,
+                848,
+                908,
+                832,
+                886,
+                804,
+                850,
+                779
+              ]
+            ],
+            "id": 4412,
+            "area": 24097,
+            "category_id": 30
+          },
+          "target_FDI": 47,
+          "statuses": {
+            "Official DEIM-s": {
+              "status": "correct",
+              "prediction": {
+                "image_id": 154,
+                "category_id": 30,
+                "bbox": [
+                  656.911865234375,
+                  755.33251953125,
+                  268.76959228515625,
+                  215.72601318359375
+                ],
+                "score": 0.6791280508041382
+              },
+              "IoU": 0.7413325391497679
+            },
+            "RT-DETR-L": {
+              "status": "correct",
+              "prediction": {
+                "image_id": 154,
+                "category_id": 30,
+                "bbox": [
+                  656.4275512695312,
+                  752.8715209960938,
+                  266.02740478515625,
+                  216.0421142578125
+                ],
+                "score": 0.8706380724906921
+              },
+              "IoU": 0.7643309936731445
+            },
+            "DENT-STRIDE": {
+              "status": "wrong",
+              "prediction": {
+                "image_id": 154,
+                "category_id": 31,
+                "bbox": [
+                  654.7471313476562,
+                  758.7191162109375,
+                  261.97900390625,
+                  218.76837158203125
+                ],
+                "score": 0.5859160423278809
+              },
+              "IoU": 0.7274903106189956
+            }
+          },
+          "counts": {
+            "Official DEIM-s": {
+              "GT": 28,
+              "predictions": 30,
+              "TP": 28,
+              "FP": 2,
+              "FN": 0,
+              "duplicate_count": 1
+            },
+            "RT-DETR-L": {
+              "GT": 28,
+              "predictions": 32,
+              "TP": 28,
+              "FP": 4,
+              "FN": 0,
+              "duplicate_count": 4
+            },
+            "DENT-STRIDE": {
+              "GT": 28,
+              "predictions": 31,
+              "TP": 25,
+              "FP": 6,
+              "FN": 3,
+              "duplicate_count": 2
+            }
+          },
+          "crop_xyxy": [
+            374.99999999999983,
+            534.8888888888889,
+            1219.4444444444446,
+            1168.2222222222224
+          ]
+        }
+      ],
+      "sources": {
+        "Official DEIM-s": {
+          "prediction_file": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/dentex/seed_0/best_predictions.coco.json.gz",
+          "prediction_sha256": "12ba64b60677e78b14257cd43d0ff46e28dd5899b506285b65bdf0cd52a09b87",
+          "score_threshold": 0.3,
+          "method": "Official DEIM-s",
+          "checkpoint_sha256": "913d4cafcb591902da72e06ec9b49d101a0e4fac6a47c0967bdf2374f65660d3",
+          "seed": 0,
+          "role": "framework-level reference, native training protocol"
+        },
+        "RT-DETR-L": {
+          "prediction_file": "/home/wuxi/Dent-FINE/outputs/cross_dataset_baseline_comparison/dentex/runs/rtdetr_l/coco_eval/coco_predictions.json",
+          "prediction_sha256": "59acb58051b7b07a62d7a0edc2341b46f61c1966ccbea8efde880fe5b799d0c2",
+          "score_threshold": 0.3,
+          "method": "RT-DETR-L",
+          "checkpoint_file": "/home/wuxi/Dent-FINE/outputs/cross_dataset_baseline_comparison/dentex/runs/rtdetr_l/weights/best.pt",
+          "checkpoint_sha256": "c8256720c08e6e87848fcf2704789f5e6e110d0c21bf3a4ee9918abd3662a657",
+          "role": "framework-level reference, native training and post-processing"
+        },
+        "DENT-STRIDE": {
+          "prediction_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/replay_prior_both/predictions_coco.json.gz",
+          "prediction_sha256": "33104544a546bd3c829c1d55a32b71a309a752abacbdd378ec496418f965cbf1",
+          "score_threshold": 0.3,
+          "checkpoint_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_3/best.pth",
+          "checkpoint_sha256": "11e089551cf4c44a1b9b3387d6d76c5cc54ed24110a226535b62e2a7f612a8d2",
+          "configuration": "pano_spatialshape_original",
+          "seed": 3,
+          "folder": "replay_prior_both",
+          "prior": "both"
+        }
+      },
+      "annotation_file": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+      "annotation_sha256": "52532169c776f6ceaa126816787e54f8f796ebb6163c0bf8a04f98372d4f3903"
+    },
+    "Figure_12C_DSLR_same_image": {
+      "cohort": "DSLR",
+      "cases": [
+        {
+          "cohort": "DSLR",
+          "image_id": 123,
+          "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/ce2f5ca44bb2.jpg",
+          "image_sha256": "570c9355a6e6550e56d096345511e0c19769432621952552f11bf9e8732eb9a6",
+          "image_record": {
+            "id": 123,
+            "file_name": "ce2f5ca44bb2.jpg",
+            "width": 4000,
+            "height": 2999,
+            "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/lower_occlusal.json",
+            "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_120/lower_occlusal.JPG",
+            "patient_key": "case_120",
+            "patient_id": "case_120",
+            "view": "lower_occlusal",
+            "view_id": 2
+          },
+          "type": "improvement",
+          "target_annotation": {
+            "id": 1759,
+            "image_id": 123,
+            "category_id": 17,
+            "segmentation": [
+              [
+                2502.3333333333335,
+                2035.3333333333335,
+                2465.666666666667,
+                2035.3333333333335,
+                2419.0,
+                2058.666666666667,
+                2365.666666666667,
+                2138.666666666667,
+                2335.666666666667,
+                2255.3333333333335,
+                2342.3333333333335,
+                2308.666666666667,
+                2392.3333333333335,
+                2365.3333333333335,
+                2479.0,
+                2408.666666666667,
+                2549.0,
+                2392.0,
+                2625.666666666667,
+                2358.666666666667,
+                2695.666666666667,
+                2262.0,
+                2719.0,
+                2185.3333333333335,
+                2699.0,
+                2135.3333333333335,
+                2655.666666666667,
+                2102.0,
+                2625.666666666667,
+                2082.0,
+                2562.3333333333335,
+                2045.3333333333335
+              ]
+            ],
+            "bbox": [
+              2335.0,
+              2035.0,
+              385.0,
+              374.0
+            ],
+            "area": 104174.0,
+            "iscrowd": 0,
+            "original_fdi": 32
+          },
+          "target_FDI": 32,
+          "statuses": {
+            "Official DEIM-s": {
+              "status": "wrong",
+              "prediction": {
+                "image_id": 123,
+                "category_id": 43,
+                "bbox": [
+                  2325.869140625,
+                  2054.985595703125,
+                  398.440673828125,
+                  352.71875
+                ],
+                "score": 0.8192188143730164
+              },
+              "IoU": 0.9130371055387475
+            },
+            "RT-DETR-L": {
+              "status": "wrong",
+              "prediction": {
+                "image_id": 123,
+                "category_id": 43,
+                "bbox": [
+                  2324.2197265625,
+                  2064.31298828125,
+                  399.321533203125,
+                  337.720947265625
+                ],
+                "score": 0.8368714451789856
+              },
+              "IoU": 0.8736509015718219
+            },
+            "DENT-STRIDE": {
+              "status": "correct",
+              "prediction": {
+                "image_id": 123,
+                "category_id": 17,
+                "bbox": [
+                  2323.24951171875,
+                  2079.646728515625,
+                  399.681640625,
+                  326.22119140625
+                ],
+                "score": 0.7098643183708191
+              },
+              "IoU": 0.8441700000307956
+            }
+          },
+          "counts": {
+            "Official DEIM-s": {
+              "GT": 12,
+              "predictions": 15,
+              "TP": 8,
+              "FP": 7,
+              "FN": 4,
+              "duplicate_count": 1
+            },
+            "RT-DETR-L": {
+              "GT": 12,
+              "predictions": 17,
+              "TP": 7,
+              "FP": 10,
+              "FN": 5,
+              "duplicate_count": 1
+            },
+            "DENT-STRIDE": {
+              "GT": 12,
+              "predictions": 15,
+              "TP": 9,
+              "FP": 6,
+              "FN": 3,
+              "duplicate_count": 0
+            }
+          },
+          "crop_xyxy": [
+            1796.0,
+            1673.375,
+            3259.0,
+            2770.625
+          ]
+        },
+        {
+          "cohort": "DSLR",
+          "image_id": 129,
+          "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/11d83e7bb1a9.jpg",
+          "image_sha256": "9cae8e2f9e136611e3ee8a93600f182525751507994d22e1ad50176954768062",
+          "image_record": {
+            "id": 129,
+            "file_name": "11d83e7bb1a9.jpg",
+            "width": 2080,
+            "height": 1560,
+            "source_json": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_124/right_buccal.json",
+            "source_image": "/home/wuxi/mask_data/DSLR_view_dataset/cases/case_124/right_buccal.JPG",
+            "patient_key": "case_124",
+            "patient_id": "case_124",
+            "view": "right_buccal",
+            "view_id": 4
+          },
+          "type": "adverse",
+          "target_annotation": {
+            "id": 1860,
+            "image_id": 129,
+            "category_id": 24,
+            "segmentation": [
+              [
+                1437.6470588235295,
+                740.0,
+                1401.1764705882354,
+                735.2941176470589,
+                1377.6470588235295,
+                758.8235294117648,
+                1367.0588235294117,
+                788.2352941176471,
+                1368.235294117647,
+                816.4705882352941,
+                1377.6470588235295,
+                840.0,
+                1389.4117647058824,
+                862.3529411764706,
+                1405.8823529411766,
+                891.7647058823529,
+                1434.1176470588236,
+                911.7647058823529,
+                1471.764705882353,
+                934.1176470588235,
+                1504.7058823529412,
+                929.4117647058824,
+                1534.1176470588236,
+                911.7647058823529,
+                1548.235294117647,
+                885.8823529411765,
+                1571.764705882353,
+                845.8823529411765,
+                1581.1764705882354,
+                820.0,
+                1584.7058823529412,
+                789.4117647058823,
+                1572.9411764705883,
+                757.6470588235294,
+                1567.0588235294117,
+                734.1176470588235,
+                1552.9411764705883,
+                709.4117647058823,
+                1518.8235294117646,
+                705.8823529411765,
+                1501.1764705882354,
+                710.5882352941177,
+                1491.764705882353,
+                722.3529411764706,
+                1471.764705882353,
+                716.4705882352941,
+                1456.4705882352941,
+                716.4705882352941,
+                1443.5294117647059,
+                727.0588235294118
+              ]
+            ],
+            "bbox": [
+              1367.0,
+              705.0,
+              218.0,
+              230.0
+            ],
+            "area": 36390.0,
+            "iscrowd": 0,
+            "original_fdi": 41
+          },
+          "target_FDI": 41,
+          "statuses": {
+            "Official DEIM-s": {
+              "status": "correct",
+              "prediction": {
+                "image_id": 129,
+                "category_id": 24,
+                "bbox": [
+                  1360.6322021484375,
+                  704.3681640625,
+                  221.8966064453125,
+                  211.00970458984375
+                ],
+                "score": 0.9273672699928284
+              },
+              "IoU": 0.8783926126703349
+            },
+            "RT-DETR-L": {
+              "status": "correct",
+              "prediction": {
+                "image_id": 129,
+                "category_id": 24,
+                "bbox": [
+                  1363.185791015625,
+                  705.3206787109375,
+                  222.37451171875,
+                  207.08709716796875
+                ],
+                "score": 0.9246466755867004
+              },
+              "IoU": 0.8843997817562596
+            },
+            "DENT-STRIDE": {
+              "status": "wrong",
+              "prediction": {
+                "image_id": 129,
+                "category_id": 48,
+                "bbox": [
+                  1362.61572265625,
+                  707.321533203125,
+                  223.331298828125,
+                  206.567626953125
+                ],
+                "score": 0.3850017786026001
+              },
+              "IoU": 0.8788177846179125
+            }
+          },
+          "counts": {
+            "Official DEIM-s": {
+              "GT": 15,
+              "predictions": 22,
+              "TP": 14,
+              "FP": 8,
+              "FN": 1,
+              "duplicate_count": 2
+            },
+            "RT-DETR-L": {
+              "GT": 15,
+              "predictions": 23,
+              "TP": 13,
+              "FP": 10,
+              "FN": 2,
+              "duplicate_count": 1
+            },
+            "DENT-STRIDE": {
+              "GT": 15,
+              "predictions": 23,
+              "TP": 10,
+              "FP": 13,
+              "FN": 5,
+              "duplicate_count": 3
+            }
+          },
+          "crop_xyxy": [
+            1046.6666666666667,
+            498.0,
+            1905.3333333333335,
+            1142.0
+          ]
+        }
+      ],
+      "sources": {
+        "Official DEIM-s": {
+          "prediction_file": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/dslr/seed_0/best_predictions.coco.json.gz",
+          "prediction_sha256": "a4d02481c29f64bcd2d211c0422d6d5b903074297f8db7fb482d977c78654cb4",
+          "score_threshold": 0.3,
+          "method": "Official DEIM-s",
+          "checkpoint_sha256": "09c1cfd0b05fedb6c8e80a50e5071ccd58c43860f265773cd3c78e077771aa8d",
+          "seed": 0,
+          "role": "framework-level reference, native training protocol"
+        },
+        "RT-DETR-L": {
+          "prediction_file": "/home/wuxi/Dent-FINE/outputs/cross_dataset_baseline_comparison/dslr/runs/rtdetr_l/coco_eval/coco_predictions.json",
+          "prediction_sha256": "c55a95f3674d5db2f513081dc30886f8e5016844ade4dcfde48d2b07415a22cc",
+          "score_threshold": 0.3,
+          "method": "RT-DETR-L",
+          "checkpoint_file": "/home/wuxi/Dent-FINE/outputs/cross_dataset_baseline_comparison/dslr/runs/rtdetr_l/weights/best.pt",
+          "checkpoint_sha256": "0baa64a0a05f0763d34e097e7bdcdf797616c3c3a3c4c8f460fc736cbe919611",
+          "role": "framework-level reference, native training and post-processing"
+        },
+        "DENT-STRIDE": {
+          "prediction_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/evaluation/predictions_coco.json.gz",
+          "prediction_sha256": "e7fa572d857807ea805da240cddcc196113d372a03ab142339083a5ffbeae1c1",
+          "score_threshold": 0.3,
+          "checkpoint_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/dslr_cmfa_extra_decay_only/seed_3/best.pth",
+          "checkpoint_sha256": "62029c9bae0c2446775add2956b27777a87641d67bbcd7e9afb53be6f5c5af5e",
+          "configuration": "dslr_cmfa_extra_decay_only",
+          "seed": 3,
+          "folder": "evaluation",
+          "prior": "off"
+        }
+      },
+      "annotation_file": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json",
+      "annotation_sha256": "de3b8dc99b2a0a2679386c75d2e8aeff4871a0eaf448d5cc5abef5e1e725dbcf"
+    }
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "queue_pid": 2771273,
+  "started_at": "2026-09-15T16:18:59.690631+08:00",
+  "gpu": 0,
+  "state": "completed",
+  "child_pid": null,
+  "completed": [
+    {
+      "job_id": "phone_dualopt_C01",
+      "seed": 0,
+      "AP": 53.06373791553665,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C01/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "dslr_cmfa_dualopt_C01",
+      "seed": 0,
+      "AP": 72.6237674122208,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C01/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "phone_a07_proto_aux_C01",
+      "seed": 0,
+      "AP": 52.3390090199266,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C01/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "phone_dualopt_C02",
+      "seed": 0,
+      "AP": 53.65213558876282,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C02/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "dslr_cmfa_dualopt_C02",
+      "seed": 0,
+      "AP": 73.11508845076412,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C02/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "phone_a07_proto_aux_C02",
+      "seed": 0,
+      "AP": 53.9911182011084,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C02/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "phone_dualopt_C03",
+      "seed": 0,
+      "AP": 52.701218924034876,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C03/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "dslr_cmfa_dualopt_C03",
+      "seed": 0,
+      "AP": 72.944905248347,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C03/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "phone_a07_proto_aux_C03",
+      "seed": 0,
+      "AP": 53.51976027383321,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C03/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "phone_dualopt_C04",
+      "seed": 0,
+      "AP": 54.67812261336128,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C04/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "dslr_cmfa_dualopt_C04",
+      "seed": 0,
+      "AP": 73.02145608938726,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C04/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "phone_a07_proto_aux_C04",
+      "seed": 0,
+      "AP": 55.10132327365659,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C04/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "phone_dualopt_C05",
+      "seed": 0,
+      "AP": 54.90671634934399,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C05/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "dslr_cmfa_dualopt_C05",
+      "seed": 0,
+      "AP": 72.68228747565085,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C05/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "phone_a07_proto_aux_C05",
+      "seed": 0,
+      "AP": 55.70096464349371,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C05/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "phone_dualopt_R01_crop0p5",
+      "seed": 0,
+      "AP": 53.392069538487796,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_R01_crop0p5/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "phone_dualopt_R02_zoom0",
+      "seed": 0,
+      "AP": 51.18379819769041,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_R02_zoom0/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "phone_dualopt_R03_mosaic0p25",
+      "seed": 0,
+      "AP": 54.75257520630912,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_R03_mosaic0p25/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "dslr_cmfa_dualopt_R01_crop0p5",
+      "seed": 0,
+      "AP": 72.38240043899543,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_R01_crop0p5/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "dslr_cmfa_dualopt_R02_zoom0",
+      "seed": 0,
+      "AP": 71.06447062776031,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_R02_zoom0/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "dslr_cmfa_dualopt_R03_mosaic0p25",
+      "seed": 0,
+      "AP": 72.89790748651745,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_R03_mosaic0p25/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "phone_a07_proto_aux_R01_crop0p5",
+      "seed": 0,
+      "AP": 54.43702382905739,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_R01_crop0p5/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "phone_a07_proto_aux_R02_zoom0",
+      "seed": 0,
+      "AP": 50.658561132366366,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_R02_zoom0/seed_0/metrics_summary.json"
+    },
+    {
+      "job_id": "phone_a07_proto_aux_R03_mosaic0p25",
+      "seed": 0,
+      "AP": 55.15811254701211,
+      "metrics": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_R03_mosaic0p25/seed_0/metrics_summary.json"
+    }
+  ],
+  "total_new_runs": 24,
+  "updated_at": "2026-09-18T15:54:26.331860+08:00",
+  "current_job": null,
+  "current_seed": 0,
+  "current_task": "phone_a07_proto_aux",
+  "command": [
+    "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+    "-u",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/train.py",
+    "-c",
+    "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_R03_mosaic0p25_seed0.yml",
+    "--seed",
+    "0",
+    "--use-amp",
+    "-d",
+    "cuda",
+    "--resume",
+    "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_R03_mosaic0p25/seed_0/best.pth",
+    "--test-only",
+    "--output-dir",
+    "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_R03_mosaic0p25/seed_0/best_evaluation"
+  ],
+  "pending_jobs": [],
+  "finalized_models": [
+    "phone_dualopt",
+    "dslr_cmfa_dualopt",
+    "phone_a07_proto_aux"
+  ],
+  "completed_new_runs": 24,
+  "completed_at": "2026-09-18T15:54:26.331837+08:00",
+  "final_archive": "/home/wuxi/Dent-FINE-paper/materials/best_model_bundle_2026-09-15/selected_models_after_search.zip"
+}

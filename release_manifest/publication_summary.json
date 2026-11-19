@@ -1,0 +1,17 @@
+{
+  "status": "prepared",
+  "publication_root": "/home/wuxi/github_uploads/DENT_STRIDE_20261119_mxK6NW/repository",
+  "source_file_copies": 14137,
+  "exported_checkpoints": 98,
+  "checkpoint_GiB": 4.798343339934945,
+  "files": 14245,
+  "ordinary_git_MiB": 774.4756593704224,
+  "unique_lfs_objects": 703,
+  "unique_lfs_GiB": 6.269139219075441,
+  "source_changes_detected": [],
+  "credential_scan_findings": [],
+  "raw_training_images_included": 0,
+  "raw_validation_image_directories_included": 0,
+  "publication_figure_files": 20,
+  "issues": []
+}

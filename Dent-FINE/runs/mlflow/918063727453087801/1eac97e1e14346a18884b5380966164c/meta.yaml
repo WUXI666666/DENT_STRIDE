@@ -1,0 +1,14 @@
+artifact_uri: /home/wuxi/Dent-FINE/runs/mlflow/918063727453087801/1eac97e1e14346a18884b5380966164c/artifacts
+end_time: 1787923848647
+entry_point_name: ''
+experiment_id: '918063727453087801'
+lifecycle_stage: active
+run_id: 1eac97e1e14346a18884b5380966164c
+run_name: rtdetr_l
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1787918613755
+status: 3
+tags: []
+user_id: wuxi

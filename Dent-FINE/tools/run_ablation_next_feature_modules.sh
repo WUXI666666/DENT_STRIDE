@@ -1,0 +1,184 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+PYTHON_BIN="${PYTHON_BIN:-/home/wuxi/miniconda3/envs/deimv2/bin/python}"
+GPU_ID="${GPU_ID:-1}"
+CONFIG="${CONFIG:-configs/deim_dfine/deim_hgnetv2_s_coco.yml}"
+BASE_OUTPUT_DIR="${BASE_OUTPUT_DIR:-outputs/ablation_all_new_modules}"
+KEEP_ONLY_BEST="${KEEP_ONLY_BEST:-1}"
+START_FROM="${START_FROM:-abl18_pfesa}"
+SUMMARY_SCRIPT="${ROOT_DIR}/tools/summarize_ablation_all_new_modules.py"
+
+COMMON_ARGS=(
+  train.py
+  -c "$CONFIG"
+  --use-amp
+  --seed=0
+  -u
+  HybridEncoder.use_hfsa=False
+  HybridEncoder.use_wav_enhance=False
+  HybridEncoder.use_stat_denoise=False
+  HybridEncoder.use_multipath_fusion=False
+  HybridEncoder.use_dynamic_rf=False
+  HybridEncoder.use_mpc_multiscale_perception=False
+  HybridEncoder.use_pqg_high_frequency=False
+  HybridEncoder.use_cmfa_fusion=False
+  HybridEncoder.use_pfesa=False
+  HybridEncoder.use_ucan_lkd=False
+  HybridEncoder.use_ucm_uncertainty=False
+  HybridEncoder.use_retinex_prior=False
+  HybridEncoder.apply_denoise_modules=proj
+  HybridEncoder.apply_refine_modules=outs
+  DFINETransformer.use_uni_gate=False
+  DFINETransformer.use_uni_gate_infer=False
+  DFINETransformer.uni_gate_apply_last_only=True
+  DFINETransformer.use_qgp=False
+  DFINETransformer.qgp_layers=[]
+  DFINETransformer.use_pgr_roi_reasoning=False
+  DFINETransformer.roi_init_ratio=0.5
+  DFINETransformer.use_fdi_factor_prior=False
+  DFINETransformer.fdi_factor_logit_scale=0.0
+  train_dataloader.total_batch_size=8
+  val_dataloader.total_batch_size=16
+)
+
+ORDER=(
+  abl18_pfesa
+  abl19_ucan_lkd
+  abl20_ucm_uncertainty
+  abl21_retinex_prior
+  abl22_cmfa_pfesa
+  abl23_mpf_pfesa
+  abl24_cmfa_ucan_lkd
+  abl25_pfesa_ucm_uncertainty
+  abl26_cmfa_pfesa_ucan_lkd
+  abl27_cmfa_pfesa_ucm_uncertainty
+  abl28_fdi_factor_prior
+  abl29_cmfa_ucm_uncertainty
+  abl30_cmfa_ucm_fdi_factor
+)
+
+should_run() {
+  local name="$1"
+  local start_idx=-1
+  local cur_idx=-1
+  local i
+  for i in "${!ORDER[@]}"; do
+    if [[ "${ORDER[$i]}" == "${START_FROM}" ]]; then
+      start_idx="$i"
+    fi
+    if [[ "${ORDER[$i]}" == "${name}" ]]; then
+      cur_idx="$i"
+    fi
+  done
+  if [[ "${start_idx}" -lt 0 || "${cur_idx}" -lt 0 ]]; then
+    echo "Invalid START_FROM=${START_FROM}" >&2
+    exit 1
+  fi
+  [[ "${cur_idx}" -ge "${start_idx}" ]]
+}
+
+refresh_summary() {
+  "${PYTHON_BIN}" "${SUMMARY_SCRIPT}" --base-output-dir "${ROOT_DIR}/${BASE_OUTPUT_DIR}"
+}
+
+run_exp() {
+  local name="$1"
+  local exp_output="${ROOT_DIR}/${BASE_OUTPUT_DIR}/${name}"
+  shift
+  echo "=============================="
+  echo "Running ${name}"
+  echo "=============================="
+  CUDA_VISIBLE_DEVICES="${GPU_ID}" \
+    "${PYTHON_BIN}" "${COMMON_ARGS[@]}" \
+    "$@" \
+    --output-dir "${exp_output}"
+
+  if [[ "${KEEP_ONLY_BEST}" == "1" && -d "${exp_output}" ]]; then
+    find "${exp_output}" -type f -name '*.pth' \
+      ! -name 'best_stg1.pth' \
+      ! -name 'best.pth' \
+      -delete
+  fi
+
+  refresh_summary
+}
+
+cd "${ROOT_DIR}"
+mkdir -p "${BASE_OUTPUT_DIR}"
+refresh_summary
+
+if should_run abl18_pfesa; then
+  run_exp abl18_pfesa \
+    HybridEncoder.use_pfesa=True
+fi
+if should_run abl19_ucan_lkd; then
+  run_exp abl19_ucan_lkd \
+    HybridEncoder.use_ucan_lkd=True
+fi
+if should_run abl20_ucm_uncertainty; then
+  run_exp abl20_ucm_uncertainty \
+    HybridEncoder.use_ucm_uncertainty=True
+fi
+if should_run abl21_retinex_prior; then
+  run_exp abl21_retinex_prior \
+    HybridEncoder.use_retinex_prior=True
+fi
+if should_run abl22_cmfa_pfesa; then
+  run_exp abl22_cmfa_pfesa \
+    HybridEncoder.use_cmfa_fusion=True \
+    HybridEncoder.use_pfesa=True
+fi
+if should_run abl23_mpf_pfesa; then
+  run_exp abl23_mpf_pfesa \
+    HybridEncoder.use_multipath_fusion=True \
+    HybridEncoder.use_pfesa=True
+fi
+if should_run abl24_cmfa_ucan_lkd; then
+  run_exp abl24_cmfa_ucan_lkd \
+    HybridEncoder.use_cmfa_fusion=True \
+    HybridEncoder.use_ucan_lkd=True
+fi
+if should_run abl25_pfesa_ucm_uncertainty; then
+  run_exp abl25_pfesa_ucm_uncertainty \
+    HybridEncoder.use_pfesa=True \
+    HybridEncoder.use_ucm_uncertainty=True
+fi
+if should_run abl26_cmfa_pfesa_ucan_lkd; then
+  run_exp abl26_cmfa_pfesa_ucan_lkd \
+    HybridEncoder.use_cmfa_fusion=True \
+    HybridEncoder.use_pfesa=True \
+    HybridEncoder.use_ucan_lkd=True
+fi
+if should_run abl27_cmfa_pfesa_ucm_uncertainty; then
+  run_exp abl27_cmfa_pfesa_ucm_uncertainty \
+    HybridEncoder.use_cmfa_fusion=True \
+    HybridEncoder.use_pfesa=True \
+    HybridEncoder.use_ucm_uncertainty=True
+fi
+if should_run abl28_fdi_factor_prior; then
+  run_exp abl28_fdi_factor_prior \
+    DFINETransformer.use_fdi_factor_prior=True \
+    DFINETransformer.fdi_factor_logit_scale=0.15 \
+    DEIMCriterion.losses=[mal,boxes,local,quad,tooth,dent] \
+    DEIMCriterion.weight_dict.loss_quad=0.35 \
+    DEIMCriterion.weight_dict.loss_tooth=0.50 \
+    DEIMCriterion.weight_dict.loss_dent=0.20
+fi
+if should_run abl29_cmfa_ucm_uncertainty; then
+  run_exp abl29_cmfa_ucm_uncertainty \
+    HybridEncoder.use_cmfa_fusion=True \
+    HybridEncoder.use_ucm_uncertainty=True
+fi
+if should_run abl30_cmfa_ucm_fdi_factor; then
+  run_exp abl30_cmfa_ucm_fdi_factor \
+    HybridEncoder.use_cmfa_fusion=True \
+    HybridEncoder.use_ucm_uncertainty=True \
+    DFINETransformer.use_fdi_factor_prior=True \
+    DFINETransformer.fdi_factor_logit_scale=0.15 \
+    DEIMCriterion.losses=[mal,boxes,local,quad,tooth,dent] \
+    DEIMCriterion.weight_dict.loss_quad=0.35 \
+    DEIMCriterion.weight_dict.loss_tooth=0.50 \
+    DEIMCriterion.weight_dict.loss_dent=0.20
+fi

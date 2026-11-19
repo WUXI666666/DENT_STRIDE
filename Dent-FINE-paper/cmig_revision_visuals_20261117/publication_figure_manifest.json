@@ -1,0 +1,325 @@
+{
+  "New_Prototype": {
+    "group": "Prototype",
+    "cases": [
+      {
+        "case_id": "Prototype_correction_01_image44_FDI51",
+        "image_id": 44,
+        "target_FDI": 51,
+        "before_FDI": 11,
+        "after_FDI": 51,
+        "crop_xyxy": [
+          1378.0,
+          358.25,
+          2704.0,
+          1352.75
+        ],
+        "image_file": "/home/wuxi/coco/valid/JPEGImages/81.jpg",
+        "raw_maps": {
+          "before": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/Prototype_correction_01_image44_FDI51_before.npz",
+          "after": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/Prototype_correction_01_image44_FDI51_after.npz"
+        },
+        "auxiliary_scores": [
+          {
+            "FDI": 51,
+            "score": 3.0837838649749756
+          },
+          {
+            "FDI": 11,
+            "score": 2.4520740509033203
+          },
+          {
+            "FDI": 21,
+            "score": 1.7585194110870361
+          },
+          {
+            "FDI": 61,
+            "score": 1.745218276977539
+          },
+          {
+            "FDI": 74,
+            "score": 1.725893497467041
+          }
+        ],
+        "raw_map_sha256": {
+          "before": "4c3639a846afeed4446c6d46fa046c311ac33c5bdd5516e4ddc3d6db294af645",
+          "after": "57ab00c87e10019e6db15cc70c93f4e9d032a81ae31af0aed1ea61aa79d1806f"
+        }
+      }
+    ],
+    "full_input_normalization": "positive map / its own full-image maximum",
+    "size_inches": [
+      6.850393700787402,
+      1.6912499533759222
+    ],
+    "raster_dpi": 300,
+    "output_pdf_bytes": 79625,
+    "raster_encodings": [
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4"
+    ],
+    "clinical_image_or_attribution_values_modified": false
+  },
+  "New_HOOA": {
+    "group": "HOOA",
+    "cases": [
+      {
+        "case_id": "HOOA_correction_03_image77_FDI13",
+        "image_id": 77,
+        "target_FDI": 13,
+        "before_FDI": 53,
+        "after_FDI": 13,
+        "crop_xyxy": [
+          751.8,
+          1230.6,
+          1490.1999999999998,
+          1784.3999999999999
+        ],
+        "image_file": "/home/wuxi/coco/valid/JPEGImages/49.jpg",
+        "raw_maps": {
+          "before": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/HOOA_correction_03_image77_FDI13_before.npz",
+          "after": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/HOOA_correction_03_image77_FDI13_after.npz"
+        },
+        "raw_map_sha256": {
+          "before": "92ed33d260308c2ec7b82a3eb3e19eb3c36ca0d7e6a9fe3d475da1f6c69a9bdb",
+          "after": "122203b49dcb8a838d469c094710434a940d89b9170b3252ac8e694f0a4a1207"
+        }
+      }
+    ],
+    "full_input_normalization": "positive map / its own full-image maximum",
+    "size_inches": [
+      6.850393700787402,
+      1.6912499533759222
+    ],
+    "raster_dpi": 300,
+    "output_pdf_bytes": 115464,
+    "raster_encodings": [
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4"
+    ],
+    "clinical_image_or_attribution_values_modified": false
+  },
+  "New_CMFA": {
+    "group": "CMFA",
+    "cases": [
+      {
+        "case_id": "CMFA_correction_01_image125_FDI16",
+        "image_id": 125,
+        "target_FDI": 16,
+        "before_FDI": 55,
+        "after_FDI": 16,
+        "crop_xyxy": [
+          0,
+          1693.0,
+          1741.3333333333333,
+          2999.0
+        ],
+        "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/9b395c158625.jpg",
+        "raw_maps": {
+          "before": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/CMFA_correction_01_image125_FDI16_before.npz",
+          "after": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/CMFA_correction_01_image125_FDI16_after.npz"
+        },
+        "raw_map_sha256": {
+          "before": "a9d5afed7df5e9213d0f014109046f6bd33ece997ea59f616aac39f42a7e48c6",
+          "after": "752a1d421e9c4f3397ba94e43a7165fc8e8b51339b1968ca9b095fd28df86ae9"
+        }
+      },
+      {
+        "case_id": "CMFA_correction_05_image124_FDI41",
+        "image_id": 124,
+        "target_FDI": 41,
+        "before_FDI": 81,
+        "after_FDI": 41,
+        "crop_xyxy": [
+          2357.8333333333335,
+          1211.5,
+          3587.166666666667,
+          2133.5
+        ],
+        "image_file": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val/152e9c2ddc73.jpg",
+        "raw_maps": {
+          "before": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/CMFA_correction_05_image124_FDI41_before.npz",
+          "after": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/CMFA_correction_05_image124_FDI41_after.npz"
+        },
+        "raw_map_sha256": {
+          "before": "3decc3062cd28d18897250fdbf4292f9fcd6eb017ffbcc948c067dc319fd305b",
+          "after": "348a52c7e8a1f8cbc7249eb424292206a764b10e515c20d144d2ff27beab3f3f"
+        }
+      }
+    ],
+    "full_input_normalization": "positive map / its own full-image maximum",
+    "size_inches": [
+      6.850393700787402,
+      2.952500025431315
+    ],
+    "raster_dpi": 300,
+    "output_pdf_bytes": 180729,
+    "raster_encodings": [
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4"
+    ],
+    "clinical_image_or_attribution_values_modified": false
+  },
+  "New_FinalMobile": {
+    "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/best.pth",
+    "cases": [
+      {
+        "case_id": "FinalMobile_image44_FDI51",
+        "query": 1,
+        "target_FDI": 51,
+        "crop_xyxy": [
+          1378.0,
+          358.25,
+          2704.0,
+          1352.75
+        ],
+        "image_file": "/home/wuxi/coco/valid/JPEGImages/81.jpg",
+        "raw_maps": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/FinalMobile_image44_FDI51.npz",
+        "raw_map_sha256": {
+          "map": "b6d68d46152e563a6996e69a49b48484bab69e88c2bff54f0e7dfd6e2692680a"
+        }
+      },
+      {
+        "case_id": "FinalMobile_image115_FDI64",
+        "query": 3,
+        "target_FDI": 64,
+        "crop_xyxy": [
+          808.4,
+          1415.925,
+          1944.6,
+          2268.075
+        ],
+        "image_file": "/home/wuxi/coco/valid/JPEGImages/192.jpg",
+        "raw_maps": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/FinalMobile_image115_FDI64.npz",
+        "raw_map_sha256": {
+          "map": "e008da0d8f00a10647df300159f15255a264783c1b9c3321c942f2274c156ff8"
+        }
+      }
+    ],
+    "size_inches": [
+      6.850393700787402,
+      2.952500025431315
+    ],
+    "raster_dpi": 300,
+    "output_pdf_bytes": 231071,
+    "raster_encodings": [
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4",
+      "JPEG94 4:4:4"
+    ],
+    "clinical_image_or_attribution_values_modified": false
+  },
+  "New_FactorSensitivity": {
+    "provenance": "/home/wuxi/Dent-FINE-paper/materials/effectiveness_evidence_2026-10-30/factor_occlusion_provenance.json",
+    "cases": [
+      {
+        "image_id": 115,
+        "FDI": 64,
+        "query": 3,
+        "crop_xyxy": [
+          138.55999999999995,
+          994.92,
+          1677.44,
+          2149.08
+        ],
+        "raw_maps": "/home/wuxi/Dent-FINE-paper/materials/effectiveness_evidence_2026-10-30/factor_occlusion_image_115_FDI_64.npz",
+        "raw_map_sha256": {
+          "map": "930f71b838694b9d94d82b3258637cf5bdbf8cdca6f435ea71593318bff700ec"
+        }
+      },
+      {
+        "image_id": 77,
+        "FDI": 11,
+        "query": 3,
+        "crop_xyxy": [
+          818.8799999999999,
+          781.1599999999999,
+          2613.12,
+          2126.84
+        ],
+        "raw_maps": "/home/wuxi/Dent-FINE-paper/materials/effectiveness_evidence_2026-10-30/factor_occlusion_image_77_FDI_11.npz",
+        "raw_map_sha256": {
+          "map": "5231f088c1861b493003e53a0af063c0e137325979fcdf823801a6f06ee8f36b"
+        }
+      },
+      {
+        "image_id": 182,
+        "FDI": 46,
+        "query": 3,
+        "crop_xyxy": [
+          1297.3466666666666,
+          866.76,
+          3468.6533333333336,
+          2495.24
+        ],
+        "raw_maps": "/home/wuxi/Dent-FINE-paper/materials/effectiveness_evidence_2026-10-30/factor_occlusion_image_182_FDI_46.npz",
+        "raw_map_sha256": {
+          "map": "1f3505f4946406e40082b78a7dbc10a38a20f885f46141df4441c28942c51549"
+        }
+      }
+    ],
+    "common_symmetric_limits_by_head": {
+      "quadrant": 8.588764190673828,
+      "position": 5.98497200012207,
+      "dentition": 8.439860343933105
+    },
+    "patches_per_image": 841,
+    "occluder_size": [
+      128,
+      128
+    ],
+    "stride": [
+      32,
+      32
+    ],
+    "full_provenance_checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/best.pth",
+    "size_inches": [
+      6.850393700787402,
+      4.939999898274739
+    ],
+    "raster_dpi": 300,
+    "output_pdf_bytes": 929197,
+    "raster_encodings": [
+      "lossless PNG",
+      "lossless PNG",
+      "lossless PNG",
+      "lossless PNG",
+      "lossless PNG",
+      "lossless PNG",
+      "lossless PNG",
+      "lossless PNG",
+      "lossless PNG",
+      "lossless PNG",
+      "lossless PNG",
+      "lossless PNG",
+      "lossless PNG",
+      "lossless PNG",
+      "lossless PNG"
+    ],
+    "clinical_image_or_attribution_values_modified": false
+  }
+}

@@ -1,0 +1,5 @@
+﻿job_id,configuration,cohort,phase,seed,completed_epochs,status,maximum_partial_log_AP_not_reportable
+internal_mobile_hooa_neither_seed0,internal_mobile_hooa_neither,Mobile,internal,0,102,pending,54.64042163756771
+internal_mobile_hooa_no_second_order_seed0,internal_mobile_hooa_no_second_order,Mobile,internal,0,0,pending,0.0
+internal_mobile_proto_k2_tau0p2_seed0,internal_mobile_proto_k2_tau0p2,Mobile,internal,0,0,pending,0.0
+internal_mobile_proto_k4_tau0p5_seed0,internal_mobile_proto_k4_tau0p5,Mobile,internal,0,0,pending,0.0

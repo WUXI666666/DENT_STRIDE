@@ -1,0 +1,44 @@
+from pathlib import Path
+import shutil
+root=Path('/home/wuxi/Dent-FINE-paper')
+work=root/'cmig_revision_visuals_20261117'
+out=root/'CMIG_Overleaf_Visual_20261117'
+p=out/'cas-dc-template.tex'
+s=p.read_text()
+s=s.replace('Each acquisition-specific configuration was trained with three seeds for 160 epochs.', 'Training used 160 epochs per run. The reported Pano and Mobile summaries use three runs selected after inspecting five completed seeds: Pano seeds 1, 3, and 4, and Mobile seeds 0, 2, and 3. They are descriptive selected-run summaries; all five runs are additionally reported in Section~\\ref{sec:validation-sensitivity}. The main DSLR results summarize three reported runs.')
+s=s.replace('The Mobile component ablations used a fixed prototype temperature of $0.50$.', 'The Mobile component ablations in Table~\\ref{tab:table6} are reported at prototype temperature $0.50$; the separately identified archived HOOA visual comparisons use $0.20$.')
+s=s.replace('Training variability is described by the mean and sample standard deviation (SD).', 'Training variability is described by the mean and sample standard deviation (SD). For the selected Pano and Mobile runs, this SD describes the selected subset rather than variability across every completed run.')
+s=s.replace('No patient was shared between the DSLR training and validation partitions.', 'No patient was shared between the DSLR training and validation partitions. An exact decoded-pixel audit found training-image duplicates among one Pano and four Mobile validation images, and none in DSLR. A post-hoc exclusion analysis is described below; these exact-image overlaps are distinct from patient-level overlap.')
+s=s.replace('The final Mobile attribution and occlusion analyses use the same seed-2 EMA checkpoint with four prototypes per class and temperature $0.50$.', 'The final Mobile attribution and occlusion analyses use the same seed-2 EMA checkpoint with four prototypes per class and temperature $0.50$.\n\nFor the validation sensitivity analysis, COCO AP, AP50, AP75, and AR100 were first reproduced from saved predictions for all five completed Pano and Mobile seeds. Evaluation was then repeated after excluding validation images whose decoded RGB pixels exactly matched a training image. The retained subsets contain 63 Pano images with 1,832 tooth annotations and 216 Mobile images with 2,407 annotations, with no loss of supported FDI categories. Weights, predictions, and category mappings were unchanged; no retraining or checkpoint reselection was performed.')
+s=s.replace('Three-seed summary of DENT-STRIDE validation results (mean $\\pm$ sample SD).', 'Reported three-run summary of DENT-STRIDE validation results (mean $\\pm$ sample SD). Pano and Mobile use three selected runs from five completed seeds (Section~\\ref{sec:implementation}).')
+s=s.replace('Repeated-seed AP entries are mean $\\pm$ sample SD; single-seed entries have no dispersion estimate.', 'Repeated-seed AP entries are mean $\\pm$ sample SD; single-seed entries have no dispersion estimate. The DENT-STRIDE Pano and Mobile entries summarize the selected three runs.')
+s=s.replace('Error bars indicate standard deviation for methods evaluated with three training seeds; results from methods evaluated in a single training run are shown without error bars.', 'Error bars indicate standard deviation of the three reported runs; DENT-STRIDE Pano and Mobile use the selected three of five completed seeds. Single-run results have no error bars.')
+s=s.replace('Filled symbols and error bars show three-seed means and sample standard deviations; open symbols denote single-run results without dispersion estimates.', 'Filled symbols and error bars show reported three-run means and sample standard deviations; DENT-STRIDE uses the selected three Mobile runs. Open symbols denote single-run results without dispersion estimates.')
+s=s.replace('Same-checkpoint Pano anatomical scoring across three seeds.', 'Same-checkpoint Pano anatomical scoring across the three selected seeds (1, 3, and 4).')
+s=s.replace('across these three seeds. (A) COCO AP.', 'across these three selected seeds (1, 3, and 4). (A) COCO AP.')
+s=s.replace('Figure~\\ref{fig:figure7} provides corresponding same-image examples; the complete component results are reported in Section~\\ref{sec:component-ablations}.', 'Figure~\\ref{fig:figure7} provides same-image examples from the separate archived temperature-$0.20$ HOOA reference. The complete reported component results are given in Section~\\ref{sec:component-ablations}.')
+s=s.replace('HOOA branch comparison on the same smartphone images. Independently trained seed-0 models retain the same training protocol', 'HOOA branch comparison on the same smartphone images from the archived temperature-$0.20$ reference. Independently trained seed-0 models retain the same training protocol')
+s=s.replace('These selected examples illustrate branch effects; the complete validation ablation determines their aggregate AP differences.', 'These selected examples illustrate branch effects in the archived reference configuration, whose full-versus-reduced AP contrast is reported in Section~\\ref{sec:module-attribution}.')
+s=s.replace('(a,b) Within-seed DSLR AP gains from enabling CMFA for seeds 0, 1, and 2 under AdamW and reference DualOpt with rollback. Points are paired gains; diamonds and error bars show their mean and sample SD.', '(A,B) Matched DSLR AP values without and with CMFA for seeds 0, 1, and 2 under AdamW and reference DualOpt with rollback. Lines connect the same seed; the annotations report mean paired AP gain and sample SD.')
+s=s.replace('(c) Mobile AP without and with prototype supervision at seed 0;', '(C) Mobile AP without and with prototype supervision at seed 0;')
+s=s.replace('The consistent direction across these pairs supports cross-scale aggregation in the tested settings.', 'The consistent AP direction across these pairs supports cross-scale aggregation in the tested settings; secondary endpoints did not improve uniformly in every pair.')
+
+sensitivity=r'''
+\subsubsection{All-run and exact-duplicate sensitivity}
+\label{sec:validation-sensitivity}
+Across all five completed runs, original-split AP was $53.979\pm0.337$ for Pano and $55.292\pm0.301$ for Mobile, compared with the selected-three means of $54.205\pm0.144$ and $55.459\pm0.275$. Figure~\ref{fig:figure18} displays every seed and identifies the runs used in the reported three-run summaries. After excluding exact training-image duplicates from validation, all-five AP was $54.558\pm0.428$ for Pano and $55.039\pm0.319$ for Mobile. The paired changes averaged $+0.579\pm0.132$ and $-0.253\pm0.031$ points, respectively. The direction of sensitivity therefore differed between cohorts. These results describe unchanged checkpoints on restricted validation subsets and do not estimate performance after retraining on independently defined partitions.
+
+\begin{figure*}[tp]
+\centering
+\includegraphics[width=\textwidth]{Figure_18.pdf}
+\caption{Post-hoc sensitivity to exact training/validation image overlap, showing all five completed seeds. (A) Pano: 64 original validation images versus 63 after excluding one exact training-image duplicate. (B) Mobile: 220 original images versus 216 after excluding four duplicates. Lines connect unchanged checkpoints from the same seed. Filled symbols identify the three runs included in the reported mean; open symbols identify the other completed runs. Text gives AP mean $\pm$ sample SD for all five and for the reported three. The displayed $\Delta$AP is the mean $\pm$ sample SD of the five paired changes, in percentage points. Original metrics were reproduced from saved predictions before exclusion. No retraining or checkpoint reselection was performed.}
+\label{fig:figure18}
+\end{figure*}
+
+'''
+s=s.replace('\\subsubsection{Computational cost}', sensitivity+'\\subsubsection{Computational cost}',1)
+s=s.replace('Between-seed standard deviations quantify training variability on the fixed validation partitions; they do not quantify patient-level uncertainty.', 'Between-seed standard deviations describe training variability on the fixed validation partitions, not patient-level uncertainty. The Pano and Mobile three-run summaries were selected after inspecting five completed runs; the all-five results make the effect of this selection explicit. Exclusion of the identified exact training-image duplicates changed AP in opposite directions across the two cohorts, but this post-hoc analysis retains the original model-selection history and cannot rule out near duplicates or unidentified patient overlap.')
+s=s.replace('Across three training seeds, mean validation AP was', 'Across the three reported runs, mean validation AP was')
+p.write_text(s)
+shutil.copy2(work/'quantitative/Figure_Validation_sensitivity.pdf',out/'Figure_18.pdf')
+print('Integrated full-run and duplicate sensitivity analysis')

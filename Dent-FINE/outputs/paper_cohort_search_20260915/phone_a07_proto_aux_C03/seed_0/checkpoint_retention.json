@@ -1,0 +1,6 @@
+{
+  "retained": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C03/seed_0/best.pth",
+  "retained_sha256": "5010944b936b6f6d4ac98b5b4f975628a297975f851d4ced0e986b5615ec94cc",
+  "removed_temporary_weights": [],
+  "reason": "Best-only retention after verification; native solver needed stage/last files during training."
+}

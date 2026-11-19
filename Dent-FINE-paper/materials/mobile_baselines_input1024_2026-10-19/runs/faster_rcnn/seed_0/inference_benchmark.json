@@ -1,0 +1,27 @@
+{
+  "family": "faster_rcnn",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "torch": "2.1.0+cu121",
+  "cuda": "12.1",
+  "cudnn": 8902,
+  "precision": "FP32",
+  "batch": 1,
+  "shape": [
+    1,
+    3,
+    1024,
+    1024
+  ],
+  "warmup": 30,
+  "repetitions": 100,
+  "timing_scope": "CUDA-event native forward only; resident representative-image input; no data loading/external postprocessing",
+  "image_path": "/home/wuxi/coco/valid/JPEGImages/73.jpg",
+  "image_id": 0,
+  "mean_ms": 14.766227197647094,
+  "SD_ms": 0.2103982496081753,
+  "P50_ms": 14.737919807434082,
+  "P95_ms": 15.104830265045166,
+  "images_per_second": 67.72210576303091,
+  "peak_inference_allocated_bytes": 688199168,
+  "at": "2026-10-20T06:30:47.346243+08:00"
+}

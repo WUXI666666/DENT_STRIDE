@@ -1,0 +1,16 @@
+{
+  "snapshot_time": "2026-10-03T22:25:57.925316+08:00",
+  "completed_count": 58,
+  "total_jobs": 62,
+  "font_requested": "Times New Roman",
+  "font_used": "Times New Roman",
+  "font_note": "Times New Roman installed",
+  "exports": [
+    "Editable-text SVG",
+    "Vector PDF with embedded fonts",
+    "600-dpi PNG"
+  ],
+  "interval": "Sample standard deviation, ddof=1; not a confidence interval",
+  "provenance": "source_snapshot.json records all source hashes and exact plotted inputs",
+  "missing_marker": "Em dash; missing observations are not zero"
+}

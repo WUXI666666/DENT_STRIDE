@@ -1,0 +1,14 @@
+{
+  "train_annotation": "/home/wuxi/DENTEX2023/annotations/instances_train2017.json",
+  "validation_annotation": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+  "train_images": "/home/wuxi/DENTEX2023/train2017",
+  "validation_images": "/home/wuxi/DENTEX2023/val2017",
+  "num_classes": 32,
+  "epochs": 40,
+  "batch": 8,
+  "workers": 6,
+  "gpu": 0,
+  "tuning_checkpoint": "/home/wuxi/Dent-FINE/outputs/viewnet3_dslr_baseline_comparison/runs/dome_detr_s_fdi52/best.pth",
+  "max_num_select": 600,
+  "qualitative_only": true
+}

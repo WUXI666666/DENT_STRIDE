@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <include ignore_missing="yes">/etc/fonts/fonts.conf</include>
+  <dir>/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/references/times_new_roman</dir>
+  <cachedir>/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/references/fontconfig_cache</cachedir>
+</fontconfig>

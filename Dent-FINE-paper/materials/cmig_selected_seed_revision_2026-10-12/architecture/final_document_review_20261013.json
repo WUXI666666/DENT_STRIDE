@@ -1,0 +1,47 @@
+{
+  "main_document": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_main_selected_seed_revision_20261012.docx",
+  "supplement_document": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_supplement_selected_seed_revision_20261012.docx",
+  "main_paragraph_count": 208,
+  "main_table_count": 9,
+  "supplement_table_count": 10,
+  "native_math_count": 51,
+  "math_change_from_previous_document": {
+    "changed_inline_index": 24,
+    "before": "tau = 0.20",
+    "after": "tau",
+    "reason": "Temperature is now specified separately for Mobile and Pano in Methods.",
+    "all_other_math_nodes_exact_xml": true
+  },
+  "passed": [
+    "Mobile temperature 0.50 and Pano temperature 0.20 are consistently defined in Methods, Table 2, and Supplement Table S9.",
+    "Prototype scores use L2-normalized query/prototype vectors and LogSumExp over four cosine scores divided by temperature, without dividing by four.",
+    "Prototype final-matched-query CE weights 0.03/0.05 are retained and scores are not fused at inference.",
+    "DSLR additional rank-dependent decay is stated without initialization rollback in Methods and settings tables.",
+    "Reference-configuration Mobile ablations clearly state temperature 0.20 and are distinguished from the updated temperature-0.50 configuration.",
+    "SpatialShape statistics, regularized full covariance, nested clipping, logit-space weights, and pre-top300 scoring match the actual implementation.",
+    "Embedded Figure 2 SVG is byte-identical to the verified export from the modified original PPT and contains zero raster image elements.",
+    "All main and supplementary selected-three, all-five, and fixed012 summaries are labelled with their seed-selection protocol.",
+    "Main conclusions retain the external comparator advantage on DSLR and do not assert statistical SOTA.",
+    "Ning2026 DualOpt reference title and authors verified on the primary arXiv record."
+  ],
+  "author_confirmation_required": [
+    {
+      "main_location": "Ethics approval and consent to participate, paragraph 171",
+      "issue": "The statement is generic. The originating Phone/DSLR ethics committees, approval or exemption basis, and rights/consent for image publication are not concretely documented here.",
+      "action": "Authors must confirm and provide genuine source ethics/access/publication details. Do not fabricate them."
+    },
+    {
+      "main_location": "Paragraph 2 and accompanying Author Information document",
+      "issue": "An accompanying title page is promised, but the existing author line lists only equal-contribution/corresponding markers without individual affiliation mapping.",
+      "action": "Authors must confirm the affiliation superscripts for each named author and ensure the separate title-page file is included."
+    }
+  ],
+  "optional_reference_update": {
+    "reference": "Ning et al., 2026",
+    "primary_record": "https://arxiv.org/abs/2604.22838",
+    "published_doi": "10.1109/TPAMI.2026.3683792",
+    "note": "The arXiv citation is accurate; the primary record additionally identifies a published TPAMI version."
+  },
+  "review_scope": "Read-only scientific, reference, author/ethics, and OOXML/SVG consistency review. PDF pagination/rendering is checked separately by the root agent.",
+  "documents_modified_by_this_review": false
+}

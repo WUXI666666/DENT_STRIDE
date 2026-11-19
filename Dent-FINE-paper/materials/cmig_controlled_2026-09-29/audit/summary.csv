@@ -1,0 +1,4 @@
+﻿cohort,train_images,validation_images,byte_overlap_groups,pixel_overlap_groups,within_train_pixel_groups,within_validation_pixel_groups,train_patients,validation_patients,patient_id_overlap
+Mobile,878,220,4,4,3,0,0,0,0
+Pano,570,64,1,1,8,1,0,0,0
+DSLR,750,190,0,0,0,0,150,38,0

@@ -1,0 +1,44 @@
+task: detection
+
+evaluator:
+  type: CocoEvaluator
+  iou_types: ['bbox', ]
+
+# The derived annotations use the project's canonical FDI52 order; 10 labels
+# have no ground-truth instances in this DSLR cohort but remain in the model
+# label space so all FDI semantics are preserved.
+num_classes: 52
+remap_mscoco_category: False
+fdi_label_order: fdi52
+
+train_dataloader:
+  type: DataLoader
+  dataset:
+    type: CocoDetection
+    img_folder: /home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/train
+    ann_file: /home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_train_fdi52.json
+    return_masks: False
+    transforms:
+      type: Compose
+      ops: ~
+  shuffle: True
+  num_workers: 8
+  drop_last: True
+  collate_fn:
+    type: BatchImageCollateFunction
+
+val_dataloader:
+  type: DataLoader
+  dataset:
+    type: CocoDetection
+    img_folder: /home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val
+    ann_file: /home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json
+    return_masks: False
+    transforms:
+      type: Compose
+      ops: ~
+  shuffle: False
+  num_workers: 8
+  drop_last: False
+  collate_fn:
+    type: BatchImageCollateFunction

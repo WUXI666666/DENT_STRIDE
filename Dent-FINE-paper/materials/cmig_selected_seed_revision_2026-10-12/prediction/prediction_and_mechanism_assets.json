@@ -1,0 +1,60 @@
+{
+  "checkpoint_sha256": "1f19ea4d30234effb359b2de0cfb494ee1fe3582ca93a0bbc54792cf3a3e60cf",
+  "artifact_sha256": {
+    "Figure_10_Pano_same_weight_prior.pdf": "182768d609bb5bda2d889a80d6eaca693c3b5ecaf6c1f9b1d638439f5dfcb87d",
+    "current_Mobile_cohesion_all_FDI.pdf": "d92c83700c78ec498ea9b08a4e96d10e7d043d3be3c13caf74c5a414c93ac5fa",
+    "current_Mobile_prototype_diagnostics.png": "ab3898e4596e1d5d3a0073fbe66c30e2a30171e15fb622c4b68b14dbd70ee555",
+    "actual_CMFA_HOOA_image_182.svg": "8ba856746a1837fc6214c74d16a821046b7e7937876dce23c1031e44faa1eaf9",
+    "Figure_10_Pano_same_weight_prior.png": "61095e7ff4001200687119f16b9a1bae7884f6957b3d88372ffdfea295614cd8",
+    "current_Mobile_prototype_diagnostics.svg": "6ce06d37def5d563d6a3a43c196f4dc58dcc4ae1065c19823ef02a1270faefa4",
+    "factor_confusion_raw.npz": "16e1ce4c27a87d97fae62cc59789731089ebfd737d8db95312b2a9963281f237",
+    "current_Mobile_factor_confusions_preview.png": "bb7f50b9946fec089f0a5812681a25558cc32011ff43d530532f7704c37b6d40",
+    "Figure_10_Pano_same_weight_prior.svg": "3b29f7b76ddbbce811d734ea46994908ac946f55981f8e30737b3c8ae2d00c9f",
+    "Figure_12A_Mobile_same_image.png": "434f78caa8d74d65ff7aa0b5ae237225442440b51b727249fe8ac66f8b62aebb",
+    "prototype_summary.npz": "fde315c81f1283aaa64186b883e187575590d7ebfea23d7e73c20b94d967ba59",
+    "Figure_12B_Pano_same_image_preview.png": "f85f6ba321c47bf606f5483e7a56ccccc24e96bd33afd8da1390127720ea5dc4",
+    "Figure_12C_DSLR_same_image_preview.png": "568163cafa94107b6e0ae4203293f7d435a62729d42f8686b11c130af3594b56",
+    "Figure_12B_Pano_same_image.svg": "89538df001f9c8276d3532f3536006bd6dc402851908f6b3e276e8357a994b7b",
+    "Figure_12A_Mobile_same_image.svg": "0e4b1b07169f28c1448dd9a33c8640c95c96d1597880afb57b78bf03081f58ad",
+    "prototype_bank.npz": "7f6b833913ff02cb215c25e7f52d0826366968a4e2ed59f17bd91d6cc917f415",
+    "current_Mobile_cohesion_all_FDI.png": "5a88dfcc67f8aec562555fb5ece59617fd20a048f0e8b07e64715952dbb0ce72",
+    "Figure_12A_Mobile_same_image_preview.png": "901c35b04acaca1f09072018e2c97cf685468be8d862050d64ac0740e4a9b383",
+    "Figure_12B_Pano_same_image.pdf": "0cbba73b899719f8a656321bd8e7bf81cbc233889a52a1408f4df40b4a5f9874",
+    "prototype_cohesion_by_FDI.csv": "01aaa84338098c22c3cca8aeaab72b4611ac40952041c78ade4f9a1214a2b954",
+    "actual_CMFA_HOOA_image_182_preview.png": "a4154e7e7a061bb07a8d5a1abb98b38b0f646b3bdabd71b81078e9b4c1bba9ed",
+    "Figure_10_Pano_same_weight_prior_preview.png": "a78e36fc7443bf71cf46c5db7ddd7ee4b06593d012b6f8a61bbbd4012b04d7fe",
+    "Figure_12C_DSLR_same_image.pdf": "9f046d40504f5a41f4f08a070989e1614b9ccf0f3982818533891e29038aee47",
+    "Figure_12C_DSLR_same_image.svg": "f46ada458c39a3679ea9dc32f8e3465a3669810cfc9a13f648e5d395ce19ab47",
+    "Figure_12A_Mobile_same_image.pdf": "8d72874e71f201d76c144ccede0cadea30f5ed3ddfafdbd076cf63e0aaa0428a",
+    "Figure_12B_Pano_same_image.png": "14ce30f6c52534bb2a4d67a51587fc5604a6e0f0e86fb008431394ab8afed208",
+    "current_Mobile_prototype_diagnostics.pdf": "da07207fadaa6664407c639f18b5f30a830e421754ce437693443ac41d7842a2",
+    "actual_CMFA_HOOA_image_182.png": "3585eed934f423713ee7c2f94d2909c923bf61159052c89b19c2fdeffc5daee0",
+    "internal_tensors_image_182.npz": "4fad70f971be5f0d88850a862a7e468255d14d48352af4257da130cf7dc0f3db",
+    "actual_CMFA_HOOA_image_182.pdf": "c8696712c8379d8447590919ad00d7be546e5e4be6b806ba2240ad5f827623ef",
+    "current_Mobile_factor_confusions.svg": "9c920f48deaa1fc9941902677692affc5bb52bfc7c32c196991087fdd2ecec33",
+    "Figure_12C_DSLR_same_image.png": "8d8ca600a49d53e5abfd66f7b984ebcce47a0a0a7d8bb639cc9f8bac36a5543f",
+    "current_Mobile_prototype_diagnostics_preview.png": "5db689c059f5e00de923cc43566d8b3663a0bb1016292955c0ea070182819637",
+    "current_Mobile_cohesion_all_FDI.svg": "6d477c7f01a5a1683c3d0d35b901edfbadfb95e742fc1e0098625130591a1538",
+    "current_Mobile_factor_confusions.pdf": "c5acd59df2676c1f6a8ffb39f6f3fb2b4e585179776a145cd45910f0935c7739",
+    "current_Mobile_factor_confusions.png": "fbff9e1a357af71852c3af2d644e34d1efc6a3233b995fb8e512956b1765866c",
+    "current_Mobile_cohesion_all_FDI_preview.png": "1ccbfef0efd37767a8351a6fa0fc95d5c2d19e4d473f89e008292c29c7a5a53f"
+  },
+  "representation_check": {
+    "normalized_bank_shape": [
+      52,
+      4,
+      256
+    ],
+    "unsupported_FDI_codes": [
+      18,
+      28,
+      38,
+      48
+    ],
+    "maximum_absolute_within_class_prototype_difference": 0.00018455833196640015,
+    "within_class_prototypes_exactly_identical_all_supported": false,
+    "interpretation": "Near-unit cohesion describes nearly collinear within-class vectors, not evidence of distinct multi-modal prototypes or a demonstrated AP improvement.",
+    "checkpoint_sha256": "1f19ea4d30234effb359b2de0cfb494ee1fe3582ca93a0bbc54792cf3a3e60cf",
+    "prototype_temperature": 0.5
+  }
+}

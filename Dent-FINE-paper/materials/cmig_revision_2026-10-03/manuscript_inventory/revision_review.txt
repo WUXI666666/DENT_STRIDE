@@ -1,0 +1,94 @@
+READ-ONLY MANUSCRIPT REVIEW — 2026-10-03
+
+Documents inspected
+Main: /home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_main_visual.docx
+Supplement: /home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_supplement_visual.docx
+No original manuscript or training file was modified. Inventory paragraph indices are zero-based python-docx indices before revision; body_block also counts interleaved tables.
+
+1. Main structure and captions
+P0 title; P1 author names; P2 refers to accompanying title page; P3 Abstract heading; P4 abstract.
+P6 Introduction; P13 contributions.
+P14 Related work; P15/17/19 subsections.
+P21 Methods; P22 common detector; P26 structured identity; P27 factor fusion; P34 prototype; P42 SpatialShape; P57 CMFA/HOOA; P64 losses/optimization.
+P71 Experiments; P72 datasets; P77 implementation; P82 endpoints; P87 quantitative comparison; P91 external DSLR comparison; P97 old feature family; P102 prior/identity; P109 resolution/MixUp; P113 cross-device; P117 identity/consistency/visuals; P126 cost.
+P128 Discussion; P129 principal findings; P132 acquisition; P135 limitations; P139 Conclusion.
+P141–154 Acknowledgments/funding/CRediT/ethics/data/code/AI declaration; P155 References.
+
+Tables and paragraph anchors
+T0/P74: Table 1 dataset composition, body block75.
+T1/P79: Table 2 domain recipes, body block81. P80 contains internal A07 branch name and selected epoch explanation.
+T2/P89: Table 3 single-run three-cohort framework comparison, body block92. P88 and P90 interpret.
+T3/P93: Table 4 DSLR cross-framework comparison, body block97. P92 and P94 interpret.
+T4/P105: Table 5 old Pano combined prior off/on, body block110. P104 and P106 interpret.
+T5/P111: Table 6 old resolution/MixUp, body block117. P110 and P112 interpret.
+T6/P115: Table 7 old final-model transfer, body block122. P114 and P116 interpret.
+
+Figures in this newest manuscript are numbered 1–10, not the old Figure8–11 scheme:
+Fig1 imageP9 / captionP10: historical acquisition/failure atlas.
+Fig2 imageP24 / captionP25: overall architecture/component family.
+Fig3 imageP55 / captionP56: DENTEX32 center templates.
+Fig4 imageP59 / captionP60: CMFA operations.
+Fig5 imageP62 / captionP63: HOOA.
+Fig6 imageP95 / captionP96: 10-model DSLR AP versus parameters.
+Fig7 imageP99 / captionP100: old 16-way CMFA/SMWG/UCM/MPF feature combination.
+Fig8 imageP119 / captionP120: old selected Mobile55.701 same-image detector predictions.
+Fig9 imageP122 / captionP123: old selected Mobile prototype diagnostics.
+Fig10 imageP124 / captionP125: old selected Mobile factor confusion (2344 matches).
+
+2. Required coordinated narrative changes
+AbstractP4, mainresultsP88, discussionP130/131, limitationsP136/137, conclusionP140 refer to old selected54.385/55.701/73.115 single-seed runs. They cannot be overwritten with three-seed means while retaining old plots/prediction counts or resolution-mismatched module attribution.
+P78 andP85 currently state seed0/single-run and no selected-model confidence intervals. Replace for newly controlled comparisons: seeds0/1/2;160epochs; maximum validation AP selection; run-specific FP32 replay; sampleSD; paired seed differences separately from patient sampling. External baseline rows remain their original single-run values unless their genuine three-seed values from SupplementS4 are used.
+P81 correctly distinguishes local and official DEIM implementations but must now distinguish the new same-policy controlled base from historical local DEIM and official DEIM. New Mobilebase uses the A07 implementation with arch0.10/NWD0.50 active, so do not name it unmodified official DEIM.
+P84 currently defines Mobileonly operating-point metrics. New harmonized outputs exist for all62 cohorts/runs and should be defined for all reported controlled models. FDIaccuracy numerator correctFDI among localizedmatches; detectionrecall numerator correctFDI among allGT. Duplicate-image rate denominator allimages. Keep the different denominators explicit.
+P98–101 can move old16-way optionalfeature family to supplement or retain clearly as a distinct single-run comparison. It should not remain the principal inter-module ablation now that14 controlled designs have all42 results.
+P104–106 should be replaced by same-checkpoint OFF/center/shape/both replay for eachseed, means±SD and pairedwithinseed effects. New checkpoint selected with priorOFF, not oldpriorON.
+P108 old15.5M progressive identityfamily should move supplementary; the finalPano4config controlled family now directly isolatesfactor/prototype supervision.
+P110/P111/P112 oldsingle-run resolutiontable may remain supplementary; controlledMobile640/1024base/full provides the principalresolutioncomparison.
+P114/P115/P116 oldcross-device numbers28.533/8.885 must not be attributed to newweights. Until newbasic/fulltransfer evaluated: retainarchivedcomparison clearlyoutside newcontrolledfamily or use pending '—' placeholders for newtransfer. Never silently reuseoldresultsfornewweights.
+P118 oldcounts2459GT/2819pred/2345localized/2158correct and35.45%duplicaterate do not describe newMobilefullseed0 or threesemean. Regenerate counts/means and currentcheckpoint overlays.
+P121/P123/P125 prototype/factor diagrams must derive from currentcheckpoint. Their old2344forwardcapture subset should not be retained as currentcurrentcheckpoint denominator.
+P127 oldDSLRforwardlatency5.91/6.30ms,GMAC12.631/12.633 cannot be assigned to newMobile1024/fullmodel. May retain as oldarchitecturebenchmark with properlabel; standardizedcurrentweight benchmarks remain pending.
+P137 limitation saying individualcenter/shape/gates/factorfusion/prototypedesignnot independentlyresolved is now partiallyobsolete; replace with substantive remaininglimits(single-seed internalablations,validationselection,remainingpendingrows,threeprimaryseeds modeststatisticalpower).
+AIdeclarationP154 says plottingassistance onlyFigs6–7. Updatefigurelist or remove restrictiveenumeration when addingotherplots. Currentplacement beforeReferences complies with declaredmanuscriptstructure.
+
+3. Evidence-based contribution and result interpretation
+Newmainmeans(APpoints):
+Mobile1024base54.730±0.149;features54.405±0.657;identity54.351±0.245;full55.026±0.396.
+Mobile640base53.483±0.309;full53.752±0.228.
+PanoOFFbase53.022±0.392;factor53.282±0.158;prototype53.036±0.210;factor+prototype53.166±0.526.
+DSLRAdamWbase72.466±0.234;CMFA72.964±0.098;DualOptbase72.364±0.399;CMFA+DualOpt72.878±0.404.
+PanojointsameweightspriorOFF53.166;center53.619;shape53.194;center+shape53.580 across3seeds.
+
+Strongest directly supported conclusions:
+- CMFA improves DSLR underAdamW in all3seeds; mean+0.498AP.
+- Panocenterprior improvesranking in all3seeds; mean+0.453AP. Combinedcenter+shape mean+0.414; isolatedshape mean+0.028 only.
+- Mobilefullmean improves+0.296 against same1024controlledbase and+0.269 at640; resolutionincrease improves+1.247base/+1.274full.
+- Mobilefeatureonly andidentityonly do not improve meanAP. Thefullcombination displays positive descriptiveinteraction, not evidence that everycomponent is indispensable.
+- DualOptmeanAP is belowAdamWwithbothbase andCMFA; do not attribute robust meanaccuracygain tooptimizer.
+- Severalinternalablationsoutperformfullseed0: channelonly55.872,prototypeOFF55.649,nohighpass55.228 vsfull54.583. These should be reported asnegative/conditionalcomponentresults, not omitted.
+
+Suggested contribution positioning (adapt, not claimed universalSOTA):
+First, separate query-levelfactorlearning/prototypeauxiliarysupervision fromfixedanatomicalscorecorrection in aclinicalFDIlabelmap.
+Second, provide atraining-derivedclassconditionalcenter/shapeprior with controlledsameweightbeforetop-kreplays.
+Third, evaluate domainconfiguredmodels using14 controlledfactorialdesigns,3seeds,componentcontrols,resolutioncontrols andseparatelocal/globalnumberingendpoints. CMFA/HOOA/DualOpt can remainmethodcomponentswithout eachbeing anindependentheadlinecontribution. OptionalCEDv2/SMWG/MPF/UCM arecomparisoncomponentsinSupplement, notnewcontributions.
+
+Possible visual narrative:
+Controlledprimarythreeseed APpoints+means+sampleSD, all14designs groupedbydomain; single-seedrowsnoinventederrorbars.
+Pano4-waypairedprior APchanges acrossactual3seeds plus samecase fourpredictioncolumns includingbenefit andharm.
+Mobilebase/features/identity/full sameimageclinicalboxmaps, sharedcrop withsuccessandfailureselection rule.
+CurrentMobile CMFAg_A/g_B/spatialgate andHOOAlocal/context/highpass/second-orderactualtensors. Channelgategrids indexchannels andmustnotbe presentedasspatialanatomicalheatmap. Genuinegateheatmapsdescriberesponses; trainedablationtables establishmeasuredperformanceeffects.
+
+4. Supplement update map
+54paragraphs/6tables. T0S1/P16historicalrecipecomparisons;T1S2/P19old16-wayfeaturefamily;T2S3/P23old15.5Midentityfamily;T3S4/P28actualofficialDEIM/RT-DETRv2three-seedresults;T4S5/P33oldexternalMobile/Pano;T5S6/P50evaluationfamilies.
+P27–29 statementofficialbaselinevariance cannotattachtofinalmodelremainscorrect; newfinalmodels nowhavetheirownvariance andshouldbe primary.
+P30 modulemigrationnegativevalues arehistoricalsourceimplementationexperiments; donotmergewithnewcontrolledablation.
+P32 warns externalMobile serializedannotationhashdiffers; actualmapping/contentmustbevalidatedbeforeusingasmatchedsameannotationcomparison. DifferentJSONbytes alone doesnotnecessarilymeanclinicalannotationdifference; stateclearlyactualsourcenumericdata andknownmatchinglimitations.
+P36,40,42,45 supplementaryhistoricalPano/DSLR/priorfigures shouldbereplaced withactualnewcheckpoints if usedtoprovefinalmodelmechanisms.
+P47 historicalDSLR HOOAresponses arefromrefinermodelwhilefinalDSLR lacksHOOA. RegenerateHOOAfromcurrentMobilefull, orretainonly clearlyseparatefeaturemechanismdemonstration.
+P52/P53 chartreproducibilitypolicy should updateallnewfigurefamilies andcodepaths; no needmanuscriptinternalfilenameshashlists.
+
+5. Author/ethics information needing truthful completion
+P1 nameshaveequalcontribution*/correspondence# butnoaffiliationnumbers inmain;P2 saysaccompanyingtitlepage. Thatmaybevalid forblindedmain onlyifaseparateactualtitlepageprovided. Authors-toaffiliationsmapping notdeduciblefromthismain.
+P148 genericpreexistingdeidentifieddatasetstatement lacks truecommittee,approvalidentifier,consent/waiverbasis,andclinicalimagepublicationauthorization fortwo photographicdatasets. Requesttheseactualfacts; donotfabricateordescribeasconfirmed.
+P150 datasharingaccessconditions dependonsourcedatasetpermissions; codeavailabilityP152 matchesuserrequestedtext.
+Independenttest absent; originalsplitsretain exactcontentoverlap(4Mobile/1Panocrossgroups andPanovalinternalduplicate). Primaryresults remainvalidationdevelopmentmetrics, includingafterthreeseedrepeat. Do not call independenttest,SOTAconfirmed,generalizationproven,orclinicalutilityestablished.

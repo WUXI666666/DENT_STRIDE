@@ -1,0 +1,24 @@
+{
+  "compiled_engine": "Tectonic 0.17.0 (XeTeX)",
+  "pages": 22,
+  "numbered_equations": 11,
+  "tables": 8,
+  "figure_numbers": 12,
+  "figure_assets": 14,
+  "cited_references": 31,
+  "bibtex_records": 37,
+  "undefined_citations": 0,
+  "undefined_references": 0,
+  "missing_figures": 0,
+  "visible_overflow": 0,
+  "source_author_confirmations": {
+    "DSLR_F1_percent": 92.841,
+    "DSLR_parameters_M": 11.154
+  },
+  "nonfatal_notes": [
+    "CAS zero-width keyword box warning visually checked",
+    "Underfull paragraph warnings",
+    "Four source bibliography records have no page field",
+    "Embedded vector PDFs are version 1.7; XeTeX reports its default output version 1.5"
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "job_id": "R04_fixed640_mosaic1_mixup0p0",
+  "task": "dentex_spatial_shape",
+  "cohort": "DENTEX2023",
+  "model": "DENT-STRIDE SpatialShape",
+  "phase": "resolution_mosaic_mixup",
+  "seed": 0,
+  "augmentation": {
+    "profile": "fixed640",
+    "mosaic": 1.0,
+    "mixup": 0.0,
+    "crop": 0.8,
+    "zoom": 0.5
+  },
+  "config": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/R04_fixed640_mosaic1_mixup0p0_seed0.yml",
+  "config_sha256": "98ea1dbc2496e8648df8c126359ed22e4b5c35e41be934f62c27c67936bc7140",
+  "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R04_fixed640_mosaic1_mixup0p0/seed_0",
+  "implementation_dir": "/home/wuxi/Dent-FINE",
+  "train_script": "/home/wuxi/Dent-FINE/train.py",
+  "changes_from_aligned_base": [
+    {
+      "path": "output_dir",
+      "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+      "after": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R04_fixed640_mosaic1_mixup0p0/seed_0"
+    },
+    {
+      "path": "train_dataloader.collate_fn.base_size_repeat",
+      "before": 20,
+      "after": null
+    },
+    {
+      "path": "train_dataloader.collate_fn.mixup_prob",
+      "before": 0.5,
+      "after": 0.0
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.mosaic_prob",
+      "before": 0,
+      "after": 1.0
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+      "before": 320,
+      "after": 640
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[0].probability",
+      "before": 0,
+      "after": 1.0
+    }
+  ],
+  "epochs_completed": 160,
+  "input_size": [
+    640,
+    640
+  ],
+  "training_scale_repeat": null,
+  "best_epoch_zero_based": 103,
+  "best_epoch_one_based": 104,
+  "final_epoch_one_based": 160,
+  "checkpoint_internal_epoch": 103,
+  "checkpoint_epoch_note": "Native stage rollback can reset this counter; use verified log epoch.",
+  "metrics_fraction": {
+    "AP": 0.5065867661270052,
+    "AP50": 0.9257838336618038,
+    "AP75": 0.5030792550746853,
+    "AP_small": -1.0,
+    "AP_medium": 0.36616835803888925,
+    "AP_large": 0.5110519253432454,
+    "AR1": 0.5758241807651392,
+    "AR10": 0.6488577485962514,
+    "AR100": 0.6516670631241654,
+    "AR_small": -1.0,
+    "AR_medium": 0.37733333333333335,
+    "AR_large": 0.6590463676949214
+  },
+  "metrics_percent": {
+    "AP": 50.65867661270052,
+    "AP50": 92.57838336618039,
+    "AP75": 50.30792550746853,
+    "AP_small": null,
+    "AP_medium": 36.616835803888925,
+    "AP_large": 51.10519253432454,
+    "AR1": 57.58241807651392,
+    "AR10": 64.88577485962514,
+    "AR100": 65.16670631241655,
+    "AR_small": null,
+    "AR_medium": 37.733333333333334,
+    "AR_large": 65.90463676949214
+  },
+  "best_log_metrics_fraction": {
+    "AP": 0.5065867661270052,
+    "AP50": 0.9257838336618038,
+    "AP75": 0.5030792550746853,
+    "AP_small": -1.0,
+    "AP_medium": 0.36616835803888925,
+    "AP_large": 0.5110519253432454,
+    "AR1": 0.5758241807651392,
+    "AR10": 0.6488577485962514,
+    "AR100": 0.6516670631241654,
+    "AR_small": -1.0,
+    "AR_medium": 0.37733333333333335,
+    "AR_large": 0.6590463676949214
+  },
+  "final_metrics_fraction": {
+    "AP": 0.5050912890963439,
+    "AP50": 0.925137253552689,
+    "AP75": 0.4973985870102414,
+    "AP_small": -1.0,
+    "AP_medium": 0.3624200964663343,
+    "AP_large": 0.5097162307896242,
+    "AR1": 0.575087244359444,
+    "AR10": 0.6477579944726173,
+    "AR100": 0.6507102922893927,
+    "AR_small": -1.0,
+    "AR_medium": 0.37388888888888894,
+    "AR_large": 0.6580228848097744
+  },
+  "params_trainable": 10650249,
+  "loss_arch_weight": 0.25,
+  "observed_arch_loss_range": [
+    0.03696872419874433,
+    0.09313375943563354
+  ],
+  "checkpoint": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R04_fixed640_mosaic1_mixup0p0/seed_0/best.pth",
+  "checkpoint_sha256": "fb6845e07a600980f481ecda0ebef4bdc501e88212297e0865dbe3ce6030d1b6",
+  "log_sha256": "2f54e56e1b7e3019475dc11f315aaa3ccf32f0d62cf3457946440ca43379f49f",
+  "verified_best_checkpoint": true,
+  "completed_at": "2026-09-14T06:24:41.995540+08:00"
+}

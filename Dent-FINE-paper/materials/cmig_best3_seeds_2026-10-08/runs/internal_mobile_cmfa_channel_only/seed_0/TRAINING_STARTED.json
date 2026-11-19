@@ -1,0 +1,16 @@
+{
+  "job": "internal_mobile_cmfa_channel_only_seed0",
+  "pid": 1282692,
+  "started_unix": 1791573552.5054193,
+  "seed": 0,
+  "cuda_visible_devices": "0",
+  "PYTHONHASHSEED": "0",
+  "controls": {
+    "cmfa_channel": true,
+    "cmfa_spatial": false
+  },
+  "native_cwd": "/home/wuxi/Dent-FINE",
+  "native_entrypoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/train.py",
+  "initialization": "Fresh pretrained backbone; no resume or tuning",
+  "checkpoint_policy": "Native selection and stage-1 rollback preserved; final best only"
+}

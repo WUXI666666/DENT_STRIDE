@@ -1,0 +1,98 @@
+[
+  {
+    "prior": "none",
+    "configuration": "pano_historical_spatialshape",
+    "n": 3,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "selection_policy": "historical native configured prior-ON selected weights",
+    "replay_policy": "center/shape override; view and appearance disabled",
+    "AP_mean": 53.4126396917622,
+    "AP_SD": 0.5314939915116057,
+    "AP50_mean": 93.97502074883123,
+    "AP50_SD": 0.2757659562620092,
+    "AP75_mean": 53.46388886729156,
+    "AP75_SD": 1.0034221421566407,
+    "AR100_mean": 66.89329719765588,
+    "AR100_SD": 0.7934168761221941,
+    "AP_delta_vs_none_mean": 0.0,
+    "AP_delta_vs_none_SD": 0.0,
+    "AP_delta_vs_none_CI95_low": 0.0,
+    "AP_delta_vs_none_CI95_high": 0.0
+  },
+  {
+    "prior": "center",
+    "configuration": "pano_historical_spatialshape",
+    "n": 3,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "selection_policy": "historical native configured prior-ON selected weights",
+    "replay_policy": "center/shape override; view and appearance disabled",
+    "AP_mean": 53.90630698172656,
+    "AP_SD": 0.40418608303836356,
+    "AP50_mean": 94.31841625314254,
+    "AP50_SD": 0.2345589593677358,
+    "AP75_mean": 54.37493046757107,
+    "AP75_SD": 0.9013724891340842,
+    "AR100_mean": 69.24902203848363,
+    "AR100_SD": 0.3041516993622576,
+    "AP_delta_vs_none_mean": 0.4936672899643592,
+    "AP_delta_vs_none_SD": 0.13302115070037535,
+    "AP_delta_vs_none_CI95_low": 0.16322443304913298,
+    "AP_delta_vs_none_CI95_high": 0.8241101468795855
+  },
+  {
+    "prior": "shape",
+    "configuration": "pano_historical_spatialshape",
+    "n": 3,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "selection_policy": "historical native configured prior-ON selected weights",
+    "replay_policy": "center/shape override; view and appearance disabled",
+    "AP_mean": 53.404143375846644,
+    "AP_SD": 0.5420981563995246,
+    "AP50_mean": 93.92224514869518,
+    "AP50_SD": 0.2393905445740731,
+    "AP75_mean": 53.53327755373076,
+    "AP75_SD": 1.0210679099844777,
+    "AR100_mean": 67.26074614860443,
+    "AR100_SD": 0.8001887211187904,
+    "AP_delta_vs_none_mean": -0.008496315915557773,
+    "AP_delta_vs_none_SD": 0.027253331845826203,
+    "AP_delta_vs_none_CI95_low": -0.07619734532462087,
+    "AP_delta_vs_none_CI95_high": 0.059204713493505326
+  },
+  {
+    "prior": "both",
+    "configuration": "pano_historical_spatialshape",
+    "n": 3,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "selection_policy": "historical native configured prior-ON selected weights",
+    "replay_policy": "center/shape override; view and appearance disabled",
+    "AP_mean": 53.89676694579417,
+    "AP_SD": 0.42975592509983956,
+    "AP50_mean": 94.26759051498392,
+    "AP50_SD": 0.19402020891964822,
+    "AP75_mean": 54.43557681593588,
+    "AP75_SD": 0.9251324492068226,
+    "AR100_mean": 69.38744117503266,
+    "AR100_SD": 0.25597812399258246,
+    "AP_delta_vs_none_mean": 0.4841272540319679,
+    "AP_delta_vs_none_SD": 0.10242389814652902,
+    "AP_delta_vs_none_CI95_low": 0.2296921860617004,
+    "AP_delta_vs_none_CI95_high": 0.7385623220022354
+  }
+]

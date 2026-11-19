@@ -1,0 +1,2140 @@
+{
+  "created_at": "2026-09-15T16:17:48.958188+08:00",
+  "project": "/home/wuxi/Dent-FINE",
+  "python": "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+  "gpu": 0,
+  "epochs": 160,
+  "search_seed": 0,
+  "configs": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915",
+  "output_root": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915",
+  "bundle_root": "/home/wuxi/Dent-FINE-paper/materials/best_model_bundle_2026-09-15",
+  "tasks": {
+    "dentex_spatial_shape": {
+      "cohort": "DENTEX2023",
+      "model": "DENT-STRIDE SpatialShape",
+      "source_protocol": "/home/wuxi/Dent-FINE-paper/materials/three_seed_primary_2026-09-09/runs/dentex_spatial_shape/seed_1/run_protocol.json",
+      "source_protocol_sha256": "bd32611fbf32bc9700eb2245226775e150dc3b211c433328c81a5b78cce78c33",
+      "source_config": "/home/wuxi/Dent-FINE/configs/deim_dfine/deim_hgnetv2_s_dentex.yml",
+      "source_config_sha256": "d0e169233b6a5f08f5c383f1d61e928a2dc44a10d529389f734b24c479540ac3",
+      "datasets": {
+        "train": {
+          "images": 570,
+          "annotations": 16234,
+          "categories": 32,
+          "ann_file": "/home/wuxi/DENTEX2023/annotations/instances_train2017.json",
+          "ann_sha256": "cdde8f96874c0aafabdd3de12fa5c8b3827ebd4eed40768119bdd4d74901cb50",
+          "img_folder": "/home/wuxi/DENTEX2023/train2017"
+        },
+        "val": {
+          "images": 64,
+          "annotations": 1861,
+          "categories": 32,
+          "ann_file": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+          "ann_sha256": "52532169c776f6ceaa126816787e54f8f796ebb6163c0bf8a04f98372d4f3903",
+          "img_folder": "/home/wuxi/DENTEX2023/val2017"
+        }
+      },
+      "initialization_and_prior_files": {
+        "backbone": {
+          "path": "/home/wuxi/RT-DETR-main/D-FINE/weight/hgnetv2/PPHGNetV2_B0_stage1.pth",
+          "sha256": "70a372e8cbc59b34c5da2943261ecb633faf304a58e7e05461a27bd8d8b7f3d1"
+        },
+        "spatial_shape_prior": {
+          "path": "/home/wuxi/Dent-FINE/outputs/ablation_all_new_modules/priors/dentex_tooth_templates.pt",
+          "sha256": "616631a8fba26dd3e7abd1debd7e0c2c8fcba0c365d0d9c139fbc4caf1235302"
+        }
+      },
+      "implementation_dir": "/home/wuxi/Dent-FINE",
+      "train_script": "/home/wuxi/Dent-FINE/train.py",
+      "seed": 0,
+      "base_config": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/reference_configs/dentex_spatial_shape_aligned.yml",
+      "base_config_sha256": "8d71eb62e7b06665e000007cc8a1919ffb285c34b2c515e6934386684e48f5f4"
+    },
+    "phone_dualopt": {
+      "cohort": "Smartphone",
+      "model": "DENT-STRIDE DualOpt",
+      "source_protocol": "/home/wuxi/Dent-FINE-paper/materials/three_seed_primary_2026-09-09/runs/phone_dualopt/seed_1/run_protocol.json",
+      "source_protocol_sha256": "3e6ff013497fd62a7961b47e0d1a346436f3453e8ad3e24c87b7282c06962952",
+      "source_config": "/home/wuxi/Dent-FINE/configs/deim_dfine/deim_hgnetv2_s_phone.yml",
+      "source_config_sha256": "9516d109e899e6cb4923b53f36c621aa8d9b1f09a30fb9da3d1ab5d319209e1d",
+      "datasets": {
+        "train": {
+          "images": 878,
+          "annotations": 9837,
+          "categories": 52,
+          "ann_file": "/home/wuxi/coco/train/annotations_fdi_types.json",
+          "ann_sha256": "8e7a4a0ad3cf08d05ede15b638cfee008be9c89297b2a07f52d20c711c4412f5",
+          "img_folder": "/home/wuxi/coco/train"
+        },
+        "val": {
+          "images": 220,
+          "annotations": 2459,
+          "categories": 52,
+          "ann_file": "/home/wuxi/coco/valid/annotations_fdi_types.json",
+          "ann_sha256": "f5c0e4e86654b32770dd1befb5d8e650b29066d41657675e0253792b0806c649",
+          "img_folder": "/home/wuxi/coco/valid"
+        }
+      },
+      "initialization_and_prior_files": {
+        "backbone": {
+          "path": "/home/wuxi/RT-DETR-main/D-FINE/weight/hgnetv2/PPHGNetV2_B0_stage1.pth",
+          "sha256": "70a372e8cbc59b34c5da2943261ecb633faf304a58e7e05461a27bd8d8b7f3d1"
+        }
+      },
+      "implementation_dir": "/home/wuxi/Dent-FINE",
+      "train_script": "/home/wuxi/Dent-FINE/train.py",
+      "seed": 0,
+      "base_config": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/reference_configs/phone_dualopt_aligned.yml",
+      "base_config_sha256": "2b4b1767c6758a2d684baa38566d82a8e151d83b6bcafb655e81304669cfa20e"
+    },
+    "dslr_cmfa_dualopt": {
+      "cohort": "DSLR",
+      "model": "DENT-STRIDE CMFA+DualOpt",
+      "source_protocol": "/home/wuxi/Dent-FINE-paper/materials/three_seed_primary_2026-09-09/runs/dslr_cmfa_dualopt/seed_1/run_protocol.json",
+      "source_protocol_sha256": "c7cacba914a687005d608e8c10654afb5e15824f0a8ed140b308855f48c51a8d",
+      "source_config": "/home/wuxi/Dent-FINE/configs/deim_dfine/deim_hgnetv2_s_viewnet3_dslr_fdi52.yml",
+      "source_config_sha256": "e46f483598800c06f8af5815bb15e6cd6e3ab38b31d980b3ae60bffe29742735",
+      "datasets": {
+        "train": {
+          "images": 750,
+          "annotations": 10760,
+          "categories": 52,
+          "ann_file": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_train_fdi52.json",
+          "ann_sha256": "f38177d7f8521516653c754f7293339c3267c2aacd70eee7f0c8801af2c40c98",
+          "img_folder": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/train"
+        },
+        "val": {
+          "images": 190,
+          "annotations": 2742,
+          "categories": 52,
+          "ann_file": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json",
+          "ann_sha256": "de3b8dc99b2a0a2679386c75d2e8aeff4871a0eaf448d5cc5abef5e1e725dbcf",
+          "img_folder": "/home/wuxi/View-Net3_fixed/datasets/dental_dslr_view_template_dataset_copy/images/val"
+        }
+      },
+      "initialization_and_prior_files": {
+        "backbone": {
+          "path": "/home/wuxi/RT-DETR-main/D-FINE/weight/hgnetv2/PPHGNetV2_B0_stage1.pth",
+          "sha256": "70a372e8cbc59b34c5da2943261ecb633faf304a58e7e05461a27bd8d8b7f3d1"
+        }
+      },
+      "implementation_dir": "/home/wuxi/Dent-FINE",
+      "train_script": "/home/wuxi/Dent-FINE/train.py",
+      "seed": 0,
+      "base_config": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/reference_configs/dslr_cmfa_dualopt_aligned.yml",
+      "base_config_sha256": "d3bb661c1ab70c51be427a46fc9b0a2356e06a12a5375ca6d643abef6ddad64a"
+    },
+    "phone_a07_proto_aux": {
+      "cohort": "Smartphone",
+      "model": "A07 CMFA+HOOA+NWD+Arch+Factor fusion+Prototype auxiliary",
+      "implementation_dir": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024",
+      "train_script": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/train.py",
+      "source_project": "/home/wuxi/Dent-FINE_ap_patch",
+      "source_config": "/home/wuxi/Dent-FINE_ap_patch/configs/deim_dfine/ap_ablation/a07_proto_aux.yml",
+      "source_config_sha256": "5536f88c9eac1aeec9d5a5f4f3e4d5765cad6b3c79111525913f06240551a593",
+      "source_runtime_configuration": "TensorBoard config/text_summary from the exact historical a07 run",
+      "seed": 0,
+      "source_seed": null,
+      "datasets": {
+        "train": {
+          "images": 878,
+          "annotations": 9837,
+          "categories": 52,
+          "ann_file": "/home/wuxi/coco/train/annotations_fdi_types.json",
+          "ann_sha256": "8e7a4a0ad3cf08d05ede15b638cfee008be9c89297b2a07f52d20c711c4412f5",
+          "img_folder": "/home/wuxi/coco/train"
+        },
+        "val": {
+          "images": 220,
+          "annotations": 2459,
+          "categories": 52,
+          "ann_file": "/home/wuxi/coco/valid/annotations_fdi_types.json",
+          "ann_sha256": "f5c0e4e86654b32770dd1befb5d8e650b29066d41657675e0253792b0806c649",
+          "img_folder": "/home/wuxi/coco/valid"
+        }
+      },
+      "initialization_and_prior_files": {
+        "backbone": {
+          "path": "/home/wuxi/RT-DETR-main/D-FINE/weight/hgnetv2/PPHGNetV2_B0_stage1.pth",
+          "sha256": "70a372e8cbc59b34c5da2943261ecb633faf304a58e7e05461a27bd8d8b7f3d1"
+        }
+      },
+      "runtime_source_files": {
+        "engine/__init__.py": {
+          "source_sha256": "d2d2000c38d68cb2591db5366be7643cd6004be6b31d03234bfb680f77559dd3",
+          "runtime_sha256": "14e9e9e8f21759d1a82cc1b722e1b9ae5143b77a9c2a6f588c57fa6b03b0b185",
+          "only_trailing_newline_added": true
+        },
+        "engine/backbone/__init__.py": {
+          "source_sha256": "527bb4bfed0e9cf8509affb08740c2da9144d84aaa0888e5bb98b4a90a6ccfaa",
+          "runtime_sha256": "527bb4bfed0e9cf8509affb08740c2da9144d84aaa0888e5bb98b4a90a6ccfaa",
+          "only_trailing_newline_added": false
+        },
+        "engine/backbone/common.py": {
+          "source_sha256": "3c99326a2b84e3f7b1a08a56651dbb97d012e63513df06d4e173758f82e35002",
+          "runtime_sha256": "3c99326a2b84e3f7b1a08a56651dbb97d012e63513df06d4e173758f82e35002",
+          "only_trailing_newline_added": false
+        },
+        "engine/backbone/csp_darknet.py": {
+          "source_sha256": "15d680dbe082c76a867b4c6ead90d77a6e5a92a094b8630e7da3c9c99090b81b",
+          "runtime_sha256": "15d680dbe082c76a867b4c6ead90d77a6e5a92a094b8630e7da3c9c99090b81b",
+          "only_trailing_newline_added": false
+        },
+        "engine/backbone/csp_resnet.py": {
+          "source_sha256": "399b1e3a7c9afd9c00f914c938f51c08ee1dcf09a5cd5ab52b38e311e7dfda07",
+          "runtime_sha256": "399b1e3a7c9afd9c00f914c938f51c08ee1dcf09a5cd5ab52b38e311e7dfda07",
+          "only_trailing_newline_added": false
+        },
+        "engine/backbone/hgnetv2.py": {
+          "source_sha256": "e218c58afcfe84aa5e30e4de873d9a431fd99c50c604f67291ee8e69e9858968",
+          "runtime_sha256": "e218c58afcfe84aa5e30e4de873d9a431fd99c50c604f67291ee8e69e9858968",
+          "only_trailing_newline_added": false
+        },
+        "engine/backbone/presnet.py": {
+          "source_sha256": "54fb81ab7bece7a63c2a46677036f7b1a44645e328ff673b3221063b70d84445",
+          "runtime_sha256": "54fb81ab7bece7a63c2a46677036f7b1a44645e328ff673b3221063b70d84445",
+          "only_trailing_newline_added": false
+        },
+        "engine/backbone/test_resnet.py": {
+          "source_sha256": "f48a7fa9e7648495c838688eaba9656e555397b2897d776b34359b44cfd10481",
+          "runtime_sha256": "f48a7fa9e7648495c838688eaba9656e555397b2897d776b34359b44cfd10481",
+          "only_trailing_newline_added": false
+        },
+        "engine/backbone/timm_model.py": {
+          "source_sha256": "37eb4adcd2f7246222fb68c31de3a1e6b4938e3f8e243305b8aa7d43ae990958",
+          "runtime_sha256": "37eb4adcd2f7246222fb68c31de3a1e6b4938e3f8e243305b8aa7d43ae990958",
+          "only_trailing_newline_added": false
+        },
+        "engine/backbone/torchvision_model.py": {
+          "source_sha256": "9dae18d6b8cf8f88457ca59ca29eedd93d0b8689c09f704593209f50f46434aa",
+          "runtime_sha256": "9dae18d6b8cf8f88457ca59ca29eedd93d0b8689c09f704593209f50f46434aa",
+          "only_trailing_newline_added": false
+        },
+        "engine/backbone/utils.py": {
+          "source_sha256": "e2bcc909a479a7ce06f77a0093e656e2e3da531f745dc6791e8fc76037a69ad5",
+          "runtime_sha256": "e2bcc909a479a7ce06f77a0093e656e2e3da531f745dc6791e8fc76037a69ad5",
+          "only_trailing_newline_added": false
+        },
+        "engine/core/__init__.py": {
+          "source_sha256": "b20b7267f86929d2ba3f59e494e5a5fe56e24ca2a1967cdebeaab905f3cd2475",
+          "runtime_sha256": "b20b7267f86929d2ba3f59e494e5a5fe56e24ca2a1967cdebeaab905f3cd2475",
+          "only_trailing_newline_added": false
+        },
+        "engine/core/_config.py": {
+          "source_sha256": "9a9bf9c060c1c6ea50e205bfe0ab5ad7aa61436e91318cac354fb27e9dd9555a",
+          "runtime_sha256": "9a9bf9c060c1c6ea50e205bfe0ab5ad7aa61436e91318cac354fb27e9dd9555a",
+          "only_trailing_newline_added": false
+        },
+        "engine/core/workspace.py": {
+          "source_sha256": "5529cd6f79ee1db0f6623d10e4d74ad6281ffdbe646b3fef60ef045407a656b9",
+          "runtime_sha256": "5529cd6f79ee1db0f6623d10e4d74ad6281ffdbe646b3fef60ef045407a656b9",
+          "only_trailing_newline_added": false
+        },
+        "engine/core/yaml_config.py": {
+          "source_sha256": "cf66f3d74f0291831c383f1bf495431d9487e1eab00ea8935bb2f2224cccd31d",
+          "runtime_sha256": "cf66f3d74f0291831c383f1bf495431d9487e1eab00ea8935bb2f2224cccd31d",
+          "only_trailing_newline_added": false
+        },
+        "engine/core/yaml_utils.py": {
+          "source_sha256": "bbb88010c0e48beeea5be3a063d1ed3e058eee584f7a9923f077384f0e5dbcda",
+          "runtime_sha256": "bbb88010c0e48beeea5be3a063d1ed3e058eee584f7a9923f077384f0e5dbcda",
+          "only_trailing_newline_added": false
+        },
+        "engine/data/__init__.py": {
+          "source_sha256": "053256faf34bdcbb274bcc069e1c4b440947c77899c3757d0cf541cf6966a45c",
+          "runtime_sha256": "053256faf34bdcbb274bcc069e1c4b440947c77899c3757d0cf541cf6966a45c",
+          "only_trailing_newline_added": false
+        },
+        "engine/data/_misc.py": {
+          "source_sha256": "85099a5b66d4496575d31a4e3a73dffea3ddfef34a60f43d3e4569b66809703a",
+          "runtime_sha256": "85099a5b66d4496575d31a4e3a73dffea3ddfef34a60f43d3e4569b66809703a",
+          "only_trailing_newline_added": false
+        },
+        "engine/data/dataloader.py": {
+          "source_sha256": "a31d61102bed2fca5d33dbbc56acf8f2eb940786e25a9a28efd02170dac0ceb7",
+          "runtime_sha256": "a31d61102bed2fca5d33dbbc56acf8f2eb940786e25a9a28efd02170dac0ceb7",
+          "only_trailing_newline_added": false
+        },
+        "engine/data/dataset/__init__.py": {
+          "source_sha256": "7bf23c137b73d2ec35ff00a4f36f567c5759cc86f2889f6963b6c2a589b02943",
+          "runtime_sha256": "7bf23c137b73d2ec35ff00a4f36f567c5759cc86f2889f6963b6c2a589b02943",
+          "only_trailing_newline_added": false
+        },
+        "engine/data/dataset/_dataset.py": {
+          "source_sha256": "f37c4745f85fe6d2f12dd1759e742086c043b84c752d24b8be67ed4e489efd5a",
+          "runtime_sha256": "f37c4745f85fe6d2f12dd1759e742086c043b84c752d24b8be67ed4e489efd5a",
+          "only_trailing_newline_added": false
+        },
+        "engine/data/dataset/coco_dataset.py": {
+          "source_sha256": "213e4a34ae227715113ffc437ab16642a9a5ec7f516a7f9d6004a8cc4ca1be5b",
+          "runtime_sha256": "213e4a34ae227715113ffc437ab16642a9a5ec7f516a7f9d6004a8cc4ca1be5b",
+          "only_trailing_newline_added": false
+        },
+        "engine/data/dataset/coco_eval.py": {
+          "source_sha256": "117b760f22984cfbb70ff166ce113add3f4d7c49462abefd591f85cedd8c1be8",
+          "runtime_sha256": "117b760f22984cfbb70ff166ce113add3f4d7c49462abefd591f85cedd8c1be8",
+          "only_trailing_newline_added": false
+        },
+        "engine/data/dataset/coco_utils.py": {
+          "source_sha256": "a1d1d572fbe3fa3aa251faebf9e669acb5494c233b1ca4bf63b154f4e52e23c4",
+          "runtime_sha256": "a1d1d572fbe3fa3aa251faebf9e669acb5494c233b1ca4bf63b154f4e52e23c4",
+          "only_trailing_newline_added": false
+        },
+        "engine/data/dataset/voc_detection.py": {
+          "source_sha256": "0d3dd4be481d5931c203eec95217cd5d79a477f53da228c5917ba7044e5ccf8e",
+          "runtime_sha256": "0d3dd4be481d5931c203eec95217cd5d79a477f53da228c5917ba7044e5ccf8e",
+          "only_trailing_newline_added": false
+        },
+        "engine/data/dataset/voc_eval.py": {
+          "source_sha256": "71ce94eaa171228011f258384f67f5d69216579fbd60587e4c6cd191d2df3c1f",
+          "runtime_sha256": "71ce94eaa171228011f258384f67f5d69216579fbd60587e4c6cd191d2df3c1f",
+          "only_trailing_newline_added": false
+        },
+        "engine/data/transforms/__init__.py": {
+          "source_sha256": "8b219dd43fc034e903cd5b3cce8f2585208467a4d063d3c54e7b42323fe7b330",
+          "runtime_sha256": "3b233306b887f8279e77a6bf8e61f9cbd1407822f4efb3f0fbf348d63a2ad86b",
+          "only_trailing_newline_added": true
+        },
+        "engine/data/transforms/_transforms.py": {
+          "source_sha256": "a2f09451fe98dbec32fceba2438b425d6dc2fb804f8c59cb73ff6056abf6926f",
+          "runtime_sha256": "f2f49b247faabcd55e5189c0763d88022e533ae29d635d7280d4b1a55756ea8c",
+          "only_trailing_newline_added": true
+        },
+        "engine/data/transforms/container.py": {
+          "source_sha256": "7d62a14df51cd9de6dfec4482fe980d00a8e0bd7eeac20d3b830341a755a3ef4",
+          "runtime_sha256": "7d62a14df51cd9de6dfec4482fe980d00a8e0bd7eeac20d3b830341a755a3ef4",
+          "only_trailing_newline_added": false
+        },
+        "engine/data/transforms/functional.py": {
+          "source_sha256": "b68e508a54340342a5ffe7c12ffa4cb52bc5c0881a69d4111f44ef968518438b",
+          "runtime_sha256": "b68e508a54340342a5ffe7c12ffa4cb52bc5c0881a69d4111f44ef968518438b",
+          "only_trailing_newline_added": false
+        },
+        "engine/data/transforms/mosaic.py": {
+          "source_sha256": "954e216ea7e8d7afd875831b55935b7c55825461a9df12a7e10c3b1a5957aa7d",
+          "runtime_sha256": "954e216ea7e8d7afd875831b55935b7c55825461a9df12a7e10c3b1a5957aa7d",
+          "only_trailing_newline_added": false
+        },
+        "engine/deim/__init__.py": {
+          "source_sha256": "b7e58d57d6f75447ad477ab26f1e63d4ed47a3ec4af6ea8a4699861fd9899abf",
+          "runtime_sha256": "b7e58d57d6f75447ad477ab26f1e63d4ed47a3ec4af6ea8a4699861fd9899abf",
+          "only_trailing_newline_added": false
+        },
+        "engine/deim/box_ops.py": {
+          "source_sha256": "ca374c756f45508f07fb8ba4850be327cefcd6eb199000dd9ccbd7d6545537ef",
+          "runtime_sha256": "3ae321b75e08db64fbb97f052233103a040a6f572cfbfe9d9d825b472208746d",
+          "only_trailing_newline_added": true
+        },
+        "engine/deim/cdfa.py": {
+          "source_sha256": "6bdbd27a0ed4e8adf6aae2ca2791fe14bb5c281ea9c9117261e8d1d2ce565a59",
+          "runtime_sha256": "6bdbd27a0ed4e8adf6aae2ca2791fe14bb5c281ea9c9117261e8d1d2ce565a59",
+          "only_trailing_newline_added": false
+        },
+        "engine/deim/cvim.py": {
+          "source_sha256": "82d9a91b120d7daea48bacb8f1ea70b1586d3d3afd8403feecf4b968be07ec6a",
+          "runtime_sha256": "88c7b78e6a7c278bd5f4365bf0677222c05c4048495acf9eb6902013d541d74b",
+          "only_trailing_newline_added": true
+        },
+        "engine/deim/deim.py": {
+          "source_sha256": "636131aef151096d2b7da041be9d27ed8086d96e31ba9604841ca1a04bd84647",
+          "runtime_sha256": "636131aef151096d2b7da041be9d27ed8086d96e31ba9604841ca1a04bd84647",
+          "only_trailing_newline_added": false
+        },
+        "engine/deim/deim_criterion.py": {
+          "source_sha256": "0e648cfebefd83f1ebdc4000850fcfc58a318ffab53455a84f4cdcb59d244ae7",
+          "runtime_sha256": "0e648cfebefd83f1ebdc4000850fcfc58a318ffab53455a84f4cdcb59d244ae7",
+          "only_trailing_newline_added": false
+        },
+        "engine/deim/denoising.py": {
+          "source_sha256": "e6b755cd1eee2f6016d38b873c3ddffa18bc8bceb6044f92927144ef8da2eeef",
+          "runtime_sha256": "e6b755cd1eee2f6016d38b873c3ddffa18bc8bceb6044f92927144ef8da2eeef",
+          "only_trailing_newline_added": false
+        },
+        "engine/deim/dental_prior.py": {
+          "source_sha256": "554ad17a587e79b791670338662a627c159bf19c5a06e7cc2e7cef992c714bc0",
+          "runtime_sha256": "554ad17a587e79b791670338662a627c159bf19c5a06e7cc2e7cef992c714bc0",
+          "only_trailing_newline_added": false
+        },
+        "engine/deim/dfine_decoder.py": {
+          "source_sha256": "ae01fcdc3e9b443b6984650a1b634a40a65dc061beb58989d2479152fc741f42",
+          "runtime_sha256": "ae01fcdc3e9b443b6984650a1b634a40a65dc061beb58989d2479152fc741f42",
+          "only_trailing_newline_added": false
+        },
+        "engine/deim/dfine_utils.py": {
+          "source_sha256": "c546cd277eded116783a29a1a9abea6408a4a807e748bd2c1222b4bbfdb88510",
+          "runtime_sha256": "c546cd277eded116783a29a1a9abea6408a4a807e748bd2c1222b4bbfdb88510",
+          "only_trailing_newline_added": false
+        },
+        "engine/deim/hybrid_encoder.py": {
+          "source_sha256": "3b12fa4ab63b94e9b5cd1ebf477c46c4e9034bcf6adbb4cc9e4ccf8b2d107861",
+          "runtime_sha256": "3b12fa4ab63b94e9b5cd1ebf477c46c4e9034bcf6adbb4cc9e4ccf8b2d107861",
+          "only_trailing_newline_added": false
+        },
+        "engine/deim/matcher.py": {
+          "source_sha256": "745aca6e52510171b4c616e5ae7d23bef916b0af989da7594e7348ce0cd3cf5e",
+          "runtime_sha256": "745aca6e52510171b4c616e5ae7d23bef916b0af989da7594e7348ce0cd3cf5e",
+          "only_trailing_newline_added": false
+        },
+        "engine/deim/postprocessor.py": {
+          "source_sha256": "a2200fd7212dbfb9a8a19cbe85d13eb6fdad289a99bb75d8f5593fb01a0fb0bf",
+          "runtime_sha256": "a2200fd7212dbfb9a8a19cbe85d13eb6fdad289a99bb75d8f5593fb01a0fb0bf",
+          "only_trailing_newline_added": false
+        },
+        "engine/deim/utils.py": {
+          "source_sha256": "830dc50196fc92e5d3871b9bbb24834abe1928974c3e3d42aa4ffac38a0355b3",
+          "runtime_sha256": "830dc50196fc92e5d3871b9bbb24834abe1928974c3e3d42aa4ffac38a0355b3",
+          "only_trailing_newline_added": false
+        },
+        "engine/deim/utils_arch.py": {
+          "source_sha256": "0d4424a851904a591210cde7945fa83b949d5bd9842b4eea1dd3a9c4d052c9bb",
+          "runtime_sha256": "0d4424a851904a591210cde7945fa83b949d5bd9842b4eea1dd3a9c4d052c9bb",
+          "only_trailing_newline_added": false
+        },
+        "engine/misc/__init__.py": {
+          "source_sha256": "1409a522e890456a3e9047d36d23ec05f5a96e9ce60bf2aba8d569e20a279ecd",
+          "runtime_sha256": "1409a522e890456a3e9047d36d23ec05f5a96e9ce60bf2aba8d569e20a279ecd",
+          "only_trailing_newline_added": false
+        },
+        "engine/misc/box_ops.py": {
+          "source_sha256": "507f491779819e8bbab76039d423a6f63f3498d3dde7ffcb0edaf798669fb3fa",
+          "runtime_sha256": "507f491779819e8bbab76039d423a6f63f3498d3dde7ffcb0edaf798669fb3fa",
+          "only_trailing_newline_added": false
+        },
+        "engine/misc/dist_utils.py": {
+          "source_sha256": "c035f7a70da4e535b3e47494311f4d80d389f85956613402fda57e0fcbf4f033",
+          "runtime_sha256": "c035f7a70da4e535b3e47494311f4d80d389f85956613402fda57e0fcbf4f033",
+          "only_trailing_newline_added": false
+        },
+        "engine/misc/lazy_loader.py": {
+          "source_sha256": "6cd831c6aa1eb13866933a21d42fa0fac3d772319120786362877b523bdf7c7d",
+          "runtime_sha256": "6cd831c6aa1eb13866933a21d42fa0fac3d772319120786362877b523bdf7c7d",
+          "only_trailing_newline_added": false
+        },
+        "engine/misc/logger.py": {
+          "source_sha256": "c9d66368341d0006a0147817cc850e22146c16a2fd375a7954ae9781a8ffd4f8",
+          "runtime_sha256": "c9d66368341d0006a0147817cc850e22146c16a2fd375a7954ae9781a8ffd4f8",
+          "only_trailing_newline_added": false
+        },
+        "engine/misc/profiler_utils.py": {
+          "source_sha256": "3e4c8355a7457f474f9f7e36af2c65ce9e878e7233d2becafe893fe29764ae7c",
+          "runtime_sha256": "3e4c8355a7457f474f9f7e36af2c65ce9e878e7233d2becafe893fe29764ae7c",
+          "only_trailing_newline_added": false
+        },
+        "engine/misc/visualizer.py": {
+          "source_sha256": "db3e1c6b23a3a7d8186c7786354b161859a4d00db60991a1e405f6eb484572d0",
+          "runtime_sha256": "db3e1c6b23a3a7d8186c7786354b161859a4d00db60991a1e405f6eb484572d0",
+          "only_trailing_newline_added": false
+        },
+        "engine/optim/__init__.py": {
+          "source_sha256": "873f91c02a22f14912420e03d53e90919cc8f9324f6d2166b6e919f80764ccef",
+          "runtime_sha256": "873f91c02a22f14912420e03d53e90919cc8f9324f6d2166b6e919f80764ccef",
+          "only_trailing_newline_added": false
+        },
+        "engine/optim/amp.py": {
+          "source_sha256": "6e11a55bca958224d062d6a11518aee62787b1018727d94a152428752c3e91cf",
+          "runtime_sha256": "6e11a55bca958224d062d6a11518aee62787b1018727d94a152428752c3e91cf",
+          "only_trailing_newline_added": false
+        },
+        "engine/optim/ema.py": {
+          "source_sha256": "bdd8ab69529b086f4ff4f229328a79e2153cbf6bda1c09fd015d7cb447bf208a",
+          "runtime_sha256": "bdd8ab69529b086f4ff4f229328a79e2153cbf6bda1c09fd015d7cb447bf208a",
+          "only_trailing_newline_added": false
+        },
+        "engine/optim/lr_scheduler.py": {
+          "source_sha256": "e02199d51be78a434771ff51ce4d22f11f7c83756d62f3104263568206a15374",
+          "runtime_sha256": "e02199d51be78a434771ff51ce4d22f11f7c83756d62f3104263568206a15374",
+          "only_trailing_newline_added": false
+        },
+        "engine/optim/optim.py": {
+          "source_sha256": "3d9f9fe557e45deff040f704fb6152bf75af5c9e869e5f0a5a9b9a1dfa0f79e6",
+          "runtime_sha256": "3d9f9fe557e45deff040f704fb6152bf75af5c9e869e5f0a5a9b9a1dfa0f79e6",
+          "only_trailing_newline_added": false
+        },
+        "engine/optim/warmup.py": {
+          "source_sha256": "ff80c9b762be57af4abd0a6a843d5d50bbc4887db19d85cb74887615d7ea7432",
+          "runtime_sha256": "ff80c9b762be57af4abd0a6a843d5d50bbc4887db19d85cb74887615d7ea7432",
+          "only_trailing_newline_added": false
+        },
+        "engine/solver/__init__.py": {
+          "source_sha256": "e232d6a1bf7fa38af95f8c938b3c80cc5068c93e98e8793b20e460008fe00f02",
+          "runtime_sha256": "e232d6a1bf7fa38af95f8c938b3c80cc5068c93e98e8793b20e460008fe00f02",
+          "only_trailing_newline_added": false
+        },
+        "engine/solver/_solver.py": {
+          "source_sha256": "38fb872d1309f56fd8918f8226ebf26e30a162f157ba97da3d7c195ce4847b15",
+          "runtime_sha256": "38fb872d1309f56fd8918f8226ebf26e30a162f157ba97da3d7c195ce4847b15",
+          "only_trailing_newline_added": false
+        },
+        "engine/solver/clas_engine.py": {
+          "source_sha256": "216be5a2d29d664265aea35c2c019742a29a6ff716f19fe14ec635c97c7d6396",
+          "runtime_sha256": "216be5a2d29d664265aea35c2c019742a29a6ff716f19fe14ec635c97c7d6396",
+          "only_trailing_newline_added": false
+        },
+        "engine/solver/clas_solver.py": {
+          "source_sha256": "41a5d8107889f39a0af86668cac4fed7c6ebf31171df7ac5e340d447b19ba029",
+          "runtime_sha256": "41a5d8107889f39a0af86668cac4fed7c6ebf31171df7ac5e340d447b19ba029",
+          "only_trailing_newline_added": false
+        },
+        "engine/solver/det_engine.py": {
+          "source_sha256": "075ff7f5d07d3f159d590d249c612196ced95046779cc996c6aa4ee2050b9a8d",
+          "runtime_sha256": "075ff7f5d07d3f159d590d249c612196ced95046779cc996c6aa4ee2050b9a8d",
+          "only_trailing_newline_added": false
+        },
+        "engine/solver/det_solver.py": {
+          "source_sha256": "b0d71cca041e99bbcc95acea31c8df1e8efd63b6437cd46f360bbb4259c260d2",
+          "runtime_sha256": "b0d71cca041e99bbcc95acea31c8df1e8efd63b6437cd46f360bbb4259c260d2",
+          "only_trailing_newline_added": false
+        },
+        "train.py": {
+          "source_sha256": "3cae0fa70bb25e75865a117ba1246941d46503688472f07a510926c26afa657a",
+          "runtime_sha256": "3cae0fa70bb25e75865a117ba1246941d46503688472f07a510926c26afa657a",
+          "only_trailing_newline_added": false
+        }
+      },
+      "historical_result": {
+        "source_run": "/home/wuxi/Dent-FINE_ap_patch/outputs/ap_ablation/a07_proto_aux",
+        "log_sha256": "7501295bc8bedbcbe5e34100aef224015359406fb1cdec562750498b8316d950",
+        "source_checkpoint": "/home/wuxi/Dent-FINE_ap_patch/outputs/ap_ablation/a07_proto_aux/best.pth",
+        "source_checkpoint_sha256": "d632f3a09afb5ee278483d81fa118a53e57ed27f011fafb5908d26c0d886b6ca",
+        "source_event": "/home/wuxi/Dent-FINE_ap_patch/outputs/ap_ablation/a07_proto_aux/summary/events.out.tfevents.1780605521.lab314-2x4090.1336802.0",
+        "source_event_sha256": "d62c310a4304049b192e8e76308c4ebc6d5060114c6bb2120b21b53cf27746ba",
+        "seed_recorded_in_tensorboard": null,
+        "table_second_column": "rank, not seed",
+        "epochs": 160,
+        "best_epoch_zero_based": 152,
+        "best_epoch_one_based": 153,
+        "params_trainable": 12513162,
+        "best_metrics_percent": {
+          "AP": 54.39457082027531,
+          "AP50": 84.18858535025639,
+          "AP75": 60.232240946853146,
+          "AP_small": 47.5,
+          "AP_medium": 36.19168767853661,
+          "AP_large": 55.97776149387981,
+          "AR1": 60.92880835685378,
+          "AR10": 66.9441843899194,
+          "AR100": 67.72569547752984,
+          "AR_small": 47.5,
+          "AR_medium": 49.842261904761905,
+          "AR_large": 69.09672429619202
+        },
+        "final_AP_percent": 54.14659804192965
+      },
+      "isolation_reason": "The original project hard-codes DN box noise=1.0 in forward, lacks the A07 arch-loss option and differs in regression-loss normalization and save_best_only/no-stage-rollback behavior. A07 uses its own unchanged AP-patch implementation in an isolated child directory; it cannot change the three original-project runs.",
+      "base_config": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/reference_configs/phone_a07_proto_aux_aligned.yml",
+      "base_config_sha256": "29a90bb54477c6de3f0f6d3db392d7e9f46a7b12390d68c95f9bf1258f74941a"
+    }
+  },
+  "source_sha256": {
+    "/home/wuxi/Dent-FINE/engine/__init__.py": "d2d2000c38d68cb2591db5366be7643cd6004be6b31d03234bfb680f77559dd3",
+    "/home/wuxi/Dent-FINE/engine/backbone/__init__.py": "527bb4bfed0e9cf8509affb08740c2da9144d84aaa0888e5bb98b4a90a6ccfaa",
+    "/home/wuxi/Dent-FINE/engine/backbone/common.py": "3c99326a2b84e3f7b1a08a56651dbb97d012e63513df06d4e173758f82e35002",
+    "/home/wuxi/Dent-FINE/engine/backbone/csp_darknet.py": "15d680dbe082c76a867b4c6ead90d77a6e5a92a094b8630e7da3c9c99090b81b",
+    "/home/wuxi/Dent-FINE/engine/backbone/csp_resnet.py": "399b1e3a7c9afd9c00f914c938f51c08ee1dcf09a5cd5ab52b38e311e7dfda07",
+    "/home/wuxi/Dent-FINE/engine/backbone/hgnetv2.py": "e218c58afcfe84aa5e30e4de873d9a431fd99c50c604f67291ee8e69e9858968",
+    "/home/wuxi/Dent-FINE/engine/backbone/presnet.py": "54fb81ab7bece7a63c2a46677036f7b1a44645e328ff673b3221063b70d84445",
+    "/home/wuxi/Dent-FINE/engine/backbone/test_resnet.py": "f48a7fa9e7648495c838688eaba9656e555397b2897d776b34359b44cfd10481",
+    "/home/wuxi/Dent-FINE/engine/backbone/timm_model.py": "37eb4adcd2f7246222fb68c31de3a1e6b4938e3f8e243305b8aa7d43ae990958",
+    "/home/wuxi/Dent-FINE/engine/backbone/torchvision_model.py": "9dae18d6b8cf8f88457ca59ca29eedd93d0b8689c09f704593209f50f46434aa",
+    "/home/wuxi/Dent-FINE/engine/backbone/utils.py": "e2bcc909a479a7ce06f77a0093e656e2e3da531f745dc6791e8fc76037a69ad5",
+    "/home/wuxi/Dent-FINE/engine/core/__init__.py": "b20b7267f86929d2ba3f59e494e5a5fe56e24ca2a1967cdebeaab905f3cd2475",
+    "/home/wuxi/Dent-FINE/engine/core/_config.py": "c7658cdaca896f3952f70a9b64808349615f827341fc31a94587ed8894428802",
+    "/home/wuxi/Dent-FINE/engine/core/workspace.py": "5529cd6f79ee1db0f6623d10e4d74ad6281ffdbe646b3fef60ef045407a656b9",
+    "/home/wuxi/Dent-FINE/engine/core/yaml_config.py": "cf66f3d74f0291831c383f1bf495431d9487e1eab00ea8935bb2f2224cccd31d",
+    "/home/wuxi/Dent-FINE/engine/core/yaml_utils.py": "bbb88010c0e48beeea5be3a063d1ed3e058eee584f7a9923f077384f0e5dbcda",
+    "/home/wuxi/Dent-FINE/engine/data/__init__.py": "053256faf34bdcbb274bcc069e1c4b440947c77899c3757d0cf541cf6966a45c",
+    "/home/wuxi/Dent-FINE/engine/data/_misc.py": "85099a5b66d4496575d31a4e3a73dffea3ddfef34a60f43d3e4569b66809703a",
+    "/home/wuxi/Dent-FINE/engine/data/dataloader.py": "a31d61102bed2fca5d33dbbc56acf8f2eb940786e25a9a28efd02170dac0ceb7",
+    "/home/wuxi/Dent-FINE/engine/data/dataset/__init__.py": "7bf23c137b73d2ec35ff00a4f36f567c5759cc86f2889f6963b6c2a589b02943",
+    "/home/wuxi/Dent-FINE/engine/data/dataset/_dataset.py": "f37c4745f85fe6d2f12dd1759e742086c043b84c752d24b8be67ed4e489efd5a",
+    "/home/wuxi/Dent-FINE/engine/data/dataset/coco_dataset.py": "8ff24c73a6fdaa453520aa6cd50148b06c359898d52e49a1a2d2cc1327509e17",
+    "/home/wuxi/Dent-FINE/engine/data/dataset/coco_eval.py": "117b760f22984cfbb70ff166ce113add3f4d7c49462abefd591f85cedd8c1be8",
+    "/home/wuxi/Dent-FINE/engine/data/dataset/coco_utils.py": "a1d1d572fbe3fa3aa251faebf9e669acb5494c233b1ca4bf63b154f4e52e23c4",
+    "/home/wuxi/Dent-FINE/engine/data/dataset/voc_detection.py": "0d3dd4be481d5931c203eec95217cd5d79a477f53da228c5917ba7044e5ccf8e",
+    "/home/wuxi/Dent-FINE/engine/data/dataset/voc_eval.py": "71ce94eaa171228011f258384f67f5d69216579fbd60587e4c6cd191d2df3c1f",
+    "/home/wuxi/Dent-FINE/engine/data/transforms/__init__.py": "8b219dd43fc034e903cd5b3cce8f2585208467a4d063d3c54e7b42323fe7b330",
+    "/home/wuxi/Dent-FINE/engine/data/transforms/_transforms.py": "a2f09451fe98dbec32fceba2438b425d6dc2fb804f8c59cb73ff6056abf6926f",
+    "/home/wuxi/Dent-FINE/engine/data/transforms/container.py": "7d62a14df51cd9de6dfec4482fe980d00a8e0bd7eeac20d3b830341a755a3ef4",
+    "/home/wuxi/Dent-FINE/engine/data/transforms/functional.py": "b68e508a54340342a5ffe7c12ffa4cb52bc5c0881a69d4111f44ef968518438b",
+    "/home/wuxi/Dent-FINE/engine/data/transforms/mosaic.py": "954e216ea7e8d7afd875831b55935b7c55825461a9df12a7e10c3b1a5957aa7d",
+    "/home/wuxi/Dent-FINE/engine/deim/__init__.py": "b7e58d57d6f75447ad477ab26f1e63d4ed47a3ec4af6ea8a4699861fd9899abf",
+    "/home/wuxi/Dent-FINE/engine/deim/box_ops.py": "ca374c756f45508f07fb8ba4850be327cefcd6eb199000dd9ccbd7d6545537ef",
+    "/home/wuxi/Dent-FINE/engine/deim/cdfa.py": "6bdbd27a0ed4e8adf6aae2ca2791fe14bb5c281ea9c9117261e8d1d2ce565a59",
+    "/home/wuxi/Dent-FINE/engine/deim/cvim.py": "82d9a91b120d7daea48bacb8f1ea70b1586d3d3afd8403feecf4b968be07ec6a",
+    "/home/wuxi/Dent-FINE/engine/deim/deim.py": "636131aef151096d2b7da041be9d27ed8086d96e31ba9604841ca1a04bd84647",
+    "/home/wuxi/Dent-FINE/engine/deim/deim_criterion.py": "8ad2eaba5997eb61bf7ca99ee2dd585bf457d2fe339c1cd3e43f62b16e19e937",
+    "/home/wuxi/Dent-FINE/engine/deim/denoising.py": "e6b755cd1eee2f6016d38b873c3ddffa18bc8bceb6044f92927144ef8da2eeef",
+    "/home/wuxi/Dent-FINE/engine/deim/dental_prior.py": "554ad17a587e79b791670338662a627c159bf19c5a06e7cc2e7cef992c714bc0",
+    "/home/wuxi/Dent-FINE/engine/deim/dfine_decoder.py": "faf3d7bf807738db5726d4222cabe605c5c23790f7b9ad0aaa412b70c77f543a",
+    "/home/wuxi/Dent-FINE/engine/deim/dfine_utils.py": "c546cd277eded116783a29a1a9abea6408a4a807e748bd2c1222b4bbfdb88510",
+    "/home/wuxi/Dent-FINE/engine/deim/hybrid_encoder.py": "3b12fa4ab63b94e9b5cd1ebf477c46c4e9034bcf6adbb4cc9e4ccf8b2d107861",
+    "/home/wuxi/Dent-FINE/engine/deim/matcher.py": "745aca6e52510171b4c616e5ae7d23bef916b0af989da7594e7348ce0cd3cf5e",
+    "/home/wuxi/Dent-FINE/engine/deim/postprocessor.py": "36264a3e7ca761e184a3aabc5ff03066f6674e6070b8b65314ac405d010a2537",
+    "/home/wuxi/Dent-FINE/engine/deim/utils.py": "830dc50196fc92e5d3871b9bbb24834abe1928974c3e3d42aa4ffac38a0355b3",
+    "/home/wuxi/Dent-FINE/engine/deim/utils_arch.py": "0d4424a851904a591210cde7945fa83b949d5bd9842b4eea1dd3a9c4d052c9bb",
+    "/home/wuxi/Dent-FINE/engine/misc/__init__.py": "1409a522e890456a3e9047d36d23ec05f5a96e9ce60bf2aba8d569e20a279ecd",
+    "/home/wuxi/Dent-FINE/engine/misc/box_ops.py": "507f491779819e8bbab76039d423a6f63f3498d3dde7ffcb0edaf798669fb3fa",
+    "/home/wuxi/Dent-FINE/engine/misc/dist_utils.py": "c035f7a70da4e535b3e47494311f4d80d389f85956613402fda57e0fcbf4f033",
+    "/home/wuxi/Dent-FINE/engine/misc/lazy_loader.py": "6cd831c6aa1eb13866933a21d42fa0fac3d772319120786362877b523bdf7c7d",
+    "/home/wuxi/Dent-FINE/engine/misc/logger.py": "c9d66368341d0006a0147817cc850e22146c16a2fd375a7954ae9781a8ffd4f8",
+    "/home/wuxi/Dent-FINE/engine/misc/profiler_utils.py": "3e4c8355a7457f474f9f7e36af2c65ce9e878e7233d2becafe893fe29764ae7c",
+    "/home/wuxi/Dent-FINE/engine/misc/visualizer.py": "db3e1c6b23a3a7d8186c7786354b161859a4d00db60991a1e405f6eb484572d0",
+    "/home/wuxi/Dent-FINE/engine/optim/__init__.py": "873f91c02a22f14912420e03d53e90919cc8f9324f6d2166b6e919f80764ccef",
+    "/home/wuxi/Dent-FINE/engine/optim/amp.py": "6e11a55bca958224d062d6a11518aee62787b1018727d94a152428752c3e91cf",
+    "/home/wuxi/Dent-FINE/engine/optim/ema.py": "bdd8ab69529b086f4ff4f229328a79e2153cbf6bda1c09fd015d7cb447bf208a",
+    "/home/wuxi/Dent-FINE/engine/optim/lr_scheduler.py": "e02199d51be78a434771ff51ce4d22f11f7c83756d62f3104263568206a15374",
+    "/home/wuxi/Dent-FINE/engine/optim/optim.py": "3d9f9fe557e45deff040f704fb6152bf75af5c9e869e5f0a5a9b9a1dfa0f79e6",
+    "/home/wuxi/Dent-FINE/engine/optim/warmup.py": "ff80c9b762be57af4abd0a6a843d5d50bbc4887db19d85cb74887615d7ea7432",
+    "/home/wuxi/Dent-FINE/engine/solver/__init__.py": "e232d6a1bf7fa38af95f8c938b3c80cc5068c93e98e8793b20e460008fe00f02",
+    "/home/wuxi/Dent-FINE/engine/solver/_solver.py": "38fb872d1309f56fd8918f8226ebf26e30a162f157ba97da3d7c195ce4847b15",
+    "/home/wuxi/Dent-FINE/engine/solver/clas_engine.py": "216be5a2d29d664265aea35c2c019742a29a6ff716f19fe14ec635c97c7d6396",
+    "/home/wuxi/Dent-FINE/engine/solver/clas_solver.py": "41a5d8107889f39a0af86668cac4fed7c6ebf31171df7ac5e340d447b19ba029",
+    "/home/wuxi/Dent-FINE/engine/solver/det_engine.py": "075ff7f5d07d3f159d590d249c612196ced95046779cc996c6aa4ee2050b9a8d",
+    "/home/wuxi/Dent-FINE/engine/solver/det_solver.py": "ff4c4a1899af9c7fe7b519a3791e75f5a2b1fb98e81a8731e372b5bb1e0ab50e",
+    "/home/wuxi/Dent-FINE/train.py": "3cae0fa70bb25e75865a117ba1246941d46503688472f07a510926c26afa657a",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/__init__.py": "14e9e9e8f21759d1a82cc1b722e1b9ae5143b77a9c2a6f588c57fa6b03b0b185",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/__init__.py": "527bb4bfed0e9cf8509affb08740c2da9144d84aaa0888e5bb98b4a90a6ccfaa",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/common.py": "3c99326a2b84e3f7b1a08a56651dbb97d012e63513df06d4e173758f82e35002",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/csp_darknet.py": "15d680dbe082c76a867b4c6ead90d77a6e5a92a094b8630e7da3c9c99090b81b",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/csp_resnet.py": "399b1e3a7c9afd9c00f914c938f51c08ee1dcf09a5cd5ab52b38e311e7dfda07",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/hgnetv2.py": "e218c58afcfe84aa5e30e4de873d9a431fd99c50c604f67291ee8e69e9858968",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/presnet.py": "54fb81ab7bece7a63c2a46677036f7b1a44645e328ff673b3221063b70d84445",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/test_resnet.py": "f48a7fa9e7648495c838688eaba9656e555397b2897d776b34359b44cfd10481",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/timm_model.py": "37eb4adcd2f7246222fb68c31de3a1e6b4938e3f8e243305b8aa7d43ae990958",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/torchvision_model.py": "9dae18d6b8cf8f88457ca59ca29eedd93d0b8689c09f704593209f50f46434aa",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/utils.py": "e2bcc909a479a7ce06f77a0093e656e2e3da531f745dc6791e8fc76037a69ad5",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/core/__init__.py": "b20b7267f86929d2ba3f59e494e5a5fe56e24ca2a1967cdebeaab905f3cd2475",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/core/_config.py": "9a9bf9c060c1c6ea50e205bfe0ab5ad7aa61436e91318cac354fb27e9dd9555a",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/core/workspace.py": "5529cd6f79ee1db0f6623d10e4d74ad6281ffdbe646b3fef60ef045407a656b9",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/core/yaml_config.py": "cf66f3d74f0291831c383f1bf495431d9487e1eab00ea8935bb2f2224cccd31d",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/core/yaml_utils.py": "bbb88010c0e48beeea5be3a063d1ed3e058eee584f7a9923f077384f0e5dbcda",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/__init__.py": "053256faf34bdcbb274bcc069e1c4b440947c77899c3757d0cf541cf6966a45c",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/_misc.py": "85099a5b66d4496575d31a4e3a73dffea3ddfef34a60f43d3e4569b66809703a",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/dataloader.py": "a31d61102bed2fca5d33dbbc56acf8f2eb940786e25a9a28efd02170dac0ceb7",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/dataset/__init__.py": "7bf23c137b73d2ec35ff00a4f36f567c5759cc86f2889f6963b6c2a589b02943",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/dataset/_dataset.py": "f37c4745f85fe6d2f12dd1759e742086c043b84c752d24b8be67ed4e489efd5a",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/dataset/coco_dataset.py": "213e4a34ae227715113ffc437ab16642a9a5ec7f516a7f9d6004a8cc4ca1be5b",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/dataset/coco_eval.py": "117b760f22984cfbb70ff166ce113add3f4d7c49462abefd591f85cedd8c1be8",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/dataset/coco_utils.py": "a1d1d572fbe3fa3aa251faebf9e669acb5494c233b1ca4bf63b154f4e52e23c4",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/dataset/voc_detection.py": "0d3dd4be481d5931c203eec95217cd5d79a477f53da228c5917ba7044e5ccf8e",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/dataset/voc_eval.py": "71ce94eaa171228011f258384f67f5d69216579fbd60587e4c6cd191d2df3c1f",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/transforms/__init__.py": "3b233306b887f8279e77a6bf8e61f9cbd1407822f4efb3f0fbf348d63a2ad86b",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/transforms/_transforms.py": "f2f49b247faabcd55e5189c0763d88022e533ae29d635d7280d4b1a55756ea8c",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/transforms/container.py": "7d62a14df51cd9de6dfec4482fe980d00a8e0bd7eeac20d3b830341a755a3ef4",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/transforms/functional.py": "b68e508a54340342a5ffe7c12ffa4cb52bc5c0881a69d4111f44ef968518438b",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/transforms/mosaic.py": "954e216ea7e8d7afd875831b55935b7c55825461a9df12a7e10c3b1a5957aa7d",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/__init__.py": "b7e58d57d6f75447ad477ab26f1e63d4ed47a3ec4af6ea8a4699861fd9899abf",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/box_ops.py": "3ae321b75e08db64fbb97f052233103a040a6f572cfbfe9d9d825b472208746d",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/cdfa.py": "6bdbd27a0ed4e8adf6aae2ca2791fe14bb5c281ea9c9117261e8d1d2ce565a59",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/cvim.py": "88c7b78e6a7c278bd5f4365bf0677222c05c4048495acf9eb6902013d541d74b",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/deim.py": "636131aef151096d2b7da041be9d27ed8086d96e31ba9604841ca1a04bd84647",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/deim_criterion.py": "0e648cfebefd83f1ebdc4000850fcfc58a318ffab53455a84f4cdcb59d244ae7",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/denoising.py": "e6b755cd1eee2f6016d38b873c3ddffa18bc8bceb6044f92927144ef8da2eeef",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/dental_prior.py": "554ad17a587e79b791670338662a627c159bf19c5a06e7cc2e7cef992c714bc0",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/dfine_decoder.py": "ae01fcdc3e9b443b6984650a1b634a40a65dc061beb58989d2479152fc741f42",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/dfine_utils.py": "c546cd277eded116783a29a1a9abea6408a4a807e748bd2c1222b4bbfdb88510",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/hybrid_encoder.py": "3b12fa4ab63b94e9b5cd1ebf477c46c4e9034bcf6adbb4cc9e4ccf8b2d107861",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/matcher.py": "745aca6e52510171b4c616e5ae7d23bef916b0af989da7594e7348ce0cd3cf5e",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/postprocessor.py": "a2200fd7212dbfb9a8a19cbe85d13eb6fdad289a99bb75d8f5593fb01a0fb0bf",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/utils.py": "830dc50196fc92e5d3871b9bbb24834abe1928974c3e3d42aa4ffac38a0355b3",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/utils_arch.py": "0d4424a851904a591210cde7945fa83b949d5bd9842b4eea1dd3a9c4d052c9bb",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/misc/__init__.py": "1409a522e890456a3e9047d36d23ec05f5a96e9ce60bf2aba8d569e20a279ecd",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/misc/box_ops.py": "507f491779819e8bbab76039d423a6f63f3498d3dde7ffcb0edaf798669fb3fa",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/misc/dist_utils.py": "c035f7a70da4e535b3e47494311f4d80d389f85956613402fda57e0fcbf4f033",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/misc/lazy_loader.py": "6cd831c6aa1eb13866933a21d42fa0fac3d772319120786362877b523bdf7c7d",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/misc/logger.py": "c9d66368341d0006a0147817cc850e22146c16a2fd375a7954ae9781a8ffd4f8",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/misc/profiler_utils.py": "3e4c8355a7457f474f9f7e36af2c65ce9e878e7233d2becafe893fe29764ae7c",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/misc/visualizer.py": "db3e1c6b23a3a7d8186c7786354b161859a4d00db60991a1e405f6eb484572d0",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/optim/__init__.py": "873f91c02a22f14912420e03d53e90919cc8f9324f6d2166b6e919f80764ccef",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/optim/amp.py": "6e11a55bca958224d062d6a11518aee62787b1018727d94a152428752c3e91cf",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/optim/ema.py": "bdd8ab69529b086f4ff4f229328a79e2153cbf6bda1c09fd015d7cb447bf208a",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/optim/lr_scheduler.py": "e02199d51be78a434771ff51ce4d22f11f7c83756d62f3104263568206a15374",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/optim/optim.py": "3d9f9fe557e45deff040f704fb6152bf75af5c9e869e5f0a5a9b9a1dfa0f79e6",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/optim/warmup.py": "ff80c9b762be57af4abd0a6a843d5d50bbc4887db19d85cb74887615d7ea7432",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/solver/__init__.py": "e232d6a1bf7fa38af95f8c938b3c80cc5068c93e98e8793b20e460008fe00f02",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/solver/_solver.py": "38fb872d1309f56fd8918f8226ebf26e30a162f157ba97da3d7c195ce4847b15",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/solver/clas_engine.py": "216be5a2d29d664265aea35c2c019742a29a6ff716f19fe14ec635c97c7d6396",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/solver/clas_solver.py": "41a5d8107889f39a0af86668cac4fed7c6ebf31171df7ac5e340d447b19ba029",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/solver/det_engine.py": "075ff7f5d07d3f159d590d249c612196ced95046779cc996c6aa4ee2050b9a8d",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/solver/det_solver.py": "b0d71cca041e99bbcc95acea31c8df1e8efd63b6437cd46f360bbb4259c260d2",
+    "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/train.py": "3cae0fa70bb25e75865a117ba1246941d46503688472f07a510926c26afa657a"
+  },
+  "fixed_file_sha256": {
+    "/home/wuxi/Dent-FINE/configs/runtime.yml": "fce931f5c7c71323985b9606cb39a6387097643a3ae4f7cd8c2384c0a290bf11",
+    "/home/wuxi/Dent-FINE/configs/dataset/custom_detection.yml": "3e70e5f4d45a4c5df3bb18d48de602007a203dd237bb69293bdde9443c23d06f",
+    "/home/wuxi/Dent-FINE/configs/dataset/viewnet3_dslr_fdi52_detection.yml": "77b12fe04ea38b6ce78d77c3afec645376af03f33de67dc3b58f19d106b50759",
+    "/home/wuxi/Dent-FINE/configs/dataset/coco_detection.yml": "0df40cb68ccb1371783c9d59aff1fc2e6488ddd712b5c966354b38c6ffb825a8",
+    "/home/wuxi/Dent-FINE/configs/dataset/obj365_detection.yml": "b8fe119225695bdaff385fb8e0b327bc1db06b3d6d30f17176a2718c1e051fc5",
+    "/home/wuxi/Dent-FINE/configs/dataset/voc_detection.yml": "92eb4e855896329bd08d2ff329ed2ae3e05c8f8a543eec090fd12964427673a0",
+    "/home/wuxi/Dent-FINE/configs/dataset/dentex_detection.yml": "d28b75294ed8753f99dfa5905d7fc62828d812f90820f7bbc9e277f94590acff",
+    "/home/wuxi/Dent-FINE/configs/dataset/crowdhuman_detection.yml": "79cf8d43398939bfa468303c4942b7e628b58141454bc973227ef361babd67ea",
+    "/home/wuxi/Dent-FINE/configs/paper_input1024_20260913/dslr_cmfa_dualopt.yml": "2a9f3b1e341dcccedbbbc7df85a070ec05a0c26828e8bb7ccd566285f9c3faac",
+    "/home/wuxi/Dent-FINE/configs/paper_input1024_20260913/phone_dualopt.yml": "e61f478e0c5d3a273d21e29d91f5e76c61dc9eba712a0542545e21128cbe59b4",
+    "/home/wuxi/Dent-FINE/configs/paper_input1024_20260913/phone_a07_proto_aux.yml": "f18c126e5862154b77c2c467e6b55b95ae7922494e740d1e0ba5b83d8b25b500",
+    "/home/wuxi/Dent-FINE/configs/paper_input1024_20260913/dentex_spatial_shape.yml": "9a71189d4610cdedbddaa0eac99b9c0d2805da8a7242d8926e0b352203da50f5",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/deim_hgnetv2_s_dentex.yml": "d0e169233b6a5f08f5c383f1d61e928a2dc44a10d529389f734b24c479540ac3",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/dfine_hgnetv2_m_coco.yml": "5694d24b5cfe498925fcdae486068ee7e1886bf9597732c14717d09be31f60e1",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/deim_hgnetv2_s_phone.yml": "9516d109e899e6cb4923b53f36c621aa8d9b1f09a30fb9da3d1ab5d319209e1d",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/deim_hgnetv2_m_coco.yml": "eb90fb4b01c5c62782d9c7cc35dd8b962e520a21dc6df8e59aa3195ca60827f6",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/dfine_hgnetv2_s_dentex.yml": "72cf299b2b0fc8f2cd198e4a2b8b02d08860b0c8d89ef544643c299786396931",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/dfine_hgnetv2_s_coco.yml": "50c25bebb44539d755b6cf23771eebb54fe2495f14b2ec8550956cd1f179ac04",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/deim_hgnetv2_n_coco.yml": "2bc40f2d3ff0e964bd5c0a52f787d6dacbbdfe656664def1aafbba85c4a46503",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/dfine_hgnetv2_l_coco.yml": "9b4147af1326a775f085205bc2f7c56e05a1eb349b8a87cbfd8b946053675dee",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/dfine_hgnetv2_n_coco.yml": "0a785b0b42a555153a6211512f6b5b12db23311c9d9996daca6f0d0ebd7d5691",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/deim_hgnetv2_x_coco.yml": "5d85fce4614c5bd699050faa4bbf385e57375dea70cb42321b95e14c8759866c",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/deim_hgnetv2_l_coco.yml": "b9be1442468732399f3945c1a3bff6a1a49b9793b04c42b0a6eb6c65590cc00f",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/deim_hgnetv2_s_coco.yml": "58e7875cb4a20f2b4b69b8c5a6d8174d463ef19eef406409af20960501361da1",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/dfine_hgnetv2_x_coco.yml": "37a005920aea6b35ff696c036ad9cf0053788e6699e2fdcef6bb636e0f1e279e",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/deim_hgnetv2_s_viewnet3_dslr_fdi52.yml": "e46f483598800c06f8af5815bb15e6cd6e3ab38b31d980b3ae60bffe29742735",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/dfine_hgnetv2_s_phone.yml": "58da2cdfd989f32c26ec6e2b1dc80fac14624547641b89d5eefeb499eba746e9",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/dfine_hgnetv2_s_viewnet3_dslr_fdi52.yml": "0e724826866654cd176ccaf0a2bf26e0bc8a736980e53e2ab6a1dc29ddd1dac6",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/object365/dfine_hgnetv2_x_obj2coco.yml": "60a1c00d69baeedd95e35c1fb5d2f9866655a858b542e200fcc66068f7640f6d",
+    "/home/wuxi/Dent-FINE/configs/deim_dfine/object365/deim_hgnetv2_x_obj2coco_24e.yml": "7dea18db6ca0525ee0d4d0f450697c13cfc55f15694fa10666a7708126fc6643",
+    "/home/wuxi/Dent-FINE/configs/base/deim.yml": "0decf89d0ef40d22817e52907989a470812c4eea4ea189986d5182d5b446d385",
+    "/home/wuxi/Dent-FINE/configs/base/dataloader.yml": "0b70f65397f038c7049a284b06752a151c86737cdf1a7da5459d2d633c0ad375",
+    "/home/wuxi/Dent-FINE/configs/base/optimizer.yml": "176d885542d44aaa8b92a273c9574bca63ecd6b95a39ea9522b48535bf38b94b",
+    "/home/wuxi/Dent-FINE/configs/base/dfine_hgnetv2.yml": "a357b6f0d368f4ab5703e2b2245f900866a0eba849fdce43f8c91723643bbb07",
+    "/home/wuxi/coco/train/annotations_fdi_types.json": "8e7a4a0ad3cf08d05ede15b638cfee008be9c89297b2a07f52d20c711c4412f5",
+    "/home/wuxi/coco/valid/annotations_fdi_types.json": "f5c0e4e86654b32770dd1befb5d8e650b29066d41657675e0253792b0806c649",
+    "/home/wuxi/RT-DETR-main/D-FINE/weight/hgnetv2/PPHGNetV2_B0_stage1.pth": "70a372e8cbc59b34c5da2943261ecb633faf304a58e7e05461a27bd8d8b7f3d1",
+    "/home/wuxi/Dent-FINE-paper/materials/augmentation_search_2026-09-13/reference_configs/phone_dualopt_aligned.yml": "2b4b1767c6758a2d684baa38566d82a8e151d83b6bcafb655e81304669cfa20e",
+    "/home/wuxi/DENTEX2023/annotations/instances_train2017.json": "cdde8f96874c0aafabdd3de12fa5c8b3827ebd4eed40768119bdd4d74901cb50",
+    "/home/wuxi/DENTEX2023/annotations/instances_val2017.json": "52532169c776f6ceaa126816787e54f8f796ebb6163c0bf8a04f98372d4f3903",
+    "/home/wuxi/Dent-FINE/outputs/ablation_all_new_modules/priors/dentex_tooth_templates.pt": "616631a8fba26dd3e7abd1debd7e0c2c8fcba0c365d0d9c139fbc4caf1235302",
+    "/home/wuxi/Dent-FINE-paper/materials/augmentation_search_2026-09-13/reference_configs/dentex_spatial_shape_aligned.yml": "8d71eb62e7b06665e000007cc8a1919ffb285c34b2c515e6934386684e48f5f4",
+    "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_train_fdi52.json": "f38177d7f8521516653c754f7293339c3267c2aacd70eee7f0c8801af2c40c98",
+    "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json": "de3b8dc99b2a0a2679386c75d2e8aeff4871a0eaf448d5cc5abef5e1e725dbcf",
+    "/home/wuxi/Dent-FINE-paper/materials/augmentation_search_2026-09-13/reference_configs/dslr_cmfa_dualopt_aligned.yml": "d3bb661c1ab70c51be427a46fc9b0a2356e06a12a5375ca6d643abef6ddad64a",
+    "/home/wuxi/Dent-FINE-paper/materials/augmentation_search_2026-09-13/reference_configs/phone_a07_proto_aux_aligned.yml": "29a90bb54477c6de3f0f6d3db392d7e9f46a7b12390d68c95f9bf1258f74941a",
+    "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/reference_configs/dentex_spatial_shape_aligned.yml": "8d71eb62e7b06665e000007cc8a1919ffb285c34b2c515e6934386684e48f5f4",
+    "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/R01_fixed640_mosaic0_mixup0p5_seed0.yml": "5110fbcaaf7d006c7dfb95fe9dc3188919fed2332128bd2d8ece64988a9145f1",
+    "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R01_fixed640_mosaic0_mixup0p5/seed_0/metrics_summary.json": "00a762cad74b2f6cd46d1655040119f2e8f54bdff8eef0159aeaf8cb389178df",
+    "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/reference_configs/phone_dualopt_aligned.yml": "2b4b1767c6758a2d684baa38566d82a8e151d83b6bcafb655e81304669cfa20e",
+    "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/FINAL_phone_dualopt_seed0.yml": "7b8072ef402d43f70070bf212d7b8e4254a8b42740065b0b6fba17180296ab67",
+    "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_phone_dualopt/seed_0/metrics_summary.json": "4467ce658fbd3ca23cc2f5298dc92746adda60bdae45f0e28880b6c2411a14ca",
+    "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/reference_configs/dslr_cmfa_dualopt_aligned.yml": "d3bb661c1ab70c51be427a46fc9b0a2356e06a12a5375ca6d643abef6ddad64a",
+    "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/FINAL_dslr_cmfa_dualopt_seed0.yml": "83f661cb6954077a97cd36c5c7f70e8bb006b166533ebb0a182c765f0a6696f1",
+    "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_dslr_cmfa_dualopt/seed_0/metrics_summary.json": "ae7992f957aca47e2842798af3cfbeccbc99f8410ce438d66a400d12c0c8734f",
+    "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/reference_configs/phone_a07_proto_aux_aligned.yml": "29a90bb54477c6de3f0f6d3db392d7e9f46a7b12390d68c95f9bf1258f74941a",
+    "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/FINAL_phone_a07_proto_aux_seed0.yml": "d2b96f542645fe3e1a6c27db7c2e24ea3afb240d795c2ccb6308a2bbe77c577e",
+    "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_phone_a07_proto_aux/seed_0/metrics_summary.json": "565daa8936c978011bd46a382d82052f2d9143f8ad12de0b970a0720ce69a4ce",
+    "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+    "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/preflight.py": "ca36ebd1d482c9565e4328659dd5c05739acee472d79f3206ef857c4e07a4dab",
+    "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/test_search.py": "bf47684811950e43000f045ed5d1410b169ef00a4ec26d3cda191160735aedbe",
+    "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/selection_policy.json": "fae08b081953a4f1e76068f60723583c7d4db95e79209b064b94dc0774e0c2d9",
+    "/home/wuxi/Dent-FINE-paper/materials/augmentation_search_2026-09-13/experiment.py": "7a07f519a7cc11e2d7a9ec2af00b24bdc90141bb5c9addf0ead8d9c61a27484f"
+  },
+  "reference_results": {
+    "dentex_spatial_shape": {
+      "job_id": "R01_fixed640_mosaic0_mixup0p5",
+      "task": "dentex_spatial_shape",
+      "cohort": "DENTEX2023",
+      "model": "DENT-STRIDE SpatialShape",
+      "phase": "resolution_mosaic_mixup",
+      "seed": 0,
+      "augmentation": {
+        "profile": "fixed640",
+        "mosaic": 0.0,
+        "mixup": 0.5,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/R01_fixed640_mosaic0_mixup0p5_seed0.yml",
+      "config_sha256": "5110fbcaaf7d006c7dfb95fe9dc3188919fed2332128bd2d8ece64988a9145f1",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R01_fixed640_mosaic0_mixup0p5/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE",
+      "train_script": "/home/wuxi/Dent-FINE/train.py",
+      "changes_from_aligned_base": [
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R01_fixed640_mosaic0_mixup0p5/seed_0"
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size_repeat",
+          "before": 20,
+          "after": null
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+          "before": 320,
+          "after": 640
+        }
+      ],
+      "epochs_completed": 160,
+      "input_size": [
+        640,
+        640
+      ],
+      "training_scale_repeat": null,
+      "best_epoch_zero_based": 155,
+      "best_epoch_one_based": 156,
+      "final_epoch_one_based": 160,
+      "checkpoint_internal_epoch": 73,
+      "checkpoint_epoch_note": "Native stage rollback can reset this counter; use verified log epoch.",
+      "metrics_fraction": {
+        "AP": 0.5438545846741281,
+        "AP50": 0.9374416779710103,
+        "AP75": 0.5648071327278935,
+        "AP_small": -1.0,
+        "AP_medium": 0.47117900500120435,
+        "AP_large": 0.5477228046925939,
+        "AR1": 0.6042086000686443,
+        "AR10": 0.6944722739485452,
+        "AR100": 0.6976496279901377,
+        "AR_small": -1.0,
+        "AR_medium": 0.5072222222222221,
+        "AR_large": 0.7036678317403666
+      },
+      "metrics_percent": {
+        "AP": 54.3854584674128,
+        "AP50": 93.74416779710103,
+        "AP75": 56.48071327278935,
+        "AP_small": null,
+        "AP_medium": 47.117900500120435,
+        "AP_large": 54.77228046925939,
+        "AR1": 60.42086000686443,
+        "AR10": 69.44722739485452,
+        "AR100": 69.76496279901377,
+        "AR_small": null,
+        "AR_medium": 50.722222222222214,
+        "AR_large": 70.36678317403667
+      },
+      "best_log_metrics_fraction": {
+        "AP": 0.5438545846741281,
+        "AP50": 0.9374416779710103,
+        "AP75": 0.5648071327278935,
+        "AP_small": -1.0,
+        "AP_medium": 0.47117900500120435,
+        "AP_large": 0.5477228046925939,
+        "AR1": 0.6042086000686443,
+        "AR10": 0.6944722739485452,
+        "AR100": 0.6976496279901377,
+        "AR_small": -1.0,
+        "AR_medium": 0.5072222222222221,
+        "AR_large": 0.7036678317403666
+      },
+      "final_metrics_fraction": {
+        "AP": 0.5430654075747583,
+        "AP50": 0.9382703215716295,
+        "AP75": 0.5603198763847992,
+        "AP_small": -1.0,
+        "AP_medium": 0.4628373975143221,
+        "AP_large": 0.5471155583068047,
+        "AR1": 0.60472963086454,
+        "AR10": 0.6941290445445781,
+        "AR100": 0.6978831060340065,
+        "AR_small": -1.0,
+        "AR_medium": 0.495,
+        "AR_large": 0.7041972143331107
+      },
+      "params_trainable": 10650249,
+      "loss_arch_weight": 0.25,
+      "observed_arch_loss_range": [
+        0.03701653357752612,
+        0.05548929905807468
+      ],
+      "checkpoint": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R01_fixed640_mosaic0_mixup0p5/seed_0/best.pth",
+      "checkpoint_sha256": "5f5b1144c59fbbeb15ac66bc76e475ae2cff047a1e1ee4319a62abdccc79fbe5",
+      "log_sha256": "1e37e16bbc6b6bfea0832e9abb00665f559e21ba860d0b3fbf40bdca9072c1fc",
+      "verified_best_checkpoint": true,
+      "completed_at": "2026-09-14T03:52:01.364984+08:00"
+    },
+    "phone_dualopt": {
+      "job_id": "FINAL_phone_dualopt",
+      "task": "phone_dualopt",
+      "cohort": "Smartphone",
+      "model": "DENT-STRIDE DualOpt",
+      "phase": "final_main",
+      "seed": 0,
+      "augmentation": {
+        "profile": "fixed640",
+        "mosaic": 0.0,
+        "mixup": 0.5,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/FINAL_phone_dualopt_seed0.yml",
+      "config_sha256": "7b8072ef402d43f70070bf212d7b8e4254a8b42740065b0b6fba17180296ab67",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_phone_dualopt/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE",
+      "train_script": "/home/wuxi/Dent-FINE/train.py",
+      "changes_from_aligned_base": [
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_phone_dualopt/seed_0"
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size_repeat",
+          "before": 20,
+          "after": null
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+          "before": 320,
+          "after": 640
+        }
+      ],
+      "epochs_completed": 160,
+      "input_size": [
+        640,
+        640
+      ],
+      "training_scale_repeat": null,
+      "best_epoch_zero_based": 159,
+      "best_epoch_one_based": 160,
+      "final_epoch_one_based": 160,
+      "checkpoint_internal_epoch": 132,
+      "checkpoint_epoch_note": "Native stage rollback can reset this counter; use verified log epoch.",
+      "metrics_fraction": {
+        "AP": 0.5219325914272137,
+        "AP50": 0.8087835251812675,
+        "AP75": 0.5808212506134697,
+        "AP_small": 0.375,
+        "AP_medium": 0.3743683986742049,
+        "AP_large": 0.5373451729218678,
+        "AR1": 0.5986317203819711,
+        "AR10": 0.671945542605664,
+        "AR100": 0.6779785003311123,
+        "AR_small": 0.375,
+        "AR_medium": 0.46537808641975303,
+        "AR_large": 0.6952084527367495
+      },
+      "metrics_percent": {
+        "AP": 52.193259142721374,
+        "AP50": 80.87835251812675,
+        "AP75": 58.082125061346964,
+        "AP_small": 37.5,
+        "AP_medium": 37.43683986742049,
+        "AP_large": 53.73451729218678,
+        "AR1": 59.863172038197106,
+        "AR10": 67.19455426056639,
+        "AR100": 67.79785003311123,
+        "AR_small": 37.5,
+        "AR_medium": 46.5378086419753,
+        "AR_large": 69.52084527367495
+      },
+      "best_log_metrics_fraction": {
+        "AP": 0.5219325914272137,
+        "AP50": 0.8087835251812675,
+        "AP75": 0.5808212506134697,
+        "AP_small": 0.375,
+        "AP_medium": 0.3743683986742049,
+        "AP_large": 0.5373451729218678,
+        "AR1": 0.5986317203819711,
+        "AR10": 0.671945542605664,
+        "AR100": 0.6779785003311123,
+        "AR_small": 0.375,
+        "AR_medium": 0.46537808641975303,
+        "AR_large": 0.6952084527367495
+      },
+      "final_metrics_fraction": {
+        "AP": 0.5219325914272137,
+        "AP50": 0.8087835251812675,
+        "AP75": 0.5808212506134697,
+        "AP_small": 0.375,
+        "AP_medium": 0.3743683986742049,
+        "AP_large": 0.5373451729218678,
+        "AR1": 0.5986317203819711,
+        "AR10": 0.671945542605664,
+        "AR100": 0.6779785003311123,
+        "AR_small": 0.375,
+        "AR_medium": 0.46537808641975303,
+        "AR_large": 0.6952084527367495
+      },
+      "params_trainable": 10629283,
+      "loss_arch_weight": 0.25,
+      "observed_arch_loss_range": [
+        0.06138208761401133,
+        0.06985544727756343
+      ],
+      "checkpoint": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_phone_dualopt/seed_0/best.pth",
+      "checkpoint_sha256": "31fca09295569c2412ad2a2ed28ea29476a5bf8a782511508a64bd036941efdf",
+      "log_sha256": "b91a19589ccf1d5d7675e0094b593360b6a0963c298848dee7f353a4891262e5",
+      "verified_best_checkpoint": true,
+      "completed_at": "2026-09-14T18:02:14.252158+08:00"
+    },
+    "dslr_cmfa_dualopt": {
+      "job_id": "FINAL_dslr_cmfa_dualopt",
+      "task": "dslr_cmfa_dualopt",
+      "cohort": "DSLR",
+      "model": "DENT-STRIDE CMFA+DualOpt",
+      "phase": "final_main",
+      "seed": 0,
+      "augmentation": {
+        "profile": "fixed640",
+        "mosaic": 0.0,
+        "mixup": 0.5,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/FINAL_dslr_cmfa_dualopt_seed0.yml",
+      "config_sha256": "83f661cb6954077a97cd36c5c7f70e8bb006b166533ebb0a182c765f0a6696f1",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_dslr_cmfa_dualopt/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE",
+      "train_script": "/home/wuxi/Dent-FINE/train.py",
+      "changes_from_aligned_base": [
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_dslr_cmfa_dualopt/seed_0"
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size_repeat",
+          "before": 20,
+          "after": null
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+          "before": 320,
+          "after": 640
+        }
+      ],
+      "epochs_completed": 160,
+      "input_size": [
+        640,
+        640
+      ],
+      "training_scale_repeat": null,
+      "best_epoch_zero_based": 144,
+      "best_epoch_one_based": 145,
+      "final_epoch_one_based": 160,
+      "checkpoint_internal_epoch": 110,
+      "checkpoint_epoch_note": "Native stage rollback can reset this counter; use verified log epoch.",
+      "metrics_fraction": {
+        "AP": 0.7270780817223335,
+        "AP50": 0.8881523081891046,
+        "AP75": 0.8307645216290087,
+        "AP_small": -1.0,
+        "AP_medium": 0.5184939602597277,
+        "AP_large": 0.745409791313704,
+        "AR1": 0.7805227229221097,
+        "AR10": 0.8136629116902457,
+        "AR100": 0.8189789452369506,
+        "AR_small": -1.0,
+        "AR_medium": 0.6053751803751803,
+        "AR_large": 0.8352663802050599
+      },
+      "metrics_percent": {
+        "AP": 72.70780817223334,
+        "AP50": 88.81523081891046,
+        "AP75": 83.07645216290086,
+        "AP_small": null,
+        "AP_medium": 51.84939602597277,
+        "AP_large": 74.5409791313704,
+        "AR1": 78.05227229221097,
+        "AR10": 81.36629116902458,
+        "AR100": 81.89789452369506,
+        "AR_small": null,
+        "AR_medium": 60.53751803751803,
+        "AR_large": 83.526638020506
+      },
+      "best_log_metrics_fraction": {
+        "AP": 0.7270780817223335,
+        "AP50": 0.8881523081891046,
+        "AP75": 0.8307645216290087,
+        "AP_small": -1.0,
+        "AP_medium": 0.5184939602597277,
+        "AP_large": 0.745409791313704,
+        "AR1": 0.7805227229221097,
+        "AR10": 0.8136629116902457,
+        "AR100": 0.8189789452369506,
+        "AR_small": -1.0,
+        "AR_medium": 0.6053751803751803,
+        "AR_large": 0.8352663802050599
+      },
+      "final_metrics_fraction": {
+        "AP": 0.7264502212684734,
+        "AP50": 0.8880851645716851,
+        "AP75": 0.8304377100283675,
+        "AP_small": -1.0,
+        "AP_medium": 0.5188993504573837,
+        "AP_large": 0.7447104825933841,
+        "AR1": 0.7798664666740285,
+        "AR10": 0.8129301642865606,
+        "AR100": 0.8182166625687725,
+        "AR_small": -1.0,
+        "AR_medium": 0.6057539682539683,
+        "AR_large": 0.8344741165971231
+      },
+      "params_trainable": 11153963,
+      "loss_arch_weight": 0.25,
+      "observed_arch_loss_range": [
+        0.04164508972517265,
+        0.05506755125218181
+      ],
+      "checkpoint": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_dslr_cmfa_dualopt/seed_0/best.pth",
+      "checkpoint_sha256": "1355870f9c381aea4f513bd9acbb9e9b301e9b76f774b8c13f6d76c4eb33de67",
+      "log_sha256": "6efdb9fff3b9af20202d9dda61a82cb427ae3559e479b6c7cf0d3963be74bb8f",
+      "verified_best_checkpoint": true,
+      "completed_at": "2026-09-14T19:49:44.703014+08:00"
+    },
+    "phone_a07_proto_aux": {
+      "job_id": "FINAL_phone_a07_proto_aux",
+      "task": "phone_a07_proto_aux",
+      "cohort": "Smartphone",
+      "model": "A07 CMFA+HOOA+NWD+Arch+Factor fusion+Prototype auxiliary",
+      "phase": "final_a07",
+      "seed": 0,
+      "augmentation": {
+        "profile": "fixed640",
+        "mosaic": 0.0,
+        "mixup": 0.5,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/FINAL_phone_a07_proto_aux_seed0.yml",
+      "config_sha256": "d2b96f542645fe3e1a6c27db7c2e24ea3afb240d795c2ccb6308a2bbe77c577e",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_phone_a07_proto_aux/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024",
+      "train_script": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/train.py",
+      "changes_from_aligned_base": [
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_phone_a07_proto_aux/seed_0"
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size_repeat",
+          "before": 20,
+          "after": null
+        },
+        {
+          "path": "train_dataloader.collate_fn.mixup_prob",
+          "before": 0.0,
+          "after": 0.5
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+          "before": 320,
+          "after": 640
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[2].p",
+          "before": "<absent>",
+          "after": 0.5
+        }
+      ],
+      "epochs_completed": 160,
+      "input_size": [
+        640,
+        640
+      ],
+      "training_scale_repeat": null,
+      "best_epoch_zero_based": 144,
+      "best_epoch_one_based": 145,
+      "final_epoch_one_based": 160,
+      "checkpoint_internal_epoch": 144,
+      "checkpoint_epoch_note": "Native stage rollback can reset this counter; use verified log epoch.",
+      "metrics_fraction": {
+        "AP": 0.5370795009626372,
+        "AP50": 0.8325793390159181,
+        "AP75": 0.614642519521539,
+        "AP_small": 0.4375,
+        "AP_medium": 0.3667131712733365,
+        "AP_large": 0.552913411561025,
+        "AR1": 0.6025135999489645,
+        "AR10": 0.6691796039406356,
+        "AR100": 0.6760168536926752,
+        "AR_small": 0.45,
+        "AR_medium": 0.47342261904761895,
+        "AR_large": 0.692048890816348
+      },
+      "metrics_percent": {
+        "AP": 53.70795009626372,
+        "AP50": 83.25793390159181,
+        "AP75": 61.4642519521539,
+        "AP_small": 43.75,
+        "AP_medium": 36.67131712733365,
+        "AP_large": 55.291341156102504,
+        "AR1": 60.25135999489645,
+        "AR10": 66.91796039406356,
+        "AR100": 67.60168536926751,
+        "AR_small": 45.0,
+        "AR_medium": 47.3422619047619,
+        "AR_large": 69.2048890816348
+      },
+      "best_log_metrics_fraction": {
+        "AP": 0.5370795009626372,
+        "AP50": 0.8325793390159181,
+        "AP75": 0.614642519521539,
+        "AP_small": 0.4375,
+        "AP_medium": 0.3667131712733365,
+        "AP_large": 0.552913411561025,
+        "AR1": 0.6025135999489645,
+        "AR10": 0.6691796039406356,
+        "AR100": 0.6760168536926752,
+        "AR_small": 0.45,
+        "AR_medium": 0.47342261904761895,
+        "AR_large": 0.692048890816348
+      },
+      "final_metrics_fraction": {
+        "AP": 0.532918825963659,
+        "AP50": 0.8250436740112229,
+        "AP75": 0.607815995787168,
+        "AP_small": 0.425,
+        "AP_medium": 0.3886222980823124,
+        "AP_large": 0.5475864088195751,
+        "AR1": 0.6014312981669077,
+        "AR10": 0.668354074918297,
+        "AR100": 0.6764155579148776,
+        "AR_small": 0.425,
+        "AR_medium": 0.4601917989417989,
+        "AR_large": 0.692688286811195
+      },
+      "params_trainable": 12513162,
+      "loss_arch_weight": 0.1,
+      "observed_arch_loss_range": [
+        0.02476498834925507,
+        0.02811602039108856
+      ],
+      "checkpoint": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_phone_a07_proto_aux/seed_0/best.pth",
+      "checkpoint_sha256": "398f190e050e556c44b3ebb863fd6cb5f3e4e5cb267b72354718550fffcd2e18",
+      "log_sha256": "4e35cd67b67ebac0a691311d454402d3dd6f52a7f574f94b59dfe4fb49628229",
+      "verified_best_checkpoint": true,
+      "completed_at": "2026-09-15T01:02:31.473172+08:00"
+    }
+  },
+  "initial_jobs": [
+    {
+      "job_id": "phone_dualopt_C01",
+      "task": "phone_dualopt",
+      "cohort": "Smartphone",
+      "model": "DENT-STRIDE DualOpt",
+      "phase": "core_grid",
+      "seed": 0,
+      "augmentation": {
+        "profile": "legacy640_multiscale",
+        "mosaic": 0.0,
+        "mixup": 0.5,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_dualopt_C01_seed0.yml",
+      "config_sha256": "79e846f4ed5e9eda201b1736ae323c429ccb7fe25452abfabbc3534e8bd13adb",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C01/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE",
+      "train_script": "/home/wuxi/Dent-FINE/train.py",
+      "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+      "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+      "changes_from_aligned_base": [
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C01/seed_0"
+        }
+      ],
+      "mosaic_gate": {
+        "outer_probability": 0.0,
+        "inner_probability": 0.0,
+        "active_epochs_zero_based": [
+          4,
+          69
+        ],
+        "native_crop_zoom_exclusion_preserved": true
+      }
+    },
+    {
+      "job_id": "dslr_cmfa_dualopt_C01",
+      "task": "dslr_cmfa_dualopt",
+      "cohort": "DSLR",
+      "model": "DENT-STRIDE CMFA+DualOpt",
+      "phase": "core_grid",
+      "seed": 0,
+      "augmentation": {
+        "profile": "legacy640_multiscale",
+        "mosaic": 0.0,
+        "mixup": 0.5,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C01_seed0.yml",
+      "config_sha256": "44f7b71b2c017f8e9a712904bdf918e9ef4d185cb5775d1bb6840d6e48767b0f",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C01/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE",
+      "train_script": "/home/wuxi/Dent-FINE/train.py",
+      "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+      "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+      "changes_from_aligned_base": [
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C01/seed_0"
+        }
+      ],
+      "mosaic_gate": {
+        "outer_probability": 0.0,
+        "inner_probability": 0.0,
+        "active_epochs_zero_based": [
+          4,
+          69
+        ],
+        "native_crop_zoom_exclusion_preserved": true
+      }
+    },
+    {
+      "job_id": "phone_a07_proto_aux_C01",
+      "task": "phone_a07_proto_aux",
+      "cohort": "Smartphone",
+      "model": "A07 CMFA+HOOA+NWD+Arch+Factor fusion+Prototype auxiliary",
+      "phase": "core_grid",
+      "seed": 0,
+      "augmentation": {
+        "profile": "legacy640_multiscale",
+        "mosaic": 0.0,
+        "mixup": 0.0,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C01_seed0.yml",
+      "config_sha256": "00d111572b05428e20e0e6a249b517dd381ff8e8845e359026cc5f1030a1f7a6",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C01/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024",
+      "train_script": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/train.py",
+      "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+      "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+      "changes_from_aligned_base": [
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C01/seed_0"
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[2].p",
+          "before": "<absent>",
+          "after": 0.5
+        }
+      ],
+      "mosaic_gate": {
+        "outer_probability": 0.0,
+        "inner_probability": 0.0,
+        "active_epochs_zero_based": [
+          4,
+          69
+        ],
+        "native_crop_zoom_exclusion_preserved": true
+      }
+    },
+    {
+      "job_id": "phone_dualopt_C02",
+      "task": "phone_dualopt",
+      "cohort": "Smartphone",
+      "model": "DENT-STRIDE DualOpt",
+      "phase": "core_grid",
+      "seed": 0,
+      "augmentation": {
+        "profile": "legacy640_multiscale",
+        "mosaic": 0.0,
+        "mixup": 0.0,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_dualopt_C02_seed0.yml",
+      "config_sha256": "d1bc474cf4de3fb108783a1316c21ca67a5e23d8354ddc00efd9faf103aa6f2c",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C02/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE",
+      "train_script": "/home/wuxi/Dent-FINE/train.py",
+      "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+      "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+      "changes_from_aligned_base": [
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C02/seed_0"
+        },
+        {
+          "path": "train_dataloader.collate_fn.mixup_prob",
+          "before": 0.5,
+          "after": 0.0
+        }
+      ],
+      "mosaic_gate": {
+        "outer_probability": 0.0,
+        "inner_probability": 0.0,
+        "active_epochs_zero_based": [
+          4,
+          69
+        ],
+        "native_crop_zoom_exclusion_preserved": true
+      }
+    },
+    {
+      "job_id": "dslr_cmfa_dualopt_C02",
+      "task": "dslr_cmfa_dualopt",
+      "cohort": "DSLR",
+      "model": "DENT-STRIDE CMFA+DualOpt",
+      "phase": "core_grid",
+      "seed": 0,
+      "augmentation": {
+        "profile": "legacy640_multiscale",
+        "mosaic": 0.0,
+        "mixup": 0.0,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C02_seed0.yml",
+      "config_sha256": "e0a0fa2c90e7e94ba4233fe8cc7a41c74b5ed8fe8816f88c95d3a9654d4f5931",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C02/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE",
+      "train_script": "/home/wuxi/Dent-FINE/train.py",
+      "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+      "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+      "changes_from_aligned_base": [
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C02/seed_0"
+        },
+        {
+          "path": "train_dataloader.collate_fn.mixup_prob",
+          "before": 0.5,
+          "after": 0.0
+        }
+      ],
+      "mosaic_gate": {
+        "outer_probability": 0.0,
+        "inner_probability": 0.0,
+        "active_epochs_zero_based": [
+          4,
+          69
+        ],
+        "native_crop_zoom_exclusion_preserved": true
+      }
+    },
+    {
+      "job_id": "phone_a07_proto_aux_C02",
+      "task": "phone_a07_proto_aux",
+      "cohort": "Smartphone",
+      "model": "A07 CMFA+HOOA+NWD+Arch+Factor fusion+Prototype auxiliary",
+      "phase": "core_grid",
+      "seed": 0,
+      "augmentation": {
+        "profile": "legacy640_multiscale",
+        "mosaic": 0.0,
+        "mixup": 0.5,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C02_seed0.yml",
+      "config_sha256": "3af68718e2f7a0ba7d42662c1a3f4fa783b38c2bc5acc19d1ec4751881f9a779",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C02/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024",
+      "train_script": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/train.py",
+      "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+      "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+      "changes_from_aligned_base": [
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C02/seed_0"
+        },
+        {
+          "path": "train_dataloader.collate_fn.mixup_prob",
+          "before": 0.0,
+          "after": 0.5
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[2].p",
+          "before": "<absent>",
+          "after": 0.5
+        }
+      ],
+      "mosaic_gate": {
+        "outer_probability": 0.0,
+        "inner_probability": 0.0,
+        "active_epochs_zero_based": [
+          4,
+          69
+        ],
+        "native_crop_zoom_exclusion_preserved": true
+      }
+    },
+    {
+      "job_id": "phone_dualopt_C03",
+      "task": "phone_dualopt",
+      "cohort": "Smartphone",
+      "model": "DENT-STRIDE DualOpt",
+      "phase": "core_grid",
+      "seed": 0,
+      "augmentation": {
+        "profile": "fixed640",
+        "mosaic": 0.0,
+        "mixup": 0.0,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_dualopt_C03_seed0.yml",
+      "config_sha256": "9023f3911a24de439673f276461e7bfd609f3019c89279a0feb9214799c81b27",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C03/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE",
+      "train_script": "/home/wuxi/Dent-FINE/train.py",
+      "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+      "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+      "changes_from_aligned_base": [
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C03/seed_0"
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size_repeat",
+          "before": 20,
+          "after": null
+        },
+        {
+          "path": "train_dataloader.collate_fn.mixup_prob",
+          "before": 0.5,
+          "after": 0.0
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+          "before": 320,
+          "after": 640
+        }
+      ],
+      "mosaic_gate": {
+        "outer_probability": 0.0,
+        "inner_probability": 0.0,
+        "active_epochs_zero_based": [
+          4,
+          69
+        ],
+        "native_crop_zoom_exclusion_preserved": true
+      }
+    },
+    {
+      "job_id": "dslr_cmfa_dualopt_C03",
+      "task": "dslr_cmfa_dualopt",
+      "cohort": "DSLR",
+      "model": "DENT-STRIDE CMFA+DualOpt",
+      "phase": "core_grid",
+      "seed": 0,
+      "augmentation": {
+        "profile": "fixed640",
+        "mosaic": 0.0,
+        "mixup": 0.0,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C03_seed0.yml",
+      "config_sha256": "ef65fe9295cc7dff084f9c3bb465ae976ccd28ef40be79f7fdf8ffcbc3719f0c",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C03/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE",
+      "train_script": "/home/wuxi/Dent-FINE/train.py",
+      "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+      "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+      "changes_from_aligned_base": [
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C03/seed_0"
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size_repeat",
+          "before": 20,
+          "after": null
+        },
+        {
+          "path": "train_dataloader.collate_fn.mixup_prob",
+          "before": 0.5,
+          "after": 0.0
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+          "before": 320,
+          "after": 640
+        }
+      ],
+      "mosaic_gate": {
+        "outer_probability": 0.0,
+        "inner_probability": 0.0,
+        "active_epochs_zero_based": [
+          4,
+          69
+        ],
+        "native_crop_zoom_exclusion_preserved": true
+      }
+    },
+    {
+      "job_id": "phone_a07_proto_aux_C03",
+      "task": "phone_a07_proto_aux",
+      "cohort": "Smartphone",
+      "model": "A07 CMFA+HOOA+NWD+Arch+Factor fusion+Prototype auxiliary",
+      "phase": "core_grid",
+      "seed": 0,
+      "augmentation": {
+        "profile": "fixed640",
+        "mosaic": 0.0,
+        "mixup": 0.0,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C03_seed0.yml",
+      "config_sha256": "22f37e4762e5153836c9c21422380cac6ed1d88dbc3a3f700e3f93a213a33126",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C03/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024",
+      "train_script": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/train.py",
+      "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+      "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+      "changes_from_aligned_base": [
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C03/seed_0"
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size_repeat",
+          "before": 20,
+          "after": null
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+          "before": 320,
+          "after": 640
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[2].p",
+          "before": "<absent>",
+          "after": 0.5
+        }
+      ],
+      "mosaic_gate": {
+        "outer_probability": 0.0,
+        "inner_probability": 0.0,
+        "active_epochs_zero_based": [
+          4,
+          69
+        ],
+        "native_crop_zoom_exclusion_preserved": true
+      }
+    },
+    {
+      "job_id": "phone_dualopt_C04",
+      "task": "phone_dualopt",
+      "cohort": "Smartphone",
+      "model": "DENT-STRIDE DualOpt",
+      "phase": "core_grid",
+      "seed": 0,
+      "augmentation": {
+        "profile": "fixed1024",
+        "mosaic": 0.0,
+        "mixup": 0.5,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_dualopt_C04_seed0.yml",
+      "config_sha256": "12d242deef2e01f9a1fb23dd29be1b7488a590a832f3c739be3e4261e522743e",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C04/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE",
+      "train_script": "/home/wuxi/Dent-FINE/train.py",
+      "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+      "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+      "changes_from_aligned_base": [
+        {
+          "path": "eval_spatial_size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "eval_spatial_size[1]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C04/seed_0"
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size_repeat",
+          "before": 20,
+          "after": null
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+          "before": 320,
+          "after": 640
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[5].size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[5].size[1]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "val_dataloader.dataset.transforms.ops[0].size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "val_dataloader.dataset.transforms.ops[0].size[1]",
+          "before": 640,
+          "after": 1024
+        }
+      ],
+      "mosaic_gate": {
+        "outer_probability": 0.0,
+        "inner_probability": 0.0,
+        "active_epochs_zero_based": [
+          4,
+          69
+        ],
+        "native_crop_zoom_exclusion_preserved": true
+      }
+    },
+    {
+      "job_id": "dslr_cmfa_dualopt_C04",
+      "task": "dslr_cmfa_dualopt",
+      "cohort": "DSLR",
+      "model": "DENT-STRIDE CMFA+DualOpt",
+      "phase": "core_grid",
+      "seed": 0,
+      "augmentation": {
+        "profile": "fixed1024",
+        "mosaic": 0.0,
+        "mixup": 0.5,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C04_seed0.yml",
+      "config_sha256": "3081380313275fb6b4a7110f80be3b9c7f796062b544362abfb3695af4bd4e72",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C04/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE",
+      "train_script": "/home/wuxi/Dent-FINE/train.py",
+      "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+      "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+      "changes_from_aligned_base": [
+        {
+          "path": "eval_spatial_size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "eval_spatial_size[1]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C04/seed_0"
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size_repeat",
+          "before": 20,
+          "after": null
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+          "before": 320,
+          "after": 640
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[5].size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[5].size[1]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "val_dataloader.dataset.transforms.ops[0].size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "val_dataloader.dataset.transforms.ops[0].size[1]",
+          "before": 640,
+          "after": 1024
+        }
+      ],
+      "mosaic_gate": {
+        "outer_probability": 0.0,
+        "inner_probability": 0.0,
+        "active_epochs_zero_based": [
+          4,
+          69
+        ],
+        "native_crop_zoom_exclusion_preserved": true
+      }
+    },
+    {
+      "job_id": "phone_a07_proto_aux_C04",
+      "task": "phone_a07_proto_aux",
+      "cohort": "Smartphone",
+      "model": "A07 CMFA+HOOA+NWD+Arch+Factor fusion+Prototype auxiliary",
+      "phase": "core_grid",
+      "seed": 0,
+      "augmentation": {
+        "profile": "fixed1024",
+        "mosaic": 0.0,
+        "mixup": 0.5,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C04_seed0.yml",
+      "config_sha256": "8e2629fb735e31c051d69e4be9433a98a5679ee152903d18163ddd42f35bb805",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C04/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024",
+      "train_script": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/train.py",
+      "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+      "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+      "changes_from_aligned_base": [
+        {
+          "path": "eval_spatial_size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "eval_spatial_size[1]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C04/seed_0"
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size_repeat",
+          "before": 20,
+          "after": null
+        },
+        {
+          "path": "train_dataloader.collate_fn.mixup_prob",
+          "before": 0.0,
+          "after": 0.5
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+          "before": 320,
+          "after": 640
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[2].p",
+          "before": "<absent>",
+          "after": 0.5
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[5].size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[5].size[1]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "val_dataloader.dataset.transforms.ops[0].size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "val_dataloader.dataset.transforms.ops[0].size[1]",
+          "before": 640,
+          "after": 1024
+        }
+      ],
+      "mosaic_gate": {
+        "outer_probability": 0.0,
+        "inner_probability": 0.0,
+        "active_epochs_zero_based": [
+          4,
+          69
+        ],
+        "native_crop_zoom_exclusion_preserved": true
+      }
+    },
+    {
+      "job_id": "phone_dualopt_C05",
+      "task": "phone_dualopt",
+      "cohort": "Smartphone",
+      "model": "DENT-STRIDE DualOpt",
+      "phase": "core_grid",
+      "seed": 0,
+      "augmentation": {
+        "profile": "fixed1024",
+        "mosaic": 0.0,
+        "mixup": 0.0,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_dualopt_C05_seed0.yml",
+      "config_sha256": "1131b35dae8f85e564164faf46ed45a7fe6d54caae478556e36c4ca564273fd1",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C05/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE",
+      "train_script": "/home/wuxi/Dent-FINE/train.py",
+      "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+      "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+      "changes_from_aligned_base": [
+        {
+          "path": "eval_spatial_size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "eval_spatial_size[1]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_dualopt_C05/seed_0"
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size_repeat",
+          "before": 20,
+          "after": null
+        },
+        {
+          "path": "train_dataloader.collate_fn.mixup_prob",
+          "before": 0.5,
+          "after": 0.0
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+          "before": 320,
+          "after": 640
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[5].size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[5].size[1]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "val_dataloader.dataset.transforms.ops[0].size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "val_dataloader.dataset.transforms.ops[0].size[1]",
+          "before": 640,
+          "after": 1024
+        }
+      ],
+      "mosaic_gate": {
+        "outer_probability": 0.0,
+        "inner_probability": 0.0,
+        "active_epochs_zero_based": [
+          4,
+          69
+        ],
+        "native_crop_zoom_exclusion_preserved": true
+      }
+    },
+    {
+      "job_id": "dslr_cmfa_dualopt_C05",
+      "task": "dslr_cmfa_dualopt",
+      "cohort": "DSLR",
+      "model": "DENT-STRIDE CMFA+DualOpt",
+      "phase": "core_grid",
+      "seed": 0,
+      "augmentation": {
+        "profile": "fixed1024",
+        "mosaic": 0.0,
+        "mixup": 0.0,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C05_seed0.yml",
+      "config_sha256": "34cf7b1556fa460ae7ebbc1792ae734e759d6bac2d1b568b41420c679bfa06db",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C05/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE",
+      "train_script": "/home/wuxi/Dent-FINE/train.py",
+      "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+      "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+      "changes_from_aligned_base": [
+        {
+          "path": "eval_spatial_size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "eval_spatial_size[1]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C05/seed_0"
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size_repeat",
+          "before": 20,
+          "after": null
+        },
+        {
+          "path": "train_dataloader.collate_fn.mixup_prob",
+          "before": 0.5,
+          "after": 0.0
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+          "before": 320,
+          "after": 640
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[5].size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[5].size[1]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "val_dataloader.dataset.transforms.ops[0].size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "val_dataloader.dataset.transforms.ops[0].size[1]",
+          "before": 640,
+          "after": 1024
+        }
+      ],
+      "mosaic_gate": {
+        "outer_probability": 0.0,
+        "inner_probability": 0.0,
+        "active_epochs_zero_based": [
+          4,
+          69
+        ],
+        "native_crop_zoom_exclusion_preserved": true
+      }
+    },
+    {
+      "job_id": "phone_a07_proto_aux_C05",
+      "task": "phone_a07_proto_aux",
+      "cohort": "Smartphone",
+      "model": "A07 CMFA+HOOA+NWD+Arch+Factor fusion+Prototype auxiliary",
+      "phase": "core_grid",
+      "seed": 0,
+      "augmentation": {
+        "profile": "fixed1024",
+        "mosaic": 0.0,
+        "mixup": 0.0,
+        "crop": 0.8,
+        "zoom": 0.5
+      },
+      "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+      "config_sha256": "2fa206ae008dbd5855d91bbd24c7ae7eb341e14828e6129a477cd9fde04b0c56",
+      "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C05/seed_0",
+      "implementation_dir": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024",
+      "train_script": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/train.py",
+      "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+      "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+      "changes_from_aligned_base": [
+        {
+          "path": "eval_spatial_size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "eval_spatial_size[1]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "output_dir",
+          "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+          "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C05/seed_0"
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "train_dataloader.collate_fn.base_size_repeat",
+          "before": 20,
+          "after": null
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+          "before": 320,
+          "after": 640
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[2].p",
+          "before": "<absent>",
+          "after": 0.5
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[5].size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "train_dataloader.dataset.transforms.ops[5].size[1]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "val_dataloader.dataset.transforms.ops[0].size[0]",
+          "before": 640,
+          "after": 1024
+        },
+        {
+          "path": "val_dataloader.dataset.transforms.ops[0].size[1]",
+          "before": 640,
+          "after": 1024
+        }
+      ],
+      "mosaic_gate": {
+        "outer_probability": 0.0,
+        "inner_probability": 0.0,
+        "active_epochs_zero_based": [
+          4,
+          69
+        ],
+        "native_crop_zoom_exclusion_preserved": true
+      }
+    }
+  ],
+  "total_new_runs": 24,
+  "helper_script": "/home/wuxi/Dent-FINE-paper/materials/augmentation_search_2026-09-13/experiment.py",
+  "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+  "source_note": "The previous aligned configs recovered from actual historical TensorBoard configs are the source of model settings. Main Arch=.25; A07 Arch=.1 and historical best-only behavior."
+}

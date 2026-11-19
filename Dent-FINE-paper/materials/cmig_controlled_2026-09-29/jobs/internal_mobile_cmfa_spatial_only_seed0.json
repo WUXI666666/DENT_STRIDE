@@ -1,0 +1,20 @@
+{
+  "id": "internal_mobile_cmfa_spatial_only_seed0",
+  "configuration": "internal_mobile_cmfa_spatial_only",
+  "cohort": "Mobile",
+  "seed": 0,
+  "phase": "internal",
+  "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/internal_mobile_cmfa_spatial_only/seed_0.yml",
+  "config_sha256": "f90511a8eae375ae7817c08fd22014245f9a39b569c2a701eea524df67f9005f",
+  "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/internal_mobile_cmfa_spatial_only/seed_0",
+  "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/source_snapshots/mobile",
+  "controls": {
+    "cmfa_channel": false,
+    "cmfa_spatial": true
+  },
+  "epochs": 160,
+  "expected_input": 1024,
+  "gpu": 1,
+  "queue_order": 24,
+  "job_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/jobs/internal_mobile_cmfa_spatial_only_seed0.json"
+}

@@ -1,0 +1,39 @@
+{
+  "names": [
+    "AP",
+    "AP50",
+    "AP75",
+    "AP_small",
+    "AP_medium",
+    "AP_large",
+    "AR1",
+    "AR10",
+    "AR100",
+    "AR_small",
+    "AR_medium",
+    "AR_large"
+  ],
+  "metrics_fraction": {
+    "AP": 0.5311661362254566,
+    "AP50": 0.8372098585405799,
+    "AP75": 0.5820029789806779,
+    "AP_small": 0.45,
+    "AP_medium": 0.36528554042406797,
+    "AP_large": 0.5463219402657755,
+    "AR1": 0.6046505376439324,
+    "AR10": 0.6532575165267437,
+    "AR100": 0.6596135588380952,
+    "AR_small": 0.45,
+    "AR_medium": 0.4589462081128748,
+    "AR_large": 0.6780259007788114
+  },
+  "source": "/home/wuxi/Dent-FINE/outputs/paper_main_input1024_20260913/phone_dualopt/seed_0/best_evaluation/eval.pth",
+  "evaluation_split": {
+    "images": 220,
+    "annotations": 2459,
+    "categories": 52,
+    "ann_file": "/home/wuxi/coco/valid/annotations_fdi_types.json",
+    "ann_sha256": "f5c0e4e86654b32770dd1befb5d8e650b29066d41657675e0253792b0806c649",
+    "img_folder": "/home/wuxi/coco/valid"
+  }
+}

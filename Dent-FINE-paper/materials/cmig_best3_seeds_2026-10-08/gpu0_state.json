@@ -1,0 +1,42 @@
+{
+  "gpu": 0,
+  "worker_pid": 90143,
+  "started_unix": 1791549136.9268718,
+  "completed": [
+    "dslr_cmfa_dualopt_seed2",
+    "internal_mobile_background_neither_seed0",
+    "internal_mobile_cmfa_channel_only_seed0",
+    "internal_mobile_proto_k1_tau0p2_seed0",
+    "internal_mobile_proto_k4_tau0p1_seed0",
+    "internal_mobile_proto_off_seed0",
+    "internal_mobile_factor_no_quadrant_seed0",
+    "internal_mobile_hooa_neither_seed0",
+    "internal_mobile_proto_k2_tau0p2_seed0",
+    "internal_dslr_cmfa_adamw_seed0"
+  ],
+  "state": "all_completed",
+  "recovery_script": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/power_restart_20261009/queue_worker_restart.py",
+  "restart_after_power_loss": true,
+  "assigned_jobs": [
+    "dslr_cmfa_dualopt_seed2",
+    "internal_mobile_background_neither_seed0",
+    "internal_mobile_cmfa_channel_only_seed0",
+    "internal_mobile_proto_k1_tau0p2_seed0",
+    "internal_mobile_proto_k4_tau0p1_seed0",
+    "internal_mobile_proto_off_seed0",
+    "internal_mobile_factor_no_quadrant_seed0",
+    "internal_mobile_hooa_neither_seed0",
+    "internal_mobile_proto_k2_tau0p2_seed0",
+    "internal_dslr_cmfa_adamw_seed0"
+  ],
+  "current_job": "internal_dslr_cmfa_adamw_seed0",
+  "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_dslr_cmfa_adamw/seed_0",
+  "command": [
+    "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+    "-u",
+    "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/power_restart_20261009/export_native.py",
+    "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/jobs/internal_dslr_cmfa_adamw_seed0.json"
+  ],
+  "child_pid": 2915768,
+  "finished_unix": 1791703967.0333965
+}

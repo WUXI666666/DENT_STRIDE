@@ -1,0 +1,49 @@
+{
+  "model": "deim_s",
+  "cohort": "dslr",
+  "seed": 0,
+  "epochs_completed": 160,
+  "final_epoch_zero_based": 159,
+  "best_epoch_zero_based": 156,
+  "best_metrics": {
+    "AP": 72.55730479190395,
+    "AP50": 88.49392152098414,
+    "AP75": 82.27174657249702,
+    "AP_small": null,
+    "AP_medium": 51.71511202055957,
+    "AP_large": 74.43049857656663,
+    "AR1": 77.1056533906233,
+    "AR10": 81.21890216737442,
+    "AR100": 81.66526899385156,
+    "AR_small": null,
+    "AR_medium": 60.040178571428584,
+    "AR_large": 83.3075480330464
+  },
+  "final_epoch_metrics": {
+    "AP": 72.50557776824888,
+    "AP50": 88.47770759804582,
+    "AP75": 82.2960248909466,
+    "AP_small": null,
+    "AP_medium": 51.61642823652265,
+    "AP_large": 74.37852767982713,
+    "AR1": 77.03111151981929,
+    "AR10": 81.14506314254376,
+    "AR100": 81.58343059548976,
+    "AR_small": null,
+    "AR_medium": 60.37748015873016,
+    "AR_large": 83.22074554605582
+  },
+  "params_training_total": 10285925,
+  "params_trainable": 10285923,
+  "stage1_RAM_restores": 14,
+  "elapsed_seconds": 8261.075797269004,
+  "peak_cuda_allocated_bytes": 5274444800,
+  "checkpoint_sha256": "09c1cfd0b05fedb6c8e80a50e5071ccd58c43860f265773cd3c78e077771aa8d",
+  "completed_at": "2026-09-11T05:24:18.514365+08:00",
+  "compute_profile": {
+    "GMACs": 12.4699364,
+    "GFLOPs": 25.046627056,
+    "params_deploy_total": 10215931,
+    "profile": "calflops, deployed model forward only, FP32, CPU, batch 1, 640x640; excludes postprocessing"
+  }
+}

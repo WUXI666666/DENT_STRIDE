@@ -1,0 +1,38 @@
+{
+  "task": "dslr_cmfa_dualopt",
+  "cohort": "dslr",
+  "seed": 0,
+  "gpu": 1,
+  "smoke_only": false,
+  "epochs": 160,
+  "started_at": "2026-09-11T22:28:15.186800+08:00",
+  "config": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_2026-09-11/configs/dslr_cmfa_dualopt.yml",
+  "config_sha256": "1177c7f161200f2b7859f2f61fdad150ab89c1088c52694453f3b0994244ba9e",
+  "upstream_commit": "09d35d53d39ee3145a1e61e3a989b28b9468d1dd",
+  "upstream_source_tree_clean": true,
+  "migration_protocol_sha256": "a3661110156a3b72e464c675c6316bb88fdcd2d6cd107343f229fac59f747234",
+  "runner_sha256": "0cb92d3efda7856e6d93f4934688441c80e2f579f2ef6224cd060a8e06064fb4",
+  "modules_sha256": "07b85a2d6f88530827833cb5aad4d0143fd7b2f49b124be96d60bd355a775d1a",
+  "pretrained_backbone": "/home/wuxi/RT-DETR-main/D-FINE/weight/hgnetv2/PPHGNetV2_B0_stage1.pth",
+  "pretrained_sha256": "70a372e8cbc59b34c5da2943261ecb633faf304a58e7e05461a27bd8d8b7f3d1",
+  "python": "3.11.15",
+  "torch": "2.5.1+cu124",
+  "cuda": "12.4",
+  "modules": {
+    "cohort": "dslr",
+    "cmfa": true,
+    "structured": false,
+    "spatial_shape": false,
+    "dualopt": true
+  },
+  "params_training_total": 10810605,
+  "baseline": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s/dslr/seed_0/metrics_summary.json",
+  "command": [
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_2026-09-11/run_migrated.py",
+    "--task",
+    "dslr_cmfa_dualopt",
+    "--gpu",
+    "1"
+  ],
+  "storage": "one best.pth; native stage-1 state kept in RAM; DualOpt anchors serialized"
+}

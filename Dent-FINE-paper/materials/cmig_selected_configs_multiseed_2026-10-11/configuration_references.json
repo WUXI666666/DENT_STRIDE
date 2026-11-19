@@ -1,0 +1,65 @@
+[
+  {
+    "configuration": "mobile_proto_k4_tau0p50",
+    "source_job": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/jobs/internal_mobile_proto_k4_tau0p5_seed0.json",
+    "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/configs/internal_mobile_proto_k4_tau0p5/seed_0.yml",
+    "config_sha256": "54da346b3e831b858b7a1ffb2e16a09947931310042a979d31c58498f8d6fbbc",
+    "seed0_reference_metrics_percent": {
+      "AP": 55.68289881818389,
+      "AP50": 84.38838458503271,
+      "AP75": 62.671339029813744,
+      "APsmall": 43.75,
+      "APmedium": 40.59792477685135,
+      "APlarge": 57.16854600913182,
+      "AR1": 62.82642894159524,
+      "AR10": 68.53207638837827,
+      "AR100": 69.40744642833899,
+      "ARsmall": 45.0,
+      "ARmedium": 51.76311728395062,
+      "ARlarge": 70.66564801063822
+    },
+    "use": "Historical configuration reference only; no checkpoint reuse"
+  },
+  {
+    "configuration": "dslr_cmfa_extra_decay_only",
+    "source_job": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/jobs/internal_dslr_extra_decay_only_seed0.json",
+    "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/configs/internal_dslr_extra_decay_only/seed_0.yml",
+    "config_sha256": "c76cb0e0083fe47369f67e19950584bd5d126ad3511b0e66fd18d6b8e90b3153",
+    "seed0_reference_metrics_percent": {
+      "AP": 73.351244504182,
+      "AP50": 89.83248529200941,
+      "AP75": 84.83573316973447,
+      "APsmall": null,
+      "APmedium": 51.34468308869096,
+      "APlarge": 75.41222284417692,
+      "AR1": 80.02722815692778,
+      "AR10": 83.41422642729111,
+      "AR100": 83.86314351376205,
+      "ARsmall": null,
+      "ARmedium": 59.87224927849927,
+      "ARlarge": 85.2767462939445
+    },
+    "use": "Historical configuration reference only; no checkpoint reuse"
+  },
+  {
+    "configuration": "pano_spatialshape_original",
+    "source_job": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/jobs/pano_historical_spatialshape_seed0.json",
+    "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/configs/pano_historical_spatialshape/seed_0.yml",
+    "config_sha256": "cb454f0ee14f65a5a3e028ee3990b15488910e66c3bba6ebf5f296105d2d8623",
+    "seed0_reference_metrics_percent": {
+      "AP": 54.365340370889015,
+      "AP50": 94.31608785907224,
+      "AP75": 55.439905927082634,
+      "APsmall": null,
+      "APmedium": 51.55108139918341,
+      "APlarge": 54.642034096614076,
+      "AR1": 60.257006375182044,
+      "AR10": 69.07912636867721,
+      "AR100": 69.43900028875028,
+      "ARsmall": null,
+      "ARmedium": 53.0,
+      "ARlarge": 69.94065237951841
+    },
+    "use": "Historical configuration reference only; no checkpoint reuse"
+  }
+]

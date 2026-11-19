@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "at": "2026-10-20T16:17:17.105948+08:00",
+  "scientific_result": false,
+  "reason": "Checkpoint selection in the old run was invalid; this is only an exporter regression check",
+  "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/runs/rtdetr_l/seed_0/weights/best.pt",
+  "checkpoint_sha256": "af714cf96b9886202e7cb6849d2390b0e5b4b94308bd1e372bdf66ade135f333",
+  "metrics_fraction": {
+    "AP": 0.5314561246891877,
+    "AP50": 0.8066840439477403,
+    "AP75": 0.6060537704986101,
+    "AP_small": 0.39999999999999997,
+    "AP_medium": 0.39595911263628464,
+    "AP_large": 0.5459892875906438,
+    "AR1": 0.6198350916305914,
+    "AR10": 0.6476431617605236,
+    "AR100": 0.6482449560581789,
+    "AR_small": 0.4,
+    "AR_medium": 0.4621957671957672,
+    "AR_large": 0.6641626906206863
+  },
+  "geometry_checked_against_native_for_every_detection": true,
+  "validation_image_count": 220
+}

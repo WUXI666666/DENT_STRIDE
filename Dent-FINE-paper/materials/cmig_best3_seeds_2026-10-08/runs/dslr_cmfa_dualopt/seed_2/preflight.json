@@ -1,0 +1,107 @@
+{
+  "input_shape": [
+    8,
+    3,
+    736,
+    736
+  ],
+  "finite_loss": 30.624813079833984,
+  "finite_gradient_norm": 5.442012786865234,
+  "amp_scale_adaptation_attempts": 1,
+  "active_loss_keys": [
+    "loss_mal",
+    "loss_bbox",
+    "loss_giou",
+    "loss_fgl",
+    "loss_mal_aux_0",
+    "loss_bbox_aux_0",
+    "loss_giou_aux_0",
+    "loss_fgl_aux_0",
+    "loss_mal_aux_1",
+    "loss_bbox_aux_1",
+    "loss_giou_aux_1",
+    "loss_fgl_aux_1",
+    "loss_mal_pre",
+    "loss_bbox_pre",
+    "loss_giou_pre",
+    "loss_mal_enc_0",
+    "loss_bbox_enc_0",
+    "loss_giou_enc_0",
+    "loss_mal_dn_0",
+    "loss_bbox_dn_0",
+    "loss_giou_dn_0",
+    "loss_fgl_dn_0",
+    "loss_mal_dn_1",
+    "loss_bbox_dn_1",
+    "loss_giou_dn_1",
+    "loss_fgl_dn_1",
+    "loss_mal_dn_2",
+    "loss_bbox_dn_2",
+    "loss_giou_dn_2",
+    "loss_fgl_dn_2",
+    "loss_mal_dn_pre",
+    "loss_bbox_dn_pre",
+    "loss_giou_dn_pre",
+    "loss_arch"
+  ],
+  "peak_training_allocated_bytes": 4542573568,
+  "params_total": 11153968,
+  "passed": true,
+  "job_id": "dslr_cmfa_dualopt_seed2",
+  "config_sha256": "8928ad3e870427622d4b6a5f0a226dcbf675fded02b7735047ba40fb7f732145",
+  "controls": {},
+  "module_tests": {
+    "default_forward_bitwise_equal": true,
+    "tests": [
+      {
+        "module": "CMFA",
+        "channel": false,
+        "spatial": false,
+        "finite_backward": true
+      },
+      {
+        "module": "CMFA",
+        "channel": true,
+        "spatial": false,
+        "finite_backward": true
+      },
+      {
+        "module": "CMFA",
+        "channel": false,
+        "spatial": true,
+        "finite_backward": true
+      },
+      {
+        "module": "CMFA",
+        "channel": true,
+        "spatial": true,
+        "finite_backward": true
+      },
+      {
+        "module": "HOOA",
+        "highpass": false,
+        "second_order": false,
+        "finite_backward": true
+      },
+      {
+        "module": "HOOA",
+        "highpass": true,
+        "second_order": false,
+        "finite_backward": true
+      },
+      {
+        "module": "HOOA",
+        "highpass": false,
+        "second_order": true,
+        "finite_backward": true
+      },
+      {
+        "module": "HOOA",
+        "highpass": true,
+        "second_order": true,
+        "finite_backward": true
+      }
+    ]
+  },
+  "preflight_updates_discarded": true
+}

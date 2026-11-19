@@ -1,0 +1,28 @@
+{
+  "original_training_image_dataset_files_included": 0,
+  "original_validation_image_directories_included": 0,
+  "external_image_symlinks_included": 0,
+  "numerical_array_archives_checked_for_input_rgb_arrays": true,
+  "suspected_input_rgb_arrays_included": 0,
+  "layout_contact_sheets_omitted": [
+    "Dent-FINE-paper/cmig_revision_visuals_20261117/figures/Final_PDF_contact.jpg"
+  ],
+  "internal_config_symlinks_materialized_without_copying_external_datasets": [
+    {
+      "source_symlink": "Dent-FINE/outputs/cross_dataset_baseline_comparison/phone/runs/caf_yolo_s/model_config/yolov8s-CAFMAttention.yaml",
+      "target": "Dent-FINE/third_party/CAF-YOLO/ultralytics/cfg/models/v8/yolov8-CAFMAttention.yaml"
+    },
+    {
+      "source_symlink": "Dent-FINE/outputs/cross_dataset_baseline_comparison/dentex/runs/caf_yolo_s/model_config/yolov8s-CAFMAttention.yaml",
+      "target": "Dent-FINE/third_party/CAF-YOLO/ultralytics/cfg/models/v8/yolov8-CAFMAttention.yaml"
+    },
+    {
+      "source_symlink": "Dent-FINE/outputs/viewnet3_dslr_baseline_comparison/runs/caf_yolo_s_fdi52/model_config/yolov8s-CAFMAttention.yaml",
+      "target": "Dent-FINE/third_party/CAF-YOLO/ultralytics/cfg/models/v8/yolov8-CAFMAttention.yaml"
+    },
+    {
+      "source_symlink": "Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/configs/yolov8s-CAFMAttention.yaml",
+      "target": "Dent-FINE/third_party/CAF-YOLO/ultralytics/cfg/models/v8/yolov8-CAFMAttention.yaml"
+    }
+  ]
+}

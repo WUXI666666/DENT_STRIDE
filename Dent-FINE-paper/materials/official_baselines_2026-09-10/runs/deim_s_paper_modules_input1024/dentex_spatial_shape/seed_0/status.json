@@ -1,0 +1,58 @@
+{
+  "state": "completed",
+  "model": "Official DEIM-S + selected paper modules",
+  "task": "dentex_spatial_shape",
+  "cohort": "dentex",
+  "seed": 0,
+  "smoke_only": false,
+  "epochs_completed": 160,
+  "final_epoch_zero_based": 159,
+  "best_epoch_zero_based": 149,
+  "best_metrics": {
+    "AP": 52.5313354358126,
+    "AP50": 93.75818481273193,
+    "AP75": 53.27422700484217,
+    "AP_small": null,
+    "AP_medium": 38.59654203131731,
+    "AP_large": 53.02873696614474,
+    "AR1": 59.23747568293829,
+    "AR10": 67.4813706067483,
+    "AR100": 67.78767400665117,
+    "AR_small": null,
+    "AR_medium": 44.34444444444445,
+    "AR_large": 68.54450538250101
+  },
+  "final_epoch_metrics": {
+    "AP": 52.33057121078658,
+    "AP50": 93.9482221888873,
+    "AP75": 53.1153465751372,
+    "AP_small": null,
+    "AP_medium": 38.4624762402783,
+    "AP_large": 52.83623658245721,
+    "AR1": 59.33237631795254,
+    "AR10": 67.19549420365615,
+    "AR100": 67.52880470631426,
+    "AR_small": null,
+    "AR_medium": 43.62222222222222,
+    "AR_large": 68.31625367717375
+  },
+  "params_training_total": 10306891,
+  "params_trainable": 10306889,
+  "additional_parameters_over_official": 46646,
+  "elapsed_seconds": 3745.804421246983,
+  "stage1_RAM_restores": 15,
+  "peak_cuda_allocated_bytes": 10440502784,
+  "peak_cuda_reserved_bytes": 11200888832,
+  "checkpoint_sha256": "13b65346c409187ce456db9854fa77da320162baf1ce478a81655eb746efe2b6",
+  "completed_at": "2026-09-13T03:07:14.366638+08:00",
+  "model_input_size": [
+    1024,
+    1024
+  ],
+  "config_sha256": "cf66548821714e53e6b71f9763cc77e35dec4fadb7d814387a90eeef3dcd86a8",
+  "protocol_sha256": "652e8fa684fae1179b52fdf6c211bce1ccac3891fcc9ed5127ab25f9a5bfb760",
+  "matched_baseline": {
+    "available": false,
+    "note": "Same-recipe Plain has not completed; no module-gain claim versus historical baselines."
+  }
+}

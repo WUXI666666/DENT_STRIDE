@@ -1,0 +1,26 @@
+{
+  "python": "3.11.15 (main, Mar 11 2026, 17:20:07) [GCC 14.3.0]",
+  "executable": "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+  "os": "Linux-6.17.0-22-generic-x86_64-with-glibc2.39",
+  "torch": "2.5.1+cu124",
+  "numpy": "2.4.3",
+  "scipy": "1.17.1",
+  "cuda_runtime": "12.4",
+  "cudnn": 90100,
+  "collected_at": "2026-10-11T13:39:25.174427+00:00",
+  "devices": {
+    "0": {
+      "uuid": "GPU-ef21a1d6-6053-a86e-9497-82c61bedaa30",
+      "name": "NVIDIA GeForce RTX 4090"
+    },
+    "1": {
+      "uuid": "GPU-ccd81fcd-7cf1-9734-fd56-ffbd2ee7261f",
+      "name": "NVIDIA GeForce RTX 4090"
+    }
+  },
+  "reference_environment": "reference_software_environment.json",
+  "nvidia_smi": [
+    "0, NVIDIA GeForce RTX 4090, 570.211.01, 24564 MiB",
+    "1, NVIDIA GeForce RTX 4090, 570.211.01, 24564 MiB"
+  ]
+}

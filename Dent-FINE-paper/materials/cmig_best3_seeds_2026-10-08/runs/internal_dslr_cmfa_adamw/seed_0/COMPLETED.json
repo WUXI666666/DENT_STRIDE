@@ -1,0 +1,7 @@
+{
+  "job": "internal_dslr_cmfa_adamw_seed0",
+  "checkpoint_sha256": "b939fc547d110361f4d01ce0431d819901adb873e78ebebe2b1742c4681a0c53",
+  "metrics_sha256": "c26608b4ebdb81b87b84cd8a8d32eafc6a56e3718cdf9280b94f3ed252ef5d87",
+  "native_metrics_sha256": "d6260d78624a85145f5a8d74539e3c3d620d247d8578f665baa6e16f4727b020",
+  "finished_unix": 1791703960.30226
+}

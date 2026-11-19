@@ -1,0 +1,25 @@
+{
+  "state": "completed_with_failures",
+  "completed": [
+    "deim_s",
+    "faster_rcnn",
+    "caf_yolo_s",
+    "yolov8s",
+    "yolo11s",
+    "dome_detr_s",
+    "rtdetr_l"
+  ],
+  "failed": [
+    {
+      "family": "rtdetrv2_s",
+      "stage": "training",
+      "returncode": 1,
+      "log": "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/repairs_20261020/rtdetrv2_s.log"
+    }
+  ],
+  "pid": 3162617,
+  "gpu": 0,
+  "updated_at": "2026-10-20T17:46:46.540356+08:00",
+  "repair_root": "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/repairs_20261020",
+  "retained_six_unchanged": true
+}

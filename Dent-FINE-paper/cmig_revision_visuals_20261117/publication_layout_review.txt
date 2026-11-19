@@ -1,0 +1,29 @@
+Independent layout review at a final 174 mm width
+
+New figures: all five have exactly 493.23 pt page width. The four CAM figures share
+1.215 in x 0.91125 in clinical/CAM panels, 0.14 in gutters, and the same 8.5 pt
+header/FDI typography. Ground truth is teal; predictions are orange. Relative
+positive-attribution maps retain the original Reds mapping and per-full-image
+normalization. Factor sensitivity has four equally sized 4:3 columns and the
+same typography. Its heatmaps retain one raw symmetric scale per head across
+three cases. No enlarging or recoloring of hotspots has been applied.
+
+New charts match the readable text scale of original Figures 6 and 8 (about
+8-9 pt at 174 mm). Original Figures 2/4/5 are denser diagrams, with median text
+about 6.6/6.8/7.2 pt, while Figure 10 has median 6.2 pt and small ticks about
+4.9 pt. The smallest 3.5 pt text in Figure 2 is mathematical subscript text.
+These are properties of the existing supplied figures; they were not changed.
+Do not shrink the new images below full two-column width to imitate the smaller
+old schematic text. Full-width placement keeps the new attributions readable.
+
+No further changes to new figure geometry are needed. Single-row Prototype and
+HOOA plates have identical heights; two-row CMFA and final-Mobile plates have
+identical heights. All image panels stay aligned, and no visible title, tick,
+FDI label or bar is clipped in either previews or final optimized PDFs.
+
+Naming: “judgment sensitivity” is accurate when qualified as conditional on the
+unoccluded anchor/query ordering. The caption first sentence is now “Conditional
+judgment sensitivity of the quadrant, position and dentition heads to input
+occlusion.” Plot column titles can remain Quadrant/Position/Dentition and the
+colorbar should remain “Logit-margin drop”, because that is the actual signed
+quantity. No native-attention terminology is appropriate for this figure.

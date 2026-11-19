@@ -1,0 +1,32 @@
+{
+  "id": "pano_spatialshape_original_seed2",
+  "configuration": "pano_spatialshape_original",
+  "cohort": "Pano",
+  "seed": 2,
+  "phase": "primary",
+  "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/configs/pano_spatialshape_original/seed_2.yml",
+  "config_sha256": "fb7408a42c06d1ddc8c8589717b6416cc9a4ed32cc5f0435174a32c54ed4a57b",
+  "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/pano_spatialshape_original/seed_2",
+  "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/source_snapshots/local",
+  "train_script": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/source_snapshots/local/train.py",
+  "native_cwd": "/home/wuxi/Dent-FINE",
+  "controls": {},
+  "epochs": 160,
+  "expected_input": 640,
+  "inference_priors": "spatial+shape+view",
+  "python": "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+  "queue_order": 8,
+  "job_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/jobs/pano_spatialshape_original_seed2.json",
+  "template_job": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/jobs/pano_historical_spatialshape_seed0.json",
+  "template_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/configs/pano_historical_spatialshape/seed_0.yml",
+  "template_config_sha256": "cb454f0ee14f65a5a3e028ee3990b15488910e66c3bba6ebf5f296105d2d8623",
+  "only_config_changes": [
+    "output_dir",
+    "summary_dir"
+  ],
+  "seed_set_via_native_cli": true,
+  "fresh_initialization": true,
+  "reused_training_weights": false,
+  "resume_interrupted_run": false,
+  "prior_selection_policy": "historical priors ON during every validation and native stage reset"
+}

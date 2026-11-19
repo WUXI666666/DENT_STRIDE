@@ -1,0 +1,13 @@
+{
+  "job": "dslr_cmfa_dualopt_seed2",
+  "pid": 3322393,
+  "started_unix": 1791536015.3651714,
+  "seed": 2,
+  "cuda_visible_devices": "0",
+  "PYTHONHASHSEED": "2",
+  "controls": {},
+  "native_cwd": "/home/wuxi/Dent-FINE",
+  "native_entrypoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/train.py",
+  "initialization": "Fresh pretrained backbone; no resume or tuning",
+  "checkpoint_policy": "Native selection and stage-1 rollback preserved; final best only"
+}

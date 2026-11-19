@@ -1,0 +1,13 @@
+{
+  "family": "dome_detr_s",
+  "seed": 0,
+  "input": 1024,
+  "epochs": 160,
+  "started_at": "2026-10-20T08:03:57.474288+08:00",
+  "source": "/home/wuxi/Dent-FINE/third_party/dome_detr",
+  "config": "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/configs/dome_detr_s_phone.yml",
+  "config_sha256": "0d54d09392120af638bb2cd895f1c8a84096a5c4bcdbb95c28a06f564a62ac5a",
+  "params": 13291367,
+  "runner_sha256": "1d4b1c61c9a15c3a39d1a2cb7e74a824055fc692d4dee906767320dc4827b08d",
+  "backbone_initialization": "Fresh native ImageNet backbone; no dental checkpoint tuning"
+}

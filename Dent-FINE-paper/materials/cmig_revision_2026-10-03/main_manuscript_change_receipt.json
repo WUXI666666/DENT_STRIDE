@@ -1,0 +1,884 @@
+{
+  "output": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_main_controlled_results_20261003.docx",
+  "source": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_main_visual.docx",
+  "evidence_snapshot": "2026-10-03T22:25:14+08:00",
+  "generated_time": "2026-10-03T23:04:39.543935+08:00",
+  "inserted_tables_and_figures": [
+    {
+      "caption": "Table 2. Cohort configurations and the roles of their components. Controls preserve these domain-level settings except for the indicated experimental variable.",
+      "headers": [
+        "Setting",
+        "Pano",
+        "Mobile",
+        "DSLR"
+      ],
+      "rows": [
+        [
+          "Training/evaluation input",
+          "Fixed 640 \u00d7 640",
+          "Fixed 1024 \u00d7 1024",
+          "Multiscale training; 640 \u00d7 640 evaluation"
+        ],
+        [
+          "Feature components",
+          "Native encoder",
+          "CMFA + HOOA",
+          "CMFA"
+        ],
+        [
+          "Factor heads",
+          "Training supervision only",
+          "Training supervision and score fusion",
+          "Inactive"
+        ],
+        [
+          "Prototype bank",
+          "Training supervision only",
+          "Training supervision only",
+          "Inactive"
+        ],
+        [
+          "Anatomical scoring",
+          "Center + shape at inference",
+          "Inactive",
+          "Inactive"
+        ],
+        [
+          "Optimizer",
+          "AdamW",
+          "AdamW",
+          "DualOptAdamW"
+        ],
+        [
+          "Mosaic / MixUp probabilities",
+          "0 / 0.50",
+          "0 / 0",
+          "0 / 0"
+        ],
+        [
+          "IoU crop / zoom-out probabilities",
+          "0.80 / 0.50",
+          "0.80 / 0.50",
+          "0.80 / 0.50"
+        ],
+        [
+          "Arch-position loss weight",
+          "0.25",
+          "0.10",
+          "0.25"
+        ],
+        [
+          "NWD loss weight",
+          "Inactive",
+          "0.50; scale 0.08",
+          "Inactive"
+        ],
+        [
+          "Prototype loss weight",
+          "0.05",
+          "0.03",
+          "Inactive"
+        ]
+      ]
+    },
+    {
+      "caption": "Table 3. Controlled primary configurations, mean \u00b1 SD over three seeds. Pano values exclude geometric scoring and factor inference fusion. All metrics are percentages.",
+      "headers": [
+        "Cohort",
+        "Configuration",
+        "AP",
+        "AP50",
+        "AP75",
+        "AR100",
+        "Params (M)"
+      ],
+      "rows": [
+        [
+          "Mobile 1024",
+          "Base",
+          "54.730 \u00b1 0.149",
+          "83.556 \u00b1 0.592",
+          "61.988 \u00b1 1.748",
+          "68.109 \u00b1 0.858",
+          "10.629"
+        ],
+        [
+          "Mobile 1024",
+          "Features",
+          "54.405 \u00b1 0.657",
+          "82.561 \u00b1 1.167",
+          "61.035 \u00b1 1.788",
+          "67.479 \u00b1 0.572",
+          "12.446"
+        ],
+        [
+          "Mobile 1024",
+          "Identity",
+          "54.351 \u00b1 0.245",
+          "83.597 \u00b1 0.333",
+          "61.466 \u00b1 1.545",
+          "69.679 \u00b1 0.162",
+          "10.696"
+        ],
+        [
+          "Mobile 1024",
+          "Combined",
+          "55.026 \u00b1 0.396",
+          "83.408 \u00b1 0.637",
+          "62.672 \u00b1 0.738",
+          "69.102 \u00b1 0.244",
+          "12.513"
+        ],
+        [
+          "Mobile 640",
+          "Base",
+          "53.483 \u00b1 0.309",
+          "83.934 \u00b1 0.286",
+          "59.440 \u00b1 1.246",
+          "66.389 \u00b1 0.610",
+          "10.629"
+        ],
+        [
+          "Mobile 640",
+          "Combined",
+          "53.752 \u00b1 0.228",
+          "83.274 \u00b1 0.337",
+          "59.842 \u00b1 1.367",
+          "66.958 \u00b1 0.293",
+          "12.513"
+        ],
+        [
+          "Pano",
+          "Base",
+          "53.022 \u00b1 0.392",
+          "93.319 \u00b1 0.527",
+          "53.406 \u00b1 1.742",
+          "67.628 \u00b1 0.661",
+          "10.604"
+        ],
+        [
+          "Pano",
+          "Factor",
+          "53.282 \u00b1 0.158",
+          "93.405 \u00b1 0.346",
+          "53.542 \u00b1 0.249",
+          "66.771 \u00b1 0.948",
+          "10.617"
+        ],
+        [
+          "Pano",
+          "Prototype",
+          "53.036 \u00b1 0.210",
+          "93.378 \u00b1 0.362",
+          "54.111 \u00b1 0.375",
+          "67.613 \u00b1 0.587",
+          "10.636"
+        ],
+        [
+          "Pano",
+          "Factor + Prototype",
+          "53.166 \u00b1 0.526",
+          "93.787 \u00b1 0.390",
+          "53.047 \u00b1 1.146",
+          "67.347 \u00b1 1.343",
+          "10.650"
+        ],
+        [
+          "DSLR",
+          "Base + AdamW",
+          "72.466 \u00b1 0.234",
+          "88.795 \u00b1 0.320",
+          "83.290 \u00b1 0.121",
+          "82.336 \u00b1 0.539",
+          "10.629"
+        ],
+        [
+          "DSLR",
+          "CMFA + AdamW",
+          "72.964 \u00b1 0.098",
+          "88.982 \u00b1 0.441",
+          "83.966 \u00b1 0.386",
+          "82.772 \u00b1 0.619",
+          "11.154"
+        ],
+        [
+          "DSLR",
+          "Base + DualOpt",
+          "72.364 \u00b1 0.399",
+          "88.698 \u00b1 0.330",
+          "83.412 \u00b1 0.433",
+          "82.306 \u00b1 1.622",
+          "10.629"
+        ],
+        [
+          "DSLR",
+          "CMFA + DualOpt",
+          "72.878 \u00b1 0.404",
+          "88.796 \u00b1 0.397",
+          "83.591 \u00b1 0.064",
+          "82.321 \u00b1 1.609",
+          "11.154"
+        ]
+      ]
+    },
+    {
+      "figure": 6,
+      "asset": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/performance/controlled_primary_three_seed_AP.png",
+      "caption": "Controlled module and resolution comparisons. (A) Mobile at 1024: base, feature processing, structured identity, and their combination. (B) Mobile at 640. (C) Pano auxiliary supervision with factor inference fusion and geometric scoring disabled. (D) DSLR CMFA \u00d7 optimizer comparison. Open symbols are the actual seeds; diamonds and bars are mean \u00b1 sample SD (n = 3). Thin lines connect corresponding base and combined-model seeds. Panels A/B use the same AP range; other domain ranges differ."
+    },
+    {
+      "caption": "Table 4. Paired AP comparisons with the corresponding controlled reference. Pano uses the combined prior; all comparisons pair seeds 0/1/2. Intervals use Student-t (df = 2), without multiplicity adjustment.",
+      "headers": [
+        "Configuration",
+        "AP mean \u00b1 SD",
+        "Paired \u0394AP mean \u00b1 SD",
+        "Paired \u0394AP 95% CI"
+      ],
+      "rows": [
+        [
+          "DENT-STRIDE-Pano",
+          "53.580 \u00b1 0.646",
+          "+0.558 \u00b1 0.917",
+          "[-1.720, 2.835]"
+        ],
+        [
+          "DENT-STRIDE-Mobile",
+          "55.026 \u00b1 0.396",
+          "+0.296 \u00b1 0.251",
+          "[-0.327, 0.919]"
+        ],
+        [
+          "DENT-STRIDE-DSLR",
+          "72.878 \u00b1 0.404",
+          "+0.412 \u00b1 0.475",
+          "[-0.767, 1.591]"
+        ],
+        [
+          "DSLR: CMFA + AdamW",
+          "72.964 \u00b1 0.098",
+          "+0.498 \u00b1 0.145",
+          "[0.138, 0.859]"
+        ]
+      ]
+    },
+    {
+      "caption": "Table 5. Framework-level AP comparison. Three-seed entries are mean \u00b1 SD; single-seed rows have no dispersion estimate. Mobile DENT-STRIDE uses 1024 inputs and the external references use 640. Pano DENT-STRIDE includes combined anatomical scoring. AP values are internal-validation estimates.",
+      "headers": [
+        "Method",
+        "Seeds",
+        "Pano AP",
+        "Mobile AP",
+        "DSLR AP"
+      ],
+      "rows": [
+        [
+          "Controlled reference",
+          3,
+          "53.022 \u00b1 0.392",
+          "54.730 \u00b1 0.149",
+          "72.466 \u00b1 0.234"
+        ],
+        [
+          "Official DEIM-s",
+          3,
+          "53.827 \u00b1 0.425",
+          "53.553 \u00b1 0.099",
+          "72.405 \u00b1 0.202"
+        ],
+        [
+          "RT-DETRv2-S",
+          3,
+          "50.775 \u00b1 0.213",
+          "50.562 \u00b1 0.486",
+          "70.949 \u00b1 0.506"
+        ],
+        [
+          "Faster R-CNN R50-FPN",
+          1,
+          "47.695",
+          "41.182",
+          "63.151"
+        ],
+        [
+          "CAF-YOLO-s",
+          1,
+          "48.058",
+          "43.771",
+          "67.460"
+        ],
+        [
+          "YOLOv8-s",
+          1,
+          "51.431",
+          "46.937",
+          "71.854"
+        ],
+        [
+          "YOLO11-s",
+          1,
+          "50.644",
+          "47.064",
+          "71.094"
+        ],
+        [
+          "RT-DETR-L",
+          1,
+          "51.978",
+          "54.751",
+          "74.019"
+        ],
+        [
+          "Dome-DETR-S",
+          1,
+          "51.711",
+          "51.828",
+          "71.363"
+        ],
+        [
+          "DENT-STRIDE",
+          3,
+          "53.580 \u00b1 0.646",
+          "55.026 \u00b1 0.396",
+          "72.878 \u00b1 0.404"
+        ]
+      ]
+    },
+    {
+      "figure": 7,
+      "asset": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/performance/dslr_framework_accuracy_size_updated.png",
+      "caption": "DSLR accuracy versus model size, with a compact-model enlargement. Model names are attached to the points; RT-DETR-L is retained. Error bars show sample SD across seeds 0, 1, and 2 for the controlled reference, DENT-STRIDE-DSLR, CMFA + AdamW, Official DEIM-s, and RT-DETRv2-S. Remaining comparators retain single-seed values without error bars. No Pareto-frontier connector is imposed. Input and training differences follow the framework protocols described in Section 4.6."
+    },
+    {
+      "figure": 8,
+      "asset": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Mobile_inter_module_comparison.png",
+      "caption": "Mobile inter-module comparison using independently trained controlled seed-0 models at the same resolution and operating threshold. Columns show the original image, reference annotations, baseline, features only, identity only, and complete configuration; each case pairs the whole image with an identical local enlargement. Features comprise CMFA and HOOA; identity comprises factorized supervision/fusion and prototype auxiliary supervision. FDI text labels identify the highlighted target\u2019s localization match, while other retained predictions remain visible as boxes. Complete validation results, rather than these selected examples, establish each configuration\u2019s measured performance."
+    },
+    {
+      "caption": "Table 6. Anatomical scoring at the same Pano weights. Values are mean \u00b1 SD across the same three checkpoints; \u0394AP and its 95% interval are paired with no prior.",
+      "headers": [
+        "Prior",
+        "AP",
+        "AP50",
+        "AP75",
+        "AR100",
+        "\u0394AP",
+        "\u0394AP 95% CI"
+      ],
+      "rows": [
+        [
+          "None",
+          "53.166 \u00b1 0.526",
+          "93.787 \u00b1 0.390",
+          "53.047 \u00b1 1.146",
+          "67.347 \u00b1 1.343",
+          "+0.000",
+          "[0.000, 0.000]"
+        ],
+        [
+          "Center only",
+          "53.619 \u00b1 0.613",
+          "94.091 \u00b1 0.452",
+          "53.928 \u00b1 1.297",
+          "69.529 \u00b1 0.945",
+          "+0.453",
+          "[0.097, 0.809]"
+        ],
+        [
+          "Shape only",
+          "53.194 \u00b1 0.598",
+          "93.772 \u00b1 0.406",
+          "53.151 \u00b1 1.292",
+          "67.713 \u00b1 1.299",
+          "+0.028",
+          "[-0.151, 0.207]"
+        ],
+        [
+          "Center + shape",
+          "53.580 \u00b1 0.646",
+          "94.022 \u00b1 0.448",
+          "53.865 \u00b1 1.328",
+          "69.632 \u00b1 0.877",
+          "+0.414",
+          "[0.021, 0.806]"
+        ]
+      ]
+    },
+    {
+      "figure": 9,
+      "asset": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/performance/controlled_spatialshape_same_weight.png",
+      "caption": "Four-way Pano prior replay at identical weights. (A) COCO AP and (B) AR100. Each line connects one of the three checkpoints across no prior, center-only, shape-only, and combined scoring; filled diamonds and bars show mean \u00b1 sample SD. Scores are recomputed before native top-k selection. Factor inference fusion is disabled in all four settings."
+    },
+    {
+      "figure": 10,
+      "asset": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Pano_same_checkpoint_prior_comparison.png",
+      "caption": "Same-checkpoint DENTEX anatomical-prior replay. Each column starts from the same 300 pre-top-k query boxes and logits; only the training-derived center/shape score terms change before native top-k selection. Rows compare reference annotations with no prior, center only, shape only, and combined scoring using score \u22650.30; all local enlargements share the same region. (A) combined scoring suppresses incorrect/repeated candidates, reducing false-positive predictions from 9 to 6 while retaining 27 correct matches; the highlighted FDI 12 tooth is retained and an additional FDI 13 candidate falls below the display threshold. This is score-based candidate suppression, not a corrected highest-class identity. (B) the same highlighted query box changes its highest retained label from the correct FDI 27 to FDI 28; image-level correct matches decrease from 15 to 14. Bounding boxes are unchanged. These selected examples illustrate both favourable and adverse scoring effects."
+    },
+    {
+      "caption": "Table 7. Module-internal sensitivity on seed 0. \u0394AP uses the intact Mobile model for CMFA/HOOA/prototype/background groups, the fusion-off all-factor model for factor supervision/fusion, and DSLR CMFA + AdamW for optimization. Fusion labels are training / inference. \u2014 indicates an unavailable result.",
+      "headers": [
+        "Component",
+        "Setting",
+        "AP",
+        "\u0394AP vs group reference"
+      ],
+      "rows": [
+        [
+          "CMFA gates",
+          "Both gates",
+          "54.583",
+          "+0.000"
+        ],
+        [
+          "",
+          "Channel only",
+          "55.872",
+          "+1.289"
+        ],
+        [
+          "",
+          "Spatial only",
+          "54.835",
+          "+0.251"
+        ],
+        [
+          "",
+          "Neither",
+          "54.950",
+          "+0.367"
+        ],
+        [
+          "HOOA branches",
+          "Full module",
+          "54.583",
+          "+0.000"
+        ],
+        [
+          "",
+          "Without high-pass",
+          "55.228",
+          "+0.645"
+        ],
+        [
+          "",
+          "Without second-order",
+          "\u2014",
+          "\u2014"
+        ],
+        [
+          "",
+          "Without both",
+          "\u2014",
+          "\u2014"
+        ],
+        [
+          "Factor supervision",
+          "All three factors",
+          "54.023",
+          "+0.000"
+        ],
+        [
+          "",
+          "Without quadrant",
+          "55.123",
+          "+1.100"
+        ],
+        [
+          "",
+          "Without position",
+          "55.188",
+          "+1.165"
+        ],
+        [
+          "",
+          "Without dentition",
+          "55.227",
+          "+1.204"
+        ],
+        [
+          "Prototype design",
+          "Four prototypes; \u03c4 = 0.20",
+          "54.583",
+          "+0.000"
+        ],
+        [
+          "",
+          "No prototype",
+          "55.649",
+          "+1.066"
+        ],
+        [
+          "",
+          "One prototype; \u03c4 = 0.20",
+          "55.386",
+          "+0.803"
+        ],
+        [
+          "",
+          "Two prototypes; \u03c4 = 0.20",
+          "\u2014",
+          "\u2014"
+        ],
+        [
+          "",
+          "Four prototypes; \u03c4 = 0.10",
+          "54.291",
+          "-0.292"
+        ],
+        [
+          "",
+          "Four prototypes; \u03c4 = 0.50",
+          "\u2014",
+          "\u2014"
+        ],
+        [
+          "DualOpt operations",
+          "Neither; base AdamW",
+          "72.908",
+          "+0.000"
+        ],
+        [
+          "",
+          "Rollback only",
+          "72.830",
+          "-0.078"
+        ],
+        [
+          "",
+          "Extra decay only",
+          "73.097",
+          "+0.189"
+        ],
+        [
+          "",
+          "Both operations",
+          "73.339",
+          "+0.431"
+        ],
+        [
+          "Mobile background losses",
+          "NWD + arch-position",
+          "54.583",
+          "+0.000"
+        ],
+        [
+          "",
+          "Neither",
+          "54.910",
+          "+0.327"
+        ],
+        [
+          "",
+          "NWD only",
+          "54.009",
+          "-0.575"
+        ],
+        [
+          "",
+          "Arch-position only",
+          "55.249",
+          "+0.666"
+        ],
+        [
+          "Factor fusion",
+          "On / On",
+          "54.583",
+          "+0.560"
+        ],
+        [
+          "",
+          "On / Off",
+          "54.632",
+          "+0.609"
+        ],
+        [
+          "",
+          "Off / Off",
+          "54.023",
+          "+0.000"
+        ],
+        [
+          "",
+          "Off / On",
+          "53.859",
+          "-0.164"
+        ]
+      ]
+    },
+    {
+      "figure": 11,
+      "asset": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/performance/controlled_internal_ablation_AP_deltas_part1.png",
+      "caption": "Internal sensitivity of CMFA gates, factor supervision, prototype number, and DualOpt operations. Positive \u0394AP means that the displayed alternative exceeds the stated group reference; it is not an improvement attributed to the intact module. Factor supervision uses fusion off in both phases. DualOpt controls retain ordinary AdamW base decay. All points are seed 0, without uncertainty bars; \u2014 has no numeric mark. Supplementary Fig. S6 provides HOOA, temperature, background-loss, and fusion panels."
+    },
+    {
+      "caption": "Table 8. Mobile resolution comparison with the same within-architecture training protocol. Values are three-seed mean \u00b1 SD. F1 uses score \u22650.30 and localization IoU \u22650.50; duplicate-image rates use all native predictions retained at score \u22650.30.",
+      "headers": [
+        "Architecture",
+        "Input",
+        "AP",
+        "AP75",
+        "F1",
+        "Duplicate images (%)"
+      ],
+      "rows": [
+        [
+          "Base",
+          "640",
+          "53.483 \u00b1 0.309",
+          "59.440 \u00b1 1.246",
+          "78.881 \u00b1 0.149",
+          "44.848 \u00b1 8.923"
+        ],
+        [
+          "Combined",
+          "640",
+          "53.752 \u00b1 0.228",
+          "59.842 \u00b1 1.367",
+          "80.976 \u00b1 0.058",
+          "32.727 \u00b1 3.182"
+        ],
+        [
+          "Base",
+          "1024",
+          "54.730 \u00b1 0.149",
+          "61.988 \u00b1 1.748",
+          "80.091 \u00b1 0.804",
+          "36.364 \u00b1 3.278"
+        ],
+        [
+          "Combined",
+          "1024",
+          "55.026 \u00b1 0.396",
+          "62.672 \u00b1 0.738",
+          "80.502 \u00b1 0.403",
+          "35.758 \u00b1 5.068"
+        ]
+      ]
+    },
+    {
+      "caption": "Table 9. Fixed-threshold endpoints, three-seed mean \u00b1 SD, at score \u22650.30 and localization IoU \u22650.50. FDI accuracy is conditional on localized matches; recall and coverage use all reference teeth. Duplicates use all validation images. All entries are percentages.",
+      "headers": [
+        "Cohort",
+        "Model",
+        "Precision",
+        "Recall",
+        "F1",
+        "FDI accuracy",
+        "Coverage",
+        "Duplicate images"
+      ],
+      "rows": [
+        [
+          "Pano",
+          "Base",
+          "82.347 \u00b1 2.529",
+          "91.331 \u00b1 0.217",
+          "86.593 \u00b1 1.424",
+          "92.591 \u00b1 0.236",
+          "98.639 \u00b1 0.062",
+          "76.562 \u00b1 12.204"
+        ],
+        [
+          "Pano",
+          "DENT-STRIDE",
+          "84.619 \u00b1 0.261",
+          "91.832 \u00b1 0.093",
+          "88.078 \u00b1 0.106",
+          "93.100 \u00b1 0.167",
+          "98.639 \u00b1 0.135",
+          "74.479 \u00b1 3.608"
+        ],
+        [
+          "Mobile",
+          "Base",
+          "73.909 \u00b1 1.016",
+          "87.407 \u00b1 0.662",
+          "80.091 \u00b1 0.804",
+          "91.643 \u00b1 0.633",
+          "95.378 \u00b1 0.085",
+          "36.364 \u00b1 3.278"
+        ],
+        [
+          "Mobile",
+          "DENT-STRIDE",
+          "74.714 \u00b1 0.921",
+          "87.271 \u00b1 0.488",
+          "80.502 \u00b1 0.403",
+          "91.565 \u00b1 0.264",
+          "95.310 \u00b1 0.271",
+          "35.758 \u00b1 5.068"
+        ],
+        [
+          "DSLR",
+          "Base",
+          "90.132 \u00b1 0.242",
+          "94.931 \u00b1 0.239",
+          "92.469 \u00b1 0.199",
+          "97.466 \u00b1 0.185",
+          "97.398 \u00b1 0.128",
+          "23.684 \u00b1 1.053"
+        ],
+        [
+          "DSLR",
+          "DENT-STRIDE",
+          "89.777 \u00b1 0.036",
+          "95.125 \u00b1 0.283",
+          "92.374 \u00b1 0.145",
+          "97.544 \u00b1 0.290",
+          "97.520 \u00b1 0.000",
+          "25.965 \u00b1 1.692"
+        ]
+      ]
+    },
+    {
+      "figure": "12A",
+      "asset": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Mobile_same_image_comparison.png",
+      "caption": "Same-image smartphone validation comparison. Columns show the original image, reference annotations, controlled baseline, RT-DETR-L, and DENT-STRIDE; each enlarged row uses an identical target region across columns. Teal boxes denote reference annotations and orange boxes denote model predictions. Saved seed-0 model outputs use score \u22650.30 and clinical FDI decoding; FDI text labels identify the highlighted target\u2019s localization match, while other retained predictions remain visible as boxes. (A) the highlighted reference tooth is FDI 51; the controlled baseline wrong assignment (11) and full-model correct assignment (51) accompany image-level correct-match counts of 4 and 7. (B) the highlighted reference tooth is FDI 62; the controlled baseline correct assignment (62) and full-model wrong assignment (52) accompany image-level correct-match counts of 5 and 2. Examples include an improvement and a deterioration and do not estimate their population frequencies. The external detector retains its framework-specific training and post-processing."
+    },
+    {
+      "figure": "12B",
+      "asset": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Pano_same_image_comparison.png",
+      "caption": "Same-image panoramic validation comparison. Columns show the original image, reference annotations, controlled baseline, RT-DETR-L, and DENT-STRIDE; each enlarged row uses an identical target region across columns. Teal boxes denote reference annotations and orange boxes denote model predictions. Saved seed-0 model outputs use score \u22650.30 and clinical FDI decoding; FDI text labels identify the highlighted target\u2019s localization match, while other retained predictions remain visible as boxes. (A) the highlighted reference tooth is FDI 28; the controlled baseline wrong assignment (27) and full-model correct assignment (28) accompany image-level correct-match counts of 26 and 29. (B) the highlighted reference tooth is FDI 28; the controlled baseline correct assignment (28) and full-model wrong assignment (27) accompany image-level correct-match counts of 29 and 28. Examples include an improvement and a deterioration and do not estimate their population frequencies. The external detector retains its framework-specific training and post-processing."
+    },
+    {
+      "figure": "12C",
+      "asset": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/DSLR_same_image_comparison.png",
+      "caption": "Same-image DSLR validation comparison. Columns show the original image, reference annotations, controlled baseline, RT-DETR-L, and DENT-STRIDE; each enlarged row uses an identical target region across columns. Teal boxes denote reference annotations and orange boxes denote model predictions. Saved seed-0 model outputs use score \u22650.30 and clinical FDI decoding; FDI text labels identify the highlighted target\u2019s localization match, while other retained predictions remain visible as boxes. (A) the highlighted reference tooth is FDI 52; the controlled baseline wrong assignment (53) and full-model correct assignment (52) accompany image-level correct-match counts of 9 and 13. (B) the highlighted reference tooth is FDI 64; the controlled baseline correct assignment (64) and full-model wrong assignment (24) accompany image-level correct-match counts of 22 and 20. Examples include an improvement and a deterioration and do not estimate their population frequencies. The external detector retains its framework-specific training and post-processing."
+    },
+    {
+      "figure": 13,
+      "asset": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/mechanism/current_Mobile_prototype_diagnostics.png",
+      "caption": "Prototype diagnostics from the seed-0 Mobile EMA checkpoint used in the qualitative comparison. (A) Cosine similarity between normalized class-centroid prototypes, with classes ordered by FDI quadrant Q1\u2013Q8. Grey unsupported slots correspond to 18, 28, 38, and 48. (B) Each open point is a supported FDI class and the short bar is the mean within its quadrant; cohesion is mean pairwise cosine similarity among four normalized prototypes. The bank is training-only supervision. Per-class cohesion is supplied in Supplementary Fig. S8."
+    },
+    {
+      "figure": 14,
+      "asset": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/mechanism/current_Mobile_factor_confusions.png",
+      "caption": "Auxiliary quadrant, position, and dentition predictions for 2,335 localized unique ordinary queries from the same Mobile seed-0 checkpoint. Rows are reference factors and columns are predictions; colours and annotations show row-normalized percentages. Grey rows with a dash have no reference observations. Quadrants retain the FDI first digit, position uses the second digit, and dentition is primary/permanent. These are structured identity heads, not objectness heads. The unique-query capture protocol differs from the native post-top-k detection endpoints."
+    },
+    {
+      "figure": 15,
+      "asset": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/mechanism/actual_CMFA_HOOA_image_111.png",
+      "caption": "Actual Mobile forward-pass responses for the improvement example in Fig. 12A. The first row shows the image, CMFA channel gates g_A/g_B, and its spatial gate G_s; the second shows HOOA local, context, high-pass, and consumed second-order responses; the third shows HOOA channel/spatial gates and its input/output. Channel gates are arranged as 16 \u00d7 16 channel grids. Gates retain raw [0,1] values; response RMS maps are independently scaled by their 99th percentile and clipped to [0,1]. The maps are not Grad-CAM or a causal test of AP improvement."
+    },
+    {
+      "caption": "Table 10. Bidirectional evaluation of controlled photographic checkpoints. The source input policy and common FDI52 mapping are preserved. \u2014 indicates an unavailable measurement; no transfer conclusion is inferred.",
+      "headers": [
+        "Source model",
+        "Target cohort",
+        "AP",
+        "AP50",
+        "AP75",
+        "AR100"
+      ],
+      "rows": [
+        [
+          "Mobile base",
+          "DSLR",
+          "\u2014",
+          "\u2014",
+          "\u2014",
+          "\u2014"
+        ],
+        [
+          "DENT-STRIDE-Mobile",
+          "DSLR",
+          "\u2014",
+          "\u2014",
+          "\u2014",
+          "\u2014"
+        ],
+        [
+          "DSLR base",
+          "Mobile",
+          "\u2014",
+          "\u2014",
+          "\u2014",
+          "\u2014"
+        ],
+        [
+          "DENT-STRIDE-DSLR",
+          "Mobile",
+          "\u2014",
+          "\u2014",
+          "\u2014",
+          "\u2014"
+        ]
+      ]
+    },
+    {
+      "caption": "Table 11. Computational measurements for the controlled cohort configurations. Parameter counts include auxiliary training heads. Standardized batch-1 forward MACs, latency, throughput, and peak inference memory refer to the same GPU, precision, warm-up, and timing scope; \u2014 indicates an unavailable measurement.",
+      "headers": [
+        "Cohort",
+        "Model",
+        "Params (M)",
+        "GMACs",
+        "Latency (ms)",
+        "Images/s",
+        "Peak VRAM"
+      ],
+      "rows": [
+        [
+          "Pano",
+          "Base",
+          "10.604",
+          "\u2014",
+          "\u2014",
+          "\u2014",
+          "\u2014"
+        ],
+        [
+          "Pano",
+          "DENT-STRIDE",
+          "10.650",
+          "\u2014",
+          "\u2014",
+          "\u2014",
+          "\u2014"
+        ],
+        [
+          "Mobile",
+          "Base",
+          "10.629",
+          "\u2014",
+          "\u2014",
+          "\u2014",
+          "\u2014"
+        ],
+        [
+          "Mobile",
+          "DENT-STRIDE",
+          "12.513",
+          "\u2014",
+          "\u2014",
+          "\u2014",
+          "\u2014"
+        ],
+        [
+          "DSLR",
+          "Base",
+          "10.629",
+          "\u2014",
+          "\u2014",
+          "\u2014",
+          "\u2014"
+        ],
+        [
+          "DSLR",
+          "DENT-STRIDE",
+          "11.154",
+          "\u2014",
+          "\u2014",
+          "\u2014",
+          "\u2014"
+        ]
+      ]
+    }
+  ],
+  "preserved_method_equations": true,
+  "pending_training_configurations": [
+    "internal_mobile_hooa_neither",
+    "internal_mobile_hooa_no_second_order",
+    "internal_mobile_proto_k2_tau0p2",
+    "internal_mobile_proto_k4_tau0p5"
+  ],
+  "cross_device_and_full_efficiency": "Unavailable for new controlled checkpoints; em-dash rows are explicit placeholders."
+}

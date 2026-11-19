@@ -1,0 +1,83 @@
+{
+  "state": "completed",
+  "gpu": 0,
+  "queue_pid": 2945734,
+  "queue_pgid": 2945734,
+  "jobs": [
+    "phone_dualopt",
+    "dentex_spatial_shape",
+    "dslr_cmfa_dualopt"
+  ],
+  "completed": [
+    "phone_dualopt",
+    "dentex_spatial_shape",
+    "dslr_cmfa_dualopt"
+  ],
+  "skipped": [],
+  "verification": {
+    "phone_dualopt": {
+      "output": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules_input1024/phone_dualopt/seed_0",
+      "epochs_completed": 160,
+      "best_epoch_zero_based": 147,
+      "best_AP": 53.39570323481696,
+      "checkpoint_sha256": "db1383d4d99c43d0e318933b7768ea9329d331bb69eb4dd8ab5ee4b2c2688f0d",
+      "verified_at": "2026-09-13T02:04:46.079518+08:00"
+    },
+    "dentex_spatial_shape": {
+      "output": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules_input1024/dentex_spatial_shape/seed_0",
+      "epochs_completed": 160,
+      "best_epoch_zero_based": 149,
+      "best_AP": 52.5313354358126,
+      "checkpoint_sha256": "13b65346c409187ce456db9854fa77da320162baf1ce478a81655eb746efe2b6",
+      "verified_at": "2026-09-13T03:07:15.609924+08:00"
+    },
+    "dslr_cmfa_dualopt": {
+      "output": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/runs/deim_s_paper_modules_input1024/dslr_cmfa_dualopt/seed_0",
+      "epochs_completed": 160,
+      "best_epoch_zero_based": 110,
+      "best_AP": 72.8870546235594,
+      "checkpoint_sha256": "fd1f07506c94d2761e68ab8b93c124878f2899aa2db837d4477c77864b0bad31",
+      "verified_at": "2026-09-13T04:57:12.499500+08:00"
+    }
+  },
+  "active_task": null,
+  "child_pid": null,
+  "child_pgid": null,
+  "command": [
+    "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+    "-B",
+    "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/module_migration_input1024_2026-09-12/run_experiment.py",
+    "--task",
+    "dslr_cmfa_dualopt",
+    "--gpu",
+    "0",
+    "--memory-limit-mib=10752"
+  ],
+  "wait_reason": null,
+  "started_at": "2026-09-12T22:54:48.402656+08:00",
+  "min_free_mib": 11520,
+  "memory_limit_mib": 10752,
+  "resource_policy": {
+    "protocol_sha256": "652e8fa684fae1179b52fdf6c211bce1ccac3891fcc9ed5127ab25f9a5bfb760",
+    "preflight_validation_sha256": "b880e10ea4b52f020a5fa709d2f0a8d189b0b5cf84bd6ba09cf308612ee3d60b",
+    "cli_min_free_mib": 11520,
+    "preflight_recommended_min_free_gpu_mib": 11520,
+    "preflight_memory_limit_mib": 10752,
+    "memory_limit_mib": 10752,
+    "min_free_mib": 11520,
+    "memory_headroom_mib": 768
+  },
+  "updated_at": "2026-09-13T04:57:12.499897+08:00",
+  "gpu_snapshot": {
+    "index": 0,
+    "uuid": "GPU-ef21a1d6-6053-a86e-9497-82c61bedaa30",
+    "free_mib": 24076,
+    "used_mib": 15,
+    "total_mib": 24564,
+    "utilization_percent": 0,
+    "observed_at": "2026-09-13T03:07:15.626612+08:00"
+  },
+  "disk_free_bytes": 31211028480,
+  "child_returncode": 0,
+  "completed_at": "2026-09-13T04:57:12.499890+08:00"
+}

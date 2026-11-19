@@ -1,0 +1,76 @@
+[
+  {
+    "figure": 1,
+    "source": "template/figs/Figure_1.svg; current Word Table 4",
+    "corrections": {
+      "Official DEIM-s Pano AP": "53.827 -> 52.827",
+      "DENT-STRIDE DSLR AP": "72.908 -> 73.219"
+    },
+    "clinical_tiles": "unchanged embedded image bytes"
+  },
+  {
+    "figure": 2,
+    "source_docx_media": "image3.svg",
+    "output": "figs/Figure_02.pdf"
+  },
+  {
+    "figure": 3,
+    "source_docx_media": "image4.png",
+    "output": "figs/Figure_03.png"
+  },
+  {
+    "figure": 4,
+    "source_docx_media": "image6.svg",
+    "output": "figs/Figure_04.pdf"
+  },
+  {
+    "figure": 5,
+    "source_docx_media": "image8.svg",
+    "output": "figs/Figure_05.pdf"
+  },
+  {
+    "figure": 6,
+    "source_docx_media": "image10.svg",
+    "output": "figs/Figure_06.pdf"
+  },
+  {
+    "figure": 7,
+    "source_docx_media": "image11.png",
+    "output": "figs/Figure_07.png"
+  },
+  {
+    "figure": 8,
+    "source_docx_media": "image13.svg",
+    "output": "figs/Figure_08.pdf"
+  },
+  {
+    "figure": 9,
+    "source_docx_media": "image14.png",
+    "output": "figs/Figure_09.png"
+  },
+  {
+    "figure": 10,
+    "source_docx_media": "image16.svg",
+    "output": "figs/Figure_10.pdf"
+  },
+  {
+    "figure": 12,
+    "source_docx_media": "image21.svg",
+    "output": "figs/Figure_12.pdf"
+  },
+  {
+    "figure": "11A",
+    "source_docx_media": "image17.png",
+    "output": "figs/Figure_11A.png"
+  },
+  {
+    "figure": "11B",
+    "source_docx_media": "image18.png",
+    "output": "figs/Figure_11B.png"
+  },
+  {
+    "figure": "11C",
+    "source_docx_media": "image19.png",
+    "output": "figs/Figure_11C.png"
+  }
+]

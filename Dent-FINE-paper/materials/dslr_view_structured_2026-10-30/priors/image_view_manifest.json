@@ -1,0 +1,5707 @@
+{
+  "view_to_id": {
+    "frontal": 0,
+    "upper_occlusal": 1,
+    "lower_occlusal": 2,
+    "left_buccal": 3,
+    "right_buccal": 4
+  },
+  "fdi_label_order": [
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    51,
+    52,
+    53,
+    54,
+    55,
+    61,
+    62,
+    63,
+    64,
+    65,
+    71,
+    72,
+    73,
+    74,
+    75,
+    81,
+    82,
+    83,
+    84,
+    85
+  ],
+  "train": {
+    "1": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_001",
+      "file_name": "4204b61cfc1d.jpg"
+    },
+    "2": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_001",
+      "file_name": "9e98c0a84dc2.jpg"
+    },
+    "3": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_001",
+      "file_name": "d8100c61ecca.jpg"
+    },
+    "4": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_001",
+      "file_name": "bafce2035faa.jpg"
+    },
+    "5": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_001",
+      "file_name": "2b9c95fc5b91.jpg"
+    },
+    "6": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_002",
+      "file_name": "2aa077822c03.jpg"
+    },
+    "7": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_002",
+      "file_name": "86d5445d9a8d.jpg"
+    },
+    "8": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_002",
+      "file_name": "0ef2118ca0c1.jpg"
+    },
+    "9": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_002",
+      "file_name": "7c3b8bcdcba5.jpg"
+    },
+    "10": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_002",
+      "file_name": "9dc488037988.jpg"
+    },
+    "11": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_003",
+      "file_name": "e208cb4d8629.jpg"
+    },
+    "12": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_003",
+      "file_name": "ec571b2423f4.jpg"
+    },
+    "13": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_003",
+      "file_name": "3f0f046757e8.jpg"
+    },
+    "14": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_003",
+      "file_name": "68fbcea88427.jpg"
+    },
+    "15": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_003",
+      "file_name": "755c4031e332.jpg"
+    },
+    "16": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_004",
+      "file_name": "26378121d9f2.jpg"
+    },
+    "17": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_004",
+      "file_name": "be4c6214781a.jpg"
+    },
+    "18": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_004",
+      "file_name": "d1f78611fd85.jpg"
+    },
+    "19": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_004",
+      "file_name": "f6eefb551ed8.jpg"
+    },
+    "20": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_004",
+      "file_name": "89173d1b6c73.jpg"
+    },
+    "21": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_005",
+      "file_name": "0de6f9f0e2c5.jpg"
+    },
+    "22": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_005",
+      "file_name": "1f70b9054fea.jpg"
+    },
+    "23": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_005",
+      "file_name": "c326356787f1.jpg"
+    },
+    "24": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_005",
+      "file_name": "c4000f018dfe.jpg"
+    },
+    "25": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_005",
+      "file_name": "97d947698ec3.jpg"
+    },
+    "26": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_006",
+      "file_name": "4cd6c3a088c8.jpg"
+    },
+    "27": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_006",
+      "file_name": "b35582376936.jpg"
+    },
+    "28": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_006",
+      "file_name": "2897227dff3d.jpg"
+    },
+    "29": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_006",
+      "file_name": "faa7f1fd0d7a.jpg"
+    },
+    "30": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_006",
+      "file_name": "bdab33091ccf.jpg"
+    },
+    "31": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_007",
+      "file_name": "ddfe6f9c715e.jpg"
+    },
+    "32": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_007",
+      "file_name": "d52cd0713731.jpg"
+    },
+    "33": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_007",
+      "file_name": "9292fd75f81c.jpg"
+    },
+    "34": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_007",
+      "file_name": "f803119f9135.jpg"
+    },
+    "35": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_007",
+      "file_name": "100606822fb3.jpg"
+    },
+    "36": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_008",
+      "file_name": "0638856ac0a3.jpg"
+    },
+    "37": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_008",
+      "file_name": "2f58b5e9f5f5.jpg"
+    },
+    "38": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_008",
+      "file_name": "6ce7f78af828.jpg"
+    },
+    "39": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_008",
+      "file_name": "8f11511a4dac.jpg"
+    },
+    "40": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_008",
+      "file_name": "bbb3e74d4b0c.jpg"
+    },
+    "41": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_009",
+      "file_name": "3b8280105be9.jpg"
+    },
+    "42": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_009",
+      "file_name": "9791a58e78a3.jpg"
+    },
+    "43": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_009",
+      "file_name": "c69fac4e2dbc.jpg"
+    },
+    "44": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_009",
+      "file_name": "83415350e2e1.jpg"
+    },
+    "45": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_009",
+      "file_name": "80ba1f5f79ed.jpg"
+    },
+    "46": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_010",
+      "file_name": "167c915b4053.jpg"
+    },
+    "47": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_010",
+      "file_name": "b7d4fefdb763.jpg"
+    },
+    "48": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_010",
+      "file_name": "3977bb741196.jpg"
+    },
+    "49": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_010",
+      "file_name": "08d0c78baef0.jpg"
+    },
+    "50": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_010",
+      "file_name": "3edfce4ecbcf.jpg"
+    },
+    "51": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_012",
+      "file_name": "601833793af9.jpg"
+    },
+    "52": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_012",
+      "file_name": "4e0a70851aca.jpg"
+    },
+    "53": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_012",
+      "file_name": "adca55ad0898.jpg"
+    },
+    "54": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_012",
+      "file_name": "9d0a760962d3.jpg"
+    },
+    "55": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_012",
+      "file_name": "cba8e0a2c720.jpg"
+    },
+    "56": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_013",
+      "file_name": "29d06ef8d9c8.jpg"
+    },
+    "57": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_013",
+      "file_name": "5d93b570adee.jpg"
+    },
+    "58": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_013",
+      "file_name": "17501f7d9874.jpg"
+    },
+    "59": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_013",
+      "file_name": "d7761db409fa.jpg"
+    },
+    "60": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_013",
+      "file_name": "0ff03d5a41e3.jpg"
+    },
+    "61": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_015",
+      "file_name": "8a0341dfe62b.jpg"
+    },
+    "62": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_015",
+      "file_name": "8e35f3cac9a4.jpg"
+    },
+    "63": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_015",
+      "file_name": "8f603288968e.jpg"
+    },
+    "64": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_015",
+      "file_name": "7a6a06e01c76.jpg"
+    },
+    "65": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_015",
+      "file_name": "3994e7394968.jpg"
+    },
+    "66": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_016",
+      "file_name": "b9a40bb5beaa.jpg"
+    },
+    "67": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_016",
+      "file_name": "0cc91bf97d71.jpg"
+    },
+    "68": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_016",
+      "file_name": "f463f12ad1b9.jpg"
+    },
+    "69": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_016",
+      "file_name": "9623ba81f51d.jpg"
+    },
+    "70": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_016",
+      "file_name": "1f6cb1c5a329.jpg"
+    },
+    "71": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_017",
+      "file_name": "5c0a7940747c.jpg"
+    },
+    "72": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_017",
+      "file_name": "7137a2e33206.jpg"
+    },
+    "73": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_017",
+      "file_name": "b78139952d20.jpg"
+    },
+    "74": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_017",
+      "file_name": "940d10efd806.jpg"
+    },
+    "75": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_017",
+      "file_name": "6727aa23626a.jpg"
+    },
+    "76": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_018",
+      "file_name": "6a9f201b76cf.jpg"
+    },
+    "77": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_018",
+      "file_name": "623bec8a4561.jpg"
+    },
+    "78": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_018",
+      "file_name": "c660285d9575.jpg"
+    },
+    "79": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_018",
+      "file_name": "9fde0e957eb4.jpg"
+    },
+    "80": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_018",
+      "file_name": "5f150a8c8eae.jpg"
+    },
+    "81": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_020",
+      "file_name": "eb8a1f4a1053.jpg"
+    },
+    "82": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_020",
+      "file_name": "5acd091a47d8.jpg"
+    },
+    "83": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_020",
+      "file_name": "ff5e15b32ec3.jpg"
+    },
+    "84": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_020",
+      "file_name": "e54e815cd7d7.jpg"
+    },
+    "85": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_020",
+      "file_name": "e81282f03ef7.jpg"
+    },
+    "86": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_021",
+      "file_name": "b052bf77dacb.jpg"
+    },
+    "87": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_021",
+      "file_name": "7ad9c40ce29f.jpg"
+    },
+    "88": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_021",
+      "file_name": "620a6edaf535.jpg"
+    },
+    "89": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_021",
+      "file_name": "30f9e98233aa.jpg"
+    },
+    "90": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_021",
+      "file_name": "c9d265b2e3de.jpg"
+    },
+    "91": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_022",
+      "file_name": "aa885141e2c7.jpg"
+    },
+    "92": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_022",
+      "file_name": "8bed20cae108.jpg"
+    },
+    "93": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_022",
+      "file_name": "e08fa3a11bfb.jpg"
+    },
+    "94": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_022",
+      "file_name": "eddf88971002.jpg"
+    },
+    "95": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_022",
+      "file_name": "010575a8c061.jpg"
+    },
+    "96": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_023",
+      "file_name": "960658946bd7.jpg"
+    },
+    "97": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_023",
+      "file_name": "c97544b12b36.jpg"
+    },
+    "98": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_023",
+      "file_name": "2556e5a3ac09.jpg"
+    },
+    "99": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_023",
+      "file_name": "35f3dd872b7b.jpg"
+    },
+    "100": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_023",
+      "file_name": "92bde95234a1.jpg"
+    },
+    "101": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_024",
+      "file_name": "e8f6ac7c36da.jpg"
+    },
+    "102": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_024",
+      "file_name": "5af9912e788d.jpg"
+    },
+    "103": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_024",
+      "file_name": "b6d538a39789.jpg"
+    },
+    "104": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_024",
+      "file_name": "bd2143d9e3f5.jpg"
+    },
+    "105": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_024",
+      "file_name": "adda5d8fe464.jpg"
+    },
+    "106": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_025",
+      "file_name": "3380ad206171.jpg"
+    },
+    "107": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_025",
+      "file_name": "d2b71db1f161.jpg"
+    },
+    "108": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_025",
+      "file_name": "16e01cf0c37d.jpg"
+    },
+    "109": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_025",
+      "file_name": "450e636c0708.jpg"
+    },
+    "110": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_025",
+      "file_name": "e9a30a2abc66.jpg"
+    },
+    "111": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_026",
+      "file_name": "ed1444ef34e8.jpg"
+    },
+    "112": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_026",
+      "file_name": "366ffbbf5119.jpg"
+    },
+    "113": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_026",
+      "file_name": "5d771725bd75.jpg"
+    },
+    "114": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_026",
+      "file_name": "b01291b02995.jpg"
+    },
+    "115": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_026",
+      "file_name": "665abfa137fb.jpg"
+    },
+    "116": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_027",
+      "file_name": "7a9f967db35c.jpg"
+    },
+    "117": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_027",
+      "file_name": "82b6cef8b476.jpg"
+    },
+    "118": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_027",
+      "file_name": "90515df90476.jpg"
+    },
+    "119": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_027",
+      "file_name": "97a6cecd1153.jpg"
+    },
+    "120": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_027",
+      "file_name": "984535f42dc3.jpg"
+    },
+    "121": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_028",
+      "file_name": "ff4b324fa450.jpg"
+    },
+    "122": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_028",
+      "file_name": "52cfdf6a5e29.jpg"
+    },
+    "123": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_028",
+      "file_name": "8bb2b60d572c.jpg"
+    },
+    "124": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_028",
+      "file_name": "d8c1ad2bb1ba.jpg"
+    },
+    "125": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_028",
+      "file_name": "d2e2d9cedc02.jpg"
+    },
+    "126": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_032",
+      "file_name": "c314c18f17e3.jpg"
+    },
+    "127": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_032",
+      "file_name": "c1cae21b2d37.jpg"
+    },
+    "128": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_032",
+      "file_name": "705c0907388d.jpg"
+    },
+    "129": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_032",
+      "file_name": "6caf84f34034.jpg"
+    },
+    "130": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_032",
+      "file_name": "83329cc74998.jpg"
+    },
+    "131": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_033",
+      "file_name": "32004111bc9d.jpg"
+    },
+    "132": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_033",
+      "file_name": "67ff20fcf273.jpg"
+    },
+    "133": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_033",
+      "file_name": "a237169bcc26.jpg"
+    },
+    "134": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_033",
+      "file_name": "01a450d285e0.jpg"
+    },
+    "135": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_033",
+      "file_name": "1f5c867a8f31.jpg"
+    },
+    "136": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_036",
+      "file_name": "7b54587ba942.jpg"
+    },
+    "137": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_036",
+      "file_name": "9778ebf959a2.jpg"
+    },
+    "138": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_036",
+      "file_name": "63e402c3aca3.jpg"
+    },
+    "139": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_036",
+      "file_name": "9c5e326e4801.jpg"
+    },
+    "140": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_036",
+      "file_name": "fec912e7a141.jpg"
+    },
+    "141": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_038",
+      "file_name": "7c2d792d25f3.jpg"
+    },
+    "142": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_038",
+      "file_name": "bf7216e99d41.jpg"
+    },
+    "143": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_038",
+      "file_name": "49bfe77ca110.jpg"
+    },
+    "144": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_038",
+      "file_name": "8b3d689f9e41.jpg"
+    },
+    "145": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_038",
+      "file_name": "ea97b912d98b.jpg"
+    },
+    "146": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_039",
+      "file_name": "119fa313d07f.jpg"
+    },
+    "147": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_039",
+      "file_name": "c6c900150137.jpg"
+    },
+    "148": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_039",
+      "file_name": "df41a701c2f9.jpg"
+    },
+    "149": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_039",
+      "file_name": "1bc1f7a9b370.jpg"
+    },
+    "150": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_039",
+      "file_name": "4bc68c87c2c8.jpg"
+    },
+    "151": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_040",
+      "file_name": "2a016082bb42.jpg"
+    },
+    "152": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_040",
+      "file_name": "380179a2b4d8.jpg"
+    },
+    "153": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_040",
+      "file_name": "11a3423acb00.jpg"
+    },
+    "154": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_040",
+      "file_name": "ea734b8d8d75.jpg"
+    },
+    "155": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_040",
+      "file_name": "9afe719d11cf.jpg"
+    },
+    "156": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_041",
+      "file_name": "7bf70d485238.jpg"
+    },
+    "157": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_041",
+      "file_name": "aabc1b2e6bb0.jpg"
+    },
+    "158": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_041",
+      "file_name": "ee56d310c4bc.jpg"
+    },
+    "159": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_041",
+      "file_name": "d04f7188d96a.jpg"
+    },
+    "160": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_041",
+      "file_name": "78bcef150ffb.jpg"
+    },
+    "161": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_042",
+      "file_name": "4729a36427a8.jpg"
+    },
+    "162": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_042",
+      "file_name": "c80b8bcfe488.jpg"
+    },
+    "163": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_042",
+      "file_name": "ef35917297a3.jpg"
+    },
+    "164": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_042",
+      "file_name": "dcc67a41d392.jpg"
+    },
+    "165": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_042",
+      "file_name": "bbc23550fbc9.jpg"
+    },
+    "166": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_044",
+      "file_name": "6f897c186e18.jpg"
+    },
+    "167": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_044",
+      "file_name": "0c250a1fd912.jpg"
+    },
+    "168": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_044",
+      "file_name": "a011a607c043.jpg"
+    },
+    "169": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_044",
+      "file_name": "e9662cad24c0.jpg"
+    },
+    "170": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_044",
+      "file_name": "4845b0b516ca.jpg"
+    },
+    "171": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_045",
+      "file_name": "0362e31653f8.jpg"
+    },
+    "172": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_045",
+      "file_name": "edfccb336717.jpg"
+    },
+    "173": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_045",
+      "file_name": "f37f721524a2.jpg"
+    },
+    "174": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_045",
+      "file_name": "4bf24af1cb08.jpg"
+    },
+    "175": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_045",
+      "file_name": "3e872ce93bd0.jpg"
+    },
+    "176": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_046",
+      "file_name": "a3745fcf6127.jpg"
+    },
+    "177": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_046",
+      "file_name": "38d1e749d8c4.jpg"
+    },
+    "178": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_046",
+      "file_name": "f8071bc2aa56.jpg"
+    },
+    "179": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_046",
+      "file_name": "b719a46ee691.jpg"
+    },
+    "180": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_046",
+      "file_name": "80c4eef46d20.jpg"
+    },
+    "181": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_048",
+      "file_name": "79d14ad6a729.jpg"
+    },
+    "182": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_048",
+      "file_name": "446f6e3db0b3.jpg"
+    },
+    "183": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_048",
+      "file_name": "6fa3818f58ee.jpg"
+    },
+    "184": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_048",
+      "file_name": "68fdf20105db.jpg"
+    },
+    "185": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_048",
+      "file_name": "202be515c398.jpg"
+    },
+    "186": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_049",
+      "file_name": "7f2eaad93971.jpg"
+    },
+    "187": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_049",
+      "file_name": "0c4d88658579.jpg"
+    },
+    "188": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_049",
+      "file_name": "7ca496a5f3ac.jpg"
+    },
+    "189": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_049",
+      "file_name": "5765d68757f2.jpg"
+    },
+    "190": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_049",
+      "file_name": "bb25db3bd16f.jpg"
+    },
+    "191": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_050",
+      "file_name": "3c26605f710a.jpg"
+    },
+    "192": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_050",
+      "file_name": "e89e350edc57.jpg"
+    },
+    "193": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_050",
+      "file_name": "c39625168107.jpg"
+    },
+    "194": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_050",
+      "file_name": "7c39568e4800.jpg"
+    },
+    "195": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_050",
+      "file_name": "de928c00f021.jpg"
+    },
+    "196": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_051",
+      "file_name": "7dd1e0d03e95.jpg"
+    },
+    "197": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_051",
+      "file_name": "8be930df561a.jpg"
+    },
+    "198": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_051",
+      "file_name": "e6ca40f209fe.jpg"
+    },
+    "199": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_051",
+      "file_name": "a4e56f80cd3f.jpg"
+    },
+    "200": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_051",
+      "file_name": "e219c64df1a6.jpg"
+    },
+    "201": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_052",
+      "file_name": "517672d5d3b6.jpg"
+    },
+    "202": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_052",
+      "file_name": "c6a1ec6dd601.jpg"
+    },
+    "203": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_052",
+      "file_name": "9e0d25c7572b.jpg"
+    },
+    "204": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_052",
+      "file_name": "32dcb77c85b3.jpg"
+    },
+    "205": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_052",
+      "file_name": "5626422f5857.jpg"
+    },
+    "206": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_053",
+      "file_name": "bc5977e69777.jpg"
+    },
+    "207": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_053",
+      "file_name": "d78ddc045e2c.jpg"
+    },
+    "208": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_053",
+      "file_name": "c98dee453c60.jpg"
+    },
+    "209": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_053",
+      "file_name": "5755d39de639.jpg"
+    },
+    "210": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_053",
+      "file_name": "3b8296bf55fd.jpg"
+    },
+    "211": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_054",
+      "file_name": "a06dbdc53712.jpg"
+    },
+    "212": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_054",
+      "file_name": "68777267ce6a.jpg"
+    },
+    "213": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_054",
+      "file_name": "d33b16744a41.jpg"
+    },
+    "214": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_054",
+      "file_name": "8fef8923344e.jpg"
+    },
+    "215": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_054",
+      "file_name": "8575d64a4938.jpg"
+    },
+    "216": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_055",
+      "file_name": "829762fafb62.jpg"
+    },
+    "217": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_055",
+      "file_name": "8ff381f7e59e.jpg"
+    },
+    "218": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_055",
+      "file_name": "1ac283fb7c3f.jpg"
+    },
+    "219": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_055",
+      "file_name": "3298503974cf.jpg"
+    },
+    "220": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_055",
+      "file_name": "2eb5613f64e2.jpg"
+    },
+    "221": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_058",
+      "file_name": "afa645e59944.jpg"
+    },
+    "222": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_058",
+      "file_name": "75c870160eb9.jpg"
+    },
+    "223": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_058",
+      "file_name": "3517a972ca17.jpg"
+    },
+    "224": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_058",
+      "file_name": "10519c00949d.jpg"
+    },
+    "225": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_058",
+      "file_name": "4cb359772ffd.jpg"
+    },
+    "226": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_059",
+      "file_name": "8f849b7492c5.jpg"
+    },
+    "227": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_059",
+      "file_name": "c97f0d4dd91f.jpg"
+    },
+    "228": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_059",
+      "file_name": "141b1b08601d.jpg"
+    },
+    "229": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_059",
+      "file_name": "3ba7f156f75e.jpg"
+    },
+    "230": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_059",
+      "file_name": "5078591d68cd.jpg"
+    },
+    "231": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_060",
+      "file_name": "424b863a6957.jpg"
+    },
+    "232": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_060",
+      "file_name": "2e34d665367a.jpg"
+    },
+    "233": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_060",
+      "file_name": "8948ae007153.jpg"
+    },
+    "234": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_060",
+      "file_name": "f76d5d299da0.jpg"
+    },
+    "235": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_060",
+      "file_name": "290e503f2819.jpg"
+    },
+    "236": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_061",
+      "file_name": "3ef8db17cea0.jpg"
+    },
+    "237": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_061",
+      "file_name": "a4caabd679a1.jpg"
+    },
+    "238": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_061",
+      "file_name": "b6d9cdf2d9a3.jpg"
+    },
+    "239": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_061",
+      "file_name": "08da0dad07d0.jpg"
+    },
+    "240": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_061",
+      "file_name": "7541240f92e7.jpg"
+    },
+    "241": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_062",
+      "file_name": "6866247d9ec3.jpg"
+    },
+    "242": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_062",
+      "file_name": "50eed432c64c.jpg"
+    },
+    "243": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_062",
+      "file_name": "c7fa2c467fa0.jpg"
+    },
+    "244": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_062",
+      "file_name": "29a4ae06b8a7.jpg"
+    },
+    "245": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_062",
+      "file_name": "15dd8bdc1529.jpg"
+    },
+    "246": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_063",
+      "file_name": "4f76c4245bb4.jpg"
+    },
+    "247": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_063",
+      "file_name": "9e3a7a3b2fea.jpg"
+    },
+    "248": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_063",
+      "file_name": "5960a6b05908.jpg"
+    },
+    "249": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_063",
+      "file_name": "0be1a7f93a50.jpg"
+    },
+    "250": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_063",
+      "file_name": "54c75c942e60.jpg"
+    },
+    "251": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_064",
+      "file_name": "f33254b06e97.jpg"
+    },
+    "252": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_064",
+      "file_name": "8c1f5b95dfb1.jpg"
+    },
+    "253": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_064",
+      "file_name": "7219293c2936.jpg"
+    },
+    "254": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_064",
+      "file_name": "cb45117d492c.jpg"
+    },
+    "255": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_064",
+      "file_name": "573bc7200391.jpg"
+    },
+    "256": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_065",
+      "file_name": "ccb945e123ce.jpg"
+    },
+    "257": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_065",
+      "file_name": "121b157a6033.jpg"
+    },
+    "258": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_065",
+      "file_name": "e76305f9be0a.jpg"
+    },
+    "259": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_065",
+      "file_name": "b2c8b904dedc.jpg"
+    },
+    "260": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_065",
+      "file_name": "0c8a3b04e79f.jpg"
+    },
+    "261": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_066",
+      "file_name": "f89ac7901e55.jpg"
+    },
+    "262": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_066",
+      "file_name": "349ba1d16b58.jpg"
+    },
+    "263": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_066",
+      "file_name": "92344c3cbb4b.jpg"
+    },
+    "264": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_066",
+      "file_name": "44d3f1a35d45.jpg"
+    },
+    "265": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_066",
+      "file_name": "5cc0f97d5ace.jpg"
+    },
+    "266": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_067",
+      "file_name": "b6b2b6576b9f.jpg"
+    },
+    "267": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_067",
+      "file_name": "b59259d7ebef.jpg"
+    },
+    "268": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_067",
+      "file_name": "9bdb5b031024.jpg"
+    },
+    "269": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_067",
+      "file_name": "a283d949fbdf.jpg"
+    },
+    "270": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_067",
+      "file_name": "2ff2d9a49293.jpg"
+    },
+    "271": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_068",
+      "file_name": "ee506bb2c63c.jpg"
+    },
+    "272": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_068",
+      "file_name": "10f7808833a8.jpg"
+    },
+    "273": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_068",
+      "file_name": "6a1df71149e9.jpg"
+    },
+    "274": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_068",
+      "file_name": "e406ac27be82.jpg"
+    },
+    "275": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_068",
+      "file_name": "0e87ade7e2d6.jpg"
+    },
+    "276": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_069",
+      "file_name": "77382d8ea857.jpg"
+    },
+    "277": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_069",
+      "file_name": "840382ba4c06.jpg"
+    },
+    "278": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_069",
+      "file_name": "fdec913c0dcc.jpg"
+    },
+    "279": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_069",
+      "file_name": "b20fae0d66d4.jpg"
+    },
+    "280": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_069",
+      "file_name": "c2088cebddd1.jpg"
+    },
+    "281": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_070",
+      "file_name": "d0e9855f1b43.jpg"
+    },
+    "282": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_070",
+      "file_name": "927aeff009b7.jpg"
+    },
+    "283": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_070",
+      "file_name": "3ce6eb18566a.jpg"
+    },
+    "284": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_070",
+      "file_name": "034d2abde0b0.jpg"
+    },
+    "285": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_070",
+      "file_name": "e7ba8cca9b0c.jpg"
+    },
+    "286": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_071",
+      "file_name": "b645d625cecf.jpg"
+    },
+    "287": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_071",
+      "file_name": "cde8c46bab1d.jpg"
+    },
+    "288": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_071",
+      "file_name": "1eff95dc34b0.jpg"
+    },
+    "289": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_071",
+      "file_name": "de581d44619c.jpg"
+    },
+    "290": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_071",
+      "file_name": "4c2b9af72106.jpg"
+    },
+    "291": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_073",
+      "file_name": "9241308bcb07.jpg"
+    },
+    "292": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_073",
+      "file_name": "fd7b66fd88e6.jpg"
+    },
+    "293": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_073",
+      "file_name": "7524d5dbdb23.jpg"
+    },
+    "294": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_073",
+      "file_name": "d28b24d2906c.jpg"
+    },
+    "295": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_073",
+      "file_name": "0a14c2125c0c.jpg"
+    },
+    "296": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_074",
+      "file_name": "6bcd5b745720.jpg"
+    },
+    "297": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_074",
+      "file_name": "b6c39a690b7b.jpg"
+    },
+    "298": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_074",
+      "file_name": "eae0322d7e4a.jpg"
+    },
+    "299": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_074",
+      "file_name": "30b398677472.jpg"
+    },
+    "300": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_074",
+      "file_name": "dfec884aef66.jpg"
+    },
+    "301": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_076",
+      "file_name": "d7de8fcba946.jpg"
+    },
+    "302": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_076",
+      "file_name": "266702eaddd9.jpg"
+    },
+    "303": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_076",
+      "file_name": "4e22571ca16a.jpg"
+    },
+    "304": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_076",
+      "file_name": "b1a66d6dd471.jpg"
+    },
+    "305": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_076",
+      "file_name": "ae5cd997f6a2.jpg"
+    },
+    "306": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_077",
+      "file_name": "26cf66e21c7c.jpg"
+    },
+    "307": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_077",
+      "file_name": "fa583376e784.jpg"
+    },
+    "308": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_077",
+      "file_name": "5acef993566f.jpg"
+    },
+    "309": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_077",
+      "file_name": "d2db7fdd4ce8.jpg"
+    },
+    "310": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_077",
+      "file_name": "6cf42565fbbd.jpg"
+    },
+    "311": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_078",
+      "file_name": "9463f46219f7.jpg"
+    },
+    "312": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_078",
+      "file_name": "65d097fff2ef.jpg"
+    },
+    "313": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_078",
+      "file_name": "1a150a892bff.jpg"
+    },
+    "314": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_078",
+      "file_name": "a8735f4a2eba.jpg"
+    },
+    "315": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_078",
+      "file_name": "8cec3622f1a0.jpg"
+    },
+    "316": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_079",
+      "file_name": "03e94dfa2948.jpg"
+    },
+    "317": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_079",
+      "file_name": "2e3fe908e968.jpg"
+    },
+    "318": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_079",
+      "file_name": "49758e6944ff.jpg"
+    },
+    "319": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_079",
+      "file_name": "9b41d2df7410.jpg"
+    },
+    "320": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_079",
+      "file_name": "29774b6c12cf.jpg"
+    },
+    "321": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_080",
+      "file_name": "09bcad99bf40.jpg"
+    },
+    "322": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_080",
+      "file_name": "30fc25fb7da8.jpg"
+    },
+    "323": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_080",
+      "file_name": "1779e4eddf8c.jpg"
+    },
+    "324": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_080",
+      "file_name": "69000fe24a00.jpg"
+    },
+    "325": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_080",
+      "file_name": "e58ee0501af9.jpg"
+    },
+    "326": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_081",
+      "file_name": "c3e4c894fa93.jpg"
+    },
+    "327": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_081",
+      "file_name": "8b075407581f.jpg"
+    },
+    "328": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_081",
+      "file_name": "790f617c09c6.jpg"
+    },
+    "329": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_081",
+      "file_name": "45571bd20070.jpg"
+    },
+    "330": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_081",
+      "file_name": "78fcb449cd7a.jpg"
+    },
+    "331": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_083",
+      "file_name": "6a9ec668b7e5.jpg"
+    },
+    "332": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_083",
+      "file_name": "4fd61b8bfbe2.jpg"
+    },
+    "333": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_083",
+      "file_name": "1df6ec9c587f.jpg"
+    },
+    "334": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_083",
+      "file_name": "a67198f26aee.jpg"
+    },
+    "335": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_083",
+      "file_name": "bd34bca6455b.jpg"
+    },
+    "336": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_084",
+      "file_name": "ab1bcbc3d3f6.jpg"
+    },
+    "337": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_084",
+      "file_name": "34982beb58b3.jpg"
+    },
+    "338": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_084",
+      "file_name": "c1714458482f.jpg"
+    },
+    "339": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_084",
+      "file_name": "77342f694c11.jpg"
+    },
+    "340": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_084",
+      "file_name": "3bc6eb495b05.jpg"
+    },
+    "341": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_087",
+      "file_name": "6f29ccd2e111.jpg"
+    },
+    "342": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_087",
+      "file_name": "cd2393ba081c.jpg"
+    },
+    "343": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_087",
+      "file_name": "465498c4c8f8.jpg"
+    },
+    "344": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_087",
+      "file_name": "04bed58b8fb0.jpg"
+    },
+    "345": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_087",
+      "file_name": "33ba93ac3dad.jpg"
+    },
+    "346": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_088",
+      "file_name": "a57a5b9888be.jpg"
+    },
+    "347": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_088",
+      "file_name": "b1cbef68e77d.jpg"
+    },
+    "348": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_088",
+      "file_name": "b4c3ac6ae3ce.jpg"
+    },
+    "349": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_088",
+      "file_name": "904e7f1b4f08.jpg"
+    },
+    "350": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_088",
+      "file_name": "43a280f4bbb1.jpg"
+    },
+    "351": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_089",
+      "file_name": "0069f7416524.jpg"
+    },
+    "352": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_089",
+      "file_name": "41ada4b75ad3.jpg"
+    },
+    "353": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_089",
+      "file_name": "8998a1566f25.jpg"
+    },
+    "354": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_089",
+      "file_name": "62206c4b5ba9.jpg"
+    },
+    "355": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_089",
+      "file_name": "b4c392847df4.jpg"
+    },
+    "356": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_090",
+      "file_name": "daaad67b9fb2.jpg"
+    },
+    "357": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_090",
+      "file_name": "9238ab9ed186.jpg"
+    },
+    "358": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_090",
+      "file_name": "ef70ca5c2f42.jpg"
+    },
+    "359": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_090",
+      "file_name": "49150f5650d5.jpg"
+    },
+    "360": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_090",
+      "file_name": "02fef0f502db.jpg"
+    },
+    "361": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_091",
+      "file_name": "d98cee3164bd.jpg"
+    },
+    "362": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_091",
+      "file_name": "4b1f8a8c2679.jpg"
+    },
+    "363": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_091",
+      "file_name": "113711ad4c0a.jpg"
+    },
+    "364": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_091",
+      "file_name": "cb3f2eb48d8f.jpg"
+    },
+    "365": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_091",
+      "file_name": "533701bb3612.jpg"
+    },
+    "366": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_092",
+      "file_name": "16bf67851fe5.jpg"
+    },
+    "367": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_092",
+      "file_name": "bdfde853f3d7.jpg"
+    },
+    "368": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_092",
+      "file_name": "af8090c9a6c9.jpg"
+    },
+    "369": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_092",
+      "file_name": "e9f0c593a8f3.jpg"
+    },
+    "370": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_092",
+      "file_name": "68631d5ca594.jpg"
+    },
+    "371": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_093",
+      "file_name": "a7e82ccd5f24.jpg"
+    },
+    "372": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_093",
+      "file_name": "576a0478d415.jpg"
+    },
+    "373": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_093",
+      "file_name": "ceac03a77609.jpg"
+    },
+    "374": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_093",
+      "file_name": "058a71b88101.jpg"
+    },
+    "375": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_093",
+      "file_name": "16a4eeab1a4d.jpg"
+    },
+    "376": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_094",
+      "file_name": "201d36886536.jpg"
+    },
+    "377": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_094",
+      "file_name": "ede4444cead2.jpg"
+    },
+    "378": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_094",
+      "file_name": "ecab602dd903.jpg"
+    },
+    "379": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_094",
+      "file_name": "38cbb5c7a525.jpg"
+    },
+    "380": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_094",
+      "file_name": "6af5543aa10e.jpg"
+    },
+    "381": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_095",
+      "file_name": "291c532175ac.jpg"
+    },
+    "382": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_095",
+      "file_name": "f01f5e204beb.jpg"
+    },
+    "383": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_095",
+      "file_name": "236bc9f57595.jpg"
+    },
+    "384": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_095",
+      "file_name": "31373a88fa1b.jpg"
+    },
+    "385": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_095",
+      "file_name": "6c6767a99b24.jpg"
+    },
+    "386": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_096",
+      "file_name": "d2089e047b73.jpg"
+    },
+    "387": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_096",
+      "file_name": "0df47211c691.jpg"
+    },
+    "388": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_096",
+      "file_name": "56587ddd2786.jpg"
+    },
+    "389": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_096",
+      "file_name": "d69157c0bf09.jpg"
+    },
+    "390": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_096",
+      "file_name": "3b62c408c76a.jpg"
+    },
+    "391": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_097",
+      "file_name": "c0f9a0d597f9.jpg"
+    },
+    "392": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_097",
+      "file_name": "24f4f68b4fbd.jpg"
+    },
+    "393": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_097",
+      "file_name": "0f2b4bcfd82d.jpg"
+    },
+    "394": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_097",
+      "file_name": "a3da9ed54cd7.jpg"
+    },
+    "395": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_097",
+      "file_name": "561248d61321.jpg"
+    },
+    "396": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_098",
+      "file_name": "489c710b548b.jpg"
+    },
+    "397": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_098",
+      "file_name": "e5d20c23a1d5.jpg"
+    },
+    "398": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_098",
+      "file_name": "3bd6bdf8751c.jpg"
+    },
+    "399": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_098",
+      "file_name": "f909c0a7eefd.jpg"
+    },
+    "400": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_098",
+      "file_name": "6031c17a2a55.jpg"
+    },
+    "401": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_099",
+      "file_name": "d76d1394f41f.jpg"
+    },
+    "402": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_099",
+      "file_name": "9bf508b9fa2b.jpg"
+    },
+    "403": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_099",
+      "file_name": "05fb2f97cb15.jpg"
+    },
+    "404": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_099",
+      "file_name": "ad7cf555121a.jpg"
+    },
+    "405": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_099",
+      "file_name": "bb8d1ce9f152.jpg"
+    },
+    "406": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_102",
+      "file_name": "88c72962e286.jpg"
+    },
+    "407": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_102",
+      "file_name": "5bee91bdb047.jpg"
+    },
+    "408": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_102",
+      "file_name": "a96c394cd747.jpg"
+    },
+    "409": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_102",
+      "file_name": "b642b67db7cc.jpg"
+    },
+    "410": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_102",
+      "file_name": "f760057eac2d.jpg"
+    },
+    "411": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_103",
+      "file_name": "a73663e01112.jpg"
+    },
+    "412": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_103",
+      "file_name": "f7211e31d467.jpg"
+    },
+    "413": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_103",
+      "file_name": "3d8c81a8d3dd.jpg"
+    },
+    "414": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_103",
+      "file_name": "0b02b964a659.jpg"
+    },
+    "415": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_103",
+      "file_name": "557a8416c7d9.jpg"
+    },
+    "416": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_104",
+      "file_name": "9501416b3a05.jpg"
+    },
+    "417": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_104",
+      "file_name": "55ae1dc5a7ad.jpg"
+    },
+    "418": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_104",
+      "file_name": "f3c951bae153.jpg"
+    },
+    "419": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_104",
+      "file_name": "7d37fc19a4b2.jpg"
+    },
+    "420": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_104",
+      "file_name": "07be47d2e93b.jpg"
+    },
+    "421": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_105",
+      "file_name": "1ff40dea07f7.jpg"
+    },
+    "422": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_105",
+      "file_name": "6ebdbbdeeb4a.jpg"
+    },
+    "423": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_105",
+      "file_name": "811ac2b0de6e.jpg"
+    },
+    "424": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_105",
+      "file_name": "c2c4e324a663.jpg"
+    },
+    "425": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_105",
+      "file_name": "07354be6d4c3.jpg"
+    },
+    "426": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_106",
+      "file_name": "b9609edf079a.jpg"
+    },
+    "427": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_106",
+      "file_name": "8a4fb7fbf22a.jpg"
+    },
+    "428": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_106",
+      "file_name": "273efabd7ae6.jpg"
+    },
+    "429": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_106",
+      "file_name": "d9e298822177.jpg"
+    },
+    "430": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_106",
+      "file_name": "68229554de96.jpg"
+    },
+    "431": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_107",
+      "file_name": "0487b6138951.jpg"
+    },
+    "432": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_107",
+      "file_name": "e9b61458050a.jpg"
+    },
+    "433": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_107",
+      "file_name": "207efea0d6b8.jpg"
+    },
+    "434": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_107",
+      "file_name": "b13adf9df0ea.jpg"
+    },
+    "435": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_107",
+      "file_name": "d9e598c5a983.jpg"
+    },
+    "436": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_108",
+      "file_name": "82a6d7ad443c.jpg"
+    },
+    "437": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_108",
+      "file_name": "c3f445e47348.jpg"
+    },
+    "438": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_108",
+      "file_name": "af138041d844.jpg"
+    },
+    "439": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_108",
+      "file_name": "a001da99370c.jpg"
+    },
+    "440": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_108",
+      "file_name": "2faf7e6b3d05.jpg"
+    },
+    "441": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_109",
+      "file_name": "f91b636b383f.jpg"
+    },
+    "442": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_109",
+      "file_name": "44b493a641cc.jpg"
+    },
+    "443": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_109",
+      "file_name": "38a3ccdaa009.jpg"
+    },
+    "444": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_109",
+      "file_name": "612e7ac28972.jpg"
+    },
+    "445": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_109",
+      "file_name": "cae5f5c46de4.jpg"
+    },
+    "446": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_110",
+      "file_name": "e5987f01427b.jpg"
+    },
+    "447": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_110",
+      "file_name": "c83381600ed0.jpg"
+    },
+    "448": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_110",
+      "file_name": "aa51faaa331d.jpg"
+    },
+    "449": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_110",
+      "file_name": "06cf6342d3e1.jpg"
+    },
+    "450": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_110",
+      "file_name": "5f6fe0e0eb54.jpg"
+    },
+    "451": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_112",
+      "file_name": "f1dae2261b20.jpg"
+    },
+    "452": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_112",
+      "file_name": "008017c779eb.jpg"
+    },
+    "453": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_112",
+      "file_name": "67f9b4956d22.jpg"
+    },
+    "454": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_112",
+      "file_name": "419920775b83.jpg"
+    },
+    "455": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_112",
+      "file_name": "b9c9479885fd.jpg"
+    },
+    "456": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_113",
+      "file_name": "85cc8ecff236.jpg"
+    },
+    "457": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_113",
+      "file_name": "190aee244dc3.jpg"
+    },
+    "458": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_113",
+      "file_name": "71effc21496f.jpg"
+    },
+    "459": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_113",
+      "file_name": "4ab5e30df421.jpg"
+    },
+    "460": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_113",
+      "file_name": "c879a059a737.jpg"
+    },
+    "461": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_116",
+      "file_name": "3847724cff6d.jpg"
+    },
+    "462": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_116",
+      "file_name": "202c25c03952.jpg"
+    },
+    "463": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_116",
+      "file_name": "28f97f3589f0.jpg"
+    },
+    "464": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_116",
+      "file_name": "f044e4afc493.jpg"
+    },
+    "465": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_116",
+      "file_name": "a9b6c8174930.jpg"
+    },
+    "466": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_117",
+      "file_name": "4afb111f5019.jpg"
+    },
+    "467": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_117",
+      "file_name": "3663c0a88500.jpg"
+    },
+    "468": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_117",
+      "file_name": "39564a97048f.jpg"
+    },
+    "469": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_117",
+      "file_name": "cc14bb414287.jpg"
+    },
+    "470": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_117",
+      "file_name": "3912fdf96367.jpg"
+    },
+    "471": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_119",
+      "file_name": "4c66d121c77d.jpg"
+    },
+    "472": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_119",
+      "file_name": "1f026b6c456f.jpg"
+    },
+    "473": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_119",
+      "file_name": "1dddf9b09341.jpg"
+    },
+    "474": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_119",
+      "file_name": "7292ae9f035d.jpg"
+    },
+    "475": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_119",
+      "file_name": "4ab3c8dfb0fe.jpg"
+    },
+    "476": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_121",
+      "file_name": "6bf3af12c152.jpg"
+    },
+    "477": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_121",
+      "file_name": "f199ef9267cc.jpg"
+    },
+    "478": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_121",
+      "file_name": "ccc9c81a9941.jpg"
+    },
+    "479": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_121",
+      "file_name": "f23ee0f8ef21.jpg"
+    },
+    "480": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_121",
+      "file_name": "e723a9bb10ff.jpg"
+    },
+    "481": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_122",
+      "file_name": "a845e55ec2de.jpg"
+    },
+    "482": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_122",
+      "file_name": "bfa5747a9b4c.jpg"
+    },
+    "483": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_122",
+      "file_name": "14eecdde5970.jpg"
+    },
+    "484": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_122",
+      "file_name": "6027a6b96f5f.jpg"
+    },
+    "485": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_122",
+      "file_name": "6dda2cb066a1.jpg"
+    },
+    "486": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_123",
+      "file_name": "2c96c59e13a8.jpg"
+    },
+    "487": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_123",
+      "file_name": "a384d9cdf8bf.jpg"
+    },
+    "488": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_123",
+      "file_name": "b0e47d6d4ca1.jpg"
+    },
+    "489": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_123",
+      "file_name": "ad08d7f7b840.jpg"
+    },
+    "490": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_123",
+      "file_name": "b373fa160842.jpg"
+    },
+    "491": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_126",
+      "file_name": "c7c9b3056133.jpg"
+    },
+    "492": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_126",
+      "file_name": "83d87a75bea3.jpg"
+    },
+    "493": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_126",
+      "file_name": "22a9344eb7c8.jpg"
+    },
+    "494": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_126",
+      "file_name": "44f58271f857.jpg"
+    },
+    "495": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_126",
+      "file_name": "769d89ea016d.jpg"
+    },
+    "496": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_127",
+      "file_name": "cdc10c5d0c90.jpg"
+    },
+    "497": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_127",
+      "file_name": "bb9c330b7d7c.jpg"
+    },
+    "498": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_127",
+      "file_name": "c736b82fd93c.jpg"
+    },
+    "499": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_127",
+      "file_name": "d091ebc14a60.jpg"
+    },
+    "500": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_127",
+      "file_name": "f704c73398de.jpg"
+    },
+    "501": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_128",
+      "file_name": "e48f197a152a.jpg"
+    },
+    "502": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_128",
+      "file_name": "fbf87ef105c2.jpg"
+    },
+    "503": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_128",
+      "file_name": "3130989daf55.jpg"
+    },
+    "504": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_128",
+      "file_name": "ebade3df5704.jpg"
+    },
+    "505": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_128",
+      "file_name": "1c7f8af521d2.jpg"
+    },
+    "506": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_129",
+      "file_name": "42a49bb1abbb.jpg"
+    },
+    "507": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_129",
+      "file_name": "e51b5380d025.jpg"
+    },
+    "508": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_129",
+      "file_name": "f6b9cb7c93a4.jpg"
+    },
+    "509": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_129",
+      "file_name": "15a9f82c7d5b.jpg"
+    },
+    "510": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_129",
+      "file_name": "d3f2675c53d3.jpg"
+    },
+    "511": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_130",
+      "file_name": "834627cafbff.jpg"
+    },
+    "512": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_130",
+      "file_name": "36386c9e5131.jpg"
+    },
+    "513": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_130",
+      "file_name": "6c11a5504cdd.jpg"
+    },
+    "514": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_130",
+      "file_name": "46b369395561.jpg"
+    },
+    "515": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_130",
+      "file_name": "8dac84075a57.jpg"
+    },
+    "516": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_131",
+      "file_name": "c37a406b73a4.jpg"
+    },
+    "517": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_131",
+      "file_name": "6736c8856d3f.jpg"
+    },
+    "518": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_131",
+      "file_name": "07130d19541b.jpg"
+    },
+    "519": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_131",
+      "file_name": "01ecd7ac7f0e.jpg"
+    },
+    "520": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_131",
+      "file_name": "c236c5483dea.jpg"
+    },
+    "521": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_132",
+      "file_name": "3beeb3d19a08.jpg"
+    },
+    "522": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_132",
+      "file_name": "63fc6293adc8.jpg"
+    },
+    "523": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_132",
+      "file_name": "d026c16f8b1b.jpg"
+    },
+    "524": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_132",
+      "file_name": "c9eb9d71611d.jpg"
+    },
+    "525": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_132",
+      "file_name": "29f196047c06.jpg"
+    },
+    "526": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_133",
+      "file_name": "ed160abc5c7c.jpg"
+    },
+    "527": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_133",
+      "file_name": "4a9edfbaef04.jpg"
+    },
+    "528": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_133",
+      "file_name": "370706307976.jpg"
+    },
+    "529": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_133",
+      "file_name": "dfe3adab98a2.jpg"
+    },
+    "530": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_133",
+      "file_name": "45b42766c294.jpg"
+    },
+    "531": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_135",
+      "file_name": "22218f3c73c3.jpg"
+    },
+    "532": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_135",
+      "file_name": "e4574f2a32f9.jpg"
+    },
+    "533": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_135",
+      "file_name": "2eca8355731b.jpg"
+    },
+    "534": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_135",
+      "file_name": "24ce1a29afba.jpg"
+    },
+    "535": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_135",
+      "file_name": "df83efb5aef9.jpg"
+    },
+    "536": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_136",
+      "file_name": "75d96db47f01.jpg"
+    },
+    "537": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_136",
+      "file_name": "8e42f38d00da.jpg"
+    },
+    "538": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_136",
+      "file_name": "749fe34352c1.jpg"
+    },
+    "539": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_136",
+      "file_name": "08039c14f097.jpg"
+    },
+    "540": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_136",
+      "file_name": "48d34bbda320.jpg"
+    },
+    "541": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_138",
+      "file_name": "288c5cea798e.jpg"
+    },
+    "542": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_138",
+      "file_name": "56d7ccf0e210.jpg"
+    },
+    "543": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_138",
+      "file_name": "9d7995d6ac50.jpg"
+    },
+    "544": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_138",
+      "file_name": "c35554e974c4.jpg"
+    },
+    "545": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_138",
+      "file_name": "c6240b925410.jpg"
+    },
+    "546": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_139",
+      "file_name": "c8d363c30979.jpg"
+    },
+    "547": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_139",
+      "file_name": "7ff0b9b7bc6a.jpg"
+    },
+    "548": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_139",
+      "file_name": "28d4395adb1f.jpg"
+    },
+    "549": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_139",
+      "file_name": "41b24325ccde.jpg"
+    },
+    "550": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_139",
+      "file_name": "6af0e99697fc.jpg"
+    },
+    "551": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_140",
+      "file_name": "b56478e60f65.jpg"
+    },
+    "552": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_140",
+      "file_name": "d6457a074875.jpg"
+    },
+    "553": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_140",
+      "file_name": "753abbbeefab.jpg"
+    },
+    "554": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_140",
+      "file_name": "9e99f61f1cb1.jpg"
+    },
+    "555": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_140",
+      "file_name": "c72b851782c5.jpg"
+    },
+    "556": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_141",
+      "file_name": "c532e6423a1d.jpg"
+    },
+    "557": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_141",
+      "file_name": "c8966bac80ea.jpg"
+    },
+    "558": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_141",
+      "file_name": "d4b605f94f27.jpg"
+    },
+    "559": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_141",
+      "file_name": "99f02f7afb27.jpg"
+    },
+    "560": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_141",
+      "file_name": "236932ef023f.jpg"
+    },
+    "561": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_142",
+      "file_name": "a4fc2b8bed60.jpg"
+    },
+    "562": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_142",
+      "file_name": "7ff1696aa232.jpg"
+    },
+    "563": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_142",
+      "file_name": "cd1cda06091e.jpg"
+    },
+    "564": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_142",
+      "file_name": "348cdcbaffa1.jpg"
+    },
+    "565": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_142",
+      "file_name": "72c54c43c808.jpg"
+    },
+    "566": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_143",
+      "file_name": "0015335eccd0.jpg"
+    },
+    "567": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_143",
+      "file_name": "48669f684f5f.jpg"
+    },
+    "568": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_143",
+      "file_name": "196b1e4ef00c.jpg"
+    },
+    "569": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_143",
+      "file_name": "031ee73c1289.jpg"
+    },
+    "570": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_143",
+      "file_name": "dd6dd32761b2.jpg"
+    },
+    "571": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_144",
+      "file_name": "a480b4919c27.jpg"
+    },
+    "572": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_144",
+      "file_name": "a82ddd6dbd1b.jpg"
+    },
+    "573": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_144",
+      "file_name": "f2fdde02efbc.jpg"
+    },
+    "574": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_144",
+      "file_name": "c6d61f186de7.jpg"
+    },
+    "575": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_144",
+      "file_name": "f3fb3b3adfd2.jpg"
+    },
+    "576": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_145",
+      "file_name": "6c12082e8bd0.jpg"
+    },
+    "577": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_145",
+      "file_name": "c131c861706d.jpg"
+    },
+    "578": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_145",
+      "file_name": "a43cf5dc1ac1.jpg"
+    },
+    "579": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_145",
+      "file_name": "da51a00777a5.jpg"
+    },
+    "580": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_145",
+      "file_name": "f0dedd2fe6ca.jpg"
+    },
+    "581": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_146",
+      "file_name": "1ec2f5e08f27.jpg"
+    },
+    "582": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_146",
+      "file_name": "fb3ec2b1d47e.jpg"
+    },
+    "583": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_146",
+      "file_name": "f42eba99d2cd.jpg"
+    },
+    "584": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_146",
+      "file_name": "27397c4768cb.jpg"
+    },
+    "585": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_146",
+      "file_name": "59b70b0689e9.jpg"
+    },
+    "586": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_148",
+      "file_name": "490ba9329299.jpg"
+    },
+    "587": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_148",
+      "file_name": "3dab35863022.jpg"
+    },
+    "588": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_148",
+      "file_name": "a95700df96bb.jpg"
+    },
+    "589": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_148",
+      "file_name": "9c708a3f2c3d.jpg"
+    },
+    "590": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_148",
+      "file_name": "551549ff6bb7.jpg"
+    },
+    "591": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_149",
+      "file_name": "2c71ab805962.jpg"
+    },
+    "592": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_149",
+      "file_name": "bf3365cd3471.jpg"
+    },
+    "593": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_149",
+      "file_name": "019575545801.jpg"
+    },
+    "594": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_149",
+      "file_name": "1c60f7e25b22.jpg"
+    },
+    "595": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_149",
+      "file_name": "429970ffed88.jpg"
+    },
+    "596": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_150",
+      "file_name": "fafdf2ef8e97.jpg"
+    },
+    "597": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_150",
+      "file_name": "d38940019f6a.jpg"
+    },
+    "598": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_150",
+      "file_name": "8adfaa9394ec.jpg"
+    },
+    "599": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_150",
+      "file_name": "1a00c4aaba64.jpg"
+    },
+    "600": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_150",
+      "file_name": "2f2e127bd4ef.jpg"
+    },
+    "601": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_151",
+      "file_name": "454437427df3.jpg"
+    },
+    "602": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_151",
+      "file_name": "0d6055707538.jpg"
+    },
+    "603": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_151",
+      "file_name": "b52063c49dbf.jpg"
+    },
+    "604": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_151",
+      "file_name": "aa6a0b40b90c.jpg"
+    },
+    "605": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_151",
+      "file_name": "d95e40e4af8f.jpg"
+    },
+    "606": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_152",
+      "file_name": "d6e079d37884.jpg"
+    },
+    "607": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_152",
+      "file_name": "426a2563ec22.jpg"
+    },
+    "608": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_152",
+      "file_name": "7de27274a334.jpg"
+    },
+    "609": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_152",
+      "file_name": "7aafcbc97f45.jpg"
+    },
+    "610": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_152",
+      "file_name": "42b39b2de7fc.jpg"
+    },
+    "611": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_153",
+      "file_name": "6f4f5006c6f1.jpg"
+    },
+    "612": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_153",
+      "file_name": "361781a8a926.jpg"
+    },
+    "613": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_153",
+      "file_name": "4363ec0d7099.jpg"
+    },
+    "614": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_153",
+      "file_name": "90699486706e.jpg"
+    },
+    "615": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_153",
+      "file_name": "999e12983bde.jpg"
+    },
+    "616": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_155",
+      "file_name": "c71c3a62a6cc.jpg"
+    },
+    "617": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_155",
+      "file_name": "307282cf87f0.jpg"
+    },
+    "618": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_155",
+      "file_name": "0a3ddceb4b81.jpg"
+    },
+    "619": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_155",
+      "file_name": "751d60018eaf.jpg"
+    },
+    "620": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_155",
+      "file_name": "a58f91112ab8.jpg"
+    },
+    "621": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_156",
+      "file_name": "916284f9aa2b.jpg"
+    },
+    "622": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_156",
+      "file_name": "ba79301d69a8.jpg"
+    },
+    "623": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_156",
+      "file_name": "0aec2d67cc50.jpg"
+    },
+    "624": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_156",
+      "file_name": "d9cf8593f3b0.jpg"
+    },
+    "625": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_156",
+      "file_name": "30e7b5297a34.jpg"
+    },
+    "626": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_157",
+      "file_name": "86469064e579.jpg"
+    },
+    "627": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_157",
+      "file_name": "9458ce5ff291.jpg"
+    },
+    "628": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_157",
+      "file_name": "1e4b430b2fea.jpg"
+    },
+    "629": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_157",
+      "file_name": "5d51f63e8100.jpg"
+    },
+    "630": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_157",
+      "file_name": "7cc01bbaacba.jpg"
+    },
+    "631": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_158",
+      "file_name": "39240566fd7b.jpg"
+    },
+    "632": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_158",
+      "file_name": "7cdec0475448.jpg"
+    },
+    "633": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_158",
+      "file_name": "497393b75ede.jpg"
+    },
+    "634": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_158",
+      "file_name": "19214df93fe9.jpg"
+    },
+    "635": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_158",
+      "file_name": "a92be5409936.jpg"
+    },
+    "636": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_159",
+      "file_name": "95a826ff78b0.jpg"
+    },
+    "637": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_159",
+      "file_name": "0a1fb7a804e6.jpg"
+    },
+    "638": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_159",
+      "file_name": "4a7ee9045957.jpg"
+    },
+    "639": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_159",
+      "file_name": "aa74913d2276.jpg"
+    },
+    "640": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_159",
+      "file_name": "c2d3f001ae58.jpg"
+    },
+    "641": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_160",
+      "file_name": "99915b36db9b.jpg"
+    },
+    "642": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_160",
+      "file_name": "39a4c5d2b79e.jpg"
+    },
+    "643": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_160",
+      "file_name": "3815e6753912.jpg"
+    },
+    "644": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_160",
+      "file_name": "4361e2994a8a.jpg"
+    },
+    "645": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_160",
+      "file_name": "e1f0c1a2770b.jpg"
+    },
+    "646": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_161",
+      "file_name": "1985fa902002.jpg"
+    },
+    "647": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_161",
+      "file_name": "853df8a3e649.jpg"
+    },
+    "648": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_161",
+      "file_name": "a66ccb728467.jpg"
+    },
+    "649": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_161",
+      "file_name": "17fbd6b3ad76.jpg"
+    },
+    "650": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_161",
+      "file_name": "993c14ea2077.jpg"
+    },
+    "651": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_163",
+      "file_name": "9c1e18393732.jpg"
+    },
+    "652": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_163",
+      "file_name": "d585cc08249b.jpg"
+    },
+    "653": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_163",
+      "file_name": "2d812cd275fa.jpg"
+    },
+    "654": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_163",
+      "file_name": "29abcc6bc9a4.jpg"
+    },
+    "655": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_163",
+      "file_name": "af6f46d6f86e.jpg"
+    },
+    "656": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_164",
+      "file_name": "54e90724dc25.jpg"
+    },
+    "657": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_164",
+      "file_name": "6543be428455.jpg"
+    },
+    "658": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_164",
+      "file_name": "d62d41872afe.jpg"
+    },
+    "659": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_164",
+      "file_name": "3fb6b0e09ef8.jpg"
+    },
+    "660": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_164",
+      "file_name": "b244abbfdbab.jpg"
+    },
+    "661": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_166",
+      "file_name": "1e85b9b4966f.jpg"
+    },
+    "662": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_166",
+      "file_name": "96464f2ec876.jpg"
+    },
+    "663": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_166",
+      "file_name": "157392225caf.jpg"
+    },
+    "664": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_166",
+      "file_name": "088842d767eb.jpg"
+    },
+    "665": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_166",
+      "file_name": "67220883c9c3.jpg"
+    },
+    "666": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_167",
+      "file_name": "d5162dd11b39.jpg"
+    },
+    "667": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_167",
+      "file_name": "76ee245f0771.jpg"
+    },
+    "668": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_167",
+      "file_name": "b25427b9a1cc.jpg"
+    },
+    "669": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_167",
+      "file_name": "a6fb74b36188.jpg"
+    },
+    "670": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_167",
+      "file_name": "bb60d1652857.jpg"
+    },
+    "671": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_169",
+      "file_name": "508b2d83f24f.jpg"
+    },
+    "672": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_169",
+      "file_name": "3d5734a0ab7a.jpg"
+    },
+    "673": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_169",
+      "file_name": "64930b3a6dc4.jpg"
+    },
+    "674": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_169",
+      "file_name": "678b1a3f61f2.jpg"
+    },
+    "675": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_169",
+      "file_name": "868caf0e1048.jpg"
+    },
+    "676": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_171",
+      "file_name": "e8438a3928e9.jpg"
+    },
+    "677": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_171",
+      "file_name": "b31048a88465.jpg"
+    },
+    "678": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_171",
+      "file_name": "9fb09d3d5293.jpg"
+    },
+    "679": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_171",
+      "file_name": "0d5e8a0f0368.jpg"
+    },
+    "680": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_171",
+      "file_name": "7036681c9c3e.jpg"
+    },
+    "681": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_172",
+      "file_name": "b59dec443364.jpg"
+    },
+    "682": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_172",
+      "file_name": "7745f2413e2c.jpg"
+    },
+    "683": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_172",
+      "file_name": "6c80192d43dd.jpg"
+    },
+    "684": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_172",
+      "file_name": "f31e58929966.jpg"
+    },
+    "685": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_172",
+      "file_name": "64a900b79a59.jpg"
+    },
+    "686": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_173",
+      "file_name": "5134dee78f77.jpg"
+    },
+    "687": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_173",
+      "file_name": "3bd2a8342e9a.jpg"
+    },
+    "688": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_173",
+      "file_name": "34a2d2939b1f.jpg"
+    },
+    "689": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_173",
+      "file_name": "854c93c81170.jpg"
+    },
+    "690": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_173",
+      "file_name": "335bf686edd5.jpg"
+    },
+    "691": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_174",
+      "file_name": "43f90f79663e.jpg"
+    },
+    "692": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_174",
+      "file_name": "2739e7943b89.jpg"
+    },
+    "693": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_174",
+      "file_name": "35e0a9ce54fe.jpg"
+    },
+    "694": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_174",
+      "file_name": "c54ecaff3e52.jpg"
+    },
+    "695": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_174",
+      "file_name": "1730ec6e38b2.jpg"
+    },
+    "696": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_175",
+      "file_name": "1d43473e95db.jpg"
+    },
+    "697": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_175",
+      "file_name": "76d37c127bcb.jpg"
+    },
+    "698": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_175",
+      "file_name": "bbe4ba42dc3e.jpg"
+    },
+    "699": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_175",
+      "file_name": "ea96638c7113.jpg"
+    },
+    "700": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_175",
+      "file_name": "c41a137b12f5.jpg"
+    },
+    "701": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_177",
+      "file_name": "102f0213a67b.jpg"
+    },
+    "702": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_177",
+      "file_name": "ed679b35b119.jpg"
+    },
+    "703": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_177",
+      "file_name": "7c1e67b288bb.jpg"
+    },
+    "704": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_177",
+      "file_name": "7761e351d568.jpg"
+    },
+    "705": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_177",
+      "file_name": "4aa0e14b751a.jpg"
+    },
+    "706": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_178",
+      "file_name": "c193cddb5778.jpg"
+    },
+    "707": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_178",
+      "file_name": "1a2e761d1ad1.jpg"
+    },
+    "708": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_178",
+      "file_name": "38f39b752bd9.jpg"
+    },
+    "709": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_178",
+      "file_name": "b24465f79e84.jpg"
+    },
+    "710": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_178",
+      "file_name": "a3dc67491775.jpg"
+    },
+    "711": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_179",
+      "file_name": "3f843892337e.jpg"
+    },
+    "712": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_179",
+      "file_name": "9c38042a0409.jpg"
+    },
+    "713": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_179",
+      "file_name": "dc42d86a628c.jpg"
+    },
+    "714": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_179",
+      "file_name": "496ac6097250.jpg"
+    },
+    "715": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_179",
+      "file_name": "5ebc25f97a9a.jpg"
+    },
+    "716": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_181",
+      "file_name": "5bffd03980ee.jpg"
+    },
+    "717": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_181",
+      "file_name": "f96361eeb7d0.jpg"
+    },
+    "718": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_181",
+      "file_name": "c2bb031e275d.jpg"
+    },
+    "719": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_181",
+      "file_name": "196c544019ae.jpg"
+    },
+    "720": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_181",
+      "file_name": "6de686054f51.jpg"
+    },
+    "721": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_182",
+      "file_name": "975637313911.jpg"
+    },
+    "722": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_182",
+      "file_name": "baf873cd6aaf.jpg"
+    },
+    "723": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_182",
+      "file_name": "4178b00ac455.jpg"
+    },
+    "724": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_182",
+      "file_name": "f8b2fdc81def.jpg"
+    },
+    "725": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_182",
+      "file_name": "e448dbc05696.jpg"
+    },
+    "726": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_183",
+      "file_name": "6ff861f1f77e.jpg"
+    },
+    "727": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_183",
+      "file_name": "13051b46f7ca.jpg"
+    },
+    "728": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_183",
+      "file_name": "6dbdf48ecba5.jpg"
+    },
+    "729": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_183",
+      "file_name": "a86c1a3b0e32.jpg"
+    },
+    "730": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_183",
+      "file_name": "dd1cf9437a1f.jpg"
+    },
+    "731": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_184",
+      "file_name": "c3b3291d587b.jpg"
+    },
+    "732": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_184",
+      "file_name": "2084c64e939b.jpg"
+    },
+    "733": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_184",
+      "file_name": "d50bc897ba81.jpg"
+    },
+    "734": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_184",
+      "file_name": "15bf8f6c1441.jpg"
+    },
+    "735": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_184",
+      "file_name": "3114904e11bb.jpg"
+    },
+    "736": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_185",
+      "file_name": "4867d2f557ce.jpg"
+    },
+    "737": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_185",
+      "file_name": "9b4e658ca5b6.jpg"
+    },
+    "738": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_185",
+      "file_name": "2df8dc733a30.jpg"
+    },
+    "739": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_185",
+      "file_name": "157b06c9bd63.jpg"
+    },
+    "740": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_185",
+      "file_name": "368ae4c9fdf6.jpg"
+    },
+    "741": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_186",
+      "file_name": "121d6b8e9f23.jpg"
+    },
+    "742": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_186",
+      "file_name": "b7feec4d7147.jpg"
+    },
+    "743": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_186",
+      "file_name": "22b7be16e495.jpg"
+    },
+    "744": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_186",
+      "file_name": "b4ab6d70ad02.jpg"
+    },
+    "745": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_186",
+      "file_name": "3e4650e4a837.jpg"
+    },
+    "746": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_188",
+      "file_name": "08daff6f8951.jpg"
+    },
+    "747": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_188",
+      "file_name": "c130e1e80a56.jpg"
+    },
+    "748": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_188",
+      "file_name": "b1b629dabcd8.jpg"
+    },
+    "749": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_188",
+      "file_name": "cbe2c8091adf.jpg"
+    },
+    "750": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_188",
+      "file_name": "2d7ffd269994.jpg"
+    }
+  },
+  "val": {
+    "1": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_011",
+      "file_name": "69a7259082c5.jpg"
+    },
+    "2": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_011",
+      "file_name": "1ed268c9efc6.jpg"
+    },
+    "3": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_011",
+      "file_name": "9c519e5d93ce.jpg"
+    },
+    "4": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_011",
+      "file_name": "f5a0751b9b90.jpg"
+    },
+    "5": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_011",
+      "file_name": "5771f1a6a320.jpg"
+    },
+    "6": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_014",
+      "file_name": "384839c2bc51.jpg"
+    },
+    "7": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_014",
+      "file_name": "fd9641160826.jpg"
+    },
+    "8": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_014",
+      "file_name": "d39900cc664f.jpg"
+    },
+    "9": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_014",
+      "file_name": "744cbbfd5012.jpg"
+    },
+    "10": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_014",
+      "file_name": "ecdee6e4e7af.jpg"
+    },
+    "11": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_019",
+      "file_name": "3da4f70b80a5.jpg"
+    },
+    "12": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_019",
+      "file_name": "5048481b91cf.jpg"
+    },
+    "13": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_019",
+      "file_name": "273009fddd82.jpg"
+    },
+    "14": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_019",
+      "file_name": "bc0e78484535.jpg"
+    },
+    "15": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_019",
+      "file_name": "aa5eccdfa13b.jpg"
+    },
+    "16": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_029",
+      "file_name": "2cc0b0611a57.jpg"
+    },
+    "17": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_029",
+      "file_name": "150805c407ab.jpg"
+    },
+    "18": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_029",
+      "file_name": "665e9757f2cb.jpg"
+    },
+    "19": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_029",
+      "file_name": "5981a6b3c9e8.jpg"
+    },
+    "20": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_029",
+      "file_name": "a949d70f4f95.jpg"
+    },
+    "21": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_030",
+      "file_name": "ef2ac922bc1a.jpg"
+    },
+    "22": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_030",
+      "file_name": "e0af49b72777.jpg"
+    },
+    "23": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_030",
+      "file_name": "0ba60799655e.jpg"
+    },
+    "24": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_030",
+      "file_name": "08fdbd62df91.jpg"
+    },
+    "25": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_030",
+      "file_name": "1060303e8f5f.jpg"
+    },
+    "26": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_031",
+      "file_name": "f39f904d5dbc.jpg"
+    },
+    "27": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_031",
+      "file_name": "2ac65d29302a.jpg"
+    },
+    "28": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_031",
+      "file_name": "14b55f2e4eff.jpg"
+    },
+    "29": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_031",
+      "file_name": "2a71f30bb6ad.jpg"
+    },
+    "30": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_031",
+      "file_name": "0bc750923d6f.jpg"
+    },
+    "31": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_034",
+      "file_name": "527be1c2846c.jpg"
+    },
+    "32": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_034",
+      "file_name": "0b2a7ca22a2e.jpg"
+    },
+    "33": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_034",
+      "file_name": "c2ee6eb197c0.jpg"
+    },
+    "34": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_034",
+      "file_name": "74c5e894621c.jpg"
+    },
+    "35": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_034",
+      "file_name": "52c830c858b1.jpg"
+    },
+    "36": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_035",
+      "file_name": "ed6d46c46c93.jpg"
+    },
+    "37": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_035",
+      "file_name": "052813f2c915.jpg"
+    },
+    "38": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_035",
+      "file_name": "b6fdaedf1118.jpg"
+    },
+    "39": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_035",
+      "file_name": "0ab5833c8560.jpg"
+    },
+    "40": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_035",
+      "file_name": "e2c2a5c3bcde.jpg"
+    },
+    "41": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_037",
+      "file_name": "f71d7e2d62bd.jpg"
+    },
+    "42": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_037",
+      "file_name": "c35039e29fad.jpg"
+    },
+    "43": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_037",
+      "file_name": "bac9f104eaf6.jpg"
+    },
+    "44": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_037",
+      "file_name": "4aa8f4ea8faf.jpg"
+    },
+    "45": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_037",
+      "file_name": "ec0985b99f0e.jpg"
+    },
+    "46": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_043",
+      "file_name": "bf76171127a7.jpg"
+    },
+    "47": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_043",
+      "file_name": "8eb9dd00b40b.jpg"
+    },
+    "48": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_043",
+      "file_name": "bdddea474e65.jpg"
+    },
+    "49": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_043",
+      "file_name": "2ff266657c18.jpg"
+    },
+    "50": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_043",
+      "file_name": "8dd7dfcaa31b.jpg"
+    },
+    "51": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_047",
+      "file_name": "c3b2319547bd.jpg"
+    },
+    "52": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_047",
+      "file_name": "1c550e09ed2e.jpg"
+    },
+    "53": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_047",
+      "file_name": "bc2f47c659ac.jpg"
+    },
+    "54": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_047",
+      "file_name": "a1cb0969b0e0.jpg"
+    },
+    "55": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_047",
+      "file_name": "cc174411222b.jpg"
+    },
+    "56": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_056",
+      "file_name": "290aee5372e9.jpg"
+    },
+    "57": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_056",
+      "file_name": "a9ce02417f5d.jpg"
+    },
+    "58": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_056",
+      "file_name": "6d3065b673e6.jpg"
+    },
+    "59": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_056",
+      "file_name": "a7dc2357e2b8.jpg"
+    },
+    "60": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_056",
+      "file_name": "29c2737f349e.jpg"
+    },
+    "61": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_057",
+      "file_name": "e6de8859f36d.jpg"
+    },
+    "62": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_057",
+      "file_name": "c97d71116462.jpg"
+    },
+    "63": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_057",
+      "file_name": "b1758a3dd05f.jpg"
+    },
+    "64": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_057",
+      "file_name": "3718c59372f5.jpg"
+    },
+    "65": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_057",
+      "file_name": "fb0962ee82db.jpg"
+    },
+    "66": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_072",
+      "file_name": "042b343c77a1.jpg"
+    },
+    "67": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_072",
+      "file_name": "92b75ded79f9.jpg"
+    },
+    "68": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_072",
+      "file_name": "80e953be8020.jpg"
+    },
+    "69": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_072",
+      "file_name": "b89462074e63.jpg"
+    },
+    "70": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_072",
+      "file_name": "04665e3464f2.jpg"
+    },
+    "71": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_075",
+      "file_name": "2429a556f51b.jpg"
+    },
+    "72": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_075",
+      "file_name": "b96b5ba560a1.jpg"
+    },
+    "73": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_075",
+      "file_name": "a3d3a132ce90.jpg"
+    },
+    "74": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_075",
+      "file_name": "fe649777c596.jpg"
+    },
+    "75": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_075",
+      "file_name": "c1892e4e87b8.jpg"
+    },
+    "76": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_082",
+      "file_name": "882dd4d112b0.jpg"
+    },
+    "77": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_082",
+      "file_name": "1b01d95551d6.jpg"
+    },
+    "78": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_082",
+      "file_name": "bdc59d849366.jpg"
+    },
+    "79": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_082",
+      "file_name": "bb597176da42.jpg"
+    },
+    "80": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_082",
+      "file_name": "beb6d5938547.jpg"
+    },
+    "81": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_085",
+      "file_name": "23c255dad3fc.jpg"
+    },
+    "82": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_085",
+      "file_name": "338db54b28dd.jpg"
+    },
+    "83": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_085",
+      "file_name": "f125911c0afc.jpg"
+    },
+    "84": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_085",
+      "file_name": "650b117b4998.jpg"
+    },
+    "85": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_085",
+      "file_name": "db1a894650e3.jpg"
+    },
+    "86": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_086",
+      "file_name": "fe2d2a230541.jpg"
+    },
+    "87": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_086",
+      "file_name": "3fd9d96c614c.jpg"
+    },
+    "88": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_086",
+      "file_name": "2626dc3d063f.jpg"
+    },
+    "89": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_086",
+      "file_name": "43f3ee40558d.jpg"
+    },
+    "90": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_086",
+      "file_name": "8f3bd54dcace.jpg"
+    },
+    "91": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_100",
+      "file_name": "27168b5e6ab7.jpg"
+    },
+    "92": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_100",
+      "file_name": "0ad730ad4677.jpg"
+    },
+    "93": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_100",
+      "file_name": "de1fff11cb8a.jpg"
+    },
+    "94": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_100",
+      "file_name": "c58bc1038a82.jpg"
+    },
+    "95": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_100",
+      "file_name": "9a039f430bdf.jpg"
+    },
+    "96": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_101",
+      "file_name": "1569d67272dc.jpg"
+    },
+    "97": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_101",
+      "file_name": "1ebf01ec5060.jpg"
+    },
+    "98": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_101",
+      "file_name": "9f8f3b09f04d.jpg"
+    },
+    "99": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_101",
+      "file_name": "cc5a32c3c2b8.jpg"
+    },
+    "100": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_101",
+      "file_name": "f2dbbee52768.jpg"
+    },
+    "101": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_111",
+      "file_name": "ddaaefc18b20.jpg"
+    },
+    "102": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_111",
+      "file_name": "09b580a03be8.jpg"
+    },
+    "103": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_111",
+      "file_name": "bc95cf721e61.jpg"
+    },
+    "104": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_111",
+      "file_name": "e2a5b3a37ede.jpg"
+    },
+    "105": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_111",
+      "file_name": "eb9183647ee8.jpg"
+    },
+    "106": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_114",
+      "file_name": "56527b459fb7.jpg"
+    },
+    "107": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_114",
+      "file_name": "5956059db3a7.jpg"
+    },
+    "108": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_114",
+      "file_name": "17118c8bbfb7.jpg"
+    },
+    "109": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_114",
+      "file_name": "63d2bb56e76f.jpg"
+    },
+    "110": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_114",
+      "file_name": "b8d48400f8b3.jpg"
+    },
+    "111": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_115",
+      "file_name": "65d97ab6e29e.jpg"
+    },
+    "112": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_115",
+      "file_name": "d1b536b74576.jpg"
+    },
+    "113": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_115",
+      "file_name": "73ef288c8998.jpg"
+    },
+    "114": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_115",
+      "file_name": "74d553312833.jpg"
+    },
+    "115": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_115",
+      "file_name": "7693ef8ef96f.jpg"
+    },
+    "116": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_118",
+      "file_name": "425de5e4a5bd.jpg"
+    },
+    "117": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_118",
+      "file_name": "e2b9eb8627ec.jpg"
+    },
+    "118": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_118",
+      "file_name": "ae9f58aad38c.jpg"
+    },
+    "119": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_118",
+      "file_name": "2042705871fe.jpg"
+    },
+    "120": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_118",
+      "file_name": "e7aea13f1a00.jpg"
+    },
+    "121": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_120",
+      "file_name": "92f60f6ee7bf.jpg"
+    },
+    "122": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_120",
+      "file_name": "820c8202289f.jpg"
+    },
+    "123": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_120",
+      "file_name": "ce2f5ca44bb2.jpg"
+    },
+    "124": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_120",
+      "file_name": "152e9c2ddc73.jpg"
+    },
+    "125": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_120",
+      "file_name": "9b395c158625.jpg"
+    },
+    "126": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_124",
+      "file_name": "6bf18072aeea.jpg"
+    },
+    "127": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_124",
+      "file_name": "e525839b5135.jpg"
+    },
+    "128": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_124",
+      "file_name": "98b11dac610a.jpg"
+    },
+    "129": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_124",
+      "file_name": "11d83e7bb1a9.jpg"
+    },
+    "130": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_124",
+      "file_name": "9094cbed4802.jpg"
+    },
+    "131": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_125",
+      "file_name": "c9c1eb071acd.jpg"
+    },
+    "132": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_125",
+      "file_name": "55e562510d13.jpg"
+    },
+    "133": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_125",
+      "file_name": "9f0bb7200569.jpg"
+    },
+    "134": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_125",
+      "file_name": "2d7367fc53c7.jpg"
+    },
+    "135": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_125",
+      "file_name": "43721919b0b5.jpg"
+    },
+    "136": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_134",
+      "file_name": "0699eb2392b1.jpg"
+    },
+    "137": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_134",
+      "file_name": "75cb30b31556.jpg"
+    },
+    "138": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_134",
+      "file_name": "9534074bd047.jpg"
+    },
+    "139": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_134",
+      "file_name": "47c536b73b7f.jpg"
+    },
+    "140": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_134",
+      "file_name": "13fab14a98db.jpg"
+    },
+    "141": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_137",
+      "file_name": "40c44d25b60d.jpg"
+    },
+    "142": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_137",
+      "file_name": "c19facaa8efb.jpg"
+    },
+    "143": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_137",
+      "file_name": "cd7a83387a11.jpg"
+    },
+    "144": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_137",
+      "file_name": "4b84d76aeec5.jpg"
+    },
+    "145": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_137",
+      "file_name": "0718e09d92a2.jpg"
+    },
+    "146": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_147",
+      "file_name": "aabf52375022.jpg"
+    },
+    "147": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_147",
+      "file_name": "9945e391f57a.jpg"
+    },
+    "148": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_147",
+      "file_name": "1035f68fd50d.jpg"
+    },
+    "149": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_147",
+      "file_name": "a989e235313b.jpg"
+    },
+    "150": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_147",
+      "file_name": "c82095829f0d.jpg"
+    },
+    "151": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_154",
+      "file_name": "cd934ae3c74a.jpg"
+    },
+    "152": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_154",
+      "file_name": "75e244b6077a.jpg"
+    },
+    "153": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_154",
+      "file_name": "5f1c0913b740.jpg"
+    },
+    "154": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_154",
+      "file_name": "989e2dd8ddaa.jpg"
+    },
+    "155": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_154",
+      "file_name": "9221a9b5d5df.jpg"
+    },
+    "156": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_162",
+      "file_name": "2d820c5835c8.jpg"
+    },
+    "157": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_162",
+      "file_name": "39546efb5305.jpg"
+    },
+    "158": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_162",
+      "file_name": "5cf74db76a5d.jpg"
+    },
+    "159": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_162",
+      "file_name": "20d7d8af9742.jpg"
+    },
+    "160": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_162",
+      "file_name": "05ebd400f01b.jpg"
+    },
+    "161": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_165",
+      "file_name": "a1477e10f8e7.jpg"
+    },
+    "162": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_165",
+      "file_name": "ff7a8c4190c7.jpg"
+    },
+    "163": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_165",
+      "file_name": "3948273ee7b8.jpg"
+    },
+    "164": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_165",
+      "file_name": "dfb05482681e.jpg"
+    },
+    "165": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_165",
+      "file_name": "c0e92da63e68.jpg"
+    },
+    "166": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_168",
+      "file_name": "94a3a079beb9.jpg"
+    },
+    "167": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_168",
+      "file_name": "63d30599691d.jpg"
+    },
+    "168": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_168",
+      "file_name": "d8c5b887b4f7.jpg"
+    },
+    "169": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_168",
+      "file_name": "0a4749f69e35.jpg"
+    },
+    "170": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_168",
+      "file_name": "f06e885fbf67.jpg"
+    },
+    "171": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_170",
+      "file_name": "1ac4cddbc339.jpg"
+    },
+    "172": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_170",
+      "file_name": "8b9cd5fc2ac0.jpg"
+    },
+    "173": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_170",
+      "file_name": "f6e574aeffb5.jpg"
+    },
+    "174": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_170",
+      "file_name": "50be3f93f0dd.jpg"
+    },
+    "175": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_170",
+      "file_name": "e9db90bc998c.jpg"
+    },
+    "176": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_176",
+      "file_name": "876d551aeed7.jpg"
+    },
+    "177": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_176",
+      "file_name": "dffe580981c4.jpg"
+    },
+    "178": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_176",
+      "file_name": "afd5af2c5d5c.jpg"
+    },
+    "179": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_176",
+      "file_name": "e8b1aa10716a.jpg"
+    },
+    "180": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_176",
+      "file_name": "2236321fff09.jpg"
+    },
+    "181": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_180",
+      "file_name": "0e63d9c6c557.jpg"
+    },
+    "182": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_180",
+      "file_name": "9136b39655bd.jpg"
+    },
+    "183": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_180",
+      "file_name": "b656fb87f568.jpg"
+    },
+    "184": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_180",
+      "file_name": "6c1056e18179.jpg"
+    },
+    "185": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_180",
+      "file_name": "834e512609cc.jpg"
+    },
+    "186": {
+      "view_id": 0,
+      "view": "frontal",
+      "patient_id": "case_187",
+      "file_name": "1d28b369d4d5.jpg"
+    },
+    "187": {
+      "view_id": 3,
+      "view": "left_buccal",
+      "patient_id": "case_187",
+      "file_name": "dfb48c1ed7a5.jpg"
+    },
+    "188": {
+      "view_id": 2,
+      "view": "lower_occlusal",
+      "patient_id": "case_187",
+      "file_name": "6090a0994ffa.jpg"
+    },
+    "189": {
+      "view_id": 4,
+      "view": "right_buccal",
+      "patient_id": "case_187",
+      "file_name": "4a1fa515beb9.jpg"
+    },
+    "190": {
+      "view_id": 1,
+      "view": "upper_occlusal",
+      "patient_id": "case_187",
+      "file_name": "399d3878fd68.jpg"
+    }
+  }
+}

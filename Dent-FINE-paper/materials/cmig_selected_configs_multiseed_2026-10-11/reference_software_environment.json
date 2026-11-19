@@ -1,0 +1,13 @@
+{
+  "python": "3.11.15 (main, Mar 11 2026, 17:20:07) [GCC 14.3.0]",
+  "executable": "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+  "platform": "Linux-6.17.0-22-generic-x86_64-with-glibc2.39",
+  "packages": {
+    "torch": "2.5.1",
+    "torchvision": "0.20.1",
+    "numpy": "2.4.3",
+    "scipy": "1.17.1",
+    "calflops": "0.3.2",
+    "pycocotools": "2.0.11"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "status": "verified_data_ready_for_manuscript_update",
+  "created_UTC": "2026-10-11T07:32:46.983978+00:00",
+  "source_manifest": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/execution_manifest.json",
+  "source_manifest_sha256": "3591432ecdfa9f33a08756711faf542621c61f13f7245814c0cf76fa7447c643",
+  "all_30_jobs_verified": true,
+  "main_configurations": 3,
+  "main_training_runs": 9,
+  "internal_seed0_training_runs": 21,
+  "DOCX_edited": false,
+  "figures_regenerated": false,
+  "main_source": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_main_final_20261006.docx",
+  "supplement_source": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_supplement_final_20261006.docx",
+  "tables": {
+    "Table3": {
+      "data": "Table3_primary_three_seed.csv",
+      "direct_figures": [
+        "Figure 6 (redesign)",
+        "Figure S5"
+      ],
+      "note": "Only the three historical best complete configurations, seeds0/1/2; no new14-configuration module/resolution study."
+    },
+    "Table4": {
+      "data": "Table4_seed_stability.csv",
+      "direct_figures": [
+        "Figure S12 (replace old between-model contrasts)"
+      ],
+      "note": "Per-seed AP/AP50/AP75/AR100, sample SD, min/max/range. No fresh paired baseline exists; no between-model paired CI or causal claim."
+    },
+    "Table6": {
+      "data": "Table6_SpatialShape_three_seed.csv",
+      "per_seed": "spatial_shape_per_seed.csv",
+      "direct_figures": [
+        "Figure 9",
+        "Figure 10"
+      ],
+      "note": "Same three final Pano weights, native none/center/shape/both inference replay. Paired prior deltas and exploratory df2 intervals are valid within these same weights."
+    },
+    "Table7": {
+      "data": "Table7_internal_seed0.csv",
+      "direct_figures": [
+        "Figure 11",
+        "Figure S6"
+      ],
+      "note": "Old20 internal designs plus new internal_dslr_cmfa_adamw seed0 anchor; new full-model seed0 anchors and two native factor replays. No dispersion bars."
+    }
+  },
+  "historical_results_separation": {
+    "old_14_configuration_results": "/home/wuxi/Dent-FINE-paper/materials/cmig_final_2026-10-06/evidence/primary_mean_sd.csv",
+    "policy": "May retain as explicitly historical, separate-batch evidence. Do not pool old/new seeds, relabel old runs as new controls, or compute paired treatment effects using old baselines."
+  },
+  "additional_dependencies": [
+    "Table5: update new complete-model rows; label retained older comparator batches.",
+    "Table8/resolution and old Figure6 module panels: historical only; not rerun in this scope.",
+    "Table9: new complete-model endpoints; older baselines must be explicitly separate.",
+    "Table10: new source complete-model checkpoints need fresh transfer evaluation if updated; no automatic new baseline-gain claim.",
+    "Table11: unified parameter counts and checkpoint/config provenance.",
+    "Figure7, Figure12, Figures13-15, FiguresS7-S11: refresh affected full-model sources; distinguish older baseline/external outputs.",
+    "Figure8 feature-only/identity-only comparison: historical only unless separately authorized."
+  ],
+  "prose_to_update": [
+    "Abstract",
+    "Results",
+    "Discussion",
+    "Conclusions",
+    "table/figure captions",
+    "supplementary tables and narrative",
+    "hard-coded numeric prose in existing DOCX builders"
+  ],
+  "limitations": [
+    "Internal validation on unchanged splits; not an independent test set.",
+    "Known content overlap retained and disclosed.",
+    "Sample SD for three best configurations. Paired Student-t df2 intervals only for same-weight Pano prior changes, unadjusted for multiplicity.",
+    "No baseline3-seed training, no14-group rerun, no640-resolution rerun in this scope.",
+    "No seed or post-hoc internal-setting cherry-picking.",
+    "Primary AP is authoritative native FP32; export rounding diagnostics cannot replace it."
+  ],
+  "handoff": "Use actual verified results to create a new DOCX/figure package after consistency review. Preserve October6 originals; no automatic DOCX edits are performed."
+}

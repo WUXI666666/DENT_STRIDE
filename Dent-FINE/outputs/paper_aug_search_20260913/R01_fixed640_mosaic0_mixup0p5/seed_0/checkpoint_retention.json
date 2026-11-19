@@ -1,0 +1,19 @@
+{
+  "retained": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R01_fixed640_mosaic0_mixup0p5/seed_0/best.pth",
+  "retained_sha256": "5f5b1144c59fbbeb15ac66bc76e475ae2cff047a1e1ee4319a62abdccc79fbe5",
+  "removed_temporary_weights": [
+    {
+      "path": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R01_fixed640_mosaic0_mixup0p5/seed_0/last.pth",
+      "bytes": 171857802
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R01_fixed640_mosaic0_mixup0p5/seed_0/best_stg1.pth",
+      "bytes": 172013439
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R01_fixed640_mosaic0_mixup0p5/seed_0/best_stg2.pth",
+      "bytes": 172013439
+    }
+  ],
+  "reason": "Best-only retention after verification; native solver needed stage/last files during training."
+}

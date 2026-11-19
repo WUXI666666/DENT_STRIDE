@@ -1,0 +1,8 @@
+{
+  "state": "failed",
+  "error": "ZeroDivisionError('float division by zero')",
+  "epoch_zero_based": 0,
+  "best_retained": false,
+  "updated_at": "2026-09-12T22:08:38.800484+08:00",
+  "pid": 2838125
+}

@@ -1,0 +1,140 @@
+{
+  "method": "Native SVG re-rendering, not raster upsampling.",
+  "editable_ppt_reference": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_All_Elements_Editable_v6_Kx4.pptx",
+  "editable_ppt_slide_map": {
+    "DENT_STRIDE_overview_native_parallel_losses": 3,
+    "SMWG_native_code_aligned": 2
+  },
+  "code_checked": {
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/source_snapshots/local/engine/deim/hybrid_encoder.py",
+    "classes": [
+      "SMWGFourierSpectralModulation",
+      "SMWGSpectralWaveletRefiner"
+    ]
+  },
+  "artifacts": [
+    {
+      "stem": "DENT_STRIDE_overview_native_parallel_losses",
+      "source_svg": "/home/wuxi/Dent-FINE-paper/work_cmig_revision/inspect_dent_stride_media_20260919/image2.svg",
+      "source_sha256": "ffd7fb83c4d162a9627788dd7ace9412900112187710551585f1b7caebbd57e7",
+      "source_native_svg_extent": [
+        1257,
+        653
+      ],
+      "export_canvas_extent": [
+        1257,
+        653
+      ],
+      "raster_dpi": 600,
+      "raster_dimensions": [
+        4350,
+        2260
+      ],
+      "semantic_and_typographic_edits": [
+        "Replaced only the bottom sequential MAL/L1/GIoU/FGL/DDF arrows with independent parallel loss branches feeding a weighted objective and optimizer.",
+        "Corrected right-side input connectivity: factor heads branch from decoder query features; base class logits, not raw query features, join factor correction at the addition node.",
+        "Both prediction-head branches share the decoded query-features Q output after the three iterative layers, not the initial query/reference-box initializer; prototype also branches from Q.",
+        "Replaced three overlapping character runs by the same complete Transformer encoder (P5) label.",
+        "Preserved native backbone/encoder/decoder/factor/prototype/SpatialShape structure, optional-role arrows and K×4 prototype bank."
+      ],
+      "native_image_elements": 2,
+      "pdf_font_report": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nMQJBOT+TimesNewRomanPS-BoldMT        TrueType          WinAnsi          yes yes yes      7  0\nZTPHGF+TimesNewRomanPSMT             TrueType          WinAnsi          yes yes yes     10  0\nIZIIWD+NotoSans-Bold                 TrueType          WinAnsi          yes yes yes     11  0\nJFVYUY+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes     12  0\nUCSJNR+NotoSans-Regular              TrueType          WinAnsi          yes yes yes     13  0\n",
+      "exports": {
+        ".png": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/methods/DENT_STRIDE_overview_native_parallel_losses.png",
+          "sha256": "8459ec604a3436b147ca91d9fe95719823df7fd8061fcb405a5e3e8da8ac66a1"
+        },
+        ".svg": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/methods/DENT_STRIDE_overview_native_parallel_losses.svg",
+          "sha256": "2908aa1e324909b70cbb9b9904eec640f6824aa33981cfe574e17a72aa663f63"
+        },
+        ".pdf": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/methods/DENT_STRIDE_overview_native_parallel_losses.pdf",
+          "sha256": "e68823fa86f6eda7e4c2ccb73d5aef8358c90b95f654151584829abf29cb592c"
+        }
+      },
+      "preview": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/methods/DENT_STRIDE_overview_native_parallel_losses_preview.png",
+      "visual_check_completed": true,
+      "visual_check_note": "Both preview PNGs inspected using view_image after final exports: no cropped labels or tofu glyphs; overview parallel-loss connectivity and query/head/base-logit branches checked; SMWG P5 shape and spectral/high-pass residual paths checked against the frozen source."
+    },
+    {
+      "stem": "SMWG_native_code_aligned",
+      "source_svg": "/home/wuxi/Dent-FINE-paper/work_cmig_revision/inspect_dent_stride_media_20260919/image5.svg",
+      "source_sha256": "f4be02df7944dbcd4edeaa9d918ea6cda76a3ef1e00b87f5239fc6462eb38fdd",
+      "source_native_svg_extent": [
+        1264,
+        670
+      ],
+      "export_canvas_extent": [
+        1264,
+        695
+      ],
+      "raster_dpi": 1000,
+      "raster_dimensions": [
+        7250,
+        3986
+      ],
+      "semantic_and_typographic_edits": [
+        "Corrected only the post-Resize-to-P5 shape from C×H4×W4 to C×H5×W5.",
+        "Compared forward paths with frozen hybrid_encoder.py: rFFT2/irFFT2, independent per-level spectral refinement, fixed radial bands, channel softmax, bounded modulation 1+0.20tanh(M), channel gate and 0.35sigmoid residual; both guidance paths use spectral features, not cascading refined P4.",
+        "Typography normalized to real Times New Roman; native mathematical superscript/subscript positions and numerical operations retained.",
+        "Unsupported mathematical symbols use embedded DejaVu Serif; erroneous tone-sign glyph used for subscript c is replaced by an explicitly positioned Times italic c.",
+        "Extended only the canvas bottom by 25 native SVG units as white padding to protect the lowest shape labels; no artwork rescaling or cropping."
+      ],
+      "native_image_elements": 0,
+      "pdf_font_report": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nNJDJHU+TimesNewRomanPS-BoldMT        TrueType          WinAnsi          yes yes yes      7  0\nLLDAOR+TimesNewRomanPSMT             TrueType          WinAnsi          yes yes yes      8  0\nVPVKJC+TimesNewRomanPS-ItalicMT      TrueType          WinAnsi          yes yes yes      9  0\nZTYGYA+TimesNewRomanPS-ItalicMT      CID TrueType      Identity-H       yes yes yes     10  0\nXBRWGV+DejaVuSerif-Italic            CID TrueType      Identity-H       yes yes yes     11  0\nGFPBWN+DejaVuSerif-Italic            TrueType          WinAnsi          yes yes yes     12  0\nIXNKDD+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes     13  0\nJRDCAH+DejaVuSerif-BoldItalic        CID TrueType      Identity-H       yes yes yes     14  0\nJOPWUC+TimesNewRomanPS-BoldItalicMT  TrueType          WinAnsi          yes yes yes     15  0\nJMSSAD+DejaVuSerif                   CID TrueType      Identity-H       yes yes yes     16  0\nAQCPRV+DejaVuSerif                   TrueType          WinAnsi          yes yes yes     17  0\nCHFFLP+DejaVuSerif-Bold              TrueType          WinAnsi          yes yes yes     18  0\nWEXIIT+DejaVuSerif-Bold              CID TrueType      Identity-H       yes yes yes     19  0\nOGLITJ+DejaVuSerif-BoldItalic        TrueType          WinAnsi          yes yes yes     20  0\n",
+      "exports": {
+        ".png": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/methods/SMWG_native_code_aligned.png",
+          "sha256": "1cc7bf38b871b658a2e0f5d78b791a3ecccba532273ce55850a57833926b6531"
+        },
+        ".svg": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/methods/SMWG_native_code_aligned.svg",
+          "sha256": "233a88ac179139e09de32696ac00bb57c0dfccf27aa79423d96df8244e2446ca"
+        },
+        ".pdf": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/methods/SMWG_native_code_aligned.pdf",
+          "sha256": "888ff22f91606b55f3cf3a205fa6f7186b97424de1b6fd7d2928e363e2b6e8a3"
+        }
+      },
+      "preview": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/methods/SMWG_native_code_aligned_preview.png",
+      "visual_check_completed": true,
+      "visual_check_note": "Both preview PNGs inspected using view_image after final exports: no cropped labels or tofu glyphs; overview parallel-loss connectivity and query/head/base-logit branches checked; SMWG P5 shape and spectral/high-pass residual paths checked against the frozen source."
+    }
+  ],
+  "no_equivalent_native_vector_found": [
+    {
+      "figure": "Main Figure 4 / CMFA",
+      "current_png_dimensions": [
+        1418,
+        773
+      ]
+    },
+    {
+      "figure": "Main Figure 5 / HOOA",
+      "current_png_dimensions": [
+        678,
+        591
+      ]
+    },
+    {
+      "figure": "Supplement Figure S1 / CEDv2",
+      "current_png_dimensions": [
+        725,
+        591
+      ]
+    },
+    {
+      "figure": "Supplement Figure S3 / MPF–UCM",
+      "current_png_dimensions": [
+        1418,
+        961
+      ]
+    }
+  ],
+  "limitations": [
+    "Original overview includes two 88/89-pixel illustrative input thumbnails; all architecture shapes/text remain genuine vector. Rasterized thumbnails are not enhanced or presented as high-resolution clinical data.",
+    "Re-export does not enlarge the physical print font size; prefer the vector PDF/SVG artwork for submission.",
+    "No matching native vector source was located for four other module figures; their existing manuscript rasters were not upsampled or redrawn from inaccurate historical PPT sources."
+  ]
+}

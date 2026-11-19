@@ -1,0 +1,430 @@
+{
+  "group": "HOOA",
+  "side": "before",
+  "source": {
+    "job": {
+      "id": "internal_mobile_hooa_neither_seed0",
+      "configuration": "internal_mobile_hooa_neither",
+      "cohort": "Mobile",
+      "seed": 0,
+      "phase": "internal",
+      "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/configs/internal_mobile_hooa_neither/seed_0.yml",
+      "config_sha256": "d8ad91c9efc5589052e1aa622724ce9ec545a212e829b8ef16cb933f36acbb68",
+      "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_hooa_neither/seed_0",
+      "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile",
+      "controls": {
+        "hooa_highpass": false,
+        "hooa_second_order": false
+      },
+      "epochs": 160,
+      "expected_input": 1024,
+      "native_cwd": "/home/wuxi/Dent-FINE",
+      "train_script": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/train.py",
+      "historical_anchor_config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+      "historical_anchor_config_sha256": "2fa206ae008dbd5855d91bbd24c7ae7eb341e14828e6129a477cd9fde04b0c56",
+      "historical_source_job_id": "phone_a07_proto_aux_C05",
+      "historical_source_seed": 0,
+      "historical_recipe_exact": false,
+      "historical_native_launch": true,
+      "native_checkpoint_selection": true,
+      "fresh_initialization": true,
+      "source_controlled_job_id": "internal_mobile_hooa_neither_seed0",
+      "inference_priors": "off",
+      "prior_selection_policy": "historical native validation",
+      "estimated_gpu_hours": 4.111163839300474,
+      "estimate_basis": "previous matching job elapsed train+replay wall time",
+      "gpu": 1,
+      "queue_order": 10,
+      "job_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/jobs/internal_mobile_hooa_neither_seed0.json",
+      "scope_role": "internal",
+      "source_frozen_job_id": "internal_mobile_hooa_neither_seed0",
+      "source_frozen_job_phase": "internal",
+      "source_frozen_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_hooa_neither/seed_0.yml",
+      "source_frozen_config_sha256": "cdb984d089d24c1646501bcce11e9720ff7b3b285593434ba60884fc5ac2e132",
+      "resume_interrupted_run": false,
+      "reused_training_weights": false
+    },
+    "metrics": {
+      "AP": 53.560608060219415,
+      "AP50": 83.01036177463604,
+      "AP75": 58.83500826644886,
+      "APsmall": 50.0,
+      "APmedium": 38.19154617646646,
+      "APlarge": 54.80453067050867,
+      "AR1": 60.7862463688008,
+      "AR10": 67.83677604870705,
+      "AR100": 68.55570965505817,
+      "ARsmall": 50.0,
+      "ARmedium": 52.908840388007064,
+      "ARlarge": 69.61585490847978
+    },
+    "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_hooa_neither/seed_0/best.pth",
+    "checkpoint_sha256": "581d87b86e34d52a8f83b7d38460ea94c77841ffeb9707ca0fd08986778c1741",
+    "candidates": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_hooa_neither/seed_0/evaluation/pre_topk_candidates.npz"
+  },
+  "method": "Grad-CAM and positive elementwise gradient-times-activation (HiResCAM form)",
+  "device": "CPU FP32, no AMP; checkpoint EMA loaded strictly",
+  "feature": "finest encoder output, shared stride-8 feature level",
+  "target": "GT FDI logit or its margin against one fixed baseline competitor at the matched native query",
+  "scope": "Gradients do not traverse native detached top-k query-content initialization. These are partial-path explanations, not a complete causal account or a clinical faithfulness guarantee.",
+  "passive_hook_logit_error": 0.0,
+  "records": [
+    {
+      "case_id": "HOOA_correction_01_image113_FDI51",
+      "side": "before",
+      "feature_shape": [
+        1,
+        256,
+        128,
+        128
+      ],
+      "query": 5,
+      "target_category": 32,
+      "competitor_category": 37,
+      "scores": {
+        "FDI_logit": -0.8241327404975891,
+        "FDI_margin": -1.8046159744262695
+      },
+      "query_top1_category": 37,
+      "archived_query": 5,
+      "live_prediction": {
+        "bbox": [
+          993.051513671875,
+          160.14047241210938,
+          394.4496154785156,
+          353.7618713378906
+        ],
+        "category_id": 37,
+        "score": 0.7272041440010071
+      },
+      "bbox_max_error_pixels": 0.02117919921875,
+      "bbox_max_normalized_error": 5.059772067599826e-06,
+      "raw_maps": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/HOOA_correction_01_image113_FDI51_before.npz",
+      "map_ranges": {
+        "FDI_logit_gradcam": [
+          0.0,
+          0.00022257283853832632
+        ],
+        "FDI_logit_hirescam": [
+          0.0,
+          0.18452872335910797
+        ],
+        "FDI_margin_gradcam": [
+          0.0,
+          0.00028013307019136846
+        ],
+        "FDI_margin_hirescam": [
+          0.0,
+          0.2760292589664459
+        ]
+      },
+      "elapsed_seconds": 0.8758533060317859
+    },
+    {
+      "case_id": "HOOA_correction_02_image74_FDI52",
+      "side": "before",
+      "feature_shape": [
+        1,
+        256,
+        128,
+        128
+      ],
+      "query": 13,
+      "target_category": 33,
+      "competitor_category": 1,
+      "scores": {
+        "FDI_logit": -0.9607867002487183,
+        "FDI_margin": -2.4661712646484375
+      },
+      "query_top1_category": 1,
+      "archived_query": 13,
+      "live_prediction": {
+        "bbox": [
+          451.623291015625,
+          1060.7308349609375,
+          380.78436279296875,
+          287.60955810546875
+        ],
+        "category_id": 1,
+        "score": 0.8183761835098267
+      },
+      "bbox_max_error_pixels": 0.029327392578125,
+      "bbox_max_normalized_error": 7.273658873542907e-06,
+      "raw_maps": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/HOOA_correction_02_image74_FDI52_before.npz",
+      "map_ranges": {
+        "FDI_logit_gradcam": [
+          0.0,
+          0.00026824456290341914
+        ],
+        "FDI_logit_hirescam": [
+          0.0,
+          0.5998957753181458
+        ],
+        "FDI_margin_gradcam": [
+          0.0,
+          0.0003563365316949785
+        ],
+        "FDI_margin_hirescam": [
+          0.0,
+          0.7780953049659729
+        ]
+      },
+      "elapsed_seconds": 1.1580786519916728
+    },
+    {
+      "case_id": "HOOA_correction_03_image77_FDI13",
+      "side": "before",
+      "feature_shape": [
+        1,
+        256,
+        128,
+        128
+      ],
+      "query": 5,
+      "target_category": 2,
+      "competitor_category": 34,
+      "scores": {
+        "FDI_logit": -0.44089388847351074,
+        "FDI_margin": -1.2359293699264526
+      },
+      "query_top1_category": 34,
+      "archived_query": 5,
+      "live_prediction": {
+        "bbox": [
+          964.8239135742188,
+          1373.043212890625,
+          298.8023681640625,
+          263.4271545410156
+        ],
+        "category_id": 34,
+        "score": 0.688911497592926
+      },
+      "bbox_max_error_pixels": 0.044403076171875,
+      "bbox_max_normalized_error": 1.4454126358032227e-05,
+      "raw_maps": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/HOOA_correction_03_image77_FDI13_before.npz",
+      "map_ranges": {
+        "FDI_logit_gradcam": [
+          0.0,
+          0.00038385012885555625
+        ],
+        "FDI_logit_hirescam": [
+          0.0,
+          0.2506108582019806
+        ],
+        "FDI_margin_gradcam": [
+          0.0,
+          0.0005625956691801548
+        ],
+        "FDI_margin_hirescam": [
+          0.0,
+          0.3504788875579834
+        ]
+      },
+      "elapsed_seconds": 0.9894513649633154
+    },
+    {
+      "case_id": "HOOA_correction_04_image155_FDI31",
+      "side": "before",
+      "feature_shape": [
+        1,
+        256,
+        128,
+        128
+      ],
+      "query": 0,
+      "target_category": 16,
+      "competitor_category": 24,
+      "scores": {
+        "FDI_logit": -1.6785351037979126,
+        "FDI_margin": -3.374584436416626
+      },
+      "query_top1_category": 24,
+      "archived_query": 0,
+      "live_prediction": {
+        "bbox": [
+          959.6838989257812,
+          2812.29541015625,
+          447.15155029296875,
+          619.1635131835938
+        ],
+        "category_id": 24,
+        "score": 0.8450180292129517
+      },
+      "bbox_max_error_pixels": 0.020660400390625,
+      "bbox_max_normalized_error": 9.157978896553635e-06,
+      "raw_maps": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/HOOA_correction_04_image155_FDI31_before.npz",
+      "map_ranges": {
+        "FDI_logit_gradcam": [
+          0.0,
+          0.00024360811221413314
+        ],
+        "FDI_logit_hirescam": [
+          0.0,
+          0.11451493203639984
+        ],
+        "FDI_margin_gradcam": [
+          0.0,
+          0.0002962907310575247
+        ],
+        "FDI_margin_hirescam": [
+          0.0,
+          0.14147229492664337
+        ]
+      },
+      "elapsed_seconds": 0.9755881910677999
+    },
+    {
+      "case_id": "HOOA_correction_05_image121_FDI41",
+      "side": "before",
+      "feature_shape": [
+        1,
+        256,
+        128,
+        128
+      ],
+      "query": 6,
+      "target_category": 24,
+      "competitor_category": 47,
+      "scores": {
+        "FDI_logit": 0.18902267515659332,
+        "FDI_margin": -0.08982644975185394
+      },
+      "query_top1_category": 47,
+      "archived_query": 6,
+      "live_prediction": {
+        "bbox": [
+          1209.159423828125,
+          3253.317626953125,
+          333.78643798828125,
+          348.8304748535156
+        ],
+        "category_id": 47,
+        "score": 0.5692640542984009
+      },
+      "bbox_max_error_pixels": 0.02069091796875,
+      "bbox_max_normalized_error": 5.986955430772569e-06,
+      "raw_maps": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/HOOA_correction_05_image121_FDI41_before.npz",
+      "map_ranges": {
+        "FDI_logit_gradcam": [
+          0.0,
+          0.00035948673030361533
+        ],
+        "FDI_logit_hirescam": [
+          0.0,
+          0.1420023888349533
+        ],
+        "FDI_margin_gradcam": [
+          0.0,
+          0.0007047033868730068
+        ],
+        "FDI_margin_hirescam": [
+          0.0,
+          0.31230834126472473
+        ]
+      },
+      "elapsed_seconds": 1.0298025460215285
+    },
+    {
+      "case_id": "HOOA_localization_01_image128_FDI36",
+      "side": "before",
+      "feature_shape": [
+        1,
+        256,
+        128,
+        128
+      ],
+      "query": 9,
+      "target_category": 21,
+      "competitor_category": 20,
+      "scores": {
+        "FDI_logit": 1.2539528608322144,
+        "FDI_margin": 5.200771808624268
+      },
+      "query_top1_category": 21,
+      "archived_query": 9,
+      "live_prediction": {
+        "bbox": [
+          1007.2432250976562,
+          1130.665771484375,
+          280.3792419433594,
+          167.0428466796875
+        ],
+        "category_id": 21,
+        "score": 0.7779833674430847
+      },
+      "bbox_max_error_pixels": 0.13665771484375,
+      "bbox_max_normalized_error": 3.746099639357182e-05,
+      "raw_maps": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/HOOA_localization_01_image128_FDI36_before.npz",
+      "map_ranges": {
+        "FDI_logit_gradcam": [
+          0.0,
+          5.2564209909178317e-05
+        ],
+        "FDI_logit_hirescam": [
+          0.0,
+          0.04198620095849037
+        ],
+        "FDI_margin_gradcam": [
+          0.0,
+          0.00010935361933661625
+        ],
+        "FDI_margin_hirescam": [
+          0.0,
+          0.08062583208084106
+        ]
+      },
+      "elapsed_seconds": 1.1135384619701654
+    },
+    {
+      "case_id": "HOOA_adverse_01_image148_FDI55",
+      "side": "before",
+      "feature_shape": [
+        1,
+        256,
+        128,
+        128
+      ],
+      "query": 11,
+      "target_category": 36,
+      "competitor_category": 50,
+      "scores": {
+        "FDI_logit": -0.20584717392921448,
+        "FDI_margin": 1.9757932424545288
+      },
+      "query_top1_category": 36,
+      "archived_query": 11,
+      "live_prediction": {
+        "bbox": [
+          606.876708984375,
+          2336.866455078125,
+          309.1517333984375,
+          496.9197082519531
+        ],
+        "category_id": 36,
+        "score": 0.4487191438674927
+      },
+      "bbox_max_error_pixels": 0.060546875,
+      "bbox_max_normalized_error": 2.0022114748677248e-05,
+      "raw_maps": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/HOOA_adverse_01_image148_FDI55_before.npz",
+      "map_ranges": {
+        "FDI_logit_gradcam": [
+          0.0,
+          0.00011020986858056858
+        ],
+        "FDI_logit_hirescam": [
+          0.0,
+          0.1571408063173294
+        ],
+        "FDI_margin_gradcam": [
+          0.0,
+          0.00027563024195842445
+        ],
+        "FDI_margin_hirescam": [
+          0.0,
+          0.18410952389240265
+        ]
+      },
+      "elapsed_seconds": 1.2852952000685036
+    }
+  ]
+}

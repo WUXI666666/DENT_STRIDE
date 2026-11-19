@@ -1,0 +1,13 @@
+{
+  "job": "mobile_1024_full_seed1",
+  "pid": 3885053,
+  "started_unix": 1791461653.8195071,
+  "seed": 1,
+  "cuda_visible_devices": "1",
+  "PYTHONHASHSEED": "1",
+  "controls": {},
+  "native_cwd": "/home/wuxi/Dent-FINE",
+  "native_entrypoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/train.py",
+  "initialization": "Fresh pretrained backbone; no resume or tuning",
+  "checkpoint_policy": "Native selection and stage-1 rollback preserved; final best only"
+}

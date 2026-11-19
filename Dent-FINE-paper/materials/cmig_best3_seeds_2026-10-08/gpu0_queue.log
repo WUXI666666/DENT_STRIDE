@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/queue_worker.py", line 103, in main
+    run([manifest['python'],'-u',str(ROOT/'evaluate_controlled.py'),job['job_file']],out/'evaluation.log','best_checkpoint_replay')
+  File "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/queue_worker.py", line 86, in run
+    if rc:raise RuntimeError(f'{phase} failed with exit {rc}; see {log}')
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: best_checkpoint_replay failed with exit 1; see /home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/dslr_cmfa_dualopt/seed_1/evaluation.log
+
+Traceback (most recent call last):
+  File "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/queue_worker.py", line 125, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/queue_worker.py", line 103, in main
+    run([manifest['python'],'-u',str(ROOT/'evaluate_controlled.py'),job['job_file']],out/'evaluation.log','best_checkpoint_replay')
+  File "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/queue_worker.py", line 86, in run
+    if rc:raise RuntimeError(f'{phase} failed with exit {rc}; see {log}')
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: best_checkpoint_replay failed with exit 1; see /home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/dslr_cmfa_dualopt/seed_1/evaluation.log

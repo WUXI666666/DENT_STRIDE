@@ -1,0 +1,31 @@
+{
+  "source_configuration": "dslr_cmfa_dualopt",
+  "seed": 0,
+  "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/dslr_cmfa_dualopt/seed_0/best.pth",
+  "checkpoint_sha256": "042a12a2af4a5f121ca520592331c69df7c63c84dceecdc4f4eb5cb1ba267d60",
+  "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/configs/dslr_cmfa_dualopt/seed_0.yml",
+  "config_sha256": "e8b6190b91c95cc7daaef170e17ab01eb8876bf38f01c59c15f8d34f4e5b9d0d",
+  "frozen_implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local",
+  "source_inference_resolution": [
+    640,
+    640
+  ],
+  "weight_state": "EMA",
+  "strict_checkpoint_loading": true,
+  "created_utc": "2026-10-11T10:36:04.702177+00:00",
+  "parameters_total": 11153968,
+  "parameters_trainable": 11153963,
+  "calflops_reported_parameters": 11153963,
+  "GMACs": 12.632720688,
+  "GFLOPs": 25.394292144,
+  "tool": "calflops",
+  "tool_version": "0.3.2",
+  "batch_size": 1,
+  "precision": "FP32",
+  "device": "CPU",
+  "profile_scope": "native evaluation-mode model forward, including native decoder and auxiliary outputs, at the source configuration resolution; excludes postprocessing (top-k, FDI label decoding and pixel-space conversion) and data loading",
+  "latency_ms": null,
+  "throughput_images_per_s": null,
+  "latency_status": "Not measured because RTX 4090 GPUs are contended by unrelated jobs; no timing values are inferred from MACs.",
+  "inference_vram_mib": null
+}

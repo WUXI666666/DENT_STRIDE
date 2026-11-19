@@ -1,0 +1,32 @@
+__include__: [
+  './dfine_hgnetv2_s_viewnet3_dslr_fdi52.yml',
+  '../base/deim.yml',
+]
+
+output_dir: ./outputs/deim_hgnetv2_s_viewnet3_dslr_fdi52
+
+optimizer:
+  type: AdamW
+  params:
+    -
+      params: '^(?=.*backbone)(?!.*bn).*$'
+      lr: 0.00025
+    -
+      params: '^(?=.*(?:norm|bn)).*$'
+      weight_decay: 0.
+  lr: 0.0005
+  betas: [0.9, 0.999]
+  weight_decay: 0.0001
+
+epoches: 160
+flat_epoch: 70
+no_aug_epoch: 25
+
+train_dataloader:
+  dataset:
+    transforms:
+      policy:
+        epoch: [4, 70, 130]
+  collate_fn:
+    mixup_epochs: [4, 80]
+    stop_epoch: 130

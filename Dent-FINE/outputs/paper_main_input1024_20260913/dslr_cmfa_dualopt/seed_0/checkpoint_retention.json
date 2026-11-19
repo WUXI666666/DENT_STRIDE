@@ -1,0 +1,19 @@
+{
+  "retained": "/home/wuxi/Dent-FINE/outputs/paper_main_input1024_20260913/dslr_cmfa_dualopt/seed_0/best.pth",
+  "retained_sha256": "ccf6d7ad9cf55afdeb072d39ed6287e9c4d9c042f9b95d441db3e98176484c3e",
+  "removed_temporary_weights": [
+    {
+      "path": "/home/wuxi/Dent-FINE/outputs/paper_main_input1024_20260913/dslr_cmfa_dualopt/seed_0/last.pth",
+      "bytes": 180360022
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE/outputs/paper_main_input1024_20260913/dslr_cmfa_dualopt/seed_0/best_stg1.pth",
+      "bytes": 180514076
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE/outputs/paper_main_input1024_20260913/dslr_cmfa_dualopt/seed_0/best_stg2.pth",
+      "bytes": 180514076
+    }
+  ],
+  "reason": "User requested best-only weights; stage/last files were needed temporarily by the unchanged original solver."
+}

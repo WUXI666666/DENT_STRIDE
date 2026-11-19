@@ -1,0 +1,14 @@
+{
+  "train_annotation": "/home/wuxi/coco/train/annotations_fdi.json",
+  "validation_annotation": "/home/wuxi/coco/valid/annotations_fdi.json",
+  "train_images": "/home/wuxi/coco/train",
+  "validation_images": "/home/wuxi/coco/valid",
+  "num_classes": 52,
+  "epochs": 40,
+  "batch": 8,
+  "workers": 4,
+  "gpu": 0,
+  "tuning_checkpoint": "/home/wuxi/Dent-FINE/outputs/viewnet3_dslr_baseline_comparison/runs/dome_detr_s_fdi52/best.pth",
+  "max_num_select": 301,
+  "qualitative_only": true
+}

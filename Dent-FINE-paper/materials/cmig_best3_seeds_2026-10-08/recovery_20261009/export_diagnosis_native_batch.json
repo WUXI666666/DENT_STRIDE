@@ -1,0 +1,30 @@
+{
+  "job": "dslr_cmfa_dualopt_seed1",
+  "cached_python_predictions_exactly_match_failed_export": true,
+  "bbox_rows_changed_by_float32_tensor_conversion": 3308,
+  "before_hashes": {
+    "best.pth": "d951ae15f4dc06f33a1c9a4ed219a9a777b1574baeca01006567b781de5a9755",
+    "log.txt": "d734bcb17bb3890dab760c896b2c0baebb2f1babb3ea50dfa800a9203782ea21",
+    "native_coco_metrics.json": "b1b0530a0b7ad48fec480133d2d66b90b48a19840dab09fe5128dcbe7546e82b"
+  },
+  "native_record_AP": 71.54800312623863,
+  "python_float_subtraction": {
+    "AP": 71.60273476249044,
+    "AP50": 87.37259754500856,
+    "AP75": 82.64952753402393,
+    "AR100": 81.62161427664243
+  },
+  "native_tensor_subtraction": {
+    "AP": 71.60273476249044,
+    "AP50": 87.37259754500856,
+    "AP75": 82.64952753402393,
+    "AR100": 81.62161427664243
+  },
+  "native_batch_evaluator": {
+    "AP": 71.60273476249044,
+    "AP50": 87.37259754500856,
+    "AP75": 82.64952753402393,
+    "AR100": 81.62161427664243
+  },
+  "checkpoint_and_training_log_unchanged": true
+}

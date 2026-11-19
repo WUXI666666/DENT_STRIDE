@@ -1,0 +1,288 @@
+{
+  "entries": [
+    {
+      "stem": "Acquisition_cohort_montage",
+      "PNG_pixels": [
+        4350,
+        3300
+      ],
+      "PNG_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "SVG_text_labels": [
+        "Original",
+        "Ground truth",
+        "Original",
+        "Ground truth",
+        "A  Panoramic",
+        "B  Mobile",
+        "C  DSLR"
+      ],
+      "PDF_font_inspection": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nDFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes     27  0\n",
+      "assets": {
+        "png": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Acquisition_cohort_montage.png",
+          "bytes": 4515655,
+          "sha256": "095f5c85f57b06acf136eebba0b2eb7f37d95b23aba29dea57d96757d2918fad"
+        },
+        "svg": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Acquisition_cohort_montage.svg",
+          "bytes": 10446635,
+          "sha256": "204a05d171e8cc9ce5047dd5b9dc9a2992fa0029674afb4d8ecf2f2c984b2613"
+        },
+        "pdf": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Acquisition_cohort_montage.pdf",
+          "bytes": 7148209,
+          "sha256": "2ce0bb6e4f28b1daa8435f5acc465b38d38b531e1a9a7e82cb11b5356385c16b"
+        }
+      }
+    },
+    {
+      "stem": "Mobile_same_image_comparison",
+      "PNG_pixels": [
+        4350,
+        4303
+      ],
+      "PNG_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "SVG_text_labels": [
+        "A",
+        "Original",
+        "Ground truth",
+        "51",
+        "Controlled base",
+        "11",
+        "RT-DETR-L",
+        "51",
+        "DENT-STRIDE",
+        "51",
+        "B",
+        "62",
+        "62",
+        "62",
+        "52"
+      ],
+      "PDF_font_inspection": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nDFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes     35  0\nDFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes     42  0\n",
+      "assets": {
+        "png": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Mobile_same_image_comparison.png",
+          "bytes": 3984115,
+          "sha256": "afa0c4052a763f2c4c62e4dcf5e336dc6b647cf1ef26f57b7cbf19a180390f01"
+        },
+        "svg": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Mobile_same_image_comparison.svg",
+          "bytes": 18908313,
+          "sha256": "aa236430ec0a564873eb5a54bcdeac96e6a77a4a229774136a8d3f625666edcd"
+        },
+        "pdf": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Mobile_same_image_comparison.pdf",
+          "bytes": 12911963,
+          "sha256": "378a73ae63de945686958a594f207b2d5cd73bfdd76f165d91977cb56e9a406a"
+        }
+      }
+    },
+    {
+      "stem": "Pano_same_image_comparison",
+      "PNG_pixels": [
+        4350,
+        2476
+      ],
+      "PNG_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "SVG_text_labels": [
+        "A",
+        "Original",
+        "Ground truth",
+        "28",
+        "Controlled base",
+        "27",
+        "RT-DETR-L",
+        "27",
+        "DENT-STRIDE",
+        "28",
+        "B",
+        "28",
+        "28",
+        "28",
+        "27"
+      ],
+      "PDF_font_inspection": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nDFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes     35  0\nDFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes     42  0\n",
+      "assets": {
+        "png": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Pano_same_image_comparison.png",
+          "bytes": 2545171,
+          "sha256": "b7fc4c819c92e47b6a9eaa35ef6e55716cfce2bec421519097de0e972bc52157"
+        },
+        "svg": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Pano_same_image_comparison.svg",
+          "bytes": 7845445,
+          "sha256": "3138f8b8c238d1c9e99da81395764088dc7b65df4a74680cddee7e758267cfb5"
+        },
+        "pdf": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Pano_same_image_comparison.pdf",
+          "bytes": 5971802,
+          "sha256": "12eb3080d573682b93aa51a004bb687df62d74ddd6c01d3c58e192ab8af85013"
+        }
+      }
+    },
+    {
+      "stem": "DSLR_same_image_comparison",
+      "PNG_pixels": [
+        4350,
+        2967
+      ],
+      "PNG_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "SVG_text_labels": [
+        "A",
+        "Original",
+        "Ground truth",
+        "52",
+        "Controlled base",
+        "53",
+        "RT-DETR-L",
+        "52",
+        "DENT-STRIDE",
+        "52",
+        "B",
+        "64",
+        "64",
+        "24",
+        "24"
+      ],
+      "PDF_font_inspection": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nDFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes     35  0\nDFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes     42  0\n",
+      "assets": {
+        "png": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/DSLR_same_image_comparison.png",
+          "bytes": 3444531,
+          "sha256": "0bd307914129379b3c9e709c9f0557bb7cddf5b2031c5cf08eb3be3aa76a4936"
+        },
+        "svg": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/DSLR_same_image_comparison.svg",
+          "bytes": 16086979,
+          "sha256": "41c81ed21b413165514feb9da7d33593871760f93ba998a32b36acabf025fd71"
+        },
+        "pdf": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/DSLR_same_image_comparison.pdf",
+          "bytes": 10811085,
+          "sha256": "df61bc12522175c3979c6b2611679e931436225b7b7c217b8b805699851c2ca2"
+        }
+      }
+    },
+    {
+      "stem": "Mobile_inter_module_comparison",
+      "PNG_pixels": [
+        4350,
+        3666
+      ],
+      "PNG_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "SVG_text_labels": [
+        "A",
+        "Original",
+        "Ground truth",
+        "51",
+        "Base",
+        "11",
+        "Features",
+        "51",
+        "Identity",
+        "51",
+        "Full",
+        "51",
+        "B",
+        "62",
+        "62",
+        "62",
+        "62",
+        "52"
+      ],
+      "PDF_font_inspection": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nDFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes     39  0\nDFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes     46  0\n",
+      "assets": {
+        "png": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Mobile_inter_module_comparison.png",
+          "bytes": 3009289,
+          "sha256": "2d9e927c1bdb5f254f3a11a9b95f32627e06744126f71381f138d7b43785e22a"
+        },
+        "svg": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Mobile_inter_module_comparison.svg",
+          "bytes": 16049642,
+          "sha256": "6d658f770570a844b93d2f21ef9daf46670e9b454fed1b80cb734e5e54a82d55"
+        },
+        "pdf": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Mobile_inter_module_comparison.pdf",
+          "bytes": 10851593,
+          "sha256": "aac2e838719d53078fe79dd2b232bc352bb82be96f3a5d4d94c6db2a1b7d2ea1"
+        }
+      }
+    },
+    {
+      "stem": "Pano_same_checkpoint_prior_comparison",
+      "PNG_pixels": [
+        4350,
+        2198
+      ],
+      "PNG_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "SVG_text_labels": [
+        "A",
+        "Original",
+        "Ground truth",
+        "12",
+        "No prior",
+        "12",
+        "13",
+        "Center",
+        "12",
+        "Shape",
+        "12",
+        "Center + shape",
+        "12",
+        "B",
+        "27",
+        "27",
+        "28",
+        "27",
+        "28"
+      ],
+      "PDF_font_inspection": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nDFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes     39  0\nDFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes     46  0\n",
+      "assets": {
+        "png": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Pano_same_checkpoint_prior_comparison.png",
+          "bytes": 1808788,
+          "sha256": "dafe0a15ccb1dee8752450b09fa663fdb0740f7076e1fbc2065e49571b26fc5a"
+        },
+        "svg": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Pano_same_checkpoint_prior_comparison.svg",
+          "bytes": 7466829,
+          "sha256": "7759581cb778f1a398c2dbdfe81cf2003c39c43e7675ca1ce9e3283555b43264"
+        },
+        "pdf": {
+          "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/Pano_same_checkpoint_prior_comparison.pdf",
+          "bytes": 5392010,
+          "sha256": "8c8290ad8a8b8013b7feff9d787b895e06e693155af8d65daeb362fda9f95f41"
+        }
+      }
+    }
+  ],
+  "actual_tensor_source_scope": "Saved COCO outputs only; no model, dataset, checkpoint or training mutation",
+  "rendering_script": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/scripts/prepare_qualitative_figures.py",
+  "rendering_script_sha256": "f6f23e7a9c3f5f20a5bdfb66337a356f5a648fed06a5b1f1e79834eec4d90a05",
+  "selection_manifest": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/source_case_selection.json",
+  "selection_manifest_sha256": "47797ca756a8502c45afd8797b84dec885965fbb4c28a1bcbf77a7cdfaa5a3b7",
+  "captions": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/figures/qualitative/figure_captions.json",
+  "captions_sha256": "ccc0e7e1ecee387d1d7b44e4afdf8eb941130278ba614b4247d4edaf1087f180",
+  "external_consistency": "RT-DETR-L SVG label/caption/source/prediction SHA/checkpoint SHA agree for all three cohorts",
+  "visual_checks": "All six final preview PNGs opened with view_image; figure headers and focal FDI labels reviewed for clipping/overlap; photos show oral fields without an identifiable full face."
+}

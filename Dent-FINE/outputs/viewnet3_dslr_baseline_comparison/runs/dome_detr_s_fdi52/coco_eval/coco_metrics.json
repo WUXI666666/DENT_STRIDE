@@ -1,0 +1,27 @@
+{
+  "framework": "Dome-DETR",
+  "checkpoint": "/home/wuxi/Dent-FINE/outputs/viewnet3_dslr_baseline_comparison/runs/dome_detr_s_fdi52/best.pth",
+  "config": "/home/wuxi/Dent-FINE/third_party/dome_detr/configs/dome/Dome-S-ViewNet3-DSLR-FDI52.yml",
+  "annotation": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json",
+  "prediction_count": 224512,
+  "num_parameters": 13291367,
+  "metrics": {
+    "AP": 0.7136255591435362,
+    "AP50": 0.866340856736411,
+    "AP75": 0.8087691445241617,
+    "AP_small": -1.0,
+    "AP_medium": 0.5094702587096722,
+    "AP_large": 0.7352473842874557,
+    "AR1": 0.7585119647481483,
+    "AR10": 0.8333196805283246,
+    "AR100": 0.8547541046271119,
+    "AR_small": -1.0,
+    "AR_medium": 0.6239404461279462,
+    "AR_large": 0.8710191310960466
+  },
+  "prediction_file": "/home/wuxi/Dent-FINE/outputs/viewnet3_dslr_baseline_comparison/runs/dome_detr_s_fdi52/coco_eval/coco_predictions.json",
+  "updates": [
+    "val_dataloader.total_batch_size=4",
+    "val_dataloader.num_workers=2"
+  ]
+}

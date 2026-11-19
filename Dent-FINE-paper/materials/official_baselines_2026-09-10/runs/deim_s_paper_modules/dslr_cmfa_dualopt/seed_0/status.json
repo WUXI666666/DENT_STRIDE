@@ -1,0 +1,62 @@
+{
+  "state": "completed",
+  "model": "Official DEIM-S + paper modules",
+  "task": "dslr_cmfa_dualopt",
+  "cohort": "dslr",
+  "seed": 0,
+  "epochs_completed": 160,
+  "best_epoch_zero_based": 152,
+  "final_epoch_zero_based": 159,
+  "best_metrics": {
+    "AP": 72.09517952381603,
+    "AP50": 88.31414568436396,
+    "AP75": 82.63565786352416,
+    "AP_small": null,
+    "AP_medium": 50.38929470066667,
+    "AP_large": 74.20786994764835,
+    "AR1": 76.34631268246343,
+    "AR10": 80.9254121457199,
+    "AR100": 81.4302636621641,
+    "AR_small": null,
+    "AR_medium": 58.97086940836941,
+    "AR_large": 83.10511017534316
+  },
+  "final_epoch_metrics": {
+    "AP": 71.99962973193546,
+    "AP50": 88.26130976600689,
+    "AP75": 82.53980399260263,
+    "AP_small": null,
+    "AP_medium": 50.41597052188541,
+    "AP_large": 74.10971118013508,
+    "AR1": 76.32667841519921,
+    "AR10": 80.20506069020371,
+    "AR100": 80.70519021584607,
+    "AR_small": null,
+    "AR_medium": 59.028739778739784,
+    "AR_large": 82.36639277876141
+  },
+  "params_training_total": 10810605,
+  "params_trainable": 10810603,
+  "additional_parameters_over_official": 524680,
+  "elapsed_seconds": 8889.453043066082,
+  "stage1_RAM_restores": 14,
+  "peak_cuda_allocated_bytes": 5740853760,
+  "checkpoint_sha256": "df0a4400af9727d199cc325ca4ba32c09ac883e9fd0ea013040e15559628dcf8",
+  "completed_at": "2026-09-12T00:56:24.645810+08:00",
+  "smoke_only": false,
+  "compute_profile": {
+    "task": "dslr_cmfa_dualopt",
+    "params_training_total": 10810605,
+    "params_trainable": 10810603,
+    "params_deploy_total": 10740611,
+    "GMACs": 12.471440688,
+    "GFLOPs": 25.054756144,
+    "profile": "calflops; deployed model forward; FP32 CPU; batch 1; 640x640; excludes postprocessing (including SpatialShape)"
+  },
+  "delta_vs_official_deim_seed0": {
+    "AP": -0.46212526808791665,
+    "AP50": -0.17977583662018048,
+    "AP75": 0.3639112910271365,
+    "AR100": -0.23500533168746074
+  }
+}

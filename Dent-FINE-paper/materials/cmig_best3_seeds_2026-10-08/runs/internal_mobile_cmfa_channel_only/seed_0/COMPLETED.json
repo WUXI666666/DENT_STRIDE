@@ -1,0 +1,7 @@
+{
+  "job": "internal_mobile_cmfa_channel_only_seed0",
+  "checkpoint_sha256": "b83e2c377cf47a9f2e983c8a9c3f17b8a2484c7efde8ca9c48d91dffa097c8fb",
+  "metrics_sha256": "18a0bdded0ca8b0e4bde2eb2e64feca92ae4a64c3a6e53df5935178a5e2479e9",
+  "native_metrics_sha256": "0cea2724e91ead46326a16c96df43fb071d765691a846fa2ae7a356c6f5baf68",
+  "finished_unix": 1791590537.1286662
+}

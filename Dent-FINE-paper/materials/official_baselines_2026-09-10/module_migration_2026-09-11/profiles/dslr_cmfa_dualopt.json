@@ -1,0 +1,9 @@
+{
+  "task": "dslr_cmfa_dualopt",
+  "params_training_total": 10810605,
+  "params_trainable": 10810603,
+  "params_deploy_total": 10740611,
+  "GMACs": 12.471440688,
+  "GFLOPs": 25.054756144,
+  "profile": "calflops; deployed model forward; FP32 CPU; batch 1; 640x640; excludes postprocessing (including SpatialShape)"
+}

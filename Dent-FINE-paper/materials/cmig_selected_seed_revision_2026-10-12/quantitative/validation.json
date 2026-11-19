@@ -1,0 +1,81 @@
+{
+  "checks": [
+    {
+      "check": "per_seed_raw_native_metrics_and_hashes",
+      "rows": 15,
+      "pass": true
+    },
+    {
+      "check": "prior_per_seed_raw_native_metrics_and_hashes",
+      "rows": 20,
+      "pass": true
+    },
+    {
+      "check": "selected_Python_statistics_independent_mean_SD",
+      "cohorts": 3,
+      "pass": true
+    },
+    {
+      "check": "fixed012_Python_statistics_independent_mean_SD",
+      "cohorts": 3,
+      "pass": true
+    },
+    {
+      "check": "all5_Python_statistics_independent_mean_SD",
+      "cohorts": 3,
+      "pass": true
+    },
+    {
+      "check": "Pano_direct_endpoint_ratio_recalculation",
+      "pass": true
+    },
+    {
+      "check": "Mobile_direct_endpoint_ratio_recalculation",
+      "pass": true
+    },
+    {
+      "check": "DSLR_direct_endpoint_ratio_recalculation",
+      "pass": true
+    },
+    {
+      "check": "Figure_6_training_seed_variation_vector_font_and_export_integrity",
+      "pass": true
+    },
+    {
+      "check": "Figure_7_Mobile_framework_AP_vector_font_and_export_integrity",
+      "pass": true
+    },
+    {
+      "check": "Figure_9_Pano_prior_comparison_vector_font_and_export_integrity",
+      "pass": true
+    },
+    {
+      "check": "Figure_S3_prior_paired_AP_vector_font_and_export_integrity",
+      "pass": true
+    },
+    {
+      "check": "Figure_S8_learning_curves_vector_font_and_export_integrity",
+      "pass": true
+    },
+    {
+      "check": "Fig_S5_Pano_complete_FDI_confusion_vector_font_and_export_integrity",
+      "pass": true
+    },
+    {
+      "check": "Fig_S6_Mobile_complete_FDI_confusion_vector_font_and_export_integrity",
+      "pass": true
+    },
+    {
+      "check": "Fig_S7_DSLR_complete_FDI_confusion_vector_font_and_export_integrity",
+      "pass": true
+    },
+    {
+      "check": "Figure_S4_detection_curves_vector_font_and_export_integrity",
+      "pass": true
+    }
+  ],
+  "figures": 9,
+  "no_new_training_or_GPU_use": true,
+  "selected_results_are_exploratory": true,
+  "visual_inspection": "All nine authored figures viewed; no observed clipped labels or missing marks. Complete FDI-grid labels use compact type for 32/52 categories."
+}

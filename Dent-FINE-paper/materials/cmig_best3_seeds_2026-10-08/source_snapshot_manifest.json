@@ -1,0 +1,954 @@
+[
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/__init__.py",
+    "sha256": "d2d2000c38d68cb2591db5366be7643cd6004be6b31d03234bfb680f77559dd3",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/backbone/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/backbone/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/backbone/__init__.py",
+    "sha256": "527bb4bfed0e9cf8509affb08740c2da9144d84aaa0888e5bb98b4a90a6ccfaa",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/backbone/common.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/backbone/common.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/backbone/common.py",
+    "sha256": "3c99326a2b84e3f7b1a08a56651dbb97d012e63513df06d4e173758f82e35002",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/backbone/csp_darknet.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/backbone/csp_darknet.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/backbone/csp_darknet.py",
+    "sha256": "15d680dbe082c76a867b4c6ead90d77a6e5a92a094b8630e7da3c9c99090b81b",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/backbone/csp_resnet.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/backbone/csp_resnet.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/backbone/csp_resnet.py",
+    "sha256": "399b1e3a7c9afd9c00f914c938f51c08ee1dcf09a5cd5ab52b38e311e7dfda07",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/backbone/hgnetv2.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/backbone/hgnetv2.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/backbone/hgnetv2.py",
+    "sha256": "e218c58afcfe84aa5e30e4de873d9a431fd99c50c604f67291ee8e69e9858968",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/backbone/presnet.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/backbone/presnet.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/backbone/presnet.py",
+    "sha256": "54fb81ab7bece7a63c2a46677036f7b1a44645e328ff673b3221063b70d84445",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/backbone/test_resnet.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/backbone/test_resnet.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/backbone/test_resnet.py",
+    "sha256": "f48a7fa9e7648495c838688eaba9656e555397b2897d776b34359b44cfd10481",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/backbone/timm_model.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/backbone/timm_model.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/backbone/timm_model.py",
+    "sha256": "37eb4adcd2f7246222fb68c31de3a1e6b4938e3f8e243305b8aa7d43ae990958",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/backbone/torchvision_model.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/backbone/torchvision_model.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/backbone/torchvision_model.py",
+    "sha256": "9dae18d6b8cf8f88457ca59ca29eedd93d0b8689c09f704593209f50f46434aa",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/backbone/utils.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/backbone/utils.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/backbone/utils.py",
+    "sha256": "e2bcc909a479a7ce06f77a0093e656e2e3da531f745dc6791e8fc76037a69ad5",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/core/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/core/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/core/__init__.py",
+    "sha256": "b20b7267f86929d2ba3f59e494e5a5fe56e24ca2a1967cdebeaab905f3cd2475",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/core/_config.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/core/_config.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/core/_config.py",
+    "sha256": "c7658cdaca896f3952f70a9b64808349615f827341fc31a94587ed8894428802",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/core/workspace.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/core/workspace.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/core/workspace.py",
+    "sha256": "5529cd6f79ee1db0f6623d10e4d74ad6281ffdbe646b3fef60ef045407a656b9",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/core/yaml_config.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/core/yaml_config.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/core/yaml_config.py",
+    "sha256": "cf66f3d74f0291831c383f1bf495431d9487e1eab00ea8935bb2f2224cccd31d",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/core/yaml_utils.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/core/yaml_utils.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/core/yaml_utils.py",
+    "sha256": "bbb88010c0e48beeea5be3a063d1ed3e058eee584f7a9923f077384f0e5dbcda",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/data/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/data/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/data/__init__.py",
+    "sha256": "053256faf34bdcbb274bcc069e1c4b440947c77899c3757d0cf541cf6966a45c",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/data/_misc.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/data/_misc.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/data/_misc.py",
+    "sha256": "85099a5b66d4496575d31a4e3a73dffea3ddfef34a60f43d3e4569b66809703a",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/data/dataloader.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/data/dataloader.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/data/dataloader.py",
+    "sha256": "a31d61102bed2fca5d33dbbc56acf8f2eb940786e25a9a28efd02170dac0ceb7",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/data/dataset/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/data/dataset/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/data/dataset/__init__.py",
+    "sha256": "7bf23c137b73d2ec35ff00a4f36f567c5759cc86f2889f6963b6c2a589b02943",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/data/dataset/_dataset.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/data/dataset/_dataset.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/data/dataset/_dataset.py",
+    "sha256": "f37c4745f85fe6d2f12dd1759e742086c043b84c752d24b8be67ed4e489efd5a",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/data/dataset/coco_dataset.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/data/dataset/coco_dataset.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/data/dataset/coco_dataset.py",
+    "sha256": "8ff24c73a6fdaa453520aa6cd50148b06c359898d52e49a1a2d2cc1327509e17",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/data/dataset/coco_eval.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/data/dataset/coco_eval.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/data/dataset/coco_eval.py",
+    "sha256": "117b760f22984cfbb70ff166ce113add3f4d7c49462abefd591f85cedd8c1be8",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/data/dataset/coco_utils.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/data/dataset/coco_utils.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/data/dataset/coco_utils.py",
+    "sha256": "a1d1d572fbe3fa3aa251faebf9e669acb5494c233b1ca4bf63b154f4e52e23c4",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/data/dataset/voc_detection.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/data/dataset/voc_detection.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/data/dataset/voc_detection.py",
+    "sha256": "0d3dd4be481d5931c203eec95217cd5d79a477f53da228c5917ba7044e5ccf8e",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/data/dataset/voc_eval.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/data/dataset/voc_eval.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/data/dataset/voc_eval.py",
+    "sha256": "71ce94eaa171228011f258384f67f5d69216579fbd60587e4c6cd191d2df3c1f",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/data/transforms/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/data/transforms/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/data/transforms/__init__.py",
+    "sha256": "8b219dd43fc034e903cd5b3cce8f2585208467a4d063d3c54e7b42323fe7b330",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/data/transforms/_transforms.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/data/transforms/_transforms.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/data/transforms/_transforms.py",
+    "sha256": "a2f09451fe98dbec32fceba2438b425d6dc2fb804f8c59cb73ff6056abf6926f",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/data/transforms/container.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/data/transforms/container.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/data/transforms/container.py",
+    "sha256": "7d62a14df51cd9de6dfec4482fe980d00a8e0bd7eeac20d3b830341a755a3ef4",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/data/transforms/functional.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/data/transforms/functional.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/data/transforms/functional.py",
+    "sha256": "b68e508a54340342a5ffe7c12ffa4cb52bc5c0881a69d4111f44ef968518438b",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/data/transforms/mosaic.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/data/transforms/mosaic.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/data/transforms/mosaic.py",
+    "sha256": "954e216ea7e8d7afd875831b55935b7c55825461a9df12a7e10c3b1a5957aa7d",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/deim/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/deim/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/deim/__init__.py",
+    "sha256": "b7e58d57d6f75447ad477ab26f1e63d4ed47a3ec4af6ea8a4699861fd9899abf",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/deim/box_ops.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/deim/box_ops.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/deim/box_ops.py",
+    "sha256": "ca374c756f45508f07fb8ba4850be327cefcd6eb199000dd9ccbd7d6545537ef",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/deim/cdfa.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/deim/cdfa.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/deim/cdfa.py",
+    "sha256": "6bdbd27a0ed4e8adf6aae2ca2791fe14bb5c281ea9c9117261e8d1d2ce565a59",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/deim/cvim.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/deim/cvim.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/deim/cvim.py",
+    "sha256": "82d9a91b120d7daea48bacb8f1ea70b1586d3d3afd8403feecf4b968be07ec6a",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/deim/deim.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/deim/deim.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/deim/deim.py",
+    "sha256": "636131aef151096d2b7da041be9d27ed8086d96e31ba9604841ca1a04bd84647",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/deim/deim_criterion.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/deim/deim_criterion.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/deim/deim_criterion.py",
+    "sha256": "8ad2eaba5997eb61bf7ca99ee2dd585bf457d2fe339c1cd3e43f62b16e19e937",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/deim/denoising.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/deim/denoising.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/deim/denoising.py",
+    "sha256": "e6b755cd1eee2f6016d38b873c3ddffa18bc8bceb6044f92927144ef8da2eeef",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/deim/dental_prior.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/deim/dental_prior.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/deim/dental_prior.py",
+    "sha256": "554ad17a587e79b791670338662a627c159bf19c5a06e7cc2e7cef992c714bc0",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/deim/dfine_decoder.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/deim/dfine_decoder.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/deim/dfine_decoder.py",
+    "sha256": "faf3d7bf807738db5726d4222cabe605c5c23790f7b9ad0aaa412b70c77f543a",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/deim/dfine_utils.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/deim/dfine_utils.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/deim/dfine_utils.py",
+    "sha256": "c546cd277eded116783a29a1a9abea6408a4a807e748bd2c1222b4bbfdb88510",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/deim/hybrid_encoder.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/deim/hybrid_encoder.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/deim/hybrid_encoder.py",
+    "sha256": "3b12fa4ab63b94e9b5cd1ebf477c46c4e9034bcf6adbb4cc9e4ccf8b2d107861",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/deim/matcher.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/deim/matcher.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/deim/matcher.py",
+    "sha256": "745aca6e52510171b4c616e5ae7d23bef916b0af989da7594e7348ce0cd3cf5e",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/deim/postprocessor.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/deim/postprocessor.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/deim/postprocessor.py",
+    "sha256": "36264a3e7ca761e184a3aabc5ff03066f6674e6070b8b65314ac405d010a2537",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/deim/utils.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/deim/utils.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/deim/utils.py",
+    "sha256": "830dc50196fc92e5d3871b9bbb24834abe1928974c3e3d42aa4ffac38a0355b3",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/deim/utils_arch.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/deim/utils_arch.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/deim/utils_arch.py",
+    "sha256": "0d4424a851904a591210cde7945fa83b949d5bd9842b4eea1dd3a9c4d052c9bb",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/misc/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/misc/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/misc/__init__.py",
+    "sha256": "1409a522e890456a3e9047d36d23ec05f5a96e9ce60bf2aba8d569e20a279ecd",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/misc/box_ops.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/misc/box_ops.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/misc/box_ops.py",
+    "sha256": "507f491779819e8bbab76039d423a6f63f3498d3dde7ffcb0edaf798669fb3fa",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/misc/dist_utils.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/misc/dist_utils.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/misc/dist_utils.py",
+    "sha256": "c035f7a70da4e535b3e47494311f4d80d389f85956613402fda57e0fcbf4f033",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/misc/lazy_loader.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/misc/lazy_loader.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/misc/lazy_loader.py",
+    "sha256": "6cd831c6aa1eb13866933a21d42fa0fac3d772319120786362877b523bdf7c7d",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/misc/logger.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/misc/logger.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/misc/logger.py",
+    "sha256": "c9d66368341d0006a0147817cc850e22146c16a2fd375a7954ae9781a8ffd4f8",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/misc/profiler_utils.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/misc/profiler_utils.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/misc/profiler_utils.py",
+    "sha256": "3e4c8355a7457f474f9f7e36af2c65ce9e878e7233d2becafe893fe29764ae7c",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/misc/visualizer.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/misc/visualizer.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/misc/visualizer.py",
+    "sha256": "db3e1c6b23a3a7d8186c7786354b161859a4d00db60991a1e405f6eb484572d0",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/optim/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/optim/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/optim/__init__.py",
+    "sha256": "873f91c02a22f14912420e03d53e90919cc8f9324f6d2166b6e919f80764ccef",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/optim/amp.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/optim/amp.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/optim/amp.py",
+    "sha256": "6e11a55bca958224d062d6a11518aee62787b1018727d94a152428752c3e91cf",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/optim/ema.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/optim/ema.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/optim/ema.py",
+    "sha256": "bdd8ab69529b086f4ff4f229328a79e2153cbf6bda1c09fd015d7cb447bf208a",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/optim/lr_scheduler.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/optim/lr_scheduler.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/optim/lr_scheduler.py",
+    "sha256": "e02199d51be78a434771ff51ce4d22f11f7c83756d62f3104263568206a15374",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/optim/optim.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/optim/optim.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/optim/optim.py",
+    "sha256": "3d9f9fe557e45deff040f704fb6152bf75af5c9e869e5f0a5a9b9a1dfa0f79e6",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/optim/warmup.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/optim/warmup.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/optim/warmup.py",
+    "sha256": "ff80c9b762be57af4abd0a6a843d5d50bbc4887db19d85cb74887615d7ea7432",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/solver/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/solver/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/solver/__init__.py",
+    "sha256": "e232d6a1bf7fa38af95f8c938b3c80cc5068c93e98e8793b20e460008fe00f02",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/solver/_solver.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/solver/_solver.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/solver/_solver.py",
+    "sha256": "38fb872d1309f56fd8918f8226ebf26e30a162f157ba97da3d7c195ce4847b15",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/solver/clas_engine.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/solver/clas_engine.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/solver/clas_engine.py",
+    "sha256": "216be5a2d29d664265aea35c2c019742a29a6ff716f19fe14ec635c97c7d6396",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/solver/clas_solver.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/solver/clas_solver.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/solver/clas_solver.py",
+    "sha256": "41a5d8107889f39a0af86668cac4fed7c6ebf31171df7ac5e340d447b19ba029",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/solver/det_engine.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/solver/det_engine.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/solver/det_engine.py",
+    "sha256": "075ff7f5d07d3f159d590d249c612196ced95046779cc996c6aa4ee2050b9a8d",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/engine/solver/det_solver.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/engine/solver/det_solver.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/engine/solver/det_solver.py",
+    "sha256": "ff4c4a1899af9c7fe7b519a3791e75f5a2b1fb98e81a8731e372b5bb1e0ab50e",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/train.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/train.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/train.py",
+    "sha256": "3cae0fa70bb25e75865a117ba1246941d46503688472f07a510926c26afa657a",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/LICENSE",
+    "original_historical_source": "/home/wuxi/Dent-FINE/LICENSE",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/LICENSE",
+    "sha256": "5931db7e2b17775fca7ee598ab01e1ad7c03f2a9065cda79cb11b002fa5e19b2",
+    "historical_source_hash_verified": false
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/local/requirements.txt",
+    "original_historical_source": "/home/wuxi/Dent-FINE/requirements.txt",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/local/requirements.txt",
+    "sha256": "93ec4da3ea235fe22ef213abd29933c44bf3e9a4168d6794055bdc23f6dde2a6",
+    "historical_source_hash_verified": false
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/__init__.py",
+    "sha256": "14e9e9e8f21759d1a82cc1b722e1b9ae5143b77a9c2a6f588c57fa6b03b0b185",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/backbone/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/backbone/__init__.py",
+    "sha256": "527bb4bfed0e9cf8509affb08740c2da9144d84aaa0888e5bb98b4a90a6ccfaa",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/backbone/common.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/common.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/backbone/common.py",
+    "sha256": "3c99326a2b84e3f7b1a08a56651dbb97d012e63513df06d4e173758f82e35002",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/backbone/csp_darknet.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/csp_darknet.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/backbone/csp_darknet.py",
+    "sha256": "15d680dbe082c76a867b4c6ead90d77a6e5a92a094b8630e7da3c9c99090b81b",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/backbone/csp_resnet.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/csp_resnet.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/backbone/csp_resnet.py",
+    "sha256": "399b1e3a7c9afd9c00f914c938f51c08ee1dcf09a5cd5ab52b38e311e7dfda07",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/backbone/hgnetv2.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/hgnetv2.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/backbone/hgnetv2.py",
+    "sha256": "e218c58afcfe84aa5e30e4de873d9a431fd99c50c604f67291ee8e69e9858968",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/backbone/presnet.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/presnet.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/backbone/presnet.py",
+    "sha256": "54fb81ab7bece7a63c2a46677036f7b1a44645e328ff673b3221063b70d84445",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/backbone/test_resnet.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/test_resnet.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/backbone/test_resnet.py",
+    "sha256": "f48a7fa9e7648495c838688eaba9656e555397b2897d776b34359b44cfd10481",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/backbone/timm_model.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/timm_model.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/backbone/timm_model.py",
+    "sha256": "37eb4adcd2f7246222fb68c31de3a1e6b4938e3f8e243305b8aa7d43ae990958",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/backbone/torchvision_model.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/torchvision_model.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/backbone/torchvision_model.py",
+    "sha256": "9dae18d6b8cf8f88457ca59ca29eedd93d0b8689c09f704593209f50f46434aa",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/backbone/utils.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/backbone/utils.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/backbone/utils.py",
+    "sha256": "e2bcc909a479a7ce06f77a0093e656e2e3da531f745dc6791e8fc76037a69ad5",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/core/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/core/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/core/__init__.py",
+    "sha256": "b20b7267f86929d2ba3f59e494e5a5fe56e24ca2a1967cdebeaab905f3cd2475",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/core/_config.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/core/_config.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/core/_config.py",
+    "sha256": "9a9bf9c060c1c6ea50e205bfe0ab5ad7aa61436e91318cac354fb27e9dd9555a",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/core/workspace.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/core/workspace.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/core/workspace.py",
+    "sha256": "5529cd6f79ee1db0f6623d10e4d74ad6281ffdbe646b3fef60ef045407a656b9",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/core/yaml_config.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/core/yaml_config.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/core/yaml_config.py",
+    "sha256": "cf66f3d74f0291831c383f1bf495431d9487e1eab00ea8935bb2f2224cccd31d",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/core/yaml_utils.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/core/yaml_utils.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/core/yaml_utils.py",
+    "sha256": "bbb88010c0e48beeea5be3a063d1ed3e058eee584f7a9923f077384f0e5dbcda",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/data/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/data/__init__.py",
+    "sha256": "053256faf34bdcbb274bcc069e1c4b440947c77899c3757d0cf541cf6966a45c",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/data/_misc.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/_misc.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/data/_misc.py",
+    "sha256": "85099a5b66d4496575d31a4e3a73dffea3ddfef34a60f43d3e4569b66809703a",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/data/dataloader.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/dataloader.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/data/dataloader.py",
+    "sha256": "a31d61102bed2fca5d33dbbc56acf8f2eb940786e25a9a28efd02170dac0ceb7",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/data/dataset/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/dataset/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/data/dataset/__init__.py",
+    "sha256": "7bf23c137b73d2ec35ff00a4f36f567c5759cc86f2889f6963b6c2a589b02943",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/data/dataset/_dataset.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/dataset/_dataset.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/data/dataset/_dataset.py",
+    "sha256": "f37c4745f85fe6d2f12dd1759e742086c043b84c752d24b8be67ed4e489efd5a",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/data/dataset/coco_dataset.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/dataset/coco_dataset.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/data/dataset/coco_dataset.py",
+    "sha256": "213e4a34ae227715113ffc437ab16642a9a5ec7f516a7f9d6004a8cc4ca1be5b",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/data/dataset/coco_eval.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/dataset/coco_eval.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/data/dataset/coco_eval.py",
+    "sha256": "117b760f22984cfbb70ff166ce113add3f4d7c49462abefd591f85cedd8c1be8",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/data/dataset/coco_utils.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/dataset/coco_utils.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/data/dataset/coco_utils.py",
+    "sha256": "a1d1d572fbe3fa3aa251faebf9e669acb5494c233b1ca4bf63b154f4e52e23c4",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/data/dataset/voc_detection.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/dataset/voc_detection.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/data/dataset/voc_detection.py",
+    "sha256": "0d3dd4be481d5931c203eec95217cd5d79a477f53da228c5917ba7044e5ccf8e",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/data/dataset/voc_eval.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/dataset/voc_eval.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/data/dataset/voc_eval.py",
+    "sha256": "71ce94eaa171228011f258384f67f5d69216579fbd60587e4c6cd191d2df3c1f",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/data/transforms/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/transforms/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/data/transforms/__init__.py",
+    "sha256": "3b233306b887f8279e77a6bf8e61f9cbd1407822f4efb3f0fbf348d63a2ad86b",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/data/transforms/_transforms.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/transforms/_transforms.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/data/transforms/_transforms.py",
+    "sha256": "f2f49b247faabcd55e5189c0763d88022e533ae29d635d7280d4b1a55756ea8c",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/data/transforms/container.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/transforms/container.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/data/transforms/container.py",
+    "sha256": "7d62a14df51cd9de6dfec4482fe980d00a8e0bd7eeac20d3b830341a755a3ef4",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/data/transforms/functional.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/transforms/functional.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/data/transforms/functional.py",
+    "sha256": "b68e508a54340342a5ffe7c12ffa4cb52bc5c0881a69d4111f44ef968518438b",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/data/transforms/mosaic.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/data/transforms/mosaic.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/data/transforms/mosaic.py",
+    "sha256": "954e216ea7e8d7afd875831b55935b7c55825461a9df12a7e10c3b1a5957aa7d",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/deim/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/deim/__init__.py",
+    "sha256": "b7e58d57d6f75447ad477ab26f1e63d4ed47a3ec4af6ea8a4699861fd9899abf",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/deim/box_ops.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/box_ops.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/deim/box_ops.py",
+    "sha256": "3ae321b75e08db64fbb97f052233103a040a6f572cfbfe9d9d825b472208746d",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/deim/cdfa.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/cdfa.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/deim/cdfa.py",
+    "sha256": "6bdbd27a0ed4e8adf6aae2ca2791fe14bb5c281ea9c9117261e8d1d2ce565a59",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/deim/cvim.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/cvim.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/deim/cvim.py",
+    "sha256": "88c7b78e6a7c278bd5f4365bf0677222c05c4048495acf9eb6902013d541d74b",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/deim/deim.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/deim.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/deim/deim.py",
+    "sha256": "636131aef151096d2b7da041be9d27ed8086d96e31ba9604841ca1a04bd84647",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/deim/deim_criterion.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/deim_criterion.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/deim/deim_criterion.py",
+    "sha256": "0e648cfebefd83f1ebdc4000850fcfc58a318ffab53455a84f4cdcb59d244ae7",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/deim/denoising.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/denoising.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/deim/denoising.py",
+    "sha256": "e6b755cd1eee2f6016d38b873c3ddffa18bc8bceb6044f92927144ef8da2eeef",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/deim/dental_prior.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/dental_prior.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/deim/dental_prior.py",
+    "sha256": "554ad17a587e79b791670338662a627c159bf19c5a06e7cc2e7cef992c714bc0",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/deim/dfine_decoder.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/dfine_decoder.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/deim/dfine_decoder.py",
+    "sha256": "ae01fcdc3e9b443b6984650a1b634a40a65dc061beb58989d2479152fc741f42",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/deim/dfine_utils.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/dfine_utils.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/deim/dfine_utils.py",
+    "sha256": "c546cd277eded116783a29a1a9abea6408a4a807e748bd2c1222b4bbfdb88510",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/deim/hybrid_encoder.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/hybrid_encoder.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/deim/hybrid_encoder.py",
+    "sha256": "3b12fa4ab63b94e9b5cd1ebf477c46c4e9034bcf6adbb4cc9e4ccf8b2d107861",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/deim/matcher.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/matcher.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/deim/matcher.py",
+    "sha256": "745aca6e52510171b4c616e5ae7d23bef916b0af989da7594e7348ce0cd3cf5e",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/deim/postprocessor.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/postprocessor.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/deim/postprocessor.py",
+    "sha256": "a2200fd7212dbfb9a8a19cbe85d13eb6fdad289a99bb75d8f5593fb01a0fb0bf",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/deim/utils.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/utils.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/deim/utils.py",
+    "sha256": "830dc50196fc92e5d3871b9bbb24834abe1928974c3e3d42aa4ffac38a0355b3",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/deim/utils_arch.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/deim/utils_arch.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/deim/utils_arch.py",
+    "sha256": "0d4424a851904a591210cde7945fa83b949d5bd9842b4eea1dd3a9c4d052c9bb",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/misc/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/misc/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/misc/__init__.py",
+    "sha256": "1409a522e890456a3e9047d36d23ec05f5a96e9ce60bf2aba8d569e20a279ecd",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/misc/box_ops.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/misc/box_ops.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/misc/box_ops.py",
+    "sha256": "507f491779819e8bbab76039d423a6f63f3498d3dde7ffcb0edaf798669fb3fa",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/misc/dist_utils.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/misc/dist_utils.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/misc/dist_utils.py",
+    "sha256": "c035f7a70da4e535b3e47494311f4d80d389f85956613402fda57e0fcbf4f033",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/misc/lazy_loader.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/misc/lazy_loader.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/misc/lazy_loader.py",
+    "sha256": "6cd831c6aa1eb13866933a21d42fa0fac3d772319120786362877b523bdf7c7d",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/misc/logger.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/misc/logger.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/misc/logger.py",
+    "sha256": "c9d66368341d0006a0147817cc850e22146c16a2fd375a7954ae9781a8ffd4f8",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/misc/profiler_utils.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/misc/profiler_utils.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/misc/profiler_utils.py",
+    "sha256": "3e4c8355a7457f474f9f7e36af2c65ce9e878e7233d2becafe893fe29764ae7c",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/misc/visualizer.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/misc/visualizer.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/misc/visualizer.py",
+    "sha256": "db3e1c6b23a3a7d8186c7786354b161859a4d00db60991a1e405f6eb484572d0",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/optim/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/optim/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/optim/__init__.py",
+    "sha256": "873f91c02a22f14912420e03d53e90919cc8f9324f6d2166b6e919f80764ccef",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/optim/amp.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/optim/amp.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/optim/amp.py",
+    "sha256": "6e11a55bca958224d062d6a11518aee62787b1018727d94a152428752c3e91cf",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/optim/ema.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/optim/ema.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/optim/ema.py",
+    "sha256": "bdd8ab69529b086f4ff4f229328a79e2153cbf6bda1c09fd015d7cb447bf208a",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/optim/lr_scheduler.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/optim/lr_scheduler.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/optim/lr_scheduler.py",
+    "sha256": "e02199d51be78a434771ff51ce4d22f11f7c83756d62f3104263568206a15374",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/optim/optim.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/optim/optim.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/optim/optim.py",
+    "sha256": "3d9f9fe557e45deff040f704fb6152bf75af5c9e869e5f0a5a9b9a1dfa0f79e6",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/optim/warmup.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/optim/warmup.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/optim/warmup.py",
+    "sha256": "ff80c9b762be57af4abd0a6a843d5d50bbc4887db19d85cb74887615d7ea7432",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/solver/__init__.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/solver/__init__.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/solver/__init__.py",
+    "sha256": "e232d6a1bf7fa38af95f8c938b3c80cc5068c93e98e8793b20e460008fe00f02",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/solver/_solver.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/solver/_solver.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/solver/_solver.py",
+    "sha256": "38fb872d1309f56fd8918f8226ebf26e30a162f157ba97da3d7c195ce4847b15",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/solver/clas_engine.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/solver/clas_engine.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/solver/clas_engine.py",
+    "sha256": "216be5a2d29d664265aea35c2c019742a29a6ff716f19fe14ec635c97c7d6396",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/solver/clas_solver.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/solver/clas_solver.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/solver/clas_solver.py",
+    "sha256": "41a5d8107889f39a0af86668cac4fed7c6ebf31171df7ac5e340d447b19ba029",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/solver/det_engine.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/solver/det_engine.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/solver/det_engine.py",
+    "sha256": "075ff7f5d07d3f159d590d249c612196ced95046779cc996c6aa4ee2050b9a8d",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/engine/solver/det_solver.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/engine/solver/det_solver.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/engine/solver/det_solver.py",
+    "sha256": "b0d71cca041e99bbcc95acea31c8df1e8efd63b6437cd46f360bbb4259c260d2",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/train.py",
+    "original_historical_source": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024/train.py",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/train.py",
+    "sha256": "3cae0fa70bb25e75865a117ba1246941d46503688472f07a510926c26afa657a",
+    "historical_source_hash_verified": true
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/LICENSE",
+    "original_historical_source": "/home/wuxi/Dent-FINE/LICENSE",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/LICENSE",
+    "sha256": "5931db7e2b17775fca7ee598ab01e1ad7c03f2a9065cda79cb11b002fa5e19b2",
+    "historical_source_hash_verified": false
+  },
+  {
+    "source": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshots/mobile/requirements.txt",
+    "original_historical_source": "/home/wuxi/Dent-FINE/requirements.txt",
+    "snapshot": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/source_snapshots/mobile/requirements.txt",
+    "sha256": "93ec4da3ea235fe22ef213abd29933c44bf3e9a4168d6794055bdc23f6dde2a6",
+    "historical_source_hash_verified": false
+  }
+]

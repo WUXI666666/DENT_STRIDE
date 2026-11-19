@@ -1,0 +1,209 @@
+{
+  "query_label_checks": [
+    {
+      "configuration": "dslr_base_adamw",
+      "image_id": 68,
+      "query": 13,
+      "displayed_category_is_query_top1": true,
+      "bbox_max_error_pixels": 0.00013393163681030273,
+      "score_error": 0.0,
+      "raw_source": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/dslr_base_adamw/seed_0/evaluation/pre_topk_candidates.npz"
+    },
+    {
+      "configuration": "dslr_cmfa_adamw",
+      "image_id": 68,
+      "query": 10,
+      "displayed_category_is_query_top1": true,
+      "bbox_max_error_pixels": 0.00026792287826538086,
+      "score_error": 0.0,
+      "raw_source": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/dslr_cmfa_adamw/seed_0/evaluation/pre_topk_candidates.npz"
+    },
+    {
+      "configuration": "dslr_base_adamw",
+      "image_id": 132,
+      "query": 15,
+      "displayed_category_is_query_top1": true,
+      "bbox_max_error_pixels": 3.4332275390625e-05,
+      "score_error": 0.0,
+      "raw_source": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/dslr_base_adamw/seed_0/evaluation/pre_topk_candidates.npz"
+    },
+    {
+      "configuration": "dslr_cmfa_adamw",
+      "image_id": 132,
+      "query": 14,
+      "displayed_category_is_query_top1": true,
+      "bbox_max_error_pixels": 0.00018310546875,
+      "score_error": 5.960464477539063e-08,
+      "raw_source": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/dslr_cmfa_adamw/seed_0/evaluation/pre_topk_candidates.npz"
+    },
+    {
+      "configuration": "internal_mobile_factor_no_quadrant",
+      "image_id": 155,
+      "query": 2,
+      "displayed_category_is_query_top1": true,
+      "bbox_max_error_pixels": 0.0001010894775390625,
+      "score_error": 1.1920928955078125e-07,
+      "raw_source": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_factor_no_quadrant/seed_0/evaluation/pre_topk_candidates.npz"
+    },
+    {
+      "configuration": "internal_mobile_factor_train_off",
+      "image_id": 155,
+      "query": 3,
+      "displayed_category_is_query_top1": true,
+      "bbox_max_error_pixels": 4.38690185546875e-05,
+      "score_error": 0.0,
+      "raw_source": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_factor_train_off/seed_0/evaluation/pre_topk_candidates.npz"
+    },
+    {
+      "configuration": "internal_mobile_factor_no_position",
+      "image_id": 48,
+      "query": 0,
+      "displayed_category_is_query_top1": true,
+      "bbox_max_error_pixels": 0.000213623046875,
+      "score_error": 0.0,
+      "raw_source": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_factor_no_position/seed_0/evaluation/pre_topk_candidates.npz"
+    },
+    {
+      "configuration": "internal_mobile_factor_train_off",
+      "image_id": 48,
+      "query": 1,
+      "displayed_category_is_query_top1": true,
+      "bbox_max_error_pixels": 6.103515625e-05,
+      "score_error": 0.0,
+      "raw_source": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_factor_train_off/seed_0/evaluation/pre_topk_candidates.npz"
+    },
+    {
+      "configuration": "internal_mobile_factor_no_dentition",
+      "image_id": 77,
+      "query": 13,
+      "displayed_category_is_query_top1": true,
+      "bbox_max_error_pixels": 0.0,
+      "score_error": 5.960464477539063e-08,
+      "raw_source": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_factor_no_dentition/seed_0/evaluation/pre_topk_candidates.npz"
+    },
+    {
+      "configuration": "internal_mobile_factor_train_off",
+      "image_id": 77,
+      "query": 9,
+      "displayed_category_is_query_top1": true,
+      "bbox_max_error_pixels": 0.000244140625,
+      "score_error": 0.0,
+      "raw_source": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_factor_train_off/seed_0/evaluation/pre_topk_candidates.npz"
+    },
+    {
+      "configuration": "internal_mobile_hooa_neither",
+      "image_id": 155,
+      "query": 3,
+      "displayed_category_is_query_top1": true,
+      "bbox_max_error_pixels": 6.103515625e-05,
+      "score_error": 0.0,
+      "raw_source": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_hooa_neither/seed_0/evaluation/pre_topk_candidates.npz"
+    },
+    {
+      "configuration": "mobile_1024_full",
+      "image_id": 155,
+      "query": 1,
+      "displayed_category_is_query_top1": true,
+      "bbox_max_error_pixels": 6.127357482910156e-05,
+      "score_error": 0.0,
+      "raw_source": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/mobile_1024_full/seed_0/evaluation/pre_topk_candidates.npz"
+    },
+    {
+      "configuration": "internal_mobile_hooa_neither",
+      "image_id": 139,
+      "query": 18,
+      "displayed_category_is_query_top1": true,
+      "bbox_max_error_pixels": 2.47955322265625e-05,
+      "score_error": 0.0,
+      "raw_source": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_hooa_neither/seed_0/evaluation/pre_topk_candidates.npz"
+    },
+    {
+      "configuration": "mobile_1024_full",
+      "image_id": 139,
+      "query": 16,
+      "displayed_category_is_query_top1": true,
+      "bbox_max_error_pixels": 0.0003986358642578125,
+      "score_error": 0.0,
+      "raw_source": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/mobile_1024_full/seed_0/evaluation/pre_topk_candidates.npz"
+    }
+  ],
+  "artifacts": [
+    {
+      "figure": "Figure_CMFA_controlled_evidence",
+      "PNG_size": [
+        5010,
+        3510
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Figure_HOOA_controlled_evidence",
+      "PNG_size": [
+        5010,
+        3690
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Figure_Factor_supervision_evidence",
+      "PNG_size": [
+        5010,
+        4560
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Figure_Factor_head_HiResCAM",
+      "PNG_size": [
+        5010,
+        3540
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Figure_Factor_head_GradCAM",
+      "PNG_size": [
+        5010,
+        3540
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Figure_Factor_head_confusions",
+      "PNG_size": [
+        5010,
+        1830
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Figure_Factor_head_spatial_support",
+      "PNG_size": [
+        5010,
+        3540
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Figure_Factor_head_occlusion_heatmaps",
+      "PNG_size": [
+        5010,
+        3600
+      ],
+      "DPI": 599.9988
+    },
+    {
+      "figure": "Figure_Factor_head_occlusion_overlay",
+      "PNG_size": [
+        5010,
+        3600
+      ],
+      "DPI": 599.9988
+    }
+  ],
+  "occlusion_patches_per_image": 841,
+  "unoccluded_query_freezing_invariance": true,
+  "passive_hook_invariance": true,
+  "weights_and_manuscripts_modified": false,
+  "new_training_started": false
+}

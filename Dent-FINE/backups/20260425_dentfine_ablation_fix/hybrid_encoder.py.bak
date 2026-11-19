@@ -1,0 +1,1582 @@
+"""
+DEIM: DETR with Improved Matching for Fast Convergence
+Copyright (c) 2024 The DEIM Authors. All Rights Reserved.
+---------------------------------------------------------------------------------
+Modified from D-FINE (https://github.com/Peterande/D-FINE/)
+Copyright (c) 2024 D-FINE Authors. All Rights Reserved.
+"""
+
+import copy
+from collections import OrderedDict
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from .utils import get_activation
+
+from ..core import register
+
+__all__ = ['HybridEncoder']
+
+try:
+    from pytorch_wavelets import DWTForward, DWTInverse
+    _WAVELETS_AVAILABLE = True
+except ImportError:
+    DWTForward = DWTInverse = None
+    _WAVELETS_AVAILABLE = False
+
+
+class _ConvDWT(nn.Module):
+    def __init__(self, wave='haar', mode='zero'):
+        super().__init__()
+        if not _WAVELETS_AVAILABLE:
+            raise RuntimeError(
+                "pytorch_wavelets 未安装，无法使用 WavEnhance。请先安装该依赖。"
+            )
+        self.dwt = DWTForward(J=1, wave=wave, mode=mode)
+
+    def forward(self, x):
+        device_type = 'cuda' if x.is_cuda else 'cpu'
+        with torch.amp.autocast(device_type=device_type, enabled=False):
+            xf = x.float() if x.dtype != torch.float32 else x
+            yl, yh = self.dwt(xf)
+        b, c, h, w = x.shape
+        yh = yh[0].transpose(1, 2).reshape(b, -1, yh[0].shape[3], yh[0].shape[4])
+        out = torch.cat([yl, yh], dim=1)
+        return F.interpolate(out, size=(h // 2, w // 2), mode='bilinear', align_corners=False)
+
+
+class _ConvIDWT(nn.Module):
+    def __init__(self, wave='haar', mode='zero'):
+        super().__init__()
+        if not _WAVELETS_AVAILABLE:
+            raise RuntimeError("pytorch_wavelets 未安装，无法使用 WavEnhance。")
+        self.idwt = DWTInverse(wave=wave, mode=mode)
+
+    def forward(self, ll, yh):
+        b, c, h, w = ll.shape
+        yh = yh.reshape(b, c, 3, h, w)
+        device_type = 'cuda' if ll.is_cuda else 'cpu'
+        with torch.amp.autocast(device_type=device_type, enabled=False):
+            rec = self.idwt((ll.float(), [yh.float()]))
+        return F.interpolate(rec, size=(2 * h, 2 * w), mode='bilinear', align_corners=False)
+
+
+class _SpatialAttention(nn.Module):
+    def __init__(self, kernel_size=7):
+        super().__init__()
+        self.conv = nn.Conv2d(2, 1, kernel_size, padding=kernel_size // 2, bias=False)
+        self.sigmoid = nn.Sigmoid()
+
+    def forward(self, x):
+        avg = torch.mean(x, dim=1, keepdim=True)
+        mx, _ = torch.max(x, dim=1, keepdim=True)
+        return self.sigmoid(self.conv(torch.cat([avg, mx], dim=1)))
+
+
+class WavEnhance(nn.Module):
+    def __init__(self, in_channels, wave='haar', mode='symmetric',
+                 residual_alpha=0.15, detail_alpha=0.2):
+        super().__init__()
+        self.dwt = _ConvDWT(wave=wave, mode=mode)
+        self.idwt = _ConvIDWT(wave=wave, mode=mode)
+        self.attention = _SpatialAttention(kernel_size=7)
+        self.residual_scale = nn.Parameter(torch.tensor(float(residual_alpha)))
+        self.detail_scale = nn.Parameter(torch.tensor(float(detail_alpha)))
+        self.threshold = nn.Parameter(torch.tensor(0.1))
+
+    def forward(self, x):
+        b, c, h, w = x.shape
+        dwt_out = self.dwt(x)
+        ll, yh = dwt_out[:, :c], dwt_out[:, c:]
+        att = self.attention(ll)
+
+        detail_scale = self.detail_scale.clamp(0.0, 0.5)
+        yh_refined = yh * (1.0 - detail_scale + detail_scale * att)
+
+        threshold = self.threshold.abs()
+        yh_refined = torch.sign(yh_refined) * F.relu(yh_refined.abs() - threshold)
+
+        enhanced = self.idwt(ll, yh_refined)
+        if enhanced.shape[2:] != (h, w):
+            enhanced = F.interpolate(enhanced, size=(h, w), mode='bilinear', align_corners=False)
+
+        residual_scale = self.residual_scale.clamp(0.0, 0.3)
+        return x + residual_scale * (enhanced - x)
+
+
+class StatisticalGuidedDenoising(nn.Module):
+    def __init__(self, channels=256, reduction=16):
+        super().__init__()
+        hidden = max(channels // reduction, 8)
+        self.stat_pool = nn.AdaptiveAvgPool2d(1)
+        self.stat_net = nn.Sequential(
+            nn.Conv2d(channels, hidden, 1, bias=False),
+            nn.BatchNorm2d(hidden),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(hidden, channels, 1, bias=False),
+            nn.Sigmoid(),
+        )
+        self.noise_estimator = nn.Sequential(
+            nn.Conv2d(channels, channels, 3, padding=1, bias=False),
+            nn.BatchNorm2d(channels),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(channels, channels, 3, padding=1, bias=False),
+            nn.BatchNorm2d(channels),
+        )
+        self.fusion = nn.Sequential(
+            nn.Conv2d(channels * 2, channels, 1, bias=False),
+            nn.BatchNorm2d(channels),
+            nn.ReLU(inplace=True),
+        )
+        self.res_scale = nn.Parameter(torch.tensor(-3.0))
+
+    def forward(self, x):
+        stats = self.stat_pool(x)
+        stats_weight = self.stat_net(stats)
+        noise = self.noise_estimator(x)
+        denoised = x - noise * (1 - stats_weight)
+        fused = torch.cat([x, denoised], dim=1)
+        alpha = 0.25 * torch.sigmoid(self.res_scale)
+        return x + alpha * self.fusion(fused)
+
+
+class MultiPathFeatureFusion(nn.Module):
+    def __init__(self, in_channels=256, reduction=16):
+        super().__init__()
+        hidden = max(in_channels // reduction, 8)
+        self.spatial_path = nn.Sequential(
+            nn.Conv2d(in_channels, in_channels, kernel_size=5, padding=2,
+                      groups=in_channels, bias=False),
+            nn.BatchNorm2d(in_channels),
+            nn.Conv2d(in_channels, in_channels, kernel_size=1, bias=False),
+            nn.BatchNorm2d(in_channels),
+            nn.GELU(),
+        )
+        self.channel_path = nn.Sequential(
+            nn.AdaptiveAvgPool2d(1),
+            nn.Conv2d(in_channels, hidden, 1, bias=False),
+            nn.GELU(),
+            nn.Conv2d(hidden, in_channels, 1, bias=False),
+            nn.Sigmoid(),
+        )
+        self.context_path = nn.Sequential(
+            nn.Conv2d(in_channels, in_channels // 2, 1, bias=False),
+            nn.BatchNorm2d(in_channels // 2),
+            nn.GELU(),
+            nn.Conv2d(in_channels // 2, in_channels, 3, padding=1, bias=False),
+            nn.BatchNorm2d(in_channels),
+        )
+        self.fusion_weights = nn.Parameter(torch.ones(3) / 3)
+        self.res_scale = nn.Parameter(torch.tensor(-2.0))
+
+    def forward(self, x):
+        spatial = self.spatial_path(x)
+        channel_feat = x * self.channel_path(x)
+        context = self.context_path(x)
+        weights = F.softmax(self.fusion_weights, dim=0)
+        fused = weights[0] * spatial + weights[1] * channel_feat + weights[2] * context
+        alpha = 0.35 * torch.sigmoid(self.res_scale)
+        return x + alpha * fused
+
+
+class DynamicReceptiveField(nn.Module):
+    def __init__(self, in_channels=256, num_scales=3, reduction_ratio=16):
+        super().__init__()
+        self.in_channels = in_channels
+        self.num_scales = num_scales
+        hidden = max(8, in_channels // reduction_ratio)
+        dilations = [1, 2, 4][:num_scales]
+
+        self.multi_scale_convs = nn.ModuleList([
+            nn.Sequential(
+                nn.Conv2d(
+                    in_channels, in_channels, kernel_size=3,
+                    padding=dilation, dilation=dilation,
+                    groups=max(1, in_channels // 32), bias=False,
+                ),
+                nn.BatchNorm2d(in_channels),
+                nn.GELU(),
+            )
+            for dilation in dilations
+        ])
+        self.scale_attention = nn.Sequential(
+            nn.AdaptiveAvgPool2d(1),
+            nn.Conv2d(in_channels * num_scales, hidden, 1),
+            nn.GELU(),
+            nn.Conv2d(hidden, num_scales, 1),
+            nn.Softmax(dim=1),
+        )
+        self.channel_attention = nn.Sequential(
+            nn.AdaptiveAvgPool2d(1),
+            nn.Conv2d(in_channels, hidden, 1),
+            nn.GELU(),
+            nn.Conv2d(hidden, in_channels, 1),
+            nn.Sigmoid(),
+        )
+        self.fusion_weight = nn.Parameter(torch.tensor(-2.0))
+
+    def forward(self, x):
+        b, _, _, _ = x.shape
+        multi_scale_features = [conv(x) for conv in self.multi_scale_convs]
+        concat_features = torch.cat(multi_scale_features, dim=1)
+        scale_weights = self.scale_attention(concat_features).view(b, self.num_scales, 1, 1, 1)
+        stacked_features = torch.stack(multi_scale_features, dim=1)
+        fused = (stacked_features * scale_weights).sum(dim=1)
+        fused = fused * self.channel_attention(fused)
+        alpha = 0.35 * torch.sigmoid(self.fusion_weight)
+        return x + alpha * fused
+
+class FourierUnit(nn.Module):
+    def __init__(self, in_channels, out_channels, groups=1):
+        super(FourierUnit, self).__init__()
+        assert in_channels == out_channels, \
+            "For HFSA we expect in_channels == out_channels"
+        self.groups = groups
+        # 频域卷积：处理 [B, 2C, H, W/2+1]
+        self.conv_layer = nn.Conv2d(
+            in_channels * 2,
+            out_channels * 2,
+            kernel_size=1,
+            stride=1,
+            padding=0,
+            groups=self.groups,
+            bias=False
+        )
+        self.bn = nn.BatchNorm2d(out_channels * 2)
+        self.relu = nn.ReLU(inplace=True)
+
+    def forward(self, x):
+        B, C, H, W = x.size()
+        orig_dtype = x.dtype
+
+        # 所有 FFT/复数操作用 FP32，禁用 AMP（区分 CPU / CUDA）
+        device_type = 'cuda' if x.is_cuda else 'cpu'
+        with torch.amp.autocast(device_type=device_type, enabled=False):
+            x32 = x.float()
+            ffted = torch.fft.rfft2(x32, norm='ortho')  # complex64, [B,C,H,W/2+1]
+
+            ffted_ri = torch.view_as_real(ffted)                      # [B,C,H,W/2+1,2]
+            ffted_ri = ffted_ri.permute(0, 1, 4, 2, 3).contiguous()   # [B,C,2,H,W/2+1]
+            ffted_ri = ffted_ri.view(B, 2 * C, H, ffted_ri.size(-1))  # [B,2C,H,W/2+1]
+
+            ffted_ri = self.conv_layer(ffted_ri)
+            ffted_ri = self.relu(self.bn(ffted_ri))
+
+            ffted_ri = ffted_ri.view(B, C, 2, H, ffted_ri.size(-1)) \
+                               .permute(0, 1, 3, 4, 2).contiguous()
+            ffted_c  = torch.view_as_complex(ffted_ri)                 # complex64
+            out32    = torch.fft.irfft2(ffted_c, s=(H, W), norm='ortho')  # fp32
+
+        return out32.to(orig_dtype)
+
+class FBMLite(nn.Module):
+    """
+    FBM-lite: 简化版 FrequencyBandModulation
+    - 多个环形低通掩码，把频域分成多个频带
+    - 每个频带的高频残差 high_part 用一个 depthwise conv 生成的 spatial weight 做调制
+    - 最后把所有频带 + 最低频残差加起来
+    说明：
+    - 为了简化，这里不做预缓存 mask，而是根据 H,W 动态生成频率网格
+    - 所有 FFT 相关操作强制用 float32，并禁用 AMP
+    """
+    def __init__(
+        self,
+        in_channels: int,
+        k_list=(2, 4),
+        spatial_kernel: int = 3,
+        spatial_group: int = 1,
+        lowfreq_att: bool = False,
+        act: str = "sigmoid",
+    ):
+        super().__init__()
+        assert in_channels % spatial_group == 0, \
+            f"in_channels={in_channels} 不能被 spatial_group={spatial_group} 整除"
+        self.in_channels = in_channels
+        self.k_list = sorted(list(k_list))
+        self.spatial_kernel = spatial_kernel
+        self.spatial_group = spatial_group
+        self.lowfreq_att = lowfreq_att
+        self.act = act
+
+        n_convs = len(self.k_list) + (1 if self.lowfreq_att else 0)
+        self.freq_weight_convs = nn.ModuleList()
+        for _ in range(n_convs):
+            conv = nn.Conv2d(
+                in_channels,
+                spatial_group,
+                kernel_size=spatial_kernel,
+                stride=1,
+                padding=spatial_kernel // 2,
+                groups=spatial_group,
+                bias=True,
+            )
+            nn.init.normal_(conv.weight, std=1e-6)
+            if conv.bias is not None:
+                conv.bias.data.zero_()
+            self.freq_weight_convs.append(conv)
+
+    def _sp_act(self, x: torch.Tensor) -> torch.Tensor:
+        if self.act == "sigmoid":
+            return torch.sigmoid(x) * 2
+        elif self.act == "tanh":
+            return 1.0 + torch.tanh(x)
+        elif self.act == "softmax":
+            # 沿着 group 维度做 softmax（注意这里只是一个可选模式）
+            return F.softmax(x, dim=1) * x.shape[1]
+        else:
+            return x
+
+    def _build_radius(self, H: int, Wf: int, device, dtype):
+        """
+        构建频率半径矩阵 radius[h, w_f] ~ sqrt(f_h^2 + f_w^2) in [0, 0.5]
+        H: 空间高度
+        Wf: 频域宽度 (W//2 + 1)
+        """
+        # 这里用 fftfreq / rfftfreq 来和 FFT 对齐
+        freq_h = torch.fft.fftfreq(H, device=device)
+        freq_w = torch.fft.rfftfreq((Wf - 1) * 2, device=device)  # W = 2*(Wf-1)
+        grid_h, grid_w = torch.meshgrid(freq_h, freq_w, indexing="ij")
+        radius = torch.sqrt(grid_h ** 2 + grid_w ** 2).to(dtype)
+        return radius  # [H, Wf]
+
+    def forward(self, x: torch.Tensor, att_feat: torch.Tensor = None) -> torch.Tensor:
+        """
+        x: [B,C,H,W]
+        att_feat: 默认用 x，本质是生成 freq_weight 的特征
+        """
+        if att_feat is None:
+            att_feat = x
+
+        B, C, H, W = x.shape
+        orig_dtype = x.dtype
+        device_type = "cuda" if x.is_cuda else "cpu"
+
+        with torch.amp.autocast(device_type=device_type, enabled=False):
+            x32 = x.float()
+            att32 = att_feat.float()
+
+            # FFT 到频域
+            x_fft = torch.fft.rfft2(x32, norm="ortho")  # [B,C,H,Wf], complex
+            _, _, _, Wf = x_fft.shape
+
+            radius = self._build_radius(H, Wf, x32.device, x32.dtype)  # [H, Wf]
+
+            pre_x = x32  # 用来做多频带残差
+            out_list = []
+
+            g = self.spatial_group
+            cg = C // g
+
+            # 逐频带处理高频残差
+            for idx, k in enumerate(self.k_list):
+                thr = 0.5 / float(k) + 1e-8
+                mask = (radius < thr).to(x32.dtype)              # [H, Wf]
+                mask = mask.view(1, 1, H, Wf)                   # [1,1,H,Wf]
+
+                low = torch.fft.irfft2(x_fft * mask, s=(H, W), norm="ortho")   # [B,C,H,W]
+                high = pre_x - low
+                pre_x = low
+
+                # 空间调制权重
+                freq_weight = self.freq_weight_convs[idx](att32)  # [B,G,H,W]
+                freq_weight = self._sp_act(freq_weight)
+
+                # [B,G,1,H,W] * [B,G,C/G,H,W] -> [B,C,H,W]
+                fw = freq_weight.view(B, g, 1, H, W)
+                hp = high.view(B, g, cg, H, W)
+                tmp = (fw * hp).view(B, C, H, W)
+                out_list.append(tmp)
+
+            # 最低频部分：要么也加注意力，要么直接加
+            if self.lowfreq_att:
+                idx = len(self.k_list)
+                freq_weight = self.freq_weight_convs[idx](att32)  # [B,G,H,W]
+                freq_weight = self._sp_act(freq_weight)
+                fw = freq_weight.view(B, g, 1, H, W)
+                lp = pre_x.view(B, g, cg, H, W)
+                tmp = (fw * lp).view(B, C, H, W)
+                out_list.append(tmp)
+            else:
+                out_list.append(pre_x)
+
+            out32 = sum(out_list)  # [B,C,H,W]
+
+        return out32.to(orig_dtype)
+
+
+class HighPassFreqBranch(nn.Module):
+    """
+    高通残差分支（模仿 FreqFusion 里的高频增强部分）：
+    - 先用 depthwise blur 得到低频
+    - high = x - low
+    - 用一个轻量 depthwise + 1x1 处理 high
+    - 最后：x + hf_gain * high
+    """
+    def __init__(self, dim: int, k: int = 3):
+        super().__init__()
+        self.k = k
+        # 简单的 depthwise blur（可以初始化成平均卷积，也可以学）
+        self.lowpass = nn.Conv2d(
+            dim, dim, kernel_size=k, padding=k // 2,
+            groups=dim, bias=False
+        )
+        # 初始化为均值滤波（可选：也可以改成 xavier）
+        with torch.no_grad():
+            self.lowpass.weight.data.fill_(1.0 / (k * k))
+
+        # 对 high 做一点非线性处理
+        self.proc = nn.Sequential(
+            nn.Conv2d(dim, dim, 3, padding=1, groups=dim, bias=False),
+            nn.GELU(),
+            nn.Conv2d(dim, dim, 1, bias=False),
+        )
+
+        # 高频增益，初始为 0：一开始几乎不动 backbone
+        self.hf_gain = nn.Parameter(torch.tensor(0.0))
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        # 这里不需要关 AMP / 复数，都是实数卷积
+        low = self.lowpass(x)
+        high = x - low                   # 明确的高频残差信号
+        high = self.proc(high)
+        return x + self.hf_gain * high   # 类似 FreqFusion 的设计
+
+
+class StripBlock(nn.Module):
+    """
+    针对牙齿排列优化的条形卷积模块。
+    牙齿是水平排列的，且单颗牙齿是垂直长条状的。
+    """
+    def __init__(self, dim, kernel_size=7):
+        super().__init__()
+        padding = kernel_size // 2
+        # 水平分支：捕捉牙列走向 (Horizontal Dental Arch)
+        self.conv_h = nn.Sequential(
+            nn.Conv2d(dim, dim, (1, kernel_size), padding=(0, padding), groups=dim, bias=False),
+            nn.BatchNorm2d(dim)
+        )
+        # 垂直分支：捕捉牙根/牙体形状 (Vertical Tooth Shape)
+        self.conv_v = nn.Sequential(
+            nn.Conv2d(dim, dim, (kernel_size, 1), padding=(padding, 0), groups=dim, bias=False),
+            nn.BatchNorm2d(dim)
+        )
+        # 1x1 融合
+        self.conv_mix = nn.Conv2d(dim, dim, 1, bias=False)
+
+    def forward(self, x):
+        x_h = self.conv_h(x)
+        x_v = self.conv_v(x)
+        return self.conv_mix(x_h + x_v)
+class DySample(nn.Module):
+    """
+    DySample: Learning to Upsample by Learning to Sample
+    超轻量动态上采样，比 Nearest 清晰得多，比 Deconv 便宜。
+    """
+    def __init__(self, in_channels, scale=2, style='lp', groups=4):
+        super().__init__()
+        self.scale = scale
+        self.style = style
+        self.groups = groups
+        assert style in ['lp', 'pl']
+        if style == 'pl':
+            assert in_channels >= groups * scale**2
+            in_channels = in_channels // scale**2
+        out_channels = 2 * groups * scale**2
+        self.offset = nn.Conv2d(in_channels, out_channels, 1)
+        self.init_weights()
+
+    def init_weights(self):
+        nn.init.normal_(self.offset.weight, std=1e-6)
+        nn.init.constant_(self.offset.bias, 0)
+
+    def forward(self, x):
+        import torch.nn.functional as F
+        B, C, H, W = x.shape
+        offset = self.offset(x)
+        if self.style == 'pl':
+            x = F.pixel_shuffle(x, self.scale)
+            offset = F.pixel_shuffle(offset, self.scale)
+        elif self.style == 'lp':
+            offset = F.pixel_shuffle(offset, self.scale)
+        
+        # Grid sample logic
+        norm = torch.tensor([[[[W, H]]]], dtype=x.dtype, device=x.device)
+        grid = torch.meshgrid(torch.arange(H*self.scale, device=x.device), 
+                              torch.arange(W*self.scale, device=x.device), indexing='ij')
+        grid = torch.stack(grid, dim=-1).unsqueeze(0).expand(B, -1, -1, -1).float() # [B, H*s, W*s, 2]
+        
+        # Adding offset
+        offset = offset.permute(0, 2, 3, 1).reshape(B, H*self.scale, W*self.scale, self.groups, 2)
+        grid = grid.unsqueeze(3) + offset # [B, H, W, g, 2]
+        grid = grid.mean(dim=3) # Average groups to get final sampling pos
+        
+        # Normalize to [-1, 1]
+        grid = 2.0 * grid / (norm * self.scale - 1) - 1.0
+        
+        return F.grid_sample(x, grid, mode='bilinear', padding_mode='border', align_corners=True)
+
+class HFSA(nn.Module):
+    """
+    HFSA v4: FBMLite (Frequency) + Strip Conv (Spatial) + SK Fusion
+    专为牙科全景图设计。
+    """
+    def __init__(self, dim, reduction=8):
+        super().__init__()
+        
+        # === 1. 频域分支 (保持你原本优秀的 FBMLite) ===
+        self.freq_branch = FBMLite(
+            in_channels=dim,
+            k_list=(2, 4), 
+            spatial_group=dim, 
+            lowfreq_att=True
+        )
+        
+        # === 2. [改进] 条形卷积空间分支 ===
+        # 替换掉了原来的 Dilated Conv
+        self.spatial_branch = StripBlock(dim, kernel_size=11) # 11的感受野足够覆盖3-4颗牙
+        
+        # === 3. 融合模块 (不变) ===
+        self.fusion_fc = nn.Sequential(
+            nn.AdaptiveAvgPool2d(1),
+            nn.Conv2d(dim, dim // reduction, 1, bias=False),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(dim // reduction, 2 * dim, 1, bias=False)
+        )
+        self.out_proj = nn.Conv2d(dim, dim, 1)
+        self.res_scale = nn.Parameter(torch.zeros(1))
+
+    def forward(self, x):
+        B, C, H, W = x.shape
+        residual = x
+        
+        feat_freq = self.freq_branch(x)         
+        feat_spatial = self.spatial_branch(x)
+        
+        # SK-Fusion
+        feat_sum = feat_freq + feat_spatial
+        attn_weights = self.fusion_fc(feat_sum)
+        attn_weights = attn_weights.reshape(B, 2, C, 1, 1)
+        attn_weights = F.softmax(attn_weights, dim=1) 
+        
+        x_fused = feat_freq * attn_weights[:, 0] + feat_spatial * attn_weights[:, 1]
+        
+        out = self.out_proj(x_fused)
+        return residual + torch.tanh(self.res_scale) * out
+
+
+class FreqAdapter(nn.Module):
+    """
+    优化后的频域适配器
+    """
+    def __init__(self, in_channels, reduction=8):
+        super().__init__()
+        # 简化为两个频带：低频保持，高频调制
+        # 这样网络更容易学习，不需要手动调那么多阈值
+        self.threshold = 0.5 # 归一化频率半径
+        
+        # 用轻量级注意力调制高频部分
+        self.modulator = nn.Sequential(
+            nn.AdaptiveAvgPool2d(1), # 全局上下文辅助
+            nn.Conv2d(in_channels, in_channels // reduction, 1),
+            nn.ReLU(),
+            nn.Conv2d(in_channels // reduction, in_channels, 1),
+            nn.Sigmoid()
+        )
+        
+        # 简单的深度卷积处理频率图转换回来的特征
+        self.post_process = nn.Sequential(
+            nn.Conv2d(in_channels, in_channels, 3, padding=1, groups=in_channels, bias=False),
+            nn.GELU()
+        )
+
+    def forward(self, x):
+        B, C, H, W = x.shape
+        # 1. FFT
+        x_float = x.float()
+        x_fft = torch.fft.rfft2(x_float, norm='ortho')
+        
+        freq_h = torch.fft.fftfreq(H, device=x.device)
+        freq_w = torch.fft.rfftfreq(W, device=x.device)
+        grid_h, grid_w = torch.meshgrid(freq_h, freq_w, indexing='ij')
+        radius = torch.sqrt(grid_h**2 + grid_w**2)
+        
+        # 2. 软 Mask (比硬阈值更容易反向传播梯度)
+        # Sigmoid 使得过渡更平滑
+        mask_high = torch.sigmoid((radius - self.threshold) * 10).unsqueeze(0).unsqueeze(0) # [1,1,H,W//2+1]
+        mask_low = 1.0 - mask_high
+        
+        # 3. 分离
+        x_low_fft = x_fft * mask_low
+        x_high_fft = x_fft * mask_high
+        
+        # 4. 逆变换
+        x_low = torch.fft.irfft2(x_low_fft, s=(H, W), norm='ortho').type_as(x)
+        x_high = torch.fft.irfft2(x_high_fft, s=(H, W), norm='ortho').type_as(x)
+        
+        # 5. 调制高频 (Texture Enhancement)
+        # 使用通道注意力来决定增强哪些通道的高频信息
+        mod_weight = self.modulator(x)
+        x_high_enhanced = x_high * mod_weight
+        
+        # 6. 融合
+        out = x_low + x_high_enhanced
+        return self.post_process(out)
+# class HFSA(nn.Module):
+#     """
+#     统一的频域-空域混合注意力（借鉴FDConv思路）
+#     - 用频域自适应卷积替代复杂的FBM+高通滤波
+#     - 保留通道注意力和位置注意力
+#     """
+#     def __init__(self, dim, reduction=8):
+#         super().__init__()
+#         self.dim = dim
+        
+#         # === 频域分支（参考FDConv简化版）===
+#         self.freq_adapter = FreqAdapter(
+#             in_channels=dim,
+#             kernel_num=3,  # 低、中、高频三个自适应核
+#             reduction=reduction
+#         )
+        
+#         # === 空域分支（保持原逻辑）===
+#         self.spatial_conv3 = nn.Sequential(
+#             nn.Conv2d(dim, dim, 3, padding=1, groups=dim),
+#             nn.GELU()
+#         )
+#         self.spatial_conv5 = nn.Sequential(
+#             nn.Conv2d(dim, dim, 5, padding=2, groups=dim),
+#             nn.GELU()
+#         )
+        
+#         # === 通道注意力 ===
+#         self.channel_attn = nn.Sequential(
+#             nn.AdaptiveAvgPool2d(1),
+#             nn.Conv2d(dim, dim // reduction, 1),
+#             nn.GELU(),
+#             nn.Conv2d(dim // reduction, dim, 1),
+#             nn.Sigmoid()
+#         )
+        
+#         # === 位置注意力（简化版）===
+#         self.pos_query = nn.Conv2d(dim, dim // 8, 1)
+#         self.pos_key = nn.Conv2d(dim, dim // 8, 1)
+#         self.pos_value = nn.Conv2d(dim, dim, 1)
+#         self.pos_gamma = nn.Parameter(torch.zeros(1))
+        
+#         # === 三分支自适应融合 ===
+#         self.fusion_gate = nn.Sequential(
+#             nn.Conv2d(dim * 3, dim, 1),
+#             nn.GELU(),
+#             nn.Conv2d(dim, 3, 1),
+#             nn.Softmax(dim=1)
+#         )
+        
+#         # === 输出投影 ===
+#         self.out_proj = nn.Conv2d(dim, dim, 1)
+#         self.out_norm = nn.LayerNorm(dim)
+#         self.res_scale = nn.Parameter(torch.zeros(1))
+    
+#     def forward(self, x):
+#         B, C, H, W = x.shape
+#         residual = x
+        
+#         # 1) 频域分支（替代原来的FBM+高通滤波）
+#         x_freq = self.freq_adapter(x)
+        
+#         # 2) 空域分支
+#         x_sp3 = self.spatial_conv3(x)
+#         x_sp5 = self.spatial_conv5(x)
+#         x_spatial = x_sp3 + x_sp5
+        
+#         # 3) 位置注意力
+#         q = self.pos_query(x).view(B, -1, H * W).permute(0, 2, 1)
+#         k = self.pos_key(x).view(B, -1, H * W)
+#         v = self.pos_value(x).view(B, -1, H * W)
+        
+#         attn = torch.bmm(q, k) / (q.shape[-1] ** 0.5)
+#         attn = F.softmax(attn, dim=-1)
+        
+#         x_pos = torch.bmm(v, attn.permute(0, 2, 1)).view(B, C, H, W)
+#         x_pos = self.pos_gamma * x_pos + x
+        
+#         # 4) 三分支自适应融合
+#         fusion_input = torch.cat([x_freq, x_spatial, x_pos], dim=1)
+#         gate_weights = self.fusion_gate(fusion_input)
+        
+#         x_fused = (
+#             gate_weights[:, 0:1] * x_freq +
+#             gate_weights[:, 1:2] * x_spatial +
+#             gate_weights[:, 2:3] * x_pos
+#         )
+        
+#         # 5) 通道注意力
+#         ca_weight = self.channel_attn(x_fused)
+#         x_fused = x_fused * ca_weight
+        
+#         # 6) 输出 + 残差
+#         out = self.out_proj(x_fused)
+#         out = out.permute(0, 2, 3, 1)
+#         out = self.out_norm(out)
+#         out = out.permute(0, 3, 1, 2)
+        
+#         scale = torch.tanh(self.res_scale)
+#         return residual + scale * out
+
+
+# class FreqAdapter(nn.Module):
+#     """
+#     频域自适应卷积核（参考FDConv，简化为无参数版本）
+#     - 用预定义的频率band分解输入
+#     - 对每个band用可学习的空域权重调制
+#     """
+#     def __init__(self, in_channels, kernel_num=3, reduction=8):
+#         super().__init__()
+#         self.kernel_num = kernel_num
+#         self.in_channels = in_channels
+        
+#         # 预定义频率阈值（低、中、高）
+#         # 这些阈值表示"保留频率半径 < thr"的分量
+#         self.register_buffer(
+#             'freq_thresholds',
+#             torch.tensor([0.2, 0.4, 0.5])  # 对应k=2.5, 1.25, 1.0
+#         )
+        
+#         # 为每个频带生成空域调制权重
+#         mid_channels = max(in_channels // reduction, 4)
+#         self.band_modulators = nn.ModuleList([
+#             nn.Sequential(
+#                 nn.Conv2d(in_channels, mid_channels, 3, padding=1, groups=1),
+#                 nn.GELU(),
+#                 nn.Conv2d(mid_channels, in_channels, 1),
+#                 nn.Sigmoid()
+#             )
+#             for _ in range(kernel_num)
+#         ])
+        
+#         # 最低频残差的调制
+#         self.lowfreq_modulator = nn.Sequential(
+#             nn.Conv2d(in_channels, mid_channels, 3, padding=1),
+#             nn.GELU(),
+#             nn.Conv2d(mid_channels, in_channels, 1),
+#             nn.Sigmoid()
+#         )
+    
+#     def forward(self, x):
+#         B, C, H, W = x.shape
+#         device = x.device
+        
+#         # FFT到频域
+#         x_fft = torch.fft.rfft2(x, norm='ortho')
+        
+#         # 构建频率坐标网格
+#         freq_h = torch.fft.fftfreq(H, device=device)
+#         freq_w = torch.fft.rfftfreq(W, device=device)
+#         grid_h, grid_w = torch.meshgrid(freq_h, freq_w, indexing='ij')
+#         freq_radius = torch.sqrt(grid_h**2 + grid_w**2)  # [H, W//2+1]
+        
+#         # 逐频带处理
+#         pre_x = x.clone()
+#         outputs = []
+        
+#         for i, thr in enumerate(self.freq_thresholds):
+#             # 低通mask
+#             mask = (freq_radius < thr).float().unsqueeze(0).unsqueeze(0)  # [1,1,H,W//2+1]
+            
+#             # 提取低频部分并逆变换
+#             low_fft = x_fft * mask
+#             low_spatial = torch.fft.irfft2(low_fft, s=(H, W), norm='ortho')
+            
+#             # 高频残差
+#             high_spatial = pre_x - low_spatial
+#             pre_x = low_spatial
+            
+#             # 空域调制
+#             modulator_weight = self.band_modulators[i](x)  # 用原始特征生成权重
+#             high_modulated = high_spatial * modulator_weight
+            
+#             outputs.append(high_modulated)
+        
+#         # 最低频部分
+#         lowfreq_weight = self.lowfreq_modulator(x)
+#         outputs.append(pre_x * lowfreq_weight)
+        
+#         return sum(outputs)
+
+
+    
+    
+class ConvNormLayer_fuse(nn.Module):
+    def __init__(self, ch_in, ch_out, kernel_size, stride, g=1, padding=None, bias=False, act=None):
+        super().__init__()
+        padding = (kernel_size-1)//2 if padding is None else padding
+        self.conv = nn.Conv2d(
+            ch_in,
+            ch_out,
+            kernel_size,
+            stride,
+            groups=g,
+            padding=padding,
+            bias=bias)
+        self.norm = nn.BatchNorm2d(ch_out)
+        self.act = nn.Identity() if act is None else get_activation(act)
+        self.ch_in, self.ch_out, self.kernel_size, self.stride, self.g, self.padding, self.bias = \
+            ch_in, ch_out, kernel_size, stride, g, padding, bias
+
+    def forward(self, x):
+        if hasattr(self, 'conv_bn_fused'):
+            y = self.conv_bn_fused(x)
+        else:
+            y = self.norm(self.conv(x))
+        return self.act(y)
+
+    def convert_to_deploy(self):
+        if not hasattr(self, 'conv_bn_fused'):
+            self.conv_bn_fused = nn.Conv2d(
+                self.ch_in,
+                self.ch_out,
+                self.kernel_size,
+                self.stride,
+                groups=self.g,
+                padding=self.padding,
+                bias=True)
+
+        kernel, bias = self.get_equivalent_kernel_bias()
+        self.conv_bn_fused.weight.data = kernel
+        self.conv_bn_fused.bias.data = bias
+        self.__delattr__('conv')
+        self.__delattr__('norm')
+
+    def get_equivalent_kernel_bias(self):
+        kernel3x3, bias3x3 = self._fuse_bn_tensor()
+
+        return kernel3x3, bias3x3
+
+    def _fuse_bn_tensor(self):
+        kernel = self.conv.weight
+        running_mean = self.norm.running_mean
+        running_var = self.norm.running_var
+        gamma = self.norm.weight
+        beta = self.norm.bias
+        eps = self.norm.eps
+        std = (running_var + eps).sqrt()
+        t = (gamma / std).reshape(-1, 1, 1, 1)
+        return kernel * t, beta - running_mean * gamma / std
+
+
+class ConvNormLayer(nn.Module):
+    def __init__(self, ch_in, ch_out, kernel_size, stride, g=1, padding=None, bias=False, act=None):
+        super().__init__()
+        padding = (kernel_size-1)//2 if padding is None else padding
+        self.conv = nn.Conv2d(
+            ch_in,
+            ch_out,
+            kernel_size,
+            stride,
+            groups=g,
+            padding=padding,
+            bias=bias)
+        self.norm = nn.BatchNorm2d(ch_out)
+        self.act = nn.Identity() if act is None else get_activation(act)
+
+    def forward(self, x):
+        return self.act(self.norm(self.conv(x)))
+
+
+# TODO, add activation for cv1 following YOLOv10
+# self.cv1 = Conv(c1, c2, 1, 1)
+# self.cv2 = Conv(c2, c2, k=k, s=s, g=c2, act=False)
+class SCDown(nn.Module):
+    def __init__(self, c1, c2, k, s, act=None):
+        super().__init__()
+        self.cv1 = ConvNormLayer_fuse(c1, c2, 1, 1)
+        self.cv2 = ConvNormLayer_fuse(c2, c2, k, s, c2)
+
+    def forward(self, x):
+        return self.cv2(self.cv1(x))
+
+
+class VGGBlock(nn.Module):
+    def __init__(self, ch_in, ch_out, act='relu'):
+        super().__init__()
+        self.ch_in = ch_in
+        self.ch_out = ch_out
+        self.conv1 = ConvNormLayer(ch_in, ch_out, 3, 1, padding=1, act=None)
+        self.conv2 = ConvNormLayer(ch_in, ch_out, 1, 1, padding=0, act=None)
+        self.act = nn.Identity() if act is None else get_activation(act)
+
+    def forward(self, x):
+        if hasattr(self, 'conv'):
+            y = self.conv(x)
+        else:
+            y = self.conv1(x) + self.conv2(x)
+
+        return self.act(y)
+
+    def convert_to_deploy(self):
+        if not hasattr(self, 'conv'):
+            self.conv = nn.Conv2d(self.ch_in, self.ch_out, 3, 1, padding=1)
+
+        kernel, bias = self.get_equivalent_kernel_bias()
+        self.conv.weight.data = kernel
+        self.conv.bias.data = bias
+        self.__delattr__('conv1')
+        self.__delattr__('conv2')
+
+    def get_equivalent_kernel_bias(self):
+        kernel3x3, bias3x3 = self._fuse_bn_tensor(self.conv1)
+        kernel1x1, bias1x1 = self._fuse_bn_tensor(self.conv2)
+
+        return kernel3x3 + self._pad_1x1_to_3x3_tensor(kernel1x1), bias3x3 + bias1x1
+
+    def _pad_1x1_to_3x3_tensor(self, kernel1x1):
+        if kernel1x1 is None:
+            return 0
+        else:
+            return F.pad(kernel1x1, [1, 1, 1, 1])
+
+    def _fuse_bn_tensor(self, branch: ConvNormLayer):
+        if branch is None:
+            return 0, 0
+        kernel = branch.conv.weight
+        running_mean = branch.norm.running_mean
+        running_var = branch.norm.running_var
+        gamma = branch.norm.weight
+        beta = branch.norm.bias
+        eps = branch.norm.eps
+        std = (running_var + eps).sqrt()
+        t = (gamma / std).reshape(-1, 1, 1, 1)
+        return kernel * t, beta - running_mean * gamma / std
+
+
+class CSPLayer(nn.Module):
+    def __init__(self,
+                 in_channels,
+                 out_channels,
+                 num_blocks=3,
+                 expansion=1.0,
+                 bias=False,
+                 act="silu",
+                 bottletype=VGGBlock):
+        super(CSPLayer, self).__init__()
+        hidden_channels = int(out_channels * expansion)
+        self.conv1 = ConvNormLayer_fuse(in_channels, hidden_channels, 1, 1, bias=bias, act=act)
+        self.conv2 = ConvNormLayer_fuse(in_channels, hidden_channels, 1, 1, bias=bias, act=act)
+        self.bottlenecks = nn.Sequential(*[
+            bottletype(hidden_channels, hidden_channels, act=act) for _ in range(num_blocks)
+        ])
+        if hidden_channels != out_channels:
+            self.conv3 = ConvNormLayer_fuse(hidden_channels, out_channels, 1, 1, bias=bias, act=act)
+        else:
+            self.conv3 = nn.Identity()
+
+    def forward(self, x):
+        x_2 = self.conv2(x)
+        x_1 = self.conv1(x)
+        x_1 = self.bottlenecks(x_1)
+        return self.conv3(x_1 + x_2)
+
+class RepNCSPELAN4(nn.Module):
+    # csp-elan
+    def __init__(self, c1, c2, c3, c4, n=3,
+                 bias=False,
+                 act="silu"):
+        super().__init__()
+        self.c = c3//2
+        self.cv1 = ConvNormLayer_fuse(c1, c3, 1, 1, bias=bias, act=act)
+        self.cv2 = nn.Sequential(CSPLayer(c3//2, c4, n, 1, bias=bias, act=act, bottletype=VGGBlock), ConvNormLayer_fuse(c4, c4, 3, 1, bias=bias, act=act))
+        self.cv3 = nn.Sequential(CSPLayer(c4, c4, n, 1, bias=bias, act=act, bottletype=VGGBlock), ConvNormLayer_fuse(c4, c4, 3, 1, bias=bias, act=act))
+        self.cv4 = ConvNormLayer_fuse(c3+(2*c4), c2, 1, 1, bias=bias, act=act)
+
+    def forward_chunk(self, x):
+        y = list(self.cv1(x).chunk(2, 1))
+        y.extend((m(y[-1])) for m in [self.cv2, self.cv3])
+        return self.cv4(torch.cat(y, 1))
+
+    def forward(self, x):
+        y = list(self.cv1(x).split((self.c, self.c), 1))
+        y.extend(m(y[-1]) for m in [self.cv2, self.cv3])
+        return self.cv4(torch.cat(y, 1))
+
+
+# transformer
+class TransformerEncoderLayer(nn.Module):
+    def __init__(self,
+                 d_model,
+                 nhead,
+                 dim_feedforward=2048,
+                 dropout=0.1,
+                 activation="relu",
+                 normalize_before=False):
+        super().__init__()
+        self.normalize_before = normalize_before
+
+        self.self_attn = nn.MultiheadAttention(d_model, nhead, dropout, batch_first=True)
+
+        self.linear1 = nn.Linear(d_model, dim_feedforward)
+        self.dropout = nn.Dropout(dropout)
+        self.linear2 = nn.Linear(dim_feedforward, d_model)
+
+        self.norm1 = nn.LayerNorm(d_model)
+        self.norm2 = nn.LayerNorm(d_model)
+        self.dropout1 = nn.Dropout(dropout)
+        self.dropout2 = nn.Dropout(dropout)
+        self.activation = get_activation(activation)
+
+    @staticmethod
+    def with_pos_embed(tensor, pos_embed):
+        return tensor if pos_embed is None else tensor + pos_embed
+
+    def forward(self, src, src_mask=None, pos_embed=None) -> torch.Tensor:
+        residual = src
+        if self.normalize_before:
+            src = self.norm1(src)
+        q = k = self.with_pos_embed(src, pos_embed)
+        src, _ = self.self_attn(q, k, value=src, attn_mask=src_mask)
+
+        src = residual + self.dropout1(src)
+        if not self.normalize_before:
+            src = self.norm1(src)
+
+        residual = src
+        if self.normalize_before:
+            src = self.norm2(src)
+        src = self.linear2(self.dropout(self.activation(self.linear1(src))))
+        src = residual + self.dropout2(src)
+        if not self.normalize_before:
+            src = self.norm2(src)
+        return src
+
+
+class TransformerEncoder(nn.Module):
+    def __init__(self, encoder_layer, num_layers, norm=None):
+        super(TransformerEncoder, self).__init__()
+        self.layers = nn.ModuleList([copy.deepcopy(encoder_layer) for _ in range(num_layers)])
+        self.num_layers = num_layers
+        self.norm = norm
+
+    def forward(self, src, src_mask=None, pos_embed=None) -> torch.Tensor:
+        output = src
+        for layer in self.layers:
+            output = layer(output, src_mask=src_mask, pos_embed=pos_embed)
+
+        if self.norm is not None:
+            output = self.norm(output)
+
+        return output
+
+
+class MultiScalePerceptionBlock(nn.Module):
+    def __init__(self, channels, kernels=(3, 5, 7), act='silu'):
+        super().__init__()
+        self.branches = nn.ModuleList([
+            nn.Sequential(
+                ConvNormLayer_fuse(channels, channels, 1, 1, bias=False, act=act),
+                ConvNormLayer_fuse(channels, channels, kernel_size, 1, g=channels, bias=False, act=act),
+            )
+            for kernel_size in kernels
+        ])
+        self.project = ConvNormLayer_fuse(channels * (len(kernels) + 1), channels, 1, 1, bias=False, act=act)
+        self.gate = nn.Sequential(
+            nn.AdaptiveAvgPool2d(1),
+            nn.Conv2d(channels, channels, kernel_size=1, bias=True),
+            nn.Sigmoid(),
+        )
+        self.res_scale = nn.Parameter(torch.tensor(-2.0))
+
+    def forward(self, x):
+        feats = [x] + [branch(x) for branch in self.branches]
+        fused = self.project(torch.cat(feats, dim=1))
+        alpha = 0.35 * torch.sigmoid(self.res_scale)
+        return x + alpha * fused * self.gate(fused)
+
+
+class HighFrequencyEnhancer(nn.Module):
+    def __init__(self, channels, act='silu'):
+        super().__init__()
+        self.depthwise = ConvNormLayer_fuse(channels, channels, 3, 1, g=channels, bias=False, act=act)
+        self.project = ConvNormLayer_fuse(channels, channels, 1, 1, bias=False, act=act)
+        self.scale = nn.Parameter(torch.tensor(0.1))
+
+    def forward(self, x):
+        smooth = F.avg_pool2d(x, kernel_size=3, stride=1, padding=1)
+        high = self.project(self.depthwise(x - smooth))
+        return x + torch.tanh(self.scale) * high
+
+
+class ParameterFreeEdgeStructureAttention(nn.Module):
+    def __init__(self, cutoff=0.10, blend=0.15, eps=1e-6):
+        super().__init__()
+        self.cutoff = float(cutoff)
+        self.blend = float(blend)
+        self.eps = eps
+
+    def _attention(self, x, center=True):
+        if center:
+            base = x - x.mean(dim=(-2, -1), keepdim=True)
+            score = base.pow(2)
+        else:
+            score = x.pow(2)
+        score = score / (score.mean(dim=(-2, -1), keepdim=True) + self.eps)
+        score = (score - score.mean(dim=(-2, -1), keepdim=True)) / (
+            score.std(dim=(-2, -1), keepdim=True) + self.eps
+        )
+        return torch.sigmoid(score)
+
+    def forward(self, x):
+        b, c, h, w = x.shape
+        orig_dtype = x.dtype
+        device_type = 'cuda' if x.is_cuda else 'cpu'
+
+        with torch.amp.autocast(device_type=device_type, enabled=False):
+            x32 = x.float()
+            x_fft = torch.fft.rfft2(x32, norm='ortho')
+            freq_h = torch.fft.fftfreq(h, device=x.device)
+            freq_w = torch.fft.rfftfreq(w, device=x.device)
+            grid_h, grid_w = torch.meshgrid(freq_h, freq_w, indexing='ij')
+            radius2 = grid_h.pow(2) + grid_w.pow(2)
+            sigma2 = max(self.cutoff, self.eps) ** 2
+            low_mask = torch.exp(-radius2 / (2.0 * sigma2)).view(1, 1, h, w // 2 + 1)
+
+            low = torch.fft.irfft2(x_fft * low_mask, s=(h, w), norm='ortho')
+            high = x32 - low
+            edge_att = self._attention(high, center=True)
+            struct_att = self._attention(low, center=False)
+            refined = (
+                low * (1.0 + self.blend * (struct_att - 0.5)) +
+                high * (1.0 + self.blend * (edge_att - 0.5))
+            )
+        return refined.to(orig_dtype)
+
+
+class LargeKernelDistillationBlock(nn.Module):
+    def __init__(self, channels, act='silu'):
+        super().__init__()
+        self.local = ConvNormLayer_fuse(channels, channels, 3, 1, g=channels, bias=False, act=act)
+        self.mid = ConvNormLayer_fuse(channels, channels, 7, 1, g=channels, bias=False, act=act)
+        self.large = ConvNormLayer_fuse(channels, channels, 11, 1, g=channels, bias=False, act=act)
+        self.mix = ConvNormLayer_fuse(channels * 3, channels, 1, 1, bias=False, act=act)
+        self.gate = nn.Sequential(
+            nn.AdaptiveAvgPool2d(1),
+            nn.Conv2d(channels, max(channels // 16, 8), 1, bias=False),
+            get_activation(act),
+            nn.Conv2d(max(channels // 16, 8), channels, 1, bias=True),
+            nn.Sigmoid(),
+        )
+        self.res_scale = nn.Parameter(torch.tensor(-2.0))
+
+    def forward(self, x):
+        fused = self.mix(torch.cat([self.local(x), self.mid(x), self.large(x)], dim=1))
+        alpha = 0.35 * torch.sigmoid(self.res_scale)
+        return x + alpha * fused * self.gate(fused)
+
+
+class UncertaintyContextRefiner(nn.Module):
+    def __init__(self, channels, act='silu'):
+        super().__init__()
+        hidden = max(channels // 8, 16)
+        self.context_proj = ConvNormLayer_fuse(channels, channels, 1, 1, bias=False, act=act)
+        self.detail_proj = nn.Sequential(
+            ConvNormLayer_fuse(channels, channels, 3, 1, g=channels, bias=False, act=act),
+            ConvNormLayer_fuse(channels, channels, 1, 1, bias=False, act=act),
+        )
+        self.uncertainty = nn.Sequential(
+            nn.Conv2d(channels * 2, hidden, 1, bias=False),
+            nn.BatchNorm2d(hidden),
+            get_activation(act),
+            nn.Conv2d(hidden, 1, 1, bias=True),
+            nn.Sigmoid(),
+        )
+        self.res_scale = nn.Parameter(torch.tensor(-2.0))
+
+    def forward(self, x):
+        local_mean = F.avg_pool2d(x, kernel_size=5, stride=1, padding=2)
+        local_var = F.avg_pool2d(x.pow(2), kernel_size=5, stride=1, padding=2) - local_mean.pow(2)
+        local_var = local_var.relu()
+        uncertainty = self.uncertainty(torch.cat([x, local_var], dim=1))
+        context = self.context_proj(local_mean)
+        detail = self.detail_proj(x - local_mean)
+        update = uncertainty * detail + (1.0 - uncertainty) * context
+        alpha = 0.35 * torch.sigmoid(self.res_scale)
+        return x + alpha * update
+
+
+class RetinexPriorGate(nn.Module):
+    def __init__(self, channels, act='silu'):
+        super().__init__()
+        hidden = max(channels // 8, 16)
+        self.prior_fuse = nn.Sequential(
+            nn.Conv2d(channels * 3, hidden, 1, bias=False),
+            nn.BatchNorm2d(hidden),
+            get_activation(act),
+            nn.Conv2d(hidden, channels, 1, bias=True),
+            nn.Sigmoid(),
+        )
+        self.res_scale = nn.Parameter(torch.tensor(-2.0))
+
+    def forward(self, x):
+        illumination = F.avg_pool2d(x, kernel_size=7, stride=1, padding=3)
+        reflectance = x - illumination
+        contrast = reflectance.abs()
+        gate = self.prior_fuse(torch.cat([illumination, reflectance, contrast], dim=1))
+        alpha = 0.25 * torch.sigmoid(self.res_scale)
+        return x + alpha * reflectance * gate
+
+
+class AdaptiveInterleaveFusion(nn.Module):
+    def __init__(self, channels, fuse_op='cat', reduction=4, act='silu'):
+        super().__init__()
+        hidden = max((channels * 2) // reduction, 16)
+        self.channels = channels
+        self.fuse_op = fuse_op
+        self.channel_gate = nn.Sequential(
+            nn.AdaptiveAvgPool2d(1),
+            nn.Conv2d(channels * 2, hidden, kernel_size=1, bias=False),
+            get_activation(act),
+            nn.Conv2d(hidden, channels * 2, kernel_size=1, bias=False),
+            nn.Sigmoid(),
+        )
+        self.spatial_gate = nn.Sequential(
+            nn.Conv2d(2, 1, kernel_size=7, padding=3, bias=False),
+            nn.Sigmoid(),
+        )
+        self.out_proj = ConvNormLayer_fuse(channels * 2, channels, 1, 1, bias=False, act=act) \
+            if fuse_op == 'sum' else nn.Identity()
+
+    def forward(self, feat_a, feat_b):
+        fused = torch.cat([feat_a, feat_b], dim=1)
+        fused = fused * self.channel_gate(fused)
+        swapped = torch.cat([fused[:, self.channels:], fused[:, :self.channels]], dim=1)
+        fused = fused + swapped
+        spatial = torch.cat(
+            [fused.mean(dim=1, keepdim=True), fused.max(dim=1, keepdim=True).values],
+            dim=1
+        )
+        fused = fused * self.spatial_gate(spatial)
+        return self.out_proj(fused)
+
+
+@register()
+class HybridEncoder(nn.Module):
+    __share__ = ['eval_spatial_size', ]
+
+    def __init__(self,
+                 in_channels=[512, 1024, 2048],
+                 feat_strides=[8, 16, 32],
+                 hidden_dim=256,
+                 nhead=8,
+                 dim_feedforward = 1024,
+                 dropout=0.02,
+                 enc_act='gelu',
+                 use_encoder_idx=[2],
+                 num_encoder_layers=1,
+                 pe_temperature=10000,
+                 expansion=1.0,
+                 depth_mult=1.0,
+                 act='silu',
+                 eval_spatial_size=None,
+                 version='dfine',
+                 enc_mi_steps=1,
+                 use_hfsa=False,
+                 use_stat_denoise=False,
+                 use_multipath_fusion=False,
+                 use_dynamic_rf=False,
+                 use_wav_enhance=False,
+                 use_mpc_multiscale_perception=False,
+                 use_pqg_high_frequency=False,
+                 pqg_high_freq_stages=[0, 1],
+                 use_cmfa_fusion=False,
+                 use_pfesa=False,
+                 pfesa_cutoff=0.10,
+                 use_ucan_lkd=False,
+                 use_ucm_uncertainty=False,
+                 use_retinex_prior=False,
+                 apply_extra_modules='proj',
+                 apply_denoise_modules=None,
+                 apply_refine_modules=None,
+                 ):
+
+        super().__init__()
+        self.enc_mi_steps = enc_mi_steps
+        self.in_channels = in_channels
+        self.feat_strides = feat_strides
+        self.hidden_dim = hidden_dim
+        self.use_encoder_idx = use_encoder_idx
+        self.num_encoder_layers = num_encoder_layers
+        self.pe_temperature = pe_temperature
+        self.eval_spatial_size = eval_spatial_size
+        self.out_channels = [hidden_dim for _ in range(len(in_channels))]
+        self.out_strides = feat_strides
+        self.use_hfsa = use_hfsa
+        self.use_stat_denoise = use_stat_denoise
+        self.use_multipath_fusion = use_multipath_fusion
+        self.use_dynamic_rf = use_dynamic_rf
+        self.use_wav_enhance = use_wav_enhance
+        self.use_cmfa_fusion = use_cmfa_fusion
+        self.use_pfesa = use_pfesa
+        self.use_ucan_lkd = use_ucan_lkd
+        self.use_ucm_uncertainty = use_ucm_uncertainty
+        self.use_retinex_prior = use_retinex_prior
+        self.pqg_high_freq_stages = set(pqg_high_freq_stages or [])
+        self.apply_extra_modules = apply_extra_modules
+        self.apply_denoise_modules = apply_extra_modules if apply_denoise_modules is None else apply_denoise_modules
+        self.apply_refine_modules = apply_extra_modules if apply_refine_modules is None else apply_refine_modules
+
+        valid_modes = ('proj', 'outs', 'both', 'none')
+        if self.apply_extra_modules not in valid_modes:
+            raise ValueError(f"apply_extra_modules must be one of {valid_modes}, got {self.apply_extra_modules!r}")
+        if self.apply_denoise_modules not in valid_modes:
+            raise ValueError(f"apply_denoise_modules must be one of {valid_modes}, got {self.apply_denoise_modules!r}")
+        if self.apply_refine_modules not in valid_modes:
+            raise ValueError(f"apply_refine_modules must be one of {valid_modes}, got {self.apply_refine_modules!r}")
+
+        num_levels = len(in_channels)
+        if self.use_wav_enhance:
+            if not _WAVELETS_AVAILABLE:
+                raise RuntimeError("use_wav_enhance=True 但 pytorch_wavelets 未安装。")
+            self.stat_denoise = nn.ModuleList([WavEnhance(hidden_dim) for _ in range(num_levels)])
+        elif self.use_stat_denoise:
+            self.stat_denoise = nn.ModuleList(
+                [StatisticalGuidedDenoising(channels=hidden_dim) for _ in range(num_levels)]
+            )
+        else:
+            self.stat_denoise = None
+
+        self.multipath_fusion = nn.ModuleList(
+            [MultiPathFeatureFusion(in_channels=hidden_dim) for _ in range(num_levels)]
+        ) if self.use_multipath_fusion else None
+        self.dynamic_rf = nn.ModuleList(
+            [DynamicReceptiveField(in_channels=hidden_dim) for _ in range(num_levels)]
+        ) if self.use_dynamic_rf else None
+        self.pfesa = nn.ModuleList(
+            [ParameterFreeEdgeStructureAttention(cutoff=pfesa_cutoff) for _ in range(num_levels)]
+        ) if self.use_pfesa else None
+        self.ucan_lkd = nn.ModuleList(
+            [LargeKernelDistillationBlock(hidden_dim, act=act) for _ in range(num_levels)]
+        ) if self.use_ucan_lkd else None
+        self.ucm_uncertainty = nn.ModuleList(
+            [UncertaintyContextRefiner(hidden_dim, act=act) for _ in range(num_levels)]
+        ) if self.use_ucm_uncertainty else None
+        self.retinex_prior = nn.ModuleList(
+            [RetinexPriorGate(hidden_dim, act=act) for _ in range(num_levels)]
+        ) if self.use_retinex_prior else None
+
+        # channel projection
+        self.input_proj = nn.ModuleList()
+        for in_channel in in_channels:
+            proj = nn.Sequential(OrderedDict([
+                    ('conv', nn.Conv2d(in_channel, hidden_dim, kernel_size=1, bias=False)),
+                    ('norm', nn.BatchNorm2d(hidden_dim))
+                ]))
+
+            self.input_proj.append(proj)
+
+        self.perception_blocks = nn.ModuleList([
+            MultiScalePerceptionBlock(hidden_dim, act=act) if use_mpc_multiscale_perception else nn.Identity()
+            for _ in in_channels
+        ])
+        self.high_frequency_blocks = nn.ModuleList([
+            HighFrequencyEnhancer(hidden_dim, act=act) if use_pqg_high_frequency and i in self.pqg_high_freq_stages
+            else nn.Identity()
+            for i in range(len(in_channels))
+        ])
+
+        # encoder transformer
+        encoder_layer = TransformerEncoderLayer(
+            hidden_dim,
+            nhead=nhead,
+            dim_feedforward=dim_feedforward,
+            dropout=dropout,
+            activation=enc_act
+            )
+
+        self.encoder = nn.ModuleList([
+            TransformerEncoder(copy.deepcopy(encoder_layer), num_encoder_layers) for _ in range(len(use_encoder_idx))
+        ])
+
+        if self.use_hfsa:
+            self.hfsas_enc = nn.ModuleList([
+                HFSA(dim=hidden_dim, reduction=8) for _ in range(len(use_encoder_idx))
+            ])
+            self.hfsas_out = nn.ModuleList([
+                HFSA(dim=hidden_dim, reduction=8) for _ in range(len(in_channels))
+            ])
+        # === 优化点 B: DySample 初始化 ===
+        # 替代 F.interpolate
+        self.upsample_ops = nn.ModuleList()
+        for _ in range(len(in_channels) - 1):
+             self.upsample_ops.append(DySample(hidden_dim, scale=2, style='lp'))
+        # top-down fpn
+        self.lateral_convs = nn.ModuleList()
+        self.fpn_blocks = nn.ModuleList()
+        self.top_down_fusions = nn.ModuleList()
+        for _ in range(len(in_channels) - 1, 0, -1):
+            # TODO, add activation for those lateral convs
+            if version == 'dfine':
+                self.lateral_convs.append(ConvNormLayer_fuse(hidden_dim, hidden_dim, 1, 1))
+            else:
+                self.lateral_convs.append(ConvNormLayer_fuse(hidden_dim, hidden_dim, 1, 1, act=act))
+            self.fpn_blocks.append(
+                RepNCSPELAN4(hidden_dim * 2, hidden_dim, hidden_dim * 2, round(expansion * hidden_dim // 2), round(3 * depth_mult), act=act) \
+                if version == 'dfine' else CSPLayer(hidden_dim * 2, hidden_dim, round(3 * depth_mult), act=act, expansion=expansion, bottletype=VGGBlock)
+            )
+            self.top_down_fusions.append(AdaptiveInterleaveFusion(hidden_dim, fuse_op='cat', act=act))
+
+        # bottom-up pan
+        self.downsample_convs = nn.ModuleList()
+        self.pan_blocks = nn.ModuleList()
+        self.bottom_up_fusions = nn.ModuleList()
+        for _ in range(len(in_channels) - 1):
+            self.downsample_convs.append(
+                nn.Sequential(SCDown(hidden_dim, hidden_dim, 3, 2, act=act)) \
+                if version == 'dfine' else ConvNormLayer_fuse(hidden_dim, hidden_dim, 3, 2, act=act)
+            )
+            self.pan_blocks.append(
+                RepNCSPELAN4(hidden_dim * 2, hidden_dim, hidden_dim * 2, round(expansion * hidden_dim // 2), round(3 * depth_mult), act=act) \
+                if version == 'dfine' else CSPLayer(hidden_dim * 2, hidden_dim, round(3 * depth_mult), act=act, expansion=expansion, bottletype=VGGBlock)
+            )
+            self.bottom_up_fusions.append(AdaptiveInterleaveFusion(hidden_dim, fuse_op='cat', act=act))
+        # === 优化点 C: Learnable Position Embedding (初始化) ===
+        # 牙齿解剖位置固定，Learnable PE 优于 SinCos
+        if self.eval_spatial_size:
+            self.row_embed = nn.Embedding(500, hidden_dim // 2) # 假设高度不超过500
+            self.col_embed = nn.Embedding(500, hidden_dim // 2) # 假设宽度不超过500
+            nn.init.uniform_(self.row_embed.weight)
+            nn.init.uniform_(self.col_embed.weight)
+        self._reset_parameters()
+    # === 优化点 C: Learnable PE (构建函数) ===
+    def build_learnable_pos_embed(self, h, w, device):
+        x_embed = self.col_embed(torch.arange(w, device=device))
+        y_embed = self.row_embed(torch.arange(h, device=device))
+        
+        pos = torch.cat([
+            x_embed.unsqueeze(0).repeat(h, 1, 1),
+            y_embed.unsqueeze(1).repeat(1, w, 1),
+        ], dim=-1).permute(2, 0, 1).unsqueeze(0) # [1, C, H, W]
+        return pos
+    def _reset_parameters(self):
+        if self.eval_spatial_size:
+            for idx in self.use_encoder_idx:
+                stride = self.feat_strides[idx]
+                pos_embed = self.build_2d_sincos_position_embedding(
+                    self.eval_spatial_size[1] // stride, self.eval_spatial_size[0] // stride,
+                    self.hidden_dim, self.pe_temperature)
+                setattr(self, f'pos_embed{idx}', pos_embed)
+                # self.register_buffer(f'pos_embed{idx}', pos_embed)
+
+    @staticmethod
+    def build_2d_sincos_position_embedding(w, h, embed_dim=256, temperature=10000.):
+        """
+        """
+        grid_w = torch.arange(int(w), dtype=torch.float32)
+        grid_h = torch.arange(int(h), dtype=torch.float32)
+        grid_w, grid_h = torch.meshgrid(grid_w, grid_h, indexing='ij')
+        assert embed_dim % 4 == 0, \
+            'Embed dimension must be divisible by 4 for 2D sin-cos position embedding'
+        pos_dim = embed_dim // 4
+        omega = torch.arange(pos_dim, dtype=torch.float32) / pos_dim
+        omega = 1. / (temperature ** omega)
+
+        out_w = grid_w.flatten()[..., None] @ omega[None]
+        out_h = grid_h.flatten()[..., None] @ omega[None]
+
+        return torch.concat([out_w.sin(), out_w.cos(), out_h.sin(), out_h.cos()], dim=1)[None, :, :]
+
+    def forward(self, feats):
+        assert len(feats) == len(self.in_channels)
+        proj_feats = [self.input_proj[i](feat) for i, feat in enumerate(feats)]
+        proj_feats = [self.perception_blocks[i](feat) for i, feat in enumerate(proj_feats)]
+        proj_feats = [self.high_frequency_blocks[i](feat) for i, feat in enumerate(proj_feats)]
+
+        if self.apply_denoise_modules in ('proj', 'both'):
+            proj_feats = self._apply_denoise_stack(proj_feats)
+        if self.apply_refine_modules in ('proj', 'both'):
+            proj_feats = self._apply_refine_stack(proj_feats)
+
+        # encoder
+        if self.num_encoder_layers > 0:
+            for i, enc_ind in enumerate(self.use_encoder_idx):
+                h, w = proj_feats[enc_ind].shape[2:]
+                src_flatten = proj_feats[enc_ind].flatten(2).permute(0, 2, 1)
+                
+                # 使用 Learnable PE 或 SinCos (如果没初始化 Learnable)
+                if hasattr(self, 'row_embed'):
+                    pos_embed = self.build_learnable_pos_embed(h, w, src_flatten.device)
+                    pos_embed = pos_embed.flatten(2).permute(0, 2, 1)
+                else:
+                    pos_embed = self.build_2d_sincos_position_embedding(
+                        w, h, self.hidden_dim, self.pe_temperature).to(src_flatten.device)
+
+                memory = src_flatten
+                for t in range(max(int(getattr(self, "enc_mi_steps", 1)), 1)):
+                    memory = self.encoder[i](memory, pos_embed=pos_embed)
+                
+                x_enc = memory.permute(0, 2, 1).reshape(-1, self.hidden_dim, h, w).contiguous()
+                if self.use_hfsa:
+                    x_enc = self.hfsas_enc[i](x_enc)
+                proj_feats[enc_ind] = x_enc
+
+        # FPN (Top-Down)
+        inner_outs = [proj_feats[-1]]
+        for idx in range(len(self.in_channels) - 1, 0, -1):
+            feat_high = inner_outs[0]
+            feat_low = proj_feats[idx - 1]
+            
+            feat_high = self.lateral_convs[len(self.in_channels) - 1 - idx](feat_high)
+            inner_outs[0] = feat_high
+            
+            # === 使用 DySample 替代插值 ===
+            upsample_feat = self.upsample_ops[len(self.in_channels) - 1 - idx](feat_high)
+            # 这里的 concat 维度需要对齐，DySample 输出大小严格为 x2，输入特征图尽量要是偶数
+            # 如果尺寸因为 padding 问题不匹配，需要 crop 或 pad (通常 Backbone 输出是对齐的)
+            if upsample_feat.shape[2:] != feat_low.shape[2:]:
+                upsample_feat = F.interpolate(upsample_feat, size=feat_low.shape[2:], mode='bilinear', align_corners=False)
+
+            fused_feat = self.top_down_fusions[len(self.in_channels) - 1 - idx](upsample_feat, feat_low) \
+                if self.use_cmfa_fusion else torch.concat([upsample_feat, feat_low], dim=1)
+            inner_out = self.fpn_blocks[len(self.in_channels)-1-idx](fused_feat)
+            inner_outs.insert(0, inner_out)
+
+        # PAN (Bottom-Up)
+        outs = [inner_outs[0]]
+        for idx in range(len(self.in_channels) - 1):
+            feat_low = outs[-1]
+            feat_height = inner_outs[idx + 1]
+            downsample_feat = self.downsample_convs[idx](feat_low)
+            fused_feat = self.bottom_up_fusions[idx](downsample_feat, feat_height) \
+                if self.use_cmfa_fusion else torch.concat([downsample_feat, feat_height], dim=1)
+            out = self.pan_blocks[idx](fused_feat)
+            outs.append(out)
+            
+        if self.use_hfsa:
+            enhanced_outs = []
+            for i, feat in enumerate(outs):
+                enhanced_outs.append(self.hfsas_out[i](feat))
+            outs = enhanced_outs
+
+        if self.apply_denoise_modules in ('outs', 'both'):
+            outs = self._apply_denoise_stack(outs)
+        if self.apply_refine_modules in ('outs', 'both'):
+            outs = self._apply_refine_stack(outs)
+
+        return outs
+
+    def _apply_denoise_stack(self, feats):
+        if self.stat_denoise is None:
+            return feats
+        return [self.stat_denoise[i](x) for i, x in enumerate(feats)]
+
+    def _apply_refine_stack(self, feats):
+        if self.multipath_fusion is not None:
+            feats = [self.multipath_fusion[i](x) for i, x in enumerate(feats)]
+        if self.dynamic_rf is not None:
+            feats = [self.dynamic_rf[i](x) for i, x in enumerate(feats)]
+        if self.retinex_prior is not None:
+            feats = [self.retinex_prior[i](x) for i, x in enumerate(feats)]
+        if self.ucan_lkd is not None:
+            feats = [self.ucan_lkd[i](x) for i, x in enumerate(feats)]
+        if self.ucm_uncertainty is not None:
+            feats = [self.ucm_uncertainty[i](x) for i, x in enumerate(feats)]
+        if self.pfesa is not None:
+            feats = [self.pfesa[i](x) for i, x in enumerate(feats)]
+        return feats

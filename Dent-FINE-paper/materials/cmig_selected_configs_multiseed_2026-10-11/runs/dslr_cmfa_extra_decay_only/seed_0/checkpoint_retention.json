@@ -1,0 +1,8 @@
+{
+  "retained": "best.pth",
+  "removed_temporary_training_stage_weights": [
+    "best_stg1.pth"
+  ],
+  "native_stage_behavior_preserved": true,
+  "native_best_replay_verified": true
+}

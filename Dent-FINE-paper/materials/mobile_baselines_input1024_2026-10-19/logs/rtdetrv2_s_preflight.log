@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/run_transformer.py", line 86, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/run_transformer.py", line 15, in main
+    import torch
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/__init__.py", line 2475, in <module>
+    from torch import (
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/export/__init__.py", line 28, in <module>
+    from torch.fx.passes.infra.pass_base import PassResult
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/fx/passes/infra/__init__.py", line 2, in <module>
+    from . import pass_manager
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/fx/passes/infra/pass_manager.py", line 4, in <module>
+    from queue import Queue
+ImportError: cannot import name 'Queue' from 'queue' (/home/wuxi/Dent-FINE-paper/materials/mobile_baselines_input1024_2026-10-19/scripts/queue.py)
+Not init distributed mode.
+Load PResNet18 state_dict
+building train_dataloader with batch_size=2...

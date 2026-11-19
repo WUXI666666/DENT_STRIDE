@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "pairs": {
+    "phone": {
+      "plain_task": "phone_plain",
+      "selected_task": "phone_dualopt",
+      "all_non_module_settings_exactly_equal": true,
+      "data_transforms_exactly_equal": true,
+      "allowed_differences": [
+        "paper_modules",
+        "output_dir",
+        "optimizer type and five DualOpt coefficients"
+      ]
+    },
+    "dentex": {
+      "plain_task": "dentex_plain",
+      "selected_task": "dentex_spatial_shape",
+      "all_non_module_settings_exactly_equal": true,
+      "data_transforms_exactly_equal": true,
+      "allowed_differences": [
+        "paper_modules",
+        "output_dir",
+        "four auxiliary losses and their weights"
+      ]
+    },
+    "dslr": {
+      "plain_task": "dslr_plain",
+      "selected_task": "dslr_cmfa_dualopt",
+      "all_non_module_settings_exactly_equal": true,
+      "data_transforms_exactly_equal": true,
+      "allowed_differences": [
+        "paper_modules",
+        "output_dir",
+        "optimizer type and five DualOpt coefficients"
+      ]
+    }
+  },
+  "all_six_configs_prepared": true,
+  "fixed_model_input": [
+    640,
+    640
+  ],
+  "train_multiscale_disabled": true,
+  "no_aug_scheduler_aligned_at_epoch_zero_based": 130,
+  "all_annotation_hashes_match_prior_evidence": true,
+  "prior_reused_byte_for_byte_from_train_only_source": true,
+  "mosaic_op_probability": 1.0,
+  "compose_mosaic_prob": 1.0,
+  "crop_probability_when_scheduled": 0.5,
+  "sanitize_registration": "AlignedSanitizeBoundingBoxes; both outer sanitizer stages; same for every model",
+  "runtime_forward_augmentation_validation": "Required separately before training; this is a static configuration audit"
+}

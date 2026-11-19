@@ -1,0 +1,17 @@
+{
+  "id": "pano_factor_prototype_seed1",
+  "configuration": "pano_factor_prototype",
+  "cohort": "Pano",
+  "seed": 1,
+  "phase": "primary",
+  "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/configs/pano_factor_prototype/seed_1.yml",
+  "config_sha256": "a4f00b5d12cdf99031a5453b6cf1391c7b1485d6fd420986172bc2bbd2bf01ad",
+  "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/pano_factor_prototype/seed_1",
+  "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/source_snapshots/local",
+  "controls": {},
+  "epochs": 160,
+  "expected_input": 640,
+  "gpu": 1,
+  "queue_order": 7,
+  "job_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/jobs/pano_factor_prototype_seed1.json"
+}

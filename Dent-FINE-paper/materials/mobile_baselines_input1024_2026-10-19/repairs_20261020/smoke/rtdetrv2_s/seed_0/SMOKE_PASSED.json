@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "scientific_result": false,
+  "coverage": "Native fit, two optimizer batches, full validation, best-only I/O, exact selected-checkpoint replay",
+  "retained_weight_count": 0,
+  "at": "2026-10-20T16:19:04.333086+08:00"
+}

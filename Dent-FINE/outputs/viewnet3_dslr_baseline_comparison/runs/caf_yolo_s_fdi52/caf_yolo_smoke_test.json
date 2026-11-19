@@ -1,0 +1,29 @@
+{
+  "initialization": {
+    "class_count_after_build": 52,
+    "forward_shape": [
+      1,
+      56,
+      36
+    ],
+    "mode": "upstream shape-intersection partial transfer",
+    "source_weight": "/home/wuxi/Dent-FINE/outputs/viewnet3_dslr_baseline_comparison/weights/yolov8s.pt"
+  },
+  "model_scale": "s",
+  "model_yaml": "/home/wuxi/Dent-FINE/third_party/CAF-YOLO/ultralytics/cfg/models/v8/yolov8-CAFMAttention.yaml",
+  "num_parameters": 11508245,
+  "source_dir": "/home/wuxi/Dent-FINE/third_party/CAF-YOLO",
+  "source_revision": "7098543d191b0f07510dff35e10f72c1c9a4e7cc",
+  "status": "passed",
+  "training_would_use": {
+    "batch": 8,
+    "device": "0",
+    "epochs": 160,
+    "fliplr": 0.0,
+    "flipud": 0.0,
+    "imgsz": 640,
+    "optimizer": "AdamW",
+    "seed": 0
+  },
+  "ultralytics_version": "8.0.228"
+}

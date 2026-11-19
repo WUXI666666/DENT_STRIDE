@@ -1,0 +1,126 @@
+{
+  "definition": "PIL convert(RGB), no resizing or EXIF transposition; SHA256(width,height,decoded pixel bytes). Detects exact duplicates only, not all near duplicates or patient overlap.",
+  "rechecked_files": [
+    {
+      "cohort": "Pano",
+      "split": "train",
+      "image_id": 327,
+      "file_name": "train_612.png",
+      "patient_id": "",
+      "view": "",
+      "path": "/home/wuxi/DENTEX2023/train2017/train_612.png",
+      "decoded_rgb_sha256_recomputed": "0fde6dd9badae8df1f858c1774c4b484f3e2bda2d1a46a495a0a2d82b38f3ef1",
+      "archived_hash_matches": true
+    },
+    {
+      "cohort": "Pano",
+      "split": "train",
+      "image_id": 616,
+      "file_name": "train_179.png",
+      "patient_id": "",
+      "view": "",
+      "path": "/home/wuxi/DENTEX2023/train2017/train_179.png",
+      "decoded_rgb_sha256_recomputed": "0fde6dd9badae8df1f858c1774c4b484f3e2bda2d1a46a495a0a2d82b38f3ef1",
+      "archived_hash_matches": true
+    },
+    {
+      "cohort": "Pano",
+      "split": "validation",
+      "image_id": 238,
+      "file_name": "train_412.png",
+      "patient_id": "",
+      "view": "",
+      "path": "/home/wuxi/DENTEX2023/val2017/train_412.png",
+      "decoded_rgb_sha256_recomputed": "0fde6dd9badae8df1f858c1774c4b484f3e2bda2d1a46a495a0a2d82b38f3ef1",
+      "archived_hash_matches": true
+    },
+    {
+      "cohort": "Mobile",
+      "split": "train",
+      "image_id": 12,
+      "file_name": "JPEGImages/836.jpg",
+      "patient_id": "",
+      "view": "",
+      "path": "/home/wuxi/coco/train/JPEGImages/836.jpg",
+      "decoded_rgb_sha256_recomputed": "fc5b2d478937a8fcdce0e10f27da0b7ab1f9bd2cd2d04c56fa73e94620e6ff25",
+      "archived_hash_matches": true
+    },
+    {
+      "cohort": "Mobile",
+      "split": "validation",
+      "image_id": 170,
+      "file_name": "JPEGImages/201.jpg",
+      "patient_id": "",
+      "view": "",
+      "path": "/home/wuxi/coco/valid/JPEGImages/201.jpg",
+      "decoded_rgb_sha256_recomputed": "fc5b2d478937a8fcdce0e10f27da0b7ab1f9bd2cd2d04c56fa73e94620e6ff25",
+      "archived_hash_matches": true
+    },
+    {
+      "cohort": "Mobile",
+      "split": "train",
+      "image_id": 405,
+      "file_name": "JPEGImages/797.jpg",
+      "patient_id": "",
+      "view": "",
+      "path": "/home/wuxi/coco/train/JPEGImages/797.jpg",
+      "decoded_rgb_sha256_recomputed": "3e1e65db4ea75267af672099749c53cb1e2587644051ba23551879a1c226833b",
+      "archived_hash_matches": true
+    },
+    {
+      "cohort": "Mobile",
+      "split": "validation",
+      "image_id": 6,
+      "file_name": "JPEGImages/190.jpg",
+      "patient_id": "",
+      "view": "",
+      "path": "/home/wuxi/coco/valid/JPEGImages/190.jpg",
+      "decoded_rgb_sha256_recomputed": "3e1e65db4ea75267af672099749c53cb1e2587644051ba23551879a1c226833b",
+      "archived_hash_matches": true
+    },
+    {
+      "cohort": "Mobile",
+      "split": "train",
+      "image_id": 630,
+      "file_name": "JPEGImages/796.jpg",
+      "patient_id": "",
+      "view": "",
+      "path": "/home/wuxi/coco/train/JPEGImages/796.jpg",
+      "decoded_rgb_sha256_recomputed": "043755e83f0183213679217738e9f80ec46da97318bebc6b761169e2cea09b07",
+      "archived_hash_matches": true
+    },
+    {
+      "cohort": "Mobile",
+      "split": "validation",
+      "image_id": 110,
+      "file_name": "JPEGImages/189.jpg",
+      "patient_id": "",
+      "view": "",
+      "path": "/home/wuxi/coco/valid/JPEGImages/189.jpg",
+      "decoded_rgb_sha256_recomputed": "043755e83f0183213679217738e9f80ec46da97318bebc6b761169e2cea09b07",
+      "archived_hash_matches": true
+    },
+    {
+      "cohort": "Mobile",
+      "split": "train",
+      "image_id": 820,
+      "file_name": "JPEGImages/157.jpg",
+      "patient_id": "",
+      "view": "",
+      "path": "/home/wuxi/coco/train/JPEGImages/157.jpg",
+      "decoded_rgb_sha256_recomputed": "689c16488b9d802a3016953dafed3af1ca881ad2a993720d60ba8f117a356ca1",
+      "archived_hash_matches": true
+    },
+    {
+      "cohort": "Mobile",
+      "split": "validation",
+      "image_id": 88,
+      "file_name": "JPEGImages/34.jpg",
+      "patient_id": "",
+      "view": "",
+      "path": "/home/wuxi/coco/valid/JPEGImages/34.jpg",
+      "decoded_rgb_sha256_recomputed": "689c16488b9d802a3016953dafed3af1ca881ad2a993720d60ba8f117a356ca1",
+      "archived_hash_matches": true
+    }
+  ]
+}

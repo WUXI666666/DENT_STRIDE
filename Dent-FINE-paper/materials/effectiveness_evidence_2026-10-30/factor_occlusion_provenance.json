@@ -1,0 +1,872 @@
+{
+  "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/best.pth",
+  "checkpoint_sha256": "1f19ea4d30234effb359b2de0cfb494ee1fe3582ca93a0bbc54792cf3a3e60cf",
+  "seed": 2,
+  "prototype_temperature": 0.5,
+  "input_size": [
+    1024,
+    1024
+  ],
+  "occluder_size": [
+    128,
+    128
+  ],
+  "stride": [
+    32,
+    32
+  ],
+  "patches_per_image": 841,
+  "occluder_fill": "per-image RGB channel means",
+  "scalar": "correct factor logit minus the strongest unoccluded alternative (fixed competitor)",
+  "spatial_map": "average baseline-minus-occluded margin over all sliding patches covering each input pixel; signed values retained",
+  "query_conditioning": "unoccluded encoder top-k anchor indices/order held fixed; content and all downstream states recomputed for every perturbed input",
+  "reason": "Native query-content initialization is detached in autograd, so input occlusion complements partial gradient-path explanations.",
+  "limitations": "Conditional-query sensitivity, not native detector accuracy on occluded images or a proof of clinical faithfulness. Mean-color masks may introduce artificial edges.",
+  "records": [
+    {
+      "reference": {
+        "image_id": 115,
+        "FDI": 64,
+        "query_index": 3,
+        "FDI_confidence": 0.6048164963722229,
+        "query_IoU": 0.9329228276869739,
+        "image_record": {
+          "license": 0,
+          "url": null,
+          "file_name": "JPEGImages/192.jpg",
+          "height": 5616,
+          "width": 2592,
+          "date_captured": null,
+          "id": 115
+        },
+        "target_annotation": {
+          "id": 1823,
+          "image_id": 115,
+          "category_id": 40,
+          "segmentation": [
+            [
+              1267.4285714285716,
+              1794.6883116883114,
+              1242.753246753247,
+              1794.6883116883114,
+              1218.7272727272727,
+              1794.6883116883114,
+              1196.6493506493507,
+              1794.6883116883114,
+              1182.3636363636365,
+              1794.6883116883114,
+              1177.1688311688313,
+              1803.7792207792204,
+              1169.3766233766235,
+              1830.4025974025972,
+              1160.935064935065,
+              1855.7272727272723,
+              1158.987012987013,
+              1889.4935064935062,
+              1166.7792207792209,
+              1905.7272727272723,
+              1179.1168831168832,
+              1918.7142857142853,
+              1192.1038961038962,
+              1940.1428571428569,
+              1205.0909090909092,
+              1961.5714285714282,
+              1225.2207792207794,
+              1983.6493506493503,
+              1247.2987012987014,
+              2007.6753246753244,
+              1274.5714285714287,
+              2015.4675324675322,
+              1292.753246753247,
+              2020.6623376623372,
+              1315.4805194805197,
+              2023.9090909090905,
+              1337.5584415584417,
+              2021.9610389610386,
+              1363.5324675324675,
+              2026.5064935064931,
+              1385.6103896103898,
+              2026.5064935064931,
+              1410.935064935065,
+              2027.8051948051946,
+              1445.3506493506495,
+              2033.6493506493503,
+              1481.7142857142858,
+              2026.5064935064931,
+              1517.4285714285716,
+              2003.7792207792204,
+              1542.1038961038962,
+              1967.4155844155841,
+              1570.0259740259742,
+              1923.2597402597398,
+              1577.818181818182,
+              1879.1038961038957,
+              1586.2597402597403,
+              1820.6623376623374,
+              1594.051948051948,
+              1768.0649350649348,
+              1592.753246753247,
+              1720.0129870129867,
+              1587.5584415584417,
+              1682.350649350649,
+              1571.974025974026,
+              1666.1168831168827,
+              1546.6493506493507,
+              1650.5324675324673,
+              1531.064935064935,
+              1653.7792207792204,
+              1501.1948051948052,
+              1656.376623376623,
+              1481.064935064935,
+              1665.4675324675322,
+              1474.5714285714287,
+              1681.7012987012984,
+              1462.883116883117,
+              1718.0649350649348,
+              1451.844155844156,
+              1731.0519480519476,
+              1439.5064935064936,
+              1746.6363636363633,
+              1414.1818181818182,
+              1776.5064935064931,
+              1389.5064935064936,
+              1782.350649350649,
+              1362.883116883117,
+              1788.8441558441555,
+              1346.6493506493507,
+              1789.4935064935062,
+              1321.3246753246754,
+              1788.8441558441555,
+              1297.9480519480521,
+              1788.8441558441555
+            ]
+          ],
+          "area": 105899.0,
+          "bbox": [
+            1158.0,
+            1650.0,
+            437.0,
+            384.0
+          ],
+          "iscrowd": 0,
+          "tooth_types": 0
+        },
+        "heads": {
+          "quadrant": {
+            "target_index": 5,
+            "predicted_index": 5,
+            "competitor_index": 1,
+            "probabilities": [
+              1.7112857904066914e-06,
+              0.00033428205642849207,
+              7.5022398959845304e-06,
+              1.4098873180046212e-06,
+              1.1989552149316296e-05,
+              0.9996008276939392,
+              2.3445925762644038e-05,
+              1.8896962501457892e-05
+            ],
+            "target_probability": 0.9996008276939392,
+            "target_logit": 9.755967140197754,
+            "target_minus_competitor_logit": 8.00312614440918,
+            "attribution_metrics": {
+              "quadrant_logit_gradcam": {
+                "positive_mass_inside_GT_box": 0.012924780137836933,
+                "GT_box_grid_fraction": 0.0107421875,
+                "maximum_inside_GT_box": false,
+                "raw_maximum": 7.61147603043355e-05,
+                "raw_positive_sum": 0.05310125648975372,
+                "gradient_norm": 0.37531957030296326
+              },
+              "quadrant_logit_hirescam": {
+                "positive_mass_inside_GT_box": 0.3828006386756897,
+                "GT_box_grid_fraction": 0.0107421875,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.12836022675037384,
+                "raw_positive_sum": 1.6691985130310059,
+                "gradient_norm": 0.37531957030296326
+              },
+              "quadrant_margin_gradcam": {
+                "positive_mass_inside_GT_box": 0.015539736486971378,
+                "GT_box_grid_fraction": 0.0107421875,
+                "maximum_inside_GT_box": false,
+                "raw_maximum": 0.0001294436224270612,
+                "raw_positive_sum": 0.07538697123527527,
+                "gradient_norm": 0.5292980670928955
+              },
+              "quadrant_margin_hirescam": {
+                "positive_mass_inside_GT_box": 0.46309617161750793,
+                "GT_box_grid_fraction": 0.0107421875,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.13979870080947876,
+                "raw_positive_sum": 2.2475266456604004,
+                "gradient_norm": 0.5292980670928955
+              }
+            }
+          },
+          "position": {
+            "target_index": 3,
+            "predicted_index": 3,
+            "competitor_index": 4,
+            "probabilities": [
+              0.00014248130901250988,
+              0.000529006589204073,
+              0.00018692146113608032,
+              0.8021135926246643,
+              0.1967654675245285,
+              0.0001433936704415828,
+              3.131370976916514e-05,
+              8.786578837316483e-05
+            ],
+            "target_probability": 0.8021135926246643,
+            "target_logit": 6.1312971115112305,
+            "target_minus_competitor_logit": 1.4052376747131348,
+            "attribution_metrics": {
+              "position_logit_gradcam": {
+                "positive_mass_inside_GT_box": 0.011669591069221497,
+                "GT_box_grid_fraction": 0.0107421875,
+                "maximum_inside_GT_box": false,
+                "raw_maximum": 0.00042830902384594083,
+                "raw_positive_sum": 0.9815841317176819,
+                "gradient_norm": 1.3802576065063477
+              },
+              "position_logit_hirescam": {
+                "positive_mass_inside_GT_box": 0.4554376006126404,
+                "GT_box_grid_fraction": 0.0107421875,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.2130090594291687,
+                "raw_positive_sum": 5.356841564178467,
+                "gradient_norm": 1.3802576065063477
+              },
+              "position_margin_gradcam": {
+                "positive_mass_inside_GT_box": 0.009761299006640911,
+                "GT_box_grid_fraction": 0.0107421875,
+                "maximum_inside_GT_box": false,
+                "raw_maximum": 0.0006589481490664184,
+                "raw_positive_sum": 1.5857373476028442,
+                "gradient_norm": 2.371006965637207
+              },
+              "position_margin_hirescam": {
+                "positive_mass_inside_GT_box": 0.5029914975166321,
+                "GT_box_grid_fraction": 0.0107421875,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.3873480558395386,
+                "raw_positive_sum": 9.291608810424805,
+                "gradient_norm": 2.371006965637207
+              }
+            }
+          },
+          "dentition": {
+            "target_index": 0,
+            "predicted_index": 0,
+            "competitor_index": 1,
+            "probabilities": [
+              0.9988604784011841,
+              0.0011395127512514591
+            ],
+            "target_probability": 0.9988604784011841,
+            "target_logit": 3.5228652954101562,
+            "target_minus_competitor_logit": 6.77601432800293,
+            "attribution_metrics": {
+              "dentition_logit_gradcam": {
+                "positive_mass_inside_GT_box": 0.010130011476576328,
+                "GT_box_grid_fraction": 0.0107421875,
+                "maximum_inside_GT_box": false,
+                "raw_maximum": 9.026432235259563e-05,
+                "raw_positive_sum": 0.1404906064271927,
+                "gradient_norm": 0.3378535807132721
+              },
+              "dentition_logit_hirescam": {
+                "positive_mass_inside_GT_box": 0.3303178548812866,
+                "GT_box_grid_fraction": 0.0107421875,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.08930167555809021,
+                "raw_positive_sum": 1.8243950605392456,
+                "gradient_norm": 0.3378535807132721
+              },
+              "dentition_margin_gradcam": {
+                "positive_mass_inside_GT_box": 0.01163623109459877,
+                "GT_box_grid_fraction": 0.0107421875,
+                "maximum_inside_GT_box": false,
+                "raw_maximum": 0.00017379286873620003,
+                "raw_positive_sum": 0.27733588218688965,
+                "gradient_norm": 0.7057475447654724
+              },
+              "dentition_margin_hirescam": {
+                "positive_mass_inside_GT_box": 0.35220324993133545,
+                "GT_box_grid_fraction": 0.0107421875,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.1804768443107605,
+                "raw_positive_sum": 3.8721837997436523,
+                "gradient_norm": 0.7057475447654724
+              }
+            }
+          }
+        },
+        "maps": "/home/wuxi/Dent-FINE-paper/materials/effectiveness_evidence_2026-10-30/factor_head_attributions_image_115_FDI_64.npz",
+        "feature_shape": [
+          1,
+          256,
+          128,
+          128
+        ]
+      },
+      "query_index": 3,
+      "unoccluded_frozen_query_max_error": 0.0,
+      "maps": "/home/wuxi/Dent-FINE-paper/materials/effectiveness_evidence_2026-10-30/factor_occlusion_image_115_FDI_64.npz",
+      "heads": {
+        "quadrant": {
+          "baseline_margin": 8.003128051757812,
+          "target_index": 5,
+          "baseline_competitor_index": 1,
+          "maximum_margin_drop": 8.32343578338623,
+          "minimum_margin_drop": -0.5039310455322266,
+          "strongest_patch_xy": [
+            512,
+            320
+          ],
+          "strongest_patch_center_xy_normalized": [
+            0.5625,
+            0.375
+          ]
+        },
+        "position": {
+          "baseline_margin": 1.405226230621338,
+          "target_index": 3,
+          "baseline_competitor_index": 4,
+          "maximum_margin_drop": 5.990780830383301,
+          "minimum_margin_drop": -6.344980239868164,
+          "strongest_patch_xy": [
+            512,
+            192
+          ],
+          "strongest_patch_center_xy_normalized": [
+            0.5625,
+            0.25
+          ]
+        },
+        "dentition": {
+          "baseline_margin": 6.776013374328613,
+          "target_index": 0,
+          "baseline_competitor_index": 1,
+          "maximum_margin_drop": 6.9758195877075195,
+          "minimum_margin_drop": -0.45912933349609375,
+          "strongest_patch_xy": [
+            512,
+            256
+          ],
+          "strongest_patch_center_xy_normalized": [
+            0.5625,
+            0.3125
+          ]
+        }
+      }
+    },
+    {
+      "reference": {
+        "image_id": 77,
+        "FDI": 11,
+        "query_index": 3,
+        "FDI_confidence": 0.8535996675491333,
+        "query_IoU": 0.9162882635646317,
+        "image_record": {
+          "license": 0,
+          "url": null,
+          "file_name": "JPEGImages/49.jpg",
+          "height": 3072,
+          "width": 4096,
+          "date_captured": null,
+          "id": 77
+        },
+        "target_annotation": {
+          "id": 1198,
+          "image_id": 77,
+          "category_id": 0,
+          "segmentation": [
+            [
+              1393.117707871806,
+              1284.2711564023039,
+              1473.297888051986,
+              1488.7756609068083,
+              1826.4510412051393,
+              1436.523408654556,
+              1760.6852754393735,
+              1224.8116969428443
+            ]
+          ],
+          "area": 79231.0,
+          "bbox": [
+            1393.0,
+            1224.0,
+            434.0,
+            265.0
+          ],
+          "iscrowd": 0,
+          "tooth_types": 1
+        },
+        "heads": {
+          "quadrant": {
+            "target_index": 0,
+            "predicted_index": 0,
+            "competitor_index": 4,
+            "probabilities": [
+              0.9993724226951599,
+              8.201669697882608e-05,
+              3.849522545351647e-05,
+              1.608191269042436e-05,
+              0.0004223245196044445,
+              3.981336340075359e-05,
+              8.227164471463766e-06,
+              2.0643245079554617e-05
+            ],
+            "target_probability": 0.9993724226951599,
+            "target_logit": 8.65519905090332,
+            "target_minus_competitor_logit": 7.769108772277832,
+            "attribution_metrics": {
+              "quadrant_logit_gradcam": {
+                "positive_mass_inside_GT_box": 0.018343254923820496,
+                "GT_box_grid_fraction": 0.00872802734375,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.0001775332202669233,
+                "raw_positive_sum": 0.2622280418872833,
+                "gradient_norm": 0.31540820002555847
+              },
+              "quadrant_logit_hirescam": {
+                "positive_mass_inside_GT_box": 0.36904147267341614,
+                "GT_box_grid_fraction": 0.00872802734375,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.07914784550666809,
+                "raw_positive_sum": 1.1986393928527832,
+                "gradient_norm": 0.31540820002555847
+              },
+              "quadrant_margin_gradcam": {
+                "positive_mass_inside_GT_box": 0.020514123141765594,
+                "GT_box_grid_fraction": 0.00872802734375,
+                "maximum_inside_GT_box": false,
+                "raw_maximum": 0.00016518861229997128,
+                "raw_positive_sum": 0.09189800918102264,
+                "gradient_norm": 0.4751962125301361
+              },
+              "quadrant_margin_hirescam": {
+                "positive_mass_inside_GT_box": 0.3006071150302887,
+                "GT_box_grid_fraction": 0.00872802734375,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.0995795726776123,
+                "raw_positive_sum": 1.8346550464630127,
+                "gradient_norm": 0.4751962125301361
+              }
+            }
+          },
+          "position": {
+            "target_index": 0,
+            "predicted_index": 0,
+            "competitor_index": 5,
+            "probabilities": [
+              0.9996412992477417,
+              6.977315933909267e-05,
+              7.894370355643332e-05,
+              6.357973325066268e-05,
+              4.098600402357988e-05,
+              7.916678441688418e-05,
+              2.0182649677735753e-05,
+              6.022895831847563e-06
+            ],
+            "target_probability": 0.9996412992477417,
+            "target_logit": 8.220226287841797,
+            "target_minus_competitor_logit": 9.443594932556152,
+            "attribution_metrics": {
+              "position_logit_gradcam": {
+                "positive_mass_inside_GT_box": 0.018715420737862587,
+                "GT_box_grid_fraction": 0.00872802734375,
+                "maximum_inside_GT_box": false,
+                "raw_maximum": 9.273736213799566e-05,
+                "raw_positive_sum": 0.11048361659049988,
+                "gradient_norm": 0.326028972864151
+              },
+              "position_logit_hirescam": {
+                "positive_mass_inside_GT_box": 0.43721577525138855,
+                "GT_box_grid_fraction": 0.00872802734375,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.16496071219444275,
+                "raw_positive_sum": 1.1923803091049194,
+                "gradient_norm": 0.326028972864151
+              },
+              "position_margin_gradcam": {
+                "positive_mass_inside_GT_box": 0.018651679158210754,
+                "GT_box_grid_fraction": 0.00872802734375,
+                "maximum_inside_GT_box": false,
+                "raw_maximum": 0.00019218033412471414,
+                "raw_positive_sum": 0.3006243407726288,
+                "gradient_norm": 0.5627550482749939
+              },
+              "position_margin_hirescam": {
+                "positive_mass_inside_GT_box": 0.48478204011917114,
+                "GT_box_grid_fraction": 0.00872802734375,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.20629079639911652,
+                "raw_positive_sum": 2.2365996837615967,
+                "gradient_norm": 0.5627550482749939
+              }
+            }
+          },
+          "dentition": {
+            "target_index": 1,
+            "predicted_index": 1,
+            "competitor_index": 0,
+            "probabilities": [
+              0.0018270340515300632,
+              0.9981729984283447
+            ],
+            "target_probability": 0.9981729984283447,
+            "target_logit": 3.7402567863464355,
+            "target_minus_competitor_logit": 6.303232669830322,
+            "attribution_metrics": {
+              "dentition_logit_gradcam": {
+                "positive_mass_inside_GT_box": 0.014667821116745472,
+                "GT_box_grid_fraction": 0.00872802734375,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.00011593658564379439,
+                "raw_positive_sum": 0.17176038026809692,
+                "gradient_norm": 0.2614603042602539
+              },
+              "dentition_logit_hirescam": {
+                "positive_mass_inside_GT_box": 0.46360039710998535,
+                "GT_box_grid_fraction": 0.00872802734375,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.12463323771953583,
+                "raw_positive_sum": 1.1481858491897583,
+                "gradient_norm": 0.2614603042602539
+              },
+              "dentition_margin_gradcam": {
+                "positive_mass_inside_GT_box": 0.015779569745063782,
+                "GT_box_grid_fraction": 0.00872802734375,
+                "maximum_inside_GT_box": false,
+                "raw_maximum": 0.00023388711269944906,
+                "raw_positive_sum": 0.3106141686439514,
+                "gradient_norm": 0.5275189280509949
+              },
+              "dentition_margin_hirescam": {
+                "positive_mass_inside_GT_box": 0.40931543707847595,
+                "GT_box_grid_fraction": 0.00872802734375,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.16662262380123138,
+                "raw_positive_sum": 2.1381096839904785,
+                "gradient_norm": 0.5275189280509949
+              }
+            }
+          }
+        },
+        "maps": "/home/wuxi/Dent-FINE-paper/materials/effectiveness_evidence_2026-10-30/factor_head_attributions_image_77_FDI_11.npz",
+        "feature_shape": [
+          1,
+          256,
+          128,
+          128
+        ]
+      },
+      "query_index": 3,
+      "unoccluded_frozen_query_max_error": 0.0,
+      "maps": "/home/wuxi/Dent-FINE-paper/materials/effectiveness_evidence_2026-10-30/factor_occlusion_image_77_FDI_11.npz",
+      "heads": {
+        "quadrant": {
+          "baseline_margin": 7.769107818603516,
+          "target_index": 0,
+          "baseline_competitor_index": 4,
+          "maximum_margin_drop": 7.754790306091309,
+          "minimum_margin_drop": -0.9177732467651367,
+          "strongest_patch_xy": [
+            256,
+            480
+          ],
+          "strongest_patch_center_xy_normalized": [
+            0.3125,
+            0.53125
+          ]
+        },
+        "position": {
+          "baseline_margin": 9.443594932556152,
+          "target_index": 0,
+          "baseline_competitor_index": 5,
+          "maximum_margin_drop": 4.958769798278809,
+          "minimum_margin_drop": -2.576488494873047,
+          "strongest_patch_xy": [
+            288,
+            384
+          ],
+          "strongest_patch_center_xy_normalized": [
+            0.34375,
+            0.4375
+          ]
+        },
+        "dentition": {
+          "baseline_margin": 6.303234100341797,
+          "target_index": 1,
+          "baseline_competitor_index": 0,
+          "maximum_margin_drop": 7.276146411895752,
+          "minimum_margin_drop": -1.216461181640625,
+          "strongest_patch_xy": [
+            352,
+            480
+          ],
+          "strongest_patch_center_xy_normalized": [
+            0.40625,
+            0.53125
+          ]
+        }
+      }
+    },
+    {
+      "reference": {
+        "image_id": 182,
+        "FDI": 46,
+        "query_index": 3,
+        "FDI_confidence": 0.8675330877304077,
+        "query_IoU": 0.7356274542457302,
+        "image_record": {
+          "license": 0,
+          "url": null,
+          "file_name": "JPEGImages/55.jpg",
+          "height": 3072,
+          "width": 4096,
+          "date_captured": null,
+          "id": 182
+        },
+        "target_annotation": {
+          "id": 2861,
+          "image_id": 182,
+          "category_id": 29,
+          "segmentation": [
+            [
+              1452.4444444444443,
+              1724.8888888888891,
+              1768.0,
+              1609.3333333333335,
+              1928.0,
+              1896.0,
+              1548.0,
+              2087.1111111111113
+            ]
+          ],
+          "area": 133163.0,
+          "bbox": [
+            1452.0,
+            1609.0,
+            477.0,
+            479.0
+          ],
+          "iscrowd": 0,
+          "tooth_types": 1
+        },
+        "heads": {
+          "quadrant": {
+            "target_index": 3,
+            "predicted_index": 3,
+            "competitor_index": 7,
+            "probabilities": [
+              4.473558146855794e-05,
+              3.3001746487570927e-05,
+              5.2309776947367936e-05,
+              0.9996830224990845,
+              8.694183634361252e-06,
+              3.5740831663133577e-06,
+              7.405636551993666e-06,
+              0.00016736812540329993
+            ],
+            "target_probability": 0.9996830224990845,
+            "target_logit": 8.987505912780762,
+            "target_minus_competitor_logit": 8.694997787475586,
+            "attribution_metrics": {
+              "quadrant_logit_gradcam": {
+                "positive_mass_inside_GT_box": 0.021249711513519287,
+                "GT_box_grid_fraction": 0.018310546875,
+                "maximum_inside_GT_box": false,
+                "raw_maximum": 0.00011243391782045364,
+                "raw_positive_sum": 0.09494206309318542,
+                "gradient_norm": 0.19996562600135803
+              },
+              "quadrant_logit_hirescam": {
+                "positive_mass_inside_GT_box": 0.5270596146583557,
+                "GT_box_grid_fraction": 0.018310546875,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.047834187746047974,
+                "raw_positive_sum": 0.7478376626968384,
+                "gradient_norm": 0.19996562600135803
+              },
+              "quadrant_margin_gradcam": {
+                "positive_mass_inside_GT_box": 0.02160409465432167,
+                "GT_box_grid_fraction": 0.018310546875,
+                "maximum_inside_GT_box": false,
+                "raw_maximum": 6.668562855338678e-05,
+                "raw_positive_sum": 0.05117585137486458,
+                "gradient_norm": 0.23122195899486542
+              },
+              "quadrant_margin_hirescam": {
+                "positive_mass_inside_GT_box": 0.5417993664741516,
+                "GT_box_grid_fraction": 0.018310546875,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.045890308916568756,
+                "raw_positive_sum": 0.8147759437561035,
+                "gradient_norm": 0.23122195899486542
+              }
+            }
+          },
+          "position": {
+            "target_index": 5,
+            "predicted_index": 5,
+            "competitor_index": 6,
+            "probabilities": [
+              3.8380123442038894e-05,
+              4.007583629572764e-05,
+              8.947262358560693e-06,
+              7.72448765928857e-05,
+              0.00010489716078154743,
+              0.9995373487472534,
+              0.0001727514754747972,
+              2.040729668806307e-05
+            ],
+            "target_probability": 0.9995373487472534,
+            "target_logit": 8.76518726348877,
+            "target_minus_competitor_logit": 8.663193702697754,
+            "attribution_metrics": {
+              "position_logit_gradcam": {
+                "positive_mass_inside_GT_box": 0.04626435041427612,
+                "GT_box_grid_fraction": 0.018310546875,
+                "maximum_inside_GT_box": false,
+                "raw_maximum": 9.68697713688016e-05,
+                "raw_positive_sum": 0.1615140438079834,
+                "gradient_norm": 0.210661843419075
+              },
+              "position_logit_hirescam": {
+                "positive_mass_inside_GT_box": 0.5745101571083069,
+                "GT_box_grid_fraction": 0.018310546875,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.0487106591463089,
+                "raw_positive_sum": 0.7660694718360901,
+                "gradient_norm": 0.210661843419075
+              },
+              "position_margin_gradcam": {
+                "positive_mass_inside_GT_box": 0.026238689199090004,
+                "GT_box_grid_fraction": 0.018310546875,
+                "maximum_inside_GT_box": false,
+                "raw_maximum": 0.0001347007491858676,
+                "raw_positive_sum": 0.2501538395881653,
+                "gradient_norm": 0.2609856128692627
+              },
+              "position_margin_hirescam": {
+                "positive_mass_inside_GT_box": 0.5869457125663757,
+                "GT_box_grid_fraction": 0.018310546875,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.057266294956207275,
+                "raw_positive_sum": 1.016262412071228,
+                "gradient_norm": 0.2609856128692627
+              }
+            }
+          },
+          "dentition": {
+            "target_index": 1,
+            "predicted_index": 1,
+            "competitor_index": 0,
+            "probabilities": [
+              0.00036534052924253047,
+              0.9996346235275269
+            ],
+            "target_probability": 0.9996346235275269,
+            "target_logit": 3.9914677143096924,
+            "target_minus_competitor_logit": 7.914315223693848,
+            "attribution_metrics": {
+              "dentition_logit_gradcam": {
+                "positive_mass_inside_GT_box": 0.05030661076307297,
+                "GT_box_grid_fraction": 0.018310546875,
+                "maximum_inside_GT_box": false,
+                "raw_maximum": 6.428829510696232e-05,
+                "raw_positive_sum": 0.07450790703296661,
+                "gradient_norm": 0.1674272119998932
+              },
+              "dentition_logit_hirescam": {
+                "positive_mass_inside_GT_box": 0.623365044593811,
+                "GT_box_grid_fraction": 0.018310546875,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.06016216427087784,
+                "raw_positive_sum": 0.7664102911949158,
+                "gradient_norm": 0.1674272119998932
+              },
+              "dentition_margin_gradcam": {
+                "positive_mass_inside_GT_box": 0.048105280846357346,
+                "GT_box_grid_fraction": 0.018310546875,
+                "maximum_inside_GT_box": false,
+                "raw_maximum": 0.00014178808487486094,
+                "raw_positive_sum": 0.1470298022031784,
+                "gradient_norm": 0.31620702147483826
+              },
+              "dentition_margin_hirescam": {
+                "positive_mass_inside_GT_box": 0.6126511096954346,
+                "GT_box_grid_fraction": 0.018310546875,
+                "maximum_inside_GT_box": true,
+                "raw_maximum": 0.13027960062026978,
+                "raw_positive_sum": 1.4225742816925049,
+                "gradient_norm": 0.31620702147483826
+              }
+            }
+          }
+        },
+        "maps": "/home/wuxi/Dent-FINE-paper/materials/effectiveness_evidence_2026-10-30/factor_head_attributions_image_182_FDI_46.npz",
+        "feature_shape": [
+          1,
+          256,
+          128,
+          128
+        ]
+      },
+      "query_index": 3,
+      "unoccluded_frozen_query_max_error": 0.0,
+      "maps": "/home/wuxi/Dent-FINE-paper/materials/effectiveness_evidence_2026-10-30/factor_occlusion_image_182_FDI_46.npz",
+      "heads": {
+        "quadrant": {
+          "baseline_margin": 8.694999694824219,
+          "target_index": 3,
+          "baseline_competitor_index": 7,
+          "maximum_margin_drop": 13.50497055053711,
+          "minimum_margin_drop": -0.4286975860595703,
+          "strongest_patch_xy": [
+            384,
+            608
+          ],
+          "strongest_patch_center_xy_normalized": [
+            0.4375,
+            0.65625
+          ]
+        },
+        "position": {
+          "baseline_margin": 8.66319465637207,
+          "target_index": 5,
+          "baseline_competitor_index": 6,
+          "maximum_margin_drop": 8.029803276062012,
+          "minimum_margin_drop": -0.2765331268310547,
+          "strongest_patch_xy": [
+            384,
+            544
+          ],
+          "strongest_patch_center_xy_normalized": [
+            0.4375,
+            0.59375
+          ]
+        },
+        "dentition": {
+          "baseline_margin": 7.914316654205322,
+          "target_index": 1,
+          "baseline_competitor_index": 0,
+          "maximum_margin_drop": 13.684505462646484,
+          "minimum_margin_drop": -0.424558162689209,
+          "strongest_patch_xy": [
+            384,
+            608
+          ],
+          "strongest_patch_center_xy_normalized": [
+            0.4375,
+            0.65625
+          ]
+        }
+      }
+    }
+  ]
+}

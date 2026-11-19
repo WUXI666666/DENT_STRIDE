@@ -1,0 +1,27 @@
+{
+  "family": "caf_yolo_s",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "torch": "2.5.1+cu124",
+  "cuda": "12.4",
+  "cudnn": 90100,
+  "precision": "FP32",
+  "batch": 1,
+  "shape": [
+    1,
+    3,
+    1024,
+    1024
+  ],
+  "warmup": 30,
+  "repetitions": 100,
+  "timing_scope": "CUDA-event native forward only; resident representative-image input; no data loading/external postprocessing",
+  "image_path": "/home/wuxi/coco/valid/JPEGImages/73.jpg",
+  "image_id": 0,
+  "mean_ms": 2.7153510665893554,
+  "SD_ms": 0.10145678730091873,
+  "P50_ms": 2.644912004470825,
+  "P95_ms": 2.865241491794586,
+  "images_per_second": 368.2765047600494,
+  "peak_inference_allocated_bytes": 193207808,
+  "at": "2026-10-20T07:08:02.738336+08:00"
+}

@@ -1,0 +1,8 @@
+{
+  "file": "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/failed_attempts/rtdetrv2_s_phone_seed0_pillow_guard/best.pth",
+  "sha256": "0cedb95d7edf5a1817a9ed561da9ae32efa0214c501c388d0d859dfb4d7d8583",
+  "bytes": 323558478,
+  "reason": "non-research pipeline test or superseded infrastructure-failed attempt",
+  "removed_at": "2026-09-10T23:53:36.526236+08:00",
+  "recovery": "not retained; requires rerunning the corresponding non-research test"
+}

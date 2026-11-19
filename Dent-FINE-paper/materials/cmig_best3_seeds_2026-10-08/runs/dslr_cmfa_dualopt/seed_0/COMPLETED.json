@@ -1,0 +1,7 @@
+{
+  "job": "dslr_cmfa_dualopt_seed0",
+  "checkpoint_sha256": "042a12a2af4a5f121ca520592331c69df7c63c84dceecdc4f4eb5cb1ba267d60",
+  "metrics_sha256": "078217822906fbc1c25d03b94888170b965fd6425081918226a097b8eecefb18",
+  "native_metrics_sha256": "282f40facc6a27da0961c6807387acd80eefe67799f1ba90adbed5597ecf9293",
+  "finished_unix": 1791461642.3278856
+}

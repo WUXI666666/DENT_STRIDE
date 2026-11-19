@@ -1,0 +1,19 @@
+{
+  "epoch_zero_based": 36,
+  "epoch_one_based": 37,
+  "metrics_fraction": {
+    "AP": 0.547181751603012,
+    "AP50": 0.8347387133194645,
+    "AP75": 0.5996745649054664,
+    "AP_small": 0.42499999999999993,
+    "AP_medium": 0.394550405593707,
+    "AP_large": 0.561821702596097,
+    "AR1": 0.6293419576913387,
+    "AR10": 0.6653856773885294,
+    "AR100": 0.6658565821710586,
+    "AR_small": 0.425,
+    "AR_medium": 0.48131944444444447,
+    "AR_large": 0.6791630196974471
+  },
+  "selection": "maximum FP32 canonical COCO AP, earliest tie"
+}

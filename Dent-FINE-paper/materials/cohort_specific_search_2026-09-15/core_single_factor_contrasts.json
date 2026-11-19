@@ -1,0 +1,197 @@
+{
+  "phone_dualopt": [
+    {
+      "a": "FINAL_phone_dualopt",
+      "b": "phone_dualopt_C01",
+      "factor": "profile",
+      "before": "fixed640",
+      "after": "legacy640_multiscale"
+    },
+    {
+      "a": "FINAL_phone_dualopt",
+      "b": "phone_dualopt_C03",
+      "factor": "mixup",
+      "before": 0.5,
+      "after": 0.0
+    },
+    {
+      "a": "FINAL_phone_dualopt",
+      "b": "phone_dualopt_C04",
+      "factor": "profile",
+      "before": "fixed640",
+      "after": "fixed1024"
+    },
+    {
+      "a": "phone_dualopt_C01",
+      "b": "phone_dualopt_C02",
+      "factor": "mixup",
+      "before": 0.5,
+      "after": 0.0
+    },
+    {
+      "a": "phone_dualopt_C01",
+      "b": "phone_dualopt_C04",
+      "factor": "profile",
+      "before": "legacy640_multiscale",
+      "after": "fixed1024"
+    },
+    {
+      "a": "phone_dualopt_C02",
+      "b": "phone_dualopt_C03",
+      "factor": "profile",
+      "before": "legacy640_multiscale",
+      "after": "fixed640"
+    },
+    {
+      "a": "phone_dualopt_C02",
+      "b": "phone_dualopt_C05",
+      "factor": "profile",
+      "before": "legacy640_multiscale",
+      "after": "fixed1024"
+    },
+    {
+      "a": "phone_dualopt_C03",
+      "b": "phone_dualopt_C05",
+      "factor": "profile",
+      "before": "fixed640",
+      "after": "fixed1024"
+    },
+    {
+      "a": "phone_dualopt_C04",
+      "b": "phone_dualopt_C05",
+      "factor": "mixup",
+      "before": 0.5,
+      "after": 0.0
+    }
+  ],
+  "dslr_cmfa_dualopt": [
+    {
+      "a": "FINAL_dslr_cmfa_dualopt",
+      "b": "dslr_cmfa_dualopt_C01",
+      "factor": "profile",
+      "before": "fixed640",
+      "after": "legacy640_multiscale"
+    },
+    {
+      "a": "FINAL_dslr_cmfa_dualopt",
+      "b": "dslr_cmfa_dualopt_C03",
+      "factor": "mixup",
+      "before": 0.5,
+      "after": 0.0
+    },
+    {
+      "a": "FINAL_dslr_cmfa_dualopt",
+      "b": "dslr_cmfa_dualopt_C04",
+      "factor": "profile",
+      "before": "fixed640",
+      "after": "fixed1024"
+    },
+    {
+      "a": "dslr_cmfa_dualopt_C01",
+      "b": "dslr_cmfa_dualopt_C02",
+      "factor": "mixup",
+      "before": 0.5,
+      "after": 0.0
+    },
+    {
+      "a": "dslr_cmfa_dualopt_C01",
+      "b": "dslr_cmfa_dualopt_C04",
+      "factor": "profile",
+      "before": "legacy640_multiscale",
+      "after": "fixed1024"
+    },
+    {
+      "a": "dslr_cmfa_dualopt_C02",
+      "b": "dslr_cmfa_dualopt_C03",
+      "factor": "profile",
+      "before": "legacy640_multiscale",
+      "after": "fixed640"
+    },
+    {
+      "a": "dslr_cmfa_dualopt_C02",
+      "b": "dslr_cmfa_dualopt_C05",
+      "factor": "profile",
+      "before": "legacy640_multiscale",
+      "after": "fixed1024"
+    },
+    {
+      "a": "dslr_cmfa_dualopt_C03",
+      "b": "dslr_cmfa_dualopt_C05",
+      "factor": "profile",
+      "before": "fixed640",
+      "after": "fixed1024"
+    },
+    {
+      "a": "dslr_cmfa_dualopt_C04",
+      "b": "dslr_cmfa_dualopt_C05",
+      "factor": "mixup",
+      "before": 0.5,
+      "after": 0.0
+    }
+  ],
+  "phone_a07_proto_aux": [
+    {
+      "a": "FINAL_phone_a07_proto_aux",
+      "b": "phone_a07_proto_aux_C02",
+      "factor": "profile",
+      "before": "fixed640",
+      "after": "legacy640_multiscale"
+    },
+    {
+      "a": "FINAL_phone_a07_proto_aux",
+      "b": "phone_a07_proto_aux_C03",
+      "factor": "mixup",
+      "before": 0.5,
+      "after": 0.0
+    },
+    {
+      "a": "FINAL_phone_a07_proto_aux",
+      "b": "phone_a07_proto_aux_C04",
+      "factor": "profile",
+      "before": "fixed640",
+      "after": "fixed1024"
+    },
+    {
+      "a": "phone_a07_proto_aux_C01",
+      "b": "phone_a07_proto_aux_C02",
+      "factor": "mixup",
+      "before": 0.0,
+      "after": 0.5
+    },
+    {
+      "a": "phone_a07_proto_aux_C01",
+      "b": "phone_a07_proto_aux_C03",
+      "factor": "profile",
+      "before": "legacy640_multiscale",
+      "after": "fixed640"
+    },
+    {
+      "a": "phone_a07_proto_aux_C01",
+      "b": "phone_a07_proto_aux_C05",
+      "factor": "profile",
+      "before": "legacy640_multiscale",
+      "after": "fixed1024"
+    },
+    {
+      "a": "phone_a07_proto_aux_C02",
+      "b": "phone_a07_proto_aux_C04",
+      "factor": "profile",
+      "before": "legacy640_multiscale",
+      "after": "fixed1024"
+    },
+    {
+      "a": "phone_a07_proto_aux_C03",
+      "b": "phone_a07_proto_aux_C05",
+      "factor": "profile",
+      "before": "fixed640",
+      "after": "fixed1024"
+    },
+    {
+      "a": "phone_a07_proto_aux_C04",
+      "b": "phone_a07_proto_aux_C05",
+      "factor": "mixup",
+      "before": 0.5,
+      "after": 0.0
+    }
+  ]
+}

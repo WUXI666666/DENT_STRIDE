@@ -1,0 +1,19 @@
+{
+  "retained": "/home/wuxi/Dent-FINE/outputs/paper_main_input1024_20260913/dentex_spatial_shape/seed_0/best.pth",
+  "retained_sha256": "8e1910fa1d7d66abbb059c2c02bcb40f15f3aec9ac762245d8eb6eeaef4e5630",
+  "removed_temporary_weights": [
+    {
+      "path": "/home/wuxi/Dent-FINE/outputs/paper_main_input1024_20260913/dentex_spatial_shape/seed_0/last.pth",
+      "bytes": 172303242
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE/outputs/paper_main_input1024_20260913/dentex_spatial_shape/seed_0/best_stg1.pth",
+      "bytes": 172459007
+    },
+    {
+      "path": "/home/wuxi/Dent-FINE/outputs/paper_main_input1024_20260913/dentex_spatial_shape/seed_0/best_stg2.pth",
+      "bytes": 172459007
+    }
+  ],
+  "reason": "User requested best-only weights; stage/last files were needed temporarily by the unchanged original solver."
+}

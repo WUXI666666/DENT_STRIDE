@@ -1,0 +1,9 @@
+{
+  "task": "phone_dualopt",
+  "params_training_total": 10285925,
+  "params_trainable": 10285923,
+  "params_deploy_total": 10215931,
+  "GMACs": 12.4699364,
+  "GFLOPs": 25.046627056,
+  "profile": "calflops; deployed model forward; FP32 CPU; batch 1; 640x640; excludes postprocessing (including SpatialShape)"
+}

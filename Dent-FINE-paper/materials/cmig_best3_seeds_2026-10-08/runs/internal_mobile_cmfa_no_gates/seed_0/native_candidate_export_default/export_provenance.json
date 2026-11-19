@@ -1,0 +1,23 @@
+{
+  "job": "internal_mobile_cmfa_no_gates_seed0",
+  "native_reference": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_cmfa_no_gates/seed_0/native_coco_metrics.json",
+  "native_reference_sha256": "be61e2407b939a61a97d8e658e9ec64806aef24a8cd786f941ea6e5ec37049a5",
+  "checkpoint_sha256": "4fb803b7686ad46c07e5ffd17255c42e99a5e09f1098f889b6a2d7d3b7ed1b36",
+  "log_sha256": "0016af4f6eea264fae48803ce49fa892d7a59582311b1d9fdf09f453c5a0308e",
+  "config_sha256": "8c8ff65fd9f8cfe63003b4fd170cf5fadcc68c0e91ef57ccc7e9e9cdadf66014",
+  "script_sha256": "9a1d2c0651d4305b454c4ce1321f534f37825e42ea9e9b07a4231af8a24ea9de",
+  "native_export_minus_reference_fraction": {
+    "AP": 0.0,
+    "AP50": 0.0,
+    "AP75": 0.0,
+    "AR100": 0.0
+  },
+  "retained_original_training_and_native_validation": true,
+  "files": {
+    "pre_topk_candidates.npz": "fc9caac374aeb08da81217e696f969f6ca9ce1fc747cbed653d575dae168ee6c",
+    "predictions_coco.json.gz": "a8038fd98beba5742a268f4a9234af55310f14661d42e0cabb13fbb072b72116",
+    "coco_precision_recall.npz": "f5aa6b9591f07c08f6fb5bcadeef238a08aa44856da984a09d2d672372505437",
+    "per_image_counts.json": "f5167f8b2a6d65d16a56c9dd6d2f35c8686f8959151ba86bffcd4a996310a136",
+    "metrics.json": "65fc6b3c59ae6810aaff6c787181c3c7fb4d6c5edf3b2ad2fbb98ed32e2a7486"
+  }
+}

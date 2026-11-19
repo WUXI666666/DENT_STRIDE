@@ -1,0 +1,32 @@
+{
+  "id": "mobile_proto_k4_tau0p50_seed1",
+  "configuration": "mobile_proto_k4_tau0p50",
+  "cohort": "Mobile",
+  "seed": 1,
+  "phase": "primary",
+  "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/configs/mobile_proto_k4_tau0p50/seed_1.yml",
+  "config_sha256": "9f78a330812f81cc3f74b326ef5396dbad7bde96f2dd208f4bf6c1cbfafef80e",
+  "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_1",
+  "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/source_snapshots/mobile",
+  "train_script": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/source_snapshots/mobile/train.py",
+  "native_cwd": "/home/wuxi/Dent-FINE",
+  "controls": {},
+  "epochs": 160,
+  "expected_input": 1024,
+  "inference_priors": "off",
+  "python": "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+  "queue_order": 3,
+  "job_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/jobs/mobile_proto_k4_tau0p50_seed1.json",
+  "template_job": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/jobs/internal_mobile_proto_k4_tau0p5_seed0.json",
+  "template_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/configs/internal_mobile_proto_k4_tau0p5/seed_0.yml",
+  "template_config_sha256": "54da346b3e831b858b7a1ffb2e16a09947931310042a979d31c58498f8d6fbbc",
+  "only_config_changes": [
+    "output_dir",
+    "summary_dir"
+  ],
+  "seed_set_via_native_cli": true,
+  "fresh_initialization": true,
+  "reused_training_weights": false,
+  "resume_interrupted_run": false,
+  "prior_selection_policy": "historical native validation"
+}

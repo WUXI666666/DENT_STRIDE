@@ -1,0 +1,33 @@
+{
+  "framework": "Ultralytics",
+  "model_family": "rtdetr",
+  "ultralytics_version": "8.4.118",
+  "weights": "/home/wuxi/Dent-FINE/outputs/cross_dataset_baseline_comparison/phone/runs/rtdetr_l/weights/best.pt",
+  "annotation_file": "/home/wuxi/coco/valid/annotations_fdi.json",
+  "image_dir": "/home/wuxi/coco/valid",
+  "image_count": 220,
+  "prediction_count": 66000,
+  "num_parameters": 32090600,
+  "inference": {
+    "imgsz": 640,
+    "confidence": 0.001,
+    "iou": 0.7,
+    "max_det": 300,
+    "device": "0"
+  },
+  "metrics": {
+    "AP": 0.547510623172664,
+    "AP50": 0.8367439763959812,
+    "AP75": 0.6111690087047262,
+    "AP_small": 0.4208333333333333,
+    "AP_medium": 0.3982324619384218,
+    "AP_large": 0.5611875896880683,
+    "AR1": 0.6218025075983786,
+    "AR10": 0.6683079689648117,
+    "AR100": 0.6700371387534373,
+    "AR_small": 0.45,
+    "AR_medium": 0.49280423280423286,
+    "AR_large": 0.6828988673963922
+  },
+  "prediction_file": "/home/wuxi/Dent-FINE/outputs/cross_dataset_baseline_comparison/phone/runs/rtdetr_l/coco_eval/coco_predictions.json"
+}

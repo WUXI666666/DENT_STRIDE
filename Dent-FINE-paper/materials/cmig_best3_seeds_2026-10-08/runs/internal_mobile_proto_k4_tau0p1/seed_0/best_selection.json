@@ -1,0 +1,9 @@
+{
+  "epoch_zero_based": 118,
+  "epoch_one_based": 119,
+  "AP_fraction": 0.5552164714714884,
+  "native_state_last_epoch": 118,
+  "selection": "global maximum native validation AP; first logged epoch on exact ties",
+  "evidence": "complete native training log and strict independent native best-checkpoint replay",
+  "derived_after_native_replay": true
+}

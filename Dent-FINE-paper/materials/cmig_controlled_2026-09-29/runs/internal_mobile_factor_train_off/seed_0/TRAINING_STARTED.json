@@ -1,0 +1,9 @@
+{
+  "pid": 993802,
+  "cuda_visible_devices": "1",
+  "seed": 0,
+  "started_unix": 1790935031.54266,
+  "controls": {
+    "factor_inference_fusion": false
+  }
+}

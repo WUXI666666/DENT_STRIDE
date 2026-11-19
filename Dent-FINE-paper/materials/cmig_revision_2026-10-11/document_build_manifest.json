@@ -1,0 +1,1565 @@
+{
+  "source_documents": {
+    "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_main_final_20261006.docx": "6166d6fe56928ef8e7a11280a9d851ec3e4ff2bcc04293e30f8330aecdeed4d4",
+    "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_supplement_final_20261006.docx": "df40d21ba60986e8be55654a78072d85a0b7e4d17b772b5be2e035cac310c7a2"
+  },
+  "numerical_sources": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/manuscript_data",
+  "tables": [
+    {
+      "caption": "Table 2. Acquisition-specific configurations and component roles. Loss coefficients and augmentation probabilities refer to the evaluated models.",
+      "headers": [
+        "Setting",
+        "Pano",
+        "Mobile",
+        "DSLR"
+      ],
+      "rows": [
+        [
+          "Training/evaluation input",
+          "Fixed 640 × 640",
+          "Fixed 1024 × 1024",
+          "Multiscale training; 640 × 640 evaluation"
+        ],
+        [
+          "Feature processing",
+          "Base hybrid encoder",
+          "CMFA + HOOA",
+          "CMFA"
+        ],
+        [
+          "Factor heads",
+          "Auxiliary supervision",
+          "Supervision and score fusion",
+          "Inactive"
+        ],
+        [
+          "Prototype bank",
+          "Auxiliary supervision",
+          "Auxiliary supervision",
+          "Inactive"
+        ],
+        [
+          "SpatialShape prior",
+          "Center + shape",
+          "Inactive",
+          "Inactive"
+        ],
+        [
+          "Optimizer",
+          "AdamW",
+          "AdamW",
+          "DualOptAdamW"
+        ],
+        [
+          "Mosaic / MixUp probabilities",
+          "0 / 0.50",
+          "0 / 0",
+          "0 / 0"
+        ],
+        [
+          "IoU crop / zoom-out probabilities",
+          "0.80 / 0.50",
+          "0.80 / 0.50",
+          "0.80 / 0.50"
+        ],
+        [
+          "Arch-position loss weight",
+          "0.25",
+          "0.10",
+          "0.25"
+        ],
+        [
+          "NWD loss weight",
+          "Inactive",
+          "0.50; scale 0.08",
+          "Inactive"
+        ],
+        [
+          "Prototype loss weight",
+          "0.05",
+          "0.03",
+          "Inactive"
+        ]
+      ]
+    },
+    {
+      "caption": "Table 3. Acquisition-specific DENT-STRIDE performance, mean ± sample SD over seeds 0, 1, and 2. Detection metrics are percentages; parameters are millions.",
+      "headers": [
+        "Cohort",
+        "Configuration",
+        "AP",
+        "AP50",
+        "AP75",
+        "AR100",
+        "Params (M)"
+      ],
+      "rows": [
+        [
+          "Pano",
+          "DENT-STRIDE-Pano",
+          "53.897 ± 0.430",
+          "94.268 ± 0.194",
+          "54.436 ± 0.925",
+          "69.387 ± 0.256",
+          "10.650"
+        ],
+        [
+          "Mobile",
+          "DENT-STRIDE-Mobile",
+          "55.219 ± 0.327",
+          "83.993 ± 0.657",
+          "61.440 ± 1.336",
+          "69.419 ± 0.264",
+          "12.513"
+        ],
+        [
+          "DSLR",
+          "DENT-STRIDE-DSLR",
+          "72.293 ± 0.651",
+          "88.242 ± 0.786",
+          "83.000 ± 0.435",
+          "81.975 ± 0.718",
+          "11.154"
+        ]
+      ]
+    },
+    {
+      "caption": "Table 4. Individual-seed AP and variability of the three final configurations. Values are percentage points; SD is the sample standard deviation.",
+      "headers": [
+        "Configuration",
+        "Seed 0",
+        "Seed 1",
+        "Seed 2",
+        "Mean ± SD",
+        "Range"
+      ],
+      "rows": [
+        [
+          "DENT-STRIDE-Pano",
+          "54.365",
+          "53.804",
+          "53.521",
+          "53.897 ± 0.430",
+          "0.844"
+        ],
+        [
+          "DENT-STRIDE-Mobile",
+          "54.910",
+          "55.562",
+          "55.186",
+          "55.219 ± 0.327",
+          "0.652"
+        ],
+        [
+          "DENT-STRIDE-DSLR",
+          "72.580",
+          "71.548",
+          "72.750",
+          "72.293 ± 0.651",
+          "1.202"
+        ]
+      ]
+    },
+    {
+      "caption": "Table 5. Framework-level validation AP comparison. Three-seed values are mean ± sample SD; single-seed rows have no dispersion estimate. Framework-specific input and training settings are retained.",
+      "headers": [
+        "Method",
+        "Seeds",
+        "Pano AP",
+        "Mobile AP",
+        "DSLR AP"
+      ],
+      "rows": [
+        [
+          "Official DEIM-s",
+          "3",
+          "53.827 ± 0.425",
+          "53.553 ± 0.099",
+          "72.405 ± 0.202"
+        ],
+        [
+          "RT-DETRv2-S",
+          "3",
+          "50.775 ± 0.213",
+          "50.562 ± 0.486",
+          "70.949 ± 0.506"
+        ],
+        [
+          "Faster R-CNN R50-FPN",
+          "1",
+          "47.695",
+          "41.182",
+          "63.151"
+        ],
+        [
+          "CAF-YOLO-s",
+          "1",
+          "48.058",
+          "43.771",
+          "67.460"
+        ],
+        [
+          "YOLOv8-s",
+          "1",
+          "51.431",
+          "46.937",
+          "71.854"
+        ],
+        [
+          "YOLO11-s",
+          "1",
+          "50.644",
+          "47.064",
+          "71.094"
+        ],
+        [
+          "RT-DETR-L",
+          "1",
+          "51.978",
+          "54.751",
+          "74.019"
+        ],
+        [
+          "Dome-DETR-S",
+          "1",
+          "51.711",
+          "51.828",
+          "71.363"
+        ],
+        [
+          "DENT-STRIDE",
+          "3",
+          "53.897 ± 0.430",
+          "55.219 ± 0.327",
+          "72.293 ± 0.651"
+        ]
+      ]
+    },
+    {
+      "caption": "Table 6. Anatomical scoring at the same Pano checkpoints. Values are mean ± sample SD across three seeds. ΔAP and its exploratory 95% interval are paired with no prior; checkpoint selection used the combined prior.",
+      "headers": [
+        "Prior",
+        "AP",
+        "AP50",
+        "AP75",
+        "AR100",
+        "ΔAP",
+        "ΔAP 95% CI"
+      ],
+      "rows": [
+        [
+          "None",
+          "53.413 ± 0.531",
+          "93.975 ± 0.276",
+          "53.464 ± 1.003",
+          "66.893 ± 0.793",
+          "—",
+          "—"
+        ],
+        [
+          "Center only",
+          "53.906 ± 0.404",
+          "94.318 ± 0.235",
+          "54.375 ± 0.901",
+          "69.249 ± 0.304",
+          "+0.494",
+          "[0.163, 0.824]"
+        ],
+        [
+          "Shape only",
+          "53.404 ± 0.542",
+          "93.922 ± 0.239",
+          "53.533 ± 1.021",
+          "67.261 ± 0.800",
+          "−0.008",
+          "[-0.076, 0.059]"
+        ],
+        [
+          "Center + shape",
+          "53.897 ± 0.430",
+          "94.268 ± 0.194",
+          "54.436 ± 0.925",
+          "69.387 ± 0.256",
+          "+0.484",
+          "[0.230, 0.739]"
+        ]
+      ]
+    },
+    {
+      "caption": "Table 7. Feature-gating, HOOA-branch, and factor-supervision ablations at seed 0. ΔAP subtracts the stated group reference. Factor-supervision models disable training and inference fusion. All settings are separately trained except reused intact references.",
+      "headers": [
+        "Component",
+        "Setting",
+        "AP",
+        "AP50",
+        "AP75",
+        "AR100",
+        "ΔAP"
+      ],
+      "rows": [
+        [
+          "CMFA gates",
+          "Both gates",
+          "54.910",
+          "83.974",
+          "60.206",
+          "69.260",
+          "+0.000"
+        ],
+        [
+          "CMFA gates",
+          "Channel only",
+          "55.422",
+          "84.340",
+          "62.160",
+          "68.519",
+          "+0.512"
+        ],
+        [
+          "CMFA gates",
+          "Spatial only",
+          "54.428",
+          "83.603",
+          "60.809",
+          "69.803",
+          "−0.482"
+        ],
+        [
+          "CMFA gates",
+          "Neither",
+          "54.783",
+          "83.725",
+          "61.625",
+          "68.619",
+          "−0.126"
+        ],
+        [
+          "HOOA branches",
+          "Full module",
+          "54.910",
+          "83.974",
+          "60.206",
+          "69.260",
+          "+0.000"
+        ],
+        [
+          "HOOA branches",
+          "Without high-pass",
+          "54.511",
+          "83.607",
+          "61.141",
+          "69.371",
+          "−0.399"
+        ],
+        [
+          "HOOA branches",
+          "Without second-order",
+          "53.943",
+          "82.951",
+          "59.354",
+          "68.935",
+          "−0.967"
+        ],
+        [
+          "HOOA branches",
+          "Without both",
+          "53.561",
+          "83.010",
+          "58.835",
+          "68.556",
+          "−1.349"
+        ],
+        [
+          "Factor supervision",
+          "All three factors; train/inference fusion off",
+          "55.537",
+          "84.951",
+          "62.152",
+          "68.431",
+          "+0.000"
+        ],
+        [
+          "Factor supervision",
+          "Without quadrant",
+          "54.884",
+          "83.689",
+          "59.929",
+          "66.771",
+          "−0.654"
+        ],
+        [
+          "Factor supervision",
+          "Without position",
+          "54.263",
+          "82.904",
+          "59.844",
+          "66.052",
+          "−1.274"
+        ],
+        [
+          "Factor supervision",
+          "Without dentition",
+          "55.293",
+          "83.806",
+          "63.188",
+          "68.188",
+          "−0.244"
+        ]
+      ]
+    },
+    {
+      "caption": "Table 8. Fixed-threshold validation endpoints, mean ± sample SD over three seeds, at score ≥0.30 and localization IoU ≥0.50. All values are percentages. FDI accuracy is conditional on localization matches; recall and coverage use all reference teeth; duplicates use all images.",
+      "headers": [
+        "Cohort",
+        "Precision",
+        "Recall",
+        "F1",
+        "Matched FDI",
+        "Coverage",
+        "Duplicate images"
+      ],
+      "rows": [
+        [
+          "Pano",
+          "86.287 ± 1.337",
+          "91.635 ± 0.164",
+          "88.877 ± 0.711",
+          "92.883 ± 0.185",
+          "98.657 ± 0.161",
+          "54.688 ± 11.797"
+        ],
+        [
+          "Mobile",
+          "75.967 ± 1.172",
+          "87.813 ± 0.693",
+          "81.461 ± 0.971",
+          "92.083 ± 0.805",
+          "95.364 ± 0.081",
+          "32.879 ± 4.860"
+        ],
+        [
+          "DSLR",
+          "89.322 ± 0.623",
+          "94.566 ± 0.545",
+          "91.869 ± 0.568",
+          "97.164 ± 0.477",
+          "97.326 ± 0.084",
+          "27.018 ± 2.487"
+        ]
+      ]
+    },
+    {
+      "caption": "Table 9. Model size and tool-counted native-forward arithmetic of the final configurations. Measurements use calflops 0.3.2, batch 1, FP32, and evaluation mode; auxiliary outputs are included. Post-processing and unsupported operations are excluded.",
+      "headers": [
+        "Cohort",
+        "Configuration",
+        "Evaluation input",
+        "Params (M)",
+        "GMACs",
+        "GFLOPs"
+      ],
+      "rows": [
+        [
+          "Pano",
+          "DENT-STRIDE-Pano",
+          "640 × 640",
+          "10.650",
+          "12.587",
+          "25.316"
+        ],
+        [
+          "Mobile",
+          "DENT-STRIDE-Mobile",
+          "1024 × 1024",
+          "12.513",
+          "38.938",
+          "78.353"
+        ],
+        [
+          "DSLR",
+          "DENT-STRIDE-DSLR",
+          "640 × 640",
+          "11.154",
+          "12.633",
+          "25.394"
+        ]
+      ]
+    },
+    {
+      "caption": "Table S1. Individual-seed detection metrics for the final configurations. Metrics are percentage points; checkpoint epochs are one-based.",
+      "headers": [
+        "Cohort",
+        "Seed",
+        "AP",
+        "AP50",
+        "AP75",
+        "AR100",
+        "Best epoch",
+        "Params (M)"
+      ],
+      "rows": [
+        [
+          "Pano",
+          0,
+          "54.365",
+          "94.316",
+          "55.440",
+          "69.439",
+          61,
+          "10.650"
+        ],
+        [
+          "Pano",
+          1,
+          "53.804",
+          "94.433",
+          "54.249",
+          "69.614",
+          83,
+          "10.650"
+        ],
+        [
+          "Pano",
+          2,
+          "53.521",
+          "94.054",
+          "53.618",
+          "69.110",
+          138,
+          "10.650"
+        ],
+        [
+          "Mobile",
+          0,
+          "54.910",
+          "83.974",
+          "60.206",
+          "69.260",
+          149,
+          "12.513"
+        ],
+        [
+          "Mobile",
+          1,
+          "55.562",
+          "84.660",
+          "61.254",
+          "69.273",
+          126,
+          "12.513"
+        ],
+        [
+          "Mobile",
+          2,
+          "55.186",
+          "83.347",
+          "62.859",
+          "69.724",
+          116,
+          "12.513"
+        ],
+        [
+          "DSLR",
+          0,
+          "72.580",
+          "88.733",
+          "82.922",
+          "81.501",
+          151,
+          "11.154"
+        ],
+        [
+          "DSLR",
+          1,
+          "71.548",
+          "87.335",
+          "82.609",
+          "81.622",
+          55,
+          "11.154"
+        ],
+        [
+          "DSLR",
+          2,
+          "72.750",
+          "88.657",
+          "83.468",
+          "82.801",
+          113,
+          "11.154"
+        ]
+      ]
+    },
+    {
+      "caption": "Table S2. Complete seed-0 component and background-loss sensitivity. Positive ΔAP means the displayed alternative exceeds its specified reference.",
+      "headers": [
+        "Component",
+        "Setting",
+        "AP",
+        "AP50",
+        "AP75",
+        "AR100",
+        "ΔAP"
+      ],
+      "rows": [
+        [
+          "CMFA gates",
+          "Both gates",
+          "54.910",
+          "83.974",
+          "60.206",
+          "69.260",
+          "+0.000"
+        ],
+        [
+          "CMFA gates",
+          "Channel only",
+          "55.422",
+          "84.340",
+          "62.160",
+          "68.519",
+          "+0.512"
+        ],
+        [
+          "CMFA gates",
+          "Spatial only",
+          "54.428",
+          "83.603",
+          "60.809",
+          "69.803",
+          "−0.482"
+        ],
+        [
+          "CMFA gates",
+          "Neither",
+          "54.783",
+          "83.725",
+          "61.625",
+          "68.619",
+          "−0.126"
+        ],
+        [
+          "HOOA branches",
+          "Full module",
+          "54.910",
+          "83.974",
+          "60.206",
+          "69.260",
+          "+0.000"
+        ],
+        [
+          "HOOA branches",
+          "Without high-pass",
+          "54.511",
+          "83.607",
+          "61.141",
+          "69.371",
+          "−0.399"
+        ],
+        [
+          "HOOA branches",
+          "Without second-order",
+          "53.943",
+          "82.951",
+          "59.354",
+          "68.935",
+          "−0.967"
+        ],
+        [
+          "HOOA branches",
+          "Without both",
+          "53.561",
+          "83.010",
+          "58.835",
+          "68.556",
+          "−1.349"
+        ],
+        [
+          "Factor supervision",
+          "All three factors; train/inference fusion off",
+          "55.537",
+          "84.951",
+          "62.152",
+          "68.431",
+          "+0.000"
+        ],
+        [
+          "Factor supervision",
+          "Without quadrant",
+          "54.884",
+          "83.689",
+          "59.929",
+          "66.771",
+          "−0.654"
+        ],
+        [
+          "Factor supervision",
+          "Without position",
+          "54.263",
+          "82.904",
+          "59.844",
+          "66.052",
+          "−1.274"
+        ],
+        [
+          "Factor supervision",
+          "Without dentition",
+          "55.293",
+          "83.806",
+          "63.188",
+          "68.188",
+          "−0.244"
+        ],
+        [
+          "Prototype design",
+          "Four prototypes; tau=0.20",
+          "54.910",
+          "83.974",
+          "60.206",
+          "69.260",
+          "+0.000"
+        ],
+        [
+          "Prototype design",
+          "No prototype",
+          "54.918",
+          "83.273",
+          "60.397",
+          "68.742",
+          "+0.008"
+        ],
+        [
+          "Prototype design",
+          "One prototype; tau=0.20",
+          "55.477",
+          "83.840",
+          "63.305",
+          "69.370",
+          "+0.567"
+        ],
+        [
+          "Prototype design",
+          "Two prototypes; tau=0.20",
+          "54.896",
+          "83.607",
+          "62.138",
+          "68.698",
+          "−0.014"
+        ],
+        [
+          "Prototype design",
+          "Four prototypes; tau=0.10",
+          "55.522",
+          "84.187",
+          "62.892",
+          "69.833",
+          "+0.612"
+        ],
+        [
+          "Prototype design",
+          "Four prototypes; tau=0.50",
+          "55.683",
+          "84.388",
+          "62.671",
+          "69.407",
+          "+0.773"
+        ],
+        [
+          "DualOpt operations",
+          "Neither; ordinary AdamW",
+          "72.892",
+          "89.090",
+          "83.571",
+          "81.801",
+          "+0.000"
+        ],
+        [
+          "DualOpt operations",
+          "Rollback only",
+          "72.907",
+          "88.858",
+          "83.829",
+          "83.194",
+          "+0.015"
+        ],
+        [
+          "DualOpt operations",
+          "Extra decay only",
+          "73.351",
+          "89.832",
+          "84.836",
+          "83.863",
+          "+0.459"
+        ],
+        [
+          "DualOpt operations",
+          "Both operations",
+          "72.580",
+          "88.733",
+          "82.922",
+          "81.501",
+          "−0.312"
+        ],
+        [
+          "Mobile background losses",
+          "NWD + arch-position",
+          "54.910",
+          "83.974",
+          "60.206",
+          "69.260",
+          "+0.000"
+        ],
+        [
+          "Mobile background losses",
+          "Neither",
+          "54.776",
+          "83.821",
+          "61.413",
+          "69.096",
+          "−0.134"
+        ],
+        [
+          "Mobile background losses",
+          "NWD only",
+          "55.396",
+          "83.928",
+          "64.012",
+          "70.185",
+          "+0.486"
+        ],
+        [
+          "Mobile background losses",
+          "Arch-position only",
+          "54.476",
+          "83.665",
+          "61.183",
+          "68.726",
+          "−0.434"
+        ]
+      ]
+    },
+    {
+      "caption": "Table S3. Pano prior settings for each seed. Weights and box coordinates are fixed within each seed; all candidate logits are rescored before native top-k selection.",
+      "headers": [
+        "Seed",
+        "Prior",
+        "AP",
+        "AP50",
+        "AP75",
+        "AR100",
+        "ΔAP"
+      ],
+      "rows": [
+        [
+          0,
+          "None",
+          "53.987",
+          "94.137",
+          "54.517",
+          "67.716",
+          "+0.000"
+        ],
+        [
+          0,
+          "Center only",
+          "54.328",
+          "94.386",
+          "55.324",
+          "69.356",
+          "+0.341"
+        ],
+        [
+          0,
+          "Shape only",
+          "54.000",
+          "94.074",
+          "54.641",
+          "68.082",
+          "+0.013"
+        ],
+        [
+          0,
+          "Center + shape",
+          "54.365",
+          "94.316",
+          "55.440",
+          "69.439",
+          "+0.378"
+        ],
+        [
+          1,
+          "None",
+          "53.313",
+          "94.131",
+          "53.357",
+          "66.830",
+          "+0.000"
+        ],
+        [
+          1,
+          "Center only",
+          "53.869",
+          "94.512",
+          "54.272",
+          "69.485",
+          "+0.556"
+        ],
+        [
+          1,
+          "Shape only",
+          "53.274",
+          "94.046",
+          "53.329",
+          "67.218",
+          "−0.039"
+        ],
+        [
+          1,
+          "Center + shape",
+          "53.804",
+          "94.433",
+          "54.249",
+          "69.614",
+          "+0.491"
+        ],
+        [
+          2,
+          "None",
+          "52.938",
+          "93.657",
+          "52.518",
+          "66.133",
+          "+0.000"
+        ],
+        [
+          2,
+          "Center only",
+          "53.522",
+          "94.058",
+          "53.530",
+          "68.906",
+          "+0.584"
+        ],
+        [
+          2,
+          "Shape only",
+          "52.939",
+          "93.646",
+          "52.630",
+          "66.483",
+          "+0.001"
+        ],
+        [
+          2,
+          "Center + shape",
+          "53.521",
+          "94.054",
+          "53.618",
+          "69.110",
+          "+0.583"
+        ]
+      ]
+    },
+    {
+      "caption": "Table S4. Same-checkpoint paired AP differences relative to no prior over three seeds. Student-t intervals describe training-seed variability on the fixed validation split (df = 2).",
+      "headers": [
+        "Prior",
+        "Seed 0",
+        "Seed 1",
+        "Seed 2",
+        "Mean ± SD",
+        "95% CI"
+      ],
+      "rows": [
+        [
+          "Center only",
+          "+0.341",
+          "+0.556",
+          "+0.584",
+          "+0.494 ± 0.133",
+          "[0.163, 0.824]"
+        ],
+        [
+          "Shape only",
+          "+0.013",
+          "−0.039",
+          "+0.001",
+          "-0.008 ± 0.027",
+          "[-0.076, 0.059]"
+        ],
+        [
+          "Center + shape",
+          "+0.378",
+          "+0.491",
+          "+0.583",
+          "+0.484 ± 0.102",
+          "[0.230, 0.739]"
+        ]
+      ]
+    },
+    {
+      "caption": "Table S5. Training-fusion × inference-fusion comparison at seed 0. Each inference pair uses the same checkpoint within its training state.",
+      "headers": [
+        "Training fusion",
+        "Inference fusion",
+        "AP",
+        "AP50",
+        "AP75",
+        "AR100",
+        "F1"
+      ],
+      "rows": [
+        [
+          "On",
+          "On",
+          "54.910",
+          "83.974",
+          "60.206",
+          "69.260",
+          "82.431"
+        ],
+        [
+          "On",
+          "Off",
+          "54.955",
+          "84.218",
+          "60.052",
+          "67.259",
+          "81.612"
+        ],
+        [
+          "Off",
+          "Off",
+          "55.537",
+          "84.951",
+          "62.152",
+          "68.431",
+          "80.506"
+        ],
+        [
+          "Off",
+          "On",
+          "55.472",
+          "84.677",
+          "62.191",
+          "70.049",
+          "81.291"
+        ]
+      ]
+    },
+    {
+      "caption": "Table S6. Individual-seed fixed-threshold detection and identity endpoints (%).",
+      "headers": [
+        "Cohort",
+        "Seed",
+        "P",
+        "R",
+        "F1",
+        "Matched FDI",
+        "Coverage",
+        "Duplicate images"
+      ],
+      "rows": [
+        [
+          "Pano",
+          0,
+          "85.272",
+          "91.779",
+          "88.406",
+          "92.877",
+          "98.818",
+          "65.625"
+        ],
+        [
+          "Pano",
+          1,
+          "87.802",
+          "91.671",
+          "89.695",
+          "93.071",
+          "98.495",
+          "42.188"
+        ],
+        [
+          "Pano",
+          2,
+          "85.786",
+          "91.456",
+          "88.531",
+          "92.702",
+          "98.657",
+          "56.250"
+        ],
+        [
+          "Mobile",
+          0,
+          "77.117",
+          "88.532",
+          "82.431",
+          "92.915",
+          "95.283",
+          "27.273"
+        ],
+        [
+          "Mobile",
+          1,
+          "76.013",
+          "87.759",
+          "81.465",
+          "92.026",
+          "95.364",
+          "35.909"
+        ],
+        [
+          "Mobile",
+          2,
+          "74.773",
+          "87.149",
+          "80.488",
+          "91.308",
+          "95.445",
+          "35.455"
+        ],
+        [
+          "DSLR",
+          0,
+          "89.869",
+          "94.785",
+          "92.261",
+          "97.341",
+          "97.374",
+          "24.211"
+        ],
+        [
+          "DSLR",
+          1,
+          "88.644",
+          "93.946",
+          "91.218",
+          "96.624",
+          "97.228",
+          "28.947"
+        ],
+        [
+          "DSLR",
+          2,
+          "89.454",
+          "94.967",
+          "92.128",
+          "97.528",
+          "97.374",
+          "27.895"
+        ]
+      ]
+    },
+    {
+      "caption": "Table S7. Three-seed official DEIM-s and RT-DETRv2-S AP references on the same validation cohorts. Each framework retains its own training implementation.",
+      "headers": [
+        "Cohort",
+        "Implementation",
+        "Seed 0",
+        "Seed 1",
+        "Seed 2",
+        "Mean ± SD"
+      ],
+      "rows": [
+        [
+          "DENTEX",
+          "Official DEIM-s",
+          "53.349",
+          "53.966",
+          "54.165",
+          "53.827 ± 0.425"
+        ],
+        [
+          "Smartphone",
+          "Official DEIM-s",
+          "53.605",
+          "53.438",
+          "53.614",
+          "53.553 ± 0.099"
+        ],
+        [
+          "DSLR",
+          "Official DEIM-s",
+          "72.557",
+          "72.176",
+          "72.482",
+          "72.405 ± 0.202"
+        ],
+        [
+          "DENTEX",
+          "RT-DETRv2-S",
+          "50.797",
+          "50.552",
+          "50.977",
+          "50.775 ± 0.213"
+        ],
+        [
+          "Smartphone",
+          "RT-DETRv2-S",
+          "50.986",
+          "50.031",
+          "50.669",
+          "50.562 ± 0.486"
+        ],
+        [
+          "DSLR",
+          "RT-DETRv2-S",
+          "71.206",
+          "71.276",
+          "70.367",
+          "70.949 ± 0.506"
+        ]
+      ]
+    },
+    {
+      "caption": "Table S8. Conventional detector secondary metrics for the panoramic and Mobile validation cohorts. All rows are single-seed framework-level references.",
+      "headers": [
+        "Cohort",
+        "Model",
+        "AP",
+        "AP50",
+        "AP75",
+        "AR100"
+      ],
+      "rows": [
+        [
+          "DENTEX",
+          "Faster R-CNN",
+          "47.695",
+          "91.056",
+          "42.930",
+          "58.417"
+        ],
+        [
+          "DENTEX",
+          "CAF-YOLO-s",
+          "48.058",
+          "88.747",
+          "46.379",
+          "57.519"
+        ],
+        [
+          "DENTEX",
+          "YOLOv8-s",
+          "51.431",
+          "91.337",
+          "51.910",
+          "63.708"
+        ],
+        [
+          "DENTEX",
+          "YOLO11-s",
+          "50.644",
+          "92.008",
+          "48.440",
+          "61.157"
+        ],
+        [
+          "DENTEX",
+          "RT-DETR-L",
+          "51.978",
+          "92.908",
+          "51.351",
+          "63.421"
+        ],
+        [
+          "DENTEX",
+          "Dome-DETR-S",
+          "51.711",
+          "92.725",
+          "50.759",
+          "66.621"
+        ],
+        [
+          "Smartphone",
+          "Faster R-CNN",
+          "41.182",
+          "69.211",
+          "44.811",
+          "57.194"
+        ],
+        [
+          "Smartphone",
+          "CAF-YOLO-s",
+          "43.771",
+          "70.389",
+          "48.601",
+          "50.959"
+        ],
+        [
+          "Smartphone",
+          "YOLOv8-s",
+          "46.937",
+          "74.108",
+          "52.272",
+          "57.278"
+        ],
+        [
+          "Smartphone",
+          "YOLO11-s",
+          "47.064",
+          "73.483",
+          "52.526",
+          "56.297"
+        ],
+        [
+          "Smartphone",
+          "RT-DETR-L",
+          "54.751",
+          "83.674",
+          "61.117",
+          "67.004"
+        ],
+        [
+          "Smartphone",
+          "Dome-DETR-S",
+          "51.828",
+          "79.595",
+          "56.832",
+          "67.802"
+        ]
+      ]
+    },
+    {
+      "caption": "Table S9. Effective training and inference settings of the three final configurations. Loss coefficients refer to active supervised terms.",
+      "headers": [
+        "Setting",
+        "Pano",
+        "Mobile",
+        "DSLR"
+      ],
+      "rows": [
+        [
+          "Backbone initialization",
+          "ImageNet HGNetv2-B0",
+          "ImageNet HGNetv2-B0",
+          "ImageNet HGNetv2-B0"
+        ],
+        [
+          "Epochs; train/validation batch",
+          "160; 8/16",
+          "160; 8/16",
+          "160; 8/16"
+        ],
+        [
+          "Input policy",
+          "Fixed 640",
+          "Fixed 1024",
+          "480–800 multiscale; eval 640"
+        ],
+        [
+          "CMFA / HOOA",
+          "Off / Off",
+          "On / On",
+          "On / Off"
+        ],
+        [
+          "Factor CE q/p/d",
+          "0.10/0.10/0.05",
+          "0.08/0.08/0.03",
+          "Inactive"
+        ],
+        [
+          "Factor fusion train/inference",
+          "Off / Off",
+          "On / On",
+          "Off / Off"
+        ],
+        [
+          "Prototype count; temperature; loss",
+          "4; 0.20; 0.05",
+          "4; 0.20; 0.03",
+          "Inactive"
+        ],
+        [
+          "Prototype inference score",
+          "Excluded",
+          "Excluded",
+          "Excluded"
+        ],
+        [
+          "NWD / arch-position",
+          "Inactive / 0.25",
+          "0.50 / 0.10",
+          "Inactive / 0.25"
+        ],
+        [
+          "Mosaic / MixUp",
+          "0 / 0.50",
+          "0 / 0",
+          "0 / 0"
+        ],
+        [
+          "IoU crop / zoom-out",
+          "0.80 / 0.50",
+          "0.80 / 0.50",
+          "0.80 / 0.50"
+        ],
+        [
+          "Photometric probability / flips",
+          "0.50 / disabled",
+          "0.50 / disabled",
+          "0.50 / disabled"
+        ],
+        [
+          "Optimizer",
+          "AdamW",
+          "AdamW",
+          "DualOptAdamW"
+        ],
+        [
+          "Center / shape score weights",
+          "0.20 / 0.05",
+          "Inactive",
+          "Inactive"
+        ]
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "number": "6",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/quantitative_figures/Figure_6_three_seed_AP.png",
+      "sha256": "f0a050552be565b9fb2eb3a1b1f3ef832d7007bf5925879f31de49aad7d7c413",
+      "caption": "Three-seed performance of the acquisition-specific configurations. Small circles show the actual outcomes for seeds 0, 1, and 2; larger markers and bars show mean ± sample SD. Each cohort has its own labelled AP axis. Pano includes combined center–shape scoring. No between-model improvement or statistical superiority is inferred from these within-configuration error bars."
+    },
+    {
+      "number": "7",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/quantitative_figures/Figure_7_Mobile_framework_AP.png",
+      "sha256": "391b280d094a26179c804cd09fa05945b0e76132684cd5c7a8d7d96a1ab06eb0",
+      "caption": "Mobile framework-level AP comparison. Labels identify each detector and its AP. Error bars show sample SD only for the three-seed DENT-STRIDE-Mobile, official DEIM-s, and RT-DETRv2-S entries; other methods are single-seed observations. Input resolution, pretraining, and native training/output settings differ across frameworks, as specified in Section 4.6. The plot describes system performance rather than an isolated identity-module effect."
+    },
+    {
+      "number": "8",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/prediction_figures/Figure_8_HOOA_same_image.png",
+      "sha256": "f69fd2c7f325c52c8d500e2967f1b9dbafc7ae546ca909a0d636b4fa3be9e7e9",
+      "caption": "HOOA branch comparison on the same smartphone images. Independently trained seed-0 models retain the same training protocol and differ only in the high-pass and second-order branches. Columns show the original image, ground truth, three branch-removal configurations, and full HOOA; lower rows show identical target enlargements. Teal boxes are ground truth and orange boxes are predictions retained at score ≥0.30. (A) The highlighted reference tooth is FDI 41; No high-pass: FDI 42, 14 correct matches and 7 false positives; No second-order: FDI 42, 14 correct matches and 10 false positives; Neither branch: FDI 42, 10 correct matches and 15 false positives; Full HOOA: FDI 41, 16 correct matches and 7 false positives. (B) The highlighted reference tooth is FDI 81; No high-pass: FDI 41, 10 correct matches and 9 false positives; No second-order: FDI 41, 10 correct matches and 5 false positives; Neither branch: FDI 41, 11 correct matches and 10 false positives; Full HOOA: FDI 81, 13 correct matches and 6 false positives. These selected examples illustrate branch effects; the complete validation ablation determines their aggregate AP differences."
+    },
+    {
+      "number": "9",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/quantitative_figures/Figure_9_Pano_prior_comparison.png",
+      "sha256": "368c163bd6a0ed3b8e66ac5bce680a640b2b9ebb2935f265040b00b82bb07762",
+      "caption": "Four-way anatomical scoring at identical Pano weights. (A) AP and (B) AR100. Small circles show the actual outcomes of the three seed-specific checkpoints under no prior, center, shape, and combined scoring. Larger markers and bars show mean ± sample SD. All scores are recomputed before native top-k selection; weights and predicted box coordinates are unchanged."
+    },
+    {
+      "number": "10",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/prediction_figures/Figure_10_Pano_same_weight_prior.png",
+      "sha256": "79cb1f15532fc68310871d75ed8d24d8456b0bd9fce0953b6aaa8e001616ac59",
+      "caption": "Same-weight DENTEX anatomical-prior comparison. The same seed-2 checkpoint is evaluated without a prior, with center scoring, with shape scoring, and with both. Scores are recomputed from all ordinary query–class candidates before native top-k selection; box coordinates do not change. Original images and reference annotations are accompanied by identical target enlargements. Teal boxes denote ground truth and orange boxes predictions retained at score ≥0.30. (A) At the same query box, the highest retained label changes from FDI 46 to FDI 45 for reference FDI 45; image-level correct matches change from 19 to 20. (B) At the same query box, the highest retained label changes from FDI 47 to FDI 48 for reference FDI 47; image-level correct matches change from 25 to 24. The favorable and adverse examples illustrate score-ranking effects rather than a change in learned localization."
+    },
+    {
+      "number": "11",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/quantitative_figures/Figure_11_HOOA_Factor_learning_effects.png",
+      "sha256": "733847bf45c6c0566ea2b2aea385805421cfbea99fad1a12a297e07e7fe657aa",
+      "caption": "Retrained HOOA and factor-supervision ablations. Bars report AP differences after each branch or supervision-target removal. HOOA uses the full Mobile seed-0 configuration (54.910 AP); factor supervision uses all three targets with training and inference fusion disabled (55.537 AP). Every tested removal is shown. These single-seed results have no uncertainty bars."
+    },
+    {
+      "number": "12A",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/prediction_figures/Figure_12A_Mobile_same_image.png",
+      "sha256": "576009645f404c49ad272f87b08d852849b2a76d82d71097b313588b4fe2ce8d",
+      "caption": "Same-image mobile detector comparison. Columns show the original image, ground truth, official DEIM-s, RT-DETR-L, and DENT-STRIDE; each lower row uses the same target enlargement. Teal boxes denote reference annotations and orange boxes model predictions retained at score ≥0.30. FDI labels identify the highlighted localization match. (A) Reference FDI 32; Official DEIM-s: FDI 72, 8 correct matches and 4 false positives; RT-DETR-L: FDI 72, 7 correct matches and 7 false positives; DENT-STRIDE: FDI 32, 11 correct matches and 0 false positives. (B) Reference FDI 84; Official DEIM-s: FDI 84, 8 correct matches and 8 false positives; RT-DETR-L: FDI 84, 8 correct matches and 7 false positives; DENT-STRIDE: FDI 44, 5 correct matches and 12 false positives. Frameworks retain their native training and output-processing settings; this is a system-level comparison, not an isolated module ablation. The selected improvement and adverse examples do not estimate population frequencies."
+    },
+    {
+      "number": "12B",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/prediction_figures/Figure_12B_Pano_same_image.png",
+      "sha256": "cc3e2c0c21819336371fa52e5871b9bbb12a3883db17d55da4b9882a8ddab829",
+      "caption": "Same-image panoramic detector comparison. Columns show the original image, ground truth, official DEIM-s, RT-DETR-L, and DENT-STRIDE; each lower row uses the same target enlargement. Teal boxes denote reference annotations and orange boxes model predictions retained at score ≥0.30. FDI labels identify the highlighted localization match. (A) Reference FDI 32; Official DEIM-s: FDI 33, 25 correct matches and 6 false positives; RT-DETR-L: FDI 33, 25 correct matches and 4 false positives; DENT-STRIDE: FDI 32, 27 correct matches and 5 false positives. (B) Reference FDI 26; Official DEIM-s: FDI 26, 18 correct matches and 23 false positives; RT-DETR-L: FDI 26, 18 correct matches and 19 false positives; DENT-STRIDE: FDI 27, 15 correct matches and 18 false positives. Frameworks retain their native training and output-processing settings; this is a system-level comparison, not an isolated module ablation. The selected improvement and adverse examples do not estimate population frequencies."
+    },
+    {
+      "number": "12C",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/prediction_figures/Figure_12C_DSLR_same_image.png",
+      "sha256": "93dbde48658e1b1f5f2a82215a0c9fad62d8c4465aea9a2a1eeeec5ed9197136",
+      "caption": "Same-image DSLR detector comparison. Columns show the original image, ground truth, official DEIM-s, RT-DETR-L, and DENT-STRIDE; each lower row uses the same target enlargement. Teal boxes denote reference annotations and orange boxes model predictions retained at score ≥0.30. FDI labels identify the highlighted localization match. (A) Reference FDI 64; Official DEIM-s: FDI 24, 13 correct matches and 10 false positives; RT-DETR-L: FDI 24, 14 correct matches and 10 false positives; DENT-STRIDE: FDI 64, 15 correct matches and 9 false positives. (B) Reference FDI 71; Official DEIM-s: FDI 71, 15 correct matches and 2 false positives; RT-DETR-L: FDI 71, 14 correct matches and 4 false positives; DENT-STRIDE: FDI 31, 12 correct matches and 3 false positives. Frameworks retain their native training and output-processing settings; this is a system-level comparison, not an isolated module ablation. The selected improvement and adverse examples do not estimate population frequencies."
+    },
+    {
+      "number": "13",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/figures/mechanism/actual_CMFA_HOOA_image_155.png",
+      "sha256": "b0aae0019f73c9caae5874ea12b575b885aa1c3f70601d31fe6095e55825e731",
+      "caption": "Actual CMFA/HOOA forward-pass responses for the same Mobile image shown in Fig. 8A. CMFA channel gates gA/gB are arranged as 16 × 16 channel-index grids; Gs is the spatial gate. HOOA panels show local, context, high-pass, second-order, channel/spatial gates, input, and output. Sigmoid gates use their actual [0,1] values. Response RMS maps are divided by their respective 99th percentile and clipped to [0,1]. These are native internal tensors, not Grad-CAM or causal evidence from visualization alone."
+    },
+    {
+      "number": "S1",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_final_2026-10-06/publication_figures/Figure_S4.png",
+      "sha256": "55d9ecae23405b839a2acf3adc75dbc6de5fb46d300a66c25e2e1a0987e6e41d",
+      "caption": "Normalized width and height distributions of the 16,234 DENTEX training boxes, grouped by the 32 permanent FDI classes. The distributions describe training geometry; the SpatialShape shape term uses the joint regularized quadratic score of log-width and log-height. No validation boxes are used to fit these templates."
+    },
+    {
+      "number": "S2",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/quantitative_figures/Figure_S6_component_sensitivity.png",
+      "sha256": "21414a8933d3ea421fb001f84476b79e38f6f8f7badcf274fe336f58100f61ea",
+      "caption": "Complete component-sensitivity plots for settings not emphasized in main Fig. 11. All displayed points are seed-0 observations, without uncertainty bars. ΔAP uses the group-specific reference in Table S2 or the factor-fusion-off reference in Table S5. Positive values indicate an alternative that exceeds the reference; they are not gains attributed to the intact module."
+    },
+    {
+      "number": "S3",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/quantitative_figures/Figure_S12_prior_paired_AP_intervals.png",
+      "sha256": "e0b2e09e6e1a13c4d9595642162f7241fee852271da1cb085aa60aabafdc7d9a",
+      "caption": "Same-checkpoint center, shape, and combined prior effects. Points show the mean paired AP difference versus no prior and bars show exploratory Student-t 95% intervals over the three seeds (df = 2). The zero line denotes no AP change. Intervals are conditional on validation-selected weights and are not patient-sampling or independent-test intervals."
+    },
+    {
+      "number": "S4",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/prediction_diagnostics/Figure_S6_detection_curves.png",
+      "sha256": "148367a19939b31b78a2020dfd7dece6dabe3b436df29e2c8235a1581a8296ee",
+      "caption": "Detection and threshold diagnostics for the final seed-0 configurations. Rows show Pano, Mobile, and DSLR. Columns show category-macro-averaged COCO interpolated precision at IoU 0.50 and maxDets = 100, F1, and raw duplicate-image rate. Unsupported categories are omitted from the precision average. Thresholds range from 0.05 to 0.95 in steps of 0.05; dotted lines indicate 0.30. These are cohort-level detection diagnostics, not clinical charting-error estimates."
+    },
+    {
+      "number": "S5",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/prediction_diagnostics/Fig_S7_Pano_complete_FDI_confusion.png",
+      "sha256": "4d98fcf6b3e8509947996f5e23110e3464f25d43297d4588cf3d569b05b33e69",
+      "caption": "Complete Pano FDI outcome matrix and class support for the final seed-0 configuration. Each reference tooth contributes one predicted FDI or a missed outcome; colors show reference-row percentages. The matrix contains 1,861 reference teeth: 1,708 correct identities, 131 wrong-FDI localization matches, and 22 missed teeth. The 164 unmatched predictions are counted separately, not assigned a reference row. Training support totals 16,234 teeth. Gray rows have no validation support and are unavailable, not zero-accuracy classes."
+    },
+    {
+      "number": "S6",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/prediction_diagnostics/Fig_S8_Mobile_complete_FDI_confusion.png",
+      "sha256": "3a0801172e55e31e2d722fef8ca6b3191c778c3c6d61f78d530a3818c1fc94b3",
+      "caption": "Complete Mobile FDI outcome matrix and class support for the final seed-0 configuration. Each reference tooth contributes one predicted FDI or a missed outcome; colors show reference-row percentages. The matrix contains 2,459 reference teeth: 2,177 correct identities, 166 wrong-FDI localization matches, and 116 missed teeth. The 480 unmatched predictions are counted separately, not assigned a reference row. Training support totals 9,837 teeth. Gray rows have no validation support and are unavailable, not zero-accuracy classes."
+    },
+    {
+      "number": "S7",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/prediction_diagnostics/Fig_S9_DSLR_complete_FDI_confusion.png",
+      "sha256": "940be3ef199c9135b93b22d8adcb916b066bacc8cdb3ff10bd942269f42f623a",
+      "caption": "Complete DSLR FDI outcome matrix and class support for the final seed-0 configuration. Each reference tooth contributes one predicted FDI or a missed outcome; colors show reference-row percentages. The matrix contains 2,742 reference teeth: 2,599 correct identities, 71 wrong-FDI localization matches, and 72 missed teeth. The 222 unmatched predictions are counted separately, not assigned a reference row. Training support totals 10,760 teeth. Gray rows have no validation support and are unavailable, not zero-accuracy classes."
+    },
+    {
+      "number": "S8",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/quantitative_figures/Figure_S5_learning_curves.png",
+      "sha256": "24a171afc755f66ec180960dcde55b7ffdcf4df1461b9f6abdbdbe6a4310061f",
+      "caption": "Validation AP trajectories over the full 160-epoch training budget for the three acquisition-specific configurations. Thin lines show actual seeds 0, 1, and 2; thick lines and bands show their epoch-wise mean ± sample SD. Curves show the recorded trajectory without smoothing or synthetic interpolation, and do not replace selected-checkpoint endpoints."
+    },
+    {
+      "number": "S9",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/figures/mechanism/current_Mobile_prototype_diagnostics.png",
+      "sha256": "a2327a7dc5411035d03ae81ebb89bec15feca20aa5ad3258cf96667a88b6ae8d",
+      "caption": "Prototype representation diagnostics from the final Mobile seed-0 checkpoint. (A) Cosine similarity between normalized class-centroid prototypes ordered by FDI quadrant. (B) Within-class four-prototype cosine cohesion, grouped by quadrant. Gray unsupported slots are unavailable. The prototype bank supplies training supervision only and is distinct from fixed anatomical templates."
+    },
+    {
+      "number": "S10",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/figures/mechanism/current_Mobile_cohesion_all_FDI.png",
+      "sha256": "f0e1e8803c7171ae9a47e921f677867e6a7d388016ecc31c9bec177c2f92a162",
+      "caption": "Per-class prototype cohesion for permanent and primary FDI slots in the final Mobile seed-0 checkpoint. Cohesion averages the six pairwise cosine similarities among four prototypes. Unsupported classes 18, 28, 38, and 48 are unavailable. No inference prototype score is added to detection logits."
+    },
+    {
+      "number": "S11",
+      "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/figures/mechanism/current_Mobile_factor_confusions.png",
+      "sha256": "e33dccd305d7f9bddf8f6b816acaa62bada1ea2e63b1bf91dda5805434497c12",
+      "caption": "Row-normalized auxiliary quadrant, tooth-position, and dentition confusion matrices for 2,341 localized unique ordinary queries from the final Mobile seed-0 checkpoint. Gray rows have no reference observations. These branches supervise structured identity, not objectness. Their unique-query matching protocol is distinct from post-top-k detector endpoints."
+    }
+  ],
+  "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_main_updated_20261011.docx": {
+    "paragraphs": 185,
+    "tables": 9,
+    "images": 15,
+    "equations": 51,
+    "sha256": "f42594855b6ab7e2fdb0e1f774d6bc7c1f1e265c0ef3fd6e3b32e062b60985f0",
+    "forbidden_phrases_found": []
+  },
+  "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_supplement_updated_20261011.docx": {
+    "paragraphs": 56,
+    "tables": 9,
+    "images": 11,
+    "equations": 0,
+    "sha256": "5bea98ff53977dcfca262689700904ef9aa3e06ff7683ad3948d7e072b1d5c4a",
+    "forbidden_phrases_found": []
+  }
+}

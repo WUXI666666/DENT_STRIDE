@@ -1,0 +1,89 @@
+{
+  "created_at": "2026-10-08T09:18:04.549101+00:00",
+  "historical_manifest": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/manifest.json",
+  "historical_source_files_verified": 132,
+  "historical_training_runs_reused": 0,
+  "anchors": {
+    "Mobile": {
+      "job_id": "phone_a07_proto_aux_C05",
+      "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+      "config_sha256": "2fa206ae008dbd5855d91bbd24c7ae7eb341e14828e6129a477cd9fde04b0c56",
+      "implementation": "/home/wuxi/Dent-FINE/experiments/a07_proto_aux_ap_patch_1024",
+      "snapshot_name": "mobile",
+      "AP_percent": 55.70096464349371,
+      "best_epoch_one_based": 139,
+      "checkpoint": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/phone_a07_proto_aux_C05/seed_0/best.pth",
+      "checkpoint_sha256": "28dd8a56d40b2979d16e3e76c8741d7e0420f20045650034fb35d0b2bfc2dcc1"
+    },
+    "Pano": {
+      "job_id": "R01_fixed640_mosaic0_mixup0p5",
+      "config": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/R01_fixed640_mosaic0_mixup0p5_seed0.yml",
+      "config_sha256": "5110fbcaaf7d006c7dfb95fe9dc3188919fed2332128bd2d8ece64988a9145f1",
+      "implementation": "/home/wuxi/Dent-FINE",
+      "snapshot_name": "local",
+      "AP_percent": 54.3854584674128,
+      "best_epoch_one_based": 156,
+      "checkpoint": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/R01_fixed640_mosaic0_mixup0p5/seed_0/best.pth",
+      "checkpoint_sha256": "5f5b1144c59fbbeb15ac66bc76e475ae2cff047a1e1ee4319a62abdccc79fbe5"
+    },
+    "DSLR": {
+      "job_id": "dslr_cmfa_dualopt_C02",
+      "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C02_seed0.yml",
+      "config_sha256": "e0a0fa2c90e7e94ba4233fe8cc7a41c74b5ed8fe8816f88c95d3a9654d4f5931",
+      "implementation": "/home/wuxi/Dent-FINE",
+      "snapshot_name": "local",
+      "AP_percent": 73.11508845076412,
+      "best_epoch_one_based": 150,
+      "checkpoint": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C02/seed_0/best.pth",
+      "checkpoint_sha256": "efc9c306ab8d23a17749ce3641a4fa8385e36e45e301fce5b3788a1b1bea164d"
+    }
+  },
+  "primary_full_recipe_mapping": {
+    "mobile_1024_full": "phone_a07_proto_aux_C05",
+    "pano_historical_spatialshape": "R01_fixed640_mosaic0_mixup0p5",
+    "dslr_cmfa_dualopt": "dslr_cmfa_dualopt_C02"
+  },
+  "pano_learning_ablation_note": "No Pano learning-primary grid is scheduled; four inference-prior settings replay the same three main weights.",
+  "reproducibility": "Use historical native cwd and PYTHONHASHSEED=seed; seeded AMP CUDA training was not bitwise deterministic historically.",
+  "checkpoint_reference_note": "Historical checkpoint paths/hashes identify references only; never used to initialize fresh runs.",
+  "scope": {
+    "created_at": "2026-10-08T09:18:04.549101+00:00",
+    "total_fresh_training_jobs": 30,
+    "main_training_jobs": 9,
+    "main_configurations": [
+      "mobile_1024_full",
+      "pano_historical_spatialshape",
+      "dslr_cmfa_dualopt"
+    ],
+    "main_seeds": [
+      0,
+      1,
+      2
+    ],
+    "internal_ablation_jobs": 20,
+    "internal_seeds": [
+      0
+    ],
+    "internal_reference_jobs": 1,
+    "internal_reference": "internal_dslr_cmfa_adamw",
+    "excluded": [
+      "14-configuration primary learning grid",
+      "four Pano learning-primary configurations",
+      "historical/interrupted checkpoint reuse",
+      "original source/data changes"
+    ],
+    "pano_prior_comparison": "None / center / shape / center+shape are inference-only replays of the same three historical-Pano main checkpoints; no extra Pano training.",
+    "factor_comparison": "Existing declared factor controls and same-checkpoint native/FP32 inference replays only.",
+    "checkpoint_retention": "Each successful job retains best.pth only; stage1 temporary native rollback weights are removed after verified replay.",
+    "historical_training_weights_reused": 0,
+    "interrupted_training_runs_resumed": 0,
+    "old_interrupted_experiment": {
+      "root": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08",
+      "preserved": true,
+      "policy": "Interrupted broader queue is retained unchanged; no resume, overwrite, or deletion."
+    },
+    "authorization": "User narrowed scope to the three selected historical recipes with three seeds each, internal ablations, and one necessary DualOpt AdamW reference; restart on two GPUs.",
+    "preparation_starts_training": false
+  },
+  "previous_frozen_manifest": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/execution_manifest.json"
+}

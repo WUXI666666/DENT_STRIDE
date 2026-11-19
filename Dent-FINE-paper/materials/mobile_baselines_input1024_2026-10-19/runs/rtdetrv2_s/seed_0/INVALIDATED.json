@@ -1,0 +1,6 @@
+{
+  "valid_for_comparison": false,
+  "reason": "Runner required a solver.stats symbol that this official implementation does not define; no training epochs ran.",
+  "replacement": "../seed_0_repaired_20261020",
+  "original_record_preserved": true
+}

@@ -1,0 +1,276 @@
+Not init distributed mode.
+Load PResNet18 state_dict
+Start training
+/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/RT-DETR/rtdetrv2_pytorch/src/core/workspace.py:179: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  return module(**module_kwargs)
+Initial lr: [0.0001, 0.0001]
+building train_dataloader with batch_size=8...
+building val_dataloader with batch_size=16...
+number of trainable parameters: 20148512
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (113468762 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+Epoch: [0]  [  0/109]  eta: 0:11:46  lr: 0.000000  loss: 18.3451 (18.3451)  loss_vfl: 0.4001 (0.4001)  loss_bbox: 0.5911 (0.5911)  loss_giou: 1.6666 (1.6666)  loss_vfl_aux_0: 0.3677 (0.3677)  loss_bbox_aux_0: 0.6038 (0.6038)  loss_giou_aux_0: 1.6804 (1.6804)  loss_vfl_aux_1: 0.3911 (0.3911)  loss_bbox_aux_1: 0.5994 (0.5994)  loss_giou_aux_1: 1.6598 (1.6598)  loss_vfl_dn_0: 0.8057 (0.8057)  loss_bbox_dn_0: 0.3951 (0.3951)  loss_giou_dn_0: 1.3738 (1.3738)  loss_vfl_dn_1: 0.7959 (0.7959)  loss_bbox_dn_1: 0.3951 (0.3951)  loss_giou_dn_1: 1.3738 (1.3738)  loss_vfl_dn_2: 0.7891 (0.7891)  loss_bbox_dn_2: 0.3951 (0.3951)  loss_giou_dn_2: 1.3738 (1.3738)  loss_vfl_enc_0: 0.3447 (0.3447)  loss_bbox_enc_0: 0.6087 (0.6087)  loss_giou_enc_0: 1.7341 (1.7341)  time: 6.4862  data: 5.5626  max mem: 2904
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (133604352 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (89822600 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (125367750 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (132395312 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (144984763 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (98058480 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (92926302 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (123628761 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (102111021 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (106014930 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (118455680 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (91530822 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (106396528 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (103754808 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (114479200 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (140855610 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+Epoch: [0]  [100/109]  eta: 0:00:05  lr: 0.000005  loss: 17.9388 (18.3239)  loss_vfl: 0.4055 (0.3603)  loss_bbox: 0.5195 (0.5766)  loss_giou: 1.6598 (1.7385)  loss_vfl_aux_0: 0.4067 (0.3573)  loss_bbox_aux_0: 0.5331 (0.5834)  loss_giou_aux_0: 1.6742 (1.7553)  loss_vfl_aux_1: 0.4080 (0.3665)  loss_bbox_aux_1: 0.5205 (0.5784)  loss_giou_aux_1: 1.6779 (1.7441)  loss_vfl_dn_0: 0.7642 (0.7853)  loss_bbox_dn_0: 0.3585 (0.3603)  loss_giou_dn_0: 1.3825 (1.3803)  loss_vfl_dn_1: 0.7451 (0.7693)  loss_bbox_dn_1: 0.3589 (0.3605)  loss_giou_dn_1: 1.3820 (1.3802)  loss_vfl_dn_2: 0.7314 (0.7584)  loss_bbox_dn_2: 0.3594 (0.3607)  loss_giou_dn_2: 1.3812 (1.3801)  loss_vfl_enc_0: 0.3862 (0.3467)  loss_bbox_enc_0: 0.5472 (0.6000)  loss_giou_enc_0: 1.6928 (1.7818)  time: 0.4130  data: 0.2861  max mem: 3096
+Epoch: [0]  [108/109]  eta: 0:00:00  lr: 0.000006  loss: 18.1430 (18.3105)  loss_vfl: 0.4243 (0.3645)  loss_bbox: 0.5469 (0.5746)  loss_giou: 1.6520 (1.7327)  loss_vfl_aux_0: 0.4116 (0.3615)  loss_bbox_aux_0: 0.5479 (0.5816)  loss_giou_aux_0: 1.6742 (1.7508)  loss_vfl_aux_1: 0.4353 (0.3715)  loss_bbox_aux_1: 0.5554 (0.5764)  loss_giou_aux_1: 1.6631 (1.7384)  loss_vfl_dn_0: 0.7642 (0.7848)  loss_bbox_dn_0: 0.3635 (0.3606)  loss_giou_dn_0: 1.3742 (1.3797)  loss_vfl_dn_1: 0.7515 (0.7689)  loss_bbox_dn_1: 0.3642 (0.3608)  loss_giou_dn_1: 1.3740 (1.3796)  loss_vfl_dn_2: 0.7314 (0.7574)  loss_bbox_dn_2: 0.3650 (0.3610)  loss_giou_dn_2: 1.3735 (1.3795)  loss_vfl_enc_0: 0.3901 (0.3515)  loss_bbox_enc_0: 0.5651 (0.5979)  loss_giou_enc_0: 1.6844 (1.7769)  time: 0.4200  data: 0.3075  max mem: 3096
+Epoch: [0] Total time: 0:01:07 (0.6238 s / it)
+Averaged stats: lr: 0.000006  loss: 18.1430 (18.3105)  loss_vfl: 0.4243 (0.3645)  loss_bbox: 0.5469 (0.5746)  loss_giou: 1.6520 (1.7327)  loss_vfl_aux_0: 0.4116 (0.3615)  loss_bbox_aux_0: 0.5479 (0.5816)  loss_giou_aux_0: 1.6742 (1.7508)  loss_vfl_aux_1: 0.4353 (0.3715)  loss_bbox_aux_1: 0.5554 (0.5764)  loss_giou_aux_1: 1.6631 (1.7384)  loss_vfl_dn_0: 0.7642 (0.7848)  loss_bbox_dn_0: 0.3635 (0.3606)  loss_giou_dn_0: 1.3742 (1.3797)  loss_vfl_dn_1: 0.7515 (0.7689)  loss_bbox_dn_1: 0.3642 (0.3608)  loss_giou_dn_1: 1.3740 (1.3796)  loss_vfl_dn_2: 0.7314 (0.7574)  loss_bbox_dn_2: 0.3650 (0.3610)  loss_giou_dn_2: 1.3735 (1.3795)  loss_vfl_enc_0: 0.3901 (0.3515)  loss_bbox_enc_0: 0.5651 (0.5979)  loss_giou_enc_0: 1.6844 (1.7769)
+Test:  [ 0/14]  eta: 0:00:28    time: 2.0688  data: 1.7188  max mem: 3096
+Test:  [10/14]  eta: 0:00:01    time: 0.3790  data: 0.2606  max mem: 3096
+Test:  [13/14]  eta: 0:00:00    time: 0.3203  data: 0.2061  max mem: 3096
+Test: Total time: 0:00:04 (0.3233 s / it)
+Averaged stats: 
+Accumulating evaluation results...
+COCOeval_opt.accumulate() finished...
+DONE (t=0.06s).
+IoU metric: bbox
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.004
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+[official-comparison] retained global best AP=0.00000501, epoch=0
+best_stat: {'epoch': 0, 'coco_eval_bbox': 5.013658935958886e-06}
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (115969680 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (121476072 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (126215949 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+Epoch: [1]  [  0/109]  eta: 0:08:17  lr: 0.000006  loss: 17.5456 (17.5456)  loss_vfl: 0.3411 (0.3411)  loss_bbox: 0.4911 (0.4911)  loss_giou: 1.7280 (1.7280)  loss_vfl_aux_0: 0.3628 (0.3628)  loss_bbox_aux_0: 0.5108 (0.5108)  loss_giou_aux_0: 1.7513 (1.7513)  loss_vfl_aux_1: 0.3484 (0.3484)  loss_bbox_aux_1: 0.4879 (0.4879)  loss_giou_aux_1: 1.7418 (1.7418)  loss_vfl_dn_0: 0.7119 (0.7119)  loss_bbox_dn_0: 0.2838 (0.2838)  loss_giou_dn_0: 1.4025 (1.4025)  loss_vfl_dn_1: 0.6963 (0.6963)  loss_bbox_dn_1: 0.2843 (0.2843)  loss_giou_dn_1: 1.4015 (1.4015)  loss_vfl_dn_2: 0.6860 (0.6860)  loss_bbox_dn_2: 0.2848 (0.2848)  loss_giou_dn_2: 1.4004 (1.4004)  loss_vfl_enc_0: 0.3740 (0.3740)  loss_bbox_enc_0: 0.5267 (0.5267)  loss_giou_enc_0: 1.7302 (1.7302)  time: 4.5637  data: 4.4406  max mem: 3096
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (89919008 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (96203055 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (99879156 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (141091548 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (115262173 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (93146270 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (92697981 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (156667755 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (99542728 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (91689270 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (96365370 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (126898501 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (115722796 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (106047190 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (129995310 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (144869763 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (146821736 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (117770112 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (97978506 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (109830870 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+Epoch: [1]  [100/109]  eta: 0:00:07  lr: 0.000011  loss: 17.3576 (17.6980)  loss_vfl: 0.4136 (0.3901)  loss_bbox: 0.5300 (0.5358)  loss_giou: 1.5921 (1.6405)  loss_vfl_aux_0: 0.4277 (0.4014)  loss_bbox_aux_0: 0.5291 (0.5452)  loss_giou_aux_0: 1.6130 (1.6646)  loss_vfl_aux_1: 0.4282 (0.4002)  loss_bbox_aux_1: 0.5189 (0.5371)  loss_giou_aux_1: 1.6007 (1.6513)  loss_vfl_dn_0: 0.6753 (0.7183)  loss_bbox_dn_0: 0.3459 (0.3533)  loss_giou_dn_0: 1.3782 (1.3811)  loss_vfl_dn_1: 0.6362 (0.6848)  loss_bbox_dn_1: 0.3469 (0.3544)  loss_giou_dn_1: 1.3764 (1.3800)  loss_vfl_dn_2: 0.6230 (0.6683)  loss_bbox_dn_2: 0.3481 (0.3555)  loss_giou_dn_2: 1.3754 (1.3788)  loss_vfl_enc_0: 0.4526 (0.3932)  loss_bbox_enc_0: 0.5320 (0.5608)  loss_giou_enc_0: 1.6610 (1.7036)  time: 0.9578  data: 0.7861  max mem: 3096
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (91031740 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+Epoch: [1]  [108/109]  eta: 0:00:00  lr: 0.000011  loss: 17.1247 (17.6682)  loss_vfl: 0.4155 (0.3949)  loss_bbox: 0.4778 (0.5328)  loss_giou: 1.5856 (1.6329)  loss_vfl_aux_0: 0.4385 (0.4057)  loss_bbox_aux_0: 0.4983 (0.5428)  loss_giou_aux_0: 1.6129 (1.6570)  loss_vfl_aux_1: 0.4414 (0.4052)  loss_bbox_aux_1: 0.4766 (0.5346)  loss_giou_aux_1: 1.5827 (1.6433)  loss_vfl_dn_0: 0.6685 (0.7140)  loss_bbox_dn_0: 0.3467 (0.3551)  loss_giou_dn_0: 1.3809 (1.3814)  loss_vfl_dn_1: 0.6196 (0.6797)  loss_bbox_dn_1: 0.3480 (0.3563)  loss_giou_dn_1: 1.3776 (1.3802)  loss_vfl_dn_2: 0.6084 (0.6636)  loss_bbox_dn_2: 0.3493 (0.3574)  loss_giou_dn_2: 1.3754 (1.3790)  loss_vfl_enc_0: 0.4661 (0.3985)  loss_bbox_enc_0: 0.4890 (0.5574)  loss_giou_enc_0: 1.6520 (1.6964)  time: 0.8267  data: 0.6757  max mem: 3096
+Epoch: [1] Total time: 0:01:23 (0.7697 s / it)
+Averaged stats: lr: 0.000011  loss: 17.1247 (17.6682)  loss_vfl: 0.4155 (0.3949)  loss_bbox: 0.4778 (0.5328)  loss_giou: 1.5856 (1.6329)  loss_vfl_aux_0: 0.4385 (0.4057)  loss_bbox_aux_0: 0.4983 (0.5428)  loss_giou_aux_0: 1.6129 (1.6570)  loss_vfl_aux_1: 0.4414 (0.4052)  loss_bbox_aux_1: 0.4766 (0.5346)  loss_giou_aux_1: 1.5827 (1.6433)  loss_vfl_dn_0: 0.6685 (0.7140)  loss_bbox_dn_0: 0.3467 (0.3551)  loss_giou_dn_0: 1.3809 (1.3814)  loss_vfl_dn_1: 0.6196 (0.6797)  loss_bbox_dn_1: 0.3480 (0.3563)  loss_giou_dn_1: 1.3776 (1.3802)  loss_vfl_dn_2: 0.6084 (0.6636)  loss_bbox_dn_2: 0.3493 (0.3574)  loss_giou_dn_2: 1.3754 (1.3790)  loss_vfl_enc_0: 0.4661 (0.3985)  loss_bbox_enc_0: 0.4890 (0.5574)  loss_giou_enc_0: 1.6520 (1.6964)
+Test:  [ 0/14]  eta: 0:00:28    time: 2.0264  data: 1.9217  max mem: 3096
+Test:  [10/14]  eta: 0:00:01    time: 0.4560  data: 0.2963  max mem: 3096
+Test:  [13/14]  eta: 0:00:00    time: 0.3946  data: 0.2539  max mem: 3096
+Test: Total time: 0:00:05 (0.3981 s / it)
+Averaged stats: 
+Accumulating evaluation results...
+COCOeval_opt.accumulate() finished...
+DONE (t=0.06s).
+IoU metric: bbox
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.003
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.002
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.003
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.013
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.001
+[official-comparison] retained global best AP=0.00000668, epoch=1
+best_stat: {'epoch': 1, 'coco_eval_bbox': 6.679617263113516e-06}
+Epoch: [2]  [  0/109]  eta: 0:10:18  lr: 0.000011  loss: 16.6356 (16.6356)  loss_vfl: 0.5552 (0.5552)  loss_bbox: 0.3884 (0.3884)  loss_giou: 1.4095 (1.4095)  loss_vfl_aux_0: 0.5718 (0.5718)  loss_bbox_aux_0: 0.3964 (0.3964)  loss_giou_aux_0: 1.4427 (1.4427)  loss_vfl_aux_1: 0.5869 (0.5869)  loss_bbox_aux_1: 0.3987 (0.3987)  loss_giou_aux_1: 1.4091 (1.4091)  loss_vfl_dn_0: 0.6616 (0.6616)  loss_bbox_dn_0: 0.3411 (0.3411)  loss_giou_dn_0: 1.3751 (1.3751)  loss_vfl_dn_1: 0.6060 (0.6060)  loss_bbox_dn_1: 0.3421 (0.3421)  loss_giou_dn_1: 1.3705 (1.3705)  loss_vfl_dn_2: 0.6045 (0.6045)  loss_bbox_dn_2: 0.3429 (0.3429)  loss_giou_dn_2: 1.3654 (1.3654)  loss_vfl_enc_0: 0.5791 (0.5791)  loss_bbox_enc_0: 0.4224 (0.4224)  loss_giou_enc_0: 1.4664 (1.4664)  time: 5.6742  data: 5.4862  max mem: 3096
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (109910915 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (89902446 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (110472264 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (145582050 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (144407765 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (150504792 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (106886218 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (102321888 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (150419674 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (113338614 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (109419784 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (93833502 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (93069084 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (107036826 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (102750670 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (106706790 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (92764200 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (93817371 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (111842451 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (112000607 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (98849568 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (113310810 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py:3451: DecompressionBombWarning: Image size (97797000 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/scripts/run_official.py", line 290, in <module>
+    main()
+  File "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/scripts/run_official.py", line 250, in main
+    solver.fit()
+  File "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/RT-DETR/rtdetrv2_pytorch/src/solver/det_solver.py", line 38, in fit
+    train_stats = train_one_epoch(
+                  ^^^^^^^^^^^^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/scripts/run_official.py", line 114, in train_epoch
+    return self.original_train(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/RT-DETR/rtdetrv2_pytorch/src/solver/det_engine.py", line 38, in train_one_epoch
+    for i, (samples, targets) in enumerate(metric_logger.log_every(data_loader, print_freq, header)):
+  File "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/RT-DETR/rtdetrv2_pytorch/src/misc/logger.py", line 215, in log_every
+    for obj in iterable:
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 701, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1445, in _next_data
+    return self._process_data(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1491, in _process_data
+    data.reraise()
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/_utils.py", line 715, in reraise
+    raise exception
+PIL.Image.DecompressionBombError: Caught DecompressionBombError in DataLoader worker process 6.
+Original Traceback (most recent call last):
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/utils/data/_utils/worker.py", line 351, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 52, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/RT-DETR/rtdetrv2_pytorch/src/data/dataset/coco_dataset.py", line 40, in __getitem__
+    img, target, _ = self._transforms(img, target, self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/RT-DETR/rtdetrv2_pytorch/src/data/transforms/container.py", line 46, in forward
+    return self.get_forward(self.policy['name'])(*inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/RT-DETR/rtdetrv2_pytorch/src/data/transforms/container.py", line 74, in stop_epoch_forward
+    sample = transform(sample)
+             ^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/Dent-FINE-paper/materials/official_baselines_2026-09-10/upstream/RT-DETR/rtdetrv2_pytorch/src/data/transforms/_transforms.py", line 97, in __call__
+    return super().forward(*inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torchvision/transforms/v2/_transform.py", line 50, in forward
+    flat_outputs = [
+                   ^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torchvision/transforms/v2/_transform.py", line 51, in <listcomp>
+    self._transform(inpt, params) if needs_transform else inpt
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torchvision/transforms/v2/_geometry.py", line 1202, in _transform
+    output = self._call_kernel(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torchvision/transforms/v2/_transform.py", line 35, in _call_kernel
+    return kernel(inpt, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/torchvision/transforms/_functional_pil.py", line 235, in crop
+    return img.crop((left, top, left + width, top + height))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py", line 1291, in crop
+    return self._new(self._crop(self.im, box))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py", line 1311, in _crop
+    _decompression_bomb_check(absolute_values)
+  File "/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/PIL/Image.py", line 3448, in _decompression_bomb_check
+    raise DecompressionBombError(msg)
+PIL.Image.DecompressionBombError: Image size (211316100 pixels) exceeds limit of 178956970 pixels, could be decompression bomb DOS attack.
+

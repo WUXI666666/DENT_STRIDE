@@ -1,0 +1,688 @@
+{
+  "job": {
+    "id": "mobile_proto_k4_tau0p50_seed2",
+    "configuration": "mobile_proto_k4_tau0p50",
+    "cohort": "Mobile",
+    "seed": 2,
+    "phase": "primary",
+    "config": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/configs/mobile_proto_k4_tau0p50/seed_2.yml",
+    "config_sha256": "87f0b82f46138daa099fe9dd7150ba3dd5f354b4457875d7316a0318b0d4c833",
+    "output_dir": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2",
+    "implementation": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/source_snapshots/mobile",
+    "train_script": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/source_snapshots/mobile/train.py",
+    "native_cwd": "/home/wuxi/Dent-FINE",
+    "controls": {},
+    "epochs": 160,
+    "expected_input": 1024,
+    "inference_priors": "off",
+    "python": "/home/wuxi/miniconda3/envs/deimv2/bin/python",
+    "queue_order": 6,
+    "job_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/jobs/mobile_proto_k4_tau0p50_seed2.json",
+    "template_job": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/jobs/internal_mobile_proto_k4_tau0p5_seed0.json",
+    "template_config": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/configs/internal_mobile_proto_k4_tau0p5/seed_0.yml",
+    "template_config_sha256": "54da346b3e831b858b7a1ffb2e16a09947931310042a979d31c58498f8d6fbbc",
+    "only_config_changes": [
+      "output_dir",
+      "summary_dir"
+    ],
+    "seed_set_via_native_cli": true,
+    "fresh_initialization": true,
+    "reused_training_weights": false,
+    "resume_interrupted_run": false,
+    "prior_selection_policy": "historical native validation"
+  },
+  "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_selected_configs_multiseed_2026-10-11/runs/mobile_proto_k4_tau0p50/seed_2/best.pth",
+  "seed": 2,
+  "temperature": 0.5,
+  "records": [
+    {
+      "case": {
+        "case_id": "FinalMobile_image115_FDI64",
+        "group": "FinalMobile",
+        "cohort": "Mobile",
+        "image_id": 115,
+        "image_record": {
+          "license": 0,
+          "url": null,
+          "file_name": "JPEGImages/192.jpg",
+          "height": 5616,
+          "width": 2592,
+          "date_captured": null,
+          "id": 115
+        },
+        "image_file": "/home/wuxi/coco/valid/JPEGImages/192.jpg",
+        "target_annotation": {
+          "id": 1823,
+          "image_id": 115,
+          "category_id": 40,
+          "segmentation": [
+            [
+              1267.4285714285716,
+              1794.6883116883114,
+              1242.753246753247,
+              1794.6883116883114,
+              1218.7272727272727,
+              1794.6883116883114,
+              1196.6493506493507,
+              1794.6883116883114,
+              1182.3636363636365,
+              1794.6883116883114,
+              1177.1688311688313,
+              1803.7792207792204,
+              1169.3766233766235,
+              1830.4025974025972,
+              1160.935064935065,
+              1855.7272727272723,
+              1158.987012987013,
+              1889.4935064935062,
+              1166.7792207792209,
+              1905.7272727272723,
+              1179.1168831168832,
+              1918.7142857142853,
+              1192.1038961038962,
+              1940.1428571428569,
+              1205.0909090909092,
+              1961.5714285714282,
+              1225.2207792207794,
+              1983.6493506493503,
+              1247.2987012987014,
+              2007.6753246753244,
+              1274.5714285714287,
+              2015.4675324675322,
+              1292.753246753247,
+              2020.6623376623372,
+              1315.4805194805197,
+              2023.9090909090905,
+              1337.5584415584417,
+              2021.9610389610386,
+              1363.5324675324675,
+              2026.5064935064931,
+              1385.6103896103898,
+              2026.5064935064931,
+              1410.935064935065,
+              2027.8051948051946,
+              1445.3506493506495,
+              2033.6493506493503,
+              1481.7142857142858,
+              2026.5064935064931,
+              1517.4285714285716,
+              2003.7792207792204,
+              1542.1038961038962,
+              1967.4155844155841,
+              1570.0259740259742,
+              1923.2597402597398,
+              1577.818181818182,
+              1879.1038961038957,
+              1586.2597402597403,
+              1820.6623376623374,
+              1594.051948051948,
+              1768.0649350649348,
+              1592.753246753247,
+              1720.0129870129867,
+              1587.5584415584417,
+              1682.350649350649,
+              1571.974025974026,
+              1666.1168831168827,
+              1546.6493506493507,
+              1650.5324675324673,
+              1531.064935064935,
+              1653.7792207792204,
+              1501.1948051948052,
+              1656.376623376623,
+              1481.064935064935,
+              1665.4675324675322,
+              1474.5714285714287,
+              1681.7012987012984,
+              1462.883116883117,
+              1718.0649350649348,
+              1451.844155844156,
+              1731.0519480519476,
+              1439.5064935064936,
+              1746.6363636363633,
+              1414.1818181818182,
+              1776.5064935064931,
+              1389.5064935064936,
+              1782.350649350649,
+              1362.883116883117,
+              1788.8441558441555,
+              1346.6493506493507,
+              1789.4935064935062,
+              1321.3246753246754,
+              1788.8441558441555,
+              1297.9480519480521,
+              1788.8441558441555
+            ]
+          ],
+          "area": 105899.0,
+          "bbox": [
+            1158.0,
+            1650.0,
+            437.0,
+            384.0
+          ],
+          "iscrowd": 0,
+          "tooth_types": 0
+        },
+        "target_FDI": 64,
+        "after": {
+          "prediction": {
+            "bbox": [
+              1152.7037353515625,
+              1644.4874267578125,
+              434.2967834472656,
+              379.9544677734375
+            ],
+            "category_id": 40,
+            "FDI": 64,
+            "score": 0.6048141717910767
+          }
+        }
+      },
+      "case_id": "FinalMobile_image115_FDI64",
+      "raw_maps": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/FinalMobile_image115_FDI64.npz",
+      "query": 3,
+      "IoU": 0.9329226807802493,
+      "scalars": {
+        "Detection": 0.4255651533603668,
+        "CMFA": 0.4255651533603668,
+        "HOOA_edge": 0.4255651533603668,
+        "Prototype": 2.905630588531494
+      },
+      "prototype_classifier_correct": true,
+      "prototype_fusion_weight": 0.0,
+      "spatial_diagnostics": {
+        "Detection": {
+          "positive_mass_inside_GT": 0.483767569065094,
+          "GT_fraction": 0.0107421875,
+          "enrichment": 45.03436279296875,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.14339891076087952,
+          "positive_sum": 2.5846683979034424
+        },
+        "CMFA": {
+          "positive_mass_inside_GT": 0.4717106521129608,
+          "GT_fraction": 0.0107421875,
+          "enrichment": 43.91197343306108,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.11268061399459839,
+          "positive_sum": 3.248795509338379
+        },
+        "HOOA_edge": {
+          "positive_mass_inside_GT": 0.49479541182518005,
+          "GT_fraction": 0.0107421875,
+          "enrichment": 46.06095470081676,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.007845575921237469,
+          "positive_sum": 0.14469458162784576
+        },
+        "Prototype": {
+          "positive_mass_inside_GT": 0.46669384837150574,
+          "GT_fraction": 0.0107421875,
+          "enrichment": 43.44495461203835,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.033459119498729706,
+          "positive_sum": 0.6339905261993408
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "FinalMobile_image77_FDI11",
+        "group": "FinalMobile",
+        "cohort": "Mobile",
+        "image_id": 77,
+        "image_record": {
+          "license": 0,
+          "url": null,
+          "file_name": "JPEGImages/49.jpg",
+          "height": 3072,
+          "width": 4096,
+          "date_captured": null,
+          "id": 77
+        },
+        "image_file": "/home/wuxi/coco/valid/JPEGImages/49.jpg",
+        "target_annotation": {
+          "id": 1198,
+          "image_id": 77,
+          "category_id": 0,
+          "segmentation": [
+            [
+              1393.117707871806,
+              1284.2711564023039,
+              1473.297888051986,
+              1488.7756609068083,
+              1826.4510412051393,
+              1436.523408654556,
+              1760.6852754393735,
+              1224.8116969428443
+            ]
+          ],
+          "area": 79231.0,
+          "bbox": [
+            1393.0,
+            1224.0,
+            434.0,
+            265.0
+          ],
+          "iscrowd": 0,
+          "tooth_types": 1
+        },
+        "target_FDI": 11,
+        "after": {
+          "prediction": {
+            "bbox": [
+              1405.59765625,
+              1224.25,
+              427.435546875,
+              253.39956665039062
+            ],
+            "category_id": 0,
+            "FDI": 11,
+            "score": 0.8535996675491333
+          }
+        }
+      },
+      "case_id": "FinalMobile_image77_FDI11",
+      "raw_maps": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/FinalMobile_image77_FDI11.npz",
+      "query": 3,
+      "IoU": 0.9162890716569684,
+      "scalars": {
+        "Detection": 1.7631175518035889,
+        "CMFA": 1.7631175518035889,
+        "HOOA_edge": 1.7631175518035889,
+        "Prototype": 3.3166723251342773
+      },
+      "prototype_classifier_correct": true,
+      "prototype_fusion_weight": 0.0,
+      "spatial_diagnostics": {
+        "Detection": {
+          "positive_mass_inside_GT": 0.7163205742835999,
+          "GT_fraction": 0.00872802734375,
+          "enrichment": 82.07130272071679,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.07691726833581924,
+          "positive_sum": 0.5581341981887817
+        },
+        "CMFA": {
+          "positive_mass_inside_GT": 0.5419593453407288,
+          "GT_fraction": 0.00872802734375,
+          "enrichment": 62.09413925917832,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.024310816079378128,
+          "positive_sum": 0.5638269782066345
+        },
+        "HOOA_edge": {
+          "positive_mass_inside_GT": 0.671645998954773,
+          "GT_fraction": 0.00872802734375,
+          "enrichment": 76.95278354458041,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.006682588718831539,
+          "positive_sum": 0.03689680993556976
+        },
+        "Prototype": {
+          "positive_mass_inside_GT": 0.3340228497982025,
+          "GT_fraction": 0.00872802734375,
+          "enrichment": 38.27014245520105,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.002886996604502201,
+          "positive_sum": 0.056436024606227875
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "FinalMobile_image182_FDI46",
+        "group": "FinalMobile",
+        "cohort": "Mobile",
+        "image_id": 182,
+        "image_record": {
+          "license": 0,
+          "url": null,
+          "file_name": "JPEGImages/55.jpg",
+          "height": 3072,
+          "width": 4096,
+          "date_captured": null,
+          "id": 182
+        },
+        "image_file": "/home/wuxi/coco/valid/JPEGImages/55.jpg",
+        "target_annotation": {
+          "id": 2861,
+          "image_id": 182,
+          "category_id": 29,
+          "segmentation": [
+            [
+              1452.4444444444443,
+              1724.8888888888891,
+              1768.0,
+              1609.3333333333335,
+              1928.0,
+              1896.0,
+              1548.0,
+              2087.1111111111113
+            ]
+          ],
+          "area": 133163.0,
+          "bbox": [
+            1452.0,
+            1609.0,
+            477.0,
+            479.0
+          ],
+          "iscrowd": 0,
+          "tooth_types": 1
+        },
+        "target_FDI": 46,
+        "after": {
+          "prediction": {
+            "bbox": [
+              1465.573974609375,
+              1648.153076171875,
+              430.4366455078125,
+              390.4830322265625
+            ],
+            "category_id": 29,
+            "FDI": 46,
+            "score": 0.8675330877304077
+          }
+        }
+      },
+      "case_id": "FinalMobile_image182_FDI46",
+      "raw_maps": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/FinalMobile_image182_FDI46.npz",
+      "query": 3,
+      "IoU": 0.7356263322953384,
+      "scalars": {
+        "Detection": 1.879320740699768,
+        "CMFA": 1.879320740699768,
+        "HOOA_edge": 1.879320740699768,
+        "Prototype": 3.2653896808624268
+      },
+      "prototype_classifier_correct": true,
+      "prototype_fusion_weight": 0.0,
+      "spatial_diagnostics": {
+        "Detection": {
+          "positive_mass_inside_GT": 0.7790566682815552,
+          "GT_fraction": 0.018310546875,
+          "enrichment": 42.54688151041667,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.04304300621151924,
+          "positive_sum": 0.374068945646286
+        },
+        "CMFA": {
+          "positive_mass_inside_GT": 0.6467462182044983,
+          "GT_fraction": 0.018310546875,
+          "enrichment": 35.320966796875,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.01572737842798233,
+          "positive_sum": 0.4873157739639282
+        },
+        "HOOA_edge": {
+          "positive_mass_inside_GT": 0.6759761571884155,
+          "GT_fraction": 0.018310546875,
+          "enrichment": 36.91731119791667,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.0017485860735177994,
+          "positive_sum": 0.021630998700857162
+        },
+        "Prototype": {
+          "positive_mass_inside_GT": 0.46695372462272644,
+          "GT_fraction": 0.018310546875,
+          "enrichment": 25.5018994140625,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.00278231268748641,
+          "positive_sum": 0.041341524571180344
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "FinalMobile_image44_FDI51",
+        "group": "FinalMobile",
+        "cohort": "Mobile",
+        "image_id": 44,
+        "image_record": {
+          "license": 0,
+          "url": null,
+          "file_name": "JPEGImages/81.jpg",
+          "height": 3024,
+          "width": 4032,
+          "date_captured": null,
+          "id": 44
+        },
+        "image_file": "/home/wuxi/coco/valid/JPEGImages/81.jpg",
+        "target_annotation": {
+          "id": 716,
+          "image_id": 44,
+          "category_id": 32,
+          "segmentation": [
+            [
+              1804.3478260869565,
+              747.8260869565217,
+              1786.9565217391303,
+              826.0869565217391,
+              1808.695652173913,
+              913.0434782608695,
+              1880.4347826086955,
+              963.0434782608695,
+              2095.6521739130435,
+              934.7826086956521,
+              2295.6521739130435,
+              928.2608695652174,
+              2267.391304347826,
+              850.0,
+              2141.304347826087,
+              808.695652173913,
+              2032.6086956521738,
+              778.2608695652174,
+              1904.3478260869565,
+              754.3478260869565
+            ]
+          ],
+          "area": 73971.0,
+          "bbox": [
+            1786.0,
+            747.0,
+            510.0,
+            217.0
+          ],
+          "iscrowd": 0,
+          "tooth_types": 0
+        },
+        "target_FDI": 51,
+        "after": {
+          "prediction": {
+            "bbox": [
+              1794.6636962890625,
+              750.1375732421875,
+              492.50714111328125,
+              210.61923217773438
+            ],
+            "category_id": 32,
+            "FDI": 51,
+            "score": 0.8031690120697021
+          }
+        }
+      },
+      "case_id": "FinalMobile_image44_FDI51",
+      "raw_maps": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/FinalMobile_image44_FDI51.npz",
+      "query": 1,
+      "IoU": 0.9373043016899385,
+      "scalars": {
+        "Detection": 1.4062198400497437,
+        "CMFA": 1.4062198400497437,
+        "HOOA_edge": 1.4062198400497437,
+        "Prototype": 3.127270221710205
+      },
+      "prototype_classifier_correct": true,
+      "prototype_fusion_weight": 0.0,
+      "spatial_diagnostics": {
+        "Detection": {
+          "positive_mass_inside_GT": 0.6508623361587524,
+          "GT_fraction": 0.0087890625,
+          "enrichment": 74.05367024739583,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.11522188782691956,
+          "positive_sum": 1.1845067739486694
+        },
+        "CMFA": {
+          "positive_mass_inside_GT": 0.5517517924308777,
+          "GT_fraction": 0.0087890625,
+          "enrichment": 62.77709282769097,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.06969864666461945,
+          "positive_sum": 1.5235414505004883
+        },
+        "HOOA_edge": {
+          "positive_mass_inside_GT": 0.5757408142089844,
+          "GT_fraction": 0.0087890625,
+          "enrichment": 65.50651041666667,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.005668815691024065,
+          "positive_sum": 0.04766961559653282
+        },
+        "Prototype": {
+          "positive_mass_inside_GT": 0.5898805856704712,
+          "GT_fraction": 0.0087890625,
+          "enrichment": 67.11530219184027,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.032899875193834305,
+          "positive_sum": 0.3079875707626343
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "FinalMobile_image118_FDI42",
+        "group": "FinalMobile",
+        "cohort": "Mobile",
+        "image_id": 118,
+        "image_record": {
+          "license": 0,
+          "url": null,
+          "file_name": "JPEGImages/6.jpg",
+          "height": 4608,
+          "width": 3456,
+          "date_captured": null,
+          "id": 118
+        },
+        "image_file": "/home/wuxi/coco/valid/JPEGImages/6.jpg",
+        "target_annotation": {
+          "id": 1854,
+          "image_id": 118,
+          "category_id": 25,
+          "segmentation": [
+            [
+              2373.3333333333335,
+              2636.666666666667,
+              2326.666666666667,
+              2650.0,
+              2270.0,
+              2680.0,
+              2253.3333333333335,
+              2706.666666666667,
+              2253.3333333333335,
+              2766.666666666667,
+              2263.3333333333335,
+              2813.3333333333335,
+              2276.666666666667,
+              2923.3333333333335,
+              2300.0,
+              3016.666666666667,
+              2353.3333333333335,
+              3043.3333333333335,
+              2410.0,
+              2990.0,
+              2510.0,
+              2916.666666666667,
+              2536.666666666667,
+              2883.3333333333335,
+              2506.666666666667,
+              2833.3333333333335,
+              2480.0,
+              2763.3333333333335,
+              2433.3333333333335,
+              2690.0
+            ]
+          ],
+          "area": 74389.0,
+          "bbox": [
+            2253.0,
+            2636.0,
+            284.0,
+            408.0
+          ],
+          "iscrowd": 0,
+          "tooth_types": 1
+        },
+        "target_FDI": 42,
+        "after": {
+          "prediction": {
+            "bbox": [
+              2252.852783203125,
+              2639.17529296875,
+              277.47552490234375,
+              412.6322021484375
+            ],
+            "category_id": 25,
+            "FDI": 42,
+            "score": 0.7446949481964111
+          }
+        }
+      },
+      "case_id": "FinalMobile_image118_FDI42",
+      "raw_maps": "/home/wuxi/Dent-FINE-paper/materials/module_cam_gallery_2026-10-30/FinalMobile_image118_FDI42.npz",
+      "query": 3,
+      "IoU": 0.9506462172597591,
+      "scalars": {
+        "Detection": 1.070515513420105,
+        "CMFA": 1.070515513420105,
+        "HOOA_edge": 1.070515513420105,
+        "Prototype": 2.688922882080078
+      },
+      "prototype_classifier_correct": true,
+      "prototype_fusion_weight": 0.0,
+      "spatial_diagnostics": {
+        "Detection": {
+          "positive_mass_inside_GT": 0.6883986592292786,
+          "GT_fraction": 0.008056640625,
+          "enrichment": 85.4448760061553,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.4277162253856659,
+          "positive_sum": 2.7851455211639404
+        },
+        "CMFA": {
+          "positive_mass_inside_GT": 0.5778369307518005,
+          "GT_fraction": 0.008056640625,
+          "enrichment": 71.72182025331439,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.34846946597099304,
+          "positive_sum": 4.03670597076416
+        },
+        "HOOA_edge": {
+          "positive_mass_inside_GT": 0.6588282585144043,
+          "GT_fraction": 0.008056640625,
+          "enrichment": 81.77456202651516,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.012533186934888363,
+          "positive_sum": 0.1391521394252777
+        },
+        "Prototype": {
+          "positive_mass_inside_GT": 0.5890606045722961,
+          "GT_fraction": 0.008056640625,
+          "enrichment": 73.11491625236742,
+          "peak_inside_GT": true,
+          "raw_maximum": 0.08540239185094833,
+          "positive_sum": 0.5903745889663696
+        }
+      }
+    }
+  ],
+  "passive_hook_logit_error": 0.0,
+  "device": "CPU FP32",
+  "weights_modified": false,
+  "scope": "Mechanism examples from one final Mobile EMA; these are not module-isolation comparisons. Native detached content initialization is not traversed by gradients.",
+  "recommendations": [
+    "FinalMobile_image118_FDI42",
+    "FinalMobile_image44_FDI51",
+    "FinalMobile_image115_FDI64"
+  ]
+}

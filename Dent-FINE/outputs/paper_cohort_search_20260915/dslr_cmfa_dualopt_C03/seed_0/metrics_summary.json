@@ -1,0 +1,131 @@
+{
+  "job_id": "dslr_cmfa_dualopt_C03",
+  "task": "dslr_cmfa_dualopt",
+  "cohort": "DSLR",
+  "model": "DENT-STRIDE CMFA+DualOpt",
+  "phase": "core_grid",
+  "seed": 0,
+  "augmentation": {
+    "profile": "fixed640",
+    "mosaic": 0.0,
+    "mixup": 0.0,
+    "crop": 0.8,
+    "zoom": 0.5
+  },
+  "config": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C03_seed0.yml",
+  "config_sha256": "ef65fe9295cc7dff084f9c3bb465ae976ccd28ef40be79f7fdf8ffcbc3719f0c",
+  "output_dir": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C03/seed_0",
+  "implementation_dir": "/home/wuxi/Dent-FINE",
+  "train_script": "/home/wuxi/Dent-FINE/train.py",
+  "driver_script": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/run_search.py",
+  "driver_script_sha256": "254b2221059a976b1e8ad1a285bd2b9f236a9d464cf24c04b2c879cd82752524",
+  "changes_from_aligned_base": [
+    {
+      "path": "output_dir",
+      "before": "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/placeholder",
+      "after": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C03/seed_0"
+    },
+    {
+      "path": "train_dataloader.collate_fn.base_size_repeat",
+      "before": 20,
+      "after": null
+    },
+    {
+      "path": "train_dataloader.collate_fn.mixup_prob",
+      "before": 0.5,
+      "after": 0.0
+    },
+    {
+      "path": "train_dataloader.dataset.transforms.ops[0].output_size",
+      "before": 320,
+      "after": 640
+    }
+  ],
+  "mosaic_gate": {
+    "outer_probability": 0.0,
+    "inner_probability": 0.0,
+    "active_epochs_zero_based": [
+      4,
+      69
+    ],
+    "native_crop_zoom_exclusion_preserved": true
+  },
+  "epochs_completed": 160,
+  "input_size": [
+    640,
+    640
+  ],
+  "training_scale_repeat": null,
+  "best_epoch_zero_based": 130,
+  "best_epoch_one_based": 131,
+  "final_epoch_one_based": 160,
+  "checkpoint_internal_epoch": 104,
+  "checkpoint_epoch_note": "Native stage rollback can reset this counter; use verified log epoch.",
+  "metrics_fraction": {
+    "AP": 0.72944905248347,
+    "AP50": 0.8882404136729781,
+    "AP75": 0.8375153245299433,
+    "AP_small": -1.0,
+    "AP_medium": 0.49127992288344835,
+    "AP_large": 0.7492826086595792,
+    "AR1": 0.7884335767948409,
+    "AR10": 0.8220059855398599,
+    "AR100": 0.8278393955489646,
+    "AR_small": -1.0,
+    "AR_medium": 0.5736671777296778,
+    "AR_large": 0.8433661471635387
+  },
+  "metrics_percent": {
+    "AP": 72.944905248347,
+    "AP50": 88.82404136729781,
+    "AP75": 83.75153245299433,
+    "AP_small": null,
+    "AP_medium": 49.127992288344835,
+    "AP_large": 74.92826086595792,
+    "AR1": 78.8433576794841,
+    "AR10": 82.200598553986,
+    "AR100": 82.78393955489646,
+    "AR_small": null,
+    "AR_medium": 57.36671777296778,
+    "AR_large": 84.33661471635388
+  },
+  "best_log_metrics_fraction": {
+    "AP": 0.72944905248347,
+    "AP50": 0.8882404136729781,
+    "AP75": 0.8375153245299433,
+    "AP_small": -1.0,
+    "AP_medium": 0.49127992288344835,
+    "AP_large": 0.7492826086595792,
+    "AR1": 0.7884335767948409,
+    "AR10": 0.8220059855398599,
+    "AR100": 0.8278393955489646,
+    "AR_small": -1.0,
+    "AR_medium": 0.5736671777296778,
+    "AR_large": 0.8433661471635387
+  },
+  "final_metrics_fraction": {
+    "AP": 0.7285949813513021,
+    "AP50": 0.8869537993278296,
+    "AP75": 0.8364568707819033,
+    "AP_small": -1.0,
+    "AP_medium": 0.491589524949571,
+    "AP_large": 0.7483478190142333,
+    "AR1": 0.7884776648280315,
+    "AR10": 0.8219619423033949,
+    "AR100": 0.8278208299271671,
+    "AR_small": -1.0,
+    "AR_medium": 0.5736671777296778,
+    "AR_large": 0.8433375748468505
+  },
+  "params_trainable": 11153963,
+  "loss_arch_weight": 0.25,
+  "observed_arch_loss_range": [
+    0.041636837726478935,
+    0.054905319326026464
+  ],
+  "checkpoint": "/home/wuxi/Dent-FINE/outputs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C03/seed_0/best.pth",
+  "checkpoint_sha256": "cdb41a286f0a68166e09ea8d4ecd32350be10a344f277d7124ca4cba7a6f718a",
+  "log_sha256": "791809a178ce4edf5e5efe5084ae262a8dbc0a8e5b8d5494d33af0eb03e1677d",
+  "verified_best_checkpoint": true,
+  "completed_at": "2026-09-16T16:17:30.563071+08:00"
+}

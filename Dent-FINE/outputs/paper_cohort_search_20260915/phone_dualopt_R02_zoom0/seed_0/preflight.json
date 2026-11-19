@@ -1,0 +1,137 @@
+{
+  "job_id": "phone_dualopt_R02_zoom0",
+  "seed": 0,
+  "config_sha256": "96fffafb95c8fad0d8af2eb0317062a3c904fc5ae248439cca1012080abe22af",
+  "implementation": "/home/wuxi/Dent-FINE",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "params_trainable": 10629283,
+  "loss_arch_weight": 0.25,
+  "augmentation": {
+    "profile": "fixed1024",
+    "mosaic": 0.0,
+    "mixup": 0.0,
+    "crop": 0.8,
+    "zoom": 0.0
+  },
+  "tests": [
+    {
+      "epoch_zero_based": 0,
+      "input_shape": [
+        8,
+        3,
+        1024,
+        1024
+      ],
+      "target_counts": [
+        23,
+        22,
+        22,
+        22,
+        21,
+        21,
+        21,
+        21
+      ],
+      "mixup_exercised": false,
+      "loss": 31.500843048095703,
+      "loss_arch": 0.025976672768592834,
+      "gradient_norm": 3.6186351776123047,
+      "amp_retries": 1,
+      "peak_allocated_GiB": 7.136384010314941,
+      "peak_reserved_GiB": 7.77734375
+    },
+    {
+      "epoch_zero_based": 4,
+      "input_shape": [
+        8,
+        3,
+        1024,
+        1024
+      ],
+      "target_counts": [
+        23,
+        22,
+        22,
+        22,
+        21,
+        6,
+        21,
+        21
+      ],
+      "mixup_exercised": false,
+      "loss": 31.177753448486328,
+      "loss_arch": 0.02533373050391674,
+      "gradient_norm": 3.866305351257324,
+      "amp_retries": 0,
+      "peak_allocated_GiB": 7.220669746398926,
+      "peak_reserved_GiB": 7.818359375
+    },
+    {
+      "epoch_zero_based": 80,
+      "input_shape": [
+        8,
+        3,
+        1024,
+        1024
+      ],
+      "target_counts": [
+        23,
+        22,
+        22,
+        16,
+        9,
+        16,
+        15,
+        12
+      ],
+      "mixup_exercised": false,
+      "loss": 31.253252029418945,
+      "loss_arch": 0.022543227300047874,
+      "gradient_norm": 4.297430992126465,
+      "amp_retries": 1,
+      "peak_allocated_GiB": 7.220666885375977,
+      "peak_reserved_GiB": 7.810546875
+    },
+    {
+      "epoch_zero_based": 130,
+      "input_shape": [
+        8,
+        3,
+        1024,
+        1024
+      ],
+      "target_counts": [
+        23,
+        22,
+        22,
+        22,
+        21,
+        21,
+        21,
+        21
+      ],
+      "mixup_exercised": false,
+      "loss": 29.127214431762695,
+      "loss_arch": 0.023005008697509766,
+      "gradient_norm": 3.850264072418213,
+      "amp_retries": 0,
+      "peak_allocated_GiB": 7.2206645011901855,
+      "peak_reserved_GiB": 7.802734375
+    }
+  ],
+  "tests_are_sampled_not_full_data_audit": true,
+  "preflight_updates_are_discarded": true,
+  "validation": {
+    "input_shape": [
+      16,
+      3,
+      1024,
+      1024
+    ],
+    "native_fp32_eval": true,
+    "postprocessor_class": "PostProcessor",
+    "peak_reserved_GiB": 4.458984375
+  },
+  "passed": true,
+  "completed_at": "2026-09-17T17:39:48.749424+08:00"
+}

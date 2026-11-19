@@ -1,0 +1,58 @@
+{
+  "state": "completed",
+  "model": "Official DEIM-S + selected paper modules",
+  "task": "phone_dualopt",
+  "cohort": "phone",
+  "seed": 0,
+  "smoke_only": false,
+  "epochs_completed": 160,
+  "final_epoch_zero_based": 159,
+  "best_epoch_zero_based": 147,
+  "best_metrics": {
+    "AP": 53.39570323481696,
+    "AP50": 83.33993007274299,
+    "AP75": 59.029539982717516,
+    "AP_small": 47.5,
+    "AP_medium": 41.01397793869294,
+    "AP_large": 54.649421747580895,
+    "AR1": 61.73935001115154,
+    "AR10": 66.39785878635284,
+    "AR100": 66.86096846209846,
+    "AR_small": 47.5,
+    "AR_medium": 50.11232363315696,
+    "AR_large": 68.07781585894553
+  },
+  "final_epoch_metrics": {
+    "AP": 53.33223712805084,
+    "AP50": 83.28530119774416,
+    "AP75": 58.87772178315727,
+    "AP_small": 47.5,
+    "AP_medium": 40.978116311273695,
+    "AP_large": 54.562117954697854,
+    "AR1": 61.74983292652938,
+    "AR10": 66.45142171872244,
+    "AR100": 66.9304055939914,
+    "AR_small": 47.5,
+    "AR_medium": 50.28979276895943,
+    "AR_large": 68.14588394032546
+  },
+  "params_training_total": 10285925,
+  "params_trainable": 10285923,
+  "additional_parameters_over_official": 0,
+  "elapsed_seconds": 11393.488732483936,
+  "stage1_RAM_restores": 13,
+  "peak_cuda_allocated_bytes": 8389760000,
+  "peak_cuda_reserved_bytes": 11184111616,
+  "checkpoint_sha256": "db1383d4d99c43d0e318933b7768ea9329d331bb69eb4dd8ab5ee4b2c2688f0d",
+  "completed_at": "2026-09-13T02:04:45.004267+08:00",
+  "model_input_size": [
+    1024,
+    1024
+  ],
+  "config_sha256": "a03fbb9115358b2ee9a550713f869d8328207741b4c236c9a42f2fff09e31f08",
+  "protocol_sha256": "652e8fa684fae1179b52fdf6c211bce1ccac3891fcc9ed5127ab25f9a5bfb760",
+  "matched_baseline": {
+    "available": false,
+    "note": "Same-recipe Plain has not completed; no module-gain claim versus historical baselines."
+  }
+}

@@ -1,0 +1,277 @@
+[
+  {
+    "kind": "selected_config",
+    "cohort": "Mobile",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/best_model_bundle_2026-09-15/selected_models/phone_a07_proto_aux_AP55.701/config.yml",
+    "sha256": "2fa206ae008dbd5855d91bbd24c7ae7eb341e14828e6129a477cd9fde04b0c56"
+  },
+  {
+    "kind": "annotation",
+    "cohort": "Mobile",
+    "split": "train",
+    "path": "/home/wuxi/coco/train/annotations_fdi_types.json",
+    "sha256": "8e7a4a0ad3cf08d05ede15b638cfee008be9c89297b2a07f52d20c711c4412f5"
+  },
+  {
+    "kind": "annotation",
+    "cohort": "Mobile",
+    "split": "validation",
+    "path": "/home/wuxi/coco/valid/annotations_fdi_types.json",
+    "sha256": "f5c0e4e86654b32770dd1befb5d8e650b29066d41657675e0253792b0806c649"
+  },
+  {
+    "kind": "selected_config",
+    "cohort": "Pano",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/best_model_bundle_2026-09-15/selected_models/dentex_spatial_shape_AP54.385/config.yml",
+    "sha256": "5110fbcaaf7d006c7dfb95fe9dc3188919fed2332128bd2d8ece64988a9145f1"
+  },
+  {
+    "kind": "annotation",
+    "cohort": "Pano",
+    "split": "train",
+    "path": "/home/wuxi/DENTEX2023/annotations/instances_train2017.json",
+    "sha256": "cdde8f96874c0aafabdd3de12fa5c8b3827ebd4eed40768119bdd4d74901cb50"
+  },
+  {
+    "kind": "annotation",
+    "cohort": "Pano",
+    "split": "validation",
+    "path": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+    "sha256": "52532169c776f6ceaa126816787e54f8f796ebb6163c0bf8a04f98372d4f3903"
+  },
+  {
+    "kind": "selected_config",
+    "cohort": "DSLR",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/best_model_bundle_2026-09-15/selected_models/dslr_cmfa_dualopt_AP73.115/config.yml",
+    "sha256": "e0a0fa2c90e7e94ba4233fe8cc7a41c74b5ed8fe8816f88c95d3a9654d4f5931"
+  },
+  {
+    "kind": "annotation",
+    "cohort": "DSLR",
+    "split": "train",
+    "path": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_train_fdi52.json",
+    "sha256": "f38177d7f8521516653c754f7293339c3267c2aacd70eee7f0c8801af2c40c98"
+  },
+  {
+    "kind": "annotation",
+    "cohort": "DSLR",
+    "split": "validation",
+    "path": "/home/wuxi/Dent-FINE/datasets/viewnet3_dslr_fdi52/annotations/tooth_instances_val_fdi52.json",
+    "sha256": "de3b8dc99b2a0a2679386c75d2e8aeff4871a0eaf448d5cc5abef5e1e725dbcf"
+  },
+  {
+    "kind": "manuscript",
+    "path": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_main_visual.docx",
+    "sha256": "d715cbe2dd1056cb6b25ab05dd3ababb8ad652c032238dfb85b328baa66b6485"
+  },
+  {
+    "kind": "manuscript",
+    "path": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_supplement_visual.docx",
+    "sha256": "f492e4944bcb4fada2ff80493b712833ece99a9a3a5c50f320951ad2aaaf1df7"
+  },
+  {
+    "kind": "historical_config",
+    "path": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/phone_a07_proto_aux_C05_seed0.yml",
+    "sha256": "2fa206ae008dbd5855d91bbd24c7ae7eb341e14828e6129a477cd9fde04b0c56"
+  },
+  {
+    "kind": "historical_config",
+    "path": "/home/wuxi/Dent-FINE/configs/paper_aug_search_20260913/R01_fixed640_mosaic0_mixup0p5_seed0.yml",
+    "sha256": "5110fbcaaf7d006c7dfb95fe9dc3188919fed2332128bd2d8ece64988a9145f1"
+  },
+  {
+    "kind": "historical_config",
+    "path": "/home/wuxi/Dent-FINE/configs/paper_cohort_search_20260915/dslr_cmfa_dualopt_C02_seed0.yml",
+    "sha256": "e0a0fa2c90e7e94ba4233fe8cc7a41c74b5ed8fe8816f88c95d3a9654d4f5931"
+  },
+  {
+    "kind": "spatial_shape_prior",
+    "path": "/home/wuxi/Dent-FINE/outputs/ablation_all_new_modules/priors/dentex_tooth_templates.pt",
+    "sha256": "616631a8fba26dd3e7abd1debd7e0c2c8fcba0c365d0d9c139fbc4caf1235302"
+  },
+  {
+    "kind": "pretrained_backbone",
+    "path": "/home/wuxi/RT-DETR-main/D-FINE/weight/hgnetv2/PPHGNetV2_B0_stage1.pth",
+    "sha256": "70a372e8cbc59b34c5da2943261ecb633faf304a58e7e05461a27bd8d8b7f3d1"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/mobile_1024_full/seed_0.yml",
+    "sha256": "163902f38816058376e037d4cd506d749338a6c897b7420e75ae2902c9f4e4f6"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/pano_historical_spatialshape/seed_0.yml",
+    "sha256": "48c44a93675995893d3c64443de1811848d1c2408d0885bff00b0aed57921ace"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/dslr_cmfa_dualopt/seed_0.yml",
+    "sha256": "883cf1e7d670c67ed72ab03275d8a39e0c8add3a3bdafe08cbef38067bd65780"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/mobile_1024_full/seed_1.yml",
+    "sha256": "647c70ca7ea4fc0e361a0af9c5fe870631fb760ffe9e6a564a97829bbf7a52d7"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/pano_historical_spatialshape/seed_1.yml",
+    "sha256": "f05b1c030afd36fc274d9e9adfd91f89178c91e243634861caa10c0d51f75941"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/dslr_cmfa_dualopt/seed_1.yml",
+    "sha256": "7af5723740670365fb79fe4e65f3154904690d7cdf683ab2c361fa53a74e00e2"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/mobile_1024_full/seed_2.yml",
+    "sha256": "94200d65bf54a8c6ed1bc35473e45094e786b71edd2352d070ee3ae7b03431e6"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/pano_historical_spatialshape/seed_2.yml",
+    "sha256": "21d82763f06fd88cd8595d65f5b742d91ffb3f405b88f95529356a1ec5a68a38"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/dslr_cmfa_dualopt/seed_2.yml",
+    "sha256": "20a8a21885b1148125e3f5f9592d5d73fc23199f5c6f85e04f423e06b3c945ff"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_dslr_extra_decay_only/seed_0.yml",
+    "sha256": "67315cfdf691502728d9fcf7418184e70e35a3eb3956575ef0893c693924b648"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_dslr_rollback_only/seed_0.yml",
+    "sha256": "ae75357dfb53ba1f31ede633e231a39dfe088ff796d6bb26ee5e7b427419fa87"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_background_arch_only/seed_0.yml",
+    "sha256": "cde1a3d8aa72d7ba117fdc64d148c3103e4b35f603f99894db711ad2d90379d7"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_background_neither/seed_0.yml",
+    "sha256": "4cedfb3f97200497ed56a738dd116faaa9594a6d74541c0944cf7a71ef4c4593"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_background_nwd_only/seed_0.yml",
+    "sha256": "814925c3c91b48e3b13ae55bbdb71f17d31e50eac6b3113ad7500cde1787eb7b"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_cmfa_channel_only/seed_0.yml",
+    "sha256": "8eb697830a2ca4b7ff58cbd8150201ac98edd2207b539b85b9e432e4c1f47e5c"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_cmfa_no_gates/seed_0.yml",
+    "sha256": "31dbd72bf6748cf90fa1144b3cc249afce9703b36ac46221fc603e7ff58fd0c5"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_cmfa_spatial_only/seed_0.yml",
+    "sha256": "cd6cffd6388787ce090be25a7c0f08541b0a773253ced9126c30de1d2702b092"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_factor_no_dentition/seed_0.yml",
+    "sha256": "2c5f69dd1b854c15dc8cda1502327f421c00ce1ed1a834a38d6261968dd1b4f3"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_factor_no_position/seed_0.yml",
+    "sha256": "5ec0a85e816eeae36e5dd58685a70e100cf05b4754d46c63487917adf382adc1"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_factor_no_quadrant/seed_0.yml",
+    "sha256": "3bde95f9396c7e703950022809f6f5cce3b05c16f9e3edef7dbecc2e761bbaff"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_factor_train_off/seed_0.yml",
+    "sha256": "2eecdfe9dc795488a0cdb3d00c4ac8046a9e5bf4095f5e108feb48c547a3cb96"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_hooa_neither/seed_0.yml",
+    "sha256": "cdb984d089d24c1646501bcce11e9720ff7b3b285593434ba60884fc5ac2e132"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_hooa_no_highpass/seed_0.yml",
+    "sha256": "5a0c121e0a89be9e1d85f89513604631fbf79aabc4da51baa95deff902eb7983"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_hooa_no_second_order/seed_0.yml",
+    "sha256": "b8ba53781bdf7ff7d83e9abd614592d7d7aee770ca003508a1284239e6f6dcc7"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_proto_k1_tau0p2/seed_0.yml",
+    "sha256": "38f1090da38f3b59b5ff829f04264251a1f0449909c1cbbacf7c98e7166da3d9"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_proto_k2_tau0p2/seed_0.yml",
+    "sha256": "71f0213c66776923d2529d24793f7c1750cc4e7b34937abfb15037c878ef290d"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_proto_k4_tau0p1/seed_0.yml",
+    "sha256": "7b7dd7578333dc0e1ba72365735d098b38f59671494a7fea3eedf6d14f23dcc9"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_proto_k4_tau0p5/seed_0.yml",
+    "sha256": "90867188e724596dbdc29bacf0351ca0e6920457a96186e34dde0585a759f096"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/internal_mobile_proto_off/seed_0.yml",
+    "sha256": "84130dbe20625adbf9c57ec3d4b8922b187f70f93cd9bf3e37823ba3adc15e47"
+  },
+  {
+    "kind": "source_frozen_config",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configs/dslr_cmfa_adamw/seed_0.yml",
+    "sha256": "655b6225479de7f59c8d4f0950b08c4674fa94035c389d5729f551e6fe2bfbed"
+  },
+  {
+    "kind": "provenance_manifest",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/execution_manifest.json",
+    "sha256": "d0c64d6e7f4eed4c69b3dec4e01654bfd0b216f8a90b9e8add7b57d636717b6b"
+  },
+  {
+    "kind": "provenance_manifest",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/source_snapshot_manifest.json",
+    "sha256": "1a4a6f8dec41746ccab28964ec66dbcb31467ddb93232dfdaebbf6c7830f4b6f"
+  },
+  {
+    "kind": "provenance_manifest",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/historical_mapping.json",
+    "sha256": "c426c0f258bb7d8db1647050580fbf77063a49362ace5761a8364c88a0cd9e77"
+  },
+  {
+    "kind": "provenance_manifest",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/configuration_differences.json",
+    "sha256": "8a8aee2a5fdfa9cfc0299a4886656cc1b0c302b46433e01f30ee2af4cb10709a"
+  },
+  {
+    "kind": "provenance_manifest",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cmig_historical_recipe_2026-10-08/audit/image_hash_manifest.csv",
+    "sha256": "538120c1bab26a54b68a596e1e535a6fe637513113bb8c5674bfa8973b5cbdc7"
+  },
+  {
+    "kind": "provenance_manifest",
+    "path": "/home/wuxi/Dent-FINE-paper/materials/cohort_specific_search_2026-09-15/manifest.json",
+    "sha256": "5e55788809a2cc3c0ab2cad77e817409f46ff9a2565ce73d48454879c0f47029"
+  }
+]

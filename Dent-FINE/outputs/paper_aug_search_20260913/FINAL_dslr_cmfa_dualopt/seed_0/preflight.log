@@ -1,0 +1,35 @@
+[2026-09-14T18:02:14.325753+08:00] ["/home/wuxi/miniconda3/envs/deimv2/bin/python", "-u", "/home/wuxi/Dent-FINE-paper/materials/augmentation_search_2026-09-13/preflight.py", "/home/wuxi/Dent-FINE/outputs/paper_aug_search_20260913/FINAL_dslr_cmfa_dualopt/seed_0/job.json"]
+/home/wuxi/miniconda3/envs/deimv2/lib/python3.11/site-packages/pytorch_wavelets/dtcwt/coeffs.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_stream
+/home/wuxi/Dent-FINE/engine/backbone/hgnetv2.py:494: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(model_path, map_location='cpu')
+Loaded stage1 B0 HGNetV2 from local file.
+/home/wuxi/Dent-FINE/engine/core/workspace.py:180: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  return module(**module_kwargs)
+building train_dataloader with batch_size=8...
+     ### Transform @Mosaic ###    
+     ### Transform @RandomPhotometricDistort ###    
+     ### Transform @RandomZoomOut ###    
+     ### Transform @RandomIoUCrop ###    
+     ### Transform @SanitizeBoundingBoxes ###    
+     ### Transform @Resize ###    
+     ### Transform @SanitizeBoundingBoxes ###    
+     ### Transform @ConvertPILImage ###    
+     ### Transform @ConvertBoxes ###    
+     ### ImgTransforms Epochs: [4, 70, 130] ### 
+     ### Policy_ops@['Mosaic', 'RandomPhotometricDistort', 'RandomZoomOut', 'RandomIoUCrop'] ###
+     ### Using MixUp with Prob@0.5 in [4, 80] epochs ### 
+     ### Multi-scale Training until 130 epochs ### 
+     ### Multi-scales@ None ###        
+building val_dataloader with batch_size=16...
+     ### Transform @Resize ###    
+     ### Transform @ConvertPILImage ###    
+{"epoch": 0, "native_amp_retry": 1, "scale": 32768.0}
+{"epoch_zero_based": 0, "input_shape": [8, 3, 640, 640], "target_counts": [24, 24, 24, 24, 24, 24, 24, 23], "mixup_exercised": false, "loss": 30.854080200195312, "loss_arch": 0.03248046338558197, "gradient_norm": 3.2724802494049072, "amp_retries": 1, "peak_allocated_GiB": 3.3700942993164062, "peak_reserved_GiB": 3.93359375}
+{"epoch_zero_based": 4, "input_shape": [8, 3, 640, 640], "target_counts": [47, 48, 48, 48, 48, 48, 48, 47], "mixup_exercised": true, "loss": 30.442523956298828, "loss_arch": 0.03988220542669296, "gradient_norm": 3.2779383659362793, "amp_retries": 0, "peak_allocated_GiB": 3.4143548011779785, "peak_reserved_GiB": 3.861328125}
+     ### Attention --- Mixup is closed after epoch@ 80 ###
+{"epoch_zero_based": 80, "input_shape": [8, 3, 640, 640], "target_counts": [8, 24, 24, 24, 24, 24, 11, 23], "mixup_exercised": false, "loss": 28.76280403137207, "loss_arch": 0.0696164146065712, "gradient_norm": 5.164101600646973, "amp_retries": 0, "peak_allocated_GiB": 3.4371609687805176, "peak_reserved_GiB": 3.970703125}
+{"epoch_zero_based": 130, "input_shape": [8, 3, 640, 640], "target_counts": [24, 24, 24, 24, 24, 24, 24, 23], "mixup_exercised": false, "loss": 29.664592742919922, "loss_arch": 0.03329318389296532, "gradient_norm": 4.099281311035156, "amp_retries": 0, "peak_allocated_GiB": 3.452127456665039, "peak_reserved_GiB": 3.962890625}
+     ### Attention --- Mixup is closed after epoch@ 0 ###
+{"passed": true, "job": "FINAL_dslr_cmfa_dualopt"}
+[2026-09-14T18:02:28.126613+08:00] EXIT 0

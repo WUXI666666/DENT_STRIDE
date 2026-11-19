@@ -1,0 +1,33 @@
+{
+  "framework": "Ultralytics",
+  "model_family": "rtdetr",
+  "ultralytics_version": "8.4.118",
+  "weights": "/home/wuxi/Dent-FINE/outputs/cross_dataset_baseline_comparison/dentex/runs/rtdetr_l/weights/best.pt",
+  "annotation_file": "/home/wuxi/DENTEX2023/annotations/instances_val2017.json",
+  "image_dir": "/home/wuxi/DENTEX2023/val2017",
+  "image_count": 64,
+  "prediction_count": 19200,
+  "num_parameters": 32049500,
+  "inference": {
+    "imgsz": 640,
+    "confidence": 0.001,
+    "iou": 0.7,
+    "max_det": 300,
+    "device": "0"
+  },
+  "metrics": {
+    "AP": 0.5197756204715236,
+    "AP50": 0.9290804165457638,
+    "AP75": 0.5135134678179188,
+    "AP_small": -1.0,
+    "AP_medium": 0.3163727068893056,
+    "AP_large": 0.5253650481072304,
+    "AR1": 0.5910951439059879,
+    "AR10": 0.6336876368208288,
+    "AR100": 0.6342144954804402,
+    "AR_small": -1.0,
+    "AR_medium": 0.321,
+    "AR_large": 0.6425553828046426
+  },
+  "prediction_file": "/home/wuxi/Dent-FINE/outputs/cross_dataset_baseline_comparison/dentex/runs/rtdetr_l/coco_eval/coco_predictions.json"
+}

@@ -1,0 +1,70 @@
+本目录只生成可视化、源数据和说明，未修改论文、原始项目源码、数据集或权重；未启动训练。全部诊断在 CPU FP32 上完成，未停止其他 GPU 任务。
+
+一、最推荐放正文的四张图（figures 子目录内均有 PNG/SVG/PDF）
+
+1. Recommended_Prototype_mechanism
+优先级最高。三行均为独立重训练对照的真实纠错，并补充原型分支自身的 CAM 和真实辅助类别得分。
+建议重点使用第一行：FDI 51 在无原型监督时预测为 11，启用原型辅助监督后识别为 51。
+其余两行为 63→62、83→42。
+对照 AP：无原型监督 54.918；K=4、温度0.50为55.683。两者均为seed 0。
+注意：这是训练辅助监督的收益，不是原型得分在推理时直接纠错；prototype_fusion_weight=0。
+最后一列为真实 LogSumExp 辅助类别得分，不是概率，不是临床置信度。
+
+2. Recommended_HOOA_HiResCAM
+推荐完整一行。FDI 13 在削减高通与二阶机制后被识别为 53，完整 HOOA 识别为 13。
+该病例的逐位置正归因量落入目标框的比例由25.25%升至46.13%。这只是该病例、该CAM方法的描述性空间指标，不是模型准确率或独立的性能终点。
+对照 AP：53.561→54.910。两者均为参考Mobile配置、seed 0、原型温度0.20。
+削减对照仍保留 HOOA 的其他部分：二阶交互被 context 分支替代，边缘分支贡献置零。不能把它写成“完全关闭HOOA”。
+只有一个候选病例同时给出清楚的目标内峰值及集中度改善，故正文只推荐这一行，而不是强行凑齐三行。
+
+3. Recommended_CMFA_HiResCAM
+三行为55→16、32→72、81→41。第一、三行适合说明乳恒牙相关身份混淆的纠正，第二行也有真实纠错但热图前后差异较小。
+建议版面受限时只用第一、三行；不要把“热图更红”描述为CMFA更有效。
+对应的是受控DSLR、AdamW、seed 0对照。AP：72.416→72.908。
+三种子整体证据在上一轮 effectiveness_evidence_2026-10-30/Figure_CMFA_controlled_evidence 中：AdamW配对AP增益0.498±0.145点；DualOpt配置0.513±0.091点。
+这不是最终仅额外衰减配置的模块隔离结论，不要混用实验配置。
+
+4. Recommended_FinalMobile_modules_HiResCAM
+适合方法解释、可解释性图，不是模块消融图。三个病例都来自最终Mobile的同一个EMA权重（seed 2，K=4，温度0.50）。
+列为：实际预测、Detection CAM、CMFA CAM、HOOA高通分支CAM、Prototype CAM。
+每行固定同一张图、同一模型、同一个查询。前三种CAM解释同一个最终FDI logit；Prototype CAM解释辅助原型类别得分。
+推荐第二行（部分可见/较小的51）和第三行（较模糊的64）；第一行42也可保留。
+不同层或不同分支的归因幅度不能直接比较；每幅图均按全图最大值独立归一化。
+
+二、哪些只适合补充材料
+
+1. 所有 *_GradCAM：常规Grad-CAM同时提供。部分病例比较分散，不应强行解释为精确的牙齿注意力。
+2. 所有 *_HiResCAM：采用逐位置梯度×激活的正值形式，不对该Transformer声称任何额外的理论忠实性保证。归因稀疏本身不是错误，不能通过手绘或目标掩码填充热点。
+3. Supplement_HOOA_internal_responses：真实分支张量的通道RMS，适合展示局部、上下文、高通和二阶响应；它们不是概率，也不都是类别特异CAM。
+4. Supplement_CMFA_native_gates：原生Sigmoid空间门，固定0到1色标；门值整体偏高，不宜仅凭门图宣称精确空间选择。通道门是通道权重，不应拼成伪空间图。
+5. *_adverse_*：真实退化例子。每个模块至少保留一例，建议作为补充材料中的局限/错误分析，不应写成任何模块必然改善每个病例。
+6. Gallery_*_all_cases_GradCAM：包含纠错、定位改善及退化病例的浏览图；单病例的高清文件更适合排入论文。
+
+三、原型分支的关键结论边界
+
+最终Mobile的同类四个原型向量接近共线，不能把四个原型槽解释为四种已学习的牙齿形态或已经证明的多模态专长。
+该结论由实际权重与既有保存的归一化原型库核实，详见 prototype_diversity_check.json。
+可写：prototype auxiliary supervision improves the stated controlled AP and provides an explicit identity-learning signal。
+不应写：four prototypes learn four diverse anatomical modes；也不能把原型CAM解释成SpatialShape的几何模板。
+单个温度0.50配置优于无原型监督，不等于所有温度、所有指标或所有数据域都有增益。
+
+四、制图和解释协议
+
+21组受控对照病例：每个模块7组，其中5组纠错、1组定位改善、1组退化。另有5组最终Mobile机制病例。
+这些为挑选的示例，不是总体纠错比例的抽样估计；模块作用仍需与相应受控消融AP一起报告。
+预测采用native普通查询top1、score≥0.30、类别无关一对一Hungarian匹配IoU≥0.50。不添加额外NMS。
+所有CAM在完整输入上计算，再对同一病例按同一视野裁切。GT框仅用于匹配、显示和事后诊断，不参与制造热点。
+CAM按各自全图最大正值归一化，双线性插值仅用于显示，没有手绘热点或目标区域掩码。
+普通Grad-CAM与逐位置梯度×激活两套图均保留，以免只依赖一种解释方法。
+原生top-k查询内容初始化包含detach，所以这些梯度CAM仅覆盖保留的可微路径；不能当作完整因果解释。
+本目录还保留真实原生门控，不把CAM冒充模块的原生注意力。
+字体Times New Roman，PNG为600dpi；SVG/PDF中的热图/病例是栅格图层，文字和边框为矢量，不声称所有元素均为纯矢量。
+
+五、文件
+
+Recommended_PNG.zip：推荐四图的PNG、预览、精简英文图注与说明。
+Recommended_CAM_figures.zip：推荐四图的PNG/SVG/PDF。
+All_CAM_previews.zip：全部图版预览和详细图注，可先浏览再挑选。
+Recommended_captions_en.txt：可复制的四张推荐图英文图注；最后有共同的解释方法说明。
+All_captions_en.txt：全部详细图注与计算条件。
+verification_report.json、gallery_plan.json、*_capture.json、原始npz与脚本：对应真实来源和复现。

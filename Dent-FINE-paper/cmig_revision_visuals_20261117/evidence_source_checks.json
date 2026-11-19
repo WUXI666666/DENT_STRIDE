@@ -1,0 +1,147 @@
+{
+  "source_checks": [
+    {
+      "group": "CMFA",
+      "side": "before",
+      "checkpoint_hash_matches": true,
+      "metric_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/dslr_base_adamw/seed_0/metrics_summary.json",
+      "AP": 72.41639344869935,
+      "capture_AP_matches": true,
+      "passive_hook_logit_error": 0.0
+    },
+    {
+      "group": "CMFA",
+      "side": "after",
+      "checkpoint_hash_matches": true,
+      "metric_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_controlled_2026-09-29/runs/dslr_cmfa_adamw/seed_0/metrics_summary.json",
+      "AP": 72.90822265080959,
+      "capture_AP_matches": true,
+      "passive_hook_logit_error": 0.0
+    },
+    {
+      "group": "HOOA",
+      "side": "before",
+      "checkpoint_hash_matches": true,
+      "metric_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_hooa_neither/seed_0/native_coco_metrics.json",
+      "AP": 53.560608060219415,
+      "capture_AP_matches": true,
+      "passive_hook_logit_error": 0.0
+    },
+    {
+      "group": "HOOA",
+      "side": "after",
+      "checkpoint_hash_matches": true,
+      "metric_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/mobile_1024_full/seed_0/native_coco_metrics.json",
+      "AP": 54.90991824784207,
+      "capture_AP_matches": true,
+      "passive_hook_logit_error": 0.0
+    },
+    {
+      "group": "Prototype",
+      "side": "before",
+      "checkpoint_hash_matches": true,
+      "metric_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_off/seed_0/native_coco_metrics.json",
+      "AP": 54.91815931621537,
+      "capture_AP_matches": true,
+      "passive_hook_logit_error": 0.0
+    },
+    {
+      "group": "Prototype",
+      "side": "after",
+      "checkpoint_hash_matches": true,
+      "metric_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/internal_mobile_proto_k4_tau0p5/seed_0/native_coco_metrics.json",
+      "AP": 55.68289881818389,
+      "capture_AP_matches": true,
+      "passive_hook_logit_error": 0.0
+    }
+  ],
+  "occlusion_npz_checks": [
+    {
+      "image_id": 115,
+      "FDI": 64,
+      "patches": 841,
+      "grid_unique": 841,
+      "heads": {
+        "quadrant": {
+          "all_finite": true,
+          "dense_reconstruction_max_error": 0.0,
+          "patch_margin_min": -0.5039310455322266,
+          "patch_margin_max": 8.32343578338623,
+          "symmetric_dense_scale_maxabs": 6.68226957321167
+        },
+        "position": {
+          "all_finite": true,
+          "dense_reconstruction_max_error": 0.0,
+          "patch_margin_min": -6.344980239868164,
+          "patch_margin_max": 5.990780830383301,
+          "symmetric_dense_scale_maxabs": 2.5690643787384033
+        },
+        "dentition": {
+          "all_finite": true,
+          "dense_reconstruction_max_error": 0.0,
+          "patch_margin_min": -0.45912933349609375,
+          "patch_margin_max": 6.9758195877075195,
+          "symmetric_dense_scale_maxabs": 5.267844200134277
+        }
+      }
+    },
+    {
+      "image_id": 77,
+      "FDI": 11,
+      "patches": 841,
+      "grid_unique": 841,
+      "heads": {
+        "quadrant": {
+          "all_finite": true,
+          "dense_reconstruction_max_error": 0.0,
+          "patch_margin_min": -0.9177732467651367,
+          "patch_margin_max": 7.754790306091309,
+          "symmetric_dense_scale_maxabs": 6.862679481506348
+        },
+        "position": {
+          "all_finite": true,
+          "dense_reconstruction_max_error": 0.0,
+          "patch_margin_min": -2.576488494873047,
+          "patch_margin_max": 4.958769798278809,
+          "symmetric_dense_scale_maxabs": 1.4840812683105469
+        },
+        "dentition": {
+          "all_finite": true,
+          "dense_reconstruction_max_error": 0.0,
+          "patch_margin_min": -1.216461181640625,
+          "patch_margin_max": 7.276146411895752,
+          "symmetric_dense_scale_maxabs": 5.6004109382629395
+        }
+      }
+    },
+    {
+      "image_id": 182,
+      "FDI": 46,
+      "patches": 841,
+      "grid_unique": 841,
+      "heads": {
+        "quadrant": {
+          "all_finite": true,
+          "dense_reconstruction_max_error": 0.0,
+          "patch_margin_min": -0.4286975860595703,
+          "patch_margin_max": 13.50497055053711,
+          "symmetric_dense_scale_maxabs": 8.588764190673828
+        },
+        "position": {
+          "all_finite": true,
+          "dense_reconstruction_max_error": 0.0,
+          "patch_margin_min": -0.2765331268310547,
+          "patch_margin_max": 8.029803276062012,
+          "symmetric_dense_scale_maxabs": 5.98497200012207
+        },
+        "dentition": {
+          "all_finite": true,
+          "dense_reconstruction_max_error": 0.0,
+          "patch_margin_min": -0.424558162689209,
+          "patch_margin_max": 13.684505462646484,
+          "symmetric_dense_scale_maxabs": 8.439860343933105
+        }
+      }
+    }
+  ]
+}

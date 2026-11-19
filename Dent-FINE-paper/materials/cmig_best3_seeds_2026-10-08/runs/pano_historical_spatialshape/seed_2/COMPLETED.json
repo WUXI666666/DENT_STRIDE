@@ -1,0 +1,7 @@
+{
+  "job": "pano_historical_spatialshape_seed2",
+  "checkpoint_sha256": "3f30ebd60512567118bdf5a69cb7249ff8fe56882b35a64a9d866d8590b05bac",
+  "metrics_sha256": "f5a6f678011e8be9722a8c8b7801fd6bb5a22e1f345908e59e24898b7ff6057d",
+  "native_metrics_sha256": "3baa1e8c47095f25f21918b0637620a1da4d94413af439604d09ec1612fdd3e3",
+  "finished_unix": 1791536004.2369535
+}

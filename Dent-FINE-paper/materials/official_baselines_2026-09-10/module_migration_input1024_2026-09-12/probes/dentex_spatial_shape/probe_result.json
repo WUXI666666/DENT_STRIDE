@@ -1,0 +1,118 @@
+{
+  "task": "dentex_spatial_shape",
+  "passed": true,
+  "phases": [
+    {
+      "phase": "epoch4_real_max_count_sources",
+      "batch_size": 8,
+      "input_size": [
+        1024,
+        1024
+      ],
+      "gt_counts": [
+        230,
+        230,
+        226,
+        228,
+        227,
+        237,
+        236,
+        224
+      ],
+      "actual_dn_queries": 474,
+      "loss": 38.39130783081055,
+      "grad_norm": 2.7584640979766846,
+      "peak_allocated_bytes": 10208323584,
+      "peak_reserved_bytes": 11274289152,
+      "passed": true
+    },
+    {
+      "phase": "synthetic_dense_upper_bound_272_GT",
+      "batch_size": 8,
+      "input_size": [
+        1024,
+        1024
+      ],
+      "gt_counts": [
+        272,
+        272,
+        272,
+        272,
+        272,
+        272,
+        272,
+        272
+      ],
+      "actual_dn_queries": 544,
+      "loss": 37.860145568847656,
+      "grad_norm": 2.827451229095459,
+      "peak_allocated_bytes": 11045014528,
+      "peak_reserved_bytes": 11171528704,
+      "passed": true
+    },
+    {
+      "phase": "epoch70_real_max_count_sources",
+      "batch_size": 8,
+      "input_size": [
+        1024,
+        1024
+      ],
+      "gt_counts": [
+        34,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        9
+      ],
+      "actual_dn_queries": 136,
+      "loss": 35.140750885009766,
+      "grad_norm": 5.069122791290283,
+      "peak_allocated_bytes": 7843977728,
+      "peak_reserved_bytes": 8501854208,
+      "passed": true
+    },
+    {
+      "phase": "epoch130_real_max_count_sources",
+      "batch_size": 8,
+      "input_size": [
+        1024,
+        1024
+      ],
+      "gt_counts": [
+        34,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "actual_dn_queries": 136,
+      "loss": 36.082820892333984,
+      "grad_norm": 3.6537394523620605,
+      "peak_allocated_bytes": 7843978240,
+      "peak_reserved_bytes": 8491368448,
+      "passed": true
+    },
+    {
+      "phase": "validation_FP32",
+      "batch_size": 16,
+      "input_size": [
+        1024,
+        1024
+      ],
+      "peak_allocated_bytes": 4077230080,
+      "peak_reserved_bytes": 4680843264,
+      "passed": true
+    }
+  ],
+  "updated_at": "2026-09-12T22:51:34.676912+08:00",
+  "protocol_sha256": "652e8fa684fae1179b52fdf6c211bce1ccac3891fcc9ed5127ab25f9a5bfb760",
+  "memory_limit_mib": 10752,
+  "maximum_peak_allocated_bytes": 11045014528,
+  "maximum_peak_reserved_bytes": 11274289152
+}

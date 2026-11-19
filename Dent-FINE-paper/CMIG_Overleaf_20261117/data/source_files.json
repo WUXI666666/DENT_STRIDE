@@ -1,0 +1,11 @@
+{
+  "sources": [
+    "DENT_STRIDE_20261117.docx",
+    "Elsevier_s_CAS_LaTeX_Double_Column_Template.zip"
+  ],
+  "reference_style_source": "https://mirrors.ctan.org/macros/latex/contrib/els-cas-templates.zip",
+  "user_confirmed": {
+    "DSLR_F1": 92.841,
+    "DSLR_params_M": 11.154
+  }
+}

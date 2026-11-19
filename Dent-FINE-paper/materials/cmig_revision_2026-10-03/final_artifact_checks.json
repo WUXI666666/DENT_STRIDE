@@ -1,0 +1,38 @@
+{
+  "original_equation_count": 51,
+  "new_equation_count": 51,
+  "all_equation_XML_identical": true,
+  "main_tables": 11,
+  "main_embedded_figures": 17,
+  "cross_document_FDI_figures": {
+    "9": true,
+    "10": true,
+    "11": true
+  },
+  "documents": {
+    "main": {
+      "path": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_main_controlled_results_20261003.docx",
+      "sha256": "66b483b9bca38c3399ff6b9499ee0da11f5571f9e3224dfec21d11a1acf3400c",
+      "PDF": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/render_main/DENT_STRIDE_CMIG_main_controlled_results_20261003.pdf",
+      "PDF_sha256": "bde89ce33368cc04bd37aefc2e4cdf5f30d521424dc6686ae1cf3d8c716da070",
+      "rendered_pages": 27,
+      "no_empty_pages": true,
+      "media_count": 17,
+      "real_Times_New_Roman_embedded": true,
+      "internal_run_name_absent": true
+    },
+    "supplement": {
+      "path": "/home/wuxi/Dent-FINE-paper/DENT_STRIDE_CMIG_supplement_controlled_results_20261003.docx",
+      "sha256": "af0b806b03eb6e33401fa4c2d97a139ab59e82f5b77193586417aaae83cb3011",
+      "PDF": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/render_supplement/DENT_STRIDE_CMIG_supplement_controlled_results_20261003.pdf",
+      "PDF_sha256": "75ba4516ab26ea08a7b42beecd0d8bd3eb9c887fef611c81ea21ad2733e27a59",
+      "rendered_pages": 20,
+      "no_empty_pages": true,
+      "media_count": 11,
+      "real_Times_New_Roman_embedded": true,
+      "internal_run_name_absent": true
+    }
+  },
+  "main_external_AP_table": true,
+  "author_supplied_missing_information": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-03/submission_missing_information.txt"
+}

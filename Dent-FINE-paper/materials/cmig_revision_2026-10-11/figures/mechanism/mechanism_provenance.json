@@ -1,0 +1,34 @@
+{
+  "configuration": "mobile_1024_full",
+  "seed": 0,
+  "checkpoint": "/home/wuxi/Dent-FINE-paper/materials/cmig_best3_seeds_2026-10-08/runs/mobile_1024_full/seed_0/best.pth",
+  "checkpoint_sha256": "44c6c89020afc7c2cb0005f642c423aa29274af870548aff227c584ffb8052ea",
+  "config_sha256": "d08ee15dcf61ec4bf45bcbe146a05d8fe381bcd06614dd3ff85f7646002bf6bb",
+  "selected_cases": [
+    {
+      "image_id": 155,
+      "CMFA_module": "encoder.top_down_fusions.0",
+      "HOOA_module": "encoder.hooa_attention.0",
+      "shape_of_input": [
+        16,
+        3,
+        1024,
+        1024
+      ],
+      "raw_tensor_file": "/home/wuxi/Dent-FINE-paper/materials/cmig_revision_2026-10-11/figures/mechanism/internal_tensors_image_155.npz",
+      "CMFA_reconstruction_max_abs_error": 0.0,
+      "HOOA_reconstruction_max_abs_error": 4.76837158203125e-07,
+      "HOOA_interaction_max_abs_error": 0.0,
+      "HOOA_residual_coefficient": 0.08457326889038086
+    }
+  ],
+  "captured_queries_total": 2341,
+  "capture_matching": "Unique ordinary queries with maximum sigmoid score >=0.30; class-agnostic maximum-total-IoU Hungarian localization and IoU>=0.50. This is separate from post-top-k detection matching.",
+  "factor_labels": {
+    "quadrant": "FDI first digit minus one",
+    "position": "FDI second digit minus one",
+    "dentition": "0 primary, 1 permanent"
+  },
+  "attention_display": "Response RMS across channels; channel gates retain all256 channels; spatial gates use actual scalar values, not Grad-CAM.",
+  "prediction_invariance_max_abs_error": 0.0
+}
